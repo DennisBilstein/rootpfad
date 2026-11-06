@@ -4,9 +4,10 @@ test('Expertenpfade sind vollständig, eindeutig und im Training verfügbar', as
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
+  await page.waitForFunction(() => window.RP_APP_READY);
   const summary = await page.evaluate(() => {
     const unique = list => new Set(list.map(x => x.id)).size === list.length;
-    const experts = MODULES.filter(m => m.course);
+    const experts = MODULES.filter(m => ['abap','java'].includes(m.course));
     return {
       modules: experts.length,
       lessons: experts.flatMap(m => m.lessons).length,
@@ -19,7 +20,7 @@ test('Expertenpfade sind vollständig, eindeutig und im Training verfügbar', as
       parts: experts.every(m => PARTS.includes(m.part) && m.part >= 10),
     };
   });
-  expect(summary).toMatchObject({ modules: 44, lessons: 136, exercises: 36, traces: 9, unique: true, references: true, parts: true });
+  expect(summary).toMatchObject({ modules: 44, lessons: 158, exercises: 36, traces: 9, unique: true, references: true, parts: true });
   expect(summary.cards).toBe(summary.quizzes + 92);
 
   // Render every imported lesson, including all code/text block combinations.

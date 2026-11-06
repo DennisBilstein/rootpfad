@@ -1,0 +1,19 @@
+#rpPathControl { margin:16px 0; }
+#rpPathControl label { display:block; font-weight:600; margin-bottom:6px; }
+#rpPathSelect { width:100%; min-height:44px; padding:8px; background:var(--surface); color:var(--text); border:1px solid var(--border-strong); border-radius:var(--r-sm); font:inherit; }
+.rp-path-picker { margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid var(--border); }
+.rp-path-picker > p { color:var(--text-2); }
+.rp-path-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr)); gap:12px; }
+.rp-path-card { display:flex; flex-direction:column; gap:8px; padding:16px; min-height:148px; border:1px solid var(--border); border-radius:var(--r-md); background:var(--surface); color:var(--text); font:inherit; text-align:left; cursor:pointer; }
+.rp-path-card strong { font-family:var(--display); font-size:1.15rem; }
+.rp-path-card span { color:var(--text-2); font-size:.87rem; }
+.rp-path-card small { margin-top:auto; color:var(--text-dim); }
+.rp-path-card[aria-pressed="true"] { border:2px solid var(--accent); padding:15px; background:var(--accent-soft); }
+.rp-path-card:hover { border-color:var(--accent); }
+.rp-path-card:focus-visible, #rpPathSelect:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.rp-mastery-list { list-style:none; padding:0; }
+.rp-mastery-list li { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
+.rp-mastery-list li > span { font-size:.8rem; color:var(--text-2); white-space:nowrap; }
+.rp-mastery-list button { text-align:left; min-height:44px; }
+#rpWorkshopNav { min-height:44px; }
+@media(max-width:600px) { .rp-mastery-list li { align-items:flex-start; flex-direction:column; } }

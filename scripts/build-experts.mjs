@@ -22,8 +22,38 @@ if (!cached) {
 }
 
 const paths = JSON.parse(fs.readFileSync(cache, 'utf8'));
+const supplementFile = path.join(root, 'content/abap-erweiterungen/lessons.json');
+if (fs.existsSync(supplementFile)) {
+  const escape = value => String(value || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const abap = paths.find(p => p.id === 'abap');
+  const additions = JSON.parse(fs.readFileSync(supplementFile,'utf8'));
+  const perModule = new Map();
+  for (const item of additions) {
+    const id = item.moduleId.replace(/^abap-/, '');
+    const module = abap.data.MODULES.find(m => m.id === id);
+    if (!module) throw new Error(`ABAP-Zielmodul fehlt: ${item.moduleId}`);
+    const slug = item.title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    const lessonId = `${id}-quellen-${slug}`;
+    for (const source of item.sources) if (!/^https:\/\//.test(source.url)) throw new Error('Unsichere Quellen-URL');
+    const sources = '<section class="callout"><h3>Kostenlose Originalquellen und Zugang</h3><ul>'+item.sources.map(s => `<li><a href="${escape(s.url)}" target="_blank" rel="noopener noreferrer">${escape(s.title)}</a><p>${escape(s.access)}</p></li>`).join('')+'</ul><p>Recherche: 06.11.2026. Eigenständige deutsche Zusammenfassung und Aufgaben, keine vollständige Kurskopie. Beispielcode wurde nicht in einem SAP-System kompiliert. Angebote und Systemvoraussetzungen können sich ändern.</p></section>';
+    const lesson = { ...item, id:lessonId, body:item.body.split(/\n\s*\n/).map(p => '<p>'+escape(p)+'</p>').join(''), body2:sources,
+      order:['body','code','body2'], researchedAt:'2026-11-06' };
+    delete lesson.moduleId;
+    if (!perModule.has(module)) perModule.set(module, []);
+    perModule.get(module).push(lesson);
+    const md = `# ${item.title}\n\nModul: ${item.moduleId} · ${item.minutes} Minuten\n\n${item.body}\n\n${item.code ? '```'+(item.codeLang || 'abap')+'\n'+item.code+'\n```\n\n' : ''}## Kontrollfragen\n\n`+item.quiz.map(q => `### ${q.q}\n\n${q.options.map((o,i) => `- [${i===q.correct?'x':' '}] ${o}`).join('\n')}\n\n${q.explain}`).join('\n\n')+'\n\n## Quellen und Zugang\n\n'+item.sources.map(s => `- [${s.title}](${s.url}): ${s.access}`).join('\n')+'\n\nRecherche 06.11.2026. Lehrbeispiele nicht in einem SAP-System ausgeführt.\n';
+    fs.writeFileSync(path.join(root,'content/abap-erweiterungen',lessonId+'.md'),md);
+  }
+  for (const [module, lessons] of perModule) module.lessons.unshift(...lessons);
+}
 const target = path.join(root, 'assets/script-01.js');
 let script = fs.readFileSync(target, 'utf8');
+script = script.replace(/\n\/\* LESSON-REFINEMENTS:START \*\/[\s\S]*?\/\* LESSON-REFINEMENTS:END \*\/\n/g,'');
+// Keep the original export's AP1 pool safe after a fresh HTML import too.
+script = script.replace(
+  'else pool = pool.filter(function(c){ return ZUSATZ_TEILE.indexOf(c.part) === -1; });',
+  'else if(!mode.allPaths) pool = pool.filter(function(c){ return c.part >= 1 && c.part <= 9; });'
+);
 script = script.replace(/\n\/\* EXPERTS:[\w-]+:START \*\/[\s\S]*?\/\* EXPERTS:[\w-]+:END \*\/\n/g, '');
 const original = {};
 vm.createContext(original);
@@ -63,4 +93,5 @@ insert('modules', 'MODULES.sort(function(a, b)',
 insert('traces', 'var CARDS = [];', `TRACES.push.apply(TRACES, ${JSON.stringify(traces)});`);
 insert('cards', 'EXTRA_CARDS.forEach(function(row, idx)', `EXTRA_CARDS.push.apply(EXTRA_CARDS, ${JSON.stringify(extras)});`);
 fs.writeFileSync(target, script);
+if(fs.existsSync(path.join(root,'content/learning-refinements.json'))) execFileSync(process.execPath,[path.join(root,'scripts/build-learning-content.mjs')],{stdio:'inherit'});
 console.log(`Integriert: ${modules.length} Module, ${modules.reduce((n, m) => n + m.lessons.length, 0)} Lektionen, ${exercises.length} Übungen, ${traces.length} Traces, ${extras.length} Zusatzkarten.`);

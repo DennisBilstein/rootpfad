@@ -7,6 +7,9 @@ import subprocess
 
 root = Path(__file__).resolve().parent.parent
 source = Path(sys.argv[1]).read_text(encoding="utf-8")
+source = source.replace("var STORAGE_KEY = 'ap1-expertenpfad-progress-v1';", "var STORAGE_KEY = window.RP_BOOT_USER ? 'rootpfad-user-'+window.RP_BOOT_USER.id+'-progress' : 'ap1-expertenpfad-progress-v1';")
+source = source.replace('updatedAt: Date.now()', 'learning: state.learning || {events:{},missions:{}},\n    updatedAt: Date.now()', 1)
+source = source.replace('function mergeIn(data){\n  if(!data) return;', 'function mergeIn(data){\n  if(!data) return;\n  if(data.learning){ state.learning = state.learning || {events:{},missions:{}}; Object.assign(state.learning.events, data.learning.events || {}); Object.assign(state.learning.missions, data.learning.missions || {}); }', 1)
 assets = root / "assets"
 assets.mkdir(exist_ok=True)
 counts = {"style": 0, "script": 0}
@@ -36,6 +39,10 @@ html = re.sub(
     flags=re.DOTALL | re.IGNORECASE,
 )
 html = html.replace("<html>", '<html lang="de">', 1)
+html = html.replace('</body>', '<link rel="stylesheet" href="assets/learning-paths.css">\n<script src="assets/learning-paths.js"></script>\n<script src="assets/learning-bosses.js"></script>\n<script src="assets/learning-missions.js"></script>\n</body>')
+html = html.replace('</body>', '<link rel="stylesheet" href="assets/admin.css">\n<script src="assets/accounts.js"></script>\n</body>')
+html = re.sub(r'<script src="(assets/[^"]+)"></script>', r'<script data-rp-src="\1" type="application/x-rootpfad"></script>', html)
+html = html.replace('</body>', '<script src="assets/bootstrap.js"></script>\n</body>')
 (root / "index.html").write_text(html, encoding="utf-8")
 print(f"Imported {counts['style']} stylesheets and {counts['script']} scripts.")
 if (root / "content/expertenpfade/data.json").exists():

@@ -1,0 +1,1066 @@
+[
+  {
+    "moduleId": "abap-m7",
+    "title": "ABAP lesen: Variablen, Datentypen und Entscheidungen",
+    "minutes": 18,
+    "body": "Ein ABAP-Programm besteht aus Anweisungen, die mit einem Punkt enden. Ein Zeilenumbruch beendet eine Anweisung dagegen nicht. Mit DATA legst du eine veränderbare Variable an; TYPE bestimmt ihren Datentyp. Für ganze Stückzahlen eignet sich i, für einen variablen Text string. Ein Kommentar beginnt mitten in einer Zeile mit einem doppelten Anführungszeichen. Kommentare erklären den Zweck, verändern aber nicht das Ergebnis.\n\nUnser Beispiel prüft einen kleinen Warenkorb: Drei Hefte kosten jeweils vier Euro. menge und einzelpreis enthalten ganze Zahlen, gesamt wird durch Multiplikation zu 12. IF gesamt >= 10 wählt deshalb den Text 'Versandkostenfrei'. Bei zwei Heften wäre gesamt gleich 8 und ELSE würde den anderen Text setzen. Verfolge zuerst diese Werte auf Papier, bevor du ausführst.\n\nDie expliziten Deklarationen sind für den Einstieg absichtlich ausführlich. DATA(status) = ... wäre an geeigneten Stellen eine Kurzform mit abgeleitetem Typ; für die ersten Schritte ist wichtiger, Typ, Name und Wert auseinanderzuhalten. Für reale Preise mit Nachkommastellen brauchst du einen passenden Dezimaltyp und fachliche Regeln zu Währung und Rundung. Der ganzzahlige Preis hier vereinfacht nur das Lernbeispiel.\n\nPraxisaufgabe: Ändere die Menge zunächst auf 2 und dann auf 0. Notiere jeweils gesamt und status. Ergänze vor der Versandentscheidung eine eigene Prüfung, die eine negative Menge als ungültig erkennt. Der Code ist ein Methodenrumpf für eine vorbereitete ADT-Konsolenklasse; out wird dort durch if_oo_adt_classrun~main bereitgestellt und ist kein frei verfügbares Schlüsselwort.",
+    "code": "DATA menge TYPE i VALUE 3.\nDATA einzelpreis TYPE i VALUE 4.\nDATA gesamt TYPE i.\nDATA status TYPE string.\n\ngesamt = menge * einzelpreis.\nIF gesamt >= 10.\n  status = `Versandkostenfrei`.\nELSE.\n  status = `Versandkosten fallen an`.\nENDIF.\nout->write( gesamt ).\nout->write( status ).",
+    "codeLang": "abap",
+    "tip": "Starte mit expliziten Typen und einfachen Zuweisungen. RAP, CDS, Vererbung und komplexe Ausdrücke gehören nicht in diese erste Syntaxlektion.",
+    "quiz": [
+      {
+        "q": "Was beendet eine ABAP-Anweisung?",
+        "options": [
+          "Ein Punkt",
+          "Jeder Zeilenumbruch",
+          "Eine schließende geschweifte Klammer"
+        ],
+        "correct": 0,
+        "explain": "Der Punkt beendet die Anweisung; dieselbe Anweisung kann sich über mehrere Zeilen erstrecken."
+      },
+      {
+        "q": "Welchen Wert hat gesamt bei menge = 2 und einzelpreis = 4?",
+        "options": [
+          "6",
+          "8",
+          "12"
+        ],
+        "correct": 1,
+        "explain": "Die Multiplikation ergibt 8. Die Bedingung gesamt >= 10 ist damit falsch."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Understanding the Basics of ABAP",
+        "url": "https://learning.sap.com/courses/basic-abap-programming/understanding-the-basics-of-abap_c0e5346f-a136-4b9f-a167-9031eca12932",
+        "access": "Lesetext ohne Anmeldung abgerufen; praktische Ausführung braucht ein ABAP-System und Berechtigungen."
+      },
+      {
+        "title": "SAP Learning: Learning Basic ABAP Programming",
+        "url": "https://learning.sap.com/courses/basic-abap-programming",
+        "access": "Kursübersicht frei lesbar; Fortschritt und persönliche Lernergebnisse können eine Anmeldung erfordern; kein kostenloses Übungssystem zugesichert."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m8",
+    "title": "Interne Tabellen: Positionen sammeln und sicher lesen",
+    "minutes": 22,
+    "body": "Eine Struktur beschreibt einen zusammengehörenden Datensatz; eine interne Tabelle enthält beliebig viele Zeilen eines festgelegten Zeilentyps im Arbeitsspeicher. Sie ist keine dauerhaft gespeicherte Datenbanktabelle. Unser Zeilentyp ty_position verbindet Artikelname und Stückzahl. TYPES beschreibt diesen Bauplan, DATA positionen erzeugt das konkrete Datenobjekt.\n\nDie Standardtabelle wird mit zwei Positionen gefüllt: drei Hefte und zwei Stifte. LOOP AT kopiert nacheinander eine Zeile in position. gesamt startet bei 0, wird nach der ersten Position zu 3 und nach der zweiten zu 5. Diese schrittweise Rechnung macht sichtbar, was die Schleife verarbeitet. Eine Änderung an position allein würde die bereits gespeicherte Tabellenzeile nicht automatisch ändern, weil INTO hier eine Kopie liefert.\n\nREAD TABLE sucht anschließend den Artikel 'Stift'. Prüfe sy-subrc unmittelbar nach READ TABLE: 0 bedeutet in diesem Beispiel einen erfolgreichen Zugriff. Wenn du einen nicht vorhandenen Artikel suchst, darfst du die Arbeitsstruktur nicht ungeprüft als Treffer behandeln. Für den Einstieg bleibt die Suche bewusst bei READ TABLE; Tabellenausdrücke besitzen andere Fehlermechanismen und werden später eingeführt.\n\nPraxisaufgabe: Ergänze einen Radiergummi mit Stückzahl 1 und sage die neue Summe voraus: 6. Suche danach 'Lineal' und erkläre, warum der ELSE-Zweig läuft. Für überwiegend sequenzielle Verarbeitung ist STANDARD TABLE anschaulich. SORTED TABLE hält eine Schlüsselsortierung ein; HASHED TABLE braucht einen eindeutigen Primärschlüssel und eignet sich für passende vollständige Schlüsselzugriffe. Wähle die Tabellenart nach Zugriffsmuster und Änderungen, nicht nach einer pauschalen Größenregel.",
+    "code": "TYPES: BEGIN OF ty_position,\n         artikel TYPE string,\n         menge TYPE i,\n       END OF ty_position.\nDATA positionen TYPE STANDARD TABLE OF ty_position WITH EMPTY KEY.\nDATA position TYPE ty_position.\nDATA gesamt TYPE i VALUE 0.\n\nposition-artikel = `Heft`.\nposition-menge = 3.\nAPPEND position TO positionen.\nposition-artikel = `Stift`.\nposition-menge = 2.\nAPPEND position TO positionen.\n\nLOOP AT positionen INTO position.\n  gesamt = gesamt + position-menge.\nENDLOOP.\nout->write( gesamt ).\nREAD TABLE positionen INTO position WITH KEY artikel = `Stift`.\nIF sy-subrc = 0.\n  out->write( position-menge ).\nELSE.\n  out->write( `Kein Treffer` ).\nENDIF.",
+    "codeLang": "abap",
+    "tip": "Methodenrumpf für eine vorbereitete ADT-Konsolenklasse. WITH EMPTY KEY bedeutet nicht, dass die Tabelle leer bleiben muss, sondern dass kein Primärschlüsselfeld definiert wird.",
+    "quiz": [
+      {
+        "q": "Wo liegen die Daten einer internen Tabelle?",
+        "options": [
+          "Immer dauerhaft in SAP HANA",
+          "Im Arbeitsspeicher des ABAP-Programms",
+          "In der Eclipse-Installation"
+        ],
+        "correct": 1,
+        "explain": "Interne Tabellen sind dynamische Datenobjekte für die Verarbeitung im ABAP-Arbeitsspeicher, keine dauerhaften Datenbanktabellen."
+      },
+      {
+        "q": "Wann wird die Menge des gesuchten Artikels ausgegeben?",
+        "options": [
+          "Unabhängig vom Suchergebnis",
+          "Wenn sy-subrc nach READ TABLE gleich 0 ist",
+          "Nur nach COMMIT WORK"
+        ],
+        "correct": 1,
+        "explain": "Das Beispiel prüft den erfolgreichen Lesezugriff direkt anhand von sy-subrc = 0."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP-samples: Internal Tables",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-cheat-sheets/main/01_Internal_Tables.md",
+        "access": "Öffentlich ohne Konto gelesen; Beispielausführung benötigt ein kompatibles ABAP-System. Neueste Syntax nicht ungeprüft auf ältere Releases übertragen."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m9",
+    "title": "ABAP SQL: Nur benötigte Daten lesen und Leistung prüfen",
+    "minutes": 22,
+    "body": "ABAP SQL liest Daten aus einer Datenquelle in ABAP-Datenobjekte. Eine Datenbanktabelle ist dauerhaft gespeichert, die Ergebnistabelle im Programm dagegen eine interne Tabelle. Lege vor jeder Abfrage fest: Welche Zeilen brauche ich, welche Spalten benötige ich und muss eine Reihenfolge garantiert sein? Diese Fragen sind wichtiger als möglichst kurze Syntax.\n\nIm Beispiel suchen wir Flugverbindungen des Carriers 'LH' und benötigen nur carrier_id und connection_id. Die Feldliste begrenzt die Spalten, WHERE begrenzt die Zeilen und ORDER BY definiert die Reihenfolge. Das @ vor carrier kennzeichnet eine ABAP-Hostvariable innerhalb der SQL-Anweisung. INTO TABLE @DATA(verbindungen) legt die Ergebnistabelle mit einem aus der Auswahl abgeleiteten Zeilentyp an. Kein Treffer ist eine mögliche leere Ergebnismenge, nicht automatisch ein technischer Fehler.\n\nDie Datenquelle /dmo/connection gehört zu einem SAP-Demomodell und ist nicht auf jedem System vorhanden oder für jede Sprachversion nutzbar. Prüfe Definition, verfügbare Daten und zulässigen Zugriff im eigenen Übungssystem. Die Abfrage ist ein Lernbeispiel und keine Zusage, dass zwei bestimmte Verbindungen existieren. Du brauchst hier keinerlei schreibenden Datenbankzugriff.\n\nPraxisaufgabe: Erkläre auf Papier, weshalb SELECT * ohne WHERE mehr Daten übertragen kann als die gezeigte Auswahl. Suche anschließend in einem vorhandenen Programm nach SELECT innerhalb einer LOOP-Schleife und beschreibe die mögliche Zahl wiederholter Zugriffe. Ersetze solche Stellen nicht blind: Sammellesezugriffe oder Joins müssen dieselbe fachliche Ergebnismenge liefern. Miss Verbesserungen mit passenden Trace- oder Profiling-Werkzeugen und realistischen Daten; eine garantierte Beschleunigung lässt sich aus der Syntax allein nicht ableiten.",
+    "code": "\" Voraussetzung: /DMO/CONNECTION ist vorhanden und zugreifbar.\n\" Methodenrumpf einer ADT-Konsolenklasse.\nDATA carrier TYPE /dmo/carrier_id VALUE 'LH'.\nSELECT FROM /dmo/connection\n  FIELDS carrier_id, connection_id\n  WHERE carrier_id = @carrier\n  ORDER BY connection_id\n  INTO TABLE @DATA(verbindungen).\nout->write( verbindungen ).",
+    "codeLang": "abap",
+    "tip": "Zuerst Korrektheit und Datenmenge prüfen, danach messen. Auch SAPs Performance-Demobeispiele sind ausdrücklich kein Ersatz für belastbares Profiling einer echten Anwendung.",
+    "quiz": [
+      {
+        "q": "Welche Klausel begrenzt im Beispiel die gelesenen Zeilen?",
+        "options": [
+          "FIELDS",
+          "WHERE",
+          "INTO TABLE"
+        ],
+        "correct": 1,
+        "explain": "WHERE carrier_id = @carrier filtert die Zeilen. FIELDS begrenzt die ausgewählten Spalten."
+      },
+      {
+        "q": "Was ist eine sinnvolle erste Untersuchung bei SQL in einer großen Schleife?",
+        "options": [
+          "Prüfen, ob benötigte Daten gesammelt gelesen werden können",
+          "Jeden SELECT durch SELECT * ersetzen",
+          "Ohne Messung eine feste Beschleunigung versprechen"
+        ],
+        "correct": 0,
+        "explain": "Wiederholte Einzelzugriffe können vermeidbar sein. Eine Umstellung muss fachlich gleichwertig sein und anschließend gemessen werden."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP-samples: ABAP Performance Notes",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-cheat-sheets/main/32_Performance_Notes.md",
+        "access": "Kostenlos öffentlich lesbar; konkrete Trace-Werkzeuge und SQL-Ausführung erfordern Systemzugang und gegebenenfalls Berechtigungen."
+      },
+      {
+        "title": "SAP Learning: Deepening Your ABAP Programming Knowledge",
+        "url": "https://learning.sap.com/courses/deepening-your-abap-programming-knowledge",
+        "access": "Kursübersicht kostenlos gelesen; behandelt unter anderem Code Pushdown, Joins und interne Tabellen. Vertiefung nach dem Basiskurs, kein zugesicherter freier Systemzugang."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m10",
+    "title": "OO ABAP: Ein Objekt kapselt seinen Zählerstand",
+    "minutes": 24,
+    "body": "Eine Klasse beschreibt Daten und Verhalten, ein Objekt ist eine konkrete Instanz dieser Klasse. Unser Zähler besitzt einen privaten Stand und zwei öffentliche Methoden. erhoehen verändert den Stand, lesen gibt ihn zurück. Die aufrufende Anwendung muss nicht wissen, wie der Stand intern gespeichert wird, sondern verwendet diese kleine öffentliche Schnittstelle. Das ist der erste praktische Schritt zur Kapselung.\n\nDEFINITION beschreibt die sichtbaren Bestandteile und Methodensignaturen; IMPLEMENTATION enthält die Anweisungen der Methoden. PUBLIC SECTION macht die beiden Methoden von außen nutzbar. PRIVATE SECTION verbirgt stand vor gewöhnlichen Aufrufern. IMPORTING schritt ist der Eingabewert der Methode, RETURNING VALUE(wert) ist das einzelne Rückgabeergebnis von lesen. Über -> wird eine Instanzmethode angesprochen.\n\nNach NEW lcl_zaehler( ) startet stand als initialer Integer bei 0. Zwei Aufrufe mit schritt = 2 und schritt = 3 ergeben den Stand 5. Ein zweites mit NEW erzeugtes Objekt beginnt unabhängig wieder bei 0. Zwei Referenzvariablen, die nur auf dasselbe Objekt zeigen, wären dagegen keine zwei unabhängigen Zähler. Ein veränderbarer Instanzzustand gehört deshalb nicht versehentlich in CLASS-DATA: Das wäre klassenweiter, gemeinsam genutzter Zustand.\n\nPraxisaufgabe: Lege ein zweites Zählerobjekt an und erhöhe nur dieses um 1. Begründe, warum die Ergebnisse 5 und 1 sind. Ergänze anschließend eine Methode zuruecksetzen, die stand auf 0 setzt. Für ADT kommt die lokale Klasse in den Bereich Local Types einer vorbereiteten globalen Konsolenklasse; die kommentierten Aufrufzeilen gehören in deren main-Methode. Vererbung und Entwurfsmuster sind sinnvolle Folgethemen, aber keine Voraussetzung für diese Übung.",
+    "code": "\" Local Types der globalen Konsolenklasse:\nCLASS lcl_zaehler DEFINITION.\n  PUBLIC SECTION.\n    METHODS erhoehen IMPORTING schritt TYPE i.\n    METHODS lesen RETURNING VALUE(wert) TYPE i.\n  PRIVATE SECTION.\n    DATA stand TYPE i.\nENDCLASS.\n\nCLASS lcl_zaehler IMPLEMENTATION.\n  METHOD erhoehen.\n    stand = stand + schritt.\n  ENDMETHOD.\n  METHOD lesen.\n    wert = stand.\n  ENDMETHOD.\nENDCLASS.\n\n\" Separat in if_oo_adt_classrun~main einsetzen:\n\" DATA(zaehler) = NEW lcl_zaehler( ).\n\" zaehler->erhoehen( schritt = 2 ).\n\" zaehler->erhoehen( schritt = 3 ).\n\" out->write( zaehler->lesen( ) ).",
+    "codeLang": "abap",
+    "tip": "Die Codebereiche nicht zusammen in eine Methode kopieren: Klassendefinition und Methodenaufrufe haben unterschiedliche Einbauorte.",
+    "quiz": [
+      {
+        "q": "Warum liegt stand im privaten Bereich?",
+        "options": [
+          "Damit er automatisch in HANA gespeichert wird",
+          "Damit Aufrufer ihn über die angebotenen Methoden verwenden",
+          "Damit alle Instanzen zwangsläufig denselben Stand besitzen"
+        ],
+        "correct": 1,
+        "explain": "Private Instanzdaten kapseln den Zustand. Die öffentlichen Methoden bilden die Schnittstelle für gewöhnliche Aufrufer."
+      },
+      {
+        "q": "Was erzeugt NEW lcl_zaehler( )?",
+        "options": [
+          "Eine neue Objektinstanz",
+          "Eine Transportfreigabe",
+          "Eine neue Datenbanktabelle"
+        ],
+        "correct": 0,
+        "explain": "NEW erzeugt hier eine Instanz und liefert eine Referenz darauf. Ein weiterer NEW-Aufruf erzeugt einen eigenen Instanzzustand."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP-samples: ABAP Object Orientation",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-cheat-sheets/main/04_ABAP_Object_Orientation.md",
+        "access": "Kostenlos öffentlich lesbar; enthält Syntax und Beispiele, ausdrücklich keine allgemeingültigen OO-Designvorlagen. Ausführen nur mit ABAP-System."
+      },
+      {
+        "title": "SAP Learning: Learning Basic ABAP Programming",
+        "url": "https://learning.sap.com/courses/basic-abap-programming",
+        "access": "Kursübersicht frei gelesen; eigene Einheit zu lokalen Klassen. Übungssystem nicht durch die frei lesbare Seite enthalten."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m18",
+    "title": "Fehler verstehen: Debugger, Ausnahmen und ein kontrollierter Test",
+    "minutes": 24,
+    "body": "Syntaxfehler werden beim Prüfen erkannt; ein logisch falsches Ergebnis kann dagegen syntaktisch korrekt sein. Der Debugger hilft, den tatsächlichen Ablauf und Variablenwerte zu beobachten. Aktiviere die Übungsklasse, setze einen Breakpoint vor die Division und starte die Konsolenanwendung. Der Halt erfolgt vor der Ausführung der markierten Anweisung. Vergleiche zaehler, nenner und ergebnis mit deiner Erwartung.\n\nDas Beispiel teilt 10 durch 0 und behandelt dafür gezielt cx_sy_zerodivide. TRY umschließt den gefährdeten Abschnitt. Bei der Ausnahme wird die nachfolgende Erfolgsmeldung im TRY-Block übersprungen, der passende CATCH-Block ausgeführt und danach hinter ENDTRY fortgesetzt. INTO DATA(fehler) speichert die Referenz auf das Ausnahmeobjekt; get_text( ) liefert dessen Fehlertext. Das Abfangen ersetzt nicht die fachliche Entscheidung, wie ein ungültiger Nenner behandelt werden soll.\n\nVerwende im ADT-Debugger Step Into für genaue Einzelschritte und Step Over, wenn du einen Methodenaufruf wie out->write nicht intern untersuchen möchtest. Resume läuft bis zum nächsten Haltepunkt beziehungsweise bis zum Ende weiter. Ein Exception Breakpoint kann anhalten, wenn die ausgewählte Ausnahme ausgelöst wird, auch wenn das Programm sie später behandelt. Verändere Variablen nur in einem erlaubten Übungssystem; ein Sprung zu einer anderen Codezeile setzt vorherige Wertänderungen nicht zurück.\n\nPraxisaufgabe: Führe drei kontrollierte Tests durch: Nenner 0 führt zur Fehlerausgabe, Nenner 2 liefert 5, Nenner -2 liefert -5. Notiere zu jedem Test den ausgeführten Zweig. Ergänze danach eine fachliche Vorprüfung auf 0, ohne einen leeren CATCH-Block als vermeintliche Lösung stehen zu lassen. Die Übung gehört in die main-Methode einer Konsolenklasse und verursacht mit der vorhandenen Behandlung keinen absichtlich unbehandelten Kurzdump.",
+    "code": "DATA zaehler TYPE decfloat34 VALUE 10.\nDATA nenner TYPE decfloat34 VALUE 0.\nDATA ergebnis TYPE decfloat34.\nTRY.\n    ergebnis = zaehler / nenner.\n    out->write( ergebnis ).\n  CATCH cx_sy_zerodivide INTO DATA(fehler).\n    out->write( fehler->get_text( ) ).\nENDTRY.\nout->write( `Test beendet` ).",
+    "codeLang": "abap",
+    "tip": "Eine spezifische Ausnahme macht die erwartete Fehlersituation sichtbar. CATCH cx_root ist kein Freibrief, alle Fehler stillschweigend zu ignorieren.",
+    "quiz": [
+      {
+        "q": "Wo geht es nach der behandelten Ausnahme weiter?",
+        "options": [
+          "Automatisch erneut bei der fehlgeschlagenen Division",
+          "Hinter ENDTRY",
+          "Immer mit einem Programmabbruch"
+        ],
+        "correct": 1,
+        "explain": "Nach dem passenden CATCH-Block wird die Verarbeitung hinter ENDTRY fortgesetzt. Ein automatischer Wiederholungsversuch ist hier nicht programmiert."
+      },
+      {
+        "q": "Was ist bei Jump to Line wichtig?",
+        "options": [
+          "Alle bisherigen Variablenänderungen werden zurückgesetzt",
+          "Es ist dasselbe wie Programm neu starten",
+          "Übersprungene Anweisungen werden nicht ausgeführt und frühere Änderungen nicht zurückgenommen"
+        ],
+        "correct": 2,
+        "explain": "Ein Sprung verändert die Ausführungsposition, stellt aber keinen früheren vollständigen Programmzustand wieder her."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Debugging an ABAP Program",
+        "url": "https://learning.sap.com/courses/basic-abap-programming/debugging-an-abap-program_d070e545-efd5-4d87-8b75-20f18d7b7d3b",
+        "access": "Lektion einschließlich Übungsbeschreibung ohne Anmeldung gelesen; Debuggen benötigt aktivierten Code, ABAP-System und passende Berechtigungen. SAPs /LRN/-Vorlage nicht auf jedem System vorhanden."
+      },
+      {
+        "title": "SAP-samples: Exceptions and Runtime Errors",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-cheat-sheets/main/27_Exceptions.md",
+        "access": "Kostenlos öffentlich gelesen; Beispiele nur in einem kompatiblen Übungssystem ausführen."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m20",
+    "title": "ADT, SAP GUI und S/4HANA: Werkzeug und Laufzeit auseinanderhalten",
+    "minutes": 23,
+    "body": "Eclipse mit ABAP Development Tools ist ein Entwicklungswerkzeug; SAP GUI ist eine Oberfläche zum Zugriff auf SAP-Systeme. SAP HANA ist eine Datenbank, SAP S/4HANA eine darauf basierende ERP-Lösung. Diese Begriffe bezeichnen unterschiedliche Ebenen. Ein ABAP-Quelltext wird mit ADT bearbeitet, liegt aber als Entwicklungsobjekt im verbundenen ABAP-System. Die lokale Eclipse-Installation ist noch keine lokale ABAP-Laufzeit. Dieser Abschnitt vertieft zugleich die Laufzeit-Grundlagen aus abap-m17.\n\nEin greifbares Beispiel ist die Konsolenausgabe 'Hallo ROOTPFAD'. Du erstellst im freigegebenen Übungspaket eine globale Klasse mit if_oo_adt_classrun, aktivierst sie und startest sie als ADT-Konsolenanwendung. Die main-Methode läuft im verbundenen ABAP-System; das Ergebnis erscheint in Eclipse. Bleibt die Verbindung oder die Berechtigung aus, kann eine korrekt installierte Entwicklungsoberfläche den fehlenden Systemzugang nicht ersetzen.\n\nFür die Installation erläutert SAP das Hinzufügen des ADT-Plugins über Help > Install New Software mit der Update-Site https://tools.hana.ondemand.com/latest. Prüfe die aktuellen Plattformvoraussetzungen statt Versionsnummern dauerhaft in die Lektion einzubauen. In klassischen Systemen bietet SAP GUI unter anderem Transaktionen für Workbench und Transport Organizer; diese Wege sind nicht unverändert auf ABAP-Cloud-Umgebungen übertragbar. Auch ABAP-Sprachversion und freigegebene APIs bestimmen, welche Entwicklung erlaubt ist. S/4HANA bedeutet nicht, dass aller vorhandener ABAP-Code automatisch cloudkonform ist.\n\nPraxisaufgabe ohne System: Zeichne drei Kästen für Entwicklungsoberfläche, ABAP-Anwendungssystem und Datenbank. Ordne 'Quelltext bearbeiten', 'ABAP-Methode ausführen' und 'dauerhafte Daten lesen' zu. Praxis mit erlaubtem System: Führe die untenstehende Klasse aus und ergänze eine zweite Ausgabe. Nur diese vollständige Klasse wird als Ganzes eingefügt; bei den anderen Grundlagenlektionen wird häufig lediglich der Inhalt der main-Methode ersetzt. Ein kostenloser Lesekurs, ein SAP-Konto und ein ausführbares Übungssystem sind drei getrennte Voraussetzungen.",
+    "code": "CLASS zcl_rootpfad_hello DEFINITION\n  PUBLIC FINAL CREATE PUBLIC.\n  PUBLIC SECTION.\n    INTERFACES if_oo_adt_classrun.\nENDCLASS.\n\nCLASS zcl_rootpfad_hello IMPLEMENTATION.\n  METHOD if_oo_adt_classrun~main.\n    out->write( `Hallo ROOTPFAD` ).\n  ENDMETHOD.\nENDCLASS.",
+    "codeLang": "abap",
+    "tip": "Querverweis für abap-m17: HANA ist nicht die ABAP-Laufzeit, ADT ist kein Übungssystem und SAP GUI ist keine Datenbank. Den Klassennamen an Namenskonvention und Berechtigungen des Übungssystems anpassen.",
+    "quiz": [
+      {
+        "q": "Was fehlt nach einer erfolgreichen ADT-Installation gegebenenfalls noch?",
+        "options": [
+          "Ein erreichbares ABAP-System mit Benutzer und Berechtigungen",
+          "Zwingend eine lokale HANA-Produktivdatenbank",
+          "Ein Wechsel von ABAP nach Java"
+        ],
+        "correct": 0,
+        "explain": "Die Entwicklungsoberfläche allein stellt weder ein ABAP-Backend noch dessen Zugangsdaten bereit."
+      },
+      {
+        "q": "Welche Zuordnung stimmt?",
+        "options": [
+          "HANA = Editor; ADT = ERP",
+          "ADT = Entwicklungswerkzeug; HANA = Datenbank",
+          "SAP GUI = Datenbank; S/4HANA = Eclipse-Plugin"
+        ],
+        "correct": 1,
+        "explain": "Die Werkzeuge und Produkte gehören zu verschiedenen Ebenen: ADT bearbeitet Entwicklungsobjekte, SAP HANA stellt die Datenbank bereit."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Developers: Install Eclipse and the ADT Plugin",
+        "url": "https://developers.sap.com/tutorials/abap-install-adt",
+        "access": "Anleitung öffentlich ohne Anmeldung gelesen; Installation ist nicht gleich kostenloser Backendzugang. Verlinkte SAP Notes können zusätzlich berechtigungspflichtig sein."
+      },
+      {
+        "title": "SAP Learning: Understanding SAP GUI",
+        "url": "https://learning.sap.com/courses/project-logistics-control-in-sap-s-4hana/understanding-sap-gui",
+        "access": "Text frei gelesen; SAP GUI und SAP Logon sind Frontendzugänge. Reale Anmeldung braucht Systemzugang. Verlinkte Simulation nicht separat getestet."
+      },
+      {
+        "title": "SAP Learning: Introduction to SAP S/4HANA",
+        "url": "https://learning.sap.com/courses/business-processes-in-sap-s-4hana-portfolio-and-project-management/introduction-to-sap-s-4hana",
+        "access": "Öffentlich gelesen; für die stabile Unterscheidung ERP, Datenbank und Oberfläche geeignet. Enthält ältere Marketing- und Releaseaussagen, die nicht als aktuelle Detailreferenz übernommen werden."
+      },
+      {
+        "title": "SAP Learning: Understanding the Basics of ABAP — Language Versions and ABAP Cloud",
+        "url": "https://learning.sap.com/courses/basic-abap-programming/understanding-the-basics-of-abap_c0e5346f-a136-4b9f-a167-9031eca12932",
+        "access": "Ohne Anmeldung gelesen; erklärt Standard ABAP, ABAP for Cloud Development und ADT als Bestandteil von ABAP Cloud."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m16",
+    "title": "Transporte: Von der Entwicklungsaufgabe zur getesteten Änderung",
+    "minutes": 18,
+    "body": "In einer klassischen ABAP-Dreisystemlandschaft werden Änderungen in DEV entwickelt, in QAS geprüft und anschließend kontrolliert nach PRD übernommen. Ein Transportauftrag bündelt zusammengehörige Änderungen; darunter liegen Aufgaben der beteiligten Entwickler. Die Aufgabe ist also weder ein eigenes SAP-System noch dasselbe wie der übergeordnete Auftrag. Ein Workbench-Auftrag transportiert unter anderem Repository-Objekte, ein Customizing-Auftrag mandantenabhängige Customizing-Änderungen.\n\nBeispiel: Eine Klasse ZCL_VERSAND und ihre zugehörigen Teständerungen bilden eine fachlich prüfbare Einheit. Die Objekte werden im Entwicklungssystem den passenden Aufgaben des Auftrags zugeordnet. Nach Implementierung und Prüfung geben die Entwickler ihre Aufgaben frei. Erst wenn die Aufgaben freigegeben sind, kann der verantwortliche Projektleiter den Auftrag freigeben. Die Freigabe des Auftrags stößt den Export an; der spätere Import ins Zielsystem ist ein eigener Schritt.\n\nVor einem Testimport klärt das Team Abhängigkeiten: Benötigt die Klasse beispielsweise einen neuen Datentyp, muss dieser im Zielsystem rechtzeitig vorhanden sein. Ein erfolgreich importiertes Objekt beweist noch nicht, dass die fachliche Änderung korrekt arbeitet. Deshalb dokumentieren Tester eine verständliche Prüfung, etwa: Versandfrei ab Warenkorbwert 10, Versandkosten unter 10 und sinnvolle Behandlung ungültiger Mengen. Produktivimporte gehören in den vereinbarten Freigabeprozess, nicht in eine spontane Anfängerübung.\n\nPraxisaufgabe ohne SAP-Zugang: Ordne die Karten 'Aufgabe freigeben', 'Änderung entwickeln', 'Auftrag exportieren', 'in QAS importieren', 'fachlich testen' und 'genehmigt nach PRD importieren'. Erkläre anschließend, wer entwickelt, wer testet und wer den Import verantwortet. Der Ablauf unten ist bewusst Pseudotext und kein ausführbares ABAP-Programm. In ABAP Cloud und S/4HANA Cloud sind Landschaft und Transportwerkzeuge gesondert zu prüfen; die klassischen Transaktionscodes und Rollenabläufe dürfen nicht pauschal übertragen werden.",
+    "code": "DEV: Änderung implementieren und prüfen\nDEV: Objekte in Entwickleraufgaben des passenden Auftrags erfassen\nDEV: Entwickleraufgaben freigeben\nDEV: Verantwortlicher gibt Auftrag frei -> Export\nQAS: Auftrag durch zuständige Rolle importieren\nQAS: Fachliche und technische Tests dokumentieren\nPRD: Genehmigten Import nach vereinbartem Prozess durchführen",
+    "codeLang": "text",
+    "tip": "Freigabe und Import sind nicht dasselbe. In dieser Lernaufgabe werden keine echten Transportaufträge freigegeben oder in produktive Systeme importiert.",
+    "quiz": [
+      {
+        "q": "Was muss in dem beschriebenen klassischen Ablauf vor der Auftragsfreigabe erledigt sein?",
+        "options": [
+          "Alle Entwickleraufgaben des Auftrags sind freigegeben",
+          "Der Auftrag ist bereits produktiv importiert",
+          "Eclipse wurde deinstalliert"
+        ],
+        "correct": 0,
+        "explain": "Die Entwickler geben zunächst ihre Aufgaben frei. Danach kann der verantwortliche Projektleiter den übergeordneten Auftrag freigeben."
+      },
+      {
+        "q": "Welche Aussage trennt Export und Import richtig?",
+        "options": [
+          "Freigabe garantiert sofort einen Produktivimport",
+          "Export aus DEV und Import ins Zielsystem sind getrennte Schritte",
+          "Ein QAS-Test ist nach jedem Export unnötig"
+        ],
+        "correct": 1,
+        "explain": "Der klassische Transportprozess unterscheidet den Export im Quellsystem vom kontrollierten Import in nachfolgende Systeme."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Introducing Transport Requests and the Transport Process",
+        "url": "https://learning.sap.com/courses/introducing-sap-abap-platform-fundamentals/introducing-transport-requests-and-the-transport-process",
+        "access": "Vollständiger Lesetext ohne Anmeldung abgerufen. Reale Transportverwaltung und Freigaben benötigen autorisierten Systemzugang; diese Lektion verlangt keinen echten Import."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m11",
+    "title": "Brücke von SELECT zu CDS: ein lesbares Datenmodell bauen",
+    "minutes": 30,
+    "body": "Wer SELECT kennt, hat bereits den wichtigsten Einstieg in CDS: Datenquelle, Feldliste und Filter bleiben vertraut. Eine CDS View Entity legt diese Leselogik jedoch als wiederverwendbares Repository-Objekt ab. Der Name der Entität ist nicht der Tabellenname; Feldaliase werden zu ihrem öffentlichen Vokabular. CDS ist weder eine interne Tabelle noch automatisch eine schreibbare API. Erst weitere RAP-Artefakte beschreiben transaktionales Verhalten.\n\nUnser durchgehendes Beispiel ist eine kleine Reiseverwaltung. Eine Reise besitzt eine ID, einen Kunden, eine Beschreibung und einen Status. Angenommen, im Übungssystem existiert die eigene Tabelle zlearn_travel mit den im Code verwendeten Feldern. Die View ZI_LearnTravel benennt technische Spalten in verständliche Elemente um. Eine zweite Anwendung kann dieselbe Entität lesen, ohne die Umbenennung erneut zu implementieren. Der Code ist ein eigenes Modellierungsbeispiel; die Tabelle und das Paket müssen zuvor angelegt werden.\n\nDie Annotation @EndUserText.label liefert eine fachliche Bezeichnung. Das Schlüsselwort key beschreibt den Schlüssel der CDS-Entität, erzeugt aber keine neue Eindeutigkeitsprüfung für das Abfrageergebnis. Bei späteren Joins müssen wir daher weiterhin darauf achten, ob die angebliche eine Zeile pro Reise tatsächlich erhalten bleibt. In ADT kontrollieren wir die aktive Definition, öffnen Data Preview und vergleichen eine konkrete Reise mit der Ursprungstabelle.\n\nÜbung: Zeichne zuerst eine Zeile der Tabelle und dieselbe Zeile nach Anwendung der Aliase auf Papier. Ergänze danach ein Enddatum in Tabelle und View und lies nur ID und Beschreibung über ABAP SQL. Prüfe mit einer Filterbedingung eine bekannte Reise. Ohne ABAP-System reicht als Vorübung, Quelle, Schlüssel, Elementnamen und erwartete Ergebniszeile zu markieren; Aktivierung und echte Datenprüfung benötigen dagegen ein geeignetes System mit Entwicklungsberechtigung.",
+    "code": "@EndUserText.label: 'Reisen zum Lernen'\ndefine view entity ZI_LearnTravel\n  as select from zlearn_travel\n{\n  key travel_id   as TravelID,\n      customer_id as CustomerID,\n      description as Description,\n      status      as Status\n}\n\n// Separates ABAP-Fragment, z. B. in einer ADT-Konsolenklasse:\n// SELECT FROM ZI_LearnTravel\n//   FIELDS TravelID, Description\n//   WHERE TravelID = '000001'\n//   INTO TABLE @DATA(travels).",
+    "codeLang": "abap",
+    "tip": "Beginne mit einer flachen View und einer nachweisbaren Ergebniszeile. Das ist eine bessere Lernbrücke als ein sofort generiertes vollständiges RAP-Projekt.",
+    "quiz": [
+      {
+        "q": "Was kapselt eine einfache CDS View Entity?",
+        "options": [
+          "Wiederverwendbare Leselogik mit semantischen Metadaten",
+          "Automatisch alle Schreiboperationen einer Fiori-App",
+          "Eine nur zur Laufzeit vorhandene interne Tabelle"
+        ],
+        "correct": 0,
+        "explain": "CDS modelliert Daten und Metadaten. Für transaktionale Operationen braucht RAP zusätzlich eine Behavior Definition und gegebenenfalls Implementierung."
+      },
+      {
+        "q": "Welche Namen verwendet ein SELECT auf der CDS-Entität für umbenannte Felder?",
+        "options": [
+          "Immer die ursprünglichen Tabellenspalten",
+          "Die Elementnamen beziehungsweise Aliase der CDS-Entität",
+          "Die Namen der Bildschirmbeschriftungen"
+        ],
+        "correct": 1,
+        "explain": "Die CDS-Elementnamen bilden die Schnittstelle des Datenmodells; Beschriftungen sind davon getrennte Metadaten."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Working with CDS Views",
+        "url": "https://learning.sap.com/courses/basic-abap-programming/working-with-cds-view_c289f74d-675e-4084-9d90-5635958ec604",
+        "access": "Volltext am 2026-11-06 ohne Anmeldung abgerufen; Lesen frei. Praktische ADT-Übung benötigt ABAP-System und Berechtigungen; vorhandene /LRN-Objekte sind nicht in jedem System verfügbar."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m11",
+    "title": "Assoziation oder Join? Beziehungen und Ergebnismengen verstehen",
+    "minutes": 40,
+    "body": "Eine Reise verweist über CustomerID auf einen Kunden. Ein expliziter Join verbindet Quellen innerhalb der jeweiligen Abfrage. Eine CDS-Assoziation beschreibt dagegen eine benannte, wiederverwendbare Beziehung mit Ziel, ON-Bedingung und Kardinalität. Wird sie lediglich definiert und exponiert, entsteht dadurch noch kein Join zum Ziel. Ein Pfadausdruck, der ein Zielfeld liest, wird auf Datenbankebene als Join umgesetzt. Assoziationen sind deshalb nicht grundsätzlich schneller als Joins: Entscheidend ist, was ein Verbraucher tatsächlich anfordert.\n\nIm Beispiel besitzt die vorbereitete Zielentität ZI_LearnCustomer genau einen Datensatz je CustomerID. Die Assoziation _Customer hat die Kardinalität [0..1], weil eine Reise höchstens einen passenden Kunden hat und im Lernbestand auch ein fehlender Stammsatz möglich ist. $projection.CustomerID bezieht sich auf das nach außen angebotene Element der Reise. Der Eintrag _Customer in der Elementliste exponiert die Beziehung, während _Customer.Name bereits ein konkretes Zielfeld anfordert. Für den ersten Versuch bleibt dieser Pfad auskommentiert.\n\nArbeitsbeispiel: Reise 1 verweist auf Kunde 7, dessen Name Mira ist. Ohne Namen enthält das Ergebnis nur Reisedaten; mit dem Pfad kommt Mira hinzu. Die Gegenrichtung Kunde zu Reisen wäre dagegen [0..*]. Wer aus dieser Richtung ein Reisefeld in eine flache Kundenliste übernimmt, kann aus einem Kunden drei Ergebniszeilen machen. Eine Kardinalität ist eine Aussage über reale Daten und keine Begrenzung, die zusätzliche Treffer abschneidet.\n\nÜbung: Lege auf Papier zwei Kunden und drei Reisen an, davon zwei für denselben Kunden. Notiere die Ergebniszeilen für beide Richtungen. Vergleiche im System Data Preview und Show SQL CREATE Statement zunächst ohne und dann mit aktivierter Pfadspalte. Prüfe besonders fehlende Stammsätze und mehrfach passende Ziele. Das Ergebnis soll begründen, warum du für eine Reiseübersicht bei der Reise startest, statt versehentlich eine Kundenliste zu vervielfachen.",
+    "code": "// Voraussetzung: ZI_LearnCustomer mit CustomerID und Name\n@EndUserText.label: 'Reisen mit Kundenbeziehung'\ndefine view entity ZI_LearnTravelRel\n  as select from zlearn_travel\n  association [0..1] to ZI_LearnCustomer as _Customer\n    on $projection.CustomerID = _Customer.CustomerID\n{\n  key travel_id   as TravelID,\n      customer_id as CustomerID,\n      description as Description,\n      // _Customer.Name as CustomerName,\n      _Customer\n}",
+    "codeLang": "abap",
+    "tip": "Ein to-many-Pfad kann die Ergebnismenge vergrößern. Prüfe daher fachliche Granularität und Anzahl der Zeilen, nicht nur, ob der Code aktiviert werden kann.",
+    "quiz": [
+      {
+        "q": "Wann führt eine exponierte Assoziation zum Join auf ihr Ziel?",
+        "options": [
+          "Immer bereits durch ihren Namen",
+          "Wenn sie beispielsweise zum Lesen eines Zielfeldes per Pfadausdruck verwendet wird",
+          "Niemals, sie ersetzt SQL vollständig"
+        ],
+        "correct": 1,
+        "explain": "Die SAP-Lektion unterscheidet Exponieren und tatsächliche Verwendung: Ein Pfadausdruck wird zum Join übersetzt."
+      },
+      {
+        "q": "Ein Kunde hat drei Reisen. Was kann ein flacher Pfad Kunde → Reisen.ReiseID bewirken?",
+        "options": [
+          "Drei Ergebniszeilen für denselben Kunden",
+          "Automatisch nur die neueste Reise",
+          "Immer einen Syntaxfehler in jeder Elementliste"
+        ],
+        "correct": 0,
+        "explain": "Ein to-many-Pfad in der Elementliste kann Zeilen vervielfachen. Er wählt nicht automatisch einen einzelnen Treffer."
+      },
+      {
+        "q": "Was bedeutet [0..1] in diesem Lernbeispiel?",
+        "options": [
+          "Die Datenbank löscht doppelte Kunden",
+          "Ein Kunde muss zwingend existieren",
+          "Pro Reise werden null oder ein passender Kunde erwartet"
+        ],
+        "correct": 2,
+        "explain": "Die Kardinalität beschreibt erwartete Beziehungen; sie bereinigt weder Dubletten noch erzwingt sie Stammdaten."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Defining Associations Between CDS Views",
+        "url": "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/defining-associations-between-cds-views_b325f87f-ff81-4bbe-a5c3-06d0c3ba5def",
+        "access": "Volltext am 2026-11-06 ohne Anmeldung abgerufen; Lesen frei, Übung benötigt ADT und passendes System."
+      },
+      {
+        "title": "SAP Learning: Using Associations in Path Expressions",
+        "url": "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-associations-in-path-expressions_daff758b-a544-4613-9a6e-aa1a2df73a33",
+        "access": "Volltext am 2026-11-06 abgerufen; Join-on-demand, to-many-Effekte und Syntaxunterschiede direkt überprüft. Lesen frei."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m11",
+    "title": "Annotationen sinnvoll einsetzen und CDS-Performance prüfen",
+    "minutes": 35,
+    "body": "CDS-Annotationen beginnen mit @ und ergänzen ein Modell um Metadaten. Entity-Annotationen gelten für die gesamte Entität, Element-Annotationen für ein Feld. Ein lesbarer Titel, die Verbindung eines Betrags mit seiner Währung und die Auswahl einer Tabellenspalte lösen unterschiedliche Aufgaben. Welche Wirkung eine Annotation hat, hängt vom auswertenden Framework ab. Ein hübsches Label ist kein Beschleuniger für eine Datenbankabfrage, und UI-Sichtbarkeit ersetzt keine serverseitige Berechtigung.\n\nArbeitsbeispiel: Zwei Reisen besitzen TotalPrice 120, aber unterschiedliche CurrencyCode-Werte EUR und USD. Der Betrag ohne Währung ist fachlich unvollständig. Unsere View verbindet deshalb TotalPrice durch @Semantics.amount.currencyCode mit CurrencyCode. Voraussetzung sind entsprechend typisierte Felder in der eigenen Tabelle. Die fachliche Bezeichnung hilft beim Lesen des Modells; eine spätere UI kann zusätzliche eigene Annotationen verwenden. Wir sammeln nicht wahllos Annotationen, sondern fragen bei jeder: Wer wertet diese Information wofür aus?\n\nFür Performance formulieren wir eine prüfbare Hypothese: Werden Kundennamen nicht benötigt, soll die reine Exposition von _Customer keinen zusätzlichen Ziel-Join verlangen. Sobald CustomerName als Pfadspalte angefordert wird, untersuchen wir den erzeugten Join und die Ergebnismenge. Das SQL-CREATE-Statement zeigt die Struktur; tatsächliche Laufzeit und Datenbankarbeit müssen zusätzlich mit den im System verfügbaren Analysewerkzeugen gemessen werden. Ein kleiner Datenbestand und ein einzelner schneller Lauf beweisen keine allgemeine Skalierbarkeit.\n\nÜbung: Erstelle eine Ergebnisliste mit nur ID und Preis und eine mit zusätzlichem Kundennamen. Dokumentiere Felder, Filter, Zeilenanzahl und gegebenenfalls gemessene Laufzeiten unter vergleichbaren Bedingungen. Ergänze einen Kunden mit mehreren sprachabhängigen Texten und überlege vor der Implementierung, welcher Sprachfilter und welche wahre Kardinalität nötig sind. Das Ziel ist ein begründetes Datenmodell statt der pauschalen Behauptung, eine Assoziation oder eine Performance-Annotation mache jede Abfrage schnell.",
+    "code": "// Voraussetzung: total_price ist ein Betragsfeld, currency_code ein Währungsfeld\n@EndUserText.label: 'Reisepreise mit Währung'\ndefine view entity ZI_LearnTravelPrice\n  as select from zlearn_travel\n{\n  key travel_id as TravelID,\n      @Semantics.amount.currencyCode: 'CurrencyCode'\n      total_price as TotalPrice,\n      currency_code as CurrencyCode\n}",
+    "codeLang": "abap",
+    "tip": "Verwechsle SQL-Struktur, gemessene Laufzeit und fachlich korrekte Zeilenanzahl nicht. Alle drei Perspektiven gehören zur Prüfung einer CDS-Abfrage.",
+    "quiz": [
+      {
+        "q": "Welche Aussage zu @EndUserText.label trifft zu?",
+        "options": [
+          "Sie erzwingt einen Index",
+          "Sie liefert eine semantische Bezeichnung",
+          "Sie garantiert eine bestimmte Laufzeit"
+        ],
+        "correct": 1,
+        "explain": "Eine Bezeichnung ist Metadatum. Sie ist kein Index und kein Laufzeitversprechen."
+      },
+      {
+        "q": "Warum gehört CurrencyCode zum Preisbeispiel?",
+        "options": [
+          "Damit beliebige Währungen ohne Umrechnung addiert werden dürfen",
+          "Nur damit die Tabelle mehr Spalten hat",
+          "Damit der Betrag fachlich seiner Währung zugeordnet ist"
+        ],
+        "correct": 2,
+        "explain": "120 EUR und 120 USD sind nicht derselbe Geldbetrag. Die Semantik verbindet Zahl und Währung, ersetzt aber keine Umrechnung."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Working with CDS Views",
+        "url": "https://learning.sap.com/courses/basic-abap-programming/working-with-cds-view_c289f74d-675e-4084-9d90-5635958ec604",
+        "access": "Volltext geprüft am 2026-11-06, frei lesbar; Annotationsebenen belegt."
+      },
+      {
+        "title": "SAP Developers: Create Database Table and Generate UI Service",
+        "url": "https://developers.sap.com/tutorials/abap-environment-rap100-generate-ui-service.html",
+        "access": "Volltext geprüft am 2026-11-06, frei lesbar; Betrags-/Währungsannotation und Systemvoraussetzungen enthalten. Ausführung benötigt ABAP-System."
+      },
+      {
+        "title": "SAP Learning: Using Associations in Path Expressions",
+        "url": "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-associations-in-path-expressions_daff758b-a544-4613-9a6e-aa1a2df73a33",
+        "access": "Volltext geprüft am 2026-11-06, frei lesbar; Join-on-demand, erzeugtes SQL und Kardinalitätseffekte enthalten."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m12",
+    "title": "RAP zuerst verstehen: Daten, Verhalten und managed/unmanaged",
+    "minutes": 40,
+    "body": "Ein Business Object ist mehr als eine Tabelle: Es verbindet eine fachliche Entität mit erlaubten Operationen und Regeln. Für die Lernreise liefert CDS die Datenstruktur. Die Behavior Definition beschreibt beispielsweise create, update und delete. Der Behavior Pool ist die ABAP-Klasse, in der eigene Verhaltenslogik implementiert wird. Diese Trennung erklärt, warum eine aktivierte CDS-View allein noch keinen vollständigen transaktionalen Dienst ergibt.\n\nRAP trennt Interaktionsphase und Save Sequence. Änderungen werden zunächst im transaktionalen Puffer gehalten, damit spätere Operationen denselben aktuellen fachlichen Stand sehen. Erst die Save Sequence finalisiert, prüft und persistiert. Bei managed mit managed save liefert das Framework Standardoperationen, Puffer und reguläre Persistenz. Eigene fachliche Logik bleibt trotzdem unsere Aufgabe. Der gezeigte BDEF-Ausschnitt ist nur die Orientierung für ein zuvor angelegtes Modell; Mapping, Felder, Sperren und Berechtigungen müssen zum konkreten System passen.\n\nBei unmanaged implementiert die Anwendung auch CRUD, Puffer und Persistenzlogik. Das ist besonders relevant, wenn bestehende Anwendungslogik bereits einen Puffer besitzt. Managed mit unmanaged save ist ein eigener Zwischenfall: Der Puffer und die Standardoperationen bleiben managed, der tatsächliche Schreibzugriff wird über save_modified übernommen. Das Wort unmanaged in einer Nummerierungsroutine bedeutet deshalb nicht automatisch, dass das gesamte Business Object unmanaged ist. Lokale Handler und Saver trennen Interaktionslogik und Save-Logik; ihre konkreten Methoden richten sich nach dem Implementierungstyp.\n\nArbeitsbeispiel und Übung: Ordne drei Reiseprojekte zu. Eine neue eigene Reisetabelle ohne Altlogik ist ein Kandidat für managed. Eine vorhandene Fach-API mit eigenem Puffer spricht eher für unmanaged. Eine Persistenz-API ohne eigenen Puffer kann zu managed mit unmanaged save passen. Zeichne für jeden Fall ein, wer create verarbeitet, wer den Puffer hält und wer speichert. Begründe die Auswahl, statt unmanaged als vermeintlich fortgeschrittenere Standardlösung zu wählen. Produktive API-Verträge und die Fähigkeiten des Zielreleases müssen zusätzlich geprüft werden.",
+    "code": "// Orientierender BDEF-Ausschnitt, kein vollständiges Projekt:\nmanaged implementation in class zbp_i_learntravel unique;\nstrict ( 2 );\n\ndefine behavior for ZI_LearnTravel alias Travel\npersistent table zlearn_travel\nlock master\n{\n  create;\n  update;\n  delete;\n  // Feldsteuerung, Schlüsselstrategie und Mapping passend ergänzen.\n}\n\n// Alternative Implementierungstypen NICHT gleichzeitig einfügen:\n// unmanaged implementation in class ... unique;\n// managed + with unmanaged save benötigt eigenen save_modified-Code.",
+    "codeLang": "abap",
+    "tip": "Managed bedeutet nicht 'ohne eigene Geschäftslogik'. Unmanaged bedeutet nicht 'ohne RAP-Regeln'. Kläre zuerst Verantwortlichkeiten und Transaktionsgrenzen.",
+    "quiz": [
+      {
+        "q": "Wer stellt bei managed mit unmanaged save den transaktionalen Puffer bereit?",
+        "options": [
+          "Das RAP-Framework",
+          "Immer der Browser",
+          "Zwingend eine eigene globale interne Tabelle"
+        ],
+        "correct": 0,
+        "explain": "Der Fall bleibt managed hinsichtlich Puffer und Standardoperationen; nur der tatsächliche Schreibzugriff wird selbst implementiert."
+      },
+      {
+        "q": "Was ist die Hauptaufgabe einer Behavior Definition?",
+        "options": [
+          "Nur HTML erzeugen",
+          "Operationen und Verhaltensvertrag eines RAP-BO deklarieren",
+          "Den Datenbankinhalt sofort überschreiben"
+        ],
+        "correct": 1,
+        "explain": "Die BDEF beschreibt Verhalten; konkrete eigene Handlerlogik steht im Behavior Pool."
+      },
+      {
+        "q": "Ein managed BO besitzt eine selbst implementierte frühe Nummerierung. Ist es dadurch vollständig unmanaged?",
+        "options": [
+          "Ja, bei jeder eigenen Methode",
+          "Ja, sobald eine Nummer vorkommt",
+          "Nein, die Verantwortlichkeit für eine Teilfunktion bestimmt nicht allein den gesamten Implementierungstyp"
+        ],
+        "correct": 2,
+        "explain": "RAP100 kombiniert ein managed BO mit unmanaged interner früher Nummerierung. Teilfunktion und Gesamtmodell müssen getrennt werden."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Exploring Behavior Implementation Options",
+        "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/exploring-the-behavior-implementation-options",
+        "access": "Volltext am 2026-11-06 ohne Login geprüft; managed, unmanaged, unmanaged/additional save, Handler/Saver und Draft ausdrücklich enthalten. Lesen frei."
+      },
+      {
+        "title": "SAP-samples RAP100: Early Numbering",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-platform-rap100/main/exercises/ex03/README.md",
+        "access": "Volltext am 2026-11-06 frei abgerufen. Workshop-Code unter Repository-Lizenz; Ausführung benötigt geeignetes ABAP-System und /DMO-Szenario."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m12",
+    "title": "Validierung, Determination und Action mit EML auseinanderhalten",
+    "minutes": 50,
+    "body": "Drei ähnliche Begriffe lösen unterschiedliche Aufgaben. Eine Determination setzt oder berechnet Werte aufgrund deklarierter Trigger. Eine Validation prüft Konsistenz und kann das Speichern ungültiger Instanzen verhindern. Eine Action bietet eine explizit aufgerufene fachliche Operation außerhalb des Standard-CRUD. Für unsere Reise heißt das: Status beim Anlegen vorbelegen, Datumsbereich beim Speichern prüfen und eine Reise bewusst freigeben. Die Deklarationen stehen in der BDEF; Quick Fix in ADT erzeugt passende Methodensignaturen im Behavior Pool.\n\nArbeitsbeispiel: Eine neue Reise ohne Status erhält N. Eine bereits befüllte Reise behält ihren Status, auch wenn die Vorbelegungslogik erneut ausgelöst wird. Die gezeigte eigene Determination liest deshalb mit READ ENTITIES aus dem BO-Zustand, entfernt bereits befüllte Instanzen und aktualisiert nur die verbleibenden. EML ist der ABAP-Zugang zum Business Object, nicht bloß ein anderer Name für direktes Tabellen-SQL. IN LOCAL MODE ist hier für den Zugriff auf das eigene BO im Behavior Pool vorgesehen und umgeht dabei bestimmte Kontrollen; es ist kein allgemeiner Freibrief zum Umgehen fremder Berechtigungen.\n\nDie Datumsvalidierung weist etwa EndDate kleiner BeginDate zurück. Dafür gehören betroffene Schlüssel nach failed und verständliche Meldungen nach reported; über %element kann die Meldung einem Feld zugeordnet werden. Eine reine Textmeldung ist nicht dasselbe wie eine zurückgewiesene Instanz. Validations besitzen den Zeitpunkt on save; ihre Reihenfolge ist nicht fest. Nach der geprüften SAP-Lektion sind deklarative Validations in managed sowie unmanaged mit Draft vorgesehen, nicht pauschal in unmanaged ohne Draft. Eine Action wie approve muss außerdem in der Behavior Projection freigegeben werden, bevor ein Verbraucher sie dort verwenden kann.\n\nÜbung: Schreibe eine Tabelle mit Eingabe, erwarteter Statusvorbelegung und erwartetem Speicherergebnis für vier Fälle: leerer Status, vorhandener Status, gültige Daten und vertauschte Daten. Implementiere zuerst die Determination und rufe sie gedanklich zweimal auf; das Resultat soll stabil bleiben. Ergänze anschließend Validation und Action als getrennte Schritte. Teste mehrere Schlüssel gemeinsam und prüfe den Fehlerpfad. Das Fragment konzentriert sich auf die Vorbelegung; eine vollständige Anwendung muss EML-Fehlerantworten und das konkrete Meldungs-/Draft-Konzept vollständig behandeln.",
+    "code": "// Ergänzungen INNERHALB des bestehenden BDEF-Entity-Blocks:\n// determination setInitialStatus on modify { create; }\n// validation checkDates on save { create; field BeginDate, EndDate; }\n// action approve result [1] $self;\n\n// Eigene Implementierung im generierten Handler, Fragment:\nMETHOD setInitialStatus.\n  READ ENTITIES OF ZI_LearnTravel IN LOCAL MODE\n    ENTITY Travel FIELDS ( Status )\n    WITH CORRESPONDING #( keys )\n    RESULT DATA(travels)\n    FAILED DATA(read_failed).\n\n  DELETE travels WHERE Status IS NOT INITIAL.\n  IF travels IS NOT INITIAL.\n    MODIFY ENTITIES OF ZI_LearnTravel IN LOCAL MODE\n      ENTITY Travel UPDATE FIELDS ( Status )\n      WITH VALUE #( FOR travel IN travels\n        ( %tky = travel-%tky Status = 'N' ) )\n      REPORTED DATA(update_reported).\n    reported = CORRESPONDING #( DEEP update_reported ).\n  ENDIF.\nENDMETHOD.\n// Für die Action zusätzlich in der Behavior Projection: use action approve;",
+    "codeLang": "abap",
+    "tip": "Lerne erst 'prüft', 'berechnet' und 'wird bewusst aufgerufen'. Danach lassen sich die RAP-Schlüsselwörter und Handler-Signaturen wesentlich leichter zuordnen.",
+    "quiz": [
+      {
+        "q": "Welche Funktion passt zur Validation?",
+        "options": [
+          "Ein Status wird bei jeder Ausführung überschrieben",
+          "Ein Benutzer öffnet eine externe URL",
+          "Ungültige Datumsbereiche werden vor dem Speichern zurückgewiesen"
+        ],
+        "correct": 2,
+        "explain": "Eine Validation prüft Konsistenz. Das automatische Setzen von Werten gehört zur Determination; eine bewusst aufgerufene Fachoperation zur Action."
+      },
+      {
+        "q": "Was muss bei einer zurückzuweisenden Instanz neben einer Meldung berücksichtigt werden?",
+        "options": [
+          "Der Instanzschlüssel in failed",
+          "Nur eine Konsolenausgabe",
+          "Nur eine neue UI-Beschriftung"
+        ],
+        "correct": 0,
+        "explain": "failed identifiziert abgelehnte Instanzen. reported liefert die dazugehörigen Meldungen; eine Meldung allein ersetzt die Ablehnung nicht."
+      },
+      {
+        "q": "Welche Vorbelegung ist wiederholbar, ohne bestehende Eingaben unnötig zu verändern?",
+        "options": [
+          "Jeden vorhandenen Status blind durch N ersetzen",
+          "N nur setzen, wenn der Status noch initial ist",
+          "Bei jedem Lauf einen zufälligen Status wählen"
+        ],
+        "correct": 1,
+        "explain": "Die initiale Vorbelegung soll bereits gesetzte Werte bewahren. Wiederholte Ausführung darf keinen unbeabsichtigten neuen Zustand erzeugen."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Implementing Input Checks Using Validations",
+        "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-input-checks-using-validations",
+        "access": "Volltext am 2026-11-06 frei geprüft; on save, failed/reported, Feldbindung, nicht feste Reihenfolge und unmanaged/Draft-Einschränkung überprüft."
+      },
+      {
+        "title": "SAP-samples RAP100: Determinations",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-platform-rap100/main/exercises/ex04/README.md",
+        "access": "Volltext frei geprüft am 2026-11-06; EML und IN LOCAL MODE erklärt. Ausführung benötigt ADT/ABAP-System."
+      },
+      {
+        "title": "SAP-samples RAP100: Actions",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-platform-rap100/main/exercises/ex06/README.md",
+        "access": "Volltext frei geprüft am 2026-11-06; Action-Definition, Handler, Ergebnis und Projection-Freigabe belegt."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m12",
+    "title": "Vom Business Object zum OData-V4-UI-Service",
+    "minutes": 40,
+    "body": "Damit eine Weboberfläche das Reise-BO verwenden kann, benötigt sie einen Dienst. Die Service Projection formt die für diesen Verbraucher vorgesehene Sicht auf Daten und Verhalten. Die Service Definition legt fest, welche Entitäten unter welchen Namen exponiert werden. Das Service Binding verbindet diese Definition mit einer konkreten technischen Bereitstellung, zum Beispiel OData V4 - UI. Diese Objekte haben verschiedene Aufgaben; weder ein Binding noch eine Service Definition ersetzt die Geschäftsregeln im BO.\n\nArbeitsbeispiel: Die vorhandene Projektion ZC_LearnTravel wird im Service als Travels angeboten. Die Service Definition im Code enthält bewusst keine URL und keinen Port. Das Binding wird als separates ADT-Objekt angelegt, auf die Definition referenziert und mit dem passenden Binding-Typ aktiviert. In geeigneten Cloud-Systemen lässt sich der lokale Endpunkt im Binding-Editor veröffentlichen und die Fiori-elements-Vorschau für ein Entity Set starten. SAPs geprüftes Tutorial nennt für On-Premise/Private-Cloud-Systeme stattdessen die Veröffentlichung über /IWFND/V4_ADMIN. Der konkrete Weg muss daher zur Landschaft passen.\n\nDie Vorschau ist ein schneller Test des Service-Vertrags und der UI-Metadaten, nicht schon eine vollständig deployte Launchpad-Anwendung. Prüfe zuerst, ob Daten gelesen werden können, danach Create/Update und schließlich fachliche Fehlermeldungen. Bei einer fehlenden Action unterscheidest du drei Schichten: in der Basis-BDEF deklariert, in der Projection per use action freigegeben und für die UI als Aktion platziert. Bei Berechtigungsfehlern ist das Ausblenden eines Buttons keine Backend-Lösung.\n\nÜbung: Zeichne die Kette Tabelle → CDS/Behavior → Projection → Service Definition → Binding → Vorschau. Ordne jedem Pfeil ein konkretes Testsignal zu, etwa eine zusätzliche Property in $metadata oder eine korrekt zurückgewiesene Datumsänderung. Vergleiche anschließend dieselbe fachliche Definition mit dem Gedanken an ein anderes Binding: Was bleibt fachlich gleich, was ändert sich technisch? Ohne System kannst du diese Schichten und einen Beispiel-Metadatenvertrag prüfen; Veröffentlichung und echte Requests erfordern Systemzugang und die passenden Berechtigungen.",
+    "code": "// Voraussetzung: aktivierte CDS-Service-Projektion ZC_LearnTravel\n@EndUserText.label: 'Lernservice für Reisen'\ndefine service ZUI_LEARN_TRAVEL {\n  expose ZC_LearnTravel as Travels;\n}\n\n// In ADT als SEPARATES Repository-Objekt anlegen:\n// Service Binding: ZUI_LEARN_TRAVEL_O4\n// Service Definition: ZUI_LEARN_TRAVEL\n// Binding Type: OData V4 - UI\n// Aktivieren; Endpunkt passend zur Systemlandschaft veröffentlichen.\n// Die Vorschau ist noch kein Launchpad-Deployment.",
+    "codeLang": "abap",
+    "tip": "Wenn der Dienst nicht funktioniert, prüfe jede Schicht einzeln. 'CDS ist aktiv' beweist weder, dass das Binding veröffentlicht wurde, noch dass die gewünschte Operation exponiert ist.",
+    "quiz": [
+      {
+        "q": "Welches Objekt wählt die technische Bereitstellung als OData V4 - UI?",
+        "options": [
+          "Nur die Datenbanktabelle",
+          "Das Service Binding",
+          "Ein JavaScript-Formatter"
+        ],
+        "correct": 1,
+        "explain": "Die Definition exponiert Entitäten; das Binding verknüpft sie mit einer technischen Dienstbereitstellung."
+      },
+      {
+        "q": "Was beweist eine funktionierende ADT-Fiori-elements-Vorschau?",
+        "options": [
+          "Dass bereits ein produktives Launchpad-Deployment abgeschlossen ist",
+          "Dass keine Berechtigungen mehr nötig sind",
+          "Dass der Dienst und seine UI-Metadaten für den geprüften Vorschaufall konsumierbar sind"
+        ],
+        "correct": 2,
+        "explain": "Eine Vorschau ist ein Entwicklungstest. Deployment, Launchpad-Integration und produktive Berechtigungen sind weitere Schritte."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Developers: Create Database Table and Generate UI Service",
+        "url": "https://developers.sap.com/tutorials/abap-environment-rap100-generate-ui-service.html",
+        "access": "Volltext am 2026-11-06 frei abgerufen; Artefakttabelle, OData V4 - UI, Publish/Preview und /IWFND/V4_ADMIN-Hinweis direkt überprüft. Praktisch ABAP-System erforderlich."
+      },
+      {
+        "title": "SAP-samples RAP100: Workshop und Voraussetzungen",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-platform-rap100/main/README.md",
+        "access": "Frei abgerufen am 2026-11-06; ADT und geeignetes System plus Flight-Szenario nötig. Launchpad-Zusatzübungen 11/12 ausdrücklich mit license required markiert."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m13",
+    "title": "Fiori UX und Elements: List Report und Object Page mit Fiori Tools",
+    "minutes": 45,
+    "body": "SAP Fiori bezeichnet eine Benutzererfahrung, nicht eine zusätzliche ABAP-Syntax. SAPUI5 ist ein UI-Framework; Fiori elements baut darauf mit vordefinierten Seitentypen und Metadaten auf. Für eine Reiseverwaltung passt ein List Report zum Finden, Filtern und Auswählen vieler Reisen. Die Object Page bündelt Informationen und Bearbeitung einer einzelnen Reise. Diese Arbeitsteilung ist ein guter Einstieg, bevor wir eigene Controller oder spezielle Layouts ergänzen.\n\nArbeitsbeispiel: Eine Sachbearbeiterin sucht offene Reisen eines Kunden. Der List Report zeigt ID, Beschreibung und Status; der Status wird als Filter angeboten. Nach Auswahl einer Reise öffnet die Object Page deren Details. Unsere eigene Metadata Extension ergänzt diese UI-Bedeutung auf der vorhandenen Projektion. @UI.lineItem steuert eine Listenspalte, @UI.selectionField ein Filterfeld und @UI.identification ein Feld im Identifikationskontext. Die gezeigte Extension setzt @Metadata.allowExtensions: true auf der Projektion voraus; Abschnitte/Feldergruppen und weitere Detailkonfiguration werden im realen Projekt passend ergänzt.\n\nSAP Fiori tools unterstützt Generierung, Konfiguration und Vorschau solcher Apps in VS Code oder SAP Business Application Studio. Eine lokale VS-Code-Lernstrecke und Mock-Daten können die erste UI-Erkundung vom echten ABAP-Backend entkoppeln. Für reale Schreiboperationen brauchst du später einen passenden Dienst und Credentials. Wichtig für die Quellenauswahl: Die geprüfte SAP-Developers-Tutorialgruppe für List Report/Object Page arbeitet ausdrücklich mit OData V2, ES5 und lokalen OData-Annotationen. Ihr Werkzeugablauf ist hilfreich, darf aber nicht unbesehen als RAP-OData-V4-Anleitung bezeichnet werden.\n\nÜbung: Skizziere zuerst die zwei Seiten und ordne jede Information der passenden Seite zu. Generiere danach eine App mit dem zu deinem Dienst passenden Protokoll und kontrolliere lokale Vorschau, Filter und Navigation. Ändere eine Annotation, nicht sofort Controller-Code, und beobachte die Wirkung. Vergleiche die verwendete UI5-Version mit der offiziellen Feature Map, denn V2- und V4-Unterstützung sowie verfügbare Funktionen sind nicht identisch. Auf Papier kannst du dieselbe Aufgabe als Rollen- und Informationsdesign lösen, ohne ein SAP-System zu behaupten.",
+    "code": "// Voraussetzung auf ZC_LearnTravel: @Metadata.allowExtensions: true\n@Metadata.layer: #CUSTOMER\nannotate entity ZC_LearnTravel with\n{\n  @UI.lineItem: [ { position: 10, label: 'Reise' } ]\n  @UI.identification: [ { position: 10 } ]\n  TravelID;\n\n  @UI.lineItem: [ { position: 20, label: 'Beschreibung' } ]\n  @UI.identification: [ { position: 20 } ]\n  Description;\n\n  @UI.selectionField: [ { position: 10 } ]\n  @UI.lineItem: [ { position: 30, label: 'Status' } ]\n  Status;\n}",
+    "codeLang": "abap",
+    "tip": "Metadaten zuerst, Erweiterungscode bei Bedarf. Halte Fiori-UX, Fiori-elements-Vorlage, UI5-Version und OData-Protokoll als vier getrennte Begriffe auseinander.",
+    "quiz": [
+      {
+        "q": "Welche Aufgabe passt zum List Report?",
+        "options": [
+          "Viele Reisen suchen, filtern und auswählen",
+          "Eine vollständige Datenbank ersetzen",
+          "Nur Backend-Berechtigungen verwalten"
+        ],
+        "correct": 0,
+        "explain": "Der List Report ist für listenorientiertes Arbeiten ausgelegt und wird häufig mit einer Object Page für den Einzeldatensatz kombiniert."
+      },
+      {
+        "q": "Warum darf die geprüfte ES5-Tutorialgruppe nicht als reine RAP-V4-Anleitung gelten?",
+        "options": [
+          "Weil SAP Fiori tools keine Vorschau unterstützt",
+          "Weil die Gruppe ausdrücklich OData V2 und lokale OData-Annotationen verwendet",
+          "Weil List Reports keine Filter haben"
+        ],
+        "correct": 1,
+        "explain": "Die Werkzeuge sind übertragbar, aber Protokoll, Backend und Annotationsdarstellung unterscheiden sich. Der Inhalt der Quelle muss korrekt eingeordnet werden."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Examining List Report and Object Page Features",
+        "url": "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/examining-list-report-and-object-page-features_f4eed58a-6c42-430f-9eda-1b0f49c065f3",
+        "access": "Frei lesbarer Text am 2026-11-06 geprüft; Kurskontext CAP/OData V4, keine ABAP-Backend-Anleitung. Videos nicht abgespielt; Text und offizielle Feature-Map-Verweise geprüft."
+      },
+      {
+        "title": "SAP Developers: Set Up SAP Fiori Tools in Your Development Environment",
+        "url": "https://developers.sap.com/tutorials/fiori-tools-vscode-setup",
+        "access": "Volltext am 2026-11-06 frei abgerufen; VS Code/BAS, Extension Pack, Vorschau mit Backend- und Mock-Daten belegt. BAS-Verfügbarkeit/Entitlements gesondert prüfen."
+      },
+      {
+        "title": "SAP Developers: Create a List Report Object Page App with SAP Fiori Tools",
+        "url": "https://developers.sap.com/tutorials/group-create-a-list-report-object-page-app-with-sap-fiori-tools/",
+        "access": "Gruppen-Volltext geprüft am 2026-11-06; kostenlos lesbar. Ausdrücklich OData V2, ES5 und lokale OData-Annotationen, daher kein gleichwertiges RAP-V4-Tutorial."
+      },
+      {
+        "title": "SAP-samples RAP100: Actions und UI-Metadaten",
+        "url": "https://raw.githubusercontent.com/SAP-samples/abap-platform-rap100/main/exercises/ex06/README.md",
+        "access": "Frei am 2026-11-06 abgerufen; lineItem/identification sowie Platzierung einer Action überprüft. Eigenes Beispiel statt Übernahme der vollständigen Übung."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m13",
+    "title": "JavaScript- und UI5-Brücke: Model, XML-View und Controller",
+    "minutes": 45,
+    "body": "ABAP-Entwickler müssen für einen ersten UI5-Einstieg nicht sofort eine große Webanwendung beherrschen. Drei Rollen genügen: Ein Model hält zugängliche Daten, eine View beschreibt die Oberfläche und ein Controller reagiert auf Ereignisse. In XML werden Controls als Elemente und Eigenschaften als Attribute beschrieben. JavaScript liefert Objekte, Funktionen, Module und Ereignisbehandlung. Ein JSONModel eignet sich für einen lokalen Lernzustand; es ist kein Ersatz für den OData-Vertrag eines RAP-Dienstes.\n\nArbeitsbeispiel: Eine kleine eigenständige Übungs-View besitzt einen Knopf und einen Zähler. Der Controller importiert seine Abhängigkeiten über sap.ui.define, erzeugt in onInit ein benanntes JSONModel namens ui und erhöht bei onCount den Wert unter /count. Der XML-Text bindet an {ui>/count}; ein Button mit press='.onCount' löst die Methode aus. Die normale Methodensyntax bewahrt den vom Framework gesetzten Controller-Kontext für this. XML und Controller werden in getrennten Dateien mit passendem Namespace verbunden. Das Codefeld zeigt ausschließlich die Controller-Datei, nicht eine vollständige lauffertige App.\n\nDer lokale Zähler demonstriert Datenbindung ohne Netzwerk, SAP-Login oder Geschäftsänderung. Erst danach lohnt die Brücke zum OData-Modell und zu asynchronen Requests: Ein Ergebnis ist nicht zwingend sofort vorhanden, Fehler müssen sichtbar behandelt werden, und UI-Zustand ist von persistiertem Fachzustand zu unterscheiden. In einer Fiori-elements-App ersetzt man die Standardseiten nicht einfach durch diesen Controller. Dort sind dokumentierte Erweiterungspunkte und öffentliche APIs maßgeblich; das isolierte MVC-Beispiel ist ein Verständnisbaustein, kein Auftrag zum Eingriff in generierte interne Controls.\n\nÜbung: Zeichne nach zwei Klicks den Model-Inhalt und den gebundenen Text. Implementiere anschließend in einer separaten Übungsdatei eine XML-View mit Text und Button, ergänze einen Reset-Handler und prüfe, dass zwei View-Instanzen ihren Zustand getrennt halten. Benutze eine vorbereitete lokale UI5-App mit passendem Bootstrap und Routing. Lies danach die offiziellen Lifecycle-Hinweise: onInit läuft einmal pro View-Instanz und soll nicht einfach zu einer async-Funktion mit Promise-Rückgabe gemacht werden. Für eine spätere Fiori-elements-Erweiterung prüfst du zuerst die zur verwendeten Version gehörende Dokumentation.",
+    "code": "// webapp/controller/Counter.controller.js\n// Eigenständiges MVC-Lernbeispiel, keine Fiori-elements-Controller-Extension\nsap.ui.define([\n  'sap/ui/core/mvc/Controller',\n  'sap/ui/model/json/JSONModel'\n], function (Controller, JSONModel) {\n  'use strict';\n  return Controller.extend('learn.travel.controller.Counter', {\n    onInit: function () {\n      this.getView().setModel(new JSONModel({ count: 0 }), 'ui');\n    },\n    onCount: function () {\n      const model = this.getView().getModel('ui');\n      const count = model.getProperty('/count');\n      model.setProperty('/count', count + 1);\n    }\n  });\n});\n// In passender XML-View: controllerName='learn.travel.controller.Counter'\n// <Text text='{ui>/count}' />\n// <Button text='Zählen' press='.onCount' />",
+    "codeLang": "javascript",
+    "tip": "Lerne Datenbindung zuerst mit lokalem Zustand. Ein UI-Zähler und eine RAP-Fachänderung haben unterschiedliche Persistenz-, Fehler- und Berechtigungsanforderungen.",
+    "quiz": [
+      {
+        "q": "Was bedeutet {ui>/count} in der passenden XML-View?",
+        "options": [
+          "Eine neue ABAP-Tabelle wird angelegt",
+          "Bindung an /count im benannten Model ui",
+          "Ein synchroner SQL-Aufruf wird ausgeführt"
+        ],
+        "correct": 1,
+        "explain": "Der Modelname steht vor >, der absolute Datenpfad danach. UI5 kann so Modeländerungen in der Darstellung nachvollziehen."
+      },
+      {
+        "q": "Wie oft wird onInit normalerweise für eine View-Instanz aufgerufen?",
+        "options": [
+          "Einmal zur Initialisierung der Instanz",
+          "Nach jedem einzelnen Rendering erneut",
+          "Für jede Tabellenzeile automatisch"
+        ],
+        "correct": 0,
+        "explain": "Die geprüfte Controller-Dokumentation im offiziellen Quelltext beschreibt onInit als einmaligen Initialisierungshook pro View-Instanz."
+      },
+      {
+        "q": "Welche Folgerung ist für Fiori elements sinnvoll?",
+        "options": [
+          "Immer interne Controls per DOM-Hack verändern",
+          "Das MVC-Lernbeispiel unverändert als Standardseitenersatz einsetzen",
+          "Bei nötigen Erweiterungen dokumentierte Erweiterungspunkte und öffentliche APIs prüfen"
+        ],
+        "correct": 2,
+        "explain": "Das isolierte MVC-Beispiel erklärt UI5-Grundbegriffe. Es ist nicht automatisch die richtige Erweiterungsarchitektur einer generierten Fiori-elements-Anwendung."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAPUI5-Dokumentation: Step 4 XML Views (offizieller Dokumentationsquelltext)",
+        "url": "https://raw.githubusercontent.com/SAP-docs/sapui5/master/docs/03_Get-Started/step-4-xml-views-1409791.md",
+        "access": "Volltext am 2026-11-06 frei abgerufen; XML-Views, Namespace und Trennung von Darstellung und Controller überprüft."
+      },
+      {
+        "title": "OpenUI5 Controller: offizieller Quelltext mit API-/Lifecycle-Dokumentation",
+        "url": "https://raw.githubusercontent.com/SAP/openui5/master/src/sap.ui.core/src/sap/ui/core/mvc/Controller.js",
+        "access": "Vollständiger Quelltext am 2026-11-06 frei abgerufen; Controller.extend, sap.ui.define und onInit-Vertrag überprüft. master ist beweglich; Zielversion separat abgleichen."
+      },
+      {
+        "title": "ui5.sap.com: tatsächlich ausgelieferter MVC-Controller",
+        "url": "https://ui5.sap.com/resources/sap/ui/core/mvc/Controller.js",
+        "access": "JavaScript-Inhalt am 2026-11-06 tatsächlich abgerufen; SAP-Header Copyright 2026/Apache-2.0 und Controller-Implementierung vorhanden. Keine lesbare Tutorialseite; SDK-Hashrouten lieferten im Textabruf keinen Inhalt."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m14",
+    "title": "ABAP Cloud, RAP und Laufzeit: die richtige Erweiterungsarchitektur wählen",
+    "minutes": 25,
+    "body": "ABAP Cloud bezeichnet ein Entwicklungsmodell mit cloudoptimierter ABAP-Sprachversion, freigegebenen APIs und modernen Werkzeugen. SAP BTP ABAP Environment ist dagegen eine konkrete ABAP-Laufzeit auf der Business Technology Platform. RAP strukturiert transaktionale Geschäftsobjekte und Services und ist ein wichtiger Bestandteil von ABAP Cloud, aber weder dessen vollständiger Umfang noch ein ausschließlich auf BTP nutzbares Modell. Auch geeignete S/4HANA-Systeme unterstützen RAP und ABAP Cloud.\n\nOn-stack bedeutet, dass eine Erweiterung im S/4HANA-System läuft. Ein freigegebener BAdI zur Prüfung eines Bestellvorgangs kann dafür passend sein, wenn die Prüfung unmittelbar zur lokalen Transaktion gehören muss. Side-by-side läuft getrennt, beispielsweise in BTP ABAP Environment, und verwendet Remote-APIs. Eine Anwendung, die Bestellungen aus drei Systemen zusammenführt und unabhängig bereitgestellt werden soll, ist ein guter Kandidat dafür. Eine Remote-Anfrage nimmt aber nicht automatisch an derselben Datenbanktransaktion wie S/4HANA teil.\n\nBeispiel: Eine Pflichtfeldprüfung beim Speichern einer Bestellung und eine Lieferantenbewertung mit externen Daten sind zwei verschiedene Anforderungen. Für die Pflichtfeldprüfung untersuchst du zuerst Standardkonfiguration, Key-User-Möglichkeiten und einen passenden freigegebenen lokalen Erweiterungspunkt. Für die Bewertung prüfst du eine eigene Side-by-side-Anwendung und die nötigen freigegebenen Remote-APIs. Fehlt ein geeigneter Erweiterungspunkt, ist das ein Architekturhindernis und keine Erlaubnis, SAP-Standardcode zu verändern.\n\nPraxisauftrag: Erstelle für beide Anforderungen eine Entscheidungstabelle mit Systemedition, Release, LUW-Anforderung, API, Berechtigung und Betriebsverantwortung. Public Edition bietet nicht beliebige klassische ABAP-Erweiterungen; Developer Extensibility benötigt eine geeignete Systemlandschaft. In Private Edition und on-premise ist ABAP Cloud ab S/4HANA 2022 ebenfalls verfügbar, neben bestehenden klassischen Möglichkeiten. Die Architekturaufgabe funktioniert ohne System; ein BTP-Trial kann beim Lernen helfen, garantiert aber weder Kapazität noch alle benötigten Rechte oder Dienste.",
+    "code": "Anforderung                 | Prüfung beim Speichern | Bewertung mehrerer Systeme\nGleiche lokale LUW nötig?    | Ja, fachlich prüfen    | Nein\nErster Architektur-Kandidat | Freigegebener BAdI      | Side-by-side mit Remote-API\nVor Umsetzung prüfen        | Edition, Release, Hook | API, Auth, Betrieb, Kosten",
+    "codeLang": "text",
+    "tip": "Nicht vom Schlagwort Cloud auf die Laufzeit schließen. RAP ist nicht BTP-only, und eine saubere On-stack-Erweiterung kann Clean Core entsprechen.",
+    "quiz": [
+      {
+        "q": "Was ist SAP BTP ABAP Environment?",
+        "options": [
+          "Eine konkrete ABAP-Laufzeit auf BTP",
+          "Ein anderer Name für RAP",
+          "Die einzige Laufzeit für ABAP Cloud"
+        ],
+        "correct": 0,
+        "explain": "ABAP Cloud ist das Entwicklungsmodell; BTP ABAP Environment ist eine seiner Laufzeitumgebungen."
+      },
+      {
+        "q": "Welche Anforderung spricht besonders für einen geeigneten lokalen Erweiterungspunkt?",
+        "options": [
+          "Unabhängige Bereitstellung über mehrere ERP-Systeme",
+          "Teilnahme an derselben lokalen Geschäftstransaktion",
+          "Verwendung einer öffentlichen Webseite"
+        ],
+        "correct": 1,
+        "explain": "Eine zwingende lokale LUW ist ein wesentliches Argument für On-stack; der konkrete Hook muss freigegeben sein."
+      },
+      {
+        "q": "Welche Aussage über S/4HANA ist richtig?",
+        "options": [
+          "RAP funktioniert ausschließlich in BTP",
+          "Public und Private Edition haben immer denselben Erweiterungsumfang",
+          "Edition, Release und Landschaft beeinflussen die Erweiterungsmöglichkeiten"
+        ],
+        "correct": 2,
+        "explain": "ABAP Cloud und RAP sind nicht BTP-exklusiv. API-Umfang und verfügbare Erweiterungen unterscheiden sich."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Explaining Side-By-Side Extensibility",
+        "url": "https://learning.sap.com/courses/practicing-clean-core-extensibility-for-sap-s-4hana-cloud/explaining-side-by-side-extensibility_a01bb1ac-1acb-434d-8458-7a36cf2bcb3b",
+        "access": "Frei lesbarer Lerntext, Volltext geprüft; separate Laufzeit erforderlich für Systemübungen."
+      },
+      {
+        "title": "SAP Learning: Explaining Developer Extensibility",
+        "url": "https://learning.sap.com/courses/practicing-clean-core-extensibility-for-sap-s-4hana-cloud/explaining-developer-extensibility_f2683861-d69e-4a59-9e3e-01e3cc20fb0f",
+        "access": "Frei lesbar; reale Übungen erfordern geeignetes S/4HANA-System und Berechtigungen."
+      },
+      {
+        "title": "SAP Developers: Create an SAP BTP ABAP Environment Trial User",
+        "url": "https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html",
+        "access": "Anleitung frei; Trial-Registrierung, aktuelle Regionen, Kapazität und Funktionsgrenzen separat prüfen."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m14",
+    "title": "Released APIs und Clean-Core-Level an einer Erweiterung prüfen",
+    "minutes": 30,
+    "body": "Ein technisch sichtbares SAP-Objekt ist noch keine freigegebene API. In ABAP for Cloud Development müssen verwendete SAP-Objekte für den vorgesehenen Gebrauch freigegeben sein. Prüfe deshalb den API-Status im Zielsystem, den erlaubten Verwendungszweck und die verfügbare Version. Eine lokal nutzbare CDS-Entität ist nicht automatisch eine Remote-API, und eine Freigabe für Erweiterung ist nicht automatisch eine allgemeine Nutzungserlaubnis.\n\nFür November 2026 ist eine wichtige Begriffskorrektur nötig: SAP Learning beschreibt das frühere 3-Tier-Modell inzwischen als abgelöst und erläutert Clean-Core-Level A bis D. A steht für freigegebene APIs und geeignete Erweiterungstechniken, B für von SAP entsprechend eingeordnete klassische APIs, C für interne Objekte und D für nicht empfohlene Objekte oder Muster. Diese Risikoeinordnung für bestehende Erweiterungen lockert nicht die Sprach- und API-Regeln eines ABAP-Cloud-Pakets.\n\nBeispiel: Eine Anwendung soll Bestelldaten anzeigen. Du findest eine freigegebene CDS-API und eine interne Tabelle mit scheinbar praktischeren Feldern. Entscheide nicht allein nach weniger Code: Prüfe zuerst, ob die freigegebene API den Bedarf erfüllt. Ein kundeneigener Wrapper um eine interne Abhängigkeit kann zwar eine lokale Schnittstelle schaffen, beseitigt aber nicht die Upgrade-Abhängigkeit innerhalb des Wrappers. Auch eine Side-by-side-App wird nicht automatisch sauber, wenn sie sich auf instabile Remote-Schnittstellen stützt.\n\nPraxisauftrag: Lege für drei mögliche Datenzugriffe ein API-Prüfblatt an. Dokumentiere Objektname, Edition/Release, Freigabestatus, lokalen oder Remote-Vertrag, fachliche Abdeckung und offene Risiken. Nutze das Beispiel unten als Vorlage und trage echte Namen erst nach Prüfung im verfügbaren System ein. Ist kein System vorhanden, bearbeite die Entscheidung mit fiktiven Kandidaten und kennzeichne sie ausdrücklich als Annahmen. Öffentliche SAP-Lerntexte sind kostenlos lesbar; das ist keine Zusage einer kostenlosen S/4HANA- oder BTP-Laufzeit.",
+    "code": "API-Prüfblatt für die Bestellübersicht\n1. Kandidat: <im Zielsystem ermitteltes Objekt>\n2. System: <Edition und Release>\n3. Nutzung: lokal lesen / erweitern / remote konsumieren\n4. Freigabe für genau diese Nutzung: ja / nein / ungeprüft\n5. Fachliche Lücke: <fehlende Felder oder Funktionen>\n6. Abhängigkeiten: <auch innerhalb eigener Wrapper prüfen>\n7. Entscheidung und Verantwortliche: <Begründung dokumentieren>",
+    "codeLang": "text",
+    "tip": "Level B ist kein Freibrief, beliebige klassische Objekte direkt in ABAP Cloud zu verwenden. Ein Wrapper ändert nicht rückwirkend den SAP-Freigabestatus seines Innenlebens.",
+    "quiz": [
+      {
+        "q": "Was beweist die Sichtbarkeit einer SAP-Klasse in ADT?",
+        "options": [
+          "Dass sie für jede Cloud-Nutzung freigegeben ist",
+          "Nur ihre technische Auffindbarkeit, nicht automatisch die passende Freigabe",
+          "Dass sie auch als Remote-API angeboten wird"
+        ],
+        "correct": 1,
+        "explain": "Die Freigabe muss für den vorgesehenen Gebrauch und die konkrete Systemversion geprüft werden."
+      },
+      {
+        "q": "Wie wird das frühere 3-Tier-Modell in der geprüften aktuellen SAP-Learning-Lektion eingeordnet?",
+        "options": [
+          "Als abgelöst zugunsten des Clean-Core-Level-Konzepts",
+          "Als einzig erlaubte aktuelle Klassifikation",
+          "Als Produktpreisstaffel"
+        ],
+        "correct": 0,
+        "explain": "Die Quelle nennt das frühere Modell sunset und erläutert die Level A bis D."
+      },
+      {
+        "q": "Was passiert mit der internen Abhängigkeit eines Wrappers?",
+        "options": [
+          "Sie wird durch den Klassennamen entfernt",
+          "Sie wird automatisch von SAP freigegeben",
+          "Sie bleibt zu bewerten und bei Upgrades zu berücksichtigen"
+        ],
+        "correct": 2,
+        "explain": "Die äußere Schnittstelle kann stabil gestaltet werden; das interne Upgrade-Risiko verschwindet dadurch nicht."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Exploring Clean Core Extensibility Best Practices",
+        "url": "https://learning.sap.com/courses/practicing-clean-core-extensibility-for-sap-s-4hana-cloud/explaining-extensibility-model-best-practices_e290f382-800e-40ef-a203-85a13115f487",
+        "access": "Frei lesbarer Volltext geprüft; enthält 2026 Level A–D und Ablösung des 3-Tier-Modells."
+      },
+      {
+        "title": "SAP Help: ABAP Cloud Development Model",
+        "url": "https://help.sap.com/docs/abap-cloud/abap-cloud/abap-cloud-in-nutshell",
+        "access": "Öffentliche Dokumentation; Help-SPA nicht vollständig per Fetch auslesbar, ergänzend offizieller Suchindextext geprüft."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m16",
+    "title": "Git-Review, abapGit und gCTS vom Produktionsimport trennen",
+    "minutes": 30,
+    "body": "Git versioniert Dateien; ABAP-Entwicklungsobjekte liegen zunächst im ABAP-Repository. Ein Werkzeug muss sie deshalb serialisieren und wieder einlesen. abapGit unterstützt den Austausch von ABAP-Quellobjekten mit Git. gCTS verbindet Git mit dem Change-and-Transport-Prozess. Ein Commit, eine erfolgreiche Aktivierung und ein freigegebener Produktionsimport sind unterschiedliche Ereignisse und benötigen jeweils klare Qualitätsregeln.\n\nFür SAP BTP ABAP Environment empfiehlt die aktuelle SAP-Dokumentation gCTS über Manage Software Components zum Transport innerhalb eines Global Accounts, beispielsweise von DEV nach TEST und PROD. abapGit ist dort für Quellcode-Import und -Export zwischen Entwicklungssystemen vorgesehen, auch über Global-Account-Grenzen hinweg. Diese konkrete BTP-Aussage darfst du nicht ungeprüft auf alle On-premise-gCTS-Landschaften übertragen. Ebenso ist das klassische SAP-GUI-Installationsverfahren von abapGit nicht automatisch das Verfahren einer verwalteten Cloud-Umgebung.\n\nBeispiel: Eine neue Rundungsregel wird in einer Hilfsklasse implementiert. Der Review soll die Fachänderung und passende ABAP-Unit-Tests zeigen, nicht tausend beiläufig formatierte Zeilen. Vor der Freigabe prüfst du Syntax, Tests und ATC-Ergebnisse. Der Commit dient der Nachvollziehbarkeit; der definierte Transportweg sorgt dafür, dass der freigegebene Stand geordnet in die nachfolgenden Systeme gelangt. Halte fest, welcher Stand verbindlich ist, statt SAP-System und Git unabhängig voneinander zu verändern.\n\nPraxisauftrag: Schreibe einen Release-Steckbrief für diese Rundungsänderung: betroffene Objekte, Commit, Transport beziehungsweise Softwarekomponente, Testergebnisse, Reviewer und Wiederanlaufplan. Ohne ABAP-System kannst du den Review-Ablauf mit einer lokalen Textdatei und Git üben; das simuliert aber weder einen ABAP-Import noch eine Aktivierung. Die SAP-Leitfäden und öffentlichen Repositories sind frei zugänglich. Unternehmenssysteme, Transportberechtigungen und gegebenenfalls Git-Hosting oder CI-Ressourcen werden dadurch nicht kostenlos bereitgestellt.",
+    "code": "# Lokale Git-Übung nach Export/Serialisierung; kein ABAP-Transport\ngit switch -c feature/rundungsregel\ngit diff\ngit add src/zcl_rounding.clas.abap\ngit diff --cached\ngit commit -m \"Rundungsregel mit Grenzfalltests ergänzen\"\n# Danach: Review und freigegebenen SAP-Transportprozess nutzen.\n# Die Beispieldatei muss im Übungsrepository bereits existieren.",
+    "codeLang": "bash",
+    "tip": "Ein Branch isoliert nicht automatisch Änderungen mehrerer Entwickler im selben ABAP-System. Zuständigkeiten, Objektänderungen und führenden Stand explizit organisieren.",
+    "quiz": [
+      {
+        "q": "Was garantiert ein erfolgreicher Git-Commit allein?",
+        "options": [
+          "Dass die Änderung versioniert wurde",
+          "Dass alle Objekte in PROD aktiviert sind",
+          "Dass ATC und ABAP Unit bestanden wurden"
+        ],
+        "correct": 0,
+        "explain": "Commit, Qualitätsprüfung, Aktivierung und Transport sind getrennte Schritte."
+      },
+      {
+        "q": "Welchen Zweck empfiehlt SAP für abapGit in der dokumentierten BTP-ABAP-Landschaft?",
+        "options": [
+          "Unkontrollierte Direktänderungen in PROD",
+          "Quellcode-Import/-Export zwischen Entwicklungssystemen",
+          "Ersetzen aller Berechtigungskonzepte"
+        ],
+        "correct": 1,
+        "explain": "Für den regulären Transport innerhalb eines Global Accounts empfiehlt die Quelle gCTS/Manage Software Components."
+      },
+      {
+        "q": "Warum sind kleine fachlich zusammenhängende Diffs hilfreich?",
+        "options": [
+          "Sie ersetzen die Fachprüfung",
+          "Sie verhindern jeden Merge-Konflikt",
+          "Sie erleichtern gezieltes Review und Fehlererkennung"
+        ],
+        "correct": 2,
+        "explain": "Kleine Diffs machen die Änderung verständlicher; Tests und technische Abstimmung bleiben erforderlich."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP-docs: Transport Mechanisms",
+        "url": "https://github.com/SAP-docs/btp-cloud-platform/blob/main/docs/30-development/transport-mechanisms-aa7f169.md",
+        "access": "Öffentlicher SAP-Dokumentationsvolltext geprüft; Aussagen gelten für BTP ABAP Environment."
+      },
+      {
+        "title": "SAP/styleguides: ABAP Code Reviews",
+        "url": "https://github.com/SAP/styleguides/blob/main/abap-code-review/ABAPCodeReview.md",
+        "access": "Frei lesbarer offizieller SAP-Leitfaden; manche Systembeispiele sind älter und releaseabhängig."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m19",
+    "title": "HTTP und JSON in ABAP Cloud sicher konsumieren",
+    "minutes": 35,
+    "body": "Ein REST-Aufruf hat mehrere Fehlergrenzen: Ziel und Authentifizierung können falsch konfiguriert sein, die HTTP-Anfrage kann scheitern, der Server kann einen fachlichen Fehler melden und die Antwort kann vom erwarteten Datenmodell abweichen. Behandle diese Grenzen getrennt. JSON ist ein Datenformat, kein Beweis für fachlich erfolgreiche Verarbeitung. Auch eine Antwort mit gültigem JSON kann einen Fehler enthalten; eine HTML-Fehlerseite darf nicht ungeprüft an den JSON-Parser gehen.\n\nIm ABAP-Cloud-Beispiel wird das Ziel über Communication Management konfiguriert. Der Outbound Service beschreibt den ausgehenden Dienst, das Communication Scenario bündelt die Kommunikationsanforderung, das Communication System das Ziel und das Communication Arrangement die konkrete Zuordnung. Der ABAP-Code ermittelt daraus eine Destination und erstellt einen HTTP-Client. Geheimnisse gehören nicht in den Quellcode oder in ein öffentliches Repository. Für Cloud-Entwicklung prüfst du die Freigabe der verwendeten Klassen im Zielsystem.\n\nBeispiel: Ein freigegebener Übungsdienst liefert {\"product\":\"P-17\",\"quantity\":8}. Du führst zunächst einen GET aus und akzeptierst nur erwartete erfolgreiche Statuscodes. Danach wird der JSON-Text in eine passende ABAP-Struktur übertragen und fachlich validiert: Ist die Produktkennung vorhanden, und liegt die Menge im erlaubten Bereich? Das folgende Lehrfragment zeigt HTTP und Mapping, setzt aber eine konfigurierte Kommunikationsvereinbarung voraus. Es ist nicht in einem ABAP-System ausgeführt worden; der breite Exception-Catch dient hier der Konsolendemonstration, nicht als fertige produktive Fehlerstrategie.\n\nPraxisauftrag: Teste drei Fälle: erfolgreiche Antwort, HTTP 401 und eine syntaktisch defekte JSON-Antwort. Dokumentiere pro Fall die zuständige Fehlergrenze und welche Informationen ohne Geheimnisse protokolliert werden dürfen. Ohne geeigneten Tenant übst du nur das Mapping mit einem lokalen JSON-String und beschreibst die HTTP-Fälle schriftlich. Der verlinkte SAP-Leitfaden ist frei lesbar, schließt die Durchführung im Trial aber ausdrücklich aus; versprich deshalb keine kostenlose Live-Integration auf jedem ABAP-Trial.",
+    "code": "\" Lehrfragment innerhalb von IF_OO_ADT_CLASSRUN~MAIN.\n\" Voraussetzung: Z_PRODUCT_CS mit Z_PRODUCT_OB_REST ist konfiguriert.\nTYPES: BEGIN OF ty_product,\n         product  TYPE string,\n         quantity TYPE i,\n       END OF ty_product.\nDATA result TYPE ty_product.\nTRY.\n    DATA(destination) = cl_http_destination_provider=>create_by_comm_arrangement(\n      comm_scenario = 'Z_PRODUCT_CS'\n      service_id = 'Z_PRODUCT_OB_REST' ).\n    DATA(client) = cl_web_http_client_manager=>create_by_http_destination( destination ).\n    client->get_http_request( )->set_header_field(\n      i_name = 'Accept' i_value = 'application/json' ).\n    DATA(response) = client->execute( if_web_http_client=>get ).\n    DATA(status) = response->get_status( ).\n    IF status-code < 200 OR status-code >= 300.\n      out->write( |HTTP-Fehler { status-code }| ).\n      RETURN.\n    ENDIF.\n    xco_cp_json=>data->from_string( response->get_text( )\n      )->write_to( REF #( result ) ).\n    IF result-product IS INITIAL OR result-quantity < 0.\n      out->write( 'Antwort fachlich ungueltig' ).\n      RETURN.\n    ENDIF.\n    out->write( result ).\n  CATCH cx_root.\n    out->write( 'Aufruf oder Verarbeitung fehlgeschlagen; sicher diagnostizieren.' ).\nENDTRY.",
+    "codeLang": "abap",
+    "tip": "Für den rein lokalen Mapping-Test ersetze den HTTP-Teil durch einen festen JSON-String. Das testet Datentypen, nicht Destination, Berechtigung, TLS oder Netzwerk.",
+    "quiz": [
+      {
+        "q": "Was prüfst du vor dem JSON-Mapping einer HTTP-Antwort?",
+        "options": [
+          "Nur die Länge des Klassennamens",
+          "Status und erwarteten Antworttyp",
+          "Ob der Code schon committed ist"
+        ],
+        "correct": 1,
+        "explain": "Transportfehler und ungeeignete Antwortinhalte müssen vor dem Mapping erkannt werden."
+      },
+      {
+        "q": "Wo sollen Zugangsdaten für einen konfigurierten ausgehenden Dienst liegen?",
+        "options": [
+          "In geeigneter geschützter Kommunikationskonfiguration",
+          "Als Klartextkonstante im Quelltext",
+          "In einer öffentlichen Quizantwort"
+        ],
+        "correct": 0,
+        "explain": "Kommunikationsverwaltung und Berechtigungskonzept trennen Geheimnisse vom Anwendungscode."
+      },
+      {
+        "q": "Kann das verlinkte SAP-REST-Tutorial laut seinen Voraussetzungen auf einem Trial durchgeführt werden?",
+        "options": [
+          "Ja, jede Variante funktioniert immer",
+          "Nur wenn man den HTTP-Status ignoriert",
+          "Nein, es schließt Trial ausdrücklich aus"
+        ],
+        "correct": 2,
+        "explain": "Frei lesbare Anleitung bedeutet nicht, dass ihre Systemvoraussetzungen im kostenlosen Trial erfüllt sind."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Developers: Call an External API and Parse the Response",
+        "url": "https://developers.sap.com/tutorials/abap-environment-external-api/",
+        "access": "Volltext frei gelesen; Voraussetzung ausdrücklich kein Trial, geeignete Laufzeit und Kommunikationsrechte erforderlich."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m19",
+    "title": "OData mit Metadaten und Service Consumption Model verstehen",
+    "minutes": 35,
+    "body": "Ein OData-Service ist mehr als ein beliebiger JSON-Endpunkt. Er beschreibt Entitäten und Operationen über Metadaten und bietet standardisierte Abfrageoptionen. Bei der Konsumierung musst du OData-Version, Service-Root, Entity Sets und Datentypen kennen. JSON ist dabei eine mögliche Nutzdatenrepräsentation; das EDMX-Dokument unter $metadata beschreibt dagegen den Vertrag und wird typischerweise als XML verarbeitet. Die Erzeugung dieses Vertrags und das Anbieten eines RAP-Services sind von dessen externer Konsumierung zu unterscheiden.\n\nIn ADT kannst du aus passenden Metadaten ein Service Consumption Model erzeugen. Daraus entstehen Proxy-Artefakte und typisierte Beispiele, die das manuelle Zusammenbauen und Interpretieren von Anfragen reduzieren. Die tatsächliche Verbindung erfordert weiterhin Destination und Kommunikationskonfiguration. Ein generierter Proxy beseitigt weder Berechtigungsprobleme noch unterschiedliche OData-Versionen oder spätere Änderungen des entfernten Vertrags. Verwende die für dein System generierten Typen und Methoden, statt einen fremden Modellnamen unverändert zu kopieren.\n\nBeispiel: Eine Produktübersicht benötigt nur Kennung und Namen für zehn Produkte. Eine gezielte Anfrage begrenzt die Auswahl mit $select und $top. Für wiederholbare Seitennavigation braucht es eine geeignete Ordnung und Beachtung der vom Service angebotenen Paging-Regeln; bei servergesteuertem Paging verfolgst du die bereitgestellten Fortsetzungsinformationen. Für spätere Änderungen prüfst du, ob der Service ETags unterstützt und welche Bedingungen für konkurrierende Updates gelten. Ein Status 412 kann auf eine nicht mehr erfüllte Vorbedingung hinweisen und ist kein Anlass für blindes Überschreiben.\n\nPraxisauftrag: Untersuche ein bereitgestelltes EDMX, identifiziere ein Entity Set und seine Schlüssel und entwirf die untenstehende begrenzte Leseanfrage. In einem geeigneten System erzeugst du anschließend das Consumption Model und vergleichst die generierten Typen mit dem Vertrag. Ohne System bleibt dies eine Metadaten- und Request-Übung. SAPs verlinkte Mission setzt zwei geeignete ABAP-Systeme voraus, ist nicht allein ausführbar und schließt Trial ausdrücklich aus. Ihre Texte sind kostenlos zugänglich, die notwendigen Laufzeiten damit aber nicht zugesichert.",
+    "code": "GET <Service-Root>/Products?$select=Product,ProductName&$top=10&$orderby=Product HTTP/1.1\nAccept: application/json\n\n# Lehrschema: Namen und unterstuetzte Query-Optionen aus $metadata\n# und API-Dokumentation pruefen, kein direkt ausfuehrbarer Endpunkt.\n# Metadatenanfrage:\nGET <Service-Root>/$metadata HTTP/1.1\nAccept: application/xml",
+    "codeLang": "http",
+    "tip": "OData V2 und V4 nicht blind mischen. Modellgenerator, Proxy und entfernter Dienst müssen zusammenpassen; ein Consumption Model ist keine automatische API-Freigabe.",
+    "quiz": [
+      {
+        "q": "Wozu dient $metadata beim Service Consumption Model?",
+        "options": [
+          "Zum Ableiten des Dienstvertrags und der Proxy-Artefakte",
+          "Zum Speichern des Klartextpassworts",
+          "Zum Umgehen der Autorisierung"
+        ],
+        "correct": 0,
+        "explain": "Die Metadaten beschreiben unter anderem Entitäten, Schlüssel und Typen."
+      },
+      {
+        "q": "Was bewirkt $select in einer unterstützten OData-Abfrage?",
+        "options": [
+          "Es definiert die Systemlandschaft",
+          "Es begrenzt die angefragten Eigenschaften",
+          "Es stellt ein Deployment nach PROD bereit"
+        ],
+        "correct": 1,
+        "explain": "$select dient der gezielten Auswahl von Eigenschaften; die API muss die Option unterstützen."
+      },
+      {
+        "q": "Wie reagierst du sinnvoll auf eine beim Ändern gemeldete veraltete ETag-Vorbedingung?",
+        "options": [
+          "Immer denselben Request endlos senden",
+          "Die Vorbedingung ohne Fachprüfung entfernen",
+          "Den aktuellen Stand laden und den Konflikt fachlich behandeln"
+        ],
+        "correct": 2,
+        "explain": "Optimistische Konkurrenzkontrolle soll verhindern, dass fremde Änderungen unbeabsichtigt überschrieben werden."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Developers: Prepare Consuming System and Service Consumption Model",
+        "url": "https://developers.sap.com/tutorials/abap-environment-create-service-consumption-model/",
+        "access": "Öffentlicher Volltext geprüft; kein Trial, Teil einer Mission mit zwei Systemen, nicht standalone ausführbar."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m19",
+    "title": "SAP Integration Suite: Integrationsvertrag, Fehlerfälle und realistische Lernzugänge",
+    "minutes": 30,
+    "body": "SAP Integration Suite ist eine Integrationsplattform und nicht bloß eine ABAP-HTTP-Bibliothek. Eine Integrationsschicht ist besonders dann interessant, wenn Nachrichten zwischen Systemen vermittelt, Formate abgebildet und Schnittstellen zentral betrieben werden sollen. Ein direkter ABAP-Aufruf kann für einen eng begrenzten Bedarf einfacher sein. Die Entscheidung sollte sich an Systemanzahl, Transformation, Betriebsverantwortung und Fehlerbehandlung orientieren, nicht nur daran, welcher Dienst im Cockpit sichtbar ist. Einzelne Funktionen hängen vom Serviceplan ab.\n\nBeispiel: Ein ABAP-System liefert eine Liefermeldung mit Belegnummer und Menge an ein Lager eines anderen Herstellers. Du definierst zunächst einen Integrationsvertrag: Welche Felder sind Pflicht, welche Mengeneinheit gilt und welche Kennung erlaubt es, wiederholt eintreffende Nachrichten zu erkennen? Eine erfolgreiche HTTP-Annahme bedeutet nicht zwingend eine bereits erfolgte Lagerbuchung. Entscheide deshalb, ob die Antwort nur den Empfang bestätigt oder einen fachlichen Endzustand meldet. Bei asynchroner Verarbeitung brauchst du einen getrennten Status- oder Fehlerkanal.\n\nFür Fehlerfälle legst du Regeln fest: Ein ungültiger Artikel wird fachlich geklärt statt unverändert wiederholt. Ein temporärer Ausfall kann nach einer begrenzten Wartezeit erneut versucht werden. Ob eine Wiederholung sicher ist, hängt von der Operation und dem Vertrag des Empfängers ab; eine eigene requestId garantiert noch keine Idempotenz. Im Monitoring sollen Korrelation und Diagnose möglich sein, ohne vollständige sensible Nutzdaten oder Zugangsdaten ungeschützt abzulegen. Die konkrete Umsetzung muss mit den im Tenant verfügbaren Funktionen abgeglichen werden.\n\nPraxisauftrag: Erstelle aus der Nachricht unten ein Mapping ins Lagerformat und eine Tabelle für Erfolg, Dublette, Fachfehler und temporären Ausfall. Ohne Tenant ist das eine vollständig durchführbare Vertragsübung. Für Live-Übungen prüfst du das Angebot neu: SAP bewirbt einen 30-Tage-Basic-Trial mit gemeinsamem Tenant und begrenzten Rechten; der separate Integration-Suite-Free-Tier-Plan läuft laut offizieller Dokumentation 90 Tage und verliert bei erneuter Aktivierung die bisherigen Inhalte. Free Tier setzt einen geeigneten kommerziellen BTP-Account und Entitlements voraus. Kostenlose Lerntexte sind weder eine produktive Lizenz noch eine Zusage unbegrenzter Gratislaufzeit.",
+    "code": "{\n  \"requestId\": \"DEMO-2026-0042\",\n  \"delivery\": \"D-1042\",\n  \"items\": [\n    {\"product\": \"P-17\", \"quantity\": 8, \"unit\": \"EA\"}\n  ]\n}\n",
+    "codeLang": "json",
+    "tip": "Vor einer Free-Tier-Provisionierung Vertrag, Plan, Region und Limits prüfen. Vor Ablauf Inhalte sichern; nicht versehentlich einen kostenpflichtigen Plan aktivieren.",
+    "quiz": [
+      {
+        "q": "Was macht eine requestId allein aus einer Buchungsoperation?",
+        "options": [
+          "Automatisch eine idempotente Operation",
+          "Noch keine idempotente Operation ohne passende Empfängerlogik",
+          "Eine kostenlose Integration-Suite-Instanz"
+        ],
+        "correct": 1,
+        "explain": "Wiederholungssicherheit muss durch den vereinbarten und implementierten Umgang mit der Kennung entstehen."
+      },
+      {
+        "q": "Wie unterscheiden sich die geprüften kostenlosen Angebote?",
+        "options": [
+          "30-Tage-Basic-Trial und 90-Tage-Free-Plan sind unterschiedliche Angebote",
+          "Alle Angebote sind unbegrenzt identisch",
+          "Free Tier bedeutet immer kein Vertragsverhältnis"
+        ],
+        "correct": 0,
+        "explain": "Die Produktseite beschreibt den Basic-Trial; die Dokumentation beschreibt einen separaten Free-Tier-Plan mit anderen Voraussetzungen."
+      },
+      {
+        "q": "Was ist vor erneuter Aktivierung des abgelaufenen Free-Plans besonders wichtig?",
+        "options": [
+          "Zugangsdaten in Git veröffentlichen",
+          "Alle Fehler ohne Begrenzung wiederholen",
+          "Integrationsinhalt rechtzeitig sichern oder geeigneten Planwechsel prüfen"
+        ],
+        "correct": 2,
+        "explain": "Laut Dokumentation gehen bisherige Inhalte nach Ablauf und erneuter Aktivierung verloren."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP: Integration Suite Trial",
+        "url": "https://www.sap.com/products/technology-platform/integration-suite/trial.html",
+        "access": "Öffentliche Produktseite geprüft; 30-Tage-Basic-Trial mit Teilumfang und begrenzten Rechten, Stand November 2026."
+      },
+      {
+        "title": "SAP-docs: Using Free Service Plans",
+        "url": "https://github.com/SAP-docs/btp-integration-suite/blob/main/docs/ISuite/10-InitialSetup/using-free-service-plans-ddf6692.md",
+        "access": "Offizieller öffentlicher Dokumentationsvolltext geprüft; 90 Tage, erneute Aktivierung mit Inhaltsverlust, Backup nötig."
+      },
+      {
+        "title": "SAP Help: Subscribing to Free Tier",
+        "url": "https://help.sap.com/docs/integration-suite/sap-integration-suite/subscribing-to-free-tier",
+        "access": "Öffentliche Help-Dokumentation; offizieller Indextext nennt CPEA/PAYG und Free-Entitlement als Voraussetzungen."
+      }
+    ]
+  },
+  {
+    "moduleId": "abap-m17",
+    "title": "SAP S/4HANA verstehen: ERP, Datenbank und Oberflächen",
+    "minutes": 15,
+    "body": "SAP S/4HANA ist ein ERP-System für zusammenhängende Geschäftsprozesse. SAP HANA ist die zugrunde liegende Datenbanktechnologie. SAP GUI und SAP Fiori bezeichnen Zugangs- und Oberflächenwelten, während ADT die Entwicklungswerkzeuge in Eclipse bereitstellt. Diese Begriffe sind keine austauschbaren Produktnamen.\n\nBeispiel: Ein Auftrag wird fachlich im Anwendungssystem verarbeitet. Die Geschäftslogik prüft Regeln und Berechtigungen; die Datenbank speichert die Daten. Eine Fiori-App konsumiert einen dafür bereitgestellten Service. Dass ein Feld auf einer Seite verborgen ist, ersetzt deshalb keine Berechtigungsprüfung im Backend.\n\nDie konkrete Edition, das Release, die Sprachversion und freigegebene APIs bestimmen, welche Erweiterungen möglich sind. Eine Anleitung für ein klassisches On-premise-System lässt sich nicht unverändert auf die Public Cloud übertragen. Auch ein vorhandener SAP-GUI-Zugang bedeutet nicht, dass eigene Entwicklung oder Debugging erlaubt ist.\n\nÜbung: Zeichne für die Änderung einer Auftragsbeschreibung vier Ebenen: Oberfläche, Service, Geschäftslogik und Datenhaltung. Markiere, wo du einen Fehler suchen würdest, wenn der Service eine fachliche Ablehnung meldet. Schreibe anschließend Edition, Release, Entwicklungsberechtigung und erlaubte APIs auf, die du vor einer praktischen Umsetzung klären musst.",
+    "tip": "Lerne zuerst die fachliche und technische Zuständigkeit jeder Ebene. Ein Fiori-Problem ist nicht automatisch ein Datenbankproblem.",
+    "quiz": [
+      {
+        "q": "Welche Zuordnung ist richtig?",
+        "options": [
+          "HANA ist der Eclipse-Editor",
+          "S/4HANA ist das ERP-System; HANA ist die Datenbanktechnologie",
+          "Fiori ist die ABAP-Sprachversion"
+        ],
+        "correct": 1,
+        "explain": "ERP, Datenbank, Oberfläche und Entwicklungswerkzeug haben unterschiedliche Aufgaben."
+      },
+      {
+        "q": "Warum muss vor einer Erweiterung die Systemedition geklärt werden?",
+        "options": [
+          "Weil alle Editionen dieselben Erweiterungsrechte haben",
+          "Nur für die Farbe der Oberfläche",
+          "Weil Entwicklungsmodell, verfügbare APIs und Zugriffswege variieren"
+        ],
+        "correct": 2,
+        "explain": "Edition und Release bestimmen unterstützte Erweiterungs- und Entwicklungsoptionen."
+      }
+    ],
+    "sources": [
+      {
+        "title": "SAP Learning: Understanding SAP GUI",
+        "url": "https://learning.sap.com/courses/project-logistics-control-in-sap-s-4hana/understanding-sap-gui",
+        "access": "Text frei gelesen; SAP GUI und SAP Logon sind Frontendzugänge. Reale Anmeldung braucht Systemzugang. Verlinkte Simulation nicht separat getestet."
+      },
+      {
+        "title": "SAP Learning: Introduction to SAP S/4HANA",
+        "url": "https://learning.sap.com/courses/business-processes-in-sap-s-4hana-portfolio-and-project-management/introduction-to-sap-s-4hana",
+        "access": "Öffentlich gelesen; für die stabile Unterscheidung ERP, Datenbank und Oberfläche geeignet. Enthält ältere Marketing- und Releaseaussagen, die nicht als aktuelle Detailreferenz übernommen werden."
+      }
+    ]
+  }
+]

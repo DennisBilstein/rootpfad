@@ -1,0 +1,14 @@
+.admin-shell { max-width:1500px; margin:auto; padding:clamp(16px,4vw,48px); }
+.admin-actions, #policy { display:flex; flex-wrap:wrap; gap:16px; align-items:end; }
+#policy label { display:flex; flex-direction:column; gap:6px; }
+#policy input { min-height:44px; padding:8px; background:var(--surface); color:var(--text); border:1px solid var(--border-strong); border-radius:6px; font:inherit; }
+.admin-table-wrap { overflow-x:auto; margin:24px 0; }
+table { width:100%; border-collapse:collapse; background:var(--surface); }
+td,th { padding:14px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+td small { display:block; color:var(--text-2); }
+.traffic { display:inline-flex; align-items:center; gap:8px; font-weight:600; }
+.traffic::before { content:''; width:12px; height:12px; border:1px solid currentColor; border-radius:50%; background:currentColor; flex-shrink:0; }
+.traffic.green { color:var(--success); } .traffic.yellow { color:var(--accent2); } .traffic.red { color:var(--danger); } .traffic.gray { color:var(--text-dim); }
+#invitation { overflow-wrap:anywhere; }
+#rpAccountBar { margin:16px 0; padding:12px; border:1px solid var(--border); border-radius:8px; }
+#rpAccountBar p { font-size:.8rem; margin:6px 0; }

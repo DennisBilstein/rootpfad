@@ -7,10 +7,15 @@
     "test": "playwright test",
     "build:experts": "node scripts/build-experts.mjs",
     "build": "node scripts/build-experts.mjs --cached",
-    "dev": "python3 -m http.server 5173 --bind 127.0.0.1",
-    "start": "python3 -m http.server 5173 --bind 127.0.0.1"
+    "dev": "node server.mjs",
+    "start": "node server.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.65.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.3"
   }
 }

@@ -1,0 +1,2713 @@
+m52-l1 Deine Werkstatt: PHP installieren und das erste Skript
+ Bevor du programmierst, brauchst du drei Dinge:  PHP selbst , einen  Editor  und ein  Terminal . Nimm dir für diese Lektion Zeit – eine sauber eingerichtete Werkstatt erspart dir später viel Frust.    Schritt 1 – PHP installieren.  Für Laravel empfiehlt das Team hinter dem Framework  Laravel Herd  (macOS und Windows): Es bringt PHP, Composer und einen lokalen Webserver in einem Paket mit. Alternativ installierst du PHP auf dem Mac mit Homebrew ( brew install php ), unter Linux über die Paketverwaltung.    Schritt 2 – prüfen.  Öffne ein neues Terminal und tippe  php -v . Erscheint eine Versionsnummer ab 8.3, ist alles bereit. Erscheint „command not found“, ist PHP nicht im Suchpfad – meistens hilft es, das Terminal neu zu öffnen.    Schritt 3 – Editor.  VS Code mit der Erweiterung  PHP Intelephense  ist kostenlos und gut. PhpStorm ist die Profi-IDE und für Auszubildende über das JetBrains-Bildungsprogramm meist kostenlos.    Schritt 4 – das erste Skript.  Lege einen Ordner an, darin eine Datei  hallo.php , und führe sie mit  php hallo.php  im Terminal aus.   Probier es aus  Ändere die Zeile mit  echo  so, dass dein Name ausgegeben wird. Lösche dann absichtlich ein Semikolon und führe das Skript erneut aus. Lies die Fehlermeldung genau: Welche Zeile nennt sie?    Typischer Fehler  „Parse error: syntax error, unexpected …“ nennt oft die Zeile  nach  dem eigentlichen Fehler. PHP merkt erst dort, dass etwas fehlt. Schau also immer auch eine Zeile weiter oben nach.  
+CODE
+# Version pruefen
+php -v
+# PHP 8.4.x (cli) ...
+
+# Ordner anlegen und hineinwechseln
+mkdir -p ~/php-lernen && cd ~/php-lernen
+
+# Skript ausfuehren
+php hallo.php
+
+# oder als Webseite: http://localhost:8000/hallo.php
+php -S localhost:8000
+<?php
+// hallo.php
+declare(strict_types=1);
+
+// Waehrend des Lernens: alle Fehler sichtbar machen
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
+$name = 'Ada';
+echo "Hallo, $name!" . PHP_EOL;
+echo 'Heute ist ' . date('d.m.Y') . PHP_EOL;
+
+m52-l2 Text ausgeben: echo, Strings und Verkettung
+ Fast jedes Programm gibt Text aus. In PHP heißt Text  String . Es gibt zwei Schreibweisen, und der Unterschied ist wichtiger, als er aussieht:     Schreibweise  Variablen werden ersetzt?  Escape-Sequenzen wie \n  Beispiel      'einfach'   nein  nur  \'  und  \\    'Preis: $preis'  bleibt wörtlich      "doppelt"   ja  ja:  \n ,  \t ,  \" ,  \$    "Preis: $preis"  setzt den Wert ein     Strings verbindest du mit dem  Punkt :  'Hallo ' . $name . Mit  .=  hängst du an eine vorhandene Variable an. Für komplexere Ausdrücke in doppelten Anführungszeichen setzt du geschweifte Klammern:  "Summe: {$rechnung['summe']} EUR" .   Für sauber formatierte Ausgaben gibt es  sprintf : Platzhalter im Text, Werte dahinter.  %s  steht für einen String,  %d  für eine Ganzzahl,  %.2f  für eine Kommazahl mit zwei Nachkommastellen,  %05d  füllt mit Nullen auf.   Für längeren Text mit vielen Zeilen ist  Heredoc  praktisch:  &lt;&lt;&lt;TEXT … TEXT;  verhält sich wie doppelte Anführungszeichen. Die Variante mit Anführungszeichen um den Namen (Nowdoc,  &lt;&lt;&lt;'TEXT' ) wie einfache.   Probier es aus  Schreibe eine Zeile, die „Artikel 007 kostet 4,90 EUR“ ausgibt – mit  sprintf , der Artikelnummer als Zahl  7  und dem Preis als  4.9 . Tipp:  %03d  und  number_format .    Typischer Fehler  Mit  +  statt  .  rechnet PHP, statt zu verbinden:  '3' + '4'  ergibt  7 , nicht  '34' . Bei Texten ohne Zahl bricht PHP 8 sogar mit einem Fehler ab.  
+CODE
+<?php
+declare(strict_types=1);
+
+$vorname = 'Ada';
+$punkte  = 87;
+$quote   = 0.8734;
+
+echo 'Hallo $vorname' . PHP_EOL;             // Hallo $vorname
+echo "Hallo $vorname" . PHP_EOL;             // Hallo Ada
+echo 'Hallo ' . $vorname . '!' . PHP_EOL;    // Hallo Ada!
+
+$zeile = 'Punkte: ';
+$zeile .= $punkte;                           // anhaengen
+echo $zeile . PHP_EOL;                       // Punkte: 87
+
+printf("%s hat %d Punkte (%.1f %%)\n", $vorname, $punkte, $quote * 100);
+// Ada hat 87 Punkte (87.3 %)
+
+echo sprintf('Bestellung %05d', 42) . PHP_EOL;   // Bestellung 00042
+
+$mail = <<<TEXT
+Hallo $vorname,
+
+dein Ergebnis: $punkte Punkte.
+TEXT;
+echo $mail;
+
+
+m52-l3 Zahlen und Rechnen ohne Überraschungen
+ PHP kennt zwei Zahlentypen:  int  für Ganzzahlen und  float  für Kommazahlen. Die Grundrechenarten funktionieren wie erwartet – mit ein paar Eigenheiten, die du einmal bewusst gesehen haben solltest:     Ausdruck  Ergebnis  Warum      10 / 5    2  (int)  geht glatt auf      10 / 4    2.5  (float)   /  liefert bei Rest eine Kommazahl      intdiv(10, 4)    2   ganzzahlige Division, schneidet ab      10 % 4    2   Rest der Division (Modulo)      -7 % 3    -1   das Vorzeichen folgt dem linken Operanden      2 ** 10    1024   Potenz      round(2.5)    3   kaufmännisch: .5 wird von der Null weg gerundet      0.1 + 0.2 == 0.3    false   Kommazahlen sind binär nur angenähert     Der letzte Punkt ist kein PHP-Fehler, sondern betrifft jede Sprache, die Gleitkommazahlen nach IEEE 754 speichert. Für Geld gilt deshalb: in  Cent als int  rechnen und erst bei der Ausgabe formatieren.   Zur Ausgabe in deutscher Schreibweise nutzt du  number_format($zahl, 2, ',', '.')  – Dezimalkomma und Tausenderpunkt. Kurzschreibweisen sparen Tipparbeit:  $i++  erhöht um eins,  $summe += $preis  addiert.   Probier es aus  Berechne den Bruttopreis von 3 Artikeln zu je 19,99 EUR netto bei 19 % MwSt. – einmal mit Floats und einmal in Cent. Gib beide Ergebnisse mit  var_dump  aus und vergleiche.    Typischer Fehler   if ($a + $b == 0.3)  mit Kommazahlen ist fast immer falsch. Vergleiche Floats mit einer Toleranz:  abs(($a + $b) - 0.3) &lt; 0.00001  – oder rechne gleich in Ganzzahlen.  
+CODE
+<?php
+declare(strict_types=1);
+
+var_dump(10 / 5);        // int(2)
+var_dump(10 / 4);        // float(2.5)
+var_dump(intdiv(10, 4)); // int(2)
+var_dump(10 % 4);        // int(2)
+
+// Warenkorb in Cent - exakt
+$preisCent = 1999;
+$menge     = 3;
+$nettoCent = $preisCent * $menge;                       // 5997
+$bruttoCent = (int) round($nettoCent * 1.19);           // 7136
+
+echo number_format($bruttoCent / 100, 2, ',', '.') . ' EUR' . PHP_EOL;   // 71,36 EUR
+
+// Gleitkomma-Falle
+var_dump(0.1 + 0.2 == 0.3);                    // bool(false)
+var_dump(abs((0.1 + 0.2) - 0.3) < 0.00001);    // bool(true)
+
+$zaehler = 0;
+$zaehler++;           // 1
+$zaehler += 5;        // 6
+echo $zaehler . PHP_EOL;
+
+
+m52-l4 Entscheidungen: if, else und Wahrheitswerte
+ Mit  if  entscheidet dein Programm. Die Bedingung in den Klammern wird zu  true  oder  false  ausgewertet; bei true läuft der Block in geschweiften Klammern.   Vergleiche liefern Wahrheitswerte:  ===  (gleich und gleicher Typ),  !== ,  &lt; ,  &gt; ,  &lt;= ,  &gt;= . Verknüpft werden sie mit  &amp;&amp;  (und),  ||  (oder) und  !  (nicht).   Spannend wird es, wenn kein Boolean in der Bedingung steht. Dann wandelt PHP den Wert um – und diese Tabelle solltest du kennen:     wird zu false  wird zu true (Auswahl)      false ,  0 ,  0.0   jede andere Zahl, auch  -1       ""  (leerer String) und  "0"    "0.0" ,  " " ,  "false"       []  (leeres Array)   [0]  – ein Array mit Inhalt      null   jedes Objekt     Der String  "0"  ist der Klassiker: Eine Eingabe „0“ aus einem Formular gilt als false. Prüfe deshalb lieber ausdrücklich, was du meinst:  if ($eingabe !== '')  statt  if ($eingabe) .   Viele verschachtelte ifs lassen sich mit  frühem Return  (Guard Clause) entwirren: Erst die Sonderfälle abfangen und sofort zurückkehren, dann folgt der Normalfall ohne Einrückung.   Probier es aus  Schreibe eine Funktion  note(int $punkte): string , die ab 92 „sehr gut“, ab 81 „gut“, ab 67 „befriedigend“, ab 50 „ausreichend“ und darunter „nicht bestanden“ liefert – einmal mit if/elseif, einmal mit frühen Returns.    Typischer Fehler   if ($alter = 18)  ist eine  Zuweisung , kein Vergleich – die Bedingung ist dann immer wahr. Manche schreiben deshalb Vergleiche andersherum:  if (18 === $alter) . Ein fehlendes Gleichheitszeichen erzeugt so einen Fehler statt eines stillen Bugs.  
+CODE
+<?php
+declare(strict_types=1);
+
+function versandkosten(int $warenwertCent, string $land): int
+{
+    // Guard Clauses: Sonderfaelle zuerst
+    if ($warenwertCent <= 0) {
+        throw new InvalidArgumentException('Leerer Warenkorb');
+    }
+    if ($land !== 'DE') {
+        return 1490;                  // Ausland pauschal
+    }
+    if ($warenwertCent >= 5000) {
+        return 0;                     // ab 50 EUR versandkostenfrei
+    }
+    return 495;
+}
+
+echo versandkosten(2000, 'DE') . PHP_EOL;   // 495
+echo versandkosten(6000, 'DE') . PHP_EOL;   // 0
+echo versandkosten(6000, 'AT') . PHP_EOL;   // 1490
+
+// Wahrheitswerte
+var_dump((bool) '0');     // bool(false)
+var_dump((bool) '0.0');   // bool(true)
+var_dump((bool) []);      // bool(false)
+var_dump((bool) [0]);     // bool(true)
+
+
+m52-l5 Schleifen Schritt für Schritt
+ Schleifen wiederholen Code. PHP hat vier Arten, und jede hat ihren Einsatzzweck:     Schleife  Wann  Mindestdurchläufe      for   Anzahl ist vorher bekannt  0      while   wiederholen, solange eine Bedingung gilt  0      do … while   erst ausführen, dann prüfen  1      foreach   jedes Element eines Arrays  0     Die  for -Schleife hat drei Teile, getrennt durch Semikolons:  Start  ( $i = 1 ),  Bedingung  ( $i &lt;= 10 ) und  Schritt  ( $i++ ). Lies sie laut: „Beginne bei 1, solange i höchstens 10 ist, erhöhe nach jedem Durchlauf um 1.“   Mit  break  verlässt du eine Schleife sofort, mit  continue  springst du zum nächsten Durchlauf. Beides ist nützlich, aber sparsam einzusetzen – zu viele Sprünge machen Schleifen schwer lesbar.   Der wichtigste Werkzeugkasten für Schleifen ist der  Trockenlauf : Lege eine Tabelle mit einer Spalte pro Variable an und gehe Durchlauf für Durchlauf durch. Genau so prüft auch die AP1 Algorithmen.   Probier es aus  Lass die Schleife unten (Einmaleins) im Kopf laufen und schreibe die ersten vier Ausgaben auf. Ändere sie dann so, dass nur gerade Ergebnisse ausgegeben werden – mit  continue .    Typischer Fehler  Endlosschleife: Wird die Variable in der Bedingung nie verändert ( while ($i &lt; 10)  ohne  $i++ ), läuft das Skript, bis PHP es nach  max_execution_time  abbricht – in der Konsole sogar unbegrenzt. Abbrechen mit  Strg + C .  
+CODE
+<?php
+declare(strict_types=1);
+
+// for: das kleine Einmaleins der 7
+for ($i = 1; $i <= 10; $i++) {
+    echo "7 x $i = " . (7 * $i) . PHP_EOL;
+}
+
+// while: Zinseszins - wie viele Jahre bis zur Verdopplung?
+$kapital = 1000.0;
+$jahre   = 0;
+while ($kapital < 2000) {
+    $kapital *= 1.05;
+    $jahre++;
+}
+echo "Verdoppelt nach $jahre Jahren" . PHP_EOL;     // 15
+
+// do-while: mindestens einmal
+do {
+    $wurf = random_int(1, 6);
+    echo "Gewuerfelt: $wurf" . PHP_EOL;
+} while ($wurf !== 6);
+
+// foreach mit Schluessel und Wert, break und continue
+$lager = ['Kabel' => 12, 'Maus' => 0, 'Monitor' => 3, 'Defekt' => -1];
+foreach ($lager as $artikel => $bestand) {
+    if ($bestand < 0) {
+        break;                         // Datenfehler: abbrechen
+    }
+    if ($bestand === 0) {
+        continue;                      // ausverkauft: ueberspringen
+    }
+    echo "$artikel: $bestand Stueck" . PHP_EOL;
+}
+
+
+m42-l1 Was PHP ist und wie ein Skript läuft
+  PHP  ist eine serverseitige Skriptsprache. Der Browser sieht nie PHP-Code, sondern nur das, was das Skript ausgibt – meist HTML oder JSON. Rund drei Viertel aller Websites mit bekannter Serversprache laufen mit PHP, darunter WordPress, Shopware, Magento und alles, was mit Laravel gebaut ist.   Der Ablauf einer Anfrage ist immer gleich:    Der Browser schickt einen  HTTP-Request  an den Webserver (nginx, Apache).   Der Webserver reicht ihn an  PHP-FPM  weiter, das ein Skript startet.   Das Skript läuft von oben nach unten, schreibt eine Antwort und  endet .   Danach ist der gesamte Speicher wieder frei – der nächste Request beginnt bei null.    Dieses  Share-nothing-Prinzip  ist der wichtigste Unterschied zu Java oder Node.js: Variablen überleben keinen Request. Was bleiben soll, muss in Datenbank, Session, Cache oder Datei.   PHP-Code steht zwischen  &lt;?php  und  ?&gt; . In reinen PHP-Dateien lässt man das schließende  ?&gt;  weg, damit kein versehentliches Leerzeichen am Dateiende als Ausgabe herausrutscht. Zum Ausprobieren brauchst du keinen Webserver:  php -S localhost:8000  startet einen eingebauten Entwicklungsserver,  php datei.php  führt ein Skript in der Konsole aus und  php -a  öffnet eine interaktive Shell. 
+CODE
+<?php
+// hallo.php  -  starten mit:  php -S localhost:8000
+declare(strict_types=1);
+
+$name = $_GET['name'] ?? 'Welt';
+$stunde = (int) date('G');
+
+$gruss = $stunde < 12 ? 'Guten Morgen' : 'Hallo';
+
+echo "<h1>{$gruss}, " . htmlspecialchars($name) . "!</h1>";
+echo '<p>PHP-Version: ' . PHP_VERSION . '</p>';
+
+// Aufruf im Browser:  http://localhost:8000/hallo.php?name=Ada
+
+
+m42-l2 Variablen, Typen und Vergleiche
+ Variablen beginnen mit  $  und brauchen keine Deklaration. PHP ist  dynamisch typisiert : Der Typ hängt am Wert, nicht an der Variablen. Die skalaren Typen sind  int ,  float ,  string  und  bool , dazu kommen  array ,  object ,  null  und  callable .     Operator  Bedeutung  Beispiel      ==   gleich nach Typumwandlung   "1" == 1  → true      ===   gleich  und  gleicher Typ   "1" === 1  → false      .   Strings verketten   "a" . "b"  → "ab"      ??   Null-Koaleszenz: links, wenn nicht null   $x ?? 'Standard'       ?-&gt;   Nullsafe: Aufruf nur, wenn nicht null   $user?-&gt;name       &lt;=&gt;   Raumschiff: -1, 0 oder 1   2 &lt;=&gt; 5  → -1     Die Regel für Vergleiche ist einfach:  Immer  ===  und  !==  , außer du willst bewusst umwandeln. Mit  ==  gelten zum Beispiel  "10" == "1e1"  und  100 == "1e2"  als wahr, weil beide Seiten als Zahlen gelesen werden.   Strings in  doppelten Anführungszeichen  ersetzen Variablen ( "Hallo $name" ), solche in einfachen nicht. Für längere Texte gibt es  Heredoc  ( &lt;&lt;&lt;TXT ).   Mit  declare(strict_types=1);  wirft PHP einen  TypeError , wenn du einer Funktion mit  int -Parameter den String  "5"  übergibst. Ohne die Zeile wird still umgewandelt – und aus  "5 Äpfel"  wird mit einer Warnung die Zahl 5. 
+CODE
+<?php
+declare(strict_types=1);
+
+$preis  = 19.99;          // float
+$menge  = 3;              // int
+$artikel = 'Kabel';       // string
+$aktiv  = true;           // bool
+$rabatt = null;           // null
+
+$summe = $preis * $menge;                 // 59.97
+$text  = "{$menge}x {$artikel}: " . number_format($summe, 2, ',', '.') . ' EUR';
+
+$prozent = $rabatt ?? 0;                  // 0, weil $rabatt null ist
+
+var_dump('1' == 1);      // bool(true)   - Typumwandlung
+var_dump('1' === 1);     // bool(false)  - anderer Typ
+var_dump(0 == 'abc');    // bool(false)  - seit PHP 8 (vorher: true!)
+var_dump(null ?? 'x');   // string(1) "x"
+
+echo gettype($preis);    // double
+echo get_debug_type($preis); // float  - die modernere Variante
+
+
+m42-l3 Kontrollstrukturen und Arrays
+  if ,  else ,  while ,  for  und  foreach  funktionieren wie in anderen C-ähnlichen Sprachen. Neu seit PHP 8 ist   match   – der bessere  switch :     match  vergleicht  strikt  mit  === ,  switch  lose mit  == .    match  ist ein  Ausdruck  und liefert einen Wert zurück.   Kein  break  nötig, kein versehentliches Durchfallen.   Trifft kein Zweig zu, wirft  match  einen  UnhandledMatchError  statt still nichts zu tun.     Arrays  in PHP sind geordnete Maps. Dasselbe Konstrukt dient als Liste ( [1, 2, 3] ) und als assoziatives Array ( ['name' =&gt; 'Ada'] ). Die Reihenfolge der Einfügung bleibt erhalten.     Funktion  Zweck      array_map($fn, $a)   jedes Element umwandeln      array_filter($a, $fn)   Elemente auswählen –  Schlüssel bleiben erhalten       array_reduce($a, $fn, $start)   auf einen Wert verdichten      in_array($x, $a, true)   enthalten? (drittes Argument: strikt)      array_key_exists($k, $a)   Schlüssel vorhanden, auch wenn Wert null      usort($a, $fn)   sortieren mit eigener Vergleichsfunktion     Arrays werden bei Zuweisung  kopiert  (copy-on-write), Objekte nicht. Wer ein Array in einer Funktion ändert, ändert eine Kopie – außer der Parameter ist mit  &amp;  als Referenz deklariert. 
+CODE
+<?php
+declare(strict_types=1);
+
+$bestellungen = [
+    ['id' => 1, 'status' => 'offen',     'betrag' => 120.0],
+    ['id' => 2, 'status' => 'versendet', 'betrag' =>  80.5],
+    ['id' => 3, 'status' => 'offen',     'betrag' =>  42.0],
+];
+
+// Filtern: Schluessel bleiben 0 und 2 -> array_values() macht wieder 0, 1
+$offen = array_values(array_filter(
+    $bestellungen,
+    fn (array $b) => $b['status'] === 'offen'
+));
+
+$summe = array_sum(array_column($offen, 'betrag'));    // 162.0
+
+foreach ($bestellungen as $index => $b) {
+    $label = match ($b['status']) {
+        'offen'     => 'wartet auf Versand',
+        'versendet' => 'unterwegs',
+        'storniert' => 'abgebrochen',
+    };
+    echo "#{$b['id']}: {$label}\n";
+}
+
+// Destrukturierung und Spread
+[$erste, $zweite] = $bestellungen;
+$alle = [...$offen, ['id' => 4, 'status' => 'offen', 'betrag' => 9.9]];
+
+
+m42-l4 Funktionen, Typen und Closures
+ Moderne PHP-Funktionen sind vollständig typisiert. Du kannst Parameter- und Rückgabetypen angeben, und PHP prüft sie zur Laufzeit:     Nullable :  ?string  heißt „string oder null“.    Union-Typen :  int|float ,  Intersection :  Countable&amp;Iterator .    void  (gibt nichts zurück),  never  (kehrt nie zurück, wirft z. B. immer),  mixed  (alles).    Standardwerte  und  benannte Argumente :  runden(wert: 3.14159, stellen: 2) .    Variadische  Parameter:  function summe(int ...$zahlen) .    Funktionen sehen standardmäßig  keine  Variablen von außen. Es gibt keinen impliziten Zugriff auf globale Variablen – das ist gewollt. Für anonyme Funktionen gibt es zwei Formen:     Form  Zugriff auf äußere Variablen  Rumpf      function () use ($x) { … }   nur explizit per  use , als Kopie  beliebig viele Anweisungen      fn () =&gt; …   automatisch, als Kopie  genau ein Ausdruck     Mit  use (&amp;$x)  übergibst du eine Referenz, dann wirken Änderungen nach außen. Seit PHP 8.1 erzeugt  strlen(...)  (drei Punkte) eine Closure aus einer bestehenden Funktion – die  First-class callable syntax . 
+CODE
+<?php
+declare(strict_types=1);
+
+function brutto(float $netto, float $steuersatz = 0.19): float
+{
+    return round($netto * (1 + $steuersatz), 2);
+}
+
+echo brutto(100);                       // 119
+echo brutto(100, steuersatz: 0.07);     // 107  (benanntes Argument)
+
+function findeKunde(int $id): ?array    // array oder null
+{
+    $kunden = [7 => ['name' => 'Ada']];
+    return $kunden[$id] ?? null;
+}
+
+function abbrechen(string $grund): never
+{
+    throw new RuntimeException($grund);
+}
+
+// Closures
+$faktor = 3;
+$mal  = function (int $x) use ($faktor): int { return $x * $faktor; };
+$mal2 = fn (int $x): int => $x * $faktor;     // $faktor automatisch
+
+$zaehler = 0;
+$erhoehe = function () use (&$zaehler): void { $zaehler++; };
+$erhoehe(); $erhoehe();
+echo $zaehler;                          // 2
+
+$laengen = array_map(strlen(...), ['PHP', 'Laravel']);   // [3, 7]
+
+
+m53-l1 Arrays anlegen, lesen und verändern
+ Ein  Array  speichert viele Werte unter einem Namen. Jeder Wert hat einen  Schlüssel  (Key): entweder automatisch eine Zahl ab 0 oder ein selbst gewählter String.     Aufgabe  Code     anlegen   $farben = ['rot', 'grün'];      hinten anhängen   $farben[] = 'blau';      lesen   $farben[0]  →  'rot'      ändern   $farben[1] = 'gelb';      Anzahl   count($farben)      Schlüssel vorhanden?   array_key_exists('k', $a)  oder  isset($a['k'])      entfernen   unset($farben[0]);       isset()  und  array_key_exists()  unterscheiden sich in einem Punkt: Steht unter dem Schlüssel der Wert  null , liefert  isset()  false,  array_key_exists()  aber true.    unset()  entfernt einen Eintrag, nummeriert die übrigen aber  nicht neu . Nach  unset($farben[0])  beginnt das Array bei Index 1. Brauchst du wieder eine lückenlose Liste, hilft  array_values() .   Arrays können Arrays enthalten. So bildest du Tabellen ab: eine Liste von Zeilen, jede Zeile ein assoziatives Array. Zum Anschauen beim Lernen sind  print_r()  und  var_dump()  unverzichtbar.   Probier es aus  Lege ein Array mit drei Kunden an (jeweils  name  und  stadt ). Gib mit  foreach  alle Kunden aus Köln aus. Füge danach einen vierten Kunden hinzu und gib die Anzahl aus.    Typischer Fehler  Zugriff auf einen Schlüssel, den es nicht gibt, erzeugt eine Warnung „Undefined array key“. Mit dem Null-Koaleszenz-Operator bleibt es ruhig:  $kunde['telefon'] ?? 'keine Angabe' .  
+CODE
+<?php
+declare(strict_types=1);
+
+$kunden = [
+    ['name' => 'Ada',    'stadt' => 'Koeln',  'telefon' => null],
+    ['name' => 'Grace',  'stadt' => 'Berlin', 'telefon' => '030 123'],
+    ['name' => 'Linus',  'stadt' => 'Koeln',  'telefon' => '0221 99'],
+];
+
+$kunden[] = ['name' => 'Margaret', 'stadt' => 'Hamburg', 'telefon' => null];
+echo count($kunden) . PHP_EOL;                         // 4
+
+foreach ($kunden as $k) {
+    if ($k['stadt'] === 'Koeln') {
+        echo $k['name'] . ': ' . ($k['telefon'] ?? 'keine Angabe') . PHP_EOL;
+    }
+}
+
+var_dump(isset($kunden[0]['telefon']));                // bool(false) - Wert ist null
+var_dump(array_key_exists('telefon', $kunden[0]));     // bool(true)
+
+unset($kunden[0]);
+print_r(array_keys($kunden));       // [1, 2, 3]  - keine Neu-Nummerierung
+$kunden = array_values($kunden);    // wieder 0, 1, 2
+
+// Destrukturierung mit Schluesseln
+['name' => $n, 'stadt' => $s] = $kunden[0];
+echo "$n wohnt in $s" . PHP_EOL;                      // Grace wohnt in Berlin
+
+
+m53-l2 Sortieren und Umformen
+ PHP hat viele Sortierfunktionen. Sie unterscheiden sich in zwei Fragen:  Wonach  wird sortiert (Wert oder Schlüssel) und  bleiben die Schlüssel  erhalten?     Funktion  sortiert nach  Schlüssel      sort  /  rsort   Wert auf- / absteigend  werden neu nummeriert      asort  /  arsort   Wert  bleiben erhalten      ksort  /  krsort   Schlüssel  bleiben erhalten      usort   eigene Vergleichsfunktion  werden neu nummeriert      uasort   eigene Vergleichsfunktion  bleiben erhalten     Alle Sortierfunktionen arbeiten  auf dem Array selbst  und geben nur  true  zurück. Der Raumschiff-Operator  &lt;=&gt;  macht Vergleichsfunktionen kurz: Er liefert -1, 0 oder 1. Mehrere Sortierkriterien vergleichst du, indem du Arrays vergleichst:  [$a['stadt'], $a['name']] &lt;=&gt; [$b['stadt'], $b['name']] .   Zum Umformen gibt es Funktionen, die neue Arrays zurückgeben und das Original unverändert lassen:  array_map  (umwandeln),  array_filter  (auswählen),  array_column  (eine Spalte herausziehen),  array_combine  (zwei Listen zu Schlüssel und Wert),  array_unique  (Duplikate entfernen) und  array_slice  (Ausschnitt).   Probier es aus  Sortiere die Produktliste aus dem Beispiel absteigend nach Preis, bei gleichem Preis aufsteigend nach Name. Gib danach nur die Namen als kommagetrennten Text aus ( array_column  +  implode ).    Typischer Fehler   $sortiert = sort($zahlen);  – danach ist  $sortiert  nicht das sortierte Array, sondern  true . Sortiert wurde  $zahlen  selbst.  
+CODE
+<?php
+declare(strict_types=1);
+
+$produkte = [
+    ['name' => 'Maus',    'preis' => 1990],
+    ['name' => 'Kabel',   'preis' =>  499],
+    ['name' => 'Adapter', 'preis' => 1990],
+];
+
+// Absteigend nach Preis, dann aufsteigend nach Name
+usort($produkte, fn (array $a, array $b) =>
+    [$b['preis'], $a['name']] <=> [$a['preis'], $b['name']]
+);
+
+echo implode(', ', array_column($produkte, 'name')) . PHP_EOL;   // Adapter, Maus, Kabel
+
+// Assoziativ sortieren, Schluessel behalten
+$punkte = ['Ada' => 87, 'Grace' => 95, 'Linus' => 71];
+arsort($punkte);
+print_r($punkte);         // Grace => 95, Ada => 87, Linus => 71
+
+// Umformen ohne das Original zu aendern
+$preiseEuro = array_map(fn (array $p) => $p['preis'] / 100, $produkte);
+$guenstig   = array_filter($produkte, fn (array $p) => $p['preis'] < 1000);
+$nachName   = array_combine(array_column($produkte, 'name'), array_column($produkte, 'preis'));
+// ['Adapter' => 1990, 'Maus' => 1990, 'Kabel' => 499]
+
+
+m53-l3 Strings bearbeiten: suchen, zerlegen, ersetzen
+ Ein großer Teil der Programmierarbeit ist Textverarbeitung: Eingaben säubern, Daten zerlegen, Ausgaben zusammensetzen. Die wichtigsten Funktionen im Überblick:     Aufgabe  Funktion  Beispiel → Ergebnis     Leerraum entfernen   trim    trim('  Ada ')  →  'Ada'      enthält …?   str_contains    str_contains('Laravel', 'ara')  → true     beginnt / endet mit   str_starts_with ,  str_ends_with    str_ends_with($datei, '.pdf')      zerlegen   explode    explode(';', 'a;b;c')  →  ['a','b','c']      verbinden   implode    implode(', ', $liste)      ersetzen   str_replace    str_replace(' ', '-', 'a b')  →  'a-b'      Länge (UTF-8)   mb_strlen    mb_strlen('Müller')  → 6     Großbuchstaben   mb_strtoupper    mb_strtoupper('straße')  →  'STRASSE'       Warum mb_?  Umlaute belegen in UTF-8 zwei Byte.  strlen('Müller')  zählt Bytes und meldet 7,  mb_strlen  zählt Zeichen und meldet 6. Bei Längenprüfungen, Kürzungen und Großschreibung deutscher Texte nimmst du deshalb immer die  mb_ -Varianten.   Für Muster wie Postleitzahlen oder Artikelnummern gibt es  reguläre Ausdrücke :  preg_match('/^\d{5}$/', $plz)  prüft auf genau fünf Ziffern.  ^  und  $  verankern Anfang und Ende – ohne sie würde auch „123456“ passen.   Probier es aus  Zerlege die CSV-Zeile  "4711;Kabel HDMI;4,99"  in Artikelnummer, Name und Preis. Wandle den Preis in Cent um ( str_replace  und Cast nach  int ) und gib alles formatiert aus.    Typischer Fehler   substr('Müller', 0, 2)  schneidet mitten im „ü“ ab und erzeugt ein kaputtes Zeichen. Nimm  mb_substr . Dasselbe gilt für  strtoupper , das Umlaute nicht großschreibt.  
+CODE
+<?php
+declare(strict_types=1);
+
+$zeile = "4711;Kabel HDMI;4,99";
+[$nummer, $name, $preis] = explode(';', $zeile);
+$preisCent = (int) str_replace(',', '', $preis);           // 499
+
+printf("%s (%s): %d Cent\n", $name, $nummer, $preisCent);
+
+// UTF-8 richtig behandeln
+var_dump(strlen('Müller'));          // int(7)  - Bytes
+var_dump(mb_strlen('Müller'));       // int(6)  - Zeichen
+echo mb_strtoupper('straße') . PHP_EOL;        // STRASSE
+
+// Eingaben saeubern
+$email = mb_strtolower(trim('  Ada@Example.COM '));    // ada@example.com
+
+// Muster pruefen
+foreach (['50667', '5066', '506671', 'abcde'] as $plz) {
+    $ok = preg_match('/^\d{5}$/', $plz) === 1;
+    echo $plz . ': ' . ($ok ? 'gueltig' : 'ungueltig') . PHP_EOL;
+}
+
+// Slug fuer URLs
+$titel = 'Laravel für Einsteiger';
+$slug  = trim(preg_replace('/[^a-z0-9]+/', '-', mb_strtolower($titel)), '-');
+echo $slug . PHP_EOL;                // laravel-f-r-einsteiger  -> in Laravel: Str::slug()
+
+
+m53-l4 Datum und Zeit richtig behandeln
+ Datumsrechnung ist eine der häufigsten Fehlerquellen in Software: Zeitzonen, Sommerzeit, Monatsenden. PHP bietet dafür die Klassen  DateTime  und  DateTimeImmutable . Nimm grundsätzlich  DateTimeImmutable :     DateTime::modify()  verändert das Objekt selbst. Wer dasselbe Objekt an zwei Stellen nutzt, verschiebt unbemerkt beide Termine.    DateTimeImmutable::modify()  gibt ein  neues  Objekt zurück, das Original bleibt.      Format  Bedeutung  Beispiel      d.m.Y   Tag.Monat.Jahr  09.10.2026      H:i   Stunde:Minute (24 h)  14:05      Y-m-d   ISO-Datum für Datenbanken  2026-10-09      D, d M Y   englische Kurzform  Fri, 09 Oct 2026     Vorsicht bei Monaten:  modify('+1 month')  auf den 31. Januar ergibt nicht den 28. Februar, sondern den  3. März  – PHP rechnet „31. Februar“ und läuft über. Für Monatsenden gibt es  modify('last day of next month') .    Zeitzonen:  Speichere Zeitpunkte in der Datenbank in  UTC  und rechne erst für die Anzeige in  Europe/Berlin  um. So überstehen deine Daten jede Sommerzeitumstellung. Laravel arbeitet mit  Carbon , einer Erweiterung von DateTime mit lesbaren Methoden wie  now()-&gt;addDays(14) .   Probier es aus  Berechne, wie viele Tage es noch bis zu deiner AP1 sind:  diff()  zwischen heute und dem Prüfungsdatum, Ausgabe über  -&gt;days .  
+CODE
+<?php
+declare(strict_types=1);
+
+$zone   = new DateTimeZone('Europe/Berlin');
+$heute  = new DateTimeImmutable('today', $zone);
+$frist  = $heute->modify('+14 days');          // $heute bleibt unveraendert
+
+echo $heute->format('d.m.Y') . ' -> ' . $frist->format('d.m.Y') . PHP_EOL;
+
+// Die Monatsfalle
+$januar = new DateTimeImmutable('2026-01-31');
+echo $januar->modify('+1 month')->format('Y-m-d') . PHP_EOL;                // 2026-03-03
+echo $januar->modify('last day of next month')->format('Y-m-d') . PHP_EOL;  // 2026-02-28
+
+// Abstand in Tagen
+$pruefung = new DateTimeImmutable('2027-03-02', $zone);
+echo 'Noch ' . $heute->diff($pruefung)->days . ' Tage bis zur AP1' . PHP_EOL;
+
+// Speichern in UTC, anzeigen in Berlin
+$utc = $heute->setTimezone(new DateTimeZone('UTC'))->format('Y-m-d H:i:s');
+echo "In der Datenbank: $utc" . PHP_EOL;
+
+
+m43-l1 Formulare verarbeiten und Ausgaben absichern
+ PHP stellt Request-Daten in  Superglobals  bereit:  $_GET  (Query-String),  $_POST  (Formulardaten),  $_FILES  (Uploads),  $_COOKIE ,  $_SERVER  (Header, Methode, Pfad) und  $_SESSION . Alles darin kommt vom Client und ist damit  nicht vertrauenswürdig .   Die Grundregel lautet:  Eingaben validieren, Ausgaben kodieren .     Validieren  beim Eingang: Ist es vorhanden, hat es den richtigen Typ, Bereich und Format?  filter_var($email, FILTER_VALIDATE_EMAIL)  hilft bei Standardformaten.    Kodieren  bei der Ausgabe, passend zum Kontext: in HTML mit  htmlspecialchars($s, ENT_QUOTES, 'UTF-8') , in SQL über Prepared Statements, in JSON über  json_encode() .    Ohne Kodierung entsteht  Cross-Site-Scripting (XSS) : Ein Angreifer schickt als Name  &lt;script&gt;…&lt;/script&gt; , und jeder Besucher führt das Skript aus.   Nach einem erfolgreichen POST leitet man um, statt direkt HTML auszugeben. Dieses  Post/Redirect/Get -Muster verhindert, dass ein Neuladen der Seite das Formular erneut abschickt. 
+CODE
+<?php
+declare(strict_types=1);
+
+function e(string $s): string
+{
+    return htmlspecialchars($s, ENT_QUOTES, 'UTF-8');
+}
+
+$fehler = [];
+$name   = '';
+$email  = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name  = trim((string) ($_POST['name'] ?? ''));
+    $email = trim((string) ($_POST['email'] ?? ''));
+
+    if ($name === '' || mb_strlen($name) > 100) {
+        $fehler['name'] = 'Bitte einen Namen mit hoechstens 100 Zeichen angeben.';
+    }
+    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        $fehler['email'] = 'Bitte eine gueltige E-Mail-Adresse angeben.';
+    }
+
+    if ($fehler === []) {
+        // ... speichern ...
+        header('Location: /danke.php', true, 303);   // Post/Redirect/Get
+        exit;
+    }
+}
+?>
+<form method="post">
+  <input name="name"  value="<?= e($name) ?>">
+  <?php if (isset($fehler['name'])): ?><p class="fehler"><?= e($fehler['name']) ?></p><?php endif ?>
+  <input name="email" value="<?= e($email) ?>">
+  <button>Senden</button>
+</form>
+
+
+m43-l2 Sessions, Cookies und Passwörter
+ HTTP ist zustandslos. Eine  Session  merkt sich Daten zwischen Requests: PHP speichert sie serverseitig und schickt dem Browser nur eine zufällige Session-ID als Cookie.  session_start()  muss  vor jeder Ausgabe  aufgerufen werden, weil es einen Header setzt.   Für Login-Systeme gelten drei feste Regeln:     Passwörter nie selbst hashen.   password_hash($pw, PASSWORD_DEFAULT)  nimmt einen langsamen, gesalzenen Algorithmus (bcrypt bzw. Argon2),  password_verify()  prüft. MD5 oder SHA-256 sind für Passwörter ungeeignet, weil sie zu schnell sind.    Nach dem Login   session_regenerate_id(true)  aufrufen. Sonst kann ein Angreifer, der dem Opfer vorher eine Session-ID untergeschoben hat, diese weiterverwenden ( Session Fixation ).    Cookie-Flags  setzen:  HttpOnly  (kein Zugriff per JavaScript),  Secure  (nur HTTPS),  SameSite=Lax  (Schutz gegen viele CSRF-Angriffe).    Unterscheide  Authentifizierung  (wer bist du?) von  Autorisierung  (was darfst du?). Die Session sagt nur, wer eingeloggt ist. Ob dieser Benutzer die Rechnung Nr. 4711 sehen darf, musst du bei jedem Zugriff extra prüfen. 
+CODE
+<?php
+declare(strict_types=1);
+
+session_start([
+    'cookie_httponly' => true,
+    'cookie_secure'   => true,
+    'cookie_samesite' => 'Lax',
+]);
+
+// Registrierung
+$hash = password_hash($_POST['passwort'], PASSWORD_DEFAULT);
+// -> z. B. "$2y$12$Qm..."  (Algorithmus, Kosten und Salt stecken im Hash)
+
+// Login
+function login(PDO $db, string $email, string $passwort): bool
+{
+    $stmt = $db->prepare('SELECT id, passwort_hash FROM benutzer WHERE email = ?');
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+
+    if (!$user || !password_verify($passwort, $user['passwort_hash'])) {
+        return false;                       // gleiche Meldung fuer beide Faelle!
+    }
+
+    if (password_needs_rehash($user['passwort_hash'], PASSWORD_DEFAULT)) {
+        // Hash mit aktuellen Parametern neu speichern ...
+    }
+
+    session_regenerate_id(true);            // Schutz vor Session Fixation
+    $_SESSION['user_id'] = $user['id'];
+    return true;
+}
+
+
+m43-l3 Datenbankzugriff mit PDO und Prepared Statements
+  PDO  (PHP Data Objects) ist die einheitliche Datenbankschnittstelle von PHP für MySQL, MariaDB, PostgreSQL, SQLite und weitere. Laravel baut intern darauf auf.   Die wichtigste Regel:  Nie Benutzereingaben in SQL-Strings einbauen.  Aus  "… WHERE email = '$email'"  wird mit der Eingabe  ' OR '1'='1  eine Abfrage, die alle Zeilen liefert –  SQL-Injection . Stattdessen nimmst du  Prepared Statements : Die Abfrage mit Platzhaltern geht getrennt von den Werten an die Datenbank, die Werte können die Struktur nicht mehr verändern.     Option  Empfehlung  Warum      ATTR_ERRMODE    ERRMODE_EXCEPTION   Fehler werfen statt still false liefern (Standard seit PHP 8)      ATTR_DEFAULT_FETCH_MODE    FETCH_ASSOC   nur Spaltennamen, keine doppelten Zahl-Indizes      ATTR_EMULATE_PREPARES    false   echte Prepared Statements, korrekte Typen     Platzhalter gehen nur für  Werte , nicht für Tabellen- oder Spaltennamen. Wenn der Benutzer eine Sortierspalte wählt, prüfst du sie gegen eine  Whitelist .   Mehrere Schreibvorgänge, die nur gemeinsam Sinn ergeben (Bestellung und Positionen), gehören in eine  Transaktion :  beginTransaction() ,  commit() , bei Fehler  rollBack() . 
+CODE
+<?php
+declare(strict_types=1);
+
+$db = new PDO(
+    'mysql:host=127.0.0.1;dbname=shop;charset=utf8mb4',
+    'shop_user',
+    getenv('DB_PASSWORD') ?: '',
+    [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => false,
+    ]
+);
+
+// FALSCH - SQL-Injection:
+// $db->query("SELECT * FROM kunden WHERE email = '{$_GET['email']}'");
+
+// RICHTIG - benannte Platzhalter
+$stmt = $db->prepare('SELECT id, name FROM kunden WHERE email = :email');
+$stmt->execute(['email' => $_GET['email'] ?? '']);
+$kunde = $stmt->fetch();                     // array oder false
+
+// Spaltennamen: Whitelist statt Platzhalter
+$erlaubt = ['name', 'erstellt_am'];
+$sort = in_array($_GET['sort'] ?? '', $erlaubt, true) ? $_GET['sort'] : 'name';
+$liste = $db->query("SELECT id, name FROM kunden ORDER BY {$sort}")->fetchAll();
+
+// Transaktion
+try {
+    $db->beginTransaction();
+    $db->prepare('INSERT INTO bestellungen (kunde_id) VALUES (?)')->execute([$kunde['id']]);
+    $bestellId = (int) $db->lastInsertId();
+    $db->prepare('INSERT INTO positionen (bestellung_id, artikel_id) VALUES (?, ?)')
+       ->execute([$bestellId, 42]);
+    $db->commit();
+} catch (Throwable $e) {
+    $db->rollBack();
+    throw $e;
+}
+
+
+m54-l1 Dateien lesen und schreiben
+ Für kleine Dateien genügen zwei Funktionen:  file_get_contents()  liest alles in einen String,  file_put_contents()  schreibt einen String. Mit dem Flag  FILE_APPEND  wird angehängt statt überschrieben,  LOCK_EX  sperrt die Datei während des Schreibens gegen gleichzeitige Zugriffe.   Große Dateien liest du  zeilenweise , damit nicht die ganze Datei im Speicher landet: mit  fopen()  und  fgets()  oder bequemer mit  SplFileObject . Für CSV gibt es  fgetcsv()  und  fputcsv() , die Anführungszeichen und Trennzeichen in den Feldern korrekt behandeln.    Deutsche Excel-Versionen erwarten das  Semikolon  als Trennzeichen.   Pfade relativ zur aktuellen Datei baust du mit  __DIR__  – sonst hängt das Ergebnis davon ab, aus welchem Verzeichnis das Skript gestartet wurde.     Sicherheit:  Verwende nie eine Benutzereingabe direkt als Pfad. Aus  ?datei=../../.env  wird sonst ein Lesezugriff auf deine Geheimnisse ( Path Traversal ). Erlaube nur bekannte Namen aus einer Whitelist oder entferne Verzeichnisanteile mit  basename() .   Probier es aus  Schreibe drei Bestellungen als CSV mit Semikolon in  bestellungen.csv , öffne die Datei in einer Tabellenkalkulation und lies sie anschließend mit  SplFileObject  wieder ein.  
+CODE
+<?php
+declare(strict_types=1);
+
+$pfad = __DIR__ . '/bestellungen.csv';
+
+// Schreiben
+$datei = new SplFileObject($pfad, 'w');
+$datei->fputcsv(['Nr', 'Kunde', 'Betrag'], ';');
+$datei->fputcsv([1001, 'Ada; Lovelace', '49,90'], ';');   // Semikolon im Feld wird korrekt gequotet
+$datei->fputcsv([1002, 'Grace Hopper', '12,00'], ';');
+$datei = null;                                            // Datei schliessen
+
+// Zeilenweise lesen - auch bei Gigabyte-Dateien speicherschonend
+$datei = new SplFileObject($pfad);
+$datei->setFlags(SplFileObject::READ_CSV | SplFileObject::SKIP_EMPTY | SplFileObject::READ_AHEAD);
+$datei->setCsvControl(';');
+foreach ($datei as $i => $zeile) {
+    if ($i === 0) continue;                               // Kopfzeile
+    [$nr, $kunde, $betrag] = $zeile;
+    echo "$nr: $kunde - $betrag EUR" . PHP_EOL;
+}
+
+// Protokoll anhaengen, gesperrt gegen parallele Schreiber
+file_put_contents(__DIR__ . '/app.log', date('c') . " Import fertig\n", FILE_APPEND | LOCK_EX);
+
+// Path Traversal verhindern
+$erlaubt = ['agb.pdf', 'preise.pdf'];
+$wunsch  = $_GET['datei'] ?? '';
+if (!in_array($wunsch, $erlaubt, true)) {
+    http_response_code(404);
+    exit;
+}
+readfile(__DIR__ . '/downloads/' . $wunsch);
+
+
+m54-l2 JSON sauber verarbeiten
+ JSON ist das Austauschformat für APIs, Konfigurationen und Webhooks. In PHP heißen die beiden Werkzeuge  json_encode()  und  json_decode()  – und beide haben Optionen, die man kennen muss.     Flag  Wirkung      JSON_THROW_ON_ERROR   wirft eine  JsonException  statt still  null  bzw.  false  zu liefern      JSON_UNESCAPED_UNICODE   „Müller“ statt „Müller“      JSON_UNESCAPED_SLASHES    https://…  statt  https:\/\/…       JSON_PRETTY_PRINT   eingerückt, gut lesbar     Ohne  JSON_THROW_ON_ERROR  liefert  json_decode()  bei kaputtem JSON einfach  null  – genau wie bei dem gültigen JSON  null . Den Unterschied siehst du nur mit  json_last_error() . Deshalb gilt:  immer mit JSON_THROW_ON_ERROR .   Der zweite Parameter von  json_decode()  entscheidet über die Form:  true  liefert assoziative Arrays,  false  (Standard) Objekte vom Typ  stdClass . Ab PHP 8.3 prüft  json_validate()  ein JSON nur auf Gültigkeit, ohne es komplett aufzubauen.   Ein von außen kommendes JSON ist eine Eingabe wie jede andere: Nach dem Dekodieren prüfst du, ob die erwarteten Felder da sind und den richtigen Typ haben.   Typischer Fehler  Leere PHP-Arrays werden zu  [] , auch wenn ein Objekt  {}  erwartet wird. Wer  {}  braucht, übergibt  new stdClass()  oder nutzt das Flag  JSON_FORCE_OBJECT .  
+CODE
+<?php
+declare(strict_types=1);
+
+$bestellung = ['kunde' => 'Müller', 'web' => 'https://shop.example', 'positionen' => [['sku' => 'A1', 'menge' => 2]]];
+
+$json = json_encode(
+    $bestellung,
+    JSON_THROW_ON_ERROR | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+);
+echo $json . PHP_EOL;
+
+// Dekodieren - mit Fehlerbehandlung und Pruefung der Struktur
+function leseWebhook(string $roh): array
+{
+    try {
+        $daten = json_decode($roh, true, 512, JSON_THROW_ON_ERROR);
+    } catch (JsonException $e) {
+        throw new InvalidArgumentException('Kein gueltiges JSON: ' . $e->getMessage(), previous: $e);
+    }
+
+    if (!is_array($daten) || !isset($daten['event'], $daten['id']) || !is_string($daten['event'])) {
+        throw new InvalidArgumentException('Unerwartete Struktur');
+    }
+    return $daten;
+}
+
+var_dump(json_validate('{"ok": true}'));   // bool(true)  - ab PHP 8.3
+var_dump(json_validate('{ok: true}'));     // bool(false)
+
+
+m54-l3 HTTP-Anfragen an andere Dienste
+ Moderne Anwendungen sprechen ständig mit anderen Diensten: Zahlungsanbieter, Versanddienstleister, Wetter-APIs. In reinem PHP ist  Guzzle  der Standard-HTTP-Client ( composer require guzzlehttp/guzzle ); auch der HTTP-Client von Laravel baut darauf auf.   Drei Regeln, die in jedem Code-Review geprüft werden:     Immer ein Timeout.  Ohne Timeout wartet dein Prozess unter Umständen minutenlang auf einen hängenden Dienst – und mit ihm der Benutzer.    Fehler gezielt behandeln.  Guzzle wirft standardmäßig eine  ClientException  bei 4xx, eine  ServerException  bei 5xx und eine  ConnectException , wenn der Dienst gar nicht erreichbar ist.    Zugangsdaten aus der Umgebung  lesen, nie im Code ablegen.      Option  Zweck      base_uri   gemeinsamer Anfang aller URLs      timeout  /  connect_timeout   Gesamtdauer / Verbindungsaufbau in Sekunden      query   Parameter für den Query-String      json   Body als JSON senden, setzt den Content-Type      headers   z. B.  Authorization: Bearer …      Ob ein Fehler einen neuen Versuch lohnt, hängt von der Ursache ab: Bei 5xx und Verbindungsfehlern ja, mit wachsender Wartezeit. Bei 4xx nein – die Anfrage selbst ist falsch und wird auch beim zweiten Mal abgelehnt. 
+CODE
+<?php
+declare(strict_types=1);
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ConnectException;
+use GuzzleHttp\Exception\ServerException;
+
+$client = new Client([
+    'base_uri'        => 'https://api.versand.example/v2/',
+    'timeout'         => 5.0,
+    'connect_timeout' => 2.0,
+    'headers'         => ['Authorization' => 'Bearer ' . getenv('VERSAND_TOKEN')],
+]);
+
+function sendungsstatus(Client $client, string $nummer): ?string
+{
+    for ($versuch = 1; $versuch <= 3; $versuch++) {
+        try {
+            $antwort = $client->get('sendungen/' . rawurlencode($nummer));
+            $daten = json_decode((string) $antwort->getBody(), true, 512, JSON_THROW_ON_ERROR);
+            return $daten['status'] ?? null;
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                return null;                       // unbekannte Sendung - kein neuer Versuch
+            }
+            throw $e;                              // andere 4xx: Fehler im eigenen Code
+        } catch (ServerException | ConnectException $e) {
+            if ($versuch === 3) {
+                throw $e;
+            }
+            usleep(200_000 * 2 ** $versuch);       // 0,4 s, dann 0,8 s warten
+        }
+    }
+    return null;
+}
+
+
+m54-l4 Fehler, Exceptions und Logging in der Praxis
+ Fehlerbehandlung entscheidet darüber, ob du um 3 Uhr nachts in fünf Minuten weißt, was los ist – oder in fünf Stunden. Drei Bausteine gehören zusammen:     Exceptions  für Situationen, die der aufrufende Code behandeln kann oder soll.    Ein zentraler Handler  ( set_exception_handler ) für alles, was niemand gefangen hat: Er protokolliert und zeigt dem Benutzer eine freundliche Seite.    Strukturiertes Logging  mit einer PSR-3-Bibliothek wie  Monolog : Nachricht plus Kontext als Array, damit sich Logs filtern und auswerten lassen.      Log-Level  Wann      debug   Details für die Entwicklung      info   normale Ereignisse: Bestellung angelegt      warning   ungewöhnlich, aber behandelt: Fallback genutzt      error   ein Vorgang ist fehlgeschlagen      critical   Teile der Anwendung sind unbenutzbar      Wo fängt man?  Nicht überall. Ein leerer  catch -Block, der den Fehler verschluckt, ist schlimmer als gar keiner. Fange dort, wo du etwas Sinnvolles tun kannst: einen Ersatzwert liefern, neu versuchen, die Exception in eine fachliche übersetzen. Alles andere lässt du nach oben steigen.   Typischer Fehler  Passwörter, Tokens, vollständige Kreditkartennummern und Gesundheitsdaten haben in Logs nichts verloren. Logs werden oft länger aufbewahrt und von mehr Personen gelesen als die Datenbank – ein Datenschutzproblem nach DSGVO.  
+CODE
+<?php
+declare(strict_types=1);
+
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
+use Monolog\Logger;
+
+$log = new Logger('shop');
+$log->pushHandler(new StreamHandler(__DIR__ . '/logs/app.log', Level::Info));
+
+// Letzte Verteidigungslinie: alles, was niemand gefangen hat
+set_exception_handler(function (Throwable $e) use ($log): void {
+    $log->critical('Unbehandelter Fehler', [
+        'klasse' => $e::class,
+        'nachricht' => $e->getMessage(),
+        'datei' => $e->getFile() . ':' . $e->getLine(),
+    ]);
+    http_response_code(500);
+    echo 'Da ist etwas schiefgelaufen. Wir kuemmern uns darum.';
+});
+
+// Gezielt fangen, wo man etwas tun kann
+function wechselkurs(Logger $log): float
+{
+    try {
+        return holeKursVonDerBank();
+    } catch (RuntimeException $e) {
+        $log->warning('Kursdienst nicht erreichbar, nutze Vortageskurs', ['fehler' => $e->getMessage()]);
+        return leseLetztenKurs();
+    }
+}
+
+// Kontext statt zusammengebauter Strings - auswertbar und ohne Geheimnisse
+$log->info('Bestellung angelegt', ['bestellung' => 4711, 'summe_cent' => 7136, 'kunde_id' => 15]);
+
+
+m44-l1 Klassen, Konstruktoren und readonly
+ Klassen in PHP folgen den bekannten OOP-Regeln: Eigenschaften und Methoden mit den Sichtbarkeiten  public ,  protected  und  private . Modernes PHP spart dabei viel Schreibarbeit:     Constructor Property Promotion  (PHP 8.0): Sichtbarkeit direkt am Konstruktorparameter deklariert Eigenschaft und Zuweisung in einem.    readonly-Eigenschaften  (8.1) dürfen genau einmal gesetzt werden, danach wirft jede Änderung einen Fehler. Eine  readonly class  (8.2) macht alle Eigenschaften readonly.    Statische  Methoden gehören zur Klasse, nicht zum Objekt – praktisch für  benannte Konstruktoren  wie  Geld::euro(19.99) .    Objekte werden als  Handle  übergeben: Weist du ein Objekt einer zweiten Variablen zu, zeigen beide auf dasselbe Objekt. Eine echte Kopie erzeugt  clone .   Unveränderliche  Value Objects  sind ein Kernwerkzeug für sauberen Code: Ein  Geld -Objekt aus Betrag in Cent und Währung kann nie in einem ungültigen Zustand existieren. Statt es zu ändern, liefern Methoden ein neues Objekt (sogenannte  wither ).    self::  meint die Klasse, in der der Code steht,  static::  die Klasse, auf der aufgerufen wurde ( Late Static Binding ). Für Fabrikmethoden in Basisklassen ist  new static()  darum meist richtig. 
+CODE
+<?php
+declare(strict_types=1);
+
+final readonly class Geld
+{
+    private function __construct(
+        public int $cent,
+        public string $waehrung,
+    ) {
+        if ($cent < 0) {
+            throw new InvalidArgumentException('Betrag darf nicht negativ sein.');
+        }
+    }
+
+    public static function euro(float $betrag): self
+    {
+        return new self((int) round($betrag * 100), 'EUR');
+    }
+
+    public function plus(Geld $anderes): self
+    {
+        if ($anderes->waehrung !== $this->waehrung) {
+            throw new LogicException('Waehrungen unterschiedlich.');
+        }
+        return new self($this->cent + $anderes->cent, $this->waehrung);
+    }
+
+    public function format(): string
+    {
+        return number_format($this->cent / 100, 2, ',', '.') . ' ' . $this->waehrung;
+    }
+}
+
+$a = Geld::euro(19.99);
+$b = $a->plus(Geld::euro(5));   // $a bleibt unveraendert
+echo $b->format();              // 24,99 EUR
+// $b->cent = 0;                // Error: Cannot modify readonly property
+
+
+m44-l2 Interfaces, abstrakte Klassen und Traits
+ Drei Werkzeuge, drei Zwecke:       Interface  Abstrakte Klasse  Trait     Inhalt  nur Signaturen und Konstanten  Code plus abstrakte Methoden  Code zum Einkopieren     Beziehung  „kann“ (Vertrag)  „ist ein“ (Vererbung)  keine – reine Wiederverwendung     Anzahl pro Klasse  beliebig viele  genau eine  beliebig viele     Typprüfung möglich  ja  ja  nein      Programmiere gegen Interfaces.  Eine Klasse, die ein  Zahlungsanbieter -Interface erwartet, funktioniert mit Stripe, PayPal und einem Test-Dummy, ohne geändert zu werden. Das ist die Grundlage des Service Containers in Laravel.    Traits  lösen das Fehlen von Mehrfachvererbung: Ihr Code wird beim Kompilieren in die Klasse kopiert. Laravel nutzt sie stark, etwa  HasFactory ,  SoftDeletes  oder  Notifiable  an Models. Kollidieren zwei Traits mit gleichem Methodennamen, entscheidest du mit  insteadof  und  as .   Das Schlüsselwort   final   verbietet Vererbung. Viele Teams machen Klassen standardmäßig final und öffnen nur gezielt, denn Vererbung ist die engste Kopplung, die es gibt. Bevorzuge  Komposition : Ein Objekt hat ein anderes, statt eines zu sein. 
+CODE
+<?php
+declare(strict_types=1);
+
+interface Zahlungsanbieter
+{
+    public function belaste(Geld $betrag, string $kundenRef): string;   // liefert Transaktions-ID
+}
+
+abstract class HttpAnbieter implements Zahlungsanbieter
+{
+    public function __construct(protected string $apiKey) {}
+
+    abstract protected function endpunkt(): string;
+
+    protected function post(array $daten): array
+    {
+        // ... gemeinsamer HTTP-Code fuer alle Anbieter ...
+        return ['id' => 'tx_123'];
+    }
+}
+
+final class StripeAnbieter extends HttpAnbieter
+{
+    protected function endpunkt(): string { return 'https://api.stripe.com/v1/charges'; }
+
+    public function belaste(Geld $betrag, string $kundenRef): string
+    {
+        return $this->post(['amount' => $betrag->cent, 'customer' => $kundenRef])['id'];
+    }
+}
+
+trait ProtokolliertAufrufe
+{
+    protected function log(string $nachricht): void
+    {
+        error_log(static::class . ': ' . $nachricht);
+    }
+}
+
+final class Kasse
+{
+    use ProtokolliertAufrufe;
+
+    public function __construct(private Zahlungsanbieter $anbieter) {}   // Komposition
+
+    public function bezahle(Geld $betrag, string $kunde): string
+    {
+        $this->log("Belaste {$betrag->format()}");
+        return $this->anbieter->belaste($betrag, $kunde);
+    }
+}
+
+
+m44-l3 Enums und Exceptions
+  Enums  (PHP 8.1) ersetzen Konstanten-Sammlungen und magische Strings. Statt  $status = 'versendet'  mit Tippfehler-Gefahr schreibst du  Status::Versendet , und der Typ  Status  lässt nur gültige Werte zu.     Pure Enums  haben nur Fälle:  case Offen;     Backed Enums  haben einen skalaren Wert für Datenbank oder API:  enum Status: string { case Offen = 'offen'; }     Status::from('offen')  wandelt um und wirft bei unbekanntem Wert,  tryFrom()  liefert dann null.    Status::cases()  liefert alle Fälle – ideal für Auswahllisten.   Enums können Methoden und Interfaces haben, aber keinen Zustand.     Exceptions  melden Fehler, die der Aufrufer behandeln soll. Die Hierarchie:  Throwable  ist die Wurzel. Darunter liegen  Error  für Programmierfehler wie  TypeError  und  Exception  für erwartbare Probleme. Mit  catch (Throwable $e)  fängst du beides.   Gute Praxis: Eigene,  fachlich benannte  Exceptions ( LagerbestandZuNiedrig ) statt generischer  Exception . Fange nur dort, wo du wirklich etwas tun kannst. Wenn du eine Exception in eine eigene umwandelst, übergib die ursprüngliche als  previous , sonst ist die Ursache im Log weg. 
+CODE
+<?php
+declare(strict_types=1);
+
+enum BestellStatus: string
+{
+    case Offen     = 'offen';
+    case Bezahlt   = 'bezahlt';
+    case Versendet = 'versendet';
+    case Storniert = 'storniert';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Offen     => 'Wartet auf Zahlung',
+            self::Bezahlt   => 'Bezahlt',
+            self::Versendet => 'Unterwegs',
+            self::Storniert => 'Storniert',
+        };
+    }
+
+    public function darfWechselnZu(self $neu): bool
+    {
+        return in_array($neu, match ($this) {
+            self::Offen     => [self::Bezahlt, self::Storniert],
+            self::Bezahlt   => [self::Versendet, self::Storniert],
+            default         => [],
+        }, true);
+    }
+}
+
+final class UngueltigerStatuswechsel extends DomainException
+{
+    public static function von(BestellStatus $alt, BestellStatus $neu): self
+    {
+        return new self("Wechsel von {$alt->value} nach {$neu->value} nicht erlaubt.");
+    }
+}
+
+$status = BestellStatus::from('offen');
+$neu    = BestellStatus::tryFrom($_GET['status'] ?? '') ?? BestellStatus::Offen;
+
+try {
+    if (!$status->darfWechselnZu($neu)) {
+        throw UngueltigerStatuswechsel::von($status, $neu);
+    }
+} catch (UngueltigerStatuswechsel $e) {
+    echo $e->getMessage();
+} finally {
+    // laeuft immer - z. B. Datei schliessen, Lock freigeben
+}
+
+
+m44-l4 Namespaces, Composer und PSR-Standards
+ Kein modernes PHP-Projekt kommt ohne  Composer  aus. Er erledigt zwei Aufgaben:     Abhängigkeiten  installieren:  composer require guzzlehttp/guzzle  lädt das Paket nach  vendor/  und trägt es in  composer.json  ein.    Autoloading : Klassen werden beim ersten Gebrauch automatisch geladen, ohne einzelne  require -Zeilen.    Das Autoloading folgt dem Standard  PSR-4 : Der Namespace entspricht dem Verzeichnis. Mit  "App\\": "app/"  liegt die Klasse  App\Services\Kasse  in  app/Services/Kasse.php . Ein falsch geschriebener Dateiname führt zu „Class not found“ – auf Linux-Servern zählt auch die Groß- und Kleinschreibung, auf deinem Mac oft nicht.     Datei / Befehl  Zweck      composer.json   gewünschte Pakete mit Versionsbereichen      composer.lock   exakt installierte Versionen –  wird committet       composer install   installiert genau, was im Lock steht (Server, CI, Kollegen)      composer update   sucht neue Versionen im erlaubten Bereich und schreibt das Lock neu      composer audit   prüft auf bekannte Sicherheitslücken     Versionsbereiche folgen  Semantic Versioning  (MAJOR.MINOR.PATCH).  ^7.4  erlaubt alles ab 7.4.0 und unter 8.0.0, also keine Breaking Changes. Die  PSR -Standards der PHP-FIG halten das Ökosystem zusammen: PSR-4 (Autoloading), PSR-3 (Logger), PSR-7/17/18 (HTTP), und für den Code-Stil der Nachfolger von PSR-12, der  PER Coding Style . 
+CODE
+{
+    "name": "acme/shop",
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.9"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": { "App\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    }
+}
+<?php
+// src/Billing/Rechnung.php
+declare(strict_types=1);
+
+namespace App\Billing;
+
+use App\Geld\Geld;                       // Import statt vollem Namen
+use GuzzleHttp\Client as HttpClient;     // Alias
+
+final class Rechnung
+{
+    public function __construct(private HttpClient $http) {}
+}
+
+// public/index.php
+// require __DIR__ . '/../vendor/autoload.php';
+// $rechnung = new \App\Billing\Rechnung(new \GuzzleHttp\Client());
+
+m55-l1 Generatoren: große Datenmengen mit wenig Speicher
+ Eine normale Funktion baut ihr Ergebnis komplett auf und gibt es dann zurück. Bei einer Million Zeilen liegt dann eine Million Zeilen im Speicher. Ein  Generator  liefert die Werte stattdessen  einzeln auf Anfrage : Jede Funktion mit  yield  ist ein Generator.    Bei jedem  yield  pausiert die Funktion und gibt einen Wert heraus.   Die  foreach -Schleife des Aufrufers holt den nächsten Wert, und die Funktion läuft dort weiter, wo sie pausiert hat.    yield $schluessel =&gt; $wert  liefert auch Schlüssel,  yield from  reicht die Werte eines anderen Generators durch.    Generatoren sind  faul  (lazy): Bricht der Aufrufer nach zehn Werten ab, wird der Rest gar nicht erst berechnet. Das macht sie ideal für Importe, Exporte und Pipelines, in denen mehrere Schritte hintereinander geschaltet werden.   Laravel nutzt dasselbe Prinzip in  LazyCollection  und  Model::lazy()  bzw.  lazyById() .   Probier es aus  Schreibe einen Generator  zahlen(int $bis) , der von 1 bis  $bis  zählt. Miss mit  memory_get_peak_usage()  den Speicher einmal für  range(1, 1_000_000)  und einmal für den Generator.  
+CODE
+<?php
+declare(strict_types=1);
+
+/** @return Generator<int, array> */
+function leseZeilen(string $pfad): Generator
+{
+    $datei = new SplFileObject($pfad);
+    while (!$datei->eof()) {
+        $zeile = $datei->fgetcsv(';');
+        if ($zeile === [null] || $zeile === false) {
+            continue;
+        }
+        yield $datei->key() => $zeile;         // pausiert hier
+    }
+}
+
+function nurGueltige(iterable $zeilen): Generator
+{
+    foreach ($zeilen as $nr => $z) {
+        if (count($z) === 3 && is_numeric(str_replace(',', '.', $z[2]))) {
+            yield $nr => $z;
+        }
+    }
+}
+
+// Pipeline: nichts wird vorab geladen, jede Zeile fliesst einzeln durch
+$summe = 0;
+foreach (nurGueltige(leseZeilen(__DIR__ . '/umsatz.csv')) as $nr => [$datum, $kunde, $betrag]) {
+    $summe += (int) round((float) str_replace(',', '.', $betrag) * 100);
+}
+printf("Umsatz: %.2f EUR, Spitzenspeicher: %d KB\n", $summe / 100, memory_get_peak_usage() / 1024);
+
+
+m55-l2 SOLID verständlich erklärt
+ SOLID sind fünf Leitlinien für Klassen, die sich leicht ändern, testen und erweitern lassen. Sie sind keine Gesetze, sondern Fragen, die man sich beim Entwurf stellt:     Prinzip  Die Frage dahinter  Warnsignal      S ingle Responsibility  Hat die Klasse genau einen Grund, sich zu ändern?  „RechnungUndMailUndPdf“-Klassen      O pen/Closed  Kann ich Neues ergänzen, ohne Bestehendes umzuschreiben?  wachsende if/switch-Kaskaden über Typen      L iskov Substitution  Funktioniert jede Unterklasse überall dort, wo die Oberklasse erwartet wird?  Unterklasse wirft „nicht unterstützt“      I nterface Segregation  Muss eine Klasse Methoden implementieren, die sie nicht braucht?  leere Methoden in Implementierungen      D ependency Inversion  Hängt meine Fachlogik an Details oder an Abstraktionen?   new StripeClient()  mitten in der Logik     Das Beispiel zeigt Open/Closed und Dependency Inversion zusammen: Neue Versandarten kommen als neue Klasse hinzu. Die Berechnung selbst wird nie wieder angefasst, und sie kennt nur das Interface.   Wichtig für die Praxis: SOLID ist ein Werkzeug gegen Schmerzen, die du hast – nicht gegen solche, die du vielleicht einmal haben könntest. Drei Interfaces für eine Klasse, die sich nie ändert, sind Überarchitektur. 
+CODE
+<?php
+declare(strict_types=1);
+
+interface Versandart
+{
+    public function passtZu(string $land, int $gewichtGramm): bool;
+    public function kostenCent(int $gewichtGramm): int;
+}
+
+final class DhlPaket implements Versandart
+{
+    public function passtZu(string $land, int $g): bool { return $land === 'DE' && $g <= 31_500; }
+    public function kostenCent(int $g): int { return $g <= 5_000 ? 549 : 849; }
+}
+
+final class Spedition implements Versandart
+{
+    public function passtZu(string $land, int $g): bool { return $g > 31_500; }
+    public function kostenCent(int $g): int { return 4_900 + intdiv($g, 1_000) * 15; }
+}
+
+final class Versandrechner
+{
+    /** @param list<Versandart> $arten */
+    public function __construct(private array $arten) {}     // haengt nur am Interface
+
+    public function guenstigste(string $land, int $gewicht): int
+    {
+        $passend = array_filter($this->arten, fn (Versandart $a) => $a->passtZu($land, $gewicht));
+        if ($passend === []) {
+            throw new DomainException('Kein Versand moeglich');
+        }
+        return min(array_map(fn (Versandart $a) => $a->kostenCent($gewicht), $passend));
+    }
+}
+
+// Neue Versandart? Neue Klasse - Versandrechner bleibt unveraendert (Open/Closed)
+$rechner = new Versandrechner([new DhlPaket(), new Spedition()]);
+echo $rechner->guenstigste('DE', 3_000);   // 549
+
+
+m55-l3 Was PHP 8.4 und 8.5 Neues bringen
+ PHP erscheint jedes Jahr im November in einer neuen Version. Prüfe mit  php -v , welche du hast – die folgenden Features funktionieren nur ab der genannten Version.    PHP 8.4 (November 2024)      Property Hooks : Eigenschaften können eigene  get - und  set -Logik haben. Das ersetzt viele Getter und Setter.    Asymmetrische Sichtbarkeit :  public private(set) int $stand  – öffentlich lesbar, aber nur innerhalb der Klasse schreibbar.    Methodenaufruf direkt nach new :  new Geld(500)-&gt;format()  ohne zusätzliche Klammern.    Neue Array-Funktionen :  array_find() ,  array_find_key() ,  array_any() ,  array_all() .     PHP 8.5 (November 2025)      Pipe-Operator   |&gt; : Der Wert links wird an die Funktion rechts übergeben. Aus verschachtelten Aufrufen wird eine lesbare Kette von links nach rechts. Arrow Functions auf der rechten Seite stehen in Klammern.    array_first()  und  array_last()  liefern das erste bzw. letzte Element.    Ob du neue Features einsetzt, entscheidet die PHP-Version auf dem  Server , nicht die auf deinem Rechner. Das  "php" -Feld in  composer.json  hält beides zusammen. 
+CODE
+<?php
+declare(strict_types=1);
+
+// --- PHP 8.4: Property Hooks und asymmetrische Sichtbarkeit ---
+final class Kunde
+{
+    public string $email {
+        set(string $wert) {
+            $this->email = mb_strtolower(trim($wert));   // Normalisierung beim Setzen
+        }
+    }
+
+    public string $anzeigename {
+        get => $this->vorname . ' ' . $this->nachname;    // virtuelle Eigenschaft
+    }
+
+    public private(set) int $bestellungen = 0;           // lesen ja, schreiben nur intern
+
+    public function __construct(public string $vorname, public string $nachname, string $email)
+    {
+        $this->email = $email;
+    }
+
+    public function bestellt(): void { $this->bestellungen++; }
+}
+
+$k = new Kunde('Ada', 'Lovelace', '  ADA@Example.com ');
+echo $k->email . ' / ' . $k->anzeigename . PHP_EOL;   // ada@example.com / Ada Lovelace
+// $k->bestellungen = 5;   // Error: Cannot modify private(set) property
+
+// --- PHP 8.4: neue Array-Funktionen ---
+$noten = [2, 1, 4, 3];
+var_dump(array_find($noten, fn (int $n) => $n > 2));   // int(4)
+var_dump(array_all($noten, fn (int $n) => $n <= 4));   // bool(true)
+
+// --- PHP 8.5: Pipe-Operator ---
+$slug = '  Laravel für Profis  '
+    |> trim(...)
+    |> mb_strtolower(...)
+    |> (fn (string $s) => preg_replace('/\s+/', '-', $s));
+echo $slug . PHP_EOL;                                   // laravel-für-profis
+
+
+m55-l4 Dependency Injection und Unit-Tests ohne Framework
+ Laravel nimmt dir mit dem Service Container viel ab. Damit du verstehst, was dort passiert, lohnt sich ein Blick auf das Prinzip in reinem PHP:  Eine Klasse erzeugt ihre Abhängigkeiten nicht selbst, sondern bekommt sie übergeben.     Ohne DI:  $this-&gt;kurse = new EzbWechselkurse();  – die Klasse ist fest an die EZB gebunden. Ein Test würde jedes Mal echte Kurse aus dem Internet laden.   Mit DI: Der Konstruktor erwartet ein Interface  Wechselkurse . Im Programm übergibst du die echte Implementierung, im Test eine Attrappe ( Test Double ).    Für Tests in reinem PHP ist  PHPUnit  der Standard ( composer require --dev phpunit/phpunit ). Ein Test ist eine Klasse, die von  TestCase  erbt; jede Testmethode prüft mit Zusicherungen (Assertions) wie  assertSame()  ein Verhalten.     Begriff  Bedeutung     Stub  liefert feste Antworten, prüft nichts     Mock  prüft zusätzlich, ob und wie er aufgerufen wurde     Fake  funktionierende, vereinfachte Implementierung (z. B. In-Memory-Speicher)   
+CODE
+<?php
+declare(strict_types=1);
+
+// src/PreisRechner.php
+namespace App;
+
+interface Wechselkurse
+{
+    public function kurs(string $von, string $nach): float;
+}
+
+final class PreisRechner
+{
+    public function __construct(private Wechselkurse $kurse) {}
+
+    public function umrechnen(int $cent, string $waehrung): int
+    {
+        return (int) round($cent * $this->kurse->kurs('EUR', $waehrung));
+    }
+}
+
+// tests/PreisRechnerTest.php
+namespace Tests;
+
+use App\PreisRechner;
+use App\Wechselkurse;
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
+
+final class PreisRechnerTest extends TestCase
+{
+    #[Test]
+    public function rechnet_mit_dem_aktuellen_kurs_um(): void
+    {
+        $kurse = $this->createStub(Wechselkurse::class);
+        $kurse->method('kurs')->willReturn(1.10);
+
+        $rechner = new PreisRechner($kurse);
+
+        $this->assertSame(1100, $rechner->umrechnen(1000, 'USD'));
+    }
+}
+
+// Ausfuehren:  ./vendor/bin/phpunit tests
+
+
+m45-l1 Installation, Projektstruktur und Konfiguration
+  Laravel  ist das verbreitetste PHP-Framework. Es bringt Routing, ORM, Templates, Authentifizierung, Queues und Tests aus einem Guss mit. Ein neues Projekt legst du mit dem Laravel-Installer ( laravel new shop ) oder mit  composer create-project laravel/laravel shop  an.  php artisan serve  startet es lokal. Die Standard-Datenbank neuer Projekte ist SQLite, du kannst also ohne Datenbankserver loslegen.     Verzeichnis  Inhalt      app/   dein Code: Models, Http/Controllers, Providers …      bootstrap/app.php   startet die Anwendung, registriert Routen, Middleware, Exception-Handling      config/   Konfigurationsdateien, lesen Werte aus  .env       database/   Migrationen, Factories, Seeder      public/    einziges  Verzeichnis, das der Webserver ausliefert ( index.php , Assets)      resources/   Blade-Views, CSS, JavaScript      routes/    web.php ,  console.php , optional  api.php       storage/   Logs, Cache, kompilierte Views, Uploads      tests/   Feature- und Unit-Tests     Umgebungsabhängige Werte stehen in   .env  : Datenbankzugang,  APP_KEY ,  APP_DEBUG . Die Datei wird  nie committet , nur die Vorlage  .env.example .  php artisan key:generate  erzeugt den Schlüssel, mit dem Laravel Cookies und verschlüsselte Werte schützt.    Artisan  ist das Kommandozeilenwerkzeug:  make:model ,  make:controller ,  migrate ,  route:list ,  tinker  (interaktive Shell mit geladener App) und viele mehr.  php artisan list  zeigt alle. 
+CODE
+# Neues Projekt
+composer create-project laravel/laravel shop
+cd shop
+php artisan serve                 # http://127.0.0.1:8000
+
+# Code-Geruest erzeugen
+php artisan make:model Produkt -mfc   # Model + Migration + Factory + Controller
+php artisan migrate
+php artisan route:list
+
+# Interaktiv mit der App arbeiten
+php artisan tinker
+>>> App\Models\User::count();
+>>> config('app.name');
+
+
+m45-l2 Request-Lebenszyklus und Routing
+ Jeder Request läuft durch dieselbe Kette:     public/index.php  lädt den Autoloader und  bootstrap/app.php .   Die Anwendung startet, alle  Service Provider  registrieren ihre Dienste.   Der Request passiert die globale  Middleware  (Session, CSRF, Wartungsmodus …).   Der  Router  sucht die passende Route und führt deren Middleware aus.    Controller  oder Closure erzeugen eine  Response , die rückwärts durch die Middleware zum Client geht.    Routen definierst du in  routes/web.php . Wichtige Bausteine:     Parameter :  /produkte/{produkt} , optional mit  {seite?} .    Route Model Binding : Heißt der Parameter wie ein typisiertes Model-Argument, lädt Laravel den Datensatz automatisch und liefert 404, wenn es ihn nicht gibt.    Benannte Routen :  -&gt;name('produkte.show')  und  route('produkte.show', $p)  – URLs nie hart in Templates schreiben.    Gruppen  bündeln Präfix, Middleware und Namen.    Resource-Routen :  Route::resource('produkte', …)  erzeugt die sieben REST-Routen index, create, store, show, edit, update und destroy.  
+CODE
+<?php
+// routes/web.php
+use App\Http\Controllers\ProduktController;
+use App\Models\Produkt;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', fn () => view('start'))->name('start');
+
+// Route Model Binding: {produkt} -> Produkt $produkt, 404 falls nicht vorhanden
+Route::get('/produkte/{produkt}', [ProduktController::class, 'show'])
+    ->name('produkte.show');
+
+// Binding ueber eine andere Spalte als id
+Route::get('/p/{produkt:slug}', [ProduktController::class, 'show']);
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('produkte', ProduktController::class)->except(['show']);
+    // admin.produkte.index, admin.produkte.store, ...
+});
+
+// Fallback fuer alles, was nicht passt
+Route::fallback(fn () => response()->view('errors.404', status: 404));
+
+
+m45-l3 Controller und Blade-Templates
+  Controller  nehmen den Request entgegen, rufen die Geschäftslogik auf und geben eine Antwort zurück. Sie sollten  dünn  bleiben – Logik, die mehr als ein paar Zeilen hat, gehört in eigene Klassen (dazu mehr im Expertenteil).    Blade  ist die Template-Sprache von Laravel. Templates liegen in  resources/views  und enden auf  .blade.php . Sie werden zu reinem PHP kompiliert und gecacht.     Syntax  Bedeutung      {{ $x }}   Ausgabe,  automatisch HTML-kodiert       {!! $x !!}   Ausgabe  ohne  Kodierung – nur für vertrauenswürdiges HTML      @if ,  @foreach ,  @forelse … @empty   Kontrollstrukturen      &lt;x-layout&gt;  …  {{ $slot }}   Komponenten mit Slots      @csrf ,  @method('PUT')   CSRF-Token, Methoden-Spoofing in Formularen      @auth ,  @can('update', $p)   Anzeige je nach Login und Berechtigung     Layouts baust du heute mit  Komponenten : Eine Datei  resources/views/components/layout.blade.php  wird als  &lt;x-layout&gt;  verwendet. Benannte Slots ( &lt;x-slot:titel&gt; ) füllen weitere Bereiche. Die ältere Variante mit  @extends  und  @section  funktioniert weiter und begegnet dir in vielen Projekten. 
+CODE
+<?php
+// app/Http/Controllers/ProduktController.php
+namespace App\Http\Controllers;
+
+use App\Models\Produkt;
+use Illuminate\View\View;
+
+class ProduktController extends Controller
+{
+    public function index(): View
+    {
+        $produkte = Produkt::query()
+            ->where('aktiv', true)
+            ->orderBy('name')
+            ->paginate(20);
+
+        return view('produkte.index', ['produkte' => $produkte]);
+    }
+
+    public function show(Produkt $produkt): View
+    {
+        return view('produkte.show', compact('produkt'));
+    }
+}
+{{-- resources/views/produkte/index.blade.php --}}
+<x-layout>
+    <x-slot:titel>Produkte</x-slot:titel>
+
+    @forelse ($produkte as $produkt)
+        <article>
+            <h2>
+                <a href="{{ route('produkte.show', $produkt) }}">{{ $produkt->name }}</a>
+            </h2>
+            <p>{{ number_format($produkt->preis_cent / 100, 2, ',', '.') }} EUR</p>
+
+            @can('update', $produkt)
+                <a href="{{ route('admin.produkte.edit', $produkt) }}">Bearbeiten</a>
+            @endcan
+        </article>
+    @empty
+        <p>Keine Produkte gefunden.</p>
+    @endforelse
+
+    {{ $produkte->links() }}
+</x-layout>
+
+m46-l1 Migrationen, Factories und Seeder
+  Migrationen  sind versionierte Änderungen am Datenbankschema – Git für die Tabellenstruktur. Jede Migration hat  up()  (ausführen) und  down()  (rückgängig machen). Laravel merkt sich in der Tabelle  migrations , welche schon gelaufen sind.     php artisan make:migration create_produkte_table  legt eine neue an.    php artisan migrate  führt alle offenen aus,  migrate:rollback  nimmt den letzten Stapel zurück.    migrate:fresh --seed  löscht alles und baut neu auf –  nur lokal .    Die wichtigste Regel im Team:  Eine Migration, die schon auf einem Server lief, wird nie mehr geändert.  Änderungen kommen als neue Migration dazu. Sonst laufen die Datenbanken der Kollegen und die Produktion auseinander.    Factories  erzeugen Testdaten mit Faker,  Seeder  füllen die Datenbank damit. Factories kennen Zustände ( -&gt;state() ) und Beziehungen ( -&gt;for($user) ,  -&gt;has(…) ). Sie sind später auch das Rückgrat jedes Tests.   Denke beim Schema an  Fremdschlüssel  mit Löschregel ( cascadeOnDelete ,  nullOnDelete ) und an  Indizes  auf Spalten, nach denen du filterst oder sortierst. 
+CODE
+<?php
+// database/migrations/2026_10_08_120000_create_produkte_table.php
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('produkte', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('kategorie_id')->constrained('kategorien')->cascadeOnDelete();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->unsignedInteger('preis_cent');
+            $table->string('status')->default('entwurf')->index();
+            $table->boolean('aktiv')->default(true);
+            $table->timestamp('veroeffentlicht_am')->nullable();
+            $table->timestamps();      // created_at, updated_at
+            $table->softDeletes();     // deleted_at
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('produkte');
+    }
+};
+<?php
+// database/factories/ProduktFactory.php
+namespace Database\Factories;
+
+use App\Models\Kategorie;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+class ProduktFactory extends Factory
+{
+    public function definition(): array
+    {
+        $name = fake()->unique()->words(3, true);
+
+        return [
+            'kategorie_id' => Kategorie::factory(),
+            'name'         => $name,
+            'slug'         => Str::slug($name),
+            'preis_cent'   => fake()->numberBetween(199, 99900),
+            'aktiv'        => true,
+        ];
+    }
+
+    public function inaktiv(): static
+    {
+        return $this->state(fn () => ['aktiv' => false]);
+    }
+}
+
+// Verwendung:  Produkt::factory()->count(50)->inaktiv()->create();
+
+m46-l2 Eloquent-Models und CRUD
+  Eloquent  ist das ORM von Laravel nach dem  Active-Record -Muster: Jede Model-Klasse steht für eine Tabelle, jedes Objekt für eine Zeile. Die Konventionen ersparen Konfiguration – Model  Produkt  sucht die Tabelle  produkts  (englische Pluralregel!). Bei deutschen Namen setzt du deshalb  protected $table = 'produkte'; .    Mass Assignment :  Produkt::create($request-&gt;all())  würde jedes Feld übernehmen, das ein Angreifer mitschickt – etwa  ist_admin . Deshalb verlangt Eloquent eine Erlaubnisliste in  $fillable  (oder eine Sperrliste in  $guarded ). Am sichersten ist  $request-&gt;validated() .   Mit  Casts  wandelt Eloquent Spaltenwerte automatisch: in  bool ,  datetime  (Carbon-Objekt),  array  (JSON-Spalte),  encrypted  oder in ein Enum. Seit Laravel 11 schreibt man sie als Methode  casts() .     Methode  Ergebnis      find($id)   Model oder null      findOrFail($id)   Model oder 404 (ModelNotFoundException)      where(…)-&gt;get()   Collection      where(…)-&gt;first()   erstes Model oder null      create([...])   neues Model, gespeichert      updateOrCreate([...], [...])   Upsert anhand der ersten Bedingung      $model-&gt;update([...]) ,  -&gt;delete()   ändern, löschen (bei SoftDeletes nur markieren)      Scopes  kapseln wiederkehrende Bedingungen.  Accessors  berechnen Attribute wie  $produkt-&gt;preis_formatiert . 
+CODE
+<?php
+// app/Models/Produkt.php
+namespace App\Models;
+
+use App\Enums\ProduktStatus;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Produkt extends Model
+{
+    use HasFactory, SoftDeletes;
+
+    protected $table = 'produkte';
+
+    protected $fillable = ['kategorie_id', 'name', 'slug', 'preis_cent', 'status', 'aktiv'];
+
+    protected function casts(): array
+    {
+        return [
+            'aktiv'              => 'boolean',
+            'status'             => ProduktStatus::class,   // Backed Enum
+            'veroeffentlicht_am' => 'datetime',
+        ];
+    }
+
+    // Scope: Produkt::aktiv()->get()
+    public function scopeAktiv(Builder $query): void
+    {
+        $query->where('aktiv', true)->whereNotNull('veroeffentlicht_am');
+    }
+
+    // Accessor: $produkt->preis_formatiert
+    protected function preisFormatiert(): Attribute
+    {
+        return Attribute::get(fn () => number_format($this->preis_cent / 100, 2, ',', '.') . ' EUR');
+    }
+}
+
+// Verwendung
+$p = Produkt::create(['name' => 'Kabel', 'slug' => 'kabel', 'preis_cent' => 999, 'kategorie_id' => 1]);
+$p->update(['preis_cent' => 899]);
+$guenstig = Produkt::aktiv()->where('preis_cent', '<', 1000)->orderBy('name')->get();
+
+
+m46-l3 Beziehungen zwischen Models
+ Beziehungen sind Methoden am Model, die einen Relation-Typ zurückgeben. Sie spiegeln die Kardinalitäten aus dem ER-Modell:     Kardinalität  Seite mit Fremdschlüssel  Gegenseite     1:1   belongsTo    hasOne      1:n   belongsTo  (z. B. Bestellung → Kunde)   hasMany  (Kunde → Bestellungen)     n:m  Zwischentabelle   belongsToMany  auf beiden Seiten     1:n über Zwischenmodell  –   hasManyThrough      an verschiedene Models   morphTo    morphMany  (z. B. Kommentare an Produkt und Beitrag)     Der Unterschied zwischen Methode und Eigenschaft ist wichtig:     $kunde-&gt;bestellungen()  (Methode) liefert einen  Query Builder  – du kannst weiter filtern.    $kunde-&gt;bestellungen  (Eigenschaft) lädt die Daten und liefert eine  Collection .    Bei n:m verwaltest du die Zwischentabelle mit  attach() ,  detach()  und  sync() . Zusätzliche Spalten der Zwischentabelle (Menge, Preis zum Zeitpunkt) holst du mit  withPivot() . 
+CODE
+<?php
+class Kunde extends Model
+{
+    public function bestellungen(): HasMany
+    {
+        return $this->hasMany(Bestellung::class);
+    }
+}
+
+class Bestellung extends Model
+{
+    public function kunde(): BelongsTo
+    {
+        return $this->belongsTo(Kunde::class);
+    }
+
+    public function produkte(): BelongsToMany
+    {
+        return $this->belongsToMany(Produkt::class, 'bestellung_produkt')
+            ->withPivot(['menge', 'preis_cent'])
+            ->withTimestamps();
+    }
+}
+
+// Verwendung
+$kunde = Kunde::findOrFail(7);
+
+$offene = $kunde->bestellungen()->where('status', 'offen')->latest()->get();  // Query
+$anzahl = $kunde->bestellungen->count();                                      // Collection
+
+$bestellung = $kunde->bestellungen()->create(['status' => 'offen']);   // setzt kunde_id
+$bestellung->produkte()->attach($produkt->id, ['menge' => 2, 'preis_cent' => $produkt->preis_cent]);
+
+foreach ($bestellung->produkte as $p) {
+    echo "{$p->name}: {$p->pivot->menge} Stueck\n";
+}
+
+$bestellung->produkte()->sync([3 => ['menge' => 1], 5 => ['menge' => 4]]);  // genau diese
+
+
+m46-l4 N+1-Problem, Eager Loading und Query Builder
+ Das  N+1-Problem  ist der häufigste Performance-Fehler in Laravel-Projekten:    1 Abfrage lädt 50 Bestellungen.   In der Schleife löst  $bestellung-&gt;kunde-&gt;name  für  jede  Bestellung eine weitere Abfrage aus.   Ergebnis: 51 Abfragen statt 2. Bei verschachtelten Beziehungen schnell Hunderte.    Die Lösung ist  Eager Loading  mit  with() : Laravel lädt alle benötigten Kunden in  einer  zweiten Abfrage ( WHERE id IN (…) ) und verteilt sie auf die Bestellungen.     Werkzeug  Zweck      with('kunde', 'produkte')   Beziehungen vorab laden      with('produkte:id,name')   nur bestimmte Spalten laden      withCount('bestellungen')   Anzahl als  bestellungen_count , ohne Models zu laden      load('kunde')   nachträglich für eine schon geladene Collection      Model::preventLazyLoading()   wirft bei vergessenem Eager Loading eine Exception     Für Auswertungen ist der  Query Builder  ( DB::table() ) oft besser als Eloquent: Er erzeugt keine Model-Objekte und ist dadurch bei großen Mengen viel sparsamer. Mehrere zusammengehörige Schreibvorgänge umschließt du mit  DB::transaction() . Wirft die Closure, wird automatisch zurückgerollt. 
+CODE
+<?php
+// FALSCH: 1 + N Abfragen
+$bestellungen = Bestellung::latest()->take(50)->get();
+foreach ($bestellungen as $b) {
+    echo $b->kunde->name;              // jedes Mal SELECT * FROM kunden WHERE id = ?
+}
+
+// RICHTIG: 2 Abfragen
+$bestellungen = Bestellung::with('kunde:id,name')
+    ->withCount('produkte')
+    ->latest()
+    ->take(50)
+    ->get();
+
+// app/Providers/AppServiceProvider.php - Lazy Loading lokal verbieten
+public function boot(): void
+{
+    Model::preventLazyLoading(! $this->app->isProduction());
+}
+
+// Auswertung mit dem Query Builder - keine Model-Objekte
+$umsatzProMonat = DB::table('bestellungen')
+    ->selectRaw("DATE_FORMAT(created_at, '%Y-%m') AS monat, SUM(summe_cent) AS umsatz")
+    ->where('status', 'bezahlt')
+    ->groupBy('monat')
+    ->orderBy('monat')
+    ->get();
+
+// Grosse Mengen in Haeppchen verarbeiten
+Produkt::where('aktiv', false)->chunkById(500, function ($produkte) {
+    foreach ($produkte as $p) { /* ... */ }
+});
+
+// Transaktion
+DB::transaction(function () use ($kunde, $warenkorb) {
+    $bestellung = $kunde->bestellungen()->create(['status' => 'offen']);
+    foreach ($warenkorb as $pos) {
+        $bestellung->produkte()->attach($pos['id'], ['menge' => $pos['menge']]);
+        Produkt::whereKey($pos['id'])->decrement('bestand', $pos['menge']);
+    }
+});
+
+
+m47-l1 Validierung und Form Requests
+ Laravel validiert Eingaben mit Regeln.  $request-&gt;validate([...])  prüft und liefert  nur die validierten Felder  zurück. Schlägt die Prüfung fehl, reagiert Laravel passend zur Anfrage:     Browser-Formular : Redirect zurück, Fehler und alte Eingaben stehen in der Session ( @error ,  old() ).    JSON-Anfrage  (Header  Accept: application/json ): Antwort  422  mit den Fehlern als JSON.    Häufige Regeln:  required ,  nullable ,  string ,  integer ,  email ,  max:255 ,  min:8 ,  in:a,b ,  unique:users,email ,  exists:kategorien,id ,  date ,  after:today ,  confirmed  (Feld plus  _confirmation ),  image ,  mimes:pdf,jpg . Für Regeln mit Objekten gibt es Klassen wie  Rule::unique(…)-&gt;ignore($id) ,  Rule::enum(Status::class)  und  Password::min(12) .   Ab einer Handvoll Regeln lagerst du sie in einen  Form Request  aus ( php artisan make:request ). Er bündelt  authorize()  und  rules()  und wird einfach als Parametertyp in den Controller geschrieben – Laravel validiert, bevor deine Methode überhaupt läuft. 
+CODE
+<?php
+// app/Http/Requests/ProduktSpeichernRequest.php
+namespace App\Http\Requests;
+
+use App\Enums\ProduktStatus;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+class ProduktSpeichernRequest extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return $this->user()->can('create', \App\Models\Produkt::class);
+    }
+
+    public function rules(): array
+    {
+        return [
+            'name'         => ['required', 'string', 'max:255'],
+            'slug'         => ['required', 'alpha_dash', Rule::unique('produkte', 'slug')->ignore($this->route('produkt'))],
+            'preis_cent'   => ['required', 'integer', 'min:0'],
+            'kategorie_id' => ['required', 'exists:kategorien,id'],
+            'status'       => ['required', Rule::enum(ProduktStatus::class)],
+            'bild'         => ['nullable', 'image', 'max:2048'],   // KB
+        ];
+    }
+
+    public function messages(): array
+    {
+        return ['slug.unique' => 'Diese URL ist schon vergeben.'];
+    }
+}
+
+// Controller - validiert ist es hier schon
+public function store(ProduktSpeichernRequest $request): RedirectResponse
+{
+    $produkt = Produkt::create($request->validated());
+    return to_route('produkte.show', $produkt)->with('status', 'Gespeichert.');
+}
+
+
+m47-l2 Authentifizierung, Middleware und CSRF
+ Laravel liefert die Bausteine für Login und Sessions mit. Fertige Oberflächen inklusive Registrierung, Passwort-Reset und E-Mail-Bestätigung bekommst du über die offiziellen  Starter Kits  (Livewire, React oder Vue). In älteren Projekten heißen sie  Breeze  oder  Jetstream .     Auth::attempt($credentials)  prüft Zugangsdaten und loggt ein.    auth()-&gt;user()  bzw.  $request-&gt;user()  liefert den eingeloggten Benutzer.   Die Middleware  auth  schützt Routen,  guest  ist das Gegenstück,  verified  verlangt eine bestätigte E-Mail.     Middleware  sind Filter um den Request: Sie können ihn abweisen, verändern oder die Antwort anpassen. Eigene legst du mit  make:middleware  an und registrierst sie in  bootstrap/app.php .    CSRF  (Cross-Site Request Forgery): Eine fremde Seite bringt den Browser des eingeloggten Opfers dazu, ein Formular an deine Anwendung zu senden. Der Browser schickt das Session-Cookie mit. Laravel verlangt deshalb bei jedem POST, PUT, PATCH und DELETE ein geheimes Token, das nur deine eigenen Seiten kennen. In Blade-Formularen genügt  @csrf . Webhooks von Zahlungsanbietern nimmst du gezielt aus und prüfst stattdessen deren Signatur. 
+CODE
+<?php
+// app/Http/Middleware/NurAdmins.php
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class NurAdmins
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        if (! $request->user()?->ist_admin) {
+            abort(403);
+        }
+        return $next($request);          // weiter zur naechsten Schicht
+    }
+}
+
+// bootstrap/app.php
+->withMiddleware(function (Middleware $middleware) {
+    $middleware->alias(['admin' => \App\Http\Middleware\NurAdmins::class]);
+    $middleware->validateCsrfTokens(except: ['webhooks/stripe']);
+})
+
+// routes/web.php
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/admin', AdminDashboardController::class);
+});
+
+// Login von Hand (die Starter Kits machen das fuer dich)
+if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+    $request->session()->regenerate();
+    return redirect()->intended('/dashboard');
+}
+
+
+m47-l3 Autorisierung mit Gates und Policies
+ Authentifizierung beantwortet „Wer bist du?“,  Autorisierung  „Darfst du das?“. Die häufigste Lücke in Webanwendungen (OWASP-Platz 1,  Broken Access Control ) ist eine fehlende Prüfung: Wer  /rechnungen/4711  aufruft, sieht die Rechnung – auch wenn sie einem anderen Kunden gehört.    Policies  bündeln die Regeln für ein Model in einer Klasse ( make:policy ProduktPolicy --model=Produkt ). Jede Methode bekommt den Benutzer und gegebenenfalls das Model und liefert  true  oder  false . Laravel findet  ProduktPolicy  zu  Produkt  automatisch.     Ort  Prüfung     Controller   Gate::authorize('update', $produkt);  → 403 bei Ablehnung     Route   -&gt;can('update', 'produkt')      Form Request   authorize()  mit  $this-&gt;user()-&gt;can(…)      Blade   @can('update', $produkt) … @endcan      beliebig   $user-&gt;can('delete', $produkt)      Die Methode  before()  in einer Policy läuft vor allen anderen – praktisch für Administratoren. Für Prüfungen ohne Model (etwa „darf das Dashboard sehen“) gibt es  Gates  als einfache Closures.   Ein Detail aus der Praxis: Bei fremden Datensätzen lieber  404 statt 403  liefern ( Response::denyAsNotFound() ). So verrät die Antwort nicht, dass Rechnung 4711 existiert. 
+CODE
+<?php
+// app/Policies/BestellungPolicy.php
+namespace App\Policies;
+
+use App\Models\Bestellung;
+use App\Models\User;
+use Illuminate\Auth\Access\Response;
+
+class BestellungPolicy
+{
+    public function before(User $user): ?bool
+    {
+        return $user->ist_admin ? true : null;   // null = normale Pruefung
+    }
+
+    public function view(User $user, Bestellung $bestellung): Response
+    {
+        return $user->id === $bestellung->kunde->user_id
+            ? Response::allow()
+            : Response::denyAsNotFound();
+    }
+
+    public function cancel(User $user, Bestellung $bestellung): bool
+    {
+        return $user->id === $bestellung->kunde->user_id
+            && $bestellung->status === BestellStatus::Offen;
+    }
+}
+
+// Controller
+public function show(Bestellung $bestellung): View
+{
+    Gate::authorize('view', $bestellung);
+    return view('bestellungen.show', compact('bestellung'));
+}
+
+// Gate ohne Model - AppServiceProvider::boot()
+Gate::define('berichte-sehen', fn (User $user) => $user->rolle === 'controlling');
+
+
+m56-l1 Blade-Komponenten bauen
+ Komponenten sind wiederverwendbare Bausteine für Oberflächen: Buttons, Hinweisboxen, Formularfelder, Karten. Statt dasselbe HTML in zwanzig Views zu kopieren, schreibst du es einmal und nutzt es als  &lt;x-name&gt; .     Art  Datei  Wann     anonyme Komponente  nur  resources/views/components/hinweis.blade.php   reine Darstellung, wenig Logik     Klassen-Komponente  Klasse in  app/View/Components  plus View ( make:component )  braucht Daten aus Services oder Berechnungen     In anonymen Komponenten deklarierst du die erwarteten Werte mit  @props . Alle weiteren HTML-Attribute (zum Beispiel  class  oder  id ) landen im Objekt  $attributes . Mit  $attributes-&gt;merge(['class' =&gt; '…'])  ergänzt du Standardklassen, ohne dass der Aufrufer sie überschreibt.   Werte übergibst du als Attribut:  typ="warnung"  übergibt den String „warnung“,  :anzahl="$offen"  (mit Doppelpunkt) einen PHP-Ausdruck. Der Inhalt zwischen den Tags landet in  $slot , weitere Bereiche in benannten Slots wie  &lt;x-slot:titel&gt; .   Probier es aus  Baue eine Komponente  &lt;x-preis :cent="1999" /&gt; , die „19,99 €“ ausgibt, und eine Komponente  &lt;x-karte&gt;  mit einem benannten Slot für den Titel.  
+CODE
+{{-- resources/views/components/hinweis.blade.php --}}
+@props(['typ' => 'info', 'titel' => null])
+
+@php
+    $farben = [
+        'info'     => 'border-blue-500 bg-blue-50',
+        'erfolg'   => 'border-green-600 bg-green-50',
+        'warnung'  => 'border-amber-500 bg-amber-50',
+    ];
+@endphp
+
+<div {{ $attributes->merge(['class' => 'rounded border-l-4 p-4 ' . ($farben[$typ] ?? $farben['info'])]) }} role="status">
+    @if ($titel)
+        <p class="font-semibold">{{ $titel }}</p>
+    @endif
+    {{ $slot }}
+</div>
+{{-- Verwendung in einer View --}}
+<x-hinweis typ="erfolg" titel="Gespeichert" class="mb-6">
+    Deine Adresse wurde aktualisiert.
+</x-hinweis>
+
+<x-hinweis typ="warnung" :titel="$offeneRechnungen . ' offene Rechnungen'">
+    Bitte prüfe deine Zahlungen.
+</x-hinweis>
+
+m56-l2 Vite, CSS und JavaScript einbinden
+ Laravel baut CSS und JavaScript mit  Vite . Während der Entwicklung läuft  npm run dev : Vite beobachtet deine Dateien und aktualisiert den Browser sofort (Hot Module Replacement). Für den Server erzeugt  npm run build  optimierte Dateien mit Hash im Namen in  public/build .   In der Layout-View bindest du die Einstiegsdateien mit der Direktive  @vite  ein. Sie erkennt automatisch, ob der Entwicklungsserver läuft, und setzt sonst die gebauten Dateien aus dem Manifest ein.     Datei  Rolle      vite.config.js   Einstiegspunkte und Plugins      resources/css/app.css   CSS-Einstieg, in neuen Projekten mit Tailwind CSS      resources/js/app.js   JavaScript-Einstieg      public/build/manifest.json   Zuordnung Quelldatei → gebaute Datei mit Hash     Neue Laravel-Projekte bringen  Tailwind CSS  mit: Gestaltung über kleine Hilfsklassen direkt im HTML ( p-4 ,  rounded ,  text-sm ). Das passt gut zu Blade-Komponenten, weil das Aussehen dann an einer Stelle gekapselt ist.   Typischer Fehler  Auf dem Server fehlt das CSS komplett? Fast immer wurde  npm run build  im Deployment vergessen, oder  public/build  steht in der  .gitignore  und das Bauen ist nicht Teil des Deploy-Skripts. Die Fehlermeldung lautet dann „Vite manifest not found“.  
+CODE
+{{-- resources/views/components/layout.blade.php --}}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $titel ?? config('app.name') }}</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+    <main class="mx-auto max-w-4xl p-6">
+        {{ $slot }}
+    </main>
+</body>
+</html>
+
+
+m56-l3 Livewire: interaktiv ohne eigenes JavaScript
+  Livewire  macht Blade-Oberflächen interaktiv, ohne dass du ein JavaScript-Framework schreiben musst. Eine Livewire-Komponente besteht aus einer PHP-Klasse mit öffentlichen Eigenschaften und Methoden und einer Blade-View.     wire:model  verbindet ein Eingabefeld mit einer Eigenschaft der Klasse.    wire:click  ruft eine Methode der Klasse auf.   Nach jeder Aktion rendert Livewire die View auf dem Server neu und tauscht nur die geänderten Teile im Browser aus.    Mit  wire:model.live  wird schon während des Tippens synchronisiert, zum Beispiel für eine Live-Suche. Ohne  .live  erst bei der nächsten Aktion – das spart Anfragen.     Ansatz  Stärke  Passt für     Blade  einfach, schnell, SEO-freundlich  Inhaltsseiten, klassische Formulare     Livewire  Interaktivität in PHP  Dashboards, Filter, Verwaltungsoberflächen     Inertia + Vue/React  volle SPA-Erfahrung, Routing bleibt in Laravel  Teams mit Frontend-Erfahrung     API + eigenes Frontend  völlige Trennung  Mobile Apps, mehrere Frontends     Öffentliche Eigenschaften einer Livewire-Komponente sind im Browser sichtbar und vom Benutzer veränderbar. Prüfe in jeder Methode Berechtigungen und validiere Eingaben – genau wie in einem Controller. 
+CODE
+<?php
+// app/Livewire/ProduktSuche.php
+namespace App\Livewire;
+
+use App\Models\Produkt;
+use Livewire\Component;
+
+class ProduktSuche extends Component
+{
+    public string $suche = '';
+    public bool $nurLieferbar = false;
+
+    public function zuruecksetzen(): void
+    {
+        $this->reset('suche', 'nurLieferbar');
+    }
+
+    public function render()
+    {
+        $produkte = Produkt::query()
+            ->when($this->suche !== '', fn ($q) => $q->where('name', 'like', '%' . $this->suche . '%'))
+            ->when($this->nurLieferbar, fn ($q) => $q->where('bestand', '>', 0))
+            ->orderBy('name')
+            ->limit(20)
+            ->get();
+
+        return view('livewire.produkt-suche', compact('produkte'));
+    }
+}
+{{-- resources/views/livewire/produkt-suche.blade.php --}}
+<div>
+    <input type="search" wire:model.live.debounce.300ms="suche" placeholder="Produkt suchen …">
+    <label><input type="checkbox" wire:model.live="nurLieferbar"> nur lieferbar</label>
+    <button wire:click="zuruecksetzen">Zurücksetzen</button>
+
+    <ul>
+        @forelse ($produkte as $p)
+            <li wire:key="p-{{ $p->id }}">{{ $p->name }}</li>
+        @empty
+            <li>Nichts gefunden.</li>
+        @endforelse
+    </ul>
+</div>
+
+m56-l4 Formulare mit gutem Nutzererlebnis
+ Ein Formular ist gut, wenn Benutzer es beim ersten Versuch richtig ausfüllen – und wenn ein Fehler sie nicht alles noch einmal eintippen lässt. Laravel bringt dafür alles mit:     old('feld', $vorgabe)  füllt das Feld nach einem Validierungsfehler mit der letzten Eingabe.    @error('feld') … @enderror  zeigt die Meldung direkt am Feld;  $message  enthält den Text.    redirect()-&gt;with('status', '…')  speichert eine Erfolgsmeldung für genau eine Anfrage (Flash), lesbar mit  session('status') .   Deutsche Fehlertexte bekommst du über Sprachdateien ( php artisan lang:publish ) und  APP_LOCALE=de .    Zur Barrierefreiheit gehört: jedes Feld mit einem  &lt;label for&gt; , Fehlermeldungen mit  aria-describedby  am Feld verknüpft, und nach dem Absenden der Fokus auf dem ersten fehlerhaften Feld.   Gegen doppeltes Absenden hilft auf der Oberfläche das Deaktivieren des Buttons und auf dem Server das Post/Redirect/Get-Muster. Für Geld oder Bestellungen zusätzlich ein eindeutiger Schlüssel, damit dieselbe Bestellung nicht zweimal angelegt wird. 
+CODE
+<form method="POST" action="{{ route('profil.update') }}" novalidate>
+    @csrf
+    @method('PUT')
+
+    @if (session('status'))
+        <x-hinweis typ="erfolg">{{ session('status') }}</x-hinweis>
+    @endif
+
+    <label for="email">E-Mail-Adresse</label>
+    <input id="email" name="email" type="email" autocomplete="email"
+           value="{{ old('email', $user->email) }}"
+           @error('email') aria-invalid="true" aria-describedby="email-fehler" @enderror>
+    @error('email')
+        <p id="email-fehler" class="text-red-700">{{ $message }}</p>
+    @enderror
+
+    <button type="submit" onclick="this.disabled = true; this.form.submit();">Speichern</button>
+</form>
+
+
+m57-l1 Datei-Uploads und das Storage-System
+ Laravel abstrahiert Speicherorte über  Disks :  local  (privat,  storage/app/private ),  public  (öffentlich über  storage/app/public ) und Cloud-Speicher wie  s3 . Dein Code spricht nur mit  Storage::disk('…')  – der Wechsel vom lokalen Ordner zu S3 ist eine Änderung in der Konfiguration.    Validieren:  ['bild' =&gt; ['required', 'image', 'max:2048']]  (Größe in KB) oder lesbarer mit  File::image()-&gt;max('2mb') .   Speichern:  $request-&gt;file('bild')-&gt;store('avatare', 'public')  vergibt einen zufälligen Namen und liefert den Pfad zurück, den du in der Datenbank ablegst.   Öffentlich zugänglich machen: einmal  php artisan storage:link , danach  Storage::url($pfad) .     Private Dateien  (Rechnungen, Verträge) gehören nie auf die öffentliche Disk. Sie werden über eine Route ausgeliefert, die vorher die Berechtigung prüft, oder über eine zeitlich begrenzte URL ( temporaryUrl , bei S3).   Typischer Fehler  Den Originalnamen der hochgeladenen Datei zu übernehmen ( getClientOriginalName() ) ist riskant: Er kann Pfadanteile oder gefährliche Endungen enthalten und kollidiert mit gleichnamigen Dateien. Laravel vergibt mit  store()  deshalb einen zufälligen Namen.  
+CODE
+<?php
+// app/Http/Controllers/AvatarController.php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
+
+public function update(Request $request)
+{
+    $request->validate([
+        'avatar' => ['required', File::image()->max('2mb')->dimensions(Rule::dimensions()->maxWidth(2000))],
+    ]);
+
+    $user = $request->user();
+    $alt  = $user->avatar_pfad;
+
+    $user->update(['avatar_pfad' => $request->file('avatar')->store('avatare', 'public')]);
+
+    if ($alt) {
+        Storage::disk('public')->delete($alt);      // alte Datei aufraeumen
+    }
+
+    return back()->with('status', 'Profilbild aktualisiert.');
+}
+
+// Private Rechnung: Auslieferung nur nach Pruefung
+public function rechnung(Bestellung $bestellung)
+{
+    Gate::authorize('view', $bestellung);
+    return Storage::disk('local')->download($bestellung->rechnung_pfad, "Rechnung-{$bestellung->id}.pdf");
+}
+
+
+m57-l2 E-Mails mit Mailables
+ Jede E-Mail ist in Laravel eine eigene Klasse, ein  Mailable  ( php artisan make:mail BestellBestaetigung --markdown=mail.bestellung ). Seit Laravel 10 beschreibt man sie mit drei Methoden:     envelope()  – Betreff, Absender, Antwortadresse.    content()  – welche View, mit welchen Daten.    attachments()  – Anhänge, z. B. die Rechnung als PDF.    Öffentliche Eigenschaften des Mailables stehen in der View automatisch zur Verfügung. Markdown-Mails nutzen fertige Bausteine wie  &lt;x-mail::button&gt;  und  &lt;x-mail::table&gt;  und sehen in allen Mailprogrammen ordentlich aus.   Verschickt wird mit  Mail::to($kunde)-&gt;send(...) . Weil der Versand Sekunden dauern kann, schickst du Mails im Produktivbetrieb mit  -&gt;queue(...)  über die Warteschlange.   Lokal sollen keine echten Mails rausgehen. Mit  MAIL_MAILER=log  landen sie im Log; bequemer ist ein lokales Postfach wie  Mailpit , das alle Mails abfängt und im Browser anzeigt. 
+CODE
+<?php
+// app/Mail/BestellBestaetigung.php
+namespace App\Mail;
+
+use App\Models\Bestellung;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Attachment;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
+
+class BestellBestaetigung extends Mailable implements ShouldQueue
+{
+    use Queueable, SerializesModels;
+
+    public function __construct(public Bestellung $bestellung) {}
+
+    public function envelope(): Envelope
+    {
+        return new Envelope(subject: "Deine Bestellung #{$this->bestellung->id}");
+    }
+
+    public function content(): Content
+    {
+        return new Content(markdown: 'mail.bestellung');
+    }
+
+    public function attachments(): array
+    {
+        return [Attachment::fromStorageDisk('local', $this->bestellung->rechnung_pfad)->as('Rechnung.pdf')];
+    }
+}
+
+// Versand
+Mail::to($bestellung->kunde->email)->send(new BestellBestaetigung($bestellung));   // ShouldQueue -> landet in der Queue
+
+
+m57-l3 Benachrichtigungen über mehrere Kanäle
+ Eine  Notification  ist eine Nachricht an einen Benutzer, die über mehrere Kanäle gehen kann: E-Mail, Datenbank (für die Glocke in der Oberfläche), SMS oder Slack. Welche Kanäle es sind, entscheidet die Methode  via()  – auch abhängig von den Einstellungen des Benutzers.     toMail()  baut die E-Mail,  toArray()  die Daten für den Datenbankkanal.   Das User-Model braucht den Trait  Notifiable ; verschickt wird mit  $user-&gt;notify(new …) .   Für den Datenbankkanal legt  php artisan make:notifications-table  die Tabelle an.   Gelesen werden sie mit  $user-&gt;unreadNotifications , als gelesen markiert mit  markAsRead() .    Mailable oder Notification? Faustregel: Ein Mailable ist eine gestaltete E-Mail. Eine Notification ist ein  Ereignis für einen Benutzer , das eventuell auch per Mail kommt. 
+CODE
+<?php
+// app/Notifications/BestellungVersendet.php
+namespace App\Notifications;
+
+use App\Models\Bestellung;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+
+class BestellungVersendet extends Notification implements ShouldQueue
+{
+    use Queueable;
+
+    public function __construct(public Bestellung $bestellung) {}
+
+    public function via(object $notifiable): array
+    {
+        return $notifiable->mails_erwuenscht ? ['mail', 'database'] : ['database'];
+    }
+
+    public function toMail(object $notifiable): MailMessage
+    {
+        return (new MailMessage)
+            ->subject('Deine Bestellung ist unterwegs')
+            ->greeting("Hallo {$notifiable->name},")
+            ->line("Bestellung #{$this->bestellung->id} wurde versendet.")
+            ->action('Sendung verfolgen', route('bestellungen.show', $this->bestellung));
+    }
+
+    public function toArray(object $notifiable): array
+    {
+        return ['bestellung_id' => $this->bestellung->id, 'text' => 'Bestellung versendet'];
+    }
+}
+
+// Ausloesen
+$bestellung->kunde->user->notify(new BestellungVersendet($bestellung));
+
+
+m58-l1 Fortgeschrittene Abfragen: whereHas, Aggregate, Subqueries
+ Viele Fragen an die Datenbank betreffen Beziehungen: „Kunden mit offenen Bestellungen“, „Produkte nach Umsatz“, „die letzte Bestellung jedes Kunden“. Eloquent hat dafür Werkzeuge, die all das in  einer  Abfrage lösen – statt Daten zu laden und in PHP zu filtern.     Werkzeug  Frage      whereHas('bestellungen', fn ($q) =&gt; …)   Hat der Kunde mindestens eine passende Bestellung?      doesntHave('bestellungen')   Kunden ohne Bestellung      withCount ,  withSum('positionen', 'summe_cent')   Anzahl bzw. Summe als zusätzliche Spalte      withExists('reklamationen')   Boolesche Spalte  reklamationen_exists       hasOne(…)-&gt;latestOfMany()   die neueste Bestellung als eigene Beziehung      addSelect([... =&gt; Subquery])   beliebiger Wert aus einer Unterabfrage      latestOfMany()  ist besonders praktisch: Die Beziehung  letzteBestellung  lässt sich mit  with()  eager laden, ohne dass für jeden Kunden alle Bestellungen geladen werden. 
+CODE
+<?php
+class Kunde extends Model
+{
+    public function bestellungen(): HasMany
+    {
+        return $this->hasMany(Bestellung::class);
+    }
+
+    public function letzteBestellung(): HasOne
+    {
+        return $this->hasOne(Bestellung::class)->latestOfMany();
+    }
+}
+
+// Kunden mit offener Bestellung ueber 100 EUR, mit Umsatz und letzter Bestellung
+$kunden = Kunde::query()
+    ->whereHas('bestellungen', fn ($q) => $q->where('status', 'offen')->where('summe_cent', '>', 10_000))
+    ->withSum('bestellungen', 'summe_cent')            // bestellungen_sum_summe_cent
+    ->withCount('bestellungen')
+    ->with('letzteBestellung')
+    ->orderByDesc('bestellungen_sum_summe_cent')
+    ->paginate(25);
+
+// Subquery: Datum der letzten Anmeldung als Spalte
+$users = User::addSelect([
+    'letzte_anmeldung' => Anmeldung::select('created_at')
+        ->whereColumn('user_id', 'users.id')
+        ->latest()
+        ->limit(1),
+])->get();
+
+
+m58-l2 Eigene Casts und Value Objects
+ Mit Casts wandelt Eloquent Spaltenwerte automatisch. Die eingebauten ( boolean ,  datetime ,  array ,  encrypted , Enums) decken viel ab. Für eigene Fachtypen schreibst du einen  Custom Cast : eine Klasse mit  get()  (Datenbank → PHP) und  set()  (PHP → Datenbank).   Ein Klassiker ist Geld: In der Datenbank liegt ein Integer in Cent, im Code soll es ein  Geld -Objekt sein, das rechnen und formatieren kann. Der Cast sorgt dafür, dass niemand mehr versehentlich Euro und Cent verwechselt.     php artisan make:cast GeldCast  erzeugt das Gerüst.   Im Model:  'preis' =&gt; GeldCast::class  in  casts() .   Für verschlüsselte Spalten gibt es  encrypted ,  encrypted:array  und  encrypted:collection  – der Schlüssel ist  APP_KEY .    Accessors mit  Attribute::make(get: …, set: …)  reichen für einfache Umformungen. Ein Cast lohnt sich, sobald derselbe Fachtyp in mehreren Models vorkommt. 
+CODE
+<?php
+// app/Casts/GeldCast.php
+namespace App\Casts;
+
+use App\Support\Geld;
+use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
+use Illuminate\Database\Eloquent\Model;
+use InvalidArgumentException;
+
+class GeldCast implements CastsAttributes
+{
+    public function get(Model $model, string $key, mixed $value, array $attributes): ?Geld
+    {
+        return $value === null ? null : Geld::cent((int) $value);
+    }
+
+    public function set(Model $model, string $key, mixed $value, array $attributes): ?int
+    {
+        if ($value === null) {
+            return null;
+        }
+        if (!$value instanceof Geld) {
+            throw new InvalidArgumentException("$key muss ein Geld-Objekt sein.");
+        }
+        return $value->cent;
+    }
+}
+
+// Model
+protected function casts(): array
+{
+    return [
+        'preis'        => GeldCast::class,
+        'iban'         => 'encrypted',          // verschluesselt in der Datenbank
+        'einstellungen' => 'array',
+    ];
+}
+
+// Verwendung
+$produkt->preis = Geld::euro(19.99);
+echo $produkt->preis->plus(Geld::euro(5))->format();   // 24,99 EUR
+
+
+m58-l3 Polymorphe Beziehungen
+ Manchmal gehört ein Datensatz zu  verschiedenen  Arten von Models: Kommentare an Produkten und an Blogbeiträgen, Bilder an Kategorien und an Benutzern. Statt für jede Kombination eine eigene Tabelle zu bauen, nutzt man eine  polymorphe Beziehung .    Die Tabelle  kommentare  bekommt zwei Spalten:  kommentierbar_id  und  kommentierbar_type .   In der Migration erzeugt  $table-&gt;morphs('kommentierbar')  beide Spalten plus Index.   Das Model  Kommentar  hat  morphTo() , Produkt und Beitrag haben  morphMany(Kommentar::class, 'kommentierbar') .    Standardmäßig steht in der  _type -Spalte der volle Klassenname, etwa  App\Models\Produkt . Benennst du die Klasse später um, passen alte Daten nicht mehr. Mit einer  Morph Map  speicherst du stattdessen kurze, stabile Namen wie  produkt .  Relation::enforceMorphMap()  erzwingt das für alle polymorphen Beziehungen.   Der Preis der Flexibilität: Die Datenbank kann für  kommentierbar_id  keinen echten Fremdschlüssel prüfen, weil die Zieltabelle wechselt. Aufräumen beim Löschen musst du selbst übernehmen, etwa in einem  deleting -Event. 
+CODE
+<?php
+// Migration
+Schema::create('kommentare', function (Blueprint $table) {
+    $table->id();
+    $table->morphs('kommentierbar');          // kommentierbar_id + kommentierbar_type + Index
+    $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+    $table->text('text');
+    $table->timestamps();
+});
+
+// Models
+class Kommentar extends Model
+{
+    protected $table = 'kommentare';
+
+    public function kommentierbar(): MorphTo
+    {
+        return $this->morphTo();
+    }
+}
+
+class Produkt extends Model
+{
+    public function kommentare(): MorphMany
+    {
+        return $this->morphMany(Kommentar::class, 'kommentierbar');
+    }
+}
+
+// AppServiceProvider::boot() - stabile Namen statt Klassennamen
+Relation::enforceMorphMap([
+    'produkt' => Produkt::class,
+    'beitrag' => Beitrag::class,
+]);
+
+// Verwendung
+$produkt->kommentare()->create(['user_id' => $user->id, 'text' => 'Top Kabel!']);
+$k = Kommentar::with('kommentierbar')->latest()->first();
+echo $k->kommentierbar::class;                // App\Models\Produkt
+
+
+m58-l4 Globale Scopes, Soft Deletes und Pruning
+ Ein  globaler Scope  hängt an jede Abfrage eines Models automatisch eine Bedingung an. Soft Deletes sind selbst ein Beispiel: Der Trait  SoftDeletes  registriert einen Scope, der  deleted_at IS NULL  ergänzt.    Eigene globale Scopes eignen sich für Regeln, die  immer  gelten, etwa „nur Datensätze des aktuellen Mandanten“.   Ausnahmen machst du mit  withoutGlobalScope(...) , bei Soft Deletes mit  withTrashed()  oder  onlyTrashed() .    Daten, die nicht ewig liegen dürfen – alte Warenkörbe, abgelaufene Tokens, Logs nach Ablauf der Aufbewahrungsfrist – räumt  Pruning  auf. Das Model bekommt den Trait  Prunable  und eine Methode  prunable() , die beschreibt, was weg darf. Der Scheduler ruft dann regelmäßig  model:prune  auf.   Das hat auch eine rechtliche Seite: Die DSGVO verlangt Speicherbegrenzung. Pruning ist die technische Umsetzung von Löschfristen.   Typischer Fehler  Ein globaler Scope ist unsichtbar. Wer  Produkt::count()  schreibt und sich über ein zu kleines Ergebnis wundert, hat den Scope vergessen. Setze globale Scopes deshalb sparsam ein und dokumentiere sie im Model.  
+CODE
+<?php
+// Mandantentrennung als globaler Scope
+#[ScopedBy(MandantScope::class)]
+class Rechnung extends Model
+{
+    use SoftDeletes, MassPrunable;
+
+    // Pruning: Rechnungen 10 Jahre nach Jahresende loeschen (Aufbewahrungsfrist)
+    public function prunable(): Builder
+    {
+        return static::onlyTrashed()->where('deleted_at', '<', now()->subYears(10)->endOfYear());
+    }
+}
+
+class MandantScope implements Scope
+{
+    public function apply(Builder $builder, Model $model): void
+    {
+        $builder->where($model->getTable() . '.mandant_id', auth()->user()?->mandant_id);
+    }
+}
+
+// routes/console.php
+Schedule::command('model:prune')->daily();
+
+// Ausnahmen bewusst und sichtbar
+Rechnung::withoutGlobalScope(MandantScope::class)->count();   // alle Mandanten (Admin-Report)
+Rechnung::withTrashed()->find($id);                            // auch geloeschte
+
+
+m48-l1 API-Routen, Ressourcen und Statuscodes
+ Für eine JSON-API richtest du mit  php artisan install:api  die Datei  routes/api.php  ein (Präfix  /api , keine Session, kein CSRF) und installierst gleichzeitig  Sanctum  für Tokens.  Route::apiResource()  erzeugt die fünf Routen index, store, show, update und destroy.   Gib Models  nie direkt  als JSON zurück. Sonst landet jede neue Datenbankspalte automatisch in der API – auch  passwort_hash  oder interne Notizen.  API Resources  ( make:resource ) legen genau fest, welche Felder in welchem Format herausgehen.  whenLoaded()  bindet Beziehungen nur ein, wenn sie per Eager Loading geladen wurden, und verhindert so N+1 in der API.     Status  Bedeutung  Typischer Fall     200 OK  Erfolg mit Inhalt  GET, PUT     201 Created  angelegt  POST, mit  Location -Header     204 No Content  Erfolg ohne Inhalt  DELETE     401 Unauthorized  nicht angemeldet  Token fehlt oder ungültig     403 Forbidden  angemeldet, aber nicht berechtigt  Policy lehnt ab     404 Not Found  Ressource unbekannt  Route Model Binding     422 Unprocessable  Validierung fehlgeschlagen  Form Request     429 Too Many Requests  Rate Limit erreicht   throttle       paginate()  an einer Resource-Collection liefert die Daten automatisch mit  links  und  meta  (aktuelle Seite, Gesamtzahl). Für sehr große Tabellen ist  cursorPaginate()  schneller, weil es kein  OFFSET  braucht. 
+CODE
+<?php
+// routes/api.php
+Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
+    Route::apiResource('produkte', Api\ProduktController::class);
+});
+
+// app/Http/Resources/ProduktResource.php
+class ProduktResource extends JsonResource
+{
+    public function toArray(Request $request): array
+    {
+        return [
+            'id'        => $this->id,
+            'name'      => $this->name,
+            'preis'     => ['cent' => $this->preis_cent, 'waehrung' => 'EUR'],
+            'status'    => $this->status->value,
+            'kategorie' => new KategorieResource($this->whenLoaded('kategorie')),
+            'erstellt'  => $this->created_at->toIso8601String(),
+        ];
+    }
+}
+
+// app/Http/Controllers/Api/ProduktController.php
+class ProduktController extends Controller
+{
+    public function index()
+    {
+        return ProduktResource::collection(
+            Produkt::with('kategorie')->aktiv()->paginate(25)
+        );
+    }
+
+    public function store(ProduktSpeichernRequest $request)
+    {
+        $produkt = Produkt::create($request->validated());
+
+        return (new ProduktResource($produkt))
+            ->response()
+            ->setStatusCode(201)
+            ->header('Location', route('produkte.show', $produkt));
+    }
+
+    public function destroy(Produkt $produkt)
+    {
+        Gate::authorize('delete', $produkt);
+        $produkt->delete();
+        return response()->noContent();          // 204
+    }
+}
+
+
+m48-l2 Token-Authentifizierung mit Sanctum
+  Laravel Sanctum  deckt zwei Fälle ab:     API-Tokens  für mobile Apps, Skripte und Fremdsysteme. Der Client schickt  Authorization: Bearer &lt;token&gt; .    SPA-Authentifizierung  für dein eigenes JavaScript-Frontend auf derselben Domain. Das läuft über das normale Session-Cookie mit CSRF-Schutz – ohne Token im JavaScript, das durch XSS gestohlen werden könnte.    Tokens werden in der Tabelle  personal_access_tokens  nur als  SHA-256-Hash  gespeichert. Den Klartext siehst du genau einmal, direkt nach  createToken() . Danach kann ihn niemand mehr auslesen, auch du nicht.    Abilities  begrenzen, was ein Token darf ( produkte:lesen ). Gib jedem Token nur die Rechte, die der Client wirklich braucht, und setze ein Ablaufdatum. Die Abilities ersetzen keine Policy: Ein Token mit  produkte:schreiben  darf trotzdem nur  eigene  Produkte ändern.   Brauchst du einen vollständigen OAuth2-Server, also Drittanbieter-Apps mit Zustimmungsdialog, ist  Laravel Passport  das passende Paket. Für die meisten Projekte reicht Sanctum. 
+CODE
+<?php
+// Token ausstellen - z. B. in einem Login-Endpunkt fuer die Mobile-App
+Route::post('/v1/tokens', function (Request $request) {
+    $daten = $request->validate([
+        'email'    => ['required', 'email'],
+        'password' => ['required'],
+        'geraet'   => ['required', 'string', 'max:100'],
+    ]);
+
+    $user = User::where('email', $daten['email'])->first();
+
+    if (! $user || ! Hash::check($daten['password'], $user->password)) {
+        throw ValidationException::withMessages(['email' => 'Zugangsdaten ungueltig.']);
+    }
+
+    $token = $user->createToken(
+        $daten['geraet'],
+        ['produkte:lesen', 'bestellungen:anlegen'],
+        now()->addDays(30)
+    );
+
+    return ['token' => $token->plainTextToken];   // nur jetzt im Klartext!
+})->middleware('throttle:5,1');                    // 5 Versuche pro Minute
+
+// Ability pruefen - die Aliase 'abilities' und 'ability' vorher in
+// bootstrap/app.php registrieren (Laravel\Sanctum\Http\Middleware\CheckAbilities ...)
+Route::middleware(['auth:sanctum', 'abilities:bestellungen:anlegen'])
+    ->post('/v1/bestellungen', [BestellungController::class, 'store']);
+
+// Token widerrufen (Logout auf diesem Geraet)
+$request->user()->currentAccessToken()->delete();
+
+
+m48-l3 Rate Limiting, Fehlerformat und Idempotenz
+ Eine produktionsreife API braucht mehr als funktionierende Endpunkte:     Rate Limiting  schützt vor Missbrauch und Überlast. Benannte Limiter definierst du in  AppServiceProvider::boot()  mit  RateLimiter::for() , die Route nutzt sie über  throttle:name . Laravel liefert  429  und die Header  Retry-After  und  X-RateLimit-Remaining .    Einheitliches Fehlerformat : Clients sollen Fehler maschinell verarbeiten können. In  bootstrap/app.php  kannst du im Abschnitt  withExceptions()  steuern, wie Exceptions als JSON gerendert werden. Mit  APP_DEBUG=false  erscheinen dabei nie Stacktraces.    Idempotenz : Netzwerke verlieren Antworten. Der Client weiß dann nicht, ob die Bestellung angelegt wurde, und sendet erneut. GET, PUT und DELETE sind von Natur aus idempotent, POST nicht. Die Lösung ist ein  Idempotency-Key -Header: Der Server merkt sich den Schlüssel und liefert beim zweiten Mal die erste Antwort, statt doppelt zu buchen.    Für die Dokumentation erzeugen Pakete wie  Scramble  eine OpenAPI-Beschreibung direkt aus Routen, Form Requests und Resources. Sie bleibt dadurch automatisch aktuell. 
+CODE
+<?php
+// app/Providers/AppServiceProvider.php
+public function boot(): void
+{
+    RateLimiter::for('api', function (Request $request) {
+        return $request->user()
+            ? Limit::perMinute(120)->by($request->user()->id)
+            : Limit::perMinute(20)->by($request->ip());
+    });
+}
+
+// bootstrap/app.php - einheitliches Fehlerformat fuer die API
+->withExceptions(function (Exceptions $exceptions) {
+    // FachlicherKonflikt: gemeinsame Basisklasse, z. B. fuer
+    // UngueltigerStatuswechsel und LagerbestandZuNiedrig
+    $exceptions->render(function (FachlicherKonflikt $e, Request $request) {
+        if ($request->is('api/*')) {
+            return response()->json([
+                'fehler' => ['code' => Str::snake(class_basename($e)), 'nachricht' => $e->getMessage()],
+            ], 409);
+        }
+    });
+})
+
+// Idempotenz bei POST /api/v1/bestellungen
+public function store(BestellungRequest $request, BestellungAnlegen $anlegen)
+{
+    $schluessel = $request->header('Idempotency-Key');
+    abort_unless($schluessel, 400, 'Idempotency-Key fehlt.');
+    $schluessel = "idem:{$request->user()->id}:{$schluessel}";   // pro Benutzer
+
+    $bestellungId = Cache::lock("{$schluessel}:lock", 10)->block(5, function () use ($request, $anlegen, $schluessel) {
+        // Zweiter Aufruf mit gleichem Schluessel: liefert die ID der ersten Bestellung
+        return Cache::remember($schluessel, now()->addDay(),
+            fn () => $anlegen->ausfuehren($request->user(), $request->positionen())->id);
+    });
+
+    return (new BestellungResource(Bestellung::findOrFail($bestellungId)))
+        ->response()
+        ->setStatusCode(201);
+}
+
+
+m49-l1 Service Container und Dependency Injection
+ Der  Service Container  ist das Herz von Laravel. Er weiß, wie man Objekte baut, und liefert sie dort, wo sie gebraucht werden –  Dependency Injection . Eine Klasse holt sich ihre Abhängigkeiten nicht selbst ( new StripeClient(...) ), sondern bekommt sie im Konstruktor.     Auto-Wiring : Konkrete Klassen ohne skalare Parameter baut der Container per Reflection selbst. Du musst nichts registrieren.    Interfaces  brauchen eine  Bindung : welches Interface zu welcher Implementierung.    bind()  erzeugt bei jeder Anfrage ein neues Objekt,  singleton()  eins pro Anwendung bzw. Request,  scoped()  eins pro Request, auch unter Octane oder in Queue-Workern.    Kontextuelle Bindung :  when(A::class)-&gt;needs(I::class)-&gt;give(B::class) .    Injiziert wird überall, wo Laravel Objekte erzeugt: Controller (Konstruktor und Methoden), Jobs ( handle() ), Listener, Commands, Middleware. Manuell geht es mit  app(Klasse::class) .   Der eigentliche Gewinn zeigt sich im Test: Du tauschst die echte Implementierung gegen eine Attrappe aus, ohne den Code zu ändern, der sie benutzt. 
+CODE
+<?php
+interface Wechselkurse
+{
+    public function kurs(string $von, string $nach): float;
+}
+
+final class EzbWechselkurse implements Wechselkurse
+{
+    public function __construct(private HttpFactory $http) {}   // auto-wired
+
+    public function kurs(string $von, string $nach): float
+    {
+        // ... HTTP-Abruf bei der EZB ...
+        return 1.08;
+    }
+}
+
+final class PreisRechner
+{
+    public function __construct(private Wechselkurse $kurse) {}  // Interface!
+
+    public function inWaehrung(int $cent, string $waehrung): int
+    {
+        return (int) round($cent * $this->kurse->kurs('EUR', $waehrung));
+    }
+}
+
+// app/Providers/AppServiceProvider.php
+public function register(): void
+{
+    $this->app->singleton(Wechselkurse::class, EzbWechselkurse::class);
+}
+
+// Controller - PreisRechner wird mitsamt Abhaengigkeiten gebaut
+public function show(Produkt $produkt, PreisRechner $rechner) { /* ... */ }
+
+// Test - Implementierung austauschen
+$this->app->instance(Wechselkurse::class, new class implements Wechselkurse {
+    public function kurs(string $von, string $nach): float { return 2.0; }
+});
+
+
+m49-l2 Service Provider und Facades
+  Service Provider  sind der Ort, an dem die Anwendung zusammengesetzt wird. Jeder hat zwei Phasen:     register()  –  nur  Bindungen in den Container eintragen. Andere Dienste sind hier eventuell noch nicht verfügbar.    boot()  – läuft, nachdem  alle  Provider registriert sind. Hier konfigurierst du Rate Limiter, Gates, Observer, Macros und Model-Einstellungen.    Eigene Provider legst du mit  make:provider  an. Sie landen in  bootstrap/providers.php .    Facades  wie  Cache::get()  sehen aus wie statische Aufrufe, sind aber keine. Jede Facade leitet den Aufruf an ein Objekt aus dem Container weiter:  Cache::get('x')  entspricht  app('cache')-&gt;get('x') . Dadurch bleiben sie testbar, denn  Cache::shouldReceive()  oder  Mail::fake()  tauschen das Objekt dahinter aus.     Variante  Beispiel  Stärke     Facade   Cache::get('k')   kurz, gut lesbar, fakebar     Helper   cache('k')   noch kürzer     Injektion   __construct(CacheRepository $cache)   Abhängigkeit sichtbar im Konstruktor     In Controllern und Laravel-nahem Code sind Facades üblich. In Fachlogik, die du auch ohne Laravel denken willst, ist Konstruktor-Injektion die klarere Wahl. 
+CODE
+<?php
+// app/Providers/ShopServiceProvider.php
+namespace App\Providers;
+
+use App\Models\Bestellung;
+use App\Observers\BestellungObserver;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+
+class ShopServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->singleton(Wechselkurse::class, fn ($app) => new EzbWechselkurse(
+            $app->make(\Illuminate\Http\Client\Factory::class),
+        ));
+    }
+
+    public function boot(): void
+    {
+        Model::shouldBeStrict(! $this->app->isProduction());  // Lazy Loading u. a. melden
+        Bestellung::observe(BestellungObserver::class);
+
+        Str::macro('artikelnummer', fn (int $id) => 'ART-' . str_pad((string) $id, 6, '0', STR_PAD_LEFT));
+    }
+}
+
+// bootstrap/providers.php
+return [
+    App\Providers\AppServiceProvider::class,
+    App\Providers\ShopServiceProvider::class,
+];
+
+
+m49-l3 Events, Listener und Observer
+  Events  entkoppeln „etwas ist passiert“ von „was daraufhin passieren soll“. Der Code, der eine Bestellung anlegt, löst  BestellungAufgegeben  aus. Ob danach eine Mail verschickt, das Lager benachrichtigt und eine Statistik aktualisiert wird, entscheiden die  Listener . Ein neuer Listener ändert den bestehenden Code nicht.     make:event  und  make:listener  erzeugen die Klassen. Laravel findet Listener automatisch über den Typ-Hint in  handle() .   Listener mit  implements ShouldQueue  laufen im Hintergrund über die Queue.    ShouldDispatchAfterCommit  am Event (oder  $afterCommit  am Listener) sorgt dafür, dass erst nach erfolgreichem Datenbank-Commit verarbeitet wird.     Observer  reagieren auf Model-Lebenszyklus-Ereignisse:  creating ,  created ,  updating ,  updated ,  deleting ,  deleted  und weitere. Typische Aufgaben sind das Setzen von Slugs oder das Leeren von Caches.   Aber Vorsicht: Observer sind  unsichtbar . Wer  $bestellung-&gt;save()  liest, sieht nicht, dass dabei Mails verschickt werden. Und Massenoperationen wie  Produkt::where(…)-&gt;update([...])  lösen  keine  Model-Events aus. Fachlich wichtige Abläufe gehören deshalb besser in ein explizites Event oder eine Action. 
+CODE
+<?php
+// app/Events/BestellungAufgegeben.php
+class BestellungAufgegeben implements ShouldDispatchAfterCommit
+{
+    use Dispatchable, SerializesModels;
+
+    public function __construct(public Bestellung $bestellung) {}
+}
+
+// app/Listeners/BestaetigungSenden.php
+class BestaetigungSenden implements ShouldQueue
+{
+    public function handle(BestellungAufgegeben $event): void
+    {
+        Mail::to($event->bestellung->kunde->email)
+            ->send(new BestellBestaetigung($event->bestellung));
+    }
+}
+
+// Ausloesen - irgendwo in der Fachlogik
+BestellungAufgegeben::dispatch($bestellung);
+
+// Observer per Attribut am Model registrieren
+#[ObservedBy(ProduktObserver::class)]
+class Produkt extends Model { /* ... */ }
+
+class ProduktObserver
+{
+    public function saving(Produkt $produkt): void
+    {
+        $produkt->slug ??= Str::slug($produkt->name);
+    }
+
+    public function saved(Produkt $produkt): void
+    {
+        Cache::forget("produkt:{$produkt->id}");
+    }
+}
+
+
+m49-l4 Schlanke Controller: Actions und Services
+ Mit dem Projekt wächst die Frage:  Wo gehört die Geschäftslogik hin?  Steht sie im Controller, kann sie weder ein Artisan-Command noch ein Job noch die API wiederverwenden. Ein bewährtes Muster sind  Action-Klassen : eine Klasse pro Anwendungsfall mit einer öffentlichen Methode.    Der  Controller  übersetzt HTTP in einen Aufruf und das Ergebnis zurück in HTTP.   Die  Action  enthält den Anwendungsfall: Transaktion, Prüfungen, Speichern, Event auslösen.    Models  kennen ihre eigenen Regeln (Statusübergänge, Berechnungen am eigenen Datensatz).    Für die Übergabe vieler Werte eignen sich  DTOs  (Data Transfer Objects): kleine readonly-Klassen statt loser Arrays. Die IDE kennt dann die Felder, und Tippfehler fallen sofort auf.   Übertreib es nicht. Für ein einfaches CRUD-Formular ist  Produkt::create($request-&gt;validated())  im Controller völlig in Ordnung. Schichten lohnen sich dort, wo Logik wiederverwendet wird oder komplex genug ist, um eigene Tests zu verdienen. Nach Fachbereichen geordnete Ordner ( app/Bestellwesen ,  app/Katalog ) helfen bei großen Projekten mehr als technische ( app/Services ). 
+CODE
+<?php
+// app/Bestellwesen/Daten/Warenkorb.php
+final readonly class WarenkorbPosition
+{
+    public function __construct(public int $produktId, public int $menge) {}
+}
+
+// app/Bestellwesen/Actions/BestellungAnlegen.php
+final class BestellungAnlegen
+{
+    public function __construct(private PreisRechner $preise) {}
+
+    /** @param list<WarenkorbPosition> $positionen */
+    public function ausfuehren(User $user, array $positionen): Bestellung
+    {
+        return DB::transaction(function () use ($user, $positionen) {
+            $bestellung = $user->kunde->bestellungen()->create(['status' => BestellStatus::Offen]);
+
+            foreach ($positionen as $pos) {
+                $produkt = Produkt::lockForUpdate()->findOrFail($pos->produktId);
+
+                if ($produkt->bestand < $pos->menge) {
+                    throw LagerbestandZuNiedrig::fuer($produkt);
+                }
+
+                $bestellung->produkte()->attach($produkt->id, [
+                    'menge' => $pos->menge, 'preis_cent' => $produkt->preis_cent,
+                ]);
+                $produkt->decrement('bestand', $pos->menge);
+            }
+
+            BestellungAufgegeben::dispatch($bestellung);
+            return $bestellung;
+        });
+    }
+}
+
+// Controller - nur noch Uebersetzung HTTP <-> Anwendungsfall
+public function store(BestellungRequest $request, BestellungAnlegen $anlegen): RedirectResponse
+{
+    $bestellung = $anlegen->ausfuehren($request->user(), $request->positionen());
+    return to_route('bestellungen.show', $bestellung);
+}
+
+
+m59-l1 Der HTTP-Client von Laravel
+ Laravel legt über Guzzle eine schlanke, gut testbare Schicht: die Facade  Http . Alles, was du in reinem PHP mühsam gebaut hast – Timeouts, Wiederholungen, Token, Fehlerbehandlung –, wird zu einer lesbaren Kette.     Methode  Zweck      timeout(5)  /  connectTimeout(2)   Zeitlimits in Sekunden      retry(3, 200)   bis zu 3 Versuche, 200 ms Pause dazwischen      withToken($t)   Header  Authorization: Bearer …       acceptJson()   Header  Accept: application/json       throw()   wirft bei 4xx/5xx eine  RequestException       Http::pool(...)   mehrere Anfragen parallel     Ohne  throw()  wirft der Client bei Fehlerstatus  keine  Exception – du prüfst selbst mit  $antwort-&gt;successful()  oder  $antwort-&gt;failed() . Das ist bequem, aber leicht zu vergessen.   Wiederkehrende Einstellungen für einen Dienst bündelst du in einem  Macro  im Service Provider. Dann schreibt jeder im Team  Http::versand()-&gt;get(...) , und Basis-URL, Token und Timeouts stehen an genau einer Stelle. 
+CODE
+<?php
+// AppServiceProvider::boot()
+Http::macro('versand', function () {
+    return Http::baseUrl(config('services.versand.url'))
+        ->withToken(config('services.versand.token'))
+        ->acceptJson()
+        ->timeout(5)
+        ->connectTimeout(2)
+        ->retry(3, 200, fn (Throwable $e) => $e instanceof ConnectionException
+            || ($e instanceof RequestException && $e->response->serverError()));
+});
+
+// Verwendung
+$antwort = Http::versand()->get('sendungen/' . rawurlencode($nummer));
+
+if ($antwort->notFound()) {
+    return null;
+}
+$status = $antwort->throw()->json('status');       // wirft bei anderen Fehlern
+
+// Mehrere Dienste parallel abfragen
+$antworten = Http::pool(fn (Pool $pool) => [
+    $pool->as('dhl')->timeout(5)->get('https://api.dhl.example/preise'),
+    $pool->as('dpd')->timeout(5)->get('https://api.dpd.example/preise'),
+]);
+$dhlPreis = $antworten['dhl']->json('preis');
+
+
+m59-l2 Webhooks sicher empfangen
+ Ein  Webhook  ist eine HTTP-Anfrage, die ein fremder Dienst an deine Anwendung schickt, wenn dort etwas passiert – „Zahlung eingegangen“, „Paket zugestellt“. Weil jeder diese Adresse aufrufen kann, gelten vier Regeln:     Signatur prüfen.  Der Dienst signiert den Body mit einem gemeinsamen Geheimnis (meist HMAC-SHA256). Du berechnest die Signatur nach und vergleichst mit  hash_equals()  – nie mit  === , weil ein normaler Stringvergleich durch Zeitmessung angreifbar ist.    Den rohen Body verwenden.  Die Signatur gilt für die exakten Bytes. Wer erst JSON dekodiert und wieder kodiert, verändert Leerzeichen oder Reihenfolge – die Prüfung schlägt fehl.    Idempotent verarbeiten.  Dienste schicken denselben Webhook bei Zeitüberschreitung erneut. Speichere die Ereignis-ID und ignoriere Wiederholungen.    Schnell antworten.  Bestätige mit 200 und verarbeite in einem Job. Wer zu lange braucht, bekommt den Webhook nochmal.    Die Webhook-Route liegt außerhalb des CSRF-Schutzes ( validateCsrfTokens(except: [...]) ) – deshalb ist die Signatur die einzige Sicherung. 
+CODE
+<?php
+// routes/web.php
+Route::post('/webhooks/zahlung', ZahlungsWebhook::class)->middleware('throttle:60,1');
+
+// app/Http/Controllers/ZahlungsWebhook.php
+class ZahlungsWebhook extends Controller
+{
+    public function __invoke(Request $request)
+    {
+        $roh       = $request->getContent();                       // exakte Bytes
+        $signatur  = (string) $request->header('X-Signatur');
+        $erwartet  = hash_hmac('sha256', $roh, config('services.zahlung.webhook_secret'));
+
+        if (!hash_equals($erwartet, $signatur)) {                  // zeitkonstanter Vergleich
+            abort(401);
+        }
+
+        $ereignis = json_decode($roh, true, 512, JSON_THROW_ON_ERROR);
+
+        // Idempotenz: dieselbe Ereignis-ID nur einmal verarbeiten
+        $neu = WebhookEreignis::firstOrCreate(
+            ['anbieter_id' => $ereignis['id']],
+            ['typ' => $ereignis['typ'], 'nutzlast' => $ereignis]
+        )->wasRecentlyCreated;
+
+        if ($neu) {
+            VerarbeiteZahlung::dispatch($ereignis['id']);           // eigentliche Arbeit im Job
+        }
+
+        return response()->noContent();                            // schnell bestaetigen
+    }
+}
+
+
+m59-l3 Volltextsuche mit Laravel Scout
+ Eine Suche mit  LIKE '%kabel%'  findet „Kabel“, aber nicht „Kabeln“, ignoriert Tippfehler und wird bei großen Tabellen langsam.  Laravel Scout  verbindet Models mit einer echten Suchmaschine.     Treiber  Einsatz      collection   Tests und Prototypen, filtert in PHP      database   kleine bis mittlere Datenmengen, nutzt Volltextindizes der Datenbank      meilisearch ,  typesense   selbst gehostete Suchmaschinen: tippfehlertolerant, schnell, Facetten      algolia   gehosteter Dienst     Das Model bekommt den Trait  Searchable . Mit  toSearchableArray()  bestimmst du, welche Felder in den Index wandern. Scout hält den Index automatisch aktuell: Beim Speichern und Löschen eines Models wird er mitgezogen – mit  SCOUT_QUEUE=true  im Hintergrund.   Gesucht wird mit  Produkt::search('kabel hdmi') . Das Ergebnis lässt sich filtern, paginieren und mit  -&gt;query(fn ($q) =&gt; $q-&gt;with('kategorie'))  um Eager Loading ergänzen. 
+CODE
+<?php
+class Produkt extends Model
+{
+    use Searchable;
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'id'        => $this->id,
+            'name'      => $this->name,
+            'beschreibung' => strip_tags($this->beschreibung),
+            'kategorie' => $this->kategorie?->name,
+            'preis_cent'=> $this->preis_cent,
+        ];
+    }
+
+    // Nur aktive Produkte in den Index
+    public function shouldBeSearchable(): bool
+    {
+        return $this->aktiv;
+    }
+}
+
+// Bestehende Daten einmalig indexieren
+// php artisan scout:import "App\Models\Produkt"
+
+// Suchen
+$treffer = Produkt::search((string) $request->input('q', ''))
+    ->where('kategorie', 'Kabel')
+    ->query(fn ($q) => $q->with('kategorie'))
+    ->paginate(20);
+
+
+m59-l4 Echtzeit mit Broadcasting und Reverb
+ Manche Oberflächen sollen sich ohne Neuladen aktualisieren: der Bestellstatus, ein neuer Chat-Eintrag, die Zahl der Benutzer online. Dafür hält der Browser eine  WebSocket -Verbindung zu einem Server offen, über den Laravel Ereignisse sendet. Dieses Prinzip heißt  Broadcasting .     php artisan install:broadcasting  richtet alles ein, inklusive  Reverb , dem WebSocket-Server von Laravel ( php artisan reverb:start ).   Ein Event mit  implements ShouldBroadcast  wird automatisch an die Browser gesendet.    broadcastOn()  legt den Kanal fest: öffentlich ( Channel ), privat ( PrivateChannel ) oder mit Anwesenheitsliste ( PresenceChannel ).   Wer einen privaten Kanal abonnieren darf, regelst du in  routes/channels.php .   Im Browser hört  Laravel Echo  auf die Ereignisse.    Broadcasting läuft über die Queue: Ohne laufenden Queue-Worker kommen keine Ereignisse an. Das ist die häufigste Ursache, wenn „nichts passiert“. 
+CODE
+<?php
+// app/Events/BestellstatusGeaendert.php
+class BestellstatusGeaendert implements ShouldBroadcast
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public function __construct(public Bestellung $bestellung) {}
+
+    public function broadcastOn(): array
+    {
+        return [new PrivateChannel('bestellungen.' . $this->bestellung->id)];
+    }
+
+    public function broadcastWith(): array
+    {
+        return ['status' => $this->bestellung->status->value];   // nur das Noetige senden
+    }
+}
+
+// routes/channels.php - wer darf mithoeren?
+Broadcast::channel('bestellungen.{bestellung}', function (User $user, Bestellung $bestellung) {
+    return $user->id === $bestellung->kunde->user_id;
+});
+
+// Ausloesen
+BestellstatusGeaendert::dispatch($bestellung);
+// resources/js/bestellung.js
+import Echo from 'laravel-echo';
+
+window.Echo.private(`bestellungen.${bestellungId}`)
+    .listen('BestellstatusGeaendert', (e) => {
+        document.querySelector('#status').textContent = e.status;
+    });
+
+m50-l1 Jobs und Queues
+ Alles, was länger als ein paar hundert Millisekunden dauert oder von externen Diensten abhängt, gehört  nicht in den Request : Mails, PDF-Erzeugung, Bildbearbeitung, Importe, Webhooks an Dritte. Ein  Job  beschreibt die Arbeit, die  Queue  speichert ihn, ein  Worker  ( php artisan queue:work ) arbeitet ihn im Hintergrund ab.     Treiber  Einsatz      sync   führt sofort aus – nur für lokale Tests      database   Standard in neuen Projekten, ohne Zusatzdienst      redis   Produktion mit Last, dazu  Horizon  als Dashboard      sqs   AWS, verwaltet     Jobs müssen damit rechnen,  mehrfach  zu laufen: Ein Worker stürzt mitten im Job ab, und der Job wird erneut ausgeführt. Schreibe sie deshalb  idempotent  – also so, dass ein zweiter Lauf keinen Schaden anrichtet. Die Steuerung übernehmen  $tries ,  $backoff  (Wartezeit zwischen Versuchen),  $timeout  und  failed()  für den endgültigen Fehlschlag. Gescheiterte Jobs landen in  failed_jobs  und lassen sich mit  queue:retry  erneut anstoßen.   Models im Konstruktor werden nur als ID serialisiert ( SerializesModels ) und im Worker frisch geladen. Mehrere Jobs lassen sich als  Kette  ( Bus::chain , nacheinander) oder als  Batch  ( Bus::batch , parallel mit Fortschritt) zusammenfassen. 
+CODE
+<?php
+// app/Jobs/RechnungErzeugen.php
+class RechnungErzeugen implements ShouldQueue, ShouldBeUnique
+{
+    use Queueable;
+
+    public int $tries = 5;
+    public int $timeout = 120;
+
+    public function __construct(public Bestellung $bestellung) {}
+
+    public function backoff(): array
+    {
+        return [10, 60, 300];             // Sekunden zwischen den Versuchen
+    }
+
+    public function uniqueId(): string
+    {
+        return (string) $this->bestellung->id;
+    }
+
+    public function handle(PdfDienst $pdf): void
+    {
+        if ($this->bestellung->rechnung_pfad) {
+            return;                       // idempotent: schon erledigt
+        }
+        $pfad = $pdf->rechnung($this->bestellung);
+        $this->bestellung->update(['rechnung_pfad' => $pfad]);
+    }
+
+    public function failed(Throwable $e): void
+    {
+        Log::error('Rechnung fehlgeschlagen', ['bestellung' => $this->bestellung->id, 'fehler' => $e->getMessage()]);
+    }
+}
+
+// Ausloesen
+RechnungErzeugen::dispatch($bestellung)->onQueue('dokumente')->afterCommit();
+
+// Worker starten (Produktion: per Supervisor oder systemd dauerhaft)
+// php artisan queue:work redis --queue=hoch,default,dokumente --max-time=3600
+
+
+m50-l2 Caching-Strategien
+ Ein Cache speichert teure Ergebnisse für einen schnellen Zugriff. In Laravel wählst du den Treiber in  config/cache.php :  database  (Standard),  redis ,  memcached ,  file ,  array  (nur für Tests).     Cache::remember($key, $ttl, $fn)  – holt aus dem Cache oder berechnet und speichert.    Cache::flexible($key, [$frisch, $max], $fn)  –  stale-while-revalidate : liefert kurz abgelaufene Werte sofort aus und berechnet im Hintergrund neu.    Cache::forget($key)  – gezielt invalidieren, etwa im Observer nach dem Speichern.    Cache::lock($name, $sek)  – atomare Sperre über mehrere Server hinweg.    „There are only two hard things in Computer Science: cache invalidation and naming things.“ Die beiden üblichen Strategien zur Invalidierung sind:     Strategie  Funktionsweise  Risiko     Ablaufzeit (TTL)  Wert verfällt nach x Sekunden  bis zu x Sekunden veraltete Daten     Ereignisgesteuert  bei Änderung löschen  eine vergessene Schreibstelle hinterlässt veraltete Werte     Versionierter Schlüssel   produkt:{id}:{updated_at}   alte Schlüssel bleiben bis zum Verfall liegen     Bei sehr vielen gleichzeitigen Anfragen auf einen gerade abgelaufenen Schlüssel berechnen alle gleichzeitig neu – der  Cache-Stampede .  flexible()  oder ein Lock verhindern das. 
+CODE
+<?php
+// Teure Startseiten-Daten fuer 10 Minuten
+$bestseller = Cache::remember('startseite:bestseller', now()->addMinutes(10), function () {
+    return Produkt::aktiv()
+        ->withCount('bestellungen')
+        ->orderByDesc('bestellungen_count')
+        ->take(12)
+        ->get();
+});
+
+// Stale-while-revalidate: 5 Min. frisch, bis 15 Min. ausliefern und im Hintergrund erneuern
+$kennzahlen = Cache::flexible('dashboard:kennzahlen', [300, 900], fn () => Kennzahlen::berechnen());
+
+// Versionierter Schluessel - keine explizite Invalidierung noetig
+$html = Cache::rememberForever(
+    "produkt:{$produkt->id}:{$produkt->updated_at->timestamp}:karte",
+    fn () => view('produkte._karte', compact('produkt'))->render()
+);
+
+// Atomare Sperre: nur ein Server fuehrt den Import aus
+Cache::lock('import:lieferant-42', 600)->get(function () {
+    app(LieferantenImport::class)->ausfuehren(42);
+});
+
+
+m50-l3 Performance messen und optimieren
+ Optimiere nie nach Gefühl.  Erst messen , dann die größte Bremse beheben, dann wieder messen. Werkzeuge:  Debugbar  und  Telescope  lokal,  Laravel Pulse  oder ein APM-Dienst in Produktion,  EXPLAIN  in der Datenbank.   Die häufigsten Bremsen, in der Reihenfolge ihres Vorkommens:     N+1-Abfragen  →  with() ,  withCount() .    Fehlende Indizes  auf Spalten in  WHERE ,  ORDER BY  und Joins → Index in einer Migration.    Zu viele Daten :  SELECT *  mit großen Textspalten, Laden aller Zeilen →  select() ,  paginate() ,  chunkById() ,  lazyById() .    Arbeit im Request , die in eine Queue gehört.    Prüfung per count :  -&gt;count() &gt; 0  statt  -&gt;exists() .    Auf dem Server gehören dazu:  OPcache  aktivieren (kompilierter Bytecode im Speicher, oft doppelte Geschwindigkeit),  composer install --optimize-autoloader  und  php artisan optimize . Letzteres cacht Konfiguration, Routen, Events und Views.    Laravel Octane  hält die Anwendung zwischen Requests im Speicher (FrankenPHP, Swoole, RoadRunner) und spart den Bootvorgang. Das hebt aber das Share-nothing-Prinzip auf: Statische Eigenschaften und Singletons überleben Requests, und Daten können zwischen Benutzern durchsickern. 
+CODE
+<?php
+// Index fuer haeufige Abfrage: WHERE status = ? ORDER BY created_at DESC
+Schema::table('bestellungen', function (Blueprint $table) {
+    $table->index(['status', 'created_at']);       // zusammengesetzter Index
+});
+
+// Nur benoetigte Spalten, existenzpruefung ohne Zaehlen
+$hatOffene = $kunde->bestellungen()->where('status', 'offen')->exists();
+
+$liste = Bestellung::query()
+    ->select(['id', 'kunde_id', 'status', 'summe_cent', 'created_at'])
+    ->with('kunde:id,name')
+    ->where('status', 'offen')
+    ->latest()
+    ->paginate(50);
+
+// Export von 2 Mio. Zeilen mit konstantem Speicher
+$datei = fopen(storage_path('app/export.csv'), 'w');
+Bestellung::where('jahr', 2026)->lazyById(1000)->each(function (Bestellung $b) use ($datei) {
+    fputcsv($datei, [$b->id, $b->summe_cent, $b->created_at->toDateString()]);
+});
+fclose($datei);
+
+// Langsame Abfragen protokollieren - AppServiceProvider::boot()
+DB::whenQueryingForLongerThan(500, function (Connection $connection, QueryExecuted $event) {
+    Log::warning('Langsame Abfragen', ['sql' => $event->sql, 'ms' => $event->time]);
+});
+
+
+m50-l4 Scheduler und Artisan-Commands
+ Statt vieler Cron-Einträge auf dem Server brauchst du mit Laravel genau  einen :    * * * * * cd /var/www/shop &amp;&amp; php artisan schedule:run &gt;&gt; /dev/null 2&gt;&amp;1    Alle geplanten Aufgaben stehen dann versioniert im Code, in  routes/console.php . Lokal startest du  php artisan schedule:work , und  schedule:list  zeigt den Plan mit den nächsten Ausführungszeiten.    Zeitpläne:  everyFiveMinutes() ,  hourly() ,  dailyAt('03:00') ,  weekdays() ,  cron('…') .    withoutOverlapping()  – startet nicht, solange der letzte Lauf noch arbeitet.    onOneServer()  – bei mehreren Servern läuft die Aufgabe nur auf einem (braucht einen gemeinsamen Cache wie Redis).    runInBackground() ,  onFailure() ,  pingOnSuccess($url)  für Monitoring.    Eigene  Artisan-Commands  ( make:command ) kapseln Wartungsaufgaben, Importe und Berichte. Die Signatur beschreibt Argumente und Optionen, Laravel erzeugt daraus die Hilfe. Ein Command mit  --dry-run -Option, die nur anzeigt statt zu ändern, ist bei riskanten Aufgaben guter Stil. 
+CODE
+<?php
+// app/Console/Commands/AlteWarenkoerbeLoeschen.php
+class AlteWarenkoerbeLoeschen extends Command
+{
+    protected $signature = 'shop:warenkoerbe-aufraeumen
+                            {--tage=30 : Warenkoerbe aelter als so viele Tage}
+                            {--dry-run : Nur anzeigen, nichts loeschen}';
+
+    protected $description = 'Loescht verwaiste Warenkoerbe';
+
+    public function handle(): int
+    {
+        $grenze = now()->subDays((int) $this->option('tage'));
+        $query  = Warenkorb::whereNull('bestellung_id')->where('updated_at', '<', $grenze);
+
+        $anzahl = $query->count();
+        if ($this->option('dry-run')) {
+            $this->info("{$anzahl} Warenkoerbe wuerden geloescht.");
+            return self::SUCCESS;
+        }
+
+        $query->delete();
+        $this->info("{$anzahl} Warenkoerbe geloescht.");
+        return self::SUCCESS;
+    }
+}
+
+// routes/console.php
+use Illuminate\Support\Facades\Schedule;
+
+Schedule::command('shop:warenkoerbe-aufraeumen --tage=14')->dailyAt('03:15')->onOneServer();
+Schedule::job(new LagerAbgleich)->everyFifteenMinutes()->withoutOverlapping();
+Schedule::command('queue:prune-failed --hours=168')->weekly();
+
+
+m51-l1 Feature-Tests mit Pest und PHPUnit
+ Laravel bringt eine vollständige Testumgebung mit. Neue Projekte nutzen standardmäßig  Pest , eine knappe Syntax, die auf PHPUnit aufsetzt. Beide laufen mit  php artisan test .     Art  Prüft  Geschwindigkeit     Unit-Test  eine Klasse isoliert, ohne Framework  sehr schnell     Feature-Test  einen HTTP-Request durch die ganze App, mit Datenbank  schnell genug, größter Nutzen     Browser-Test  echtes JavaScript im Browser (Dusk, Pest-Browser-Plugin)  langsam     In Laravel-Projekten bringen  Feature-Tests  den meisten Nutzen pro Zeile: Sie prüfen Routing, Validierung, Autorisierung, Datenbank und Antwort zusammen. Der Trait  RefreshDatabase  setzt die Datenbank pro Test zurück, standardmäßig per Transaktion, also sehr schnell. Für Tests meist mit SQLite im Speicher, konfiguriert in  phpunit.xml .   Jeder gute Test folgt dem Muster  Arrange – Act – Assert : Daten mit Factories anlegen, Request ausführen, Ergebnis prüfen. Teste bei jeder Funktion mindestens den  Erfolgsfall , den  Validierungsfehler  und den  fremden Benutzer . 
+CODE
+<?php
+// tests/Feature/BestellungTest.php
+use App\Models\{Bestellung, Produkt, User};
+use function Pest\Laravel\{actingAs, assertDatabaseHas};
+
+uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
+
+it('legt eine Bestellung an und reduziert den Bestand', function () {
+    $user    = User::factory()->hasKunde()->create();
+    $produkt = Produkt::factory()->create(['bestand' => 5, 'preis_cent' => 1000]);
+
+    actingAs($user)
+        ->postJson('/api/v1/bestellungen', [
+            'positionen' => [['produkt_id' => $produkt->id, 'menge' => 2]],
+        ], ['Idempotency-Key' => 'test-1'])
+        ->assertCreated()
+        ->assertJsonPath('data.status', 'offen');
+
+    expect($produkt->fresh()->bestand)->toBe(3);
+    assertDatabaseHas('bestellung_produkt', ['produkt_id' => $produkt->id, 'menge' => 2]);
+});
+
+it('lehnt eine Menge ueber dem Bestand ab', function () {
+    $produkt = Produkt::factory()->create(['bestand' => 1]);
+
+    actingAs(User::factory()->hasKunde()->create())
+        ->postJson('/api/v1/bestellungen', ['positionen' => [['produkt_id' => $produkt->id, 'menge' => 9]]],
+                   ['Idempotency-Key' => 'test-2'])
+        ->assertStatus(409);          // LagerbestandZuNiedrig -> 409, siehe API-Modul
+});
+
+it('zeigt fremde Bestellungen nicht an', function () {
+    $fremde = Bestellung::factory()->create();
+
+    actingAs(User::factory()->create())
+        ->getJson("/api/v1/bestellungen/{$fremde->id}")
+        ->assertNotFound();
+});
+
+
+m51-l2 Fakes, Mocks und Zeitreisen
+ Tests dürfen keine echten Mails verschicken, keine echten Zahlungen auslösen und nicht davon abhängen, ob eine externe API gerade erreichbar ist. Laravel bietet für fast jeden Dienst einen  Fake :     Fake  Prüfung      Mail::fake()    Mail::assertSent(BestellBestaetigung::class)       Queue::fake()    Queue::assertPushed(RechnungErzeugen::class)       Event::fake([…])    Event::assertDispatched(BestellungAufgegeben::class)       Notification::fake()    Notification::assertSentTo($user, …)       Storage::fake('s3')    Storage::disk('s3')-&gt;assertExists($pfad)       Http::fake([...])    Http::assertSent(fn ($req) =&gt; …)       Http::preventStrayRequests()  lässt jeden Test fehlschlagen, der versehentlich eine echte HTTP-Anfrage ins Internet schickt. Das ist eine gute Voreinstellung für die ganze Testsuite.   Zeitabhängige Logik („Gutschein läuft nach 30 Tagen ab“) testest du mit  Zeitreisen :  $this-&gt;travel(31)-&gt;days()  oder  $this-&gt;travelTo(...) . Echtes  sleep()  gehört nie in einen Test.   Für eigene Klassen tauschst du die Bindung im Container aus ( $this-&gt;mock(…)  oder  instance() ). Mocke dabei nur Grenzen nach außen – Zahlungsanbieter, fremde APIs. Wer jede interne Klasse mockt, testet am Ende nur die Mocks. 
+CODE
+<?php
+it('loest beim Anlegen das Event aus', function () {
+    Event::fake([BestellungAufgegeben::class]);
+    $user    = User::factory()->hasKunde()->create();
+    $produkt = Produkt::factory()->create(['bestand' => 3]);
+
+    $bestellung = app(BestellungAnlegen::class)
+        ->ausfuehren($user, [new WarenkorbPosition($produkt->id, 1)]);
+
+    Event::assertDispatched(BestellungAufgegeben::class, fn ($e) => $e->bestellung->is($bestellung));
+});
+
+it('verschickt die Bestaetigung an den Kunden', function () {
+    Mail::fake();
+    $bestellung = Bestellung::factory()->create();
+
+    (new BestaetigungSenden)->handle(new BestellungAufgegeben($bestellung));
+
+    Mail::assertSent(BestellBestaetigung::class, fn ($mail) => $mail->hasTo($bestellung->kunde->email));
+});
+
+it('rechnet mit dem Kurs der EZB', function () {
+    // angenommen, EzbWechselkurse fragt den Kurs per Http::get() ab
+    Http::preventStrayRequests();
+    Http::fake([
+        'data-api.ecb.europa.eu/*' => Http::response(['kurs' => 1.10], 200),
+    ]);
+
+    expect(app(PreisRechner::class)->inWaehrung(1000, 'USD'))->toBe(1100);
+
+    Http::assertSentCount(1);
+});
+
+it('laesst Gutscheine nach 30 Tagen verfallen', function () {
+    $gutschein = Gutschein::factory()->create();      // gueltig_bis = jetzt + 30 Tage
+
+    expect($gutschein->istGueltig())->toBeTrue();
+
+    $this->travel(31)->days();
+
+    expect($gutschein->fresh()->istGueltig())->toBeFalse();
+});
+
+it('behandelt einen Ausfall des Zahlungsanbieters', function () {
+    $this->mock(Zahlungsanbieter::class)
+        ->shouldReceive('belaste')->once()->andThrow(new ZahlungFehlgeschlagen('Timeout'));
+
+    // ... Request ausfuehren und Fehlermeldung pruefen ...
+});
+
+
+m51-l3 Codequalität: Pint, Larastan und CI
+ Qualität entsteht nicht durch Disziplin allein, sondern durch  Automatisierung . Drei Werkzeuge gehören in jedes ernsthafte Laravel-Projekt:     Laravel Pint  formatiert den Code einheitlich ( ./vendor/bin/pint ). Diskussionen über Leerzeichen und Klammern entfallen.    Larastan  (PHPStan mit Laravel-Wissen) analysiert den Code statisch und findet Typfehler, falsche Methodenaufrufe und vergessene null-Prüfungen – ohne ihn auszuführen. Stufe 0 ist nachsichtig, höhere Stufen sind strenger. Bei Altprojekten hält eine  Baseline  bestehende Fehler fest, damit nur neue auffallen.    Rector  modernisiert Code automatisch, etwa beim Umstieg auf eine neue PHP- oder Laravel-Version.    Eine  CI-Pipeline  (GitHub Actions, GitLab CI) führt bei jedem Push dieselben Schritte aus: Abhängigkeiten installieren, Pint im Prüfmodus, Larastan, Tests,  composer audit . Ein Merge ist erst möglich, wenn alles grün ist. Der Code-Review kann sich dann auf Inhalte statt Formalien konzentrieren. 
+CODE
+# .github/workflows/ci.yml
+name: CI
+on: [push, pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist
+      - run: cp .env.example .env && php artisan key:generate
+      - run: ./vendor/bin/pint --test            # nur pruefen, nicht aendern
+      - run: ./vendor/bin/phpstan analyse --memory-limit=1G
+      - run: php artisan test --parallel
+      - run: composer audit
+
+
+m51-l4 Deployment und Sicherheit in Produktion
+ Ein Deployment muss  wiederholbar  sein – ein Skript, kein Gedächtnisprotokoll. Die Standardschritte:    Code holen,  composer install --no-dev --optimize-autoloader    Frontend bauen ( npm ci &amp;&amp; npm run build )    php artisan migrate --force  (ohne  --force  fragt Laravel in Produktion nach)    php artisan optimize  (Config, Routen, Events, Views cachen)    php artisan queue:restart , PHP-FPM neu laden (wegen OPcache)     Zero-Downtime-Deployments  bauen jedes Release in einem eigenen Verzeichnis auf und schalten am Ende nur einen Symlink  current  um. Werkzeuge: Laravel Cloud, Forge, Envoyer, Deployer. Migrationen müssen dafür  abwärtskompatibel  sein: Eine Spalte erst hinzufügen, Code umstellen und erst in einem späteren Release die alte Spalte entfernen.     Prüfpunkt  Produktion      APP_ENV    production       APP_DEBUG    false  – sonst zeigt die Fehlerseite Code, Pfade und Umgebungswerte      APP_KEY   gesetzt, geheim, nie wechseln ohne Plan (sonst sind Sessions und verschlüsselte Daten unlesbar)     HTTPS  überall, mit HSTS-Header     Document Root  nur  public/      Uploads  validiert ( mimes ,  max ), außerhalb von  public/  oder in S3, nie mit Benutzer-Dateinamen     Abhängigkeiten   composer audit  regelmäßig, Updates zeitnah     Fehler  an Logging-/Monitoring-Dienst, nicht nur in  storage/logs    
+CODE
+#!/usr/bin/env bash
+# deploy.sh - vereinfachtes Zero-Downtime-Deployment
+set -euo pipefail
+
+APP=/var/www/shop
+RELEASE=$APP/releases/$(date +%Y%m%d%H%M%S)
+
+git clone --depth 1 --branch main git@github.com:acme/shop.git "$RELEASE"
+cd "$RELEASE"
+
+ln -s $APP/shared/.env     .env            # Geheimnisse liegen ausserhalb des Releases
+rm -rf storage && ln -s $APP/shared/storage storage
+
+composer install --no-dev --optimize-autoloader --no-interaction
+npm ci && npm run build
+
+php artisan migrate --force
+php artisan optimize
+
+ln -sfn "$RELEASE" $APP/current           # atomarer Wechsel
+sudo systemctl reload php8.3-fpm          # OPcache leeren
+php artisan queue:restart
+
+ls -dt $APP/releases/* | tail -n +6 | xargs rm -rf   # die letzten 5 Releases behalten
+
+
+m60-l1 Security-Checkliste für Laravel
+ Laravel schützt vor vielen Angriffen von Haus aus – solange man die Schutzmechanismen nicht umgeht. Diese Tabelle verbindet die häufigsten Risiken (OWASP Top 10) mit den passenden Werkzeugen:     Risiko  Laravel-Schutz  Typischer Fehler     Fehlende Zugriffskontrolle  Policies,  Gate::authorize   Policy vergessen, IDs in der URL frei änderbar     Injection  Eloquent/Query Builder mit Bindings  Variablen in  whereRaw / DB::select  eingesetzt     XSS   {{ }}  kodiert automatisch   {!! !!}  mit Benutzerinhalt     CSRF   @csrf ,  ValidateCsrfTokens   zu großzügige Ausnahmen     Mass Assignment   $fillable ,  validated()    $request-&gt;all()      Schwache Authentifizierung  Starter Kits, Rate Limiting,  Password::defaults()   Login ohne  throttle      Fehlkonfiguration   APP_DEBUG=false , HTTPS  Debug-Seite in Produktion     Verwundbare Abhängigkeiten   composer audit ,  npm audit   Updates jahrelang liegen lassen      Signierte URLs  sind ein unterschätztes Werkzeug:  URL::temporarySignedRoute('abmelden', now()-&gt;addDays(7), ['user' =&gt; $id])  erzeugt einen Link, der ohne Login funktioniert, aber nicht manipuliert werden kann und abläuft – ideal für Abmeldelinks in Newslettern oder Download-Links in Mails. Die Route prüft das mit der Middleware  signed .   Ergänze  Sicherheits-Header  über eine Middleware:  Content-Security-Policy ,  X-Content-Type-Options: nosniff ,  Referrer-Policy  und  Strict-Transport-Security . 
+CODE
+<?php
+// Abmeldelink: ohne Login, aber faelschungssicher und befristet
+$link = URL::temporarySignedRoute('newsletter.abmelden', now()->addDays(7), ['user' => $user->id]);
+
+Route::get('/newsletter/abmelden/{user}', NewsletterAbmelden::class)
+    ->name('newsletter.abmelden')
+    ->middleware('signed');            // 403 bei manipulierter oder abgelaufener URL
+
+// Passwortregeln zentral - AppServiceProvider::boot()
+Password::defaults(fn () => app()->isProduction()
+    ? Password::min(12)->mixedCase()->numbers()->uncompromised()
+    : Password::min(8));
+
+// Sicherheits-Header als Middleware
+class SicherheitsHeader
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        $antwort = $next($request);
+        $antwort->headers->set('X-Content-Type-Options', 'nosniff');
+        $antwort->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
+        $antwort->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+        return $antwort;
+    }
+}
+
+
+m60-l2 Betrieb beobachten: Logs, Pulse, Telescope, Fehlerdienste
+ Eine Anwendung in Produktion ist nur so gut wie deine Fähigkeit, ihr zuzusehen. Laravel bringt dafür mehrere Werkzeuge mit, die unterschiedliche Fragen beantworten:     Werkzeug  Beantwortet  Wo     Logs ( config/logging.php )  Was ist genau passiert?  überall      Telescope   Welche Abfragen, Jobs, Mails hat diese Anfrage ausgelöst?  lokal / Staging      Pulse   Welche Routen und Abfragen sind langsam, wer belastet das System?  Produktion     Fehlerdienst (Sentry, Flare …)  Welche Exceptions treten auf, wie oft, seit welchem Release?  Produktion     Health-Check  /up   Lebt die Anwendung?  für Load Balancer und Monitoring      Log-Kanäle:   daily  schreibt eine Datei pro Tag und löscht alte nach einer festgelegten Zahl von Tagen,  stack  verteilt auf mehrere Kanäle. In Containern schreibt man nach  stderr , wo die Plattform die Logs einsammelt.    Log::withContext([...])  hängt Informationen an alle folgenden Einträge einer Anfrage – etwa eine Request-ID oder die Benutzer-ID. Damit lässt sich ein Fehler über alle Einträge hinweg verfolgen.   Typischer Fehler  Telescope zeichnet Anfragen samt Daten auf. In Produktion ist es ohne strenge Zugriffsbeschränkung ein Datenleck und ohne Aufräumen ein Speicherproblem. Installiere es mit  --dev  oder beschränke es per Gate auf wenige Personen.  
+CODE
+<?php
+// Middleware: jede Anfrage bekommt eine ID, die in jedem Log-Eintrag steht
+class RequestId
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        $id = $request->header('X-Request-Id') ?: (string) Str::uuid();
+        Log::withContext(['request_id' => $id, 'user_id' => $request->user()?->id]);
+
+        $antwort = $next($request);
+        $antwort->headers->set('X-Request-Id', $id);
+        return $antwort;
+    }
+}
+
+// config/logging.php (Auszug)
+'channels' => [
+    'stack' => ['driver' => 'stack', 'channels' => ['daily', 'stderr']],
+    'daily' => ['driver' => 'daily', 'path' => storage_path('logs/laravel.log'), 'level' => 'info', 'days' => 14],
+],
+
+// Pulse-Dashboard nur fuer Admins - AppServiceProvider::boot()
+Gate::define('viewPulse', fn (User $user) => $user->ist_admin);
+
+
+m60-l3 Abschlussprojekt Teil 1: einen Mini-Shop planen
+ Jetzt setzt du alles zusammen: ein  Mini-Shop  mit Katalog, Warenkorb, Bestellung, Admin-Bereich und API. Gute Projekte beginnen nicht mit Code, sondern mit einem Plan. Arbeite diese Lektion mit Stift und Papier oder in einer Datei  PLAN.md  im Projekt.    1. User Stories  – wer will was, und warum?    Als  Kunde  will ich Produkte nach Kategorie durchsuchen, um schnell zu finden, was ich brauche.   Als  Kunde  will ich eine Bestellbestätigung per Mail, damit ich einen Beleg habe.   Als  Admin  will ich Bestände pflegen, damit nichts verkauft wird, was nicht da ist.   Als  Partner  will ich Bestellungen per API abrufen, um sie in meiner Warenwirtschaft zu verbuchen.     2. Datenmodell  – Tabellen und Beziehungen:  kategorien  1:n  produkte ,  users  1:1  kunden ,  kunden  1:n  bestellungen ,  bestellungen  n:m  produkte  über  bestellung_produkt  (mit Menge und Preis zum Bestellzeitpunkt).    3. Routen und Rechte  – siehe Tabelle unten. Jede Route bekommt eine Zeile mit Middleware und Policy.    4. Meilensteine  – klein und lauffähig: M1 Katalog lesend, M2 Warenkorb und Bestellung, M3 Admin, M4 API, M5 Tests und Deployment. Nach jedem Meilenstein ist die Anwendung benutzbar. 
+CODE
+ROUTEN-PLAN MINI-SHOP
+
+Methode  Pfad                          Name                   Schutz
+-------  ----------------------------  ---------------------  ---------------------------
+GET      /                             start                  -
+GET      /kategorien/{kategorie:slug}  kategorien.show        -
+GET      /produkte/{produkt:slug}      produkte.show          -
+POST     /warenkorb                    warenkorb.store        throttle
+POST     /bestellungen                 bestellungen.store     auth, verified
+GET      /bestellungen/{bestellung}    bestellungen.show      auth + Policy view
+GET      /admin/produkte               admin.produkte.index   auth + Gate admin
+PUT      /admin/produkte/{produkt}     admin.produkte.update  auth + Policy update
+GET      /api/v1/bestellungen          api.bestellungen.index auth:sanctum + Ability
+POST     /webhooks/zahlung             webhooks.zahlung       Signatur (kein CSRF)
+
+MEILENSTEINE
+  M1  Katalog lesend          Migrationen, Factories, Seeder, Blade-Komponenten
+  M2  Warenkorb + Bestellung  Session-Warenkorb, Action BestellungAnlegen, Mail
+  M3  Admin                   Policies, Form Requests, Uploads
+  M4  API                     Sanctum, Resources, Rate Limiting
+  M5  Qualitaet + Betrieb     Pest-Tests, Larastan, CI, Deployment
+
+
+m60-l4 Abschlussprojekt Teil 2: Umsetzung und Release
+ Die Umsetzung folgt den Meilensteinen. Für jeden gibt es eine feste Reihenfolge, die sich in der Praxis bewährt:     Branch anlegen :  git switch -c feature/m2-bestellung .    Tests als Liste  aus der Planung übernehmen und als leere Pest-Tests anlegen.    Datenbank zuerst : Migration, Model, Factory.    Fachlogik  in einer Action, mit Unit- oder Feature-Test.    HTTP-Schicht : Route, Form Request, Policy, Controller, View oder Resource.    Qualität :  pint ,  phpstan ,  php artisan test  – alles grün.    Pull Request  mit Beschreibung, Review, Merge.    Vor dem ersten Release steht eine Checkliste, die du nicht aus dem Gedächtnis abhakst, sondern Punkt für Punkt prüfst:     APP_ENV=production ,  APP_DEBUG=false , HTTPS erzwungen   Queue-Worker und Scheduler laufen und werden überwacht   Backups der Datenbank laufen  und  eine Wiederherstellung wurde getestet   Fehlerdienst und Alarme sind eingerichtet   Impressum und Datenschutzerklärung sind online    composer audit  ohne Befunde    Mit dem ersten Tag  v1.0.0  ist das Projekt nicht fertig – aber ab jetzt kannst du es sicher weiterentwickeln. 
+CODE
+# Meilenstein M2 - von der Planung zum Pull Request
+git switch -c feature/m2-bestellung
+
+php artisan make:model Bestellung -mf
+php artisan make:request BestellungRequest
+php artisan make:policy BestellungPolicy --model=Bestellung
+php artisan make:mail BestellBestaetigung --markdown=mail.bestellung
+php artisan make:test BestellungTest --pest
+
+php artisan migrate
+php artisan test --filter=Bestellung
+
+./vendor/bin/pint
+./vendor/bin/phpstan analyse
+php artisan test --parallel
+
+git add -A
+git commit -m "feat(bestellung): Bestellung aus Warenkorb anlegen"
+git push -u origin feature/m2-bestellung
+# -> Pull Request oeffnen, Review, Merge in main
+
+# Release
+git switch main && git pull
+git tag -a v1.0.0 -m "Erste oeffentliche Version"
+git push origin v1.0.0

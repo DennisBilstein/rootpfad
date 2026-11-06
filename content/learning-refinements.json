@@ -1,0 +1,124 @@
+{
+  "updates": [
+    {
+      "id": "m52-l1",
+      "title": "Deine Werkstatt: PHP installieren und das erste Skript",
+      "minutes": 25,
+      "objectives": [
+        "PHP-Laufzeit, Editor und Terminal unterscheiden",
+        "Die tatsächlich verwendete PHP-Version und Konfiguration prüfen",
+        "Ein eigenes Skript ausführen und dessen Ausgabe vorhersagen",
+        "Syntaxfehler systematisch eingrenzen und den lokalen Server sicher starten"
+      ],
+      "body": "<h2>Lernziele und Voraussetzungen</h2><p>Du brauchst keine Programmierkenntnisse. Nach dieser Lektion kannst du Installation, Versionsprüfung, Skriptausführung und Syntaxprüfung selbst erklären. Plane etwa 25 Minuten plus gegebenenfalls Installationszeit ein.</p><h2>1. Eine Laufzeit ist kein Editor</h2><p>Der Editor speichert deinen Quelltext, das Terminal startet Befehle und die PHP-Laufzeit führt PHP-Code aus. Eine Datei im Browser per file:// zu öffnen führt PHP nicht aus. Zuerst verwenden wir deshalb die Kommandozeile (CLI), erst danach einen HTTP-Server.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/features.commandline.options.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP CLI-Optionen</a> · geprüft 06.11.2026.</p><h2>2. PHP installieren und prüfen</h2><p>Wähle im offiziellen Installationshandbuch den Weg für macOS, Windows oder deine Linux-Distribution. Pakete können unterschiedlich neue Versionen enthalten; übernimm keinen Betriebssystembefehl blind. Für diesen Kurs ist PHP 8.5.x vorgesehen. Installiere eine stabile Ausgabe, keine RC-/Testversion. Ein Editor allein installiert nicht zwingend PHP. Laravel und Composer brauchst du für dieses erste Skript noch nicht.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/install.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP Installation</a> · geprüft 06.11.2026.</p><p>Öffne ein Terminal und führe die ersten drei Prüfungen im Befehlsblock aus. <code>php -v</code> zeigt die CLI-Version, <code>php --ini</code> die geladenen Konfigurationsdateien. Bei mehreren Installationen ermittelt <code>command -v php</code> unter macOS/Linux den Pfad; in PowerShell nutze <code>Get-Command php</code>. Diese Pfade können von der PHP-Version deines späteren Webservers abweichen.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/features.commandline.options.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP CLI-Optionen</a> · geprüft 06.11.2026.</p><h2>3. Datei anlegen und bewusst ausführen</h2><p>Lege im Editor einen neuen Ordner php-workshop an und speichere darin die Datei <code>hello.php</code> als UTF-8-Text. Öffne genau diesen Ordner im Terminal. Kopiere nur den PHP-Block in die Datei, keine Markdown-Zäune und keine Terminalbefehle. <code>declare(strict_types=1)</code> legt Regeln für skalare Funktionsargumente fest; es macht PHP nicht zu einer statisch typisierten Sprache. Die Typregeln behandeln wir später in m42.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/language.types.declarations.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP Type declarations</a> · geprüft 06.11.2026.</p><p><code>echo</code> schreibt Text, die Variable <code>$name</code> liefert hier Mira. Der Punkt verbindet Text, <code>PHP_EOL</code> ist ein plattformgerechter Zeilenumbruch. Speichere die Datei vor jedem Test. Erwartet werden zwei Zeilen: <code>Hello, Mira!</code> und <code>Runtime: …</code> mit deiner tatsächlich installierten PHP-Version.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/function.echo.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP echo</a> · geprüft 06.11.2026.</p>",
+      "code": "<?php\ndeclare(strict_types=1);\n\n$name = 'Mira';\necho \"Hello, {$name}!\" . PHP_EOL;\necho 'Runtime: ' . PHP_VERSION . PHP_EOL;\n",
+      "codeLang": "PHP",
+      "code2": "php -v\nphp --ini\nphp --help\n\n# Im Ordner mit der gespeicherten hello.php:\nphp -l hello.php\nphp -d display_errors=1 -d error_reporting=-1 hello.php\n\n# Optional: lokalen Webserver starten; Terminal bleibt belegt.\nphp -S 127.0.0.1:8000\n# Im Browser: http://127.0.0.1:8000/hello.php\n# Beenden: Ctrl+C",
+      "code2Lang": "Shell",
+      "order": [
+        "body",
+        "code",
+        "code2",
+        "body2"
+      ],
+      "body2": "<h2>Typische Fehler und professionelle Diagnose</h2><ul><li><strong>command not found:</strong> Installation und PATH prüfen, anschließend Terminal neu öffnen. Nicht zufällige Dateien löschen oder fremde Installationsskripte ausführen.</li><li><strong>Could not open input file:</strong> Arbeitsverzeichnis, Dateiname und Endung prüfen; hello.php.txt ist keine hello.php.</li><li><strong>Parse error:</strong> <code>php -l hello.php</code> prüft Syntax ohne Ausführung. Die gemeldete Zeile kann hinter der Ursache liegen; kontrolliere auch die vorherige Zeile. Ein erfolgreicher Lint beweist keine fachliche Korrektheit.</li><li><strong>Fehleranzeige im kaputten Skript einschalten:</strong> Bei einem Parsefehler wird dessen <code>ini_set</code> möglicherweise gar nicht ausgeführt. Die CLI-Option <code>-d</code> wirkt schon beim Start. Verwende detaillierte Fehlerausgabe nur lokal; in Produktion gehören Details in geschützte Logs.</li></ul><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/features.commandline.options.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP CLI-Optionen</a> · geprüft 06.11.2026.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/security.errors.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP: Error reporting</a> · geprüft 06.11.2026.</p><h2>Optional im Browser</h2><p>Der eingebaute Server liefert das aktuelle Arbeitsverzeichnis aus. Starte ihn deshalb nur im eigenen Übungsordner und binde ihn an 127.0.0.1. Er ist kein Produktionsserver und soll nicht in öffentlichen Netzen laufen. Browser stellen reine Text-Zeilenumbrüche ohne passende Darstellung möglicherweise nicht wie das Terminal dar; das ist kein fehlender PHP-Aufruf.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/features.commandline.webserver.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP Development Server</a> · geprüft 06.11.2026.</p><h2>Drei Übungen</h2><ol><li><strong>Leicht:</strong> Ändere Mira in deinen Namen. Sage die erste Ausgabe voraus und vergleiche sie mit <code>php hello.php</code>. Abnahme: Name stimmt und beide Zeilen erscheinen.</li><li><strong>Mittel:</strong> Erzeuge eine zusätzliche Datei broken.php mit zwei echo-Anweisungen und entferne zwischen ihnen ein Semikolon. Prüfe beide Dateien mit <code>php -l</code>. Abnahme: Du kannst Fehlerstelle und gemeldete Stelle unterscheiden und die reparierte Datei besteht den Lint.</li><li><strong>Transfer:</strong> Starte den lokalen Server, rufe hello.php per HTTP auf, stoppe ihn und prüfe den Unterschied. Dokumentiere PHP-Version, verwendeten Pfad, geladene Konfiguration und den Grund, warum ein file://-Aufruf kein Ersatz ist. Keine Konfigurationsdaten öffentlich veröffentlichen.</li></ol><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/features.commandline.options.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP CLI-Optionen</a> · geprüft 06.11.2026.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://www.php.net/manual/en/features.commandline.webserver.php\" target=\"_blank\" rel=\"noopener noreferrer\">PHP Development Server</a> · geprüft 06.11.2026.</p><details><summary>Lösungskriterien nach eigener Bearbeitung ansehen</summary><p>1: Zwei echo-Anweisungen ergeben zwei Ausgaben, der Name stammt aus der Variable. 2: Ein fehlendes Semikolon vor einer weiteren Anweisung kann den Parser erst bei dieser Anweisung stoppen. 3: CLI führt die Datei direkt aus, HTTP lässt den Server die Datei ausführen; nach Ctrl+C ist der lokale Server nicht mehr erreichbar. Die genaue Versionsausgabe hängt von deiner Installation ab.</p></details><h2>Weiterlernen</h2><p>m52-l2 erklärt Strings ausführlich; m42-l1 dient danach als Wiederholung des Ausführungsmodells. Funktionen, Webformulare und Laravel werden hier noch nicht vorweggenommen.</p>",
+      "tip": "Erst Ausgabe vorhersagen, dann ausführen. Notiere bei Fehlern Befehl, Arbeitsverzeichnis und vollständige Meldung; verrate dabei keine Geheimnisse.",
+      "quiz": [
+        {
+          "q": "Welcher Befehl prüft Syntax, ohne das Skript auszuführen?",
+          "options": [
+            "php -l hello.php",
+            "php -S hello.php",
+            "php --ini hello.php"
+          ],
+          "correct": 0,
+          "explain": "-l ist der Syntaxcheck. Laufzeitfehler und falsche Geschäftslogik werden dadurch nicht vollständig erkannt."
+        },
+        {
+          "q": "Warum kann ini_set im syntaktisch kaputten Skript die Fehleranzeige nicht zuverlässig aktivieren?",
+          "options": [
+            "Weil ini_set ausschließlich unter Windows funktioniert",
+            "Weil der Parser die Ausführung des Skripts bereits verhindern kann",
+            "Weil echo die Konfiguration immer überschreibt"
+          ],
+          "correct": 1,
+          "explain": "Startoptionen wie -d wirken vor der Ausführung; eine Anweisung im nicht ausführbaren Skript erreicht PHP möglicherweise nie."
+        },
+        {
+          "q": "Was ist der geeignete Einsatz von php -S 127.0.0.1:8000?",
+          "options": [
+            "Öffentliches Hosting einer produktiven Anwendung",
+            "Automatischer Ersatz für HTTPS und Zugriffsschutz",
+            "Lokale Entwicklung im kontrollierten Übungsordner"
+          ],
+          "correct": 2,
+          "explain": "Der eingebaute Webserver ist ein Entwicklungswerkzeug, kein öffentlich freizugebender Produktionsserver."
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "js-m1",
+      "part": 23,
+      "partTitle": "JavaScript & Vue · Einstieg",
+      "title": "JavaScript · Sprachgrundlagen",
+      "course": "javascript",
+      "lessons": [
+        {
+          "id": "js-m1-l1",
+          "title": "JavaScript-Einheit 1: Werte, Variablen und Kontrollfluss",
+          "minutes": 30,
+          "objectives": [
+            "Werte und Variablennamen unterscheiden",
+            "const und let begründet auswählen",
+            "Strings und Numbers ohne unbeabsichtigte Verkettung verarbeiten",
+            "Vergleiche, Bedingungen und eine einfache Schleife nachvollziehen"
+          ],
+          "body": "<h2>Lernziele und Start</h2><p>Vorkenntnisse in PHP oder ABAP sind nicht nötig. Wir verwenden noch kein Vue und keine Zusatzpakete. Öffne in deinem Browser einen leeren Tab und dessen Entwicklerwerkzeuge, Bereich Konsole. Führe dort nur deinen eigenen Übungscode aus; füge keine unbekannten Konsolenbefehle ein. Alternativ speichere das vollständige Beispiel als learning-budget.mjs und starte es mit <code>node learning-budget.mjs</code> in einer vorhandenen unterstützten Node-Installation.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Grammar and types</a> · geprüft 06.11.2026.</p><h2>1. Werte, Namen und Typen</h2><p><code>'Mira'</code> ist ein String, <code>20</code> ein Number und <code>true</code> ein Boolean. Eine Variable ist ein Name, der auf einen Wert verweist. <code>const dailyMinutes = 20</code> initialisiert eine Bindung, die nicht neu zugewiesen werden darf. JavaScript bestimmt den Typ des Wertes zur Laufzeit. <code>typeof dailyMinutes</code> liefert hier <code>'number'</code>.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Grammar and types</a> · geprüft 06.11.2026.</p><h2>2. const oder let – warum?</h2><p>Nutze <code>const</code>, wenn du keine neue Zuweisung benötigst; das macht beabsichtigte Änderungen sichtbarer. Der Zwischenstand completedMinutes verändert sich, deshalb verwenden wir <code>let</code>. Beide sind blockgebunden. <code>const</code> friert Objekte nicht tief ein; Objekte folgen erst in Einheit 3. <code>var</code> ist weiterhin gültig, hat aber andere Scope-Regeln und ist hier nicht erforderlich.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Grammar and types</a> · geprüft 06.11.2026.</p><h2>3. Kontrollfluss als Lernbudget</h2><p>Drei Sitzungen dauern jeweils zwanzig Minuten. Die Schleife startet mit session = 1, prüft vor jedem Durchlauf session &lt;= 3 und erhöht session danach um eins. completedMinutes nimmt die Werte 20, 40 und 60 an. Erst nach der Schleife entscheidet if, ob das Wochenziel erreicht ist. Schreibe diese drei Zeilen zuerst als Wertetabelle auf.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Control flow</a> · geprüft 06.11.2026.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Loops and iteration</a> · geprüft 06.11.2026.</p>",
+          "code": "const learnerName = 'Mira';\nconst dailyMinutes = 20;\nlet completedMinutes = 0;\n\nfor (let session = 1; session <= 3; session += 1) {\n  completedMinutes += dailyMinutes;\n}\n\nif (completedMinutes >= 60) {\n  console.log(`${learnerName}: weekly goal reached (${completedMinutes} minutes).`);\n} else {\n  console.log(`${learnerName}: keep learning (${completedMinutes} minutes).`);\n}\n\nconsole.log('20' + 5); // '205': string concatenation\nconsole.log(Number('20') + 5); // 25: numeric addition\nconsole.log('20' === 20); // false: different types\n",
+          "codeLang": "JavaScript",
+          "order": [
+            "body",
+            "code",
+            "body2"
+          ],
+          "body2": "<h2>Erwartete Ausgabe</h2><pre>Mira: weekly goal reached (60 minutes).\n205\n25\nfalse</pre><p>Konsole und Node können Werte unterschiedlich darstellen, zum Beispiel Strings ohne sichtbare Anführungszeichen. Das Beispiel benötigt weder DOM noch Netzwerk und läuft in beiden Umgebungen.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Grammar and types</a> · geprüft 06.11.2026.</p><h2>Typischer Fehler: Text wird als Zahl behandelt</h2><p><code>'20' + 5</code> ergibt den String <code>'205'</code>. Das Plus kann rechnen oder Text verbinden. Wenn die Eingabe wirklich numerisch gemeint ist, konvertiere bewusst: <code>Number('20') + 5</code> ergibt 25. Professioneller Code prüft zusätzlich das Eingabeformat und das Ergebnis: <code>Number('')</code> wird zu 0 und ist daher keine Validierung. Formulare und robuste Eingabeprüfung behandeln wir später.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Grammar and types</a> · geprüft 06.11.2026.</p><h2>Vergleichen ist nicht zuweisen</h2><p><code>=</code> weist zu, <code>===</code> vergleicht ohne Typumwandlung. <code>'20' === 20</code> ist false. Nutze explizite Typen und Vergleiche, statt einen stillen Konvertierungseffekt zu erraten. Ein Zuweisungsausdruck in einer Bedingung kann gültig sein und trotzdem einen Logikfehler bilden.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Control flow</a> · geprüft 06.11.2026.</p><h2>Drei Übungen</h2><ol><li><strong>Leicht:</strong> Stelle den Namen auf deinen Namen und dailyMinutes auf 15. Sage die erste Ausgabe voraus. Abnahme: 45 Minuten und keep learning.</li><li><strong>Mittel:</strong> Zeichne die Wertetabelle für zwei Sitzungen mit jeweils 25 Minuten. Passe die Schleife an und begründe const und let. Abnahme: genau zwei Durchläufe, Endwert 50.</li><li><strong>Transfer:</strong> Nutze einen festen Eingabetext <code>'30'</code>. Konvertiere bewusst zur Zahl und berechne zwei Sitzungen. Vergleiche anschließend mit leerem Text und <code>'abc'</code>; untersuche mit <code>Number.isFinite</code> das Ergebnis. Abnahme: 60 beim gültigen Text, leere Eingabe bewusst ablehnen und NaN nicht als gültiges Budget behandeln.</li></ol><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Grammar and types</a> · geprüft 06.11.2026.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration\" target=\"_blank\" rel=\"noopener noreferrer\">MDN: Loops and iteration</a> · geprüft 06.11.2026.</p><details><summary>Lösungskriterien</summary><p>1: 3 × 15 = 45. 2: session nimmt 1 und 2 an; completedMinutes ist 25, dann 50. 3: Ein möglicher Prüfablauf ist text.trim() !== '' und danach Number.isFinite(Number(text)); zusätzlich gelten fachliche Grenzen wie positive Minuten. Ein endliches Ergebnis allein garantiert nicht jedes gewünschte Eingabeformat.</p></details><h2>Abgrenzung zu Vue</h2><p>Hier ändern normale JavaScript-Zuweisungen Werte; es gibt noch keinen reaktiven Komponentenstatus. Vue-Reaktivität, Props und API-Aufrufe sind spätere Themen. Die nächste Einheit behandelt Funktionen, Scope und Closures.</p><p class=\"rail-fuss\">Quelle: <a href=\"https://vuejs.org/guide/introduction.html\" target=\"_blank\" rel=\"noopener noreferrer\">Vue: Introduction</a> · geprüft 06.11.2026.</p>",
+          "tip": "Wenn die Browserkonsole eine erneute const-Deklaration ablehnt, lade den leeren Tab neu oder führe das Beispiel als Datei aus. Nicht durch zufällige globale Variablennamen ausweichen.",
+          "quiz": [
+            {
+              "q": "Warum ist completedMinutes im Beispiel mit let deklariert?",
+              "options": [
+                "Weil Zahlen nie mit const erlaubt sind",
+                "Weil die Bindung während der Schleife neu zugewiesen wird",
+                "Weil let automatisch einen Vue-State erzeugt"
+              ],
+              "correct": 1,
+              "explain": "Die Neuzuweisung ist beabsichtigt. Ein unveränderter Zahlenwert kann sehr wohl mit const gebunden werden."
+            },
+            {
+              "q": "Was ergibt '20' + 5?",
+              "options": [
+                "Die Zahl 25",
+                "Einen Syntaxfehler",
+                "Den String 205"
+              ],
+              "correct": 2,
+              "explain": "Der String-Operand führt hier zur Verkettung. Number-Konvertierung und fachliche Validierung sind verschiedene Schritte."
+            },
+            {
+              "q": "Wie oft läuft for (let i = 1; i <= 3; i += 1)?",
+              "options": [
+                "Dreimal",
+                "Zweimal",
+                "Viermal"
+              ],
+              "correct": 0,
+              "explain": "Der Rumpf läuft für i=1, 2 und 3. Bei i=4 ist die Bedingung false."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
