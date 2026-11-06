@@ -1,0 +1,16 @@
+{
+  "name": "rootpfad",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ROOTPFAD – lokale Lernplattform aus dem HTML-Original",
+  "scripts": {
+    "test": "playwright test",
+    "build:experts": "node scripts/build-experts.mjs",
+    "build": "node scripts/build-experts.mjs --cached",
+    "dev": "python3 -m http.server 5173 --bind 127.0.0.1",
+    "start": "python3 -m http.server 5173 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
+  }
+}
