@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T19:55:33.897Z",
+  "generatedAt": "2026-11-08T21:19:27.980Z",
   "policy": "Drei Monate sind eine organisatorische Prüffrist, keine fachliche Aktualitätsgarantie.",
   "sources": [
     {
@@ -3884,8 +3884,6 @@
         "abap-m7-l3#1@2026-11-07-full-v3",
         "abap-m8-quellen-interne-tabellen-positionen-sammeln-und-sicher-lesen#0@2026-11-07-full-v3",
         "abap-m8-quellen-interne-tabellen-positionen-sammeln-und-sicher-lesen#1@2026-11-07-full-v3",
-        "abap-m8-l1#0@2026-11-07-full-v3",
-        "abap-m8-l1#1@2026-11-07-full-v3",
         "abap-m8-l2#0@2026-11-07-full-v3",
         "abap-m8-l2#1@2026-11-07-full-v3",
         "abap-m8-l3#0@2026-11-07-full-v3",
@@ -3894,8 +3892,6 @@
         "abap-m9-quellen-abap-sql-nur-benotigte-daten-lesen-und-leistung-prufen#1@2026-11-07-full-v3",
         "abap-m9-l1#0@2026-11-07-full-v3",
         "abap-m9-l1#1@2026-11-07-full-v3",
-        "abap-m9-l2#0@2026-11-07-full-v3",
-        "abap-m9-l2#1@2026-11-07-full-v3",
         "abap-m9-l3#0@2026-11-07-full-v3",
         "abap-m9-l3#1@2026-11-07-full-v3",
         "abap-m10-quellen-oo-abap-ein-objekt-kapselt-seinen-zahlerstand#0@2026-11-07-full-v3",
@@ -3915,8 +3911,6 @@
         "abap-m11-quellen-assoziation-oder-join-beziehungen-und-ergebnismengen-verstehen#2@2026-11-07-full-v3",
         "abap-m11-quellen-annotationen-sinnvoll-einsetzen-und-cds-performance-prufen#0@2026-11-07-full-v3",
         "abap-m11-quellen-annotationen-sinnvoll-einsetzen-und-cds-performance-prufen#1@2026-11-07-full-v3",
-        "abap-m11-l1#0@2026-11-07-full-v3",
-        "abap-m11-l1#1@2026-11-07-full-v3",
         "abap-m11-l2#0@2026-11-07-full-v3",
         "abap-m11-l2#1@2026-11-07-full-v3",
         "abap-m11-l3#0@2026-11-07-full-v3",
@@ -3929,10 +3923,6 @@
         "abap-m12-quellen-validierung-determination-und-action-mit-eml-auseinanderhalten#2@2026-11-07-full-v3",
         "abap-m12-quellen-vom-business-object-zum-odata-v4-ui-service#0@2026-11-07-full-v3",
         "abap-m12-quellen-vom-business-object-zum-odata-v4-ui-service#1@2026-11-07-full-v3",
-        "abap-m12-l1#0@2026-11-07-full-v3",
-        "abap-m12-l1#1@2026-11-07-full-v3",
-        "abap-m12-l2#0@2026-11-07-full-v3",
-        "abap-m12-l2#1@2026-11-07-full-v3",
         "abap-m12-l3#0@2026-11-07-full-v3",
         "abap-m12-l3#1@2026-11-07-full-v3",
         "abap-m12-l4#0@2026-11-07-full-v3",
@@ -3942,8 +3932,6 @@
         "abap-m13-quellen-javascript-und-ui5-brucke-model-xml-view-und-controller#0@2026-11-07-full-v3",
         "abap-m13-quellen-javascript-und-ui5-brucke-model-xml-view-und-controller#1@2026-11-07-full-v3",
         "abap-m13-quellen-javascript-und-ui5-brucke-model-xml-view-und-controller#2@2026-11-07-full-v3",
-        "abap-m13-l1#0@2026-11-07-full-v3",
-        "abap-m13-l1#1@2026-11-07-full-v3",
         "abap-m13-l2#0@2026-11-07-full-v3",
         "abap-m13-l2#1@2026-11-07-full-v3",
         "abap-m13-l3#0@2026-11-07-full-v3",
@@ -3962,8 +3950,6 @@
         "abap-m14-l3#1@2026-11-07-full-v3",
         "abap-m15-l1#0@2026-11-07-full-v3",
         "abap-m15-l1#1@2026-11-07-full-v3",
-        "abap-m15-l2#0@2026-11-07-full-v3",
-        "abap-m15-l2#1@2026-11-07-full-v3",
         "abap-m15-l3#0@2026-11-07-full-v3",
         "abap-m15-l3#1@2026-11-07-full-v3",
         "abap-m16-quellen-transporte-von-der-entwicklungsaufgabe-zur-getesteten-anderung#0@2026-11-07-full-v3",
@@ -3973,14 +3959,10 @@
         "abap-m16-quellen-git-review-abapgit-und-gcts-vom-produktionsimport-trennen#2@2026-11-07-full-v3",
         "abap-m16-l1#0@2026-11-07-full-v3",
         "abap-m16-l1#1@2026-11-07-full-v3",
-        "abap-m16-l2#0@2026-11-07-full-v3",
-        "abap-m16-l2#1@2026-11-07-full-v3",
         "abap-m16-l3#0@2026-11-07-full-v3",
         "abap-m16-l3#1@2026-11-07-full-v3",
         "abap-m17-quellen-sap-s-4hana-verstehen-erp-datenbank-und-oberflachen#0@2026-11-07-full-v3",
         "abap-m17-quellen-sap-s-4hana-verstehen-erp-datenbank-und-oberflachen#1@2026-11-07-full-v3",
-        "abap-m17-l1#0@2026-11-07-full-v3",
-        "abap-m17-l1#1@2026-11-07-full-v3",
         "abap-m17-l2#0@2026-11-07-full-v3",
         "abap-m17-l2#1@2026-11-07-full-v3",
         "abap-m17-l3#0@2026-11-07-full-v3",
@@ -4004,8 +3986,6 @@
         "abap-m19-quellen-sap-integration-suite-integrationsvertrag-fehlerfalle-und-realistische-lernzugange#2@2026-11-07-full-v3",
         "abap-m19-l1#0@2026-11-07-full-v3",
         "abap-m19-l1#1@2026-11-07-full-v3",
-        "abap-m19-l2#0@2026-11-07-full-v3",
-        "abap-m19-l2#1@2026-11-07-full-v3",
         "abap-m19-l3#0@2026-11-07-full-v3",
         "abap-m19-l3#1@2026-11-07-full-v3",
         "abap-m20-quellen-adt-sap-gui-und-s-4hana-werkzeug-und-laufzeit-auseinanderhalten#0@2026-11-07-full-v3",
@@ -4048,6 +4028,167 @@
         "x#243@2026-11-07-full-v3",
         "x#244@2026-11-07-full-v3",
         "x#245@2026-11-07-full-v3"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md",
+      "questionIds": [
+        "abap-m8-l1#0@2026-11-08-abap-senior-v1",
+        "abap-m8-l1#1@2026-11-08-abap-senior-v1",
+        "abap-m11-l1#1@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a",
+      "questionIds": [
+        "abap-m9-l2#0@2026-11-08-abap-senior-v1",
+        "abap-m9-l2#1@2026-11-08-abap-senior-v1",
+        "abap-m14-senior-s4-migration#0@2026-11-08-abap-senior-v1",
+        "abap-m14-senior-s4-migration#1@2026-11-08-abap-senior-v1",
+        "abap-m14-senior-s4-migration#2@2026-11-08-abap-senior-v1",
+        "abap-m16-l2#0@2026-11-08-abap-senior-v1",
+        "abap-m16-l2#1@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e",
+      "questionIds": [
+        "abap-m11-l1#0@2026-11-08-abap-senior-v1",
+        "abap-m13-l1#0@2026-11-08-abap-senior-v1",
+        "abap-m13-l1#1@2026-11-08-abap-senior-v1",
+        "abap-m13-senior-side-effects#2@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-abap-annotations-in-cds-views_fcda7ade-1bb7-4c79-8b1f-0f20c7f45a70",
+      "questionIds": [
+        "abap-m11-senior-semantics#0@2026-11-08-abap-senior-v1",
+        "abap-m11-senior-semantics#1@2026-11-08-abap-senior-v1",
+        "abap-m11-senior-semantics#2@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects",
+      "questionIds": [
+        "abap-m12-l1#0@2026-11-08-abap-senior-v1",
+        "abap-m12-l1#1@2026-11-08-abap-senior-v1",
+        "abap-m12-senior-eml-tests#1@2026-11-08-abap-senior-v1",
+        "abap-m12-senior-eml-tests#2@2026-11-08-abap-senior-v1",
+        "abap-m17-l1#0@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/understanding-concurrency-control",
+      "questionIds": [
+        "abap-m12-l2#0@2026-11-08-abap-senior-v1",
+        "abap-m12-l2#1@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developers.sap.com/tutorials/abap-environment-rap100-unit-testing.html",
+      "questionIds": [
+        "abap-m12-senior-eml-tests#0@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/side-effects-18b17bd.md",
+      "questionIds": [
+        "abap-m13-senior-side-effects#0@2026-11-08-abap-senior-v1",
+        "abap-m13-senior-side-effects#1@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/exploring-the-authorization-concept-for-sap-fiori-on-sap-s-4hana/checking-and-adjusting-launchpad-content",
+      "questionIds": [
+        "abap-m13-senior-launchpad#0@2026-11-08-abap-senior-v1",
+        "abap-m13-senior-launchpad#2@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks",
+      "questionIds": [
+        "abap-m13-senior-launchpad#1@2026-11-08-abap-senior-v1",
+        "abap-m15-l2#0@2026-11-08-abap-senior-v1",
+        "abap-m15-l2#1@2026-11-08-abap-senior-v1",
+        "abap-m15-senior-authorization#0@2026-11-08-abap-senior-v1",
+        "abap-m15-senior-authorization#1@2026-11-08-abap-senior-v1",
+        "abap-m15-senior-authorization#2@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation",
+      "questionIds": [
+        "abap-m14-senior-btp-identity#0@2026-11-08-abap-senior-v1",
+        "abap-m14-senior-btp-identity#1@2026-11-08-abap-senior-v1",
+        "abap-m14-senior-btp-identity#2@2026-11-08-abap-senior-v1",
+        "abap-m19-l2#1@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://github.com/SAP-samples/abap-platform-application-jobs",
+      "questionIds": [
+        "abap-m17-l1#1@2026-11-08-abap-senior-v1",
+        "abap-m19-l2#0@2026-11-08-abap-senior-v1",
+        "abap-m19-senior-restartable-jobs#1@2026-11-08-abap-senior-v1",
+        "abap-m19-senior-restartable-jobs#2@2026-11-08-abap-senior-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://learning.sap.com/courses/administrating-sap-s-4hana-cloud-public-edition/monitoring-application-jobs_f18a1e3b-b367-46f0-828a-99fea42cd3b4",
+      "questionIds": [
+        "abap-m19-senior-restartable-jobs#0@2026-11-08-abap-senior-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",

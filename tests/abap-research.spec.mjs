@@ -15,5 +15,5 @@ test('Recherchierte ABAP-Lektionen haben Quellen, gültige Quizze und stabile ID
     }
     return { count:additions.length, quizzes:additions.reduce((n,l) => n+l.quiz.length,0), failures };
   });
-  expect(result).toEqual({ count:22, quizzes:54, failures:[] });
+  expect(result).toEqual({ count:30, quizzes:78, failures:[] });
 });

@@ -1,6 +1,6 @@
 {
-  "total": 455,
-  "checked": 455,
+  "total": 468,
+  "checked": 468,
   "results": [
     {
       "url": "https://docs.python.org/3/tutorial/controlflow.html",
@@ -27,6 +27,15 @@
       "bytes": 118806,
       "reachable": true,
       "checkedAt": "2026-11-08T18:37:49.883Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/dads/HTML/binarySearch.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/binarySearch.html",
+      "bytes": 5784,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:46:44.858Z",
       "contentReviewed": false
     },
     {
@@ -4035,30 +4044,21 @@
       "contentReviewed": false
     },
     {
-      "url": "https://uefi.org/specifications",
-      "status": 403,
-      "finalURL": "https://uefi.org/specifications",
-      "bytes": 5455,
-      "reachable": false,
-      "checkedAt": "2026-11-08T18:46:44.146Z",
-      "contentReviewed": false
-    },
-    {
       "url": "https://www.iso.org/quality-management",
       "status": 403,
       "finalURL": "https://www.iso.org/quality-management",
       "bytes": 5509,
       "reachable": false,
-      "checkedAt": "2026-11-08T18:46:44.150Z",
+      "checkedAt": "2026-11-08T21:15:59.137Z",
       "contentReviewed": false
     },
     {
-      "url": "https://platform.openai.com/tokenizer",
+      "url": "https://uefi.org/specifications",
       "status": 403,
-      "finalURL": "https://platform.openai.com/tokenizer",
-      "bytes": 9811,
+      "finalURL": "https://uefi.org/specifications",
+      "bytes": 5455,
       "reachable": false,
-      "checkedAt": "2026-11-08T18:46:44.151Z",
+      "checkedAt": "2026-11-08T21:15:59.143Z",
       "contentReviewed": false
     },
     {
@@ -4067,7 +4067,7 @@
       "finalURL": "https://www.pmi.org/learning/library/critical-path-scheduling-work-breakdown-6212",
       "bytes": 19815,
       "reachable": false,
-      "checkedAt": "2026-11-08T18:46:44.153Z",
+      "checkedAt": "2026-11-08T21:15:59.154Z",
       "contentReviewed": false
     },
     {
@@ -4076,23 +4076,140 @@
       "finalURL": "https://www.pmi.org/learning/library/five-keys-accurate-project-estimating-6927",
       "bytes": 19815,
       "reachable": false,
-      "checkedAt": "2026-11-08T18:46:44.153Z",
+      "checkedAt": "2026-11-08T21:15:59.155Z",
       "contentReviewed": false
     },
     {
-      "url": "https://www.nist.gov/dads/HTML/binarySearch.html",
+      "url": "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a",
       "status": 200,
-      "finalURL": "https://xlinux.nist.gov/dads/HTML/binarySearch.html",
-      "bytes": 5784,
+      "finalURL": "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a",
+      "bytes": 174009,
       "reachable": true,
-      "checkedAt": "2026-11-08T18:46:44.858Z",
+      "checkedAt": "2026-11-08T21:15:59.161Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e",
+      "bytes": 230013,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:15:59.169Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-abap-annotations-in-cds-views_fcda7ade-1bb7-4c79-8b1f-0f20c7f45a70",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-abap-annotations-in-cds-views_fcda7ade-1bb7-4c79-8b1f-0f20c7f45a70",
+      "bytes": 213016,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:15:59.183Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects",
+      "bytes": 299820,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:15:59.200Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md",
+      "status": 200,
+      "finalURL": "https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md",
+      "bytes": 701395,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:15:59.513Z",
       "contentReviewed": false
     },
     {
       "url": "https://www.gnu.org/licenses/gpl-faq.html",
       "reachable": false,
       "error": "fetch failed",
-      "checkedAt": "2026-11-08T18:46:54.457Z",
+      "checkedAt": "2026-11-08T21:16:09.173Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://platform.openai.com/tokenizer",
+      "status": 403,
+      "finalURL": "https://platform.openai.com/tokenizer",
+      "bytes": 9811,
+      "reachable": false,
+      "checkedAt": "2026-11-08T21:16:09.323Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation",
+      "status": 200,
+      "finalURL": "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation",
+      "bytes": 1160,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.381Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/exploring-the-authorization-concept-for-sap-fiori-on-sap-s-4hana/checking-and-adjusting-launchpad-content",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/exploring-the-authorization-concept-for-sap-fiori-on-sap-s-4hana/checking-and-adjusting-launchpad-content",
+      "bytes": 190609,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.389Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/administrating-sap-s-4hana-cloud-public-edition/monitoring-application-jobs_f18a1e3b-b367-46f0-828a-99fea42cd3b4",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/administrating-sap-s-4hana-cloud-public-edition/monitoring-application-jobs_f18a1e3b-b367-46f0-828a-99fea42cd3b4",
+      "bytes": 159578,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.391Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks",
+      "bytes": 244343,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.411Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/understanding-concurrency-control",
+      "status": 200,
+      "finalURL": "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/understanding-concurrency-control",
+      "bytes": 200394,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.422Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developers.sap.com/tutorials/abap-environment-rap100-unit-testing.html",
+      "status": 200,
+      "finalURL": "https://developers.sap.com/tutorials/abap-environment-rap100-unit-testing",
+      "bytes": 185999,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.538Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/side-effects-18b17bd.md",
+      "status": 200,
+      "finalURL": "https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/side-effects-18b17bd.md",
+      "bytes": 438461,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.886Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://github.com/SAP-samples/abap-platform-application-jobs",
+      "status": 200,
+      "finalURL": "https://github.com/SAP-samples/abap-platform-application-jobs",
+      "bytes": 307538,
+      "reachable": true,
+      "checkedAt": "2026-11-08T21:16:09.906Z",
       "contentReviewed": false
     }
   ]

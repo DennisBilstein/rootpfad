@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import {lessons,updates,sources} from '../content/abap-senior-curriculum.mjs';
+const escape=value=>String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const access='Öffentliche Fachreferenz; praktische Ausführung benötigt passendes SAP-System, Release, Zugang und Berechtigungen. Kein kostenloser Systemzugang zugesagt.';
+const references=keys=>keys.map(key=>({title:'SAP-Originalquelle: '+key,url:sources[key],access}));
+const sourceHTML=keys=>'<h3>Quellen und Verifikationsgrenzen</h3><ul>'+references(keys).map(s=>'<li><a href="'+escape(s.url)+'" target="_blank" rel="noopener noreferrer">'+escape(s.title)+'</a></li>').join('')+'</ul><p>Redaktion 08.11.2026. Eigene Zusammenfassung, keine Kurskopie und keine behauptete persönliche Senior-Erfahrung. SAP-Beispiele hier nicht kompiliert oder gegen ein SAP-System ausgeführt. Release/Edition und API-Freigaben im Zielsystem prüfen.</p>';
+const exercises=cases=>cases.map((text,i)=>({level:['Normalfall','Grenzfall','Fehlerfall'][i],task:text,acceptance:'Soll-Ergebnis aus dem Fall begründen; bei Systemzugang tatsächliches Ergebnis und Release protokollieren. Ohne Systemzugang nur Entwurfsnachweis, kein ausgeführter SAP-Test.'}));
+const practiceHTML=(tip,cases)=>'<section class="callout"><h3>Senior-Praxis: Review und Diagnose</h3><p>'+escape(tip)+'</p><h3>Eigene Praxisfälle</h3><ol>'+cases.map((text,i)=>'<li><strong>'+['Normalfall','Grenzfall','Fehlerfall'][i]+':</strong> '+escape(text)+'</li>').join('')+'</ol><p>Abnahme: fachliches Soll, tatsächliches Ist oder ausdrücklich nur geplanter Test; Hilfen und verbleibende Grenzen angeben. Kein automatischer Kompetenznachweis durch Lesen oder Quiz.</p></section>';
+const additions=lessons.map(item=>({...item,
+ body:'<h2>Lernziele und Voraussetzungen</h2><p>'+escape(item.prerequisites)+'</p><ul>'+item.objectives.map(x=>'<li>'+escape(x)+'</li>').join('')+'</ul>'+item.paragraphs.map(p=>'<p>'+escape(p)+'</p>').join(''),
+ body2:practiceHTML(item.tip,item.cases)+sourceHTML(item.sourceKeys),
+ order:['body','code','body2'],sources:references(item.sourceKeys),researchedAt:'2026-11-08',seniorRevision:'2026-11-08-abap-senior-v1',exercises:exercises(item.cases)
+}));
+const refinements=updates.map(item=>({...item,html:'<h3>'+escape(item.title)+'</h3><p>'+escape(item.text)+'</p>'+practiceHTML(item.tip,item.cases)+sourceHTML(item.sourceKeys),sources:references(item.sourceKeys),exercises:exercises(item.cases)}));
+const file='assets/script-01.js';let script=fs.readFileSync(file,'utf8').replace(/\n\/\* ABAP-SENIOR:START \*\/[\s\S]*?\/\* ABAP-SENIOR:END \*\/\n/g,'');
+const code=`\n/* ABAP-SENIOR:START */\nvar RP_ABAP_SENIOR_LESSONS=${JSON.stringify(additions)};\nvar RP_ABAP_SENIOR_UPDATES=${JSON.stringify(refinements)};\nRP_ABAP_SENIOR_LESSONS.forEach(function(item){var module=MODULES.find(function(m){return m.id===item.moduleId;});if(!module||module.lessons.some(function(l){return l.id===item.id;}))throw Error('ABAP-Lektionsziel ungueltig: '+item.id);module.lessons.push(item);});\nRP_ABAP_SENIOR_UPDATES.forEach(function(item){var lesson=MODULES.flatMap(function(m){return m.lessons;}).find(function(l){return l.id===item.id;});if(!lesson)throw Error('ABAP-Vertiefung fehlt: '+item.id);lesson.body2=(lesson.body2||'')+item.html;if(lesson.order&&lesson.order.indexOf('body2')===-1)lesson.order.push('body2');lesson.sources=(lesson.sources||[]).concat(item.sources);lesson.exercises=(lesson.exercises||[]).concat(item.exercises);lesson.seniorRevision='2026-11-08-abap-senior-v1';});\n/* ABAP-SENIOR:END */\n`;
+if(!script.includes('MODULES.sort(function(a, b)'))throw Error('ABAP-Integrationsstelle fehlt');
+fs.writeFileSync(file,script.replace('MODULES.sort(function(a, b)',code+'MODULES.sort(function(a, b)'));
+fs.mkdirSync('content/abap-senior',{recursive:true});
+for(const item of lessons){
+ const md='# '+item.title+'\n\n'+item.id+' · '+item.minutes+' Minuten · 08.11.2026\n\n## Voraussetzungen\n\n'+item.prerequisites+'\n\n## Lernziele\n\n'+item.objectives.map(x=>'- '+x).join('\n')+'\n\n'+item.paragraphs.join('\n\n')+'\n\n```'+item.codeLang+'\n'+item.code+'\n```\n\n## Senior-Praxis\n\n'+item.tip+'\n\n## Praxisfälle\n\n'+item.cases.map((x,i)=>'- '+['Normalfall','Grenzfall','Fehlerfall'][i]+': '+x).join('\n')+'\n\n## Szenarioquiz\n\n'+item.quiz.map(q=>'### '+q.q+'\n\n'+q.options.map((o,i)=>'- ['+(i===q.correct?'x':' ')+'] '+o+' — '+q.rationales[i]).join('\n')).join('\n\n')+'\n\n## Quellen und Grenzen\n\n'+references(item.sourceKeys).map(x=>'- '+x.url).join('\n')+'\n\nSAP-Beispiele nicht im SAP-System ausgeführt. Eigenständiger Entwurf/Quellenzusammenfassung, keine persönliche Berufserfahrung behauptet.\n';
+ fs.writeFileSync('content/abap-senior/'+item.id+'.md',md);
+}
+console.log('8 neue ABAP/SAP-Lektionen, 10 bestehende Vertiefungen, 24 neue und 20 ersetzte Szenariofragen.');

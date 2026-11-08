@@ -54,6 +54,8 @@ script = script.replace(/\n\/\* QUIZ-REVISIONS:START \*\/[\s\S]*?\/\* QUIZ-REVIS
 script = script.replace(/\n\/\* QUIZ-CONTRACTS:START \*\/[\s\S]*?\/\* QUIZ-CONTRACTS:END \*\/\n/g,'');
 script = script.replace(/\n\/\* QUIZ-EXTRA-REVISIONS:START \*\/[\s\S]*?\/\* QUIZ-EXTRA-REVISIONS:END \*\/\n/g,'');
 script = script.replace(/\n\/\* LESSON-FACT-CORRECTIONS:START \*\/[\s\S]*?\/\* LESSON-FACT-CORRECTIONS:END \*\/\n/g,'');
+script = script.replace(/\n\/\* ABAP-SENIOR:START \*\/[\s\S]*?\/\* ABAP-SENIOR:END \*\/\n/g,'');
+script = script.replace(/\n\/\* APPLICATION-SUPPLEMENTS:START \*\/[\s\S]*?\/\* APPLICATION-SUPPLEMENTS:END \*\/\n/g,'');
 // Keep the original export's AP1 pool safe after a fresh HTML import too.
 script = script.replace(
   'else pool = pool.filter(function(c){ return ZUSATZ_TEILE.indexOf(c.part) === -1; });',
@@ -101,6 +103,7 @@ fs.writeFileSync(target, script);
 if(fs.existsSync(path.join(root,'content/learning-refinements.json'))) execFileSync(process.execPath,[path.join(root,'scripts/build-learning-content.mjs')],{stdio:'inherit'});
 execFileSync(process.execPath,[path.join(root,'scripts/build-lesson-fact-corrections.mjs')],{stdio:'inherit'});
 execFileSync(process.execPath,[path.join(root,'scripts/build-application-supplements.mjs')],{stdio:'inherit'});
+execFileSync(process.execPath,[path.join(root,'scripts/build-abap-senior-content.mjs')],{stdio:'inherit'});
 if(fs.existsSync(path.join(root,'content/quiz-transfer.mjs'))) execFileSync(process.execPath,[path.join(root,'scripts/build-quiz-transfer.mjs')],{stdio:'inherit'});
 if(fs.existsSync(path.join(root,'content/quiz-revisions.mjs'))) execFileSync(process.execPath,[path.join(root,'scripts/build-quiz-revisions.mjs')],{stdio:'inherit'});
 execFileSync(process.execPath,[path.join(root,'scripts/build-quiz-learning-contracts.mjs')],{stdio:'inherit'});

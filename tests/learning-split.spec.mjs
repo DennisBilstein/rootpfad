@@ -6,5 +6,5 @@ test('Browser lädt geordnete kleine Skripte statt das Quellaggregat',async({pag
  const manifest=JSON.parse(fs.readFileSync('assets/learning-manifest.json','utf8'));
  expect(manifest.files.length).toBeGreaterThan(10);
  for(const file of manifest.files)expect(fs.statSync(file).size).toBeLessThan(300000);
- expect(await page.evaluate(()=>FLAT.length)).toBe(462);
+ expect(await page.evaluate(()=>FLAT.length)).toBe(470);
 });

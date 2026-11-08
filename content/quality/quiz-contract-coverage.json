@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-08T19:55:33.257Z",
-  "cards": 1559,
-  "learningContracts": 1559,
-  "individuallyRevised": 1559,
+  "updatedAt": "2026-11-08T21:19:23.233Z",
+  "cards": 1583,
+  "learningContracts": 1583,
+  "individuallyRevised": 1583,
   "independentFactualReviewComplete": false,
   "contracts": [
     {
@@ -26001,17 +26001,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m8-l1#0@2026-11-07-full-v3",
+      "id": "abap-m8-l1#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m8-l1",
-      "recall": "Beantworte „Eine Methode deklariert IMPORTING items TYPE ty_items ohne VALUE. Welche Übergabe ist vereinbart?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Speichermodell & Sekundärschlüssel im Detail“.",
+      "recall": "Beantworte „Eine Tabelle wird einmal aufgebaut und nur einmal gelesen. Ein Sekundärschlüssel soll allein wegen schnellerer Lookups ergänzt werden. Was misst du?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Speichermodell & Sekundärschlüssel im Detail“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Referenzübergabe gemäß der Methodensignatur."
+          "reference": "Aufbau, Pflege, Speicher und vollständige Verarbeitung."
         },
         {
           "label": "Begründung",
-          "reference": "Ohne VALUE ist die Methodenparameterübergabe referenzbasiert."
+          "reference": "Nicht passend: Das unterschlägt die Kosten, die bei diesem Zugriffsmuster wesentlich sein können. Richtig: Das Gesamtzugriffsmuster bestimmt, ob der zusätzliche Schlüssel sinnvoll ist. Nicht passend: Namenslänge liefert keinen Leistungsnachweis."
         },
         {
           "label": "Abgrenzung",
@@ -26023,28 +26023,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md"
       ],
       "rationales": [
-        "Die vereinbarte Semantik steht nicht unter Lastvorbehalt.",
-        "Ohne VALUE ist die Methodenparameterübergabe referenzbasiert.",
-        "Richtung und Übergabeart sind unterschiedliche Eigenschaften.",
-        "Parameterübergabe erzeugt keine Datenbankpersistenz."
+        "Das unterschlägt die Kosten, die bei diesem Zugriffsmuster wesentlich sein können.",
+        "Das Gesamtzugriffsmuster bestimmt, ob der zusätzliche Schlüssel sinnvoll ist.",
+        "Namenslänge liefert keinen Leistungsnachweis."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m8-l1#1@2026-11-07-full-v3",
+      "id": "abap-m8-l1#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m8-l1",
-      "recall": "Beantworte „Eine STANDARD TABLE bleibt in Einfügereihenfolge; häufig werden alle Positionen einer Auftrags-ID gelesen. Welche Ergänzung passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Speichermodell & Sekundärschlüssel im Detail“.",
+      "recall": "Beantworte „Ein fehlender Preiseintrag wird mit OPTIONAL zum Initialwert 0. Fachlich bedeutet 0 aber „kostenlos“. Was ist angemessen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Speichermodell & Sekundärschlüssel im Detail“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Ein sortierter Sekundärschlüssel beginnend mit Auftrags-ID."
+          "reference": "Existenz explizit prüfen und fehlende Preise separat behandeln."
         },
         {
           "label": "Begründung",
-          "reference": "Ein passender Schlüssel unterstützt gruppierten Zugriff."
+          "reference": "Richtig: Nicht vorhanden und tatsächlich kostenlos sind unterschiedliche fachliche Zustände. Nicht passend: Damit wird ein Datenfehler still zur fachlichen Preisentscheidung. Nicht passend: Ein anderer Typ unterscheidet die beiden Zustände nicht automatisch."
         },
         {
           "label": "Abgrenzung",
@@ -26056,13 +26055,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md"
       ],
       "rationales": [
-        "Sekundärschlüssel müssen für den Zugriff passend genutzt werden.",
-        "Das verursacht unnötige Arbeit und verändert die Reihenfolge.",
-        "Ein passender Schlüssel unterstützt gruppierten Zugriff.",
-        "Damit wird dieser gruppierte Zugriff nicht unterstützt."
+        "Nicht vorhanden und tatsächlich kostenlos sind unterschiedliche fachliche Zustände.",
+        "Damit wird ein Datenfehler still zur fachlichen Preisentscheidung.",
+        "Ein anderer Typ unterscheidet die beiden Zustände nicht automatisch."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -26331,17 +26329,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m9-l2#0@2026-11-07-full-v3",
+      "id": "abap-m9-l2#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m9-l2",
-      "recall": "Beantworte „Nach stark verändertem Datenvolumen wählt eine Abfrage einen anderen Zugriffsplan. Welche Erklärung ist plausibel?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „SQL-Performance: Ausführungspläne & Table Buffering“.",
+      "recall": "Beantworte „Ein neuer Join läuft schneller, liefert aber 30 statt 20 Belege. Wie bewertest du die Optimierung?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „SQL-Performance: Ausführungspläne & Table Buffering“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Der Optimizer bewertet Zugriffspfade anhand von Kosten und Statistiken."
+          "reference": "Zuerst Ergebnisgleichheit und Joinsemantik klären."
         },
         {
           "label": "Begründung",
-          "reference": "Planentscheidungen hängen von der konkreten Datenlage ab."
+          "reference": "Nicht passend: Eine veränderte Ergebnismenge verletzt ohne fachliche Begründung den Vertrag. Nicht passend: Clientseitige Begrenzung repariert keine falsche Datenmenge. Richtig: Geschwindigkeit wird erst bei fachlich korrekter Verarbeitung sinnvoll verglichen."
         },
         {
           "label": "Abgrenzung",
@@ -26353,28 +26351,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
       ],
       "rationales": [
-        "Die SQL-Reihenfolge erzwingt nicht allgemein die Ausführung.",
-        "Der Optimizer kann einen anderen Zugriff günstiger bewerten.",
-        "Planentscheidungen hängen von der konkreten Datenlage ab.",
-        "Beschriftungen steuern keine Indexwahl."
+        "Eine veränderte Ergebnismenge verletzt ohne fachliche Begründung den Vertrag.",
+        "Clientseitige Begrenzung repariert keine falsche Datenmenge.",
+        "Geschwindigkeit wird erst bei fachlich korrekter Verarbeitung sinnvoll verglichen."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m9-l2#1@2026-11-07-full-v3",
+      "id": "abap-m9-l2#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m9-l2",
-      "recall": "Beantworte „Eine Tabelle ist generisch nach Schlüsselpräfix gepuffert. Der SELECT schränkt dieses Präfix nicht vollständig ein. Welche Analyse ist richtig?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „SQL-Performance: Ausführungspläne & Table Buffering“.",
+      "recall": "Beantworte „Ein SQL-Plan ist auf zehn Testzeilen schnell. Welcher nächste Nachweis ist für die Hotspotentscheidung relevant?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „SQL-Performance: Ausführungspläne & Table Buffering“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Der Zugriff kann den Puffer umgehen; die konkrete Abfrage prüfen."
+          "reference": "Repräsentative Datenmengen und Selektionswerte samt Ergebnissen messen."
         },
         {
           "label": "Begründung",
-          "reference": "Pufferbarkeit hängt unter anderem von Schlüssel und Statement ab."
+          "reference": "Nicht passend: Pauschale Umschreibung ersetzt keine Messung und kann Wartung erschweren. Richtig: Datenverteilung und Zugriffsmuster beeinflussen die tatsächliche Laufzeit. Nicht passend: Ein Einzelwert in anderer Umgebung ist keine solche Garantie."
         },
         {
           "label": "Abgrenzung",
@@ -26386,13 +26383,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
       ],
       "rationales": [
-        "Pufferung wird nicht pauschal je ausgewählter Spalte entschieden.",
-        "Der Puffer ergänzt keine fachlichen Selektionswerte.",
-        "Bestimmte Abfragen umgehen die Tabellenpufferung.",
-        "Pufferbarkeit hängt unter anderem von Schlüssel und Statement ab."
+        "Pauschale Umschreibung ersetzt keine Messung und kann Wartung erschweren.",
+        "Datenverteilung und Zugriffsmuster beeinflussen die tatsächliche Laufzeit.",
+        "Ein Einzelwert in anderer Umgebung ist keine solche Garantie."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -27024,17 +27020,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m11-l1#0@2026-11-07-full-v3",
+      "id": "abap-m11-l1#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m11-l1",
-      "recall": "Beantworte „Ein SADL-Konsument zeigt ein virtuelles Feld Risikotext, das nicht in der Datenbank berechnet wird. Woher kommt der Wert?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtuelle Elemente & CDS Table Functions“.",
+      "recall": "Beantworte „Eine Fiori-Liste lädt zehn von hundert Buchungen. Der Controller findet unter den zehn keine offene Buchung. Was kann er sicher sagen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtuelle Elemente & CDS Table Functions“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Aus einer passenden ABAP-Berechnung über die virtuellelementbezogene Exit-Klasse."
+          "reference": "Keine der gerade geladenen Buchungen ist offen."
         },
         {
           "label": "Begründung",
-          "reference": "Virtuelle Werte entstehen auf Anwendungsebene im vorgesehenen Konsumweg."
+          "reference": "Richtig: Der geladene Ausschnitt erlaubt keine Aussage über die übrigen neunzig. Nicht passend: Paging macht die geladene Liste zu einem unvollständigen Ausschnitt. Nicht passend: Dafür gibt es im beschriebenen Ergebnis keinen Nachweis."
         },
         {
           "label": "Abgrenzung",
@@ -27046,28 +27042,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e"
       ],
       "rationales": [
-        "Der Berechnungsvertrag liegt nicht in einem beliebigen Cache.",
-        "Die Deklaration ersetzt keine Berechnungslogik.",
-        "Virtuelle Werte entstehen auf Anwendungsebene im vorgesehenen Konsumweg.",
-        "Ein virtuelles Element legt diese Spalte nicht automatisch an."
+        "Der geladene Ausschnitt erlaubt keine Aussage über die übrigen neunzig.",
+        "Paging macht die geladene Liste zu einem unvollständigen Ausschnitt.",
+        "Dafür gibt es im beschriebenen Ergebnis keinen Nachweis."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m11-l1#1@2026-11-07-full-v3",
+      "id": "abap-m11-l1#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m11-l1",
-      "recall": "Beantworte „Eine CDS Table Function benötigt eine datenbankseitige Berechnung. Welches Artefakt implementiert die Funktion?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtuelle Elemente & CDS Table Functions“.",
+      "recall": "Beantworte „Ein virtuelles Statusfeld erzeugt für jede Listenzeile einen einzelnen Remote Call. Was ist eine sinnvolle Reviewrichtung?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtuelle Elemente & CDS Table Functions“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Eine passende AMDP-Funktionsmethode in einer ABAP-Klasse."
+          "reference": "Zugriffe bündeln und fachlich passende serverseitige Berechnung prüfen."
         },
         {
           "label": "Begründung",
-          "reference": "Die Table Function wird über ihre AMDP-Implementierung ausgeführt."
+          "reference": "Nicht passend: Das verstärkt die lineare Zahl teurer Netzaufrufe. Nicht passend: Unbegrenztes Warten löst weder Last noch Fehlerbehandlung. Richtig: Das adressiert die N+1-Struktur statt nur ihre Symptome zu verstecken."
         },
         {
           "label": "Abgrenzung",
@@ -27079,13 +27074,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://github.com/SAP/styleguides/blob/main/clean-abap/CleanABAP.md"
       ],
       "rationales": [
-        "Browsercode implementiert keine CDS-Datenbankfunktion.",
-        "Validierung und Table-Function-Implementierung sind verschieden.",
-        "Eine Domäne beschreibt Werte und Typen, nicht die Berechnung.",
-        "Die Table Function wird über ihre AMDP-Implementierung ausgeführt."
+        "Das verstärkt die lineare Zahl teurer Netzaufrufe.",
+        "Unbegrenztes Warten löst weder Last noch Fehlerbehandlung.",
+        "Das adressiert die N+1-Struktur statt nur ihre Symptome zu verstecken."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -27218,6 +27212,102 @@
         "Diese Angaben definieren keinen Umrechnungskurs.",
         "Sortierung bestimmt keine Währungsumrechnung.",
         "Das bildet wechselnde Kurskonstellationen nicht korrekt ab."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m11-senior-semantics#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m11-senior-semantics",
+      "recall": "Beantworte „Eine View annotiert NetAmount mit CurrencyCode. Eine Zeile enthält USD, die andere EUR. Was bewirkt die Annotation allein?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CDS-Fachsemantik: Währungen, Einheiten und belastbare Summen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Sie verknüpft Betrag und Währungsreferenz, ohne Werte umzurechnen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Sprache ist keine Zielwährung und die Annotation führt keine Kursumrechnung aus. Nicht passend: Eine semantische Referenz bestimmt weder Kurs noch Umrechnungsdatum. Richtig: Für eine gemeinsame Summe ist zusätzlich ein fachlich definierter Umrechnungs- oder Gruppierungsvertrag nötig."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „CDS-Fachsemantik: Währungen, Einheiten und belastbare Summen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-abap-annotations-in-cds-views_fcda7ade-1bb7-4c79-8b1f-0f20c7f45a70"
+      ],
+      "rationales": [
+        "Sprache ist keine Zielwährung und die Annotation führt keine Kursumrechnung aus.",
+        "Eine semantische Referenz bestimmt weder Kurs noch Umrechnungsdatum.",
+        "Für eine gemeinsame Summe ist zusätzlich ein fachlich definierter Umrechnungs- oder Gruppierungsvertrag nötig."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m11-senior-semantics#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m11-senior-semantics",
+      "recall": "Beantworte „Nach einem Join auf zwei sprachabhängige Texte verdoppelt sich die Belegsumme. Was prüfst du zuerst?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CDS-Fachsemantik: Währungen, Einheiten und belastbare Summen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Join-Kardinalität und Zeilengranularität vor der Aggregation."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Mehrere Texttreffer können die gleichen fachlichen Beträge mehrfach in die Summe aufnehmen. Nicht passend: Darstellungspräzision erklärt nicht die systematische Verdopplung der Zeilen. Nicht passend: Gleiche Beträge können zu verschiedenen echten Positionen gehören; DISTINCT kann dann Daten verlieren."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „CDS-Fachsemantik: Währungen, Einheiten und belastbare Summen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-abap-annotations-in-cds-views_fcda7ade-1bb7-4c79-8b1f-0f20c7f45a70"
+      ],
+      "rationales": [
+        "Mehrere Texttreffer können die gleichen fachlichen Beträge mehrfach in die Summe aufnehmen.",
+        "Darstellungspräzision erklärt nicht die systematische Verdopplung der Zeilen.",
+        "Gleiche Beträge können zu verschiedenen echten Positionen gehören; DISTINCT kann dann Daten verlieren."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m11-senior-semantics#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m11-senior-semantics",
+      "recall": "Beantworte „Für eine EUR-Umrechnung fehlt am geforderten Kursdatum der USD-Kurs. Welche Behandlung ist fachlich belastbar?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CDS-Fachsemantik: Währungen, Einheiten und belastbare Summen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Den fehlenden Kurs nach festgelegtem Fehlervertrag sichtbar behandeln."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Das erzeugt ohne fachliche Grundlage einen falschen Gegenwert. Richtig: Fallback, Ablehnung oder Nachpflege müssen ausdrücklich vereinbart sein; keine erfundene Umrechnung. Nicht passend: Die Semantik zu entfernen löst den fehlenden Kurs nicht."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „CDS-Fachsemantik: Währungen, Einheiten und belastbare Summen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-data-models-with-the-abap-dictionary-and-abap-core-data-services/using-abap-annotations-in-cds-views_fcda7ade-1bb7-4c79-8b1f-0f20c7f45a70"
+      ],
+      "rationales": [
+        "Das erzeugt ohne fachliche Grundlage einen falschen Gegenwert.",
+        "Fallback, Ablehnung oder Nachpflege müssen ausdrücklich vereinbart sein; keine erfundene Umrechnung.",
+        "Die Semantik zu entfernen löst den fehlenden Kurs nicht."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -27486,17 +27576,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m12-l1#0@2026-11-07-full-v3",
+      "id": "abap-m12-l1#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m12-l1",
-      "recall": "Beantworte „Eine Nutzerin ändert eine Reise, schließt den Browser und setzt später fort, ohne die aktive Reise sofort zu ändern. Was ermöglicht das?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Draft-Handling im Detail“.",
+      "recall": "Beantworte „Fiori bestätigt das Speichern eines Drafts. Die Aktivierungsvalidierung lehnt den Beleg später ab. Was ist korrekt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Draft-Handling im Detail“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Persistente Draft-Daten unter Verwaltung der RAP-Laufzeit."
+          "reference": "Der Entwurf kann existieren, ohne dass der Aktivbeleg erfolgreich geändert wurde."
         },
         {
           "label": "Begründung",
-          "reference": "Draft hält unfertige Bearbeitungsstände getrennt vom aktiven Zustand."
+          "reference": "Nicht passend: Draftspeicherung und Aktivierung haben verschiedene fachliche Bedeutung. Richtig: Die fehlgeschlagene Aktivierung muss getrennt ausgewertet werden. Nicht passend: Die Validierung schützt die fachliche Konsistenz und darf nicht umgangen werden."
         },
         {
           "label": "Abgrenzung",
@@ -27508,28 +27598,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects"
       ],
       "rationales": [
-        "Draft dient nicht nur der Ablage gelöschter Instanzen.",
-        "Draft hält unfertige Bearbeitungsstände getrennt vom aktiven Zustand.",
-        "Ein solcher Zustand ist nicht über Sitzungsende gesichert.",
-        "Das trennt unfertige und aktive Daten nicht."
+        "Draftspeicherung und Aktivierung haben verschiedene fachliche Bedeutung.",
+        "Die fehlgeschlagene Aktivierung muss getrennt ausgewertet werden.",
+        "Die Validierung schützt die fachliche Konsistenz und darf nicht umgangen werden."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m12-l1#1@2026-11-07-full-v3",
+      "id": "abap-m12-l1#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m12-l1",
-      "recall": "Beantworte „Eine finale Belegnummer soll bei RAP Late Numbering erst in der Save-Sequenz entstehen. Wo wird sie zugeordnet?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Draft-Handling im Detail“.",
+      "recall": "Beantworte „Ein Test verwirft einen bearbeiteten Draft. Welcher Soll-Nachweis passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Draft-Handling im Detail“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "In adjust_numbers der passenden Saver-Implementierung."
+          "reference": "Die verworfene Änderung erscheint nicht im unveränderten Aktivzustand."
         },
         {
           "label": "Begründung",
-          "reference": "Late Numbering vergibt finale Schlüssel in dieser Save-Phase."
+          "reference": "Nicht passend: Draftverwerfen ist kein Löschauftrag für den Aktivbeleg. Nicht passend: Das ist keine reguläre Folge des Draftverwerfens. Richtig: Der Entwurf und der aktive Fachzustand werden getrennt behandelt."
         },
         {
           "label": "Abgrenzung",
@@ -27541,28 +27630,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects"
       ],
       "rationales": [
-        "Das wäre frühe statt späte Nummerierung.",
-        "Dann wäre für den gespeicherten Beleg kein finaler Schlüssel vorhanden.",
-        "Late Numbering vergibt finale Schlüssel in dieser Save-Phase.",
-        "Das ist keine finale RAP-Save-Phase."
+        "Draftverwerfen ist kein Löschauftrag für den Aktivbeleg.",
+        "Das ist keine reguläre Folge des Draftverwerfens.",
+        "Der Entwurf und der aktive Fachzustand werden getrennt behandelt."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m12-l2#0@2026-11-07-full-v3",
+      "id": "abap-m12-l2#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m12-l2",
-      "recall": "Beantworte „Client A liest ETag e1; Client B speichert und erzeugt e2. A sendet Änderung mit If-Match e1. Was schützt vor Lost Update?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Concurrency Control: ETag & Locking im Detail“.",
+      "recall": "Beantworte „Zwei OData-Clients lesen Version A. Nach dem Save von Client 1 schreibt Client 2 mit A. Was ist bei wirksamem ETag-Schutz zu erwarten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Concurrency Control: ETag & Locking im Detail“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Die ETag-Vorbedingung erkennen und die veraltete Änderung ablehnen."
+          "reference": "Die veraltete Änderung wird als Konflikt zurückgewiesen."
         },
         {
           "label": "Begründung",
-          "reference": "Der aktuelle Zustand passt nicht mehr zur gelesenen Version."
+          "reference": "Richtig: Der zweite Client basiert nicht mehr auf dem aktuellen Zustand. Nicht passend: ETags schützen gerade auch den Zeitraum zwischen Lesen und späterem Schreiben. Nicht passend: Ein ETag ist eine Versionsvorbedingung, keine Prioritätszusage."
         },
         {
           "label": "Abgrenzung",
@@ -27574,28 +27662,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/understanding-concurrency-control"
       ],
       "rationales": [
-        "Der aktuelle Zustand passt nicht mehr zur gelesenen Version.",
-        "Das wäre genau ein unbemerktes Lost Update.",
-        "ETag-Kontrolle ist keine Benutzerabmeldung.",
-        "Feldlänge erkennt keine konkurrierende Änderung."
+        "Der zweite Client basiert nicht mehr auf dem aktuellen Zustand.",
+        "ETags schützen gerade auch den Zeitraum zwischen Lesen und späterem Schreiben.",
+        "Ein ETag ist eine Versionsvorbedingung, keine Prioritätszusage."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m12-l2#1@2026-11-07-full-v3",
+      "id": "abap-m12-l2#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m12-l2",
-      "recall": "Beantworte „Ein kurzer Bestandsvorgang muss Lesen und Ändern exklusiv koordinieren. Welche Gestaltung passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Concurrency Control: ETag & Locking im Detail“.",
+      "recall": "Beantworte „Nach einem Versionskonflikt soll der Client automatisch ohne Vorbedingung erneut schreiben. Warum ist das problematisch?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Concurrency Control: ETag & Locking im Detail“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Passende fachliche Sperre vor dem geschützten Lesen erwerben."
+          "reference": "Es kann den Schutz vor Lost Updates bewusst umgehen."
         },
         {
           "label": "Begründung",
-          "reference": "So bleibt kein ungeschütztes Fenster zwischen Lesen und Änderung."
+          "reference": "Nicht passend: Ohne Vergleich werden konkurrierende Eingaben nicht automatisch zusammengeführt. Richtig: Neu lesen und fachlich entscheiden ist etwas anderes als blind überschreiben. Nicht passend: Ein solcher Lesestopp folgt nicht aus dem Entfernen der Vorbedingung."
         },
         {
           "label": "Abgrenzung",
@@ -27607,13 +27694,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/understanding-concurrency-control"
       ],
       "rationales": [
-        "Das blockiert unnötig und ist nicht der beschriebene Bedarf.",
-        "So bleibt kein ungeschütztes Fenster zwischen Lesen und Änderung.",
-        "Der gelesene Stand kann inzwischen veraltet sein.",
-        "Dann ist die konkurrierende Änderung bereits erfolgt."
+        "Ohne Vergleich werden konkurrierende Eingaben nicht automatisch zusammengeführt.",
+        "Neu lesen und fachlich entscheiden ist etwas anderes als blind überschreiben.",
+        "Ein solcher Lesestopp folgt nicht aus dem Entfernen der Vorbedingung."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -27746,6 +27832,102 @@
         "Das widerspricht dem hier gewünschten asynchronen Ablauf.",
         "Asynchrone Integration ersetzt keine Fehler- und Duplikatbehandlung.",
         "Eine solche Ende-zu-Ende-Garantie folgt nicht allein aus dem Event."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m12-senior-eml-tests#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m12-senior-eml-tests",
+      "recall": "Beantworte „Ein EML-Test erhält nach CREATE einen gemappten Schlüssel. Die Save-Validierung schlägt später fehl. Welche Aussage trägt der erste Prüfschritt allein?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „RAP mit EML testen: Puffer, Save Sequence und echte Fehlernachweise“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die frühe Anlegephase lieferte ein Mapping, nicht den Save-Erfolg."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Ein Mapping belegt nicht den Erfolg der späteren Save Sequence. Nicht passend: Ein internes EML-Mapping prüft nicht sämtliche Service- und Benutzergrenzen. Richtig: Commitresponses und persistierter Fachzustand sind eigene Nachweise."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „RAP mit EML testen: Puffer, Save Sequence und echte Fehlernachweise“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://developers.sap.com/tutorials/abap-environment-rap100-unit-testing.html"
+      ],
+      "rationales": [
+        "Ein Mapping belegt nicht den Erfolg der späteren Save Sequence.",
+        "Ein internes EML-Mapping prüft nicht sämtliche Service- und Benutzergrenzen.",
+        "Commitresponses und persistierter Fachzustand sind eigene Nachweise."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m12-senior-eml-tests#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m12-senior-eml-tests",
+      "recall": "Beantworte „Nach dem COMMIT ENTITIES eines äußeren Szenariotests ist REPORTED gefüllt, FAILED aber leer. Wie bewertet man den Lauf?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „RAP mit EML testen: Puffer, Save Sequence und echte Fehlernachweise“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Meldungsschwere, Sollvertrag und gespeicherten Zustand prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: REPORTED kann auch Informationen oder Warnungen enthalten. Richtig: Die fachliche Erwartung und Fehlerresponse entscheiden, nicht bloß die Existenz einer Meldung. Nicht passend: Damit würden relevante Warnungen und fachliche Abweichungen verdeckt."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „RAP mit EML testen: Puffer, Save Sequence und echte Fehlernachweise“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects"
+      ],
+      "rationales": [
+        "REPORTED kann auch Informationen oder Warnungen enthalten.",
+        "Die fachliche Erwartung und Fehlerresponse entscheiden, nicht bloß die Existenz einer Meldung.",
+        "Damit würden relevante Warnungen und fachliche Abweichungen verdeckt."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m12-senior-eml-tests#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m12-senior-eml-tests",
+      "recall": "Beantworte „Ein Behavior-Handler soll nach jeder Änderung selbst COMMIT WORK ausführen, damit der Test grün wird. Was ist angemessen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „RAP mit EML testen: Puffer, Save Sequence und echte Fehlernachweise“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Transaktionshoheit beim Framework lassen und den äußeren Test korrigieren."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Eigenmächtiges Commit im Handler verletzt das RAP-Transaktionsmodell. Nicht passend: Auch diese Transaktionssteuerung gehört hier nicht in die Behavior-Implementierung. Nicht passend: Das erzeugt abweichendes Laufzeitverhalten statt eines belastbaren Tests."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „RAP mit EML testen: Puffer, Save Sequence und echte Fehlernachweise“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects"
+      ],
+      "rationales": [
+        "Eigenmächtiges Commit im Handler verletzt das RAP-Transaktionsmodell.",
+        "Auch diese Transaktionssteuerung gehört hier nicht in die Behavior-Implementierung.",
+        "Das erzeugt abweichendes Laufzeitverhalten statt eines belastbaren Tests."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -27915,17 +28097,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m13-l1#0@2026-11-07-full-v3",
+      "id": "abap-m13-l1#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m13-l1",
-      "recall": "Beantworte „Eine V4-Fiori-elements-App braucht eine eigene Sektion, der Standard bleibt erhalten. Was bietet das Flexible Programming Model?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Flexible Programming Model & Extension Points“.",
+      "recall": "Beantworte „Ein Codebeispiel für Fiori Elements V2 soll in eine V4-App kopiert werden. Was prüfst du vor der Übernahme?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Flexible Programming Model & Extension Points“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Unterstützte Erweiterungen und Building Blocks für gezielte Eigenanteile."
+          "reference": "Protokollmodell, dokumentierte API und unterstützte SAPUI5-Version."
         },
         {
           "label": "Begründung",
-          "reference": "Es verbindet Standardfunktionen mit kontrolliertem Custom Coding."
+          "reference": "Nicht passend: Darstellung beweist keine API-Kompatibilität. Nicht passend: Private Namen sind kein verlässlicher öffentlicher Erweiterungsvertrag. Richtig: V2/V4 und Release beeinflussen Erweiterungsmodell und verfügbare Methoden."
         },
         {
           "label": "Abgrenzung",
@@ -27937,28 +28119,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e"
       ],
       "rationales": [
-        "Es verbindet Standardfunktionen mit kontrolliertem Custom Coding.",
-        "Das ist nicht die Aufgabe des UI-Programmiermodells.",
-        "Öffentliche Erweiterungsverträge bleiben maßgeblich.",
-        "Frontend-Erweiterung ersetzt kein Backendverhalten."
+        "Darstellung beweist keine API-Kompatibilität.",
+        "Private Namen sind kein verlässlicher öffentlicher Erweiterungsvertrag.",
+        "V2/V4 und Release beeinflussen Erweiterungsmodell und verfügbare Methoden."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m13-l1#1@2026-11-07-full-v3",
+      "id": "abap-m13-l1#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m13-l1",
-      "recall": "Beantworte „Eine Object Page benötigt einen projektspezifischen Informationsbereich. Welche Umsetzung passt zum Erweiterungsmodell?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Flexible Programming Model & Extension Points“.",
+      "recall": "Beantworte „Eine langsame Extension-Abfrage für Objekt A kommt erst nach Navigation zu B zurück. Was muss der Code verhindern?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Flexible Programming Model & Extension Points“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Eine dokumentierte Custom Section mit geeigneter Extension-Anbindung."
+          "reference": "Dass A sein Ergebnis in den aktuellen B-Kontext schreibt."
         },
         {
           "label": "Begründung",
-          "reference": "Die zusätzliche UI bleibt in einem vorgesehenen Erweiterungspunkt."
+          "reference": "Richtig: Das Ergebnis muss zum noch gültigen Kontext gehören oder verworfen werden. Nicht passend: Autorisierung bleibt notwendig; sie löst das clientseitige Kontextproblem nicht. Nicht passend: Fehler sind zu behandeln, nicht durch eine unrealistische Garantie auszuschließen."
         },
         {
           "label": "Abgrenzung",
@@ -27970,13 +28151,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e"
       ],
       "rationales": [
-        "Datenbankprozeduren definieren keine Frontendsektion.",
-        "Die zusätzliche UI bleibt in einem vorgesehenen Erweiterungspunkt.",
-        "Interne DOM-Strukturen sind nicht stabil zugesichert.",
-        "Persistenz allein erzeugt keine sichtbare Sektion."
+        "Das Ergebnis muss zum noch gültigen Kontext gehören oder verworfen werden.",
+        "Autorisierung bleibt notwendig; sie löst das clientseitige Kontextproblem nicht.",
+        "Fehler sind zu behandeln, nicht durch eine unrealistische Garantie auszuschließen."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -28109,6 +28289,198 @@
         "Das ist keine aufgabenorientierte Dashboardgestaltung.",
         "Sie bündelt relevante Übersichten für den Arbeitskontext.",
         "Das ist nicht die bereichsübergreifende Übersicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m13-senior-side-effects#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m13-senior-side-effects",
+      "recall": "Beantworte „Nach einer Mengenänderung berechnet RAP den Betrag korrekt, Fiori zeigt noch den alten Wert. Was prüfst du zuerst?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fiori Elements V4: Side Effects, Meldungen und sichere Erweiterungen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Side-Effect-Ziel, Metadaten und den nachfolgenden Read des Betrags."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Die Backendberechnung ist bereits korrekt; die aktualisierte Repräsentation muss den Client erreichen. Nicht passend: Doppelte Fachlogik kann abweichende Ergebnisse und Rundungsfehler erzeugen. Nicht passend: Nebenläufigkeitsschutz zu entfernen aktualisiert keine Anzeige und riskiert Lost Updates."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fiori Elements V4: Side Effects, Meldungen und sichere Erweiterungen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/side-effects-18b17bd.md"
+      ],
+      "rationales": [
+        "Die Backendberechnung ist bereits korrekt; die aktualisierte Repräsentation muss den Client erreichen.",
+        "Doppelte Fachlogik kann abweichende Ergebnisse und Rundungsfehler erzeugen.",
+        "Nebenläufigkeitsschutz zu entfernen aktualisiert keine Anzeige und riskiert Lost Updates."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m13-senior-side-effects#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m13-senior-side-effects",
+      "recall": "Beantworte „Im Fiori-V4-Formular verletzt eine Eingabe MaxLength. Es gibt keinen PATCH und kein Side-Effect-Read. Was passt zum Ablauf?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fiori Elements V4: Side Effects, Meldungen und sichere Erweiterungen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Clientvalidierung hält den Write bis zur Korrektur zurück."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Side Effects sind keine allgemeine clientseitige Reparaturregel für ungültige Werte. Nicht passend: Ohne gesendeten Schreibrequest folgt aus der UI-Eingabe kein Serverwrite. Richtig: Solange die betroffenen Werte ungültig sind, wird der Backendablauf nicht regulär ausgelöst."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fiori Elements V4: Side Effects, Meldungen und sichere Erweiterungen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/SAP-docs/sapui5/blob/main/docs/06_SAP_Fiori_Elements/side-effects-18b17bd.md"
+      ],
+      "rationales": [
+        "Side Effects sind keine allgemeine clientseitige Reparaturregel für ungültige Werte.",
+        "Ohne gesendeten Schreibrequest folgt aus der UI-Eingabe kein Serverwrite.",
+        "Solange die betroffenen Werte ungültig sind, wird der Backendablauf nicht regulär ausgelöst."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m13-senior-side-effects#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m13-senior-side-effects",
+      "recall": "Beantworte „Eine Fiori-Erweiterung benötigt einen dokumentierten Edit-Hook. Welche Abhängigkeit ist am tragfähigsten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fiori Elements V4: Side Effects, Meldungen und sichere Erweiterungen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die passende öffentliche Controller Extension der Zielversion verwenden."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Private Implementierungsdetails haben keinen stabilen Erweiterungsvertrag. Richtig: Ein dokumentierter Hook ist der vorgesehene Vertrag; Verfügbarkeit und Lifecycle werden dennoch geprüft. Nicht passend: Generierte DOM-Struktur ist kein Ersatz für eine unterstützte API."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fiori Elements V4: Side Effects, Meldungen und sichere Erweiterungen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/developing-an-sap-fiori-elements-app-based-on-a-cap-odata-v4-service/using-controller-extensions_f47e841f-2dd8-4b88-ba5e-39c0eedd983e"
+      ],
+      "rationales": [
+        "Private Implementierungsdetails haben keinen stabilen Erweiterungsvertrag.",
+        "Ein dokumentierter Hook ist der vorgesehene Vertrag; Verfügbarkeit und Lifecycle werden dennoch geprüft.",
+        "Generierte DOM-Struktur ist kein Ersatz für eine unterstützte API."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m13-senior-launchpad#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m13-senior-launchpad",
+      "recall": "Beantworte „Eine UI5-App läuft in der Vorschau, ihr Launchpad-Intent wird nach Transport nicht aufgelöst. Wo setzt die erste Diagnose an?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fiori Launchpad: Intents, Kataloge und Fehlersuche nach dem Transport“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Bei Intent, Parametern, Target Mapping und zugeordnetem Inhalt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Der Fehler liegt bereits vor dem fachlichen Datenzugriff in der Zielauflösung. Richtig: Die Vorschau beweist die produktive Intentauflösung und Rollenverteilung nicht. Nicht passend: Fehlendes Target Mapping wird dadurch nicht angelegt; zusätzlich entsteht eine Sicherheitslücke."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fiori Launchpad: Intents, Kataloge und Fehlersuche nach dem Transport“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/exploring-the-authorization-concept-for-sap-fiori-on-sap-s-4hana/checking-and-adjusting-launchpad-content"
+      ],
+      "rationales": [
+        "Der Fehler liegt bereits vor dem fachlichen Datenzugriff in der Zielauflösung.",
+        "Die Vorschau beweist die produktive Intentauflösung und Rollenverteilung nicht.",
+        "Fehlendes Target Mapping wird dadurch nicht angelegt; zusätzlich entsteht eine Sicherheitslücke."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m13-senior-launchpad#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m13-senior-launchpad",
+      "recall": "Beantworte „Eine Kachel ist sichtbar, der Service verweigert einen fremden Beleg. Welche Schlussfolgerung passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fiori Launchpad: Intents, Kataloge und Fehlersuche nach dem Transport“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Kachel und Fachrechte sind verschiedene Grenzen; Ablehnung kann korrekt sein."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Sichtbarkeit einer Anwendung verleiht kein Recht auf jeden Datensatz. Nicht passend: Katalog-/Oberflächeninhalt ist kein universeller Datensatzberechtigungsnachweis. Nicht passend: Breite Zusatzrechte umgehen den Fachvertrag und sind keine Fehlerdiagnose."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fiori Launchpad: Intents, Kataloge und Fehlersuche nach dem Transport“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks"
+      ],
+      "rationales": [
+        "Sichtbarkeit einer Anwendung verleiht kein Recht auf jeden Datensatz.",
+        "Katalog-/Oberflächeninhalt ist kein universeller Datensatzberechtigungsnachweis.",
+        "Breite Zusatzrechte umgehen den Fachvertrag und sind keine Fehlerdiagnose."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m13-senior-launchpad#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m13-senior-launchpad",
+      "recall": "Beantworte „Nach einem Upgrade meldet der Content Manager eine veraltete App und einen Nachfolger. Was gehört zur Umstellung?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fiori Launchpad: Intents, Kataloge und Fehlersuche nach dem Transport“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Mapping, Page, Services und Rollen des Nachfolgers gemeinsam prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Ein neuer Text migriert weder Navigation noch Serviceabhängigkeiten. Nicht passend: Das kann berechtigte kundeneigene Anpassungen verwerfen. Richtig: Der neue Einstieg muss mit seinen technischen und fachlichen Abhängigkeiten konsistent sein."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fiori Launchpad: Intents, Kataloge und Fehlersuche nach dem Transport“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/exploring-the-authorization-concept-for-sap-fiori-on-sap-s-4hana/checking-and-adjusting-launchpad-content"
+      ],
+      "rationales": [
+        "Ein neuer Text migriert weder Navigation noch Serviceabhängigkeiten.",
+        "Das kann berechtigte kundeneigene Anpassungen verwerfen.",
+        "Der neue Einstieg muss mit seinen technischen und fachlichen Abhängigkeiten konsistent sein."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -28509,6 +28881,198 @@
       "editorialStatus": "individually-revised"
     },
     {
+      "id": "abap-m14-senior-btp-identity#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m14-senior-btp-identity",
+      "recall": "Beantworte „Der BTP-Destination-Check ist grün, im Backend erscheinen alle Aufrufe als derselbe technische Benutzer. Was ist noch nicht belegt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „BTP Connectivity: Destination, Cloud Connector und Benutzeridentität“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Dass individuelle Benutzeridentität und Fachrechte korrekt wirken."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Ein erfolgreicher Check liefert gerade einen begrenzten Nachweis technischer Erreichbarkeit. Richtig: Connectivity-Erfolg und authentischer Endbenutzerkontext sind verschiedene Nachweise. Nicht passend: Der beobachtete Check beantwortet nicht die fachlich entscheidende Identitätsfrage durch diese Alternative."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „BTP Connectivity: Destination, Cloud Connector und Benutzeridentität“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation"
+      ],
+      "rationales": [
+        "Ein erfolgreicher Check liefert gerade einen begrenzten Nachweis technischer Erreichbarkeit.",
+        "Connectivity-Erfolg und authentischer Endbenutzerkontext sind verschiedene Nachweise.",
+        "Der beobachtete Check beantwortet nicht die fachlich entscheidende Identitätsfrage durch diese Alternative."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m14-senior-btp-identity#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m14-senior-btp-identity",
+      "recall": "Beantworte „Ein nächtlicher BTP-Job verwendet OAuth Client Credentials. Darf die Anwendung daraus die Identität des zuletzt angemeldeten Sachbearbeiters ableiten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „BTP Connectivity: Destination, Cloud Connector und Benutzeridentität“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Nein, technische Identität und Endbenutzerkontext sind getrennt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Ein technischer Token übernimmt keinen beliebigen früheren Browserkontext. Nicht passend: Der Name eines Ziels verleiht keine Endbenutzeridentität. Richtig: Das unterstützte Authverfahren und der Jobvertrag bestimmen, unter welcher Identität die Operation läuft."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „BTP Connectivity: Destination, Cloud Connector und Benutzeridentität“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation"
+      ],
+      "rationales": [
+        "Ein technischer Token übernimmt keinen beliebigen früheren Browserkontext.",
+        "Der Name eines Ziels verleiht keine Endbenutzeridentität.",
+        "Das unterstützte Authverfahren und der Jobvertrag bestimmen, unter welcher Identität die Operation läuft."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m14-senior-btp-identity#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m14-senior-btp-identity",
+      "recall": "Beantworte „Cloud-Foundry-Beispielwerte für eine Destination sollen in SAP BTP ABAP environment übernommen werden. Was ist der erste Schritt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „BTP Connectivity: Destination, Cloud Connector und Benutzeridentität“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Das passende Communication Scenario und die Laufzeitunterstützung prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: ABAP-Kommunikationsartefakte und unterstützte Verfahren richten sich nach dem konkreten Szenario. Nicht passend: Hardcodierte Secrets sind kein Ersatz für passende Kommunikationskonfiguration. Nicht passend: Eine breite Netzfreigabe löst weder Laufzeitkompatibilität noch Identitätsvertrag."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „BTP Connectivity: Destination, Cloud Connector und Benutzeridentität“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation"
+      ],
+      "rationales": [
+        "ABAP-Kommunikationsartefakte und unterstützte Verfahren richten sich nach dem konkreten Szenario.",
+        "Hardcodierte Secrets sind kein Ersatz für passende Kommunikationskonfiguration.",
+        "Eine breite Netzfreigabe löst weder Laufzeitkompatibilität noch Identitätsvertrag."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m14-senior-s4-migration#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m14-senior-s4-migration",
+      "recall": "Beantworte „Ein Z-Report wurde sieben Tage nicht aufgerufen, ist aber für den Jahresabschluss vorgesehen. Was folgt daraus?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „S/4HANA Custom Code: Migration, Clean Core und messbare Modernisierung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Report erst nach Prozess-/Ownerprüfung und längerer Nutzungsbewertung stilllegen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Ein kurzes Messfenster deckt seltene verpflichtende Geschäftsprozesse nicht ab. Nicht passend: Die Beobachtungsdauer kann den relevanten Prozess schlicht verfehlen. Nicht passend: Seltene Nutzung begründet weder Löschung noch eine bestimmte Optimierungstechnik."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „S/4HANA Custom Code: Migration, Clean Core und messbare Modernisierung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
+      ],
+      "rationales": [
+        "Ein kurzes Messfenster deckt seltene verpflichtende Geschäftsprozesse nicht ab.",
+        "Die Beobachtungsdauer kann den relevanten Prozess schlicht verfehlen.",
+        "Seltene Nutzung begründet weder Löschung noch eine bestimmte Optimierungstechnik."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m14-senior-s4-migration#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m14-senior-s4-migration",
+      "recall": "Beantworte „Nach S/4HANA-Anpassung ist ATC grün. Welcher zusätzliche Nachweis fehlt für die fachliche Abnahme?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „S/4HANA Custom Code: Migration, Clean Core und messbare Modernisierung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Dass relevante Prozesse und Ergebnisse auf dem Zielrelease stimmen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Namenslänge ist kein Nachweis korrekter Belegverarbeitung. Nicht passend: Eine pauschale technische Umschreibung beweist keine fachliche Gleichheit. Richtig: Statische Prüfungen ersetzen keine Regression der Geschäftsfunktionen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „S/4HANA Custom Code: Migration, Clean Core und messbare Modernisierung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
+      ],
+      "rationales": [
+        "Namenslänge ist kein Nachweis korrekter Belegverarbeitung.",
+        "Eine pauschale technische Umschreibung beweist keine fachliche Gleichheit.",
+        "Statische Prüfungen ersetzen keine Regression der Geschäftsfunktionen."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m14-senior-s4-migration#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m14-senior-s4-migration",
+      "recall": "Beantworte „Ein eigener Wrapper kapselt eine nicht freigegebene SAP-API. Was ist die korrekte Bewertung?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „S/4HANA Custom Code: Migration, Clean Core und messbare Modernisierung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Kapselung braucht zulässige Laufzeit und eigene Upgradeverantwortung."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Eine Kundenkapselung ändert den Release Contract des SAP-Objekts nicht. Richtig: Eine erlaubte Ausnahme ist gesondert zu verwalten und nicht mit einem offiziellen Release gleichzusetzen. Nicht passend: Auch gekapselte Abhängigkeiten können bei einem Upgrade ihr Verhalten ändern."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „S/4HANA Custom Code: Migration, Clean Core und messbare Modernisierung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
+      ],
+      "rationales": [
+        "Eine Kundenkapselung ändert den Release Contract des SAP-Objekts nicht.",
+        "Eine erlaubte Ausnahme ist gesondert zu verwalten und nicht mit einem offiziellen Release gleichzusetzen.",
+        "Auch gekapselte Abhängigkeiten können bei einem Upgrade ihr Verhalten ändern."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
       "id": "abap-m15-l1#0@2026-11-07-full-v3",
       "lessonId": "abap-m15-l1",
       "recall": "Beantworte „Ein Suchwert wird ungeprüft in den Text einer dynamischen WHERE-Bedingung eingesetzt. Wo liegt das Risiko?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sichere Programmierung: Dynamisches SQL & SQL-Injection“.",
@@ -28575,17 +29139,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m15-l2#0@2026-11-07-full-v3",
+      "id": "abap-m15-l2#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m15-l2",
-      "recall": "Beantworte „Eine Nutzerin sieht die App-Kachel, darf aber nicht jeden Beleg ändern. Welche Analyse passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Berechtigungskonzepte: PFCG-Rollen vs. Business Roles“.",
+      "recall": "Beantworte „Ein Benutzer sieht nach einem Rollenfix seine eigenen Belege. Welche Regression ist für den Sicherheitsnachweis besonders wichtig?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Berechtigungskonzepte: PFCG-Rollen vs. Business Roles“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Launchpad-Zugang und Backend-Datenberechtigungen getrennt prüfen."
+          "reference": "Derselbe Fachbenutzer kann fremde Belege weiterhin nicht lesen."
         },
         {
           "label": "Begründung",
-          "reference": "Sichtbarkeit ist kein vollständiger fachlicher Zugriffsnachweis."
+          "reference": "Nicht passend: Das prüft nicht die Grenze des betroffenen Fachbenutzers. Richtig: Ein Fix darf notwendige Rechte ergänzen, ohne den verbotenen Bereich zu öffnen. Nicht passend: Layoutreihenfolge ist kein negativer Autorisierungstest."
         },
         {
           "label": "Abgrenzung",
@@ -28597,28 +29161,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks"
       ],
       "rationales": [
-        "Appzugang erlaubt nicht pauschal alle Datensätze.",
-        "Titel sind kein verlässliches Berechtigungsmerkmal.",
-        "Business Roles strukturieren Zugriffsrechte und Appzugänge.",
-        "Sichtbarkeit ist kein vollständiger fachlicher Zugriffsnachweis."
+        "Das prüft nicht die Grenze des betroffenen Fachbenutzers.",
+        "Ein Fix darf notwendige Rechte ergänzen, ohne den verbotenen Bereich zu öffnen.",
+        "Layoutreihenfolge ist kein negativer Autorisierungstest."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m15-l2#1@2026-11-07-full-v3",
+      "id": "abap-m15-l2#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m15-l2",
-      "recall": "Beantworte „RAP-Lesen soll auf erlaubte Werke begrenzt sein; eine Action zusätzlich vom Instanzstatus abhängen. Wo gehören die Prüfungen hin?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Berechtigungskonzepte: PFCG-Rollen vs. Business Roles“.",
+      "recall": "Beantworte „Ein Fachbenutzer bekommt 403; im Backend ist kein passender Request sichtbar. Was ist eine sinnvolle Diagnose?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Berechtigungskonzepte: PFCG-Rollen vs. Business Roles“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Lesen in CDS DCL; Änderungsberechtigung im passenden Behavior-Handler."
+          "reference": "Vorgelagerte Auth-/Routinggrenzen und das antwortende System prüfen."
         },
         {
           "label": "Begründung",
-          "reference": "Lesezugriff und Operationsautorisierung haben unterschiedliche Mechanismen."
+          "reference": "Nicht passend: Ohne Ankunft im Backend ist dessen DCL nicht als Ursache belegt. Nicht passend: Das umgeht Grenzen und lokalisiert den Fehler nicht. Richtig: Die Ablehnung kann schon in Proxy, App oder Servicezugang entstehen."
         },
         {
           "label": "Abgrenzung",
@@ -28630,13 +29193,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks"
       ],
       "rationales": [
-        "Lesezugriff und Operationsautorisierung haben unterschiedliche Mechanismen.",
-        "Andere Aufrufwege können die UI umgehen.",
-        "Feldsteuerung ersetzt keine Datensatzautorisierung.",
-        "Die Deklaration allein implementiert keine eigene Fachprüfung."
+        "Ohne Ankunft im Backend ist dessen DCL nicht als Ursache belegt.",
+        "Das umgeht Grenzen und lokalisiert den Fehler nicht.",
+        "Die Ablehnung kann schon in Proxy, App oder Servicezugang entstehen."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -28703,6 +29265,102 @@
         "Statistische Einzelsätze besitzen nicht diese Trace-Detailtiefe.",
         "STAD ist nicht einfach die aggregierte Workload-Sicht von ST03N.",
         "Diese Aufgabenbeschreibung vertauscht die Werkzeuge."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m15-senior-authorization#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m15-senior-authorization",
+      "recall": "Beantworte „Eine CDS-Projektion exponiert Belege über OData. Nur die darunterliegende Modell-View hat DCL. Welcher Review-Schritt ist erforderlich?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „RAP-Berechtigungen durchgängig: DCL, Operationen und negative Tests“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die exponierte Entität und deren Access Control explizit prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: DCL der unteren View schützt die darauf aufgebaute Projektion nicht pauschal. Richtig: Die Lesegrenze muss am tatsächlichen Zugriff wirken; explizite Vererbung kann dafür eingesetzt werden. Nicht passend: Die Suche zu verstecken verhindert direkte Servicezugriffe nicht."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „RAP-Berechtigungen durchgängig: DCL, Operationen und negative Tests“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks"
+      ],
+      "rationales": [
+        "DCL der unteren View schützt die darauf aufgebaute Projektion nicht pauschal.",
+        "Die Lesegrenze muss am tatsächlichen Zugriff wirken; explizite Vererbung kann dafür eingesetzt werden.",
+        "Die Suche zu verstecken verhindert direkte Servicezugriffe nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m15-senior-authorization#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m15-senior-authorization",
+      "recall": "Beantworte „Eine RAP-Action ist in Fiori deaktiviert. Ein direkter Request kann sie dennoch unberechtigt ausführen. Was ist die richtige Korrektur?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „RAP-Berechtigungen durchgängig: DCL, Operationen und negative Tests“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die serverseitige Autorisierung der Operation ergänzen und negativ testen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Bedienhinweise sind keine harte Grenze; der Backendpfad muss unberechtigte Operationen verweigern. Nicht passend: Ein zweites UI-Versteck schließt den direkten Request nicht. Nicht passend: Ein Admin-Benutzer verschärft die Rechteausweitung und verdeckt fehlende Prüfungen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „RAP-Berechtigungen durchgängig: DCL, Operationen und negative Tests“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks"
+      ],
+      "rationales": [
+        "Bedienhinweise sind keine harte Grenze; der Backendpfad muss unberechtigte Operationen verweigern.",
+        "Ein zweites UI-Versteck schließt den direkten Request nicht.",
+        "Ein Admin-Benutzer verschärft die Rechteausweitung und verdeckt fehlende Prüfungen."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m15-senior-authorization#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m15-senior-authorization",
+      "recall": "Beantworte „Ein Benutzer darf einen Beleg aus Kreis 1000 ändern und übergibt als neuen Kreis 2000. Die Instanzprüfung prüft nur den alten Zustand. Was fehlt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „RAP-Berechtigungen durchgängig: DCL, Operationen und negative Tests“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Eine passende Prüfung der Berechtigung für den Zielzustand."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Sortierung begrenzt weder Zielwerte noch Zugriffe. Nicht passend: Wiederholung ergänzt keine Prüfung des neu übergebenen Zustands. Richtig: Das Recht auf den bestehenden Beleg erlaubt nicht automatisch einen Wechsel in jeden anderen Berechtigungsbereich."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „RAP-Berechtigungen durchgängig: DCL, Operationen und negative Tests“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/implementing-authority-checks"
+      ],
+      "rationales": [
+        "Sortierung begrenzt weder Zielwerte noch Zugriffe.",
+        "Wiederholung ergänzt keine Prüfung des neu übergebenen Zustands.",
+        "Das Recht auf den bestehenden Beleg erlaubt nicht automatisch einen Wechsel in jeden anderen Berechtigungsbereich."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -28938,17 +29596,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m16-l2#0@2026-11-07-full-v3",
+      "id": "abap-m16-l2#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m16-l2",
-      "recall": "Beantworte „Ein Projekt vergleicht abapGit und gCTS für seine Transportkette. Was ist der zentrale Unterschied?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CI/CD mit gCTS & ATC-Gates“.",
+      "recall": "Beantworte „Git-Merge und ATC sind grün, der Zielsystemimport ist fehlgeschlagen. Welcher Status ist ehrlich?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CI/CD mit gCTS & ATC-Gates“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "gCTS bindet Git in das SAP-Change-und-Transport-Management ein."
+          "reference": "Quellprüfung erfolgreich, Bereitstellung im Ziel noch fehlgeschlagen."
         },
         {
           "label": "Begründung",
-          "reference": "abapGit dient primär der textbasierten Objektserialisierung und Git-Nutzung."
+          "reference": "Richtig: Prüfung des Codes und tatsächlicher Import sind getrennte Schritte. Nicht passend: Das ignoriert den beobachteten Importfehler. Nicht passend: Ein Merge führt keine vollständigen Geschäftsprozesstests aus."
         },
         {
           "label": "Abgrenzung",
@@ -28960,28 +29618,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
       ],
       "rationales": [
-        "Git ist ein Kernelement des Verfahrens.",
-        "Diese Garantie folgt nicht aus dem Werkzeug allein.",
-        "Aufgaben und Integration sind nicht identisch.",
-        "abapGit dient primär der textbasierten Objektserialisierung und Git-Nutzung."
+        "Prüfung des Codes und tatsächlicher Import sind getrennte Schritte.",
+        "Das ignoriert den beobachteten Importfehler.",
+        "Ein Merge führt keine vollständigen Geschäftsprozesstests aus."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m16-l2#1@2026-11-07-full-v3",
+      "id": "abap-m16-l2#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m16-l2",
-      "recall": "Beantworte „Die Pipeline findet einen nach Richtlinie blockierenden ATC-Befund. Welche Reaktion gehört zum Quality Gate?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CI/CD mit gCTS & ATC-Gates“.",
+      "recall": "Beantworte „Ein Release hat persistierte Daten verändert. Genügt ein alter Codeimport als garantierter Rollback?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „CI/CD mit gCTS & ATC-Gates“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Auslieferung stoppen und Befund beheben oder geregelt behandeln."
+          "reference": "Nein, Datenverträglichkeit und Rückfall-/Vorwärtskorrektur separat planen."
         },
         {
           "label": "Begründung",
-          "reference": "Das Gate setzt vereinbarte Qualitätskriterien durch."
+          "reference": "Nicht passend: Codehistorie kontrolliert nicht rückwirkend alle persistierten Fachzustände. Nicht passend: Lokaler Versionswechsel belegt kein Daten-Undo im Zielsystem. Richtig: Der Wiederherstellungsweg muss zum tatsächlichen Datenzustand passen."
         },
         {
           "label": "Abgrenzung",
@@ -28993,13 +29650,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/implementing-sap-s-4hana-cloud-private-edition/analyzing-customizations-after-system-conversion_b9083e6d-e207-4578-8aa6-6c85cb42974a"
       ],
       "rationales": [
-        "Das Gate setzt vereinbarte Qualitätskriterien durch.",
-        "Damit wäre das blockierende Gate wirkungslos.",
-        "Statische Prüfungen ersetzen keine funktionalen Tests.",
-        "Versionierung beseitigt keinen Codequalitätsfehler."
+        "Codehistorie kontrolliert nicht rückwirkend alle persistierten Fachzustände.",
+        "Lokaler Versionswechsel belegt kein Daten-Undo im Zielsystem.",
+        "Der Wiederherstellungsweg muss zum tatsächlichen Datenzustand passen."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -29136,17 +29792,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m17-l1#0@2026-11-07-full-v3",
+      "id": "abap-m17-l1#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m17-l1",
-      "recall": "Beantworte „Ein klassischer Prozess registriert Verbuchungsbausteine und führt COMMIT WORK aus. Was wird damit ausgelöst?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die SAP LUW: COMMIT WORK und Verbuchung“.",
+      "recall": "Beantworte „Eine alte Hilfsroutine führt selbst COMMIT WORK aus und soll aus einem RAP-Handler aufgerufen werden. Was muss vor Wiederverwendung geprüft werden?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die SAP LUW: COMMIT WORK und Verbuchung“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Die SAP-LUW wird abgeschlossen und registrierte Verbuchung angestoßen."
+          "reference": "Commitverhalten und Eignung für den RAP-Transaktionskontext."
         },
         {
           "label": "Begründung",
-          "reference": "Ein Commit ist eine Transaktionsgrenze, kein Programmende."
+          "reference": "Nicht passend: Formatierung löst das Transaktionsrisiko nicht. Richtig: Ein fremdes Commit kann die vom Framework kontrollierte Fachtransaktion aufbrechen. Nicht passend: Zusätzliche eigenmächtige Commits verschärfen den Konflikt."
         },
         {
           "label": "Abgrenzung",
@@ -29158,28 +29814,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://learning.sap.com/courses/building-transactional-apps-with-the-abap-restful-application-programming-model/using-the-entity-manipulation-language-eml-to-access-business-objects"
       ],
       "rationales": [
-        "COMMIT WORK garantiert diese umfassende Synchronität nicht.",
-        "Ein Commit ist eine Transaktionsgrenze, kein Programmende.",
-        "Commit betrifft nicht noch nicht ausgeführte Verarbeitung.",
-        "Laufzeitdaten werden nicht so persistiert."
+        "Formatierung löst das Transaktionsrisiko nicht.",
+        "Ein fremdes Commit kann die vom Framework kontrollierte Fachtransaktion aufbrechen.",
+        "Zusätzliche eigenmächtige Commits verschärfen den Konflikt."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m17-l1#1@2026-11-07-full-v3",
+      "id": "abap-m17-l1#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m17-l1",
-      "recall": "Beantworte „Ein klassischer Aufrufer kombiniert zwei transaktionale BAPIs zu einem fachlichen Vorgang. Wie steuert er das Sichern?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die SAP LUW: COMMIT WORK und Verbuchung“.",
+      "recall": "Beantworte „Ein Remote-System hat eine Buchung bestätigt, danach scheitert lokal eine Validierung. Was bewirkt das lokale Rollback sicher nicht?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die SAP LUW: COMMIT WORK und Verbuchung“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "RETURN auswerten und erst bei Erfolg gemäß BAPI-Vertrag committen."
+          "reference": "Es nimmt die bereits bestätigte fremde Buchung automatisch zurück."
         },
         {
           "label": "Begründung",
-          "reference": "Die Aufrufersteuerung ermöglicht die gemeinsame fachliche Einheit."
+          "reference": "Nicht passend: Das kann gerade Teil der lokalen Fehlerbehandlung sein. Nicht passend: Die Analyse ist möglich, auch wenn die Remote-Wirkung bereits besteht. Richtig: Fremde Seiteneffekte benötigen einen eigenen Abgleich- oder Kompensationsvertrag."
         },
         {
           "label": "Abgrenzung",
@@ -29191,13 +29846,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://github.com/SAP-samples/abap-platform-application-jobs"
       ],
       "rationales": [
-        "Das ist nicht der allgemeine transaktionale BAPI-Vertrag.",
-        "RAP besitzt eigene Regeln für die Transaktionssteuerung.",
-        "Die Aufrufersteuerung ermöglicht die gemeinsame fachliche Einheit.",
-        "Dann kann eine halbe fachliche Einheit festgeschrieben werden."
+        "Das kann gerade Teil der lokalen Fehlerbehandlung sein.",
+        "Die Analyse ist möglich, auch wenn die Remote-Wirkung bereits besteht.",
+        "Fremde Seiteneffekte benötigen einen eigenen Abgleich- oder Kompensationsvertrag."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -29961,17 +30615,17 @@
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m19-l2#0@2026-11-07-full-v3",
+      "id": "abap-m19-l2#0@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m19-l2",
-      "recall": "Beantworte „Dieselbe Integrationsklasse soll in DEV und PROD unterschiedliche Endpunkte nutzen. Welche Gestaltung passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „HTTP und REST aus ABAP heraus konsumieren“.",
+      "recall": "Beantworte „Ein mutierender Remote-Request läuft in einen Timeout. Welche Aussage ist sicher?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „HTTP und REST aus ABAP heraus konsumieren“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "Endpunkt und Authentifizierung über passende Kommunikationskonfiguration beziehen."
+          "reference": "Der Ausgang kann unklar sein; vor Retry den Idempotenzvertrag prüfen."
         },
         {
           "label": "Begründung",
-          "reference": "Systemabhängige Verbindungsdaten bleiben außerhalb der Fachlogik."
+          "reference": "Richtig: Die Zielwirkung kann vor dem verlorenen Response bereits eingetreten sein. Nicht passend: Ein fehlender Response ist kein Beweis für ausgebliebene Verarbeitung. Nicht passend: Wechselnde Schlüssel können die Deduplizierung gerade umgehen."
         },
         {
           "label": "Abgrenzung",
@@ -29983,28 +30637,27 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://github.com/SAP-samples/abap-platform-application-jobs"
       ],
       "rationales": [
-        "Labels sind keine sichere Verbindungskonfiguration.",
-        "Das verletzt saubere technische Identität und Verwaltung.",
-        "Systemabhängige Verbindungsdaten bleiben außerhalb der Fachlogik.",
-        "Das erzeugt unsichere, schwer transportierbare Varianten."
+        "Die Zielwirkung kann vor dem verlorenen Response bereits eingetreten sein.",
+        "Ein fehlender Response ist kein Beweis für ausgebliebene Verarbeitung.",
+        "Wechselnde Schlüssel können die Deduplizierung gerade umgehen."
       ],
       "editorialStatus": "individually-revised"
     },
     {
-      "id": "abap-m19-l2#1@2026-11-07-full-v3",
+      "id": "abap-m19-l2#1@2026-11-08-abap-senior-v1",
       "lessonId": "abap-m19-l2",
-      "recall": "Beantworte „Du erzeugst einen freigegebenen HTTP-Client aus einer Destination in ABAP Cloud. Welcher Aufruf passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „HTTP und REST aus ABAP heraus konsumieren“.",
+      "recall": "Beantworte „Für ein BTP-Supportticket wird ein HTTP-Trace exportiert. Welche Daten sind vor Weitergabe zu entfernen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „HTTP und REST aus ABAP heraus konsumieren“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
-          "reference": "CL_WEB_HTTP_CLIENT_MANAGER=>create_by_http_destination verwenden."
+          "reference": "Tokens, Cookies, Passwörter und nicht benötigte personenbezogene Inhalte."
         },
         {
           "label": "Begründung",
-          "reference": "Die Factory liefert einen passenden IF_WEB_HTTP_CLIENT."
+          "reference": "Nicht passend: GET oder POST sind keine Secrets; ihre Entfernung löst das eigentliche Risiko nicht. Richtig: Diagnose muss Datenminimierung und Geheimnisschutz auch bei technischen Traces einhalten. Nicht passend: Secrets und private Inhalte können in Erfolgs- wie Fehlerrequests vorkommen."
         },
         {
           "label": "Abgrenzung",
@@ -30016,13 +30669,12 @@
         }
       ],
       "sources": [
-        "https://github.com/SAP-samples/abap-cheat-sheets"
+        "https://help.sap.com/docs/connectivity/sap-btp-connectivity-cf/configuring-principal-propagation"
       ],
       "rationales": [
-        "Ein GUI-Control ist kein passender Cloud-HTTP-Client.",
-        "Die Cloud-Freigabe des alten APIs darf nicht vorausgesetzt werden.",
-        "Das dokumentierte Erzeugungsmuster nutzt den Manager.",
-        "Die Factory liefert einen passenden IF_WEB_HTTP_CLIENT."
+        "GET oder POST sind keine Secrets; ihre Entfernung löst das eigentliche Risiko nicht.",
+        "Diagnose muss Datenminimierung und Geheimnisschutz auch bei technischen Traces einhalten.",
+        "Secrets und private Inhalte können in Erfolgs- wie Fehlerrequests vorkommen."
       ],
       "editorialStatus": "individually-revised"
     },
@@ -30089,6 +30741,102 @@
         "Wiederaufsetzbarkeit benötigt einen konsistenten fachlichen Zustand.",
         "Bereits erfolgreiche Buchungen können doppelt entstehen.",
         "Ein neuer Name macht die Verarbeitung nicht idempotent."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m19-senior-restartable-jobs#0@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m19-senior-restartable-jobs",
+      "recall": "Beantworte „Ein Job-Log meldet „Finished“, enthält aber 12 fachlich abgewiesene Belege. Wie meldest du das Ergebnis?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Application Jobs betreiben: Wiederanlauf, Idempotenz und Application Log“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Technisch beendet, mit separat ausgewiesenen fachlichen Ablehnungen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Technischer Abschluss löscht keine im Log enthaltenen fachlichen Fehler. Nicht passend: Das bereinigte Log und die gesicherten Zustände liefern durchaus relevante Evidenz. Richtig: Betriebsstatus und Fachresultat müssen getrennt nachvollziehbar sein."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Application Jobs betreiben: Wiederanlauf, Idempotenz und Application Log“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://learning.sap.com/courses/administrating-sap-s-4hana-cloud-public-edition/monitoring-application-jobs_f18a1e3b-b367-46f0-828a-99fea42cd3b4"
+      ],
+      "rationales": [
+        "Technischer Abschluss löscht keine im Log enthaltenen fachlichen Fehler.",
+        "Das bereinigte Log und die gesicherten Zustände liefern durchaus relevante Evidenz.",
+        "Betriebsstatus und Fachresultat müssen getrennt nachvollziehbar sein."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m19-senior-restartable-jobs#1@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m19-senior-restartable-jobs",
+      "recall": "Beantworte „Ein rein lokaler Paketjob speichert einen Erledigt-Marker vor der eigentlichen Belegänderung und stürzt danach ab. Welche Korrektur schützt den Wiederanlauf?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Application Jobs betreiben: Wiederanlauf, Idempotenz und Application Log“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Marker und Fachwirkung in derselben geeigneten Transaktion sichern."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Richtig: Der Neustart darf eine nicht ausgeführte Wirkung nicht irrtümlich als erledigt überspringen. Nicht passend: Das vergrößert das Verlustfenster statt es atomar zu schließen. Nicht passend: Ohne Deduplizierung drohen doppelte Wirkungen und fehlende Diagnose."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Application Jobs betreiben: Wiederanlauf, Idempotenz und Application Log“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/SAP-samples/abap-platform-application-jobs"
+      ],
+      "rationales": [
+        "Der Neustart darf eine nicht ausgeführte Wirkung nicht irrtümlich als erledigt überspringen.",
+        "Das vergrößert das Verlustfenster statt es atomar zu schließen.",
+        "Ohne Deduplizierung drohen doppelte Wirkungen und fehlende Diagnose."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "abap-m19-senior-restartable-jobs#2@2026-11-08-abap-senior-v1",
+      "lessonId": "abap-m19-senior-restartable-jobs",
+      "recall": "Beantworte „Ein externer Buchungsaufruf endet im Timeout; das Ziel könnte bereits gebucht haben. Was ist vor einem blinden Retry nötig?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Application Jobs betreiben: Wiederanlauf, Idempotenz und Application Log“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Idempotenzschlüssel oder verbindlicher Statusabgleich beim Ziel."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht passend: Die lokale Transaktion kontrolliert keine bereits wirksame Buchung des fremden Systems. Richtig: Der unsichere Ausgang muss so geklärt werden, dass keine doppelte Fachwirkung entsteht. Nicht passend: Ein neuer Schlüssel kann die Deduplizierung umgehen und eine zweite Buchung ermöglichen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Application Jobs betreiben: Wiederanlauf, Idempotenz und Application Log“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/SAP-samples/abap-platform-application-jobs"
+      ],
+      "rationales": [
+        "Die lokale Transaktion kontrolliert keine bereits wirksame Buchung des fremden Systems.",
+        "Der unsichere Ausgang muss so geklärt werden, dass keine doppelte Fachwirkung entsteht.",
+        "Ein neuer Schlüssel kann die Deduplizierung umgehen und eine zweite Buchung ermöglichen."
       ],
       "editorialStatus": "individually-revised"
     },

@@ -1,5 +1,21 @@
 # ROOTPFAD
 
+## ABAP / BTP / S/4HANA / Fiori · Vertiefung 08.11.2026
+
+Acht neue Lektionen zu durchgängiger RAP-Autorisierung, EML-/Save-Tests,
+Fiori-V4-Side-Effects, BTP-Identitäten, S/4HANA-Custom-Code-Migration,
+wiederanlauffähigen Application Jobs, Launchpad-Diagnose und CDS-Fachsemantik.
+Zehn bestehende Lektionen besitzen zusätzliche Review-/Diagnosehinweise und
+Normal-,Grenz-,Fehlerfälle. 24 neue und 20 ersetzte Szenariofragen mit jeweils
+begründeten Antwortoptionen, Quellen und Abruf-/Selbstprüfkriterien.
+Alte Quiz-Evidenz bleibt erhalten, zählt nicht automatisch für neue Revisionen.
+
+Aktueller Bestand: **116 Module, 470 Lektionen, 1.277 Lektionsfragen + 306
+Zusatzkarten = 1.583 Karten**. Quelle: `content/abap-senior-curriculum.mjs`;
+lesbare Exporte unter `content/abap-senior/`. „Senior-Praxis“ bezeichnet
+quellenbasierte Reviewhinweise, keine persönliche Berufserfahrung und keine
+unabhängige Senior-Freigabe. SAP-Code wurde nicht in einem SAP-System ausgeführt.
+
 ## Kontosicherheit und Auslieferung · 08.11.2026
 
 Angemeldete Konten können unter „Kontoeinstellungen“ ihr Passwort ändern und
@@ -17,7 +33,7 @@ kompatibel. Registrierung/Setup prüfen nach der Berechnung erneut Einmalrechte,
 damit parallele Requests keinen Einladungs-/Setup-Token mehrfach verbrauchen.
 Öffentliche Assets werden bei Clientunterstützung komprimiert. Authentifizierte
 API-Antworten sind davon ausgeschlossen. Das reduziert Übertragungsgröße, ersetzt
-aber kein Lasttestkonzept. Der Browser lädt jetzt 34 geordnete Skripte unter
+aber kein Lasttestkonzept. Der Browser lädt jetzt 35 geordnete Skripte unter
 300 KB über `assets/learning-manifest.json`, nicht mehr das große Quellaggregat.
 Das ist keine Lazy-Loading-Lösung: alle Teile werden weiterhin beim Start geladen.
 `assets/script-01.js` bleibt Build-/Prüfaggregat; nach Inhaltsänderungen `npm run build`.
@@ -27,13 +43,13 @@ Das ist keine Lazy-Loading-Lösung: alle Teile werden weiterhin beim Start gelad
 Bestehende API-/Event-Lektionen enthalten zusätzliche Abschnitte zu SSRF,
 HTTP Caching und Transactional Outbox mit Normal-,Grenz-,Fehlerfällen und
 begründeten Selbsttests. IDs und historische Lernstände bleiben unverändert.
-Quelle: `content/application-supplements.mjs`. Bestand weiterhin 116 Module,
-462 Lektionen und 1.559 Karten. Technische Prüfungen sind keine unabhängige
+Quelle: `content/application-supplements.mjs`. Der damalige Bestand war 116 Module,
+462 Lektionen und 1.559 Karten; aktueller Bestand siehe oben. Technische Prüfungen sind keine unabhängige
 menschliche Fachbegutachtung.
 
 ## Vollständige Abdeckung mit Selbstprüfkriterien
 
-Alle 1.559 vorhandenen Lektions- und Zusatzkarten besitzen einen fragebezogenen
+Alle 1.583 vorhandenen Lektions- und Zusatzkarten besitzen einen fragebezogenen
 Abrufauftrag und Kriterien für Entscheidung,Begründung,Abgrenzung und Anwendung.
 Die Rubrik erscheint in Lektionsquiz und Wiederholung. Sie wird nicht automatisch
 benotet, bleibt sitzungsbezogen und begründet keine zusätzlichen Kompetenz-XP.

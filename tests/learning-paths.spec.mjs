@@ -20,7 +20,7 @@ test('Lernpfade filtern Navigation, Fortschritt und alle Aufgabenpools', async (
         progress: document.getElementById('progressLabel').textContent,
         expectedProgress: d.lessons.filter(l => state.completed.has(l.id)).length + '/' + d.lessons.length,
         reviewOK,
-        allStillPresent: MODULES.length === 116 && FLAT.length === 462,
+        allStillPresent: MODULES.length === 116 && FLAT.length === 470,
       };
     });
     expect(check.modules).toBe(check.expected);

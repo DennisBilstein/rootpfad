@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-08T19:55:32.950Z",
-  "revised": 1253,
-  "total": 1253,
+  "updatedAt": "2026-11-08T21:19:21.382Z",
+  "revised": 1277,
+  "total": 1277,
   "remaining": 0,
   "extras": {
     "total": 306,
@@ -5668,16 +5668,16 @@
     {
       "lesson": "abap-m8-l1",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine Methode deklariert IMPORTING items TYPE ty_items ohne VALUE. Welche Übergabe ist vereinbart?"
+      "question": "Eine Tabelle wird einmal aufgebaut und nur einmal gelesen. Ein Sekundärschlüssel soll allein wegen schnellerer Lookups ergänzt werden. Was misst du?"
     },
     {
       "lesson": "abap-m8-l1",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine STANDARD TABLE bleibt in Einfügereihenfolge; häufig werden alle Positionen einer Auftrags-ID gelesen. Welche Ergänzung passt?"
+      "question": "Ein fehlender Preiseintrag wird mit OPTIONAL zum Initialwert 0. Fachlich bedeutet 0 aber „kostenlos“. Was ist angemessen?"
     },
     {
       "lesson": "abap-m8-l2",
@@ -5738,16 +5738,16 @@
     {
       "lesson": "abap-m9-l2",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Nach stark verändertem Datenvolumen wählt eine Abfrage einen anderen Zugriffsplan. Welche Erklärung ist plausibel?"
+      "question": "Ein neuer Join läuft schneller, liefert aber 30 statt 20 Belege. Wie bewertest du die Optimierung?"
     },
     {
       "lesson": "abap-m9-l2",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine Tabelle ist generisch nach Schlüsselpräfix gepuffert. Der SELECT schränkt dieses Präfix nicht vollständig ein. Welche Analyse ist richtig?"
+      "question": "Ein SQL-Plan ist auf zehn Testzeilen schnell. Welcher nächste Nachweis ist für die Hotspotentscheidung relevant?"
     },
     {
       "lesson": "abap-m9-l3",
@@ -5885,16 +5885,16 @@
     {
       "lesson": "abap-m11-l1",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Ein SADL-Konsument zeigt ein virtuelles Feld Risikotext, das nicht in der Datenbank berechnet wird. Woher kommt der Wert?"
+      "question": "Eine Fiori-Liste lädt zehn von hundert Buchungen. Der Controller findet unter den zehn keine offene Buchung. Was kann er sicher sagen?"
     },
     {
       "lesson": "abap-m11-l1",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine CDS Table Function benötigt eine datenbankseitige Berechnung. Welches Artefakt implementiert die Funktion?"
+      "question": "Ein virtuelles Statusfeld erzeugt für jede Listenzeile einen einzelnen Remote Call. Was ist eine sinnvolle Reviewrichtung?"
     },
     {
       "lesson": "abap-m11-l2",
@@ -5923,6 +5923,27 @@
       "revision": "2026-11-07-full-v3",
       "scenario": true,
       "question": "Ein CDS-Bericht rechnet Rechnungsbeträge zum Buchungsdatum nach EUR um. Welche Eingaben sind besonders relevant?"
+    },
+    {
+      "lesson": "abap-m11-senior-semantics",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Eine View annotiert NetAmount mit CurrencyCode. Eine Zeile enthält USD, die andere EUR. Was bewirkt die Annotation allein?"
+    },
+    {
+      "lesson": "abap-m11-senior-semantics",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Nach einem Join auf zwei sprachabhängige Texte verdoppelt sich die Belegsumme. Was prüfst du zuerst?"
+    },
+    {
+      "lesson": "abap-m11-senior-semantics",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Für eine EUR-Umrechnung fehlt am geforderten Kursdatum der USD-Kurs. Welche Behandlung ist fachlich belastbar?"
     },
     {
       "lesson": "abap-m12-quellen-rap-zuerst-verstehen-daten-verhalten-und-managed-unmanaged",
@@ -5983,30 +6004,30 @@
     {
       "lesson": "abap-m12-l1",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine Nutzerin ändert eine Reise, schließt den Browser und setzt später fort, ohne die aktive Reise sofort zu ändern. Was ermöglicht das?"
+      "question": "Fiori bestätigt das Speichern eines Drafts. Die Aktivierungsvalidierung lehnt den Beleg später ab. Was ist korrekt?"
     },
     {
       "lesson": "abap-m12-l1",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine finale Belegnummer soll bei RAP Late Numbering erst in der Save-Sequenz entstehen. Wo wird sie zugeordnet?"
+      "question": "Ein Test verwirft einen bearbeiteten Draft. Welcher Soll-Nachweis passt?"
     },
     {
       "lesson": "abap-m12-l2",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Client A liest ETag e1; Client B speichert und erzeugt e2. A sendet Änderung mit If-Match e1. Was schützt vor Lost Update?"
+      "question": "Zwei OData-Clients lesen Version A. Nach dem Save von Client 1 schreibt Client 2 mit A. Was ist bei wirksamem ETag-Schutz zu erwarten?"
     },
     {
       "lesson": "abap-m12-l2",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Ein kurzer Bestandsvorgang muss Lesen und Ändern exklusiv koordinieren. Welche Gestaltung passt?"
+      "question": "Nach einem Versionskonflikt soll der Client automatisch ohne Vorbedingung erneut schreiben. Warum ist das problematisch?"
     },
     {
       "lesson": "abap-m12-l3",
@@ -6035,6 +6056,27 @@
       "revision": "2026-11-07-full-v3",
       "scenario": true,
       "question": "Nach einer erfolgreichen Reiseänderung soll eine andere Anwendung asynchron reagieren. Welche Aussage zu RAP Business Events passt?"
+    },
+    {
+      "lesson": "abap-m12-senior-eml-tests",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein EML-Test erhält nach CREATE einen gemappten Schlüssel. Die Save-Validierung schlägt später fehl. Welche Aussage trägt der erste Prüfschritt allein?"
+    },
+    {
+      "lesson": "abap-m12-senior-eml-tests",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Nach dem COMMIT ENTITIES eines äußeren Szenariotests ist REPORTED gefüllt, FAILED aber leer. Wie bewertet man den Lauf?"
+    },
+    {
+      "lesson": "abap-m12-senior-eml-tests",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein Behavior-Handler soll nach jeder Änderung selbst COMMIT WORK ausführen, damit der Test grün wird. Was ist angemessen?"
     },
     {
       "lesson": "abap-m13-quellen-fiori-ux-und-elements-list-report-und-object-page-mit-fiori-tools",
@@ -6074,16 +6116,16 @@
     {
       "lesson": "abap-m13-l1",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine V4-Fiori-elements-App braucht eine eigene Sektion, der Standard bleibt erhalten. Was bietet das Flexible Programming Model?"
+      "question": "Ein Codebeispiel für Fiori Elements V2 soll in eine V4-App kopiert werden. Was prüfst du vor der Übernahme?"
     },
     {
       "lesson": "abap-m13-l1",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine Object Page benötigt einen projektspezifischen Informationsbereich. Welche Umsetzung passt zum Erweiterungsmodell?"
+      "question": "Eine langsame Extension-Abfrage für Objekt A kommt erst nach Navigation zu B zurück. Was muss der Code verhindern?"
     },
     {
       "lesson": "abap-m13-l2",
@@ -6112,6 +6154,48 @@
       "revision": "2026-11-07-full-v3",
       "scenario": true,
       "question": "Eine Rolle benötigt morgens Kennzahlen und Einstiege aus mehreren fachlichen Bereichen auf einer Seite. Welches Konzept passt?"
+    },
+    {
+      "lesson": "abap-m13-senior-side-effects",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Nach einer Mengenänderung berechnet RAP den Betrag korrekt, Fiori zeigt noch den alten Wert. Was prüfst du zuerst?"
+    },
+    {
+      "lesson": "abap-m13-senior-side-effects",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Im Fiori-V4-Formular verletzt eine Eingabe MaxLength. Es gibt keinen PATCH und kein Side-Effect-Read. Was passt zum Ablauf?"
+    },
+    {
+      "lesson": "abap-m13-senior-side-effects",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Eine Fiori-Erweiterung benötigt einen dokumentierten Edit-Hook. Welche Abhängigkeit ist am tragfähigsten?"
+    },
+    {
+      "lesson": "abap-m13-senior-launchpad",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Eine UI5-App läuft in der Vorschau, ihr Launchpad-Intent wird nach Transport nicht aufgelöst. Wo setzt die erste Diagnose an?"
+    },
+    {
+      "lesson": "abap-m13-senior-launchpad",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Eine Kachel ist sichtbar, der Service verweigert einen fremden Beleg. Welche Schlussfolgerung passt?"
+    },
+    {
+      "lesson": "abap-m13-senior-launchpad",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Nach einem Upgrade meldet der Content Manager eine veraltete App und einen Nachfolger. Was gehört zur Umstellung?"
     },
     {
       "lesson": "abap-m14-quellen-abap-cloud-rap-und-laufzeit-die-richtige-erweiterungsarchitektur-wahlen",
@@ -6198,6 +6282,48 @@
       "question": "Ein Key User kann in Custom Logic nur bestimmte APIs verwenden. Welche Begründung passt?"
     },
     {
+      "lesson": "abap-m14-senior-btp-identity",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Der BTP-Destination-Check ist grün, im Backend erscheinen alle Aufrufe als derselbe technische Benutzer. Was ist noch nicht belegt?"
+    },
+    {
+      "lesson": "abap-m14-senior-btp-identity",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein nächtlicher BTP-Job verwendet OAuth Client Credentials. Darf die Anwendung daraus die Identität des zuletzt angemeldeten Sachbearbeiters ableiten?"
+    },
+    {
+      "lesson": "abap-m14-senior-btp-identity",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Cloud-Foundry-Beispielwerte für eine Destination sollen in SAP BTP ABAP environment übernommen werden. Was ist der erste Schritt?"
+    },
+    {
+      "lesson": "abap-m14-senior-s4-migration",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein Z-Report wurde sieben Tage nicht aufgerufen, ist aber für den Jahresabschluss vorgesehen. Was folgt daraus?"
+    },
+    {
+      "lesson": "abap-m14-senior-s4-migration",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Nach S/4HANA-Anpassung ist ATC grün. Welcher zusätzliche Nachweis fehlt für die fachliche Abnahme?"
+    },
+    {
+      "lesson": "abap-m14-senior-s4-migration",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein eigener Wrapper kapselt eine nicht freigegebene SAP-API. Was ist die korrekte Bewertung?"
+    },
+    {
       "lesson": "abap-m15-l1",
       "index": 0,
       "revision": "2026-11-07-full-v3",
@@ -6214,16 +6340,16 @@
     {
       "lesson": "abap-m15-l2",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Eine Nutzerin sieht die App-Kachel, darf aber nicht jeden Beleg ändern. Welche Analyse passt?"
+      "question": "Ein Benutzer sieht nach einem Rollenfix seine eigenen Belege. Welche Regression ist für den Sicherheitsnachweis besonders wichtig?"
     },
     {
       "lesson": "abap-m15-l2",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "RAP-Lesen soll auf erlaubte Werke begrenzt sein; eine Action zusätzlich vom Instanzstatus abhängen. Wo gehören die Prüfungen hin?"
+      "question": "Ein Fachbenutzer bekommt 403; im Backend ist kein passender Request sichtbar. Was ist eine sinnvolle Diagnose?"
     },
     {
       "lesson": "abap-m15-l3",
@@ -6238,6 +6364,27 @@
       "revision": "2026-11-07-full-v3",
       "scenario": true,
       "question": "Du willst den langsamen Dialogschritt eines Benutzers zeitlich eingrenzen und danach den Code detailliert profilieren. Welche Werkzeugfolge passt?"
+    },
+    {
+      "lesson": "abap-m15-senior-authorization",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Eine CDS-Projektion exponiert Belege über OData. Nur die darunterliegende Modell-View hat DCL. Welcher Review-Schritt ist erforderlich?"
+    },
+    {
+      "lesson": "abap-m15-senior-authorization",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Eine RAP-Action ist in Fiori deaktiviert. Ein direkter Request kann sie dennoch unberechtigt ausführen. Was ist die richtige Korrektur?"
+    },
+    {
+      "lesson": "abap-m15-senior-authorization",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein Benutzer darf einen Beleg aus Kreis 1000 ändern und übergibt als neuen Kreis 2000. Die Instanzprüfung prüft nur den alten Zustand. Was fehlt?"
     },
     {
       "lesson": "abap-m16-quellen-transporte-von-der-entwicklungsaufgabe-zur-getesteten-anderung",
@@ -6291,16 +6438,16 @@
     {
       "lesson": "abap-m16-l2",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Ein Projekt vergleicht abapGit und gCTS für seine Transportkette. Was ist der zentrale Unterschied?"
+      "question": "Git-Merge und ATC sind grün, der Zielsystemimport ist fehlgeschlagen. Welcher Status ist ehrlich?"
     },
     {
       "lesson": "abap-m16-l2",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Die Pipeline findet einen nach Richtlinie blockierenden ATC-Befund. Welche Reaktion gehört zum Quality Gate?"
+      "question": "Ein Release hat persistierte Daten verändert. Genügt ein alter Codeimport als garantierter Rollback?"
     },
     {
       "lesson": "abap-m16-l3",
@@ -6333,16 +6480,16 @@
     {
       "lesson": "abap-m17-l1",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Ein klassischer Prozess registriert Verbuchungsbausteine und führt COMMIT WORK aus. Was wird damit ausgelöst?"
+      "question": "Eine alte Hilfsroutine führt selbst COMMIT WORK aus und soll aus einem RAP-Handler aufgerufen werden. Was muss vor Wiederverwendung geprüft werden?"
     },
     {
       "lesson": "abap-m17-l1",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Ein klassischer Aufrufer kombiniert zwei transaktionale BAPIs zu einem fachlichen Vorgang. Wie steuert er das Sichern?"
+      "question": "Ein Remote-System hat eine Buchung bestätigt, danach scheitert lokal eine Validierung. Was bewirkt das lokale Rollback sicher nicht?"
     },
     {
       "lesson": "abap-m17-l2",
@@ -6508,16 +6655,16 @@
     {
       "lesson": "abap-m19-l2",
       "index": 0,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Dieselbe Integrationsklasse soll in DEV und PROD unterschiedliche Endpunkte nutzen. Welche Gestaltung passt?"
+      "question": "Ein mutierender Remote-Request läuft in einen Timeout. Welche Aussage ist sicher?"
     },
     {
       "lesson": "abap-m19-l2",
       "index": 1,
-      "revision": "2026-11-07-full-v3",
+      "revision": "2026-11-08-abap-senior-v1",
       "scenario": true,
-      "question": "Du erzeugst einen freigegebenen HTTP-Client aus einer Destination in ABAP Cloud. Welcher Aufruf passt?"
+      "question": "Für ein BTP-Supportticket wird ein HTTP-Trace exportiert. Welche Daten sind vor Weitergabe zu entfernen?"
     },
     {
       "lesson": "abap-m19-l3",
@@ -6532,6 +6679,27 @@
       "revision": "2026-11-07-full-v3",
       "scenario": true,
       "question": "Ein Job bricht nach 400 von 1000 Buchungen ab und soll sicher neu starten. Welche Eigenschaft ist entscheidend?"
+    },
+    {
+      "lesson": "abap-m19-senior-restartable-jobs",
+      "index": 0,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein Job-Log meldet „Finished“, enthält aber 12 fachlich abgewiesene Belege. Wie meldest du das Ergebnis?"
+    },
+    {
+      "lesson": "abap-m19-senior-restartable-jobs",
+      "index": 1,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein rein lokaler Paketjob speichert einen Erledigt-Marker vor der eigentlichen Belegänderung und stürzt danach ab. Welche Korrektur schützt den Wiederanlauf?"
+    },
+    {
+      "lesson": "abap-m19-senior-restartable-jobs",
+      "index": 2,
+      "revision": "2026-11-08-abap-senior-v1",
+      "scenario": true,
+      "question": "Ein externer Buchungsaufruf endet im Timeout; das Ziel könnte bereits gebucht haben. Was ist vor einem blinden Retry nötig?"
     },
     {
       "lesson": "abap-m20-quellen-adt-sap-gui-und-s-4hana-werkzeug-und-laufzeit-auseinanderhalten",

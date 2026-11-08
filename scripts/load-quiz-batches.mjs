@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {existingQuizRevisions} from '../content/abap-senior-curriculum.mjs';
 
 export function loadQuizBatches() {
   const lessons = [], extras = [], status = [];
@@ -22,6 +23,13 @@ export function loadQuizBatches() {
     if (output.length !== input.length) { status.push({name, expected:input.length, saved:output.length, integrated:0}); continue; }
     for (const q of output) (q.extraId ? extras : lessons).push(q);
     status.push({name, expected:input.length, integrated:output.length});
+  }
+  // Preserve historical batch inputs while replacing only explicitly revised
+  // positions. New revision IDs keep earlier evidence without reusing it.
+  for(const revision of existingQuizRevisions){
+    const index=lessons.findIndex(q=>q.lesson===revision.lesson&&q.index===revision.index);
+    if(index<0)throw Error('ABAP-Quizrevision ohne historische Position: '+revision.lesson);
+    lessons[index]=revision;
   }
   return {lessons, extras, status};
 }

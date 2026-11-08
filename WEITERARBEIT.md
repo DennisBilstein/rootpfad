@@ -4,6 +4,18 @@
 
 ## Maßgeblicher Abschlussstand 08.11.2026 (ältere Zahlen unten historisch)
 
+NEUESTER AUFTRAG: ABAP/BTP/S/4HANA/Fiori fachlich vertieft, danach Git-Push.
+8 neue Lektionen in bestehenden Modulen,10 additive bestehende Vertiefungen,
+24 neue+20 ersetzte Szenariofragen mit spezifischen Rationales/Quellen/Revisionen.
+Quelle content/abap-senior-curriculum.mjs, Build build-abap-senior-content.mjs,
+Markdownexport content/abap-senior/. Integration vor FLAT-Aufbau; Quizrevisionen
+im bestehenden Batchloader überlagert, neue Fragen zusätzlich integriert.
+Bestand 116 Module/470 Lektionen/1277+306=1583 Karten; Manifest 35 Skripte.
+Historische Quiz-Evidenz bleibt separat. Kein echtes SAP-System verfügbar;
+keine ABAP-Kompilation,Transportausführung oder unabhängige Senior-Freigabe behaupten.
+Unbekannte Datei rootpfad.iml ist lokale IDE-Datei des Nutzers, NICHT mitcommitten.
+Neueste Verifikation/Push siehe content/quality/abap-senior-release.md.
+
 NEUESTER STAND: alle drei Lifecycle-/Auslieferungswünsche implementiert.
 Reset in server/account-lifecycle.mjs (SMTP konfigurierbar, standardmäßig disabled,
 15 Minuten, Hashspeicherung, Einmalverwendung, Sitzungswiderruf); kein echter
