@@ -2,11 +2,15 @@
 var RP_PATHS = [
   { id:'all', title:'Alle Lernpfade', description:'Alle Inhalte und freie Themenwahl.' },
   { id:'ap1', title:'AP1', description:'Prüfungsgrundlagen für Fachinformatiker.' },
+  { id:'htmlcss', title:'HTML & CSS', description:'Semantik, Formulare, Boxmodell, Flexbox, Grid und responsive Seiten.' },
+  { id:'mariadb', title:'MariaDB', description:'SQL, Constraints, Transaktionen, Indizes und sicherer Betrieb.' },
+  { id:'apis', title:'APIs & Integration', description:'HTTP/REST, GraphQL, RPC, SOAP, OData und Ereignisse.' },
+  { id:'agents', title:'KI, MCP & Agents', description:'MCP-Verträge, Harnesses und überprüfbare KI-Programmierabläufe · Stand 06.11.2026.' },
   { id:'java', title:'Java', description:'Sprachkern, professionelle Entwicklung und Spring Boot.' },
   { id:'abap', title:'ABAP', description:'SAP, modernes ABAP, RAP und Betrieb.' },
   { id:'php', title:'PHP & Laravel', description:'Vom ersten PHP-Programm bis zur Laravel-Anwendung.' },
   { id:'git', title:'Git', description:'Versionierung, Branches und Zusammenarbeit.' }
-  ,{ id:'javascript', title:'JavaScript & Vue', description:'Sprachgrundlagen · bisher eine ausgearbeitete Einstiegseinheit.' }
+  ,{ id:'javascript', title:'JavaScript & Vue', description:'Sprachkern, TypeScript, Komponenten, Router, Pinia, Tests und Projekt.' }
 ];
 var rpPath = 'all';
 try { rpPath = localStorage.getItem('rootpfad-learning-path') || 'all'; } catch(e) {}

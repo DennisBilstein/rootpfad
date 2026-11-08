@@ -114,7 +114,7 @@ labAbzeichenPruefen = function(){
 function rbSterne(m){
   var lektionen = m.lessons.every(function(l){ return state.completed.has(l.id); });
   var karten = [];
-  m.lessons.forEach(function(l){ (l.quiz || []).forEach(function(q, i){ karten.push(l.id + '#' + i); }); });
+  m.lessons.forEach(function(l){ (l.quiz || []).forEach(function(q, i){ karten.push(typeof rpQuestionId==='function'?rpQuestionId(l,i):l.id + '#' + i); }); });
   var quiz = karten.length > 0 && karten.every(function(id){ var st = state.stats[id]; return st && st.right > 0; });
   var ids = m.lessons.map(function(l){ return l.id; });
   var aufgaben = LABOR.filter(function(t){ return ids.indexOf(t.lektion) >= 0; });

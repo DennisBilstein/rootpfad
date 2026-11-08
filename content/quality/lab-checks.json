@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-11-08T18:40:57.246Z",
+  "results": [
+    {
+      "name": "laravel-tests",
+      "command": "php",
+      "args": [
+        "artisan",
+        "test",
+        "--compact"
+      ],
+      "cwd": "content/examples/laravel-lab",
+      "exitCode": 0,
+      "stdout": "{\"tool\":\"phpunit\",\"result\":\"passed\",\"tests\":9,\"passed\":9,\"assertions\":21,\"duration_ms\":485}\n",
+      "stderr": ""
+    },
+    {
+      "name": "vue-tests",
+      "command": "npm",
+      "args": [
+        "test"
+      ],
+      "cwd": "content/examples/vue-lab",
+      "exitCode": 0,
+      "stdout": "\n> rootpfad-vue-learning-lab@1.0.0 test\n> vitest run\n\n\n RUN  v5.1.0 /Users/dennis/IdeaProjects/rootpfad/content/examples/vue-lab\n\n\n Test Files  1 passed (1)\n      Tests  6 passed (6)\n   Start at  19:40:48\n   Duration  1.62s (environment 81%, import 11%, tests 5%, transform 2%, worker 1%)\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "vue-build",
+      "command": "npm",
+      "args": [
+        "run",
+        "build"
+      ],
+      "cwd": "content/examples/vue-lab",
+      "exitCode": 0,
+      "stdout": "\n> rootpfad-vue-learning-lab@1.0.0 build\n> vue-tsc --noEmit && vite build\n\nvite v8.3.6 building client environment for production...\ntransforming...\n✓ 33 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                      0.36 kB │ gzip:  0.27 kB\ndist/assets/index-DN_zcAH3.css       0.56 kB │ gzip:  0.37 kB\ndist/assets/AboutView-Cr-Co9N6.js    0.40 kB │ gzip:  0.31 kB\ndist/assets/index-aSIcT2es.js      104.16 kB │ gzip: 40.70 kB\n\n✓ built in 775ms\n",
+      "stderr": ""
+    },
+    {
+      "name": "vue-audit",
+      "command": "npm",
+      "args": [
+        "audit",
+        "--json"
+      ],
+      "cwd": "content/examples/vue-lab",
+      "exitCode": 0,
+      "stdout": "{\n  \"auditReportVersion\": 2,\n  \"vulnerabilities\": {},\n  \"metadata\": {\n    \"vulnerabilities\": {\n      \"info\": 0,\n      \"low\": 0,\n      \"moderate\": 0,\n      \"high\": 0,\n      \"critical\": 0,\n      \"total\": 0\n    },\n    \"dependencies\": {\n      \"prod\": 78,\n      \"dev\": 106,\n      \"optional\": 27,\n      \"peer\": 0,\n      \"peerOptional\": 0,\n      \"total\": 183\n    }\n  }\n}\n",
+      "stderr": ""
+    }
+  ]
+}

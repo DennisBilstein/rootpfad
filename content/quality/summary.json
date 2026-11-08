@@ -1,0 +1,15 @@
+{
+  "phpLessons": 72,
+  "javascriptLessons": 16,
+  "uniqueLessonIds": 427,
+  "structureFailures": [],
+  "links": {
+    "total": 88,
+    "verified": 88
+  },
+  "php": {
+    "blocks": 65,
+    "syntaxValid": 65,
+    "executed": 13
+  }
+}

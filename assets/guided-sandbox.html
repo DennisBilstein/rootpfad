@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; worker-src blob:; connect-src 'none'">
+<script>
+// Parent supplies a fixed worker source. Learner code executes only in this
+// child worker, with no same-origin privileges or network credentials.
+let worker;
+addEventListener('message',function(event){
+  if(event.source!==parent||event.data?.type!=='start')return;
+  worker?.terminate();
+  const blob=new Blob([event.data.workerSource],{type:'text/javascript'});
+  const url=URL.createObjectURL(blob);
+  worker=new Worker(url);URL.revokeObjectURL(url);
+  worker.onmessage=function(message){parent.postMessage({type:'rp-practice-result',token:event.data.token,result:message.data},'*');worker.terminate();};
+  worker.onerror=function(){parent.postMessage({type:'rp-practice-result',token:event.data.token,result:{error:'Ausführung fehlgeschlagen.'}},'*');worker.terminate();};
+  worker.postMessage(event.data.input);
+});
+</script>

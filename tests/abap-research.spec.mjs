@@ -11,7 +11,7 @@ test('Recherchierte ABAP-Lektionen haben Quellen, gültige Quizze und stabile ID
       if (!document.querySelector('main h1')?.textContent.includes(lesson.title)) failures.push(lesson.id);
       if (!document.querySelector('main a[rel="noopener noreferrer"]')) failures.push(lesson.id + ':sources');
       if (!lesson.sources.length || !lesson.quiz.every(q => Number.isInteger(q.correct) && q.options[q.correct] && q.explain)) failures.push(lesson.id + ':schema');
-      if (!lesson.quiz.every((q, i) => CARD_BY_ID[lesson.id + '#' + i])) failures.push(lesson.id + ':cards');
+      if (!lesson.quiz.every((q, i) => CARD_BY_ID[rpQuestionId(lesson,i)])) failures.push(lesson.id + ':cards');
     }
     return { count:additions.length, quizzes:additions.reduce((n,l) => n+l.quiz.length,0), failures };
   });

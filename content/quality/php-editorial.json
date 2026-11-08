@@ -1,0 +1,842 @@
+[
+  {
+    "id": "m52-l3",
+    "outcome": "Ganzzahlige Beträge und Rundungsschritte erklären",
+    "reason": "Cent speichert den Betrag exakt; eine anschließende Multiplikation mit 1.19 ist trotzdem Float-Arithmetik. Die Rundung pro Position kann von der Rundung der Gesamtrechnung abweichen.",
+    "mistake": "Float-Gleichheit und angeblich exakte Steuerberechnung vermischen → Rundungsregel und Zahlenbereich ausdrücklich festlegen.",
+    "exercises": [
+      "Erkläre 10/4 gegenüber intdiv(10,4).",
+      "Berechne 5997 Cent plus 19 Prozent mit Integer-Halbaufrundung.",
+      "Vergleiche Rundung je Position mit Gesamtrundung für drei Positionen zu 3 Cent."
+    ],
+    "acceptance": "5997 + intdiv(5997*19+50,100) ergibt 7136 Cent; drei einzeln besteuerte 3-Cent-Positionen ergeben 12 statt 11 Cent bei Gesamtrundung. Nur nichtnegative Beträge und kein Integer-Overflow vorausgesetzt."
+  },
+  {
+    "id": "m52-l4",
+    "outcome": "Boolesche Bedingungen und Grenzwerte nachvollziehen",
+    "reason": "Wahrheitswertkonvertierung ist nicht dieselbe Frage wie eine fachlich gültige Eingabe. Der Text '0' kann ein sinnvoller Wert sein und trotzdem false ergeben.",
+    "mistake": "Zuweisung in if oder leere Prüfung mit if($value) → ===, explizite Leerprüfung und fachliche Grenzen verwenden.",
+    "exercises": [
+      "Ordne '0', 'false', [] und [0] nach Wahrheitswert.",
+      "Teste die Notengrenzen 49,50,91,92.",
+      "Erweitere die Benotung um die Ablehnung von -1 und 101."
+    ],
+    "acceptance": "Für 0 bis 100 gibt es eindeutige Grenzen; außerhalb folgt eine dokumentierte Ablehnung statt einer scheinbar normalen Note."
+  },
+  {
+    "id": "m52-l5",
+    "outcome": "Schleifenende und Anzahl der Durchläufe beweisen",
+    "reason": "Initialisierung, Bedingung und Änderung müssen zusammenpassen. Ein Abbruch im falschen Block kann Daten überspringen.",
+    "mistake": "<= count($items) bei nullbasierten Indizes → foreach oder < count verwenden; Endbedingung vor Ausführung prüfen.",
+    "exercises": [
+      "Verfolge eine Schleife von 0 bis kleiner 3 auf Papier.",
+      "Summiere nur gerade Werte aus [0,1,2,3,4].",
+      "Begrenze eine Wiederholung auf maximal drei Versuche und erkläre den letzten Fehlschlag."
+    ],
+    "acceptance": "Summe 6; genau drei Versuche, auch wenn die Aufgabe jedes Mal scheitert. Keine Endlosschleife."
+  },
+  {
+    "id": "m42-l1",
+    "outcome": "CLI und HTTP als zwei Aufrufwege desselben Programms unterscheiden",
+    "reason": "Ein Serverprozess führt PHP aus; ein Browser erhält die erzeugte Antwort. Request-Daten sind nicht automatisch vertrauenswürdig.",
+    "mistake": "PHP-Datei per file:// öffnen → CLI oder lokalen Entwicklungsserver verwenden.",
+    "exercises": [
+      "Zeichne den Weg php hello.php.",
+      "Zeichne Browser → HTTP → PHP → Response.",
+      "Vergleiche den HTTP-Antworttext mit dem Quelltext der PHP-Datei."
+    ],
+    "acceptance": "Der Client sieht Ausgabe und Status, nicht automatisch PHP-Quellcode; CLI läuft ohne Browserrequest. Einstieg m52-l1 vorausgesetzt, hier nur Wiederholung."
+  },
+  {
+    "id": "m42-l2",
+    "outcome": "Werte, Typen und strikte Vergleiche prüfen",
+    "reason": "strict_types betrifft skalare Typdeklarationen an relevanten Aufrufgrenzen; es ist keine automatische Validierung von HTTP-Daten.",
+    "mistake": "'0' als ungültig abweisen oder == blind benutzen → Eingabeformat und Typ explizit prüfen.",
+    "exercises": [
+      "Vergleiche 0, '0', false mit ===.",
+      "Schreibe eine getypte Additionsfunktion und teste sie aus strict_types-Code.",
+      "Behandle einen ungültigen Zahlenstring ohne stillen Cast zu 0."
+    ],
+    "acceptance": "Ungültiger Text wird abgelehnt; Zahl und Zahlentext bleiben bewusst getrennt. Null ist nur erlaubt, wenn der Vertrag es vorsieht."
+  },
+  {
+    "id": "m42-l3",
+    "outcome": "Arrays durchlaufen und fehlende Schlüssel behandeln",
+    "reason": "PHP-Arrays sind geordnete Maps. Nach Filtern können numerische Schlüssel Lücken enthalten; JSON kann dann ein Objekt statt einer Liste ergeben.",
+    "mistake": "isset und array_key_exists gleichsetzen → entscheiden, ob null ein vorhandener Wert sein darf.",
+    "exercises": [
+      "Lies einen optionalen Schlüssel mit ??.",
+      "Filtere positive Zahlen und beobachte die Schlüssel.",
+      "Erzeuge aus dem Ergebnis mit array_values eine JSON-Liste."
+    ],
+    "acceptance": "[0=>1,2=>3] wird nach array_values zu einer lückenlosen Liste; null und fehlend werden bewusst unterschieden."
+  },
+  {
+    "id": "m42-l4",
+    "outcome": "Typisierte Funktionen und Closure-Captures begründen",
+    "reason": "Parameter und Rückgabewerte bilden einen Vertrag. Arrow Functions übernehmen Werte automatisch; use und use by-reference verändern unterschiedliche Dinge.",
+    "mistake": "Globals als versteckte Abhängigkeit → Parameter oder kontrollierte Captures verwenden.",
+    "exercises": [
+      "Schreibe eine Funktion mit int-Rückgabe.",
+      "Vergleiche use($rate) und use(&$rate) nach Änderung von rate.",
+      "Teste eine reine Rabattfunktion mit 0,100 und ungültigen Prozenten."
+    ],
+    "acceptance": "Reine Berechnung braucht keine globale Variable; der Gültigkeitsbereich der Prozentwerte ist explizit. m52 wiederholt nur Kontrollfluss."
+  },
+  {
+    "id": "m53-l1",
+    "outcome": "Listen und Schlüsselzugriffe ohne Referenzfehler ändern",
+    "reason": "foreach per Referenz kann eine Referenz auf das letzte Element hinterlassen. unset nach einer Referenzschleife beendet diese Bindung.",
+    "mistake": "Fehlenden Schlüssel blind lesen → Existenz bzw. Default explizit behandeln; Referenzen sparsam einsetzen.",
+    "exercises": [
+      "Baue eine Bestellung mit benannten Schlüsseln.",
+      "Entferne ein Element und untersuche array_keys.",
+      "Reproduziere eine foreach-Referenzfalle und repariere sie mit unset."
+    ],
+    "acceptance": "Die zweite Schleife verändert nicht versehentlich das letzte Element; Referenzen sind nicht für normale Iteration nötig."
+  },
+  {
+    "id": "m53-l2",
+    "outcome": "Sortierung und Transformation nach Schlüsselvertrag wählen",
+    "reason": "sort sortiert Werte und nummeriert neu; asort erhält Schlüssel. Comparatoren liefern negativ, null oder positiv, nicht nur true/false.",
+    "mistake": "Boolean-Comparator oder mutierte Schlüssel unerwartet verwenden → <=> und passende Sortierfunktion wählen.",
+    "exercises": [
+      "Sortiere [3,1,2] aufsteigend.",
+      "Sortiere Produktnamen unter Erhalt der IDs.",
+      "Filtere Produkte, sortiere nach Preis und liefere eine JSON-Liste."
+    ],
+    "acceptance": "IDs bleiben bis zur bewusst gewählten Reindexierung erhalten. Für Preisgleichheit ist eine zweite Sortierregel dokumentiert."
+  },
+  {
+    "id": "m53-l3",
+    "outcome": "Byte-Länge und Zeichenverarbeitung auseinanderhalten",
+    "reason": "strlen misst Bytes, mb_strlen mit UTF-8 Codepoints, grapheme_strlen gegebenenfalls Graphemcluster. Keines davon ist automatisch eine sichtbare Spaltenbreite.",
+    "mistake": "strpos-Ergebnis 0 als false interpretieren → !== false oder str_contains verwenden.",
+    "exercises": [
+      "Suche einen Begriff an Position 0.",
+      "Vergleiche strlen und mb_strlen für Grüße.",
+      "Zerlege CSV mit fgetcsv statt explode und erkläre ein Komma in Anführungszeichen."
+    ],
+    "acceptance": "Position 0 wird erkannt; mbstring/intl-Abhängigkeiten sind genannt. Keine pauschale Unicode-Sicherheit behaupten."
+  },
+  {
+    "id": "m53-l4",
+    "outcome": "Zeitzone und unveränderliche Zeitwerte kontrollieren",
+    "reason": "UTC für Zeitpunkte ist sinnvoll; lokale Kalenderdaten wie ein Geburtstag sind kein UTC-Zeitpunkt. Sommerzeit kann 24-Stunden-Annahmen verletzen.",
+    "mistake": "Server-Default-Zone voraussetzen → DateTimeImmutable und explizite Zone verwenden.",
+    "exercises": [
+      "Erzeuge einen Zeitpunkt mit expliziter Zone.",
+      "Zeige denselben Zeitpunkt in UTC und Europe/Berlin.",
+      "Untersuche einen lokalen Kalendertag über eine Sommerzeitumstellung."
+    ],
+    "acceptance": "Zeitpunkt bleibt identisch, Darstellung ändert sich; Kalenderaddition und Sekundenaddition werden unterschieden."
+  },
+  {
+    "id": "m43-l1",
+    "outcome": "Validierung und kontextgerechte Ausgabe trennen",
+    "reason": "HTML-Kodierung gehört an die Ausgabegrenze. Sie ersetzt weder SQL-Bindings noch Autorisierung oder CSRF-Schutz.",
+    "mistake": "htmlspecialchars als universellen Sanitizer benutzen → Ausgabekontext bestimmen und Daten separat validieren.",
+    "exercises": [
+      "Zeige <b>Mira</b> als Text in HTML.",
+      "Validiere eine E-Mail ohne sie als Beweis der Identität zu betrachten.",
+      "Baue ein POST-Formular mit serverseitiger Validierung und erkläre den CSRF-Token-Lebenszyklus."
+    ],
+    "acceptance": "HTML-Text wird nicht als Tag interpretiert; CSRF-Token wird mit geheimem Sessionwert verglichen. Vollständige Webauth folgt m43-l2/m47."
+  },
+  {
+    "id": "m43-l2",
+    "outcome": "Passwortprüfung und Sessionwechsel nach Login erklären",
+    "reason": "password_hash/password_verify nutzen geeignete Passwortverfahren. PASSWORD_DEFAULT wählt den jeweils definierten Default und ist nicht automatisch Argon2.",
+    "mistake": "Secure-Cookie auf reinem HTTP als funktionierenden Login erwarten → lokal und Produktion bewusst konfigurieren; HTTPS produktiv voraussetzen.",
+    "exercises": [
+      "Erzeuge Hashes desselben Passworts und vergleiche sie.",
+      "Prüfe richtiges und falsches Passwort.",
+      "Zeichne Login, Session-ID-Regeneration, Berechtigungsprüfung und Logout."
+    ],
+    "acceptance": "Kein Passwort in Logs; Login-Ratenbegrenzung und generische Fehlermeldungen gehören dazu. SameSite allein ersetzt CSRF nicht."
+  },
+  {
+    "id": "m43-l3",
+    "outcome": "SQL-Werte binden und Transaktionen begrenzen",
+    "reason": "Prepared Statements binden Werte, nicht Tabellen- oder Spaltennamen. Dynamische Bezeichner brauchen eine feste Erlaubnisliste.",
+    "mistake": "ORDER BY aus Request direkt einsetzen → erlaubte Spalten abbilden und Werte binden.",
+    "exercises": [
+      "Lies eine ID mit einem Prepared Statement.",
+      "Teste einen SQL-Injection-String als Wert.",
+      "Erzeuge zwei zusammengehörige Schreibvorgänge mit Rollback nach provoziertem Fehler."
+    ],
+    "acceptance": "Schemadaten bleiben unverändert; beide Writes werden gemeinsam bestätigt oder zurückgerollt. PDO-Ausnahmen werden nicht öffentlich ausgegeben."
+  },
+  {
+    "id": "m54-l1",
+    "outcome": "Dateizugriff mit Pfad-, Fehler- und Parallelitätsgrenzen gestalten",
+    "reason": "Ein vertrauenswürdiges Basisverzeichnis ist nicht automatisch Schutz gegen Traversal. Erfolgreiche Schreibaufrufe sind auf Fehler zu prüfen.",
+    "mistake": "Benutzerpfad direkt anhängen → feste Dateinamen/IDs, Zugriffskontrolle und kontrollierte Pfadauflösung.",
+    "exercises": [
+      "Lies eine bekannte UTF-8-Datei.",
+      "Behandle fehlende Datei ohne @-Unterdrückung.",
+      "Schreibe in eine temporäre Datei und diskutiere atomaren Rename und parallele Writer."
+    ],
+    "acceptance": "Temporäre Datei liegt auf passendem Dateisystem; Fehler werden behandelt, Lock/Atomarität nicht über verschiedene Systeme hinweg versprochen."
+  },
+  {
+    "id": "m54-l2",
+    "outcome": "JSON-Fehler und erwartetes Schema prüfen",
+    "reason": "JSON_THROW_ON_ERROR verhindert stilles null bei Dekodierfehlern. Gültiges JSON kann trotzdem den falschen Typ oder unerwünschte Felder enthalten.",
+    "mistake": "decode erfolgreich = sichere Daten → Form, Pflichtfelder, Typen und Größen begrenzen.",
+    "exercises": [
+      "Kodiere eine Liste mit Unicode.",
+      "Fange einen Syntaxfehler im JSON.",
+      "Prüfe eine Bestellung mit quantity, unbekannten Feldern und Obergrenze."
+    ],
+    "acceptance": "Objekt/Liste und null sind bewusst unterschieden; quantity ist gültig und begrenzt. Kein blindes Casten fremder Werte."
+  },
+  {
+    "id": "m54-l3",
+    "outcome": "HTTP-Status, Timeout und Wiederholung getrennt behandeln",
+    "reason": "Ein Netzwerkfehler unterscheidet sich von 404 oder 500. Ein erneuter POST kann einen bereits ausgeführten Seiteneffekt verdoppeln.",
+    "mistake": "Jeden Fehler unendlich wiederholen → begrenzte Retries nur für geeignete Fehler und idempotente Operationen.",
+    "exercises": [
+      "Ordne 200,404,429 und Timeout ein.",
+      "Simuliere eine kaputte JSON-Antwort.",
+      "Entwerfe begrenzten Retry mit Backoff und Idempotency-Key für eine Bestellung."
+    ],
+    "acceptance": "Zeitlimits und Maximalversuche sind explizit; personenbezogene Daten und Tokens fehlen in Logs."
+  },
+  {
+    "id": "m54-l4",
+    "outcome": "Exceptions an einer sinnvollen Grenze behandeln",
+    "reason": "Fehlerbehandlung muss einen fachlichen Unterschied bewirken: Wiederholung, Ersatzantwort oder sichere Fehlermeldung. Logs enthalten ausreichend Kontext ohne Secrets.",
+    "mistake": "Leeres catch oder komplette Request-Bodys loggen → typisierte Fehler weiterreichen und Kontext minimieren.",
+    "exercises": [
+      "Fange eine erwartete Exception.",
+      "Leite unerwartete Fehler an einen zentralen Handler.",
+      "Entwerfe Log-Level und Redaction für Login- und Zahlungsfehler."
+    ],
+    "acceptance": "Nutzer erhalten keine Stacktraces; Fehlersuche bleibt mit Korrelations-ID möglich. PSR-3-Kontext statt String-Sammelsurium."
+  },
+  {
+    "id": "m44-l1",
+    "outcome": "Kapselung und readonly sinnvoll einsetzen",
+    "reason": "readonly verhindert Neuzuweisung einer initialisierten Property, friert aber einen referenzierten veränderlichen Objektzustand nicht tief ein.",
+    "mistake": "Jedes Attribut public oder Setter ohne Regeln → fachliche Methoden und geprüfte Invarianten.",
+    "exercises": [
+      "Erzeuge ein readonly Value Object.",
+      "Teste eine verbotene Neuzuweisung.",
+      "Untersuche ein readonly Property mit DateTime versus DateTimeImmutable."
+    ],
+    "acceptance": "Der Unterschied zwischen Bindung und tiefem Zustand wird erklärt; Konstruktor lehnt ungültige Werte ab."
+  },
+  {
+    "id": "m44-l2",
+    "outcome": "Interface, abstrakte Klasse und Trait nach Verantwortung wählen",
+    "reason": "Ein Interface beschreibt Fähigkeiten; eine abstrakte Klasse kann Zustand/Implementierung teilen. Traits sind Codewiederverwendung, kein Ersatz für einen fachlichen Vertrag.",
+    "mistake": "Trait für jede Beziehung → Komposition bevorzugen, Konflikte und Abhängigkeiten sichtbar halten.",
+    "exercises": [
+      "Definiere ein PaymentGateway-Interface.",
+      "Implementiere einen Fake und eine zweite Variante.",
+      "Entferne eine versteckte Trait-Abhängigkeit durch Konstruktorinjektion."
+    ],
+    "acceptance": "Beide Implementierungen halten denselben Vertrag und behandeln Fehler konsistent; Aufrufer braucht keine Typabfrage."
+  },
+  {
+    "id": "m44-l3",
+    "outcome": "Endliche Zustände und fachliche Fehler ausdrücken",
+    "reason": "Backed Enums modellieren feste Werte; from wirft bei ungültigem Wert, tryFrom liefert null. Externe Daten bleiben validierungsbedürftig.",
+    "mistake": "Exception als normale Schleifensteuerung → erwartete Alternativen als Werte, echte Fehler als Exceptions modellieren.",
+    "exercises": [
+      "Erzeuge ein Status-Enum.",
+      "Teste from und tryFrom mit ungültigem Text.",
+      "Modelliere erlaubte Zustandswechsel mit fachlicher Exception."
+    ],
+    "acceptance": "Abgewiesener Wechsel verändert den Zustand nicht. Status aus fremder Eingabe wird nicht ungeprüft übernommen."
+  },
+  {
+    "id": "m44-l4",
+    "outcome": "Composer-Lockfile und Autoloading reproduzierbar nutzen",
+    "reason": "install verwendet das Lockfile, update berechnet erlaubte Versionen neu. Ein Versionsbereich garantiert nicht die Abwesenheit von Bugs oder semantischen Inkompatibilitäten.",
+    "mistake": "Auf Produktion composer update ausführen → Lockfile prüfen und install nutzen.",
+    "exercises": [
+      "Ordne composer.json und composer.lock zu.",
+      "Baue PSR-4-Autoloading für zwei Klassen.",
+      "Reproduziere die Installation aus einem frischen Arbeitsverzeichnis und prüfe composer audit."
+    ],
+    "acceptance": "Klassenpfade stimmen auch bei case-sensitivem Dateisystem; vendor und Secrets werden nicht committet, Lockfile einer App schon."
+  },
+  {
+    "id": "m55-l1",
+    "outcome": "Lazy-Verarbeitung und Ressourcenlebensdauer erklären",
+    "reason": "Ein Generator produziert Werte bei Bedarf. Er spart nicht automatisch Speicher, wenn der Verbraucher anschließend alles in ein Array lädt.",
+    "mistake": "iterator_to_array bei riesigem Export → streamend verarbeiten und Ressourcen zuverlässig schließen.",
+    "exercises": [
+      "Schreibe einen Generator für 1 bis 3.",
+      "Verarbeite eine Datei zeilenweise.",
+      "Vergleiche Speicherverhalten einer Streaming-Summe mit gesammelten Werten."
+    ],
+    "acceptance": "Kein Vollmaterialisieren im Streaming-Pfad; Dateihandle wird auch bei Abbruch geschlossen."
+  },
+  {
+    "id": "m55-l2",
+    "outcome": "SOLID als Entwurfsheuristik an einem Änderungsfall anwenden",
+    "reason": "Abstraktionen sind Mittel gegen konkrete Änderungsrisiken, kein Ziel. Kleine Apps brauchen nicht für jede Klasse ein Interface.",
+    "mistake": "Viele nutzlose Schichten → eine reale Erweiterung oder Testgrenze als Grund nennen.",
+    "exercises": [
+      "Finde zwei Verantwortlichkeiten in einer Checkout-Klasse.",
+      "Trenne Preisberechnung vom Versand.",
+      "Ergänze einen neuen Versanddienst ohne Änderungen an der reinen Berechnung."
+    ],
+    "acceptance": "Mehrfachzuständigkeit reduziert sich; Tests beschreiben Verhalten statt private Methoden."
+  },
+  {
+    "id": "m55-l3",
+    "outcome": "Neue Sprachmerkmale und deren Versionsgrenzen nachweisen",
+    "reason": "Property Hooks und asymmetrische Sichtbarkeit kommen aus PHP 8.4, der Pipe-Operator aus 8.5. Neue Syntax rechtfertigt keine unnötige Komplexität.",
+    "mistake": "8.5-Syntax auf älterer Laufzeit → Mindestversion in Composer und CI deklarieren.",
+    "exercises": [
+      "Ordne Syntax zu 8.4/8.5.",
+      "Schreibe eine Pipeline als normale Funktionsaufrufe.",
+      "Vergleiche Lesbarkeit und Fehlerbehandlung beider Varianten."
+    ],
+    "acceptance": "Beide Varianten liefern gleiche Werte; ungeeignete Laufzeiten werden vor Deployment erkannt."
+  },
+  {
+    "id": "m55-l4",
+    "outcome": "Abhängigkeiten injizieren und reine Regeln isoliert testen",
+    "reason": "Ein Fake an der externen Grenze ermöglicht deterministische Tests. Ein Interface ist hilfreich, wenn mehrere Implementierungen oder Testgrenzen bestehen.",
+    "mistake": "new im fachlichen Kern und echte Netzwerkaufrufe im Unit-Test → Konstruktorabhängigkeit verwenden.",
+    "exercises": [
+      "Schreibe eine Preisregel ohne I/O.",
+      "Injiziere einen festen Wechselkursanbieter.",
+      "Teste Ausfall und Rundungsgrenzen ohne Netzwerk."
+    ],
+    "acceptance": "Tests sind unabhängig von Tageszeit und externem Dienst; monetäre Rundungsregeln sind benannt."
+  },
+  {
+    "id": "m45-l1",
+    "outcome": "Eine reproduzierbare Laravel-13-Umgebung beschreiben",
+    "reason": "public ist der Document Root, .env enthält Laufzeitgeheimnisse. PHP-Minimum des Frameworks und Anforderungen der Testwerkzeuge können verschieden sein.",
+    "mistake": "Unversioniertes create-project und blindes Key-Rotieren → Hauptversion und Lockfile festhalten, APP_KEY kontrollieren.",
+    "exercises": [
+      "Zeichne Projektverzeichnisse.",
+      "Erzeuge ein lokales Laravel-13-Projekt nach offizieller Anleitung.",
+      "Dokumentiere PHP, Extensions, Composer, DB und Testkommando für ein zweites Gerät."
+    ],
+    "acceptance": "Keine Secrets im Repository; exakte Paketstände im Lockfile. Keine pauschale Marktführerschaft behaupten."
+  },
+  {
+    "id": "m45-l2",
+    "outcome": "Globale Middleware, Gruppen und Routenbindungen unterscheiden",
+    "reason": "Session und Request-Forgery-Schutz gehören im Standard zur web-Gruppe, nicht pauschal zum globalen Stack. api kann mit Sanctum bewusst stateful ergänzt werden.",
+    "mistake": "Middleware überall gleich annehmen → route:list und Gruppenregistrierung prüfen.",
+    "exercises": [
+      "Zeichne den Request-Lebenszyklus.",
+      "Lege eine benannte Route mit Parameter an.",
+      "Teste public, auth und Model-Binding-404 getrennt."
+    ],
+    "acceptance": "Route Model Binding lädt ein Model, autorisiert aber nicht automatisch den Benutzer."
+  },
+  {
+    "id": "m45-l3",
+    "outcome": "Controller, View und fachliche Logik nach Änderungsgrund trennen",
+    "reason": "Blade escaped Standardausgaben im HTML-Kontext. Raw-HTML-Ausgabe bleibt riskant; ein Layout ist keine Sicherheitsgrenze.",
+    "mistake": "Controller nach Zeilenzahl statt Verantwortung aufteilen → Nebenwirkungen und Regeln gezielt auslagern.",
+    "exercises": [
+      "Rendere einen Produktnamen mit Blade.",
+      "Extrahiere ein Layout als Komponente.",
+      "Teste fremde HTML-Zeichen und verweigere unberechtigten Datenzugriff vor dem Rendern."
+    ],
+    "acceptance": "Kein unkontrolliertes Raw-HTML; fehlende Daten und Berechtigungen werden getrennt behandelt."
+  },
+  {
+    "id": "m46-l1",
+    "outcome": "Migrationen, Fabriken und Seed-Daten getrennt einsetzen",
+    "reason": "Schemaänderungen müssen rückwärtskompatibel geplant werden. Demo-Seeder sind kein Produktionsdatenbestand.",
+    "mistake": "migrate:fresh gegen echte Daten → nur isolierte Testdatenbank verwenden, Restore üben.",
+    "exercises": [
+      "Definiere Tabelle mit eindeutiger SKU.",
+      "Erzeuge Factory-Daten mit gültigen Beziehungen.",
+      "Plane Expand-Migrate-Contract für eine neue Pflichtspalte."
+    ],
+    "acceptance": "Constraints schützen Invarianten; destruktive Schritte werden als solche erkannt. Seed-Daten verletzen keine fachlichen Regeln."
+  },
+  {
+    "id": "m46-l2",
+    "outcome": "Feldfreigabe, Validierung und Autorisierung getrennt absichern",
+    "reason": "Mass Assignment folgt fillable/guarded; validated liefert geprüfte Felder, entscheidet aber nicht über Eigentum oder Rollen. Vertrauliche Attribute explizit schützen.",
+    "mistake": "validated als Berechtigungsbeweis behandeln → Policy und serverseitige Zuweisung des Besitzers.",
+    "exercises": [
+      "Lege ein Model mit kleiner fillable-Liste an.",
+      "Sende ein unerlaubtes admin-Feld.",
+      "Teste gültige Daten eines fremden Benutzers und verweigere den Zugriff."
+    ],
+    "acceptance": "Kein Rollen-/Owner-Feld aus dem Request übernehmen. hidden/Resources steuern Ausgabe, nicht Schreibberechtigung."
+  },
+  {
+    "id": "m46-l3",
+    "outcome": "Beziehungen nach Fremdschlüssel und Zugriffspfad modellieren",
+    "reason": "Eine Relation definiert Abfragen, ersetzt aber keine DB-Fremdschlüssel oder Ownership-Prüfung. Beziehungsmethode und geladene Property haben verschiedene Rollen.",
+    "mistake": "Relation pro Zeile nachladen → vorab passend laden und benötigte Schlüssel mitselektieren.",
+    "exercises": [
+      "Definiere belongsTo und hasMany.",
+      "Lade Produkte mit Kategorien.",
+      "Teste fehlende optionale Beziehung und das Löschen eines Elternobjekts."
+    ],
+    "acceptance": "Null-Fall ist kontrolliert; Löschstrategie folgt Fachregel und Constraint."
+  },
+  {
+    "id": "m46-l4",
+    "outcome": "N+1 durch Messung erkennen und gezielt beheben",
+    "reason": "Eager Loading reduziert nicht jede Aufgabe auf eine einzige Abfrage. withCount passt zu Zählwerten, with zu benötigten Beziehungsdaten.",
+    "mistake": "Alles eager laden → Query-Budget und benötigte Felder bestimmen.",
+    "exercises": [
+      "Zähle Queries einer Produktliste.",
+      "Behebe N+1 mit with.",
+      "Vergleiche withCount mit Laden aller Bestellungen bei 100 Produkten."
+    ],
+    "acceptance": "Query-Zahl steigt nicht linear mit der Zeilenanzahl; Speicher und Payload werden mitgemessen."
+  },
+  {
+    "id": "m47-l1",
+    "outcome": "Form Requests als Validierungs- und Autorisierungsgrenze einsetzen",
+    "reason": "authorize und rules erfüllen verschiedene Aufgaben. Verschachtelte Arrays brauchen erlaubte Schlüssel und Mengenbegrenzungen.",
+    "mistake": "Regeln nur im Browser → serverseitige Regeln und negative Tests verwenden.",
+    "exercises": [
+      "Prüfe Pflichtfeld und Maximallänge.",
+      "Validiere verschachtelte Bestellpositionen.",
+      "Teste unbekannte Schlüssel, fremde IDs und übergroße Listen."
+    ],
+    "acceptance": "Gültiges Format ist noch kein Beweis, dass ein referenziertes Objekt dem Benutzer gehört."
+  },
+  {
+    "id": "m47-l2",
+    "outcome": "Session-Login, Middleware und Request-Forgery-Schutz zusammensetzen",
+    "reason": "Ein offizielles Starter Kit ist ein Ausgangspunkt, kein Ersatz für Review. Laravel 13 dokumentiert PreventRequestForgery; ältere Beispiele/Methodennamen gezielt auf Kompatibilität prüfen.",
+    "mistake": "CSRF für alle APIs pauschal abschalten → Cookie- und Bearer-Modus getrennt modellieren.",
+    "exercises": [
+      "Zeichne Login und Session-Regeneration.",
+      "Schütze eine Route mit auth und verified.",
+      "Teste Loginfehler, Logout, CSRF und Wiederanmeldung im passenden Modus."
+    ],
+    "acceptance": "Keine offenen Redirects; Session wird beim Logout invalidiert. Verifikation und Autorisierung sind getrennt."
+  },
+  {
+    "id": "m47-l3",
+    "outcome": "Policy-Regeln bei jedem Objektzugriff durchsetzen",
+    "reason": "UI-Verstecken ist kein Zugriffsschutz. Policy und Query-Scoping ergänzen sich, insbesondere in Mehrmandantensystemen.",
+    "mistake": "Auth genügt für jede ID → Ownership/Tenant und Aktion prüfen.",
+    "exercises": [
+      "Schreibe view/update-Regeln.",
+      "Teste Gast, Besitzer und Fremden.",
+      "Prüfe Bulk-Endpunkt und verschachtelte Route auf fremde IDs."
+    ],
+    "acceptance": "Alle Zugriffspfade sind abgedeckt, nicht nur die Detailseite. 403/404-Strategie ist bewusst gewählt."
+  },
+  {
+    "id": "m56-l1",
+    "outcome": "Komponenten-API und HTML-Attribute kontrolliert gestalten",
+    "reason": "Props sind ein Vertrag; Attribute-Bags bündeln übrige Attribute. User-generierte Klassen oder Raw-HTML brauchen ein bewusstes Sicherheitsmodell.",
+    "mistake": "Jede kleine Zeile als Komponente → zusammenhängende wiederverwendbare Verantwortung wählen.",
+    "exercises": [
+      "Baue einen Button mit Defaulttyp button.",
+      "Ergänze benannten Slot und Fehlermeldung.",
+      "Teste Attribute und Tastaturverhalten in zwei Formularen."
+    ],
+    "acceptance": "Kein unbeabsichtigter Submit; Label und Fehlermeldung bleiben zugänglich."
+  },
+  {
+    "id": "m56-l2",
+    "outcome": "Vite-Entwicklung und Produktionsbuild auseinanderhalten",
+    "reason": "Devserver, Buildmanifest und Runtime-Konfiguration sind verschiedene Dinge. VITE_-Werte landen im Client und sind keine Secrets.",
+    "mistake": "Backend-Geheimnis mit VITE_-Präfix → nur öffentliche Konfiguration ins Bundle geben.",
+    "exercises": [
+      "Binde einen JS-Einstieg ein.",
+      "Erzeuge einen Produktionsbuild.",
+      "Prüfe Bundle/Manifest, fehlenden Devserver und ein absichtlich öffentliches Konfigurationsfeld."
+    ],
+    "acceptance": "Produktion funktioniert ohne Devserver; keine Passwörter, privaten Keys oder API-Secrets im Bundle."
+  },
+  {
+    "id": "m56-l3",
+    "outcome": "Livewire-Komponenten als untrusted Request-Grenze behandeln",
+    "reason": "Livewire 4 ist die Zielhauptversion; Klassenbasierte Komponenten sind ein gewählter Stil, nicht der einzig mögliche. Serveraktionen müssen validieren und autorisieren.",
+    "mistake": "Öffentliche Property für vertrauenswürdig halten → jeden Serveraufruf absichern und Zustand begrenzen.",
+    "exercises": [
+      "Baue eine lokale Suchkomponente.",
+      "Begrenze Suchtext und Ergebnisse.",
+      "Manipuliere eine fremde Objekt-ID und prüfe die Policy."
+    ],
+    "acceptance": "UI-Bindung schützt keine Daten; N+1, Debounce und autorisierte Query sind bewusst behandelt."
+  },
+  {
+    "id": "m56-l4",
+    "outcome": "Formularfehler zugänglich und serververbindlich darstellen",
+    "reason": "Clientvalidierung unterstützt, der Server entscheidet. Fehler brauchen Feldbezug, erhaltene Eingaben und eine Tastaturstrategie.",
+    "mistake": "Nur rote Farbe oder Placeholder als Label → sichtbare Labels und zugeordnete Fehlertexte.",
+    "exercises": [
+      "Baue ein beschriftetes Feld.",
+      "Verbinde Fehler über aria-describedby.",
+      "Teste leere, zu lange und serverseitig abgelehnte Eingaben mit Tastatur."
+    ],
+    "acceptance": "Keine verlorenen Eingaben; Statusmeldung ist ohne Farbsehen erkennbar. Sensible Felder werden nicht wiederbefüllt."
+  },
+  {
+    "id": "m57-l1",
+    "outcome": "Uploads auf Inhalt, Größe, Berechtigung und Auslieferung prüfen",
+    "reason": "Dateiendung allein ist kein Inhaltsbeweis. Private Speicherung braucht eine autorisierte Downloadroute; öffentliche URLs umgehen diese.",
+    "mistake": "Benutzer-Dateinamen als Pfad → generierten Namen und kontrollierten Storage verwenden.",
+    "exercises": [
+      "Validiere eine kleine Bilddatei.",
+      "Teste falschen Typ und Übergröße.",
+      "Plane privaten Download mit Owner-Policy und Content-Disposition."
+    ],
+    "acceptance": "Kein ausführbarer Upload im Webroot; Limits gelten auch auf Proxy-/PHP-Ebene."
+  },
+  {
+    "id": "m57-l2",
+    "outcome": "E-Mail-Erzeugung vom Versand und externen Kosten trennen",
+    "reason": "Ein Mailable beschreibt Nachricht und Ansicht. Queue nach Commit verhindert das Lesen noch nicht persistierter Daten, garantiert aber keine Exactly-once-Zustellung.",
+    "mistake": "Lokale Tests senden echte E-Mails → log/Mailpit und Mail::fake nutzen.",
+    "exercises": [
+      "Rendere eine Bestätigung lokal.",
+      "Teste Empfänger und Betreff.",
+      "Plane Retry, Dublettenbehandlung und Zustellfehler ohne echte Zahlung/Mail."
+    ],
+    "acceptance": "Keine echten Empfänger im Test; geheime Daten fehlen im Nachrichteninhalt und im Log."
+  },
+  {
+    "id": "m57-l3",
+    "outcome": "Benachrichtigungskanäle nach Nutzerwunsch und Ereignis modellieren",
+    "reason": "Database, Mail und weitere Kanäle können unabhängig scheitern. Gelesen heißt nicht, dass eine Mail zugestellt wurde.",
+    "mistake": "Notification als sichere Bestätigung eines Geschäftsprozesses verwenden → fachlichen Zustand separat speichern.",
+    "exercises": [
+      "Erzeuge Datenbanknachricht.",
+      "Teste Kanalauswahl für Opt-out.",
+      "Definiere Regeln für erneuten Versand und gelesene Nachrichten."
+    ],
+    "acceptance": "Nur der Empfänger darf seine Benachrichtigungen lesen/markieren; Queue- und Aufbewahrungsregeln sind sichtbar."
+  },
+  {
+    "id": "m58-l1",
+    "outcome": "Aggregate, Subqueries und Filterverträge am Datenbedarf ausrichten",
+    "reason": "whereHas filtert Eltern anhand einer Beziehung; es lädt diese nicht automatisch. Zulässige Sortierfelder sind kein beliebiger SQL-Text.",
+    "mistake": "Request direkt in orderByRaw → Erlaubnisliste und Bindings nutzen.",
+    "exercises": [
+      "Filtere Kunden mit offenen Bestellungen.",
+      "Berechne Summe ohne alle Einzelobjekte zu laden.",
+      "Vergleiche Queryplan und Pagination bei klar definierten Filterparametern."
+    ],
+    "acceptance": "Fachlich gleiche Ergebnismenge und stabile Sortierung; unbekannte Filter werden kontrolliert behandelt."
+  },
+  {
+    "id": "m58-l2",
+    "outcome": "Value Objects und Casts an einer Dateninvariante entwerfen",
+    "reason": "Cast serialisiert/deserialisiert, ersetzt aber keine vollständige fachliche Validierung und keine DB-Constraints.",
+    "mistake": "Ungültigen Wert erst beim Rendern bemerken → Konstruktor/Factory prüft Invariante.",
+    "exercises": [
+      "Baue unveränderliches Money-Objekt.",
+      "Teste Hin- und Rückkonvertierung eines Casts.",
+      "Prüfe Null, falsche Währung und negative Werte im vereinbarten Vertrag."
+    ],
+    "acceptance": "Roundtrip erhält Bedeutung; Rundungs- und Währungsregeln sind explizit."
+  },
+  {
+    "id": "m58-l3",
+    "outcome": "Polymorphe Beziehungen und Typfreigaben erklären",
+    "reason": "Morph Maps entkoppeln gespeicherte Typen von Klassennamen. Die Datenbank kann polymorphe Ziele nicht wie einen einfachen Fremdschlüssel absichern.",
+    "mistake": "Beliebigen morph-Typ aus Request akzeptieren → feste Map, Autorisierung und Zielprüfung.",
+    "exercises": [
+      "Modelliere Kommentare an zwei Typen.",
+      "Definiere eine Morph Map.",
+      "Teste unbekannten Typ, fehlendes Ziel und Fremdzugriff."
+    ],
+    "acceptance": "Keine frei wählbaren PHP-Klassen aus Fremddaten; Lösch-/Archivierungsregeln sind dokumentiert."
+  },
+  {
+    "id": "m58-l4",
+    "outcome": "Scopes und Soft Deletes nicht als alleinigen Sicherheitsschutz missverstehen",
+    "reason": "Globale Scopes helfen beim Filtern, können aber bewusst umgangen werden. Soft Delete ist keine Löschung persönlicher Daten aus allen Speichern.",
+    "mistake": "Admin-Report ohne Tenant-Prüfung → Ausnahmezugriff explizit autorisieren und protokollieren.",
+    "exercises": [
+      "Teste Soft Delete und Wiederherstellung.",
+      "Untersuche withTrashed und withoutGlobalScope.",
+      "Plane Aufbewahrung, Pruning und echte Löschung mit Backupgrenzen."
+    ],
+    "acceptance": "Kein fremder Tenant im normalen Zugriff; Wiederherstellung respektiert eindeutige Constraints."
+  },
+  {
+    "id": "m48-l1",
+    "outcome": "API-Vertrag und serverseitige Datenfreigabe gestalten",
+    "reason": "Der api-Stack ist standardmäßig nicht der web-Stack; Sanctum kann für First-Party-SPAs Session und CSRF ergänzen. Resources kontrollieren Felder, ersetzen aber keine Policy.",
+    "mistake": "Model-Ausgabe als unveränderlichen Vertrag ansehen → explizite Resource und Scope verwenden.",
+    "exercises": [
+      "Liefere einen dokumentierten 200-Response.",
+      "Teste 201 mit Location und 204 ohne Body.",
+      "Prüfe Pagination, sensible Felder, 401/403/404 und Validation-422."
+    ],
+    "acceptance": "Keine internen Felder im Response; cursor pagination braucht stabile geeignete Sortierung und ist nicht pauschal schneller."
+  },
+  {
+    "id": "m48-l2",
+    "outcome": "Bearer-Tokens und First-Party-SPA-Sessions sauber unterscheiden",
+    "reason": "Eigene SPAs nutzen nach Sanctum-Empfehlung Sessioncookies und CSRF. Bearer-Tokens sind für passende externe/mobile Clients. XSS kann trotz HttpOnly Aktionen im Namen des Nutzers auslösen.",
+    "mistake": "Token-Ability als alleinige Berechtigung → zusätzlich Policy/Ownership prüfen.",
+    "exercises": [
+      "Zeichne beide Auth-Flows.",
+      "Teste abgelaufenes Token und fehlende Ability.",
+      "Prüfe SPA-CSRF, Cookie-Domain und Logout ohne currentAccessToken()->delete auf einer Session."
+    ],
+    "acceptance": "Abilities schützen nicht pauschal First-Party-SPA-Requests; tokenCan ist dort absichtlich true. Widerruf und Sessionlogout sind verschieden."
+  },
+  {
+    "id": "m48-l3",
+    "outcome": "Idempotenz als dauerhaften, benutzergebundenen Vertrag entwerfen",
+    "reason": "HTTP definiert idempotente Methoden semantisch, die Implementierung muss das einhalten. Ein Cache-Lock allein garantiert keine dauerhafte Einmalwirkung.",
+    "mistake": "Gleicher Key für anderen Payload → Payload-Fingerprint vergleichen und Konflikt zurückgeben.",
+    "exercises": [
+      "Definiere Fehlerformat und Rate-Limit.",
+      "Teste denselben Bestellrequest zweimal.",
+      "Plane Parallelaufrufe und Crash nach Commit vor Antwort mit DB-Unique-Key und gespeicherter Antwort."
+    ],
+    "acceptance": "Ein Schlüssel gehört zu Benutzer, Operation und Payload. Aufbewahrungszeit und Status laufender Verarbeitung sind definiert."
+  },
+  {
+    "id": "m49-l1",
+    "outcome": "Container-Lebensdauer und Abhängigkeiten bewusst wählen",
+    "reason": "singleton lebt für die Containerinstanz; unter langlebigen Prozessen kann das mehrere Requests umfassen. scoped wird an Lifecycle-Grenzen zurückgesetzt.",
+    "mistake": "Requestdaten in Singleton speichern → zustandslose Dienste oder passende scoped-Bindung verwenden.",
+    "exercises": [
+      "Binde ein Interface an einen Fake.",
+      "Vergleiche bind/singleton/scoped.",
+      "Teste zwei Nutzer nacheinander in einem langlebigen Worker-Szenario."
+    ],
+    "acceptance": "Keine nutzerspezifischen Daten über Requestgrenzen; Mock bleibt auf Testgrenze begrenzt."
+  },
+  {
+    "id": "m49-l2",
+    "outcome": "register und boot nach Abhängigkeitsreihenfolge verwenden",
+    "reason": "register definiert Bindungen, boot läuft nach Registrierung aller Provider. Facades sind ein Zugriffsstil auf Containerdienste, kein pauschaler Ersatz für testbaren Entwurf.",
+    "mistake": "env außerhalb config bei gecachter Konfiguration → config-Werte nutzen.",
+    "exercises": [
+      "Registriere einen Dienst.",
+      "Ergänze einen Macro in boot.",
+      "Teste gecachte Konfiguration ohne direkten env-Zugriff im Fachcode."
+    ],
+    "acceptance": "Test und Produktion lesen denselben Konfigurationsvertrag; keine I/O-Nebenwirkung beim bloßen Registrieren."
+  },
+  {
+    "id": "m49-l3",
+    "outcome": "Events, Observer und Commit-Grenzen transparent halten",
+    "reason": "Massenupdates lösen keine einzelnen Model-Events aus. afterCommit verhindert bestimmte Frühzugriffe, garantiert aber keine atomare DB-und-Broker-Transaktion.",
+    "mistake": "Unsichtbaren Observer als einzigen Integritätsmechanismus verwenden → explizite Action und Constraints prüfen.",
+    "exercises": [
+      "Löse ein Domain-Event aus.",
+      "Teste Commit und Rollback.",
+      "Plane Outbox oder Reconciliation für Crash zwischen DB-Commit und Nachricht."
+    ],
+    "acceptance": "Rollback erzeugt keine erfolgreiche Fachmeldung; kritische Seiteneffekte bleiben nachholbar."
+  },
+  {
+    "id": "m49-l4",
+    "outcome": "Actions um Anwendungsfälle statt bloße Codezeilen bündeln",
+    "reason": "Eine Action koordiniert Autorisierung, validierte Daten und fachliche Transaktion. DB-Transaktion kann eine externe Zahlung nicht einfach zurückrollen.",
+    "mistake": "HTTP-Aufruf unter langem DB-Lock → lokale Zustandsänderung und externe Seiteneffekte mit klarer Strategie trennen.",
+    "exercises": [
+      "Extrahiere eine Checkout-Action.",
+      "Injiziere einen Fake-Paymentdienst.",
+      "Teste Bestandskonflikt, doppelte Ausführung und externen Timeout."
+    ],
+    "acceptance": "Preise stammen vom Server, Bestand wird atomar geprüft; Kompensation und Wiederholung sind dokumentiert."
+  },
+  {
+    "id": "m59-l1",
+    "outcome": "Laravel-HTTP-Client mit Grenzen und deterministischen Tests nutzen",
+    "reason": "Ohne throw wird ein 4xx/5xx nicht pauschal als Exception behandelt; retry kann eigene Fehlerregeln besitzen. Timeout und Retrybudget gehören zusammen.",
+    "mistake": "POST nach jedem Timeout blind wiederholen → Idempotenz und Fehlertyp berücksichtigen.",
+    "exercises": [
+      "Fake einen 200-JSON-Response.",
+      "Fake 404,500 und Timeout.",
+      "Prüfe maximale Aufrufzahl und Verhalten bei ungültigem Response-Schema."
+    ],
+    "acceptance": "Http::preventStrayRequests verhindert echte Netzaufrufe im Test; Zugangsdaten fehlen in Logs."
+  },
+  {
+    "id": "m59-l2",
+    "outcome": "Webhook-Signatur, Freshness und Ereignisverarbeitung zusammensetzen",
+    "reason": "Der Anbieter definiert kanonische Signaturdaten. Exakte Raw-Bytes, signierter Timestamp, Zeitfenster und eindeutige Ereignis-ID lösen unterschiedliche Probleme.",
+    "mistake": "Signatur als einzige Sicherung ansehen → Größenlimit, Replay-Schutz, Deduplizierung, Rate-Limit und sichere Queue ergänzen.",
+    "exercises": [
+      "Prüfe ein bekanntes HMAC-Testpaar.",
+      "Verändere ein Byte und lehne ab.",
+      "Teste gleiche Event-ID parallel und einen alten korrekt signierten Timestamp."
+    ],
+    "acceptance": "Verarbeitung wird dauerhaft einmal beansprucht, Wiederholung liefert passenden Erfolg; keine unsignierten Timestamps als Freshness-Beweis."
+  },
+  {
+    "id": "m59-l3",
+    "outcome": "Suchindex und Datenbank als unterschiedliche Sichten behandeln",
+    "reason": "Ein Suchindex kann verzögert oder veraltet sein. Treffer müssen nach Berechtigung/Tenant begrenzt werden; Indexfelder sind ein Datenfreigabevertrag.",
+    "mistake": "Geheime Felder indexieren → explizite Suchdaten und Filter definieren.",
+    "exercises": [
+      "Definiere indexierte Produktfelder.",
+      "Teste Aktualisierung und Löschung.",
+      "Prüfe Tenant-Suche und Rebuild während des Betriebs."
+    ],
+    "acceptance": "Nicht berechtigte Treffer werden nicht schon durch Titel/Counts verraten; Kosten/Engineabhängigkeiten sind genannt."
+  },
+  {
+    "id": "m59-l4",
+    "outcome": "Private Echtzeitkanäle und Verbindungsfehler testen",
+    "reason": "Broadcasting-Auth autorisiert ein Abonnement; sie ersetzt nicht die Kontrolle jedes fachlichen Schreibzugriffs. Nachrichten können fehlen oder doppelt kommen.",
+    "mistake": "Öffentlicher Kanal mit persönlichen Daten → privater Kanal und reduzierte Payload.",
+    "exercises": [
+      "Definiere einen Besitzerkanal.",
+      "Teste fremden Abonnenten.",
+      "Plane Reconnect und erneutes Laden des maßgeblichen Serverzustands."
+    ],
+    "acceptance": "UI ist nach Reconnect konsistent; Eventdaten nicht mit innerHTML darstellen. Separate Echo-/Reverb-Konfiguration gehört zum Setup."
+  },
+  {
+    "id": "m50-l1",
+    "outcome": "Jobs trotz mehrfacher Ausführung sicher gestalten",
+    "reason": "ShouldBeUnique begrenzt Dispatch/Locks, ist aber keine Exactly-once-Garantie. Zwischen externem Seiteneffekt und Speicherung kann der Worker abstürzen.",
+    "mistake": "if(done) als vollständige Idempotenz behaupten → dauerhafte Deduplizierung und idempotenten externen Vertrag verwenden.",
+    "exercises": [
+      "Teste einen Job ohne Worker synchron.",
+      "Führe ihn zweimal aus.",
+      "Simuliere Crash nach externem Erfolg vor lokaler Markierung."
+    ],
+    "acceptance": "Doppelverarbeitung ist beherrscht; timeout liegt passend unter retry_after und Lockdauer, afterCommit und Fehlerüberwachung sind dokumentiert."
+  },
+  {
+    "id": "m50-l2",
+    "outcome": "Cache-Key, Invalidierung und Isolation planen",
+    "reason": "Cache ist abgeleiteter Zustand. Mandant, Berechtigung, Sprache und Filter können Teil des Keys sein. Versionierte Keys brauchen trotzdem TTL/Aufräumen.",
+    "mistake": "rememberForever für jede Versionsnummer → TTL und kontrollierte Invalidierung verwenden.",
+    "exercises": [
+      "Cache eine Kennzahl mit TTL.",
+      "Teste Invalidierung nach Update.",
+      "Simuliere zwei Tenants und gleichzeitige Neuberechnung nach Verfall."
+    ],
+    "acceptance": "Keine tenantübergreifenden Treffer; Lockbackend ist gemeinsam und Laufzeit begrenzt. Keine absolute Stampede-Garantie."
+  },
+  {
+    "id": "m50-l3",
+    "outcome": "Performance anhand reproduzierbarer Messungen verbessern",
+    "reason": "Ein Index hängt von Datenverteilung und Queryplan ab. OPcache spart Übersetzung, garantiert aber keine feste Beschleunigung.",
+    "mistake": "Unbelegtes doppelt so schnell → Ausgangsmessung und Vergleich unter gleichen Bedingungen.",
+    "exercises": [
+      "Miss Queryzahl und Laufzeit.",
+      "Reduziere geladene Spalten und Zeilen.",
+      "Vergleiche p50/p95 sowie Speicher unter realistischer Last."
+    ],
+    "acceptance": "Fachlich gleiche Ergebnisse, keine unkontrollierten SQL-Parameter im Log. Streaming bedeutet nicht in jedem Umfeld konstanten Gesamtspeicher."
+  },
+  {
+    "id": "m50-l4",
+    "outcome": "Geplante Aufgaben sicher wiederholbar ausführen",
+    "reason": "onOneServer und withoutOverlapping brauchen geeignete gemeinsame Locks und definierte Laufzeit. Ein Schedule::job-Lock deckt nicht automatisch die spätere komplette Jobausführung ab.",
+    "mistake": "Negativen --tage-Wert akzeptieren → Optionen prüfen und Dry-run vor destruktiver Aktion anbieten.",
+    "exercises": [
+      "Schreibe einen lesenden Command.",
+      "Ergänze validierte Option und Dry-run.",
+      "Teste parallele Scheduler und wiederholten Aufruf."
+    ],
+    "acceptance": "Produktivdaten werden nicht aus Versehen gelöscht; Zeitzone, Monitoring und Lockablauf sind geplant."
+  },
+  {
+    "id": "m51-l1",
+    "outcome": "Unit-, Feature- und Datenbanktests nach Risiko auswählen",
+    "reason": "Installer bieten Testauswahl; nicht jedes neue Projekt nutzt pauschal Pest. RefreshDatabase unterstützt Isolation, aber SQLite bildet produktive DB-Semantik nicht vollständig ab.",
+    "mistake": "Grüner SQLite-Test beweist alle Locks → produktionsnahe DB für kritische Transaktionen testen.",
+    "exercises": [
+      "Teste eine reine Funktion.",
+      "Teste HTTP-Erfolg,422 und Fremdzugriff.",
+      "Teste parallelen Bestellkonflikt auf dem vorgesehenen DB-System."
+    ],
+    "acceptance": "Tests laufen isoliert und ohne Produktionsdaten; echte Abhängigkeiten und Fixture-Aufbau sind genannt."
+  },
+  {
+    "id": "m51-l2",
+    "outcome": "Fakes an Außenkanten und Zeitsteuerung gezielt verwenden",
+    "reason": "Ein Fake prüft Aufrufvertrag, nicht automatisch Verhalten des realen Dienstes. Einzelne Vertragstests ergänzen isolierte Tests.",
+    "mistake": "Alles mocken → interne reine Logik echt ausführen, nur externe Grenzen ersetzen.",
+    "exercises": [
+      "Fake Mail und prüfe Empfänger.",
+      "Fake HTTP mit verbotenem Stray-Request.",
+      "Teste Gutschein vor/auf/nach Ablauf ohne sleep."
+    ],
+    "acceptance": "Keine echten Mails oder Zahlungen; Grenzzeitpunkt ist ausdrücklich inklusive oder exklusiv definiert."
+  },
+  {
+    "id": "m51-l3",
+    "outcome": "Formatierung, Typprüfung, Tests und Audit getrennt bewerten",
+    "reason": "Pint formatiert; Larastan analysiert Typen; Tests prüfen beobachtetes Verhalten. Ein grüner Workflow schützt einen Branch nur mit entsprechender Repository-Regel.",
+    "mistake": "CI vorhanden = Merge gesperrt → Required Checks separat konfigurieren.",
+    "exercises": [
+      "Lass Pint einen Stilbruch finden.",
+      "Lass PHPStan einen Typfehler finden.",
+      "Baue CI mit Lockfiles, Tests, Audit und Least-Privilege-Rechten."
+    ],
+    "acceptance": "Keine Secrets in PRs aus Forks; Action-Versionen/SHAs und Updatepolitik bewusst prüfen. Ziel-PHP 8.5 dokumentieren."
+  },
+  {
+    "id": "m51-l4",
+    "outcome": "Deployment und Wiederherstellung als prüfbare Abläufe planen",
+    "reason": "Zero Downtime hängt von Host, Switch-Mechanismus, Requests, Workern und kompatiblen Migrationen ab. Ein ln -sfn ist nicht auf jeder Plattform ein atomarer Releaseswitch.",
+    "mistake": "Produktionspfade rekursiv aus einem Lernskript löschen → keine automatische breite Bereinigung; Backups, Staging und validierte Pfade verwenden.",
+    "exercises": [
+      "Erstelle ein Release-Manifest.",
+      "Übe additive Migration und Rollback auf Staging.",
+      "Führe Restore und Healthcheck nach einem absichtlichen Fehlrelease durch."
+    ],
+    "acceptance": "Keine Produktionsbefehle hier ausführen. Secrets bleiben außerhalb Release; Worker-Restart, Build und Ressourcenrechte sind dokumentiert."
+  },
+  {
+    "id": "m60-l1",
+    "outcome": "Sicherheitsanforderungen durch negative Tests belegen",
+    "reason": "Signierte URLs schützen Integrität/Frist, nicht automatisch Berechtigung oder Wiederverwendung. Ein mutierender GET kann durch Linkscanner ausgelöst werden.",
+    "mistake": "Signatur = vollständige Autorisierung → Ressource, Aktion und Wiederverwendbarkeit prüfen.",
+    "exercises": [
+      "Erstelle eine Zugriffsmatrix.",
+      "Teste IDOR, Raw-HTML und falschen CSRF-Kontext.",
+      "Entwerfe eine signierte Bestätigungsseite mit mutierendem POST statt blindem GET."
+    ],
+    "acceptance": "Keine Geheimnisse im Frontend; Header ergänzen, ersetzen aber keine sichere Anwendung. HSTS erst nach geprüfter HTTPS-/Subdomain-Strategie."
+  },
+  {
+    "id": "m60-l2",
+    "outcome": "Beobachtbarkeit mit Datensparsamkeit verbinden",
+    "reason": "Request-IDs aus fremden Headern müssen in Format und Länge begrenzt werden. Dashboards und Logs enthalten sensible Daten und brauchen Zugriffs-/Löschregeln.",
+    "mistake": "Vollständigen Request aufzeichnen → Redaction und minimale strukturierte Felder.",
+    "exercises": [
+      "Erzeuge eine eigene Request-ID.",
+      "Teste ungültige fremde IDs und Logredaction.",
+      "Prüfe Dashboard-Zugriff, Alarm und Datenaufbewahrung in einem Fehlerfall."
+    ],
+    "acceptance": "Keine Credentials oder Zahlungsdaten im Log; Liveness und Readiness werden nicht gleichgesetzt."
+  },
+  {
+    "id": "m60-l3",
+    "outcome": "Ein Projekt in lieferbare Meilensteine und Rechte zerlegen",
+    "reason": "Der Mini-Shop ist ein Lernprojekt, keine automatisch rechtssichere E-Commerce-Lösung. Erst Kernflüsse, dann externe Zahlung und Zusatzfunktionen.",
+    "mistake": "Direkt mit Komplettshop starten → kleine vertikale Schnitte mit Abnahme definieren.",
+    "exercises": [
+      "Zeichne Datenmodell und Preis-Snapshot.",
+      "Schreibe Zugriffsmatrix pro Route.",
+      "Definiere fünf Meilensteine mit je Erfolgs-,Fehler- und Fremdzugriffstest."
+    ],
+    "acceptance": "Preis und Owner kommen vom Server; Lösch-/Retouren-/Zahlungsregeln sind vor Umsetzung geklärt."
+  },
+  {
+    "id": "m60-l4",
+    "outcome": "Release durch Tests, Restore und dokumentierte Risiken freigeben",
+    "reason": "Ein Release ist ein überprüfter Stand mit Rückweg. Ein Testname oder eine leere Testfunktion ist noch kein ausgeführter Nachweis.",
+    "mistake": "Checkliste nur abhaken → Artefakte, Soll-/Istwerte und verantwortliche Person festhalten.",
+    "exercises": [
+      "Setze den ersten vertikalen Schnitt um.",
+      "Verbinde API,Policy und Queue mit Tests.",
+      "Erstelle ein Releaseprotokoll mit Restore,Monitoring und bekannten Grenzen."
+    ],
+    "acceptance": "Keine erfundenen bestandenen Tests; rechtliche/operative Freigaben bleiben getrennt. Weiterführendes Vue-Frontend folgt im JavaScript-Pfad."
+  }
+]

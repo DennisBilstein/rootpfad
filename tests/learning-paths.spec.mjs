@@ -6,7 +6,7 @@ test('Lernpfade filtern Navigation, Fortschritt und alle Aufgabenpools', async (
   await page.goto('/');
   await page.waitForFunction(() => window.RP_APP_READY);
   await page.evaluate(() => { state.completed.add('m1-l1'); state.completed.add('java-m1-l1'); });
-  for (const path of ['java', 'abap', 'php', 'git', 'ap1', 'javascript', 'all']) {
+  for (const path of ['java', 'abap', 'php', 'git', 'ap1', 'javascript', 'htmlcss', 'mariadb', 'apis', 'agents', 'all']) {
     await page.evaluate(path => rpChoosePath(path), path);
     await expect(page.locator('#rpPathSelect')).toHaveValue(path);
     const check = await page.evaluate(() => {
@@ -20,7 +20,7 @@ test('Lernpfade filtern Navigation, Fortschritt und alle Aufgabenpools', async (
         progress: document.getElementById('progressLabel').textContent,
         expectedProgress: d.lessons.filter(l => state.completed.has(l.id)).length + '/' + d.lessons.length,
         reviewOK,
-        allStillPresent: MODULES.length === 110 && FLAT.length === 412,
+        allStillPresent: MODULES.length === 116 && FLAT.length === 462,
       };
     });
     expect(check.modules).toBe(check.expected);

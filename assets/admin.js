@@ -22,3 +22,4 @@ document.getElementById('refresh').onclick=refresh;
 document.getElementById('invite').onclick=async()=>{try{var d=await api('/api/admin/invites','POST',{});var url=location.origin+'/#invite='+d.token;var host=document.getElementById('invitation');host.replaceChildren(node('span','Einmalig nutzbar, sieben Tage gültig: '));var link=node('a',url);link.href=url;host.append(link);}catch(e){document.getElementById('status').textContent=e.message;}};
 document.getElementById('policy').onsubmit=async e=>{e.preventDefault();try{var values=Object.fromEntries(new FormData(e.currentTarget));Object.keys(values).forEach(k=>values[k]=Number(values[k]));await api('/api/admin/policy','PUT',values);await refresh();}catch(e){document.getElementById('status').textContent=e.message;}};
 refresh();setInterval(refresh,30000);
+var assessmentScript=document.createElement('script');assessmentScript.src='/assets/admin-assessments.js';document.body.appendChild(assessmentScript);

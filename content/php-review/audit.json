@@ -20,9 +20,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -33,9 +33,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -46,9 +46,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -59,9 +59,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -72,10 +72,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m42-l2",
@@ -85,10 +85,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m42-l3",
@@ -98,10 +98,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m42-l4",
@@ -111,10 +111,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m53-l1",
@@ -124,9 +124,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -137,9 +137,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -150,9 +150,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -163,10 +163,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m43-l1",
@@ -176,10 +176,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m43-l2",
@@ -189,10 +189,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m43-l3",
@@ -202,10 +202,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m54-l1",
@@ -215,10 +215,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m54-l2",
@@ -228,9 +228,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
+    "objectives": true,
     "sources": true,
-    "exercises": 0,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -241,10 +241,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m54-l4",
@@ -254,9 +254,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -267,10 +267,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m44-l2",
@@ -280,10 +280,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m44-l3",
@@ -293,10 +293,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m44-l4",
@@ -306,10 +306,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m55-l1",
@@ -319,10 +319,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m55-l2",
@@ -332,10 +332,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m55-l3",
@@ -345,10 +345,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m55-l4",
@@ -358,10 +358,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m45-l1",
@@ -371,10 +371,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m45-l2",
@@ -384,10 +384,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m45-l3",
@@ -397,10 +397,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m46-l1",
@@ -410,10 +410,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m46-l2",
@@ -423,10 +423,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m46-l3",
@@ -436,10 +436,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m46-l4",
@@ -449,10 +449,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m47-l1",
@@ -462,10 +462,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m47-l2",
@@ -475,10 +475,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m47-l3",
@@ -488,10 +488,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m56-l1",
@@ -501,10 +501,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m56-l2",
@@ -514,9 +514,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -527,10 +527,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m56-l4",
@@ -540,10 +540,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m57-l1",
@@ -553,9 +553,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -566,10 +566,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m57-l3",
@@ -579,10 +579,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m58-l1",
@@ -592,10 +592,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m58-l2",
@@ -605,10 +605,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m58-l3",
@@ -618,10 +618,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m58-l4",
@@ -631,9 +631,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -644,10 +644,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m48-l2",
@@ -657,10 +657,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m48-l3",
@@ -670,10 +670,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m49-l1",
@@ -683,10 +683,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m49-l2",
@@ -696,10 +696,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m49-l3",
@@ -709,10 +709,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m49-l4",
@@ -722,10 +722,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m59-l1",
@@ -735,10 +735,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m59-l2",
@@ -748,10 +748,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m59-l3",
@@ -761,10 +761,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m59-l4",
@@ -774,10 +774,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m50-l1",
@@ -787,10 +787,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m50-l2",
@@ -800,10 +800,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m50-l3",
@@ -813,10 +813,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m50-l4",
@@ -826,10 +826,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 1,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m51-l1",
@@ -839,10 +839,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m51-l2",
@@ -852,10 +852,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m51-l3",
@@ -865,10 +865,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m51-l4",
@@ -878,10 +878,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m60-l1",
@@ -891,9 +891,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -904,9 +904,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
     "explicitMistake": true
   },
   {
@@ -917,10 +917,10 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   },
   {
     "id": "m60-l4",
@@ -930,9 +930,9 @@
     "code": true,
     "quiz": 3,
     "validQuiz": true,
-    "objectives": false,
-    "sources": false,
-    "exercises": 0,
-    "explicitMistake": false
+    "objectives": true,
+    "sources": true,
+    "exercises": 3,
+    "explicitMistake": true
   }
 ]

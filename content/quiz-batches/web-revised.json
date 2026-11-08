@@ -1,0 +1,3722 @@
+[
+  {
+    "lesson": "js-m1-l1",
+    "index": 0,
+    "q": "Ein Tageszähler startet bei 0 und erhält in drei Durchläufen jeweils 20 Minuten hinzu. Welche Deklaration passt, wenn der Zahlenwert neu zugewiesen wird?",
+    "options": [
+      "const minuten = 0; minuten += 20",
+      "let minuten = 0; minuten += 20",
+      "const minuten = []; minuten += 20",
+      "let minuten; minuten.push(20)"
+    ],
+    "correct": 1,
+    "explain": "Die veränderliche Zahlenbindung benötigt let; const verbietet Neuzuweisung, nicht jede Objektmutation.",
+    "rationales": [
+      "const verbietet die anschließende Neuzuweisung.",
+      "let erlaubt die beabsichtigte numerische Neuzuweisung.",
+      "Die leere Liste wird hier zur Zeichenkette konvertiert.",
+      "Ohne Initialisierung ist minuten undefined und hat kein push."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l1",
+    "index": 1,
+    "q": "Ein Textfeld liefert den String \"20\". Der Code berechnet wert + 5, benötigt werden aber 25 Minuten. Welche Änderung löst genau das Konvertierungsproblem?",
+    "options": [
+      "Number(wert) + 5 verwenden",
+      "Boolean(wert) + 5 verwenden",
+      "String(wert) + 5 verwenden",
+      "wert + String(5) verwenden"
+    ],
+    "correct": 0,
+    "explain": "Explizite Number-Konvertierung ermöglicht Addition; zulässige Bereiche und leere Eingaben müssen zusätzlich geprüft werden.",
+    "rationales": [
+      "Number(\"20\") ergibt die Zahl 20.",
+      "Ein nichtleerer String wird true und ergibt hier 6.",
+      "String erhält die Verkettung statt Addition.",
+      "Zwei Strings werden ebenfalls verkettet."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l1",
+    "index": 2,
+    "q": "Für jeden Wert aus for (let i = 1; i <= 3; i += 1) werden 20 Minuten addiert. Ein zusätzlicher Durchlauf darf nicht erfolgen. Welcher Endstand folgt?",
+    "options": [
+      "80 Minuten aus i = 0 bis 3",
+      "20 Minuten nur aus i = 3",
+      "40 Minuten aus i = 1 und 2",
+      "60 Minuten aus i = 1, 2 und 3"
+    ],
+    "correct": 3,
+    "explain": "Die Prüfung erfolgt vor jedem Durchlauf; i = 4 erfüllt die Bedingung nicht.",
+    "rationales": [
+      "Der Startwert ist 1, nicht 0.",
+      "Die Bedingung beschränkt nicht auf den letzten Wert.",
+      "Der inklusive Vergleich lässt auch i = 3 zu.",
+      "Die drei ausgeführten Rümpfe addieren insgesamt 60."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l2",
+    "index": 0,
+    "q": "function zaehler(start) { let n = start; return () => ++n } erzeugt a = zaehler(2) und b = zaehler(10). Was liefern a(), a(), b()?",
+    "options": [
+      "2, 2, 10 durch unveränderliche Parameter",
+      "11, 12, 13 durch den letzten Factory-Aufruf",
+      "3, 4, 11 durch getrennte Closures",
+      "3, 4, 5 durch einen geteilten Zähler"
+    ],
+    "correct": 2,
+    "explain": "Jeder Factory-Aufruf erzeugt einen eigenen lexikalischen Bereich, auf den seine zurückgegebene Funktion weiter zugreift.",
+    "rationales": [
+      "Präinkrement verändert n vor der Rückgabe.",
+      "b überschreibt den Bereich von a nicht.",
+      "a und b halten verschiedene n-Bindungen.",
+      "n ist nicht global und wird nicht zwischen Aufrufen geteilt."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l2",
+    "index": 1,
+    "q": "Die Preisliste [2, 4].map(x => { x * 2 }) liefert keine verdoppelten Zahlen. Welche gezielte Reparatur erhält den Blockrumpf?",
+    "options": [
+      "map(x => { x *= 2 })",
+      "map(x => { return x * 2 })",
+      "map(x => { const y = x * 2 })",
+      "map(x => { console.log(x * 2) })"
+    ],
+    "correct": 1,
+    "explain": "Ein Arrow-Block braucht return, wenn der Callback ein Ergebnis liefern soll.",
+    "rationales": [
+      "Die Parameteränderung endet ebenfalls ohne return.",
+      "return gibt map den jeweiligen Ergebniswert.",
+      "Eine lokale Zuweisung ist keine Rückgabe.",
+      "console.log ersetzt keine Wert-Rückgabe."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l2",
+    "index": 2,
+    "q": "const verdoppeln = x => x * 2 soll auf [3, 5] angewendet werden. Welche Variante übergibt tatsächlich den passenden Callback?",
+    "options": [
+      "[3, 5].map(verdoppeln)",
+      "[3, 5].map(() => verdoppeln)",
+      "[3, 5].map(x => { verdoppeln(x) })",
+      "[3, 5].map(verdoppeln())"
+    ],
+    "correct": 0,
+    "explain": "map benötigt eine aufrufbare Funktion und übernimmt deren Rückgabewerte.",
+    "rationales": [
+      "Die Funktionsreferenz wird von map je Element aufgerufen.",
+      "Der Callback liefert die Funktion statt einer Zahl.",
+      "Der Block verwirft das Berechnungsergebnis ohne return.",
+      "Der vorzeitige Aufruf liefert NaN statt einer Funktion."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l3",
+    "index": 1,
+    "q": "Eine Rangliste darf das Originalarray nicht verändern. Welche Umsetzung erzeugt für numerische Werte eine aufsteigend sortierte neue Liste?",
+    "options": [
+      "const neu = werte; neu.sort((a,b) => a-b)",
+      "const neu = werte.sort((a,b) => a-b)",
+      "const neu = werte.reverse()",
+      "const neu = werte.toSorted((a,b) => a-b)"
+    ],
+    "correct": 3,
+    "explain": "toSorted erzeugt eine neue Liste; sort und reverse verändern das verwendete Array.",
+    "rationales": [
+      "Die Zuweisung erzeugt nur einen Alias auf dasselbe Array.",
+      "sort mutiert das Original.",
+      "reverse mutiert und garantiert keine numerische Sortierung.",
+      "toSorted kombiniert neue Arrayidentität mit numerischem Vergleich."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l3",
+    "index": 2,
+    "q": "Im ES-Modul steht const konto = { stand: 7, lesen() { return this.stand } }; const lesen = konto.lesen. Warum scheitert lesen(), während konto.lesen() funktioniert?",
+    "options": [
+      "Eine Methode kann nur nach einer await-Anweisung ausgeführt werden.",
+      "Die Zahl 7 wird beim Kopieren der Funktion in undefined umgewandelt.",
+      "Die Methode verliert beim Ablösen ihren aufrufbezogenen this-Wert.",
+      "Das const-Objekt löscht beim Lesen seine Methode automatisch."
+    ],
+    "correct": 2,
+    "explain": "Bei gewöhnlichen Funktionen bestimmt der Aufruf this; konto.lesen.bind(konto) bindet den gewünschten Empfänger.",
+    "rationales": [
+      "Die Methode ist synchron und benötigt kein await.",
+      "Die Eigenschaft wird nicht kopiert oder konvertiert.",
+      "Der freie Aufruf setzt im Modul this auf undefined.",
+      "const verändert weder Methoden noch deren Lebensdauer."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l3",
+    "index": 3,
+    "q": "Ein Profil enthält settings: { theme: \"light\" }. Eine neue Profilversion soll dark verwenden, ohne die alte zu verändern. Welche Kopie reicht für genau diesen Pfad?",
+    "options": [
+      "Object.assign(profil, { settings: { theme: \"dark\" } })",
+      "{ ...profil, settings: { ...profil.settings, theme: \"dark\" } }",
+      "{ ...profil }; danach kopie.settings.theme = \"dark\"",
+      "profil; danach kopie.settings = { theme: \"dark\" }"
+    ],
+    "correct": 1,
+    "explain": "Für diesen verschachtelten Änderungspfad müssen äußeres Objekt und settings neu erzeugt werden.",
+    "rationales": [
+      "Object.assign mutiert hier das als Ziel verwendete Original.",
+      "Beide betroffenen Ebenen erhalten eine neue Identität.",
+      "Der flache Spread teilt settings mit dem Original.",
+      "Der Alias ändert das ursprüngliche Profilobjekt."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l4",
+    "index": 0,
+    "q": "async function preis() { return 12 } wird ohne await aufgerufen. Wie erhält der Aufrufer die 12, ohne ein Promise als Zahl zu behandeln?",
+    "options": [
+      "const n = await preis() im async-Aufrufer",
+      "const n = Number(preis()) im Aufrufer",
+      "const n = preis().value im Aufrufer",
+      "const n = preis(); n + 1 rechnen"
+    ],
+    "correct": 0,
+    "explain": "Auch eine unmittelbare Rückgabe aus async wird als erfülltes Promise bereitgestellt.",
+    "rationales": [
+      "await entpackt den Erfüllungswert im asynchronen Ablauf.",
+      "Number wartet nicht auf die Promise-Erfüllung.",
+      "Promises haben keine allgemeine value-Eigenschaft für Ergebnisse.",
+      "n ist ein Promise und nicht die Preiszahl."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l4",
+    "index": 1,
+    "q": "Drei Dateien müssen strikt nacheinander gespeichert werden; speichern liefert ein Promise. Welche Schleife wartet auch auf jede vorherige Datei?",
+    "options": [
+      "await dateien.map(d => speichern(d))",
+      "Promise.all(dateien.map(d => speichern(d)))",
+      "dateien.forEach(async d => await speichern(d))",
+      "for (const d of dateien) { await speichern(d) }"
+    ],
+    "correct": 3,
+    "explain": "for...of mit await modelliert die Reihenfolge; Promise.all startet die Aufrufe hier parallel.",
+    "rationales": [
+      "Ein Array von Promises wird durch await allein nicht gesammelt.",
+      "Promise.all wartet gemeinsam, erzwingt aber keine Startreihenfolge.",
+      "forEach wartet die Callback-Promises nicht ab.",
+      "Jeder nächste Durchlauf beginnt erst nach dem vorherigen await."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l4",
+    "index": 2,
+    "q": "Zwei unabhängige Ladeoperationen laufen in Promise.all. Eine schlägt fehl, die andere schreibt weiter ins Log. Welche Reaktion erklärt das korrekt?",
+    "options": [
+      "Promise.all beendet bei Ablehnung automatisch jeden Netzwerkrequest.",
+      "Promise.all wartet grundsätzlich erst auf alle erfolgreichen Ergebnisse.",
+      "Die Sammelablehnung ist kein automatischer Abbruch der anderen Operation.",
+      "Die zweite Operation kann nur wegen eines Syntaxfehlers weiterlaufen."
+    ],
+    "correct": 2,
+    "explain": "Promise.all lehnt beim ersten Fehler ab; Abbruch der gestarteten Arbeit benötigt einen eigenen Mechanismus.",
+    "rationales": [
+      "Die Kombination besitzt keine allgemeine Abbruchwirkung.",
+      "Eine Ablehnung wird nicht bis zu allen Erfolgen zurückgehalten.",
+      "Fehlerbehandlung und Cancellation sind getrennte Verträge.",
+      "Fortgesetzte Arbeit ist reguläres Verhalten gestarteter Operationen."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l5",
+    "index": 0,
+    "q": "Eine API erlaubt per CORS nur https://lernen.example. Ein Angreifer ruft sie mit einem eigenen HTTP-Client auf. Welche serverseitige Absicherung bleibt erforderlich?",
+    "options": [
+      "Nur den Access-Control-Allow-Origin-Wert geheim halten.",
+      "Authentifizierung und objektbezogene Autorisierung bei jedem Zugriff.",
+      "Die API ausschließlich mit dem Browser-User-Agent freigeben.",
+      "Die Antwort erst nach einem erfolgreichen CORS-Preflight senden."
+    ],
+    "correct": 1,
+    "explain": "CORS regelt Browserzugriffe auf Antworten und ersetzt weder Identitätsprüfung noch Berechtigungen.",
+    "rationales": [
+      "Der Origin-Wert ist keine geheime Zugangsberechtigung.",
+      "Die API muss Rechte unabhängig vom verwendeten Client prüfen.",
+      "User-Agent ist frei setzbar und kein Identitätsnachweis.",
+      "Nichtbrowser sind an Browser-Preflights nicht gebunden."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l5",
+    "index": 1,
+    "q": "fetch(\"/aufgaben/99\") liefert HTTP 404 mit JSON. Der catch-Zweig läuft nicht. Wo sollte der Fehlervertrag umgesetzt werden?",
+    "options": [
+      "Nach fetch response.ok prüfen und bei Bedarf einen Fehler erzeugen.",
+      "Vor fetch jedes Requestobjekt mit JSON.stringify konvertieren.",
+      "Nach fetch grundsätzlich eine Sekunde auf den catch-Zweig warten.",
+      "Vor fetch mode: \"no-cors\" setzen und dann den Body lesen."
+    ],
+    "correct": 0,
+    "explain": "fetch erfüllt sein Promise auch bei HTTP-Fehlerstatus; Netzwerkfehler und HTTP-Fehler sind getrennt zu behandeln.",
+    "rationales": [
+      "response.ok erkennt den nicht erfolgreichen HTTP-Status.",
+      "Serialisierung bewirkt keine Statusprüfung.",
+      "Zeitablauf macht aus 404 keine Promise-Ablehnung.",
+      "no-cors löst weder Statusprüfung noch lesbaren Fremdorigin-Body."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l5",
+    "index": 2,
+    "q": "Ein Formular hat ein label for=\"mail\", aber das Eingabefeld id=\"email\". Welche Änderung behebt die programmatische Zuordnung?",
+    "options": [
+      "Das label per CSS neben dem Eingabefeld positionieren.",
+      "placeholder=\"mail\" am Eingabefeld ergänzen.",
+      "name=\"mail\" statt id=\"email\" verwenden.",
+      "for=\"email\" passend zur eindeutigen Feld-id setzen."
+    ],
+    "correct": 3,
+    "explain": "Die explizite Labelzuordnung verwendet for und id, nicht Nähe, name oder Placeholder.",
+    "rationales": [
+      "Visuelle Nachbarschaft ist keine programmatische Beziehung.",
+      "Ein Placeholder ersetzt die Labelverknüpfung nicht.",
+      "name steuert die Übermittlung, nicht das Ziel von for.",
+      "Die übereinstimmende eindeutige id stellt die Zuordnung her."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l6",
+    "index": 0,
+    "q": "Im Vite-Frontend soll VITE_ADMIN_TOKEN den Datenbankzugang schützen. Welche Architekturänderung ist nötig?",
+    "options": [
+      "Das Token erst beim Produktionsbuild in den Browsercode einsetzen.",
+      "Das Token über import.meta.env statt als Stringliteral auslesen.",
+      "Das Token im Backend halten und dort erlaubte Operationen autorisieren.",
+      "Das Token in VITE_PRIVATE_ADMIN_TOKEN umbenennen und so verbergen."
+    ],
+    "correct": 2,
+    "explain": "VITE_-Werte werden für Clientcode bereitgestellt und sind keine Frontend-Secrets.",
+    "rationales": [
+      "Buildzeitersetzung macht einen Browserwert nicht vertraulich.",
+      "Die Zugriffssyntax schützt den ausgelieferten Wert nicht.",
+      "Nur eine vertrauenswürdige Servergrenze kann das Secret vor Clients schützen.",
+      "Ein weiterer Namensbestandteil ändert die Exposition nicht."
+    ],
+    "sources": [
+      "https://vite.dev/guide/env-and-mode"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l6",
+    "index": 1,
+    "q": "In CI widersprechen sich package.json und package-lock.json. Was ist bei npm ci fachlich sinnvoll zu erwarten?",
+    "options": [
+      "Der Befehl aktualisiert das Lockfile unbemerkt auf neue Versionen.",
+      "Der Befehl scheitert und verlangt eine bewusst synchronisierte Abhängigkeitsspezifikation.",
+      "Der Befehl ignoriert package.json und installiert beliebige globale Pakete.",
+      "Der Befehl überspringt die Installation und erklärt den Build als erfolgreich."
+    ],
+    "correct": 1,
+    "explain": "npm ci ist für eine lockfilebasierte Installation gedacht und behebt Manifestkonflikte nicht automatisch.",
+    "rationales": [
+      "Automatisches Umschreiben ist nicht das Verhalten von npm ci.",
+      "Der Konflikt muss gezielt behoben und eingecheckt werden.",
+      "Globale Pakete ersetzen die Projektauflösung nicht.",
+      "Eine fehlgeschlagene Installation ist kein Erfolgssignal."
+    ],
+    "sources": [
+      "https://docs.npmjs.com/cli/v11/commands/npm-ci"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l6",
+    "index": 2,
+    "q": "Lokal läuft das Projekt mit einer anderen Node-Hauptversion als in CI; nur CI scheitert bei der Installation. Welche Untersuchung grenzt die Ursache am besten ein?",
+    "options": [
+      "Runtimeversion, Paketanforderungen und npm-ci-Ausgabe gemeinsam vergleichen.",
+      "Alle CI-Fehler unterdrücken, solange der lokale Entwicklungsserver startet.",
+      "Das Lockfile löschen, damit jede Maschine andere Versionen wählen kann.",
+      "Vite preview als vollständigen Ersatz für den Installationsschritt verwenden."
+    ],
+    "correct": 0,
+    "explain": "Reproduzierbare Werkzeuge benötigen passende Laufzeit und konsistente Abhängigkeitsauflösung; der Dev-Server allein belegt das nicht.",
+    "rationales": [
+      "So werden Laufzeit- und Auflösungsunterschiede sichtbar.",
+      "Unterdrückte Fehler lassen die Ursache unverändert.",
+      "Das Entfernen der Versionsbindung vergrößert die Variabilität.",
+      "Preview prüft nicht den fehlgeschlagenen Installationsvertrag."
+    ],
+    "sources": [
+      "https://docs.npmjs.com/cli/v11/commands/npm-ci",
+      "https://vite.dev/guide/env-and-mode"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l7",
+    "index": 0,
+    "q": "const aufgabe = await response.json() as Aufgabe kompiliert. Die Antwort enthält minuten: \"viel\". Was garantiert die Assertion?",
+    "options": [
+      "Sie verhindert die Auslieferung ungültiger Daten durch den Server.",
+      "Sie prüft zur Laufzeit alle Felder und verwirft die Antwort.",
+      "Sie konvertiert Stringfelder in die deklarierten Zahlentypen.",
+      "Sie beeinflusst die statische Sicht, validiert das JSON aber nicht."
+    ],
+    "correct": 3,
+    "explain": "Type Assertions werden bei der Übersetzung entfernt und sind keine Laufzeitvalidierung.",
+    "rationales": [
+      "Clienttypisierung kontrolliert den Server nicht.",
+      "Die Assertion erzeugt keinen Validator.",
+      "Es findet keine automatische Datenkonvertierung statt.",
+      "Eine externe Datengrenze braucht zusätzliche Laufzeitprüfungen."
+    ],
+    "sources": [
+      "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l7",
+    "index": 1,
+    "q": "Eine Funktion erhält unknown aus einer fremden API und braucht einen nichtleeren title-String. Welcher Ablauf passt zur Datengrenze?",
+    "options": [
+      "Mit as { title: string } die Serverantwort automatisch bereinigen.",
+      "Mit as any den Typ ausschalten und title.trim() sofort aufrufen.",
+      "Objektform und typeof title prüfen, dann die fachliche Leere prüfen.",
+      "Nur prüfen, ob der gesamte JSON-Wert truthy ist, dann title nutzen."
+    ],
+    "correct": 2,
+    "explain": "Narrowing folgt beobachtbaren Laufzeitprüfungen; fachliche Gültigkeit benötigt darüber hinaus eine Inhaltsprüfung.",
+    "rationales": [
+      "Die Assertion führt keine Bereinigung aus.",
+      "any umgeht gerade die gewünschte Absicherung.",
+      "Struktur, Feldtyp und Fachregel werden getrennt geprüft.",
+      "Ein truthy Objekt kann title fehlen oder falsch typisieren."
+    ],
+    "sources": [
+      "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l7",
+    "index": 2,
+    "q": "Ein union-Typ ist { status: \"ok\", data: string[] } | { status: \"error\", message: string }. Wie lässt sich data ohne unsichere Assertion lesen?",
+    "options": [
+      "status zur Zahl konvertieren und anschließend data lesen.",
+      "Nach if (antwort.status === \"ok\") auf antwort.data zugreifen.",
+      "Vor jedem Zugriff antwort as any behandeln und data lesen.",
+      "Nur if (antwort) prüfen und anschließend data lesen."
+    ],
+    "correct": 1,
+    "explain": "Das diskriminierende status-Feld grenzt die Union auf den passenden Zweig ein.",
+    "rationales": [
+      "Die Konvertierung bildet keinen Typnachweis für data.",
+      "Der Vergleich narrowt auf den Zweig mit data.",
+      "any beseitigt die Typprüfung statt den Fall zu unterscheiden.",
+      "Beide Unionzweige sind als Objekte truthy."
+    ],
+    "sources": [
+      "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l8",
+    "index": 0,
+    "q": "Zwei Instanzen derselben Vue-SFC deklarieren in script setup jeweils const offen = ref(false). Eine Instanz schaltet offen um. Was folgt für die andere?",
+    "options": [
+      "Sie bleibt unverändert, weil der Zustand pro Komponenteninstanz entsteht.",
+      "Sie wird neu gemountet, weil zwei refs denselben Namen tragen.",
+      "Sie verliert ihren Zustand, weil const keine refs speichern darf.",
+      "Sie schaltet mit um, weil script setup nur einmal pro Modul läuft."
+    ],
+    "correct": 0,
+    "explain": "script setup wird als Setup-Code pro Instanz ausgeführt; ein Modul-Singleton wäre eine andere Architektur.",
+    "rationales": [
+      "Jede Instanz erhält bei diesem Code eine eigene ref.",
+      "Lokale Bezeichner kollidieren nicht zwischen Instanzen.",
+      "const bindet die ref, deren value sich ändern darf.",
+      "Diese Einmalausführung gehört nicht zu script setup."
+    ],
+    "sources": [
+      "https://vuejs.org/api/sfc-script-setup.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l8",
+    "index": 1,
+    "q": "In script setup steht const klicks = ref(0). Eine Funktion soll den Zähler erhöhen. Welche Anweisung ist dafür korrekt?",
+    "options": [
+      "klicks.push(1)",
+      "klicks.count += 1",
+      "klicks = klicks + 1",
+      "klicks.value += 1"
+    ],
+    "correct": 3,
+    "explain": "Im JavaScript-Code greift man auf den ref-Inhalt über value zu; Template-Unwrapping ist ein anderer Kontext.",
+    "rationales": [
+      "Eine numerische ref ist kein Array.",
+      "count ist keine definierte Eigenschaft der ref.",
+      "Die const-Bindung darf nicht ersetzt werden und ist kein Zahlenwert.",
+      "value ist der veränderliche Inhalt dieser ref."
+    ],
+    "sources": [
+      "https://vuejs.org/api/sfc-script-setup.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l8",
+    "index": 2,
+    "q": "Eine importierte TaskCard soll in einer script-setup-SFC drei Aufgaben anzeigen. Jede Aufgabe besitzt eine stabile id. Welche Templateform erhält die Identität beim Sortieren?",
+    "options": [
+      "<TaskCard v-for=\"task in tasks\" key=\"task.id\" task=\"task\" />",
+      "<TaskCard v-for=\"task in tasks\" :key=\"Math.random()\" :task=\"task\" />",
+      "<TaskCard v-for=\"task in tasks\" :key=\"task.id\" :task=\"task\" />",
+      "<TaskCard v-for=\"(task, i) in tasks\" :key=\"i\" :task=\"task\" />"
+    ],
+    "correct": 2,
+    "explain": "Dynamische Props und stabile fachliche Keys verbinden gerenderte Instanzen mit den jeweiligen Aufgaben.",
+    "rationales": [
+      "Ohne Binding sind key und task hier statische Strings.",
+      "Ein zufälliger Key erzwingt unnötige neue Identitäten.",
+      "id bleibt beim Sortieren der jeweiligen Aufgabe zugeordnet.",
+      "Der Index beschreibt die Position statt die fachliche Identität."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/essentials/list.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l9",
+    "index": 1,
+    "q": "Ein Dashboard soll aus tasks nur die offenen Aufgaben ableiten, ohne Netzwerk oder Stateänderung. Wo gehört diese Berechnung hin?",
+    "options": [
+      "In einen watch-Callback, der immer einen neuen API-Request sendet.",
+      "In einen computed-Getter mit reinem Filterausdruck.",
+      "In einen computed-Getter, der zugleich tasks überschreibt.",
+      "In onUnmounted, damit das Ergebnis beim Verlassen entsteht."
+    ],
+    "correct": 1,
+    "explain": "computed beschreibt abgeleitete Werte; sein Getter sollte keine Seiteneffekte ausführen.",
+    "rationales": [
+      "Ein Netzwerkrequest ist für einen lokalen Filter unnötig.",
+      "Eine reine Ableitung passt zu Abhängigkeitstracking und Cache.",
+      "Das Mutieren der eigenen Quelle erzeugt schwer kontrollierbare Effekte.",
+      "Beim Unmount ist die benötigte laufende Ableitung zu spät."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/essentials/computed.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l9",
+    "index": 2,
+    "q": "Ein Watcher lädt Details zur wechselnden id. Beim Wechsel muss der vorige Request aufgeräumt werden. Was gilt für onWatcherCleanup in Vue 3.5+?",
+    "options": [
+      "Die Registrierung muss synchron im Watcher erfolgen, vor einem await.",
+      "Die Registrierung darf nur im Template nach dem Rendern erfolgen.",
+      "Die Registrierung muss hinter jedem await erneut importiert werden.",
+      "Die Registrierung ersetzt jede Prüfung auf veraltete Antworten vollständig."
+    ],
+    "correct": 0,
+    "explain": "onWatcherCleanup muss während der synchronen Watcher-Ausführung registriert werden; Ergebnisaktualität bleibt ein eigener Vertrag.",
+    "rationales": [
+      "So kennt Vue den Cleanup im aktuellen aktiven Watcher.",
+      "Templates registrieren diesen Watcher-Cleanup nicht.",
+      "Import und Ausführungszeitpunkt sind verschiedene Fragen.",
+      "Abbruch allein sichert nicht jeden nachgelagerten Schreibpfad."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/essentials/watchers.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l9",
+    "index": 3,
+    "q": "Vue 3.5+: const { title } = defineProps([\"title\"]) und const { count } = reactive({ count: 0 }) stehen im selben script setup. Welche Folge ist korrekt?",
+    "options": [
+      "Beide lokalen primitiven Werte bleiben durch normales JavaScript live verbunden.",
+      "Nur reactive wird vom Compiler automatisch in einen Prop-Zugriff umgewandelt.",
+      "Beide Destrukturierungen erzeugen generell refs mit einer value-Eigenschaft.",
+      "Nur defineProps erhält hier die spezielle reaktive Compilerumschreibung."
+    ],
+    "correct": 3,
+    "explain": "Reactive Props Destructure ist ein spezieller Compilermechanismus für defineProps im selben script setup, keine allgemeine Destructuring-Semantik.",
+    "rationales": [
+      "Normales Destructuring eines primitiven reactive-Feldes verliert den Bezug.",
+      "reactive-Destructuring besitzt gerade nicht diese Prop-Sonderbehandlung.",
+      "Die Propvariable wird nicht allgemein zu einer ref.",
+      "Der Compiler transformiert passende title-Zugriffe in Prop-Zugriffe."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/components/props.html",
+      "https://vuejs.org/api/sfc-script-setup.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l10",
+    "index": 0,
+    "q": "TaskRow erhält done als Prop. Nach einem Klick soll der Parent entscheiden, ob die Änderung gespeichert wird. Wie meldet das Child den Wunsch?",
+    "options": [
+      "Das Prop in eine globale Variable kopieren und dort umschalten.",
+      "props.done direkt negieren und auf Parent-Synchronisierung hoffen.",
+      "Ein deklariertes toggle-Event mit der Aufgaben-id emittieren.",
+      "Den Parent-State über document.querySelector überschreiben."
+    ],
+    "correct": 2,
+    "explain": "Props transportieren Daten nach unten; ein Event meldet die gewünschte Änderung an den zuständigen Parent.",
+    "rationales": [
+      "Ein globaler Zustand schafft keine eindeutige Parent-Entscheidung.",
+      "Direkte Propmutation verletzt den Einwegdatenfluss.",
+      "Das Event trennt Interaktion und Eigentümerschaft des Zustands.",
+      "DOM-Manipulation ersetzt den Komponentenvertrag nicht."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/components/props.html",
+      "https://vuejs.org/guide/components/events.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l10",
+    "index": 1,
+    "q": "Ein wiederverwendbares Vue-Formular wird zweimal auf derselben Seite angezeigt. Beide Felder verwenden id=\"titel\". Welche Korrektur erhält verlässliche Labels?",
+    "options": [
+      "Das zweite Formular mit CSS aus dem Fokusfluss entfernen.",
+      "Jeder Instanz eine eindeutige Feld-id und das passende label-for geben.",
+      "Alle ids entfernen und nur identische Placeholder verwenden.",
+      "Nur den Feldnamen jeder Instanz in titel ändern."
+    ],
+    "correct": 1,
+    "explain": "Die explizite Labelzuordnung benötigt eindeutige ids im Dokument, auch über Komponentengrenzen hinweg.",
+    "rationales": [
+      "Das Verstecken der Bedienung repariert die Zuordnung nicht.",
+      "Jedes Label adressiert dadurch genau sein eigenes Feld.",
+      "Placeholder bieten keinen gleichwertigen dauerhaften Labelvertrag.",
+      "name löst die doppelte Ziel-id nicht."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l10",
+    "index": 2,
+    "q": "Der Parent übergibt :likes=\"42\"; später wird versehentlich likes=\"42\" verwendet. Eine Berechnung erwartet eine Zahl. Was unterscheidet die Varianten?",
+    "options": [
+      "Das Binding übergibt eine Zahl, der statische Attributwert einen String.",
+      "Das Binding übergibt einen String, das statische Attribut eine Zahl.",
+      "Der statische Wert wird erst durch einen Slot zu einer Zahl.",
+      "Beide übergeben zwingend dieselbe Zahl, weil Propnamen typisiert sind."
+    ],
+    "correct": 0,
+    "explain": "v-bind wertet den Ausdruck aus; ein gewöhnlicher statischer Attributwert ist hier Text.",
+    "rationales": [
+      "Die Bindingsyntax bewahrt den Zahlenwert des Ausdrucks.",
+      "Die Zuordnung der beiden Varianten ist vertauscht.",
+      "Slots sind keine allgemeine Zahlenkonvertierung.",
+      "Ein Propname konvertiert diesen String nicht automatisch zur Zahl."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/components/props.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l11",
+    "index": 1,
+    "q": "Eine Suche lädt zuerst A und dann B. A scheitert erst, nachdem B erfolgreich angezeigt wird. Wo muss der Aktualitätscheck greifen?",
+    "options": [
+      "Nur vor dem Start von A, weil die Reihenfolge danach feststeht.",
+      "Nur im AbortController-Konstruktor, weil dieser alle Promises überwacht.",
+      "Nur beim Schreiben von data, weil error nie die Anzeige verändert.",
+      "Bei data, error und loading, jeweils bezogen auf die aktuelle Requestgeneration."
+    ],
+    "correct": 3,
+    "explain": "Jeder veraltete Abschluss kann den sichtbaren Zustand beschädigen, auch im catch- oder finally-Zweig.",
+    "rationales": [
+      "Startreihenfolge bestimmt nicht die Abschlussreihenfolge.",
+      "AbortController überwacht nicht automatisch alle Folgeverarbeitungen.",
+      "Ein alter Fehler kann das neue Ergebnis überdecken.",
+      "Alle sichtbaren Zustandsübergänge brauchen dieselbe Aktualitätsbedingung."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/reusability/composables.html",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l11",
+    "index": 2,
+    "q": "Eine Suche bekommt für den aktuellen Begriff erfolgreich []. Welcher Zustand unterscheidet das fachlich von einem fehlgeschlagenen Request?",
+    "options": [
+      "Die alte Ergebnisliste ohne Hinweis als neue Antwort stehen lassen.",
+      "[] als Fehler behandeln, weil kein Datensatz vorhanden ist.",
+      "Einen eigenen erfolgreichen Leerzustand ohne Fehler anzeigen.",
+      "Den Ladeindikator bis zu einem nichtleeren Ergebnis beibehalten."
+    ],
+    "correct": 2,
+    "explain": "Erfolg mit leerer Sammlung ist kein Transport- oder Validierungsfehler und sollte nicht als endloses Laden erscheinen.",
+    "rationales": [
+      "Alte Ergebnisse wären keine Antwort auf den aktuellen Begriff.",
+      "Die leere Sammlung kann eine gültige Antwort sein.",
+      "Der Leerzustand informiert korrekt über den abgeschlossenen Erfolg.",
+      "Der Request ist bereits abgeschlossen."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/reusability/composables.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l11",
+    "index": 3,
+    "q": "B wurde nach A gestartet und liefert zuerst neue Daten. Ein Fetch-Fake liefert A trotz angefordertem Abort anschließend aus. Was verhindert das Überschreiben?",
+    "options": [
+      "Den loading-Wert als alleinigen Nachweis der Requestidentität verwenden.",
+      "Vor dem State-Commit A mit der aktuellen Request-id vergleichen und verwerfen.",
+      "Nach jedem Abort grundsätzlich die zuletzt eingetroffene Antwort übernehmen.",
+      "Die Antwort mit dem längsten Netzwerkweg als aktuell betrachten."
+    ],
+    "correct": 1,
+    "explain": "Ein Generationstoken oder gleichwertiger Aktualitätsnachweis ergänzt Cancellation an der Schreibgrenze.",
+    "rationales": [
+      "Ein Boolean unterscheidet parallele Requests nicht.",
+      "Nur die aktuelle Generation darf ihren Zustand veröffentlichen.",
+      "Ankunftszeit ist nicht die fachliche Aktualität.",
+      "Latenz macht einen alten Suchbegriff nicht neuer."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      "https://vuejs.org/guide/reusability/composables.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l12",
+    "index": 0,
+    "q": "Ein Vue-Router-Guard leitet nicht angemeldete Personen von /admin weg. Ein direkter API-Aufruf liefert trotzdem alle Konten. Wo liegt die notwendige Korrektur?",
+    "options": [
+      "Die API muss Identität und administrative Berechtigung selbst prüfen.",
+      "Der Guard muss die URL zusätzlich aus der Adresszeile entfernen.",
+      "Die Kontenroute muss ausschließlich über einen benannten Link erreichbar sein.",
+      "Der Guard muss den API-Pfad in einem Frontend-Secret speichern."
+    ],
+    "correct": 0,
+    "explain": "Navigation Guards steuern Navigation im Client und ersetzen keine Backendautorisierung.",
+    "rationales": [
+      "Direkte Requests müssen an der tatsächlichen Datengrenze abgewiesen werden.",
+      "Die Adresszeile kontrolliert keine API-Zugriffsrechte.",
+      "Versteckte Links verhindern manuelle Requests nicht.",
+      "Ein Clientpfad lässt sich nicht als Geheimnis absichern."
+    ],
+    "sources": [
+      "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+      "https://vuejs.org/guide/best-practices/security.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l12",
+    "index": 1,
+    "q": "Eine Ansicht bleibt zwischen /tasks/10 und /tasks/11 als dieselbe Komponenteninstanz bestehen. Details wurden nur beim Mount geladen. Welche Reparatur passt?",
+    "options": [
+      "Jeden Link mit target=\"_blank\" öffnen, um Mounts zu erzwingen.",
+      "Nur den Seitentitel ändern, weil die Daten zur Instanz gehören.",
+      "Das Parameterfeld einmal in eine konstante Zahl kopieren und nicht mehr lesen.",
+      "Die relevante Route-Parameterquelle beobachten und Details bei Änderung laden."
+    ],
+    "correct": 3,
+    "explain": "Bei wiederverwendeten Routenkomponenten muss das Laden auf die relevante Parameteränderung reagieren.",
+    "rationales": [
+      "Neue Tabs umgehen die Architektur statt sie zu reparieren.",
+      "Der sichtbare Datensatz muss zur aktuellen Route passen.",
+      "Ein einmaliger primitiver Snapshot verfolgt spätere Änderungen nicht.",
+      "Eine gezielte Quelle erfasst den Wechsel von 10 zu 11."
+    ],
+    "sources": [
+      "https://router.vuejs.org/guide/essentials/dynamic-matching.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l12",
+    "index": 2,
+    "q": "Eine ungespeicherte Bearbeitung soll beim Verlassen der Route vor Datenverlust warnen. Welcher Mechanismus adressiert diese Navigation?",
+    "options": [
+      "Eine zusätzliche GET-Anfrage, die alle offenen Formulare automatisch speichert.",
+      "Eine dauerhafte Entfernung aller Routerlinks aus dem Dokument.",
+      "Ein Leave-Guard, der bei unbestätigtem Wechsel die Navigation abbricht.",
+      "Ein Backend-Adminrecht, das jede clientseitige Navigation verhindert."
+    ],
+    "correct": 2,
+    "explain": "Ein Leave-Guard kann ungewollte Navigation verhindern; Speichern und Serverrechte bleiben getrennte Aufgaben.",
+    "rationales": [
+      "GET sollte kein automatischer Speichervorgang sein.",
+      "Entfernte Links verhindern weder Zurücknavigation noch programmatische Wechsel.",
+      "Die Entscheidung gehört an die Grenze des Routenwechsels.",
+      "Serverrechte verwalten keine lokalen Formulardrafts."
+    ],
+    "sources": [
+      "https://router.vuejs.org/guide/advanced/navigation-guards.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l13",
+    "index": 1,
+    "q": "Eine Pinia-Store-Action soll in einer Komponente destrukturiert verwendet werden, daneben ein reaktives tasks-Feld. Welche Kombination passt?",
+    "options": [
+      "const { tasks, laden } = storeToRefs(store)",
+      "const { tasks } = storeToRefs(store); const { laden } = store",
+      "const { tasks } = store; const laden = storeToRefs(store).laden",
+      "const tasks = store.tasks; const laden = store.laden()"
+    ],
+    "correct": 1,
+    "explain": "storeToRefs erzeugt refs für reaktiven State und Getter; Actions können direkt destrukturiert werden.",
+    "rationales": [
+      "storeToRefs übernimmt Actions nicht als State-refs.",
+      "Statebezug und aufrufbare Action werden korrekt getrennt.",
+      "Der State-Snapshot und die fehlende Action-ref sind problematisch.",
+      "Die Action wird sofort ausgeführt statt als Funktion gebunden."
+    ],
+    "sources": [
+      "https://pinia.vuejs.org/core-concepts/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l13",
+    "index": 2,
+    "q": "Zwei Ansichten sollen dieselbe Aufgabenliste bearbeiten, ein Dialog hat zusätzlich einen nur lokalen Draft. Welche Zustandsaufteilung passt?",
+    "options": [
+      "Liste in Pinia teilen, unbestätigten Dialogdraft lokal halten.",
+      "Liste und Draft ungeprüft in eine gemeinsame globale Objektkopie legen.",
+      "Jede Ansicht ausschließlich aus einem eigenen permanenten Array lesen lassen.",
+      "Den Dialogdraft bei jedem Tastendruck in alle fremden Benutzerkonten schreiben."
+    ],
+    "correct": 0,
+    "explain": "Gemeinsam benötigter Zustand gehört in einen gemeinsamen Eigentümer; temporärer UI-Zustand braucht nicht automatisch einen globalen Store.",
+    "rationales": [
+      "Der Scope des Zustands folgt seiner fachlichen Nutzung.",
+      "Globale Drafts können unabhängige Dialoge ungewollt koppeln.",
+      "Isolierte Listen verhindern die geforderte gemeinsame Sicht.",
+      "Andere Benutzerkonten liegen außerhalb des Draft-Scope."
+    ],
+    "sources": [
+      "https://pinia.vuejs.org/core-concepts/",
+      "https://vuejs.org/guide/reusability/composables.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l13",
+    "index": 3,
+    "q": "Eine Action ersetzt store.tasks vollständig. const { tasks } = store zeigte zuvor auf die alte Liste. Welche Bindung verfolgt auch den Ersatz des Storefelds?",
+    "options": [
+      "const tasks = JSON.parse(JSON.stringify(store.tasks))",
+      "const tasks = store.tasks.slice()",
+      "const tasks = [...store.tasks]",
+      "const { tasks } = storeToRefs(store)"
+    ],
+    "correct": 3,
+    "explain": "storeToRefs verknüpft die lokale ref mit dem Storefeld; Listen-Kopien sind eigenständige Snapshots.",
+    "rationales": [
+      "JSON-Kopieren entkoppelt statt zu verbinden.",
+      "slice erstellt nur eine neue Liste des bisherigen Inhalts.",
+      "Eine Arraykopie verfolgt Feldersatz nicht.",
+      "Die ref liest weiterhin das aktuelle tasks-Feld."
+    ],
+    "sources": [
+      "https://pinia.vuejs.org/core-concepts/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l14",
+    "index": 0,
+    "q": "Ein Unit-Test mit DOM-Simulation ist grün. Welche zusätzliche Prüfung benötigt einen echten Browser besonders direkt?",
+    "options": [
+      "Ein JSON-Objekt mit einem lokalen Schema vergleichen.",
+      "Die Summe zweier Zahlen ohne DOM berechnen.",
+      "Die tatsächliche Tabreihenfolge und den sichtbaren Fokus prüfen.",
+      "Eine reine Stringfunktion mit leerem String aufrufen."
+    ],
+    "correct": 2,
+    "explain": "Layout, native Interaktion und tatsächliches Fokusverhalten sind nicht durch reine Logiktests abgedeckt.",
+    "rationales": [
+      "Schemaauswertung benötigt nicht das native Rendering.",
+      "Die Rechnung braucht keinen Browser.",
+      "Native Tastaturbedienung und Darstellung gehören in einen Browsertest.",
+      "Der Stringgrenzfall lässt sich als Unit-Test abdecken."
+    ],
+    "sources": [
+      "https://playwright.dev/docs/best-practices"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l14",
+    "index": 1,
+    "q": "Ein E2E-Test klickt Speichern und wartet immer genau 500 ms. Unter CI ist er instabil. Welche Änderung prüft Verhalten statt angenommener Geschwindigkeit?",
+    "options": [
+      "Die Wartezeit pauschal auf 30 Sekunden erhöhen.",
+      "Auf die erwartete sichtbare Bestätigung mit einer wiederholenden Assertion warten.",
+      "Die Speichern-Assertion entfernen und nur den Screenshot behalten.",
+      "Den Test bei jedem langsamen Rechner ohne Meldung überspringen."
+    ],
+    "correct": 1,
+    "explain": "Playwright empfiehlt webbasierte, automatisch wartende Assertions statt starrer Zeitannahmen.",
+    "rationales": [
+      "Eine größere Konstante bleibt eine Zeitannahme.",
+      "Der beobachtbare Endzustand bestimmt das erfolgreiche Warten.",
+      "Ohne Assertion wird der Erfolg nicht nachgewiesen.",
+      "Stilles Überspringen liefert keinen belastbaren Nachweis."
+    ],
+    "sources": [
+      "https://playwright.dev/docs/best-practices"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l14",
+    "index": 2,
+    "q": "Ein Komponententest soll beweisen, dass ein Child nach Klick toggle mit id=17 emittiert. Welche Assertion trifft diesen Vertrag?",
+    "options": [
+      "Klick auslösen und emittiertes Event samt Nutzlast 17 prüfen.",
+      "Nur prüfen, dass die Testdatei ohne Syntaxfehler geladen wird.",
+      "Den Parent-State vor dem Klick selbst auf den gewünschten Wert setzen.",
+      "Nur prüfen, dass der interne Handlername im Quelltext vorkommt."
+    ],
+    "correct": 0,
+    "explain": "Ein Verhaltenstest löst die Interaktion aus und prüft das öffentlich beobachtbare Ergebnis.",
+    "rationales": [
+      "Die Assertion verbindet Interaktion mit dem vereinbarten Eventvertrag.",
+      "Ein Import testet die Interaktion nicht.",
+      "Die manuelle Vorbelegung kann einen defekten Handler verdecken.",
+      "Ein Handlername belegt keine Ausführung und keine Nutzlast."
+    ],
+    "sources": [
+      "https://test-utils.vuejs.org/guide/essentials/event-handling.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l15",
+    "index": 0,
+    "q": "Ein Team entfernt Source Maps und nennt den eingebauten API-Schlüssel nun geheim. Welche Bewertung ist korrekt?",
+    "options": [
+      "Der Schlüssel ist geschützt, wenn er erst nach dem Login geladen wird.",
+      "Der Schlüssel bleibt geheim, wenn Vite ihn zur Buildzeit ersetzt.",
+      "Der Schlüssel ist geschützt, solange die Variablennamen minimiert sind.",
+      "Der Schlüssel bleibt für Clients zugänglich und muss aus dem Frontend entfernt werden."
+    ],
+    "correct": 3,
+    "explain": "Ausgelieferter Clientcode und Clientrequests sind keine verlässliche Geheimnisgrenze.",
+    "rationales": [
+      "Ein berechtigter Client kann die an ihn gelieferten Werte auslesen.",
+      "Statische Ersetzung liefert den Wert weiterhin an den Browser.",
+      "Minifizierung ist keine Zugriffskontrolle.",
+      "Ein serverseitiger Proxy mit Rechteprüfung schützt das eigentliche Secret."
+    ],
+    "sources": [
+      "https://vite.dev/guide/env-and-mode",
+      "https://vuejs.org/guide/best-practices/security.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l15",
+    "index": 1,
+    "q": "Ein Kommentar wird aus einer fremden Quelle geladen. Eine Vue-Komponente nutzt v-html für ungeprüftes Markup. Welche Änderung beseitigt diesen konkreten HTML-Injektionspfad, wenn nur Text nötig ist?",
+    "options": [
+      "Den Kommentar nur in einer ausgeblendeten div mit v-html rendern.",
+      "Den Kommentar durch eine Type Assertion als SafeHtml markieren.",
+      "Den Kommentar als Textinterpolation statt als HTML rendern.",
+      "Den Kommentar vor v-html lediglich mit trim() kürzen."
+    ],
+    "correct": 2,
+    "explain": "Vue escaped Textinterpolation; ungeprüftes HTML gehört nicht in v-html. Andere Ausgabekontexte benötigen eigene Schutzmaßnahmen.",
+    "rationales": [
+      "Verstecken verhindert die Interpretation des DOM-Inhalts nicht.",
+      "Eine Typbehauptung bereinigt keine Laufzeitdaten.",
+      "Die Textausgabe interpretiert die Eingabe nicht als HTML.",
+      "Whitespace-Entfernung entfernt keine gefährlichen Elemente."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/best-practices/security.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l15",
+    "index": 2,
+    "q": "Nach einem SPA-Deployment funktioniert die Startseite, aber ein direkter Aufruf von /tasks/17 liefert vom Webserver 404. Welche Konfiguration fehlt typischerweise bei History-Routing?",
+    "options": [
+      "Eine CSS-Regel, die die Fehlerseite bei direktem Aufruf versteckt.",
+      "Ein passender Fallback auf die App-HTML für Clientrouten, ohne API und Assets falsch umzuleiten.",
+      "Eine zusätzliche CORS-Freigabe für alle Origins auf jeder HTML-Datei.",
+      "Ein Frontend-Admin-Token, das jede unbekannte Route freischaltet."
+    ],
+    "correct": 1,
+    "explain": "Der Webserver muss gültige Clientrouten an die SPA ausliefern; echte Assets und APIs behalten ihren eigenen Fehlervertrag.",
+    "rationales": [
+      "CSS kann die falsche HTTP-Auslieferung nicht reparieren.",
+      "Der Fallback erlaubt dem Router die Auflösung der Clientroute.",
+      "CORS behebt keinen serverseitigen Routen-404.",
+      "Authentifizierung ist hier nicht die Routingursache."
+    ],
+    "sources": [
+      "https://router.vuejs.org/guide/essentials/history-mode.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l16",
+    "index": 0,
+    "q": "Ein lokales Aufgaben-Dashboard speichert alles in localStorage. Nun sollen mehrere Benutzer getrennte Daten gemeinsam verwenden. Welche Ergänzung ist fachlich notwendig?",
+    "options": [
+      "Ein Backend mit authentifizierter, autorisierter und persistenter Datenverwaltung.",
+      "Ein längerer localStorage-Schlüssel mit dem Namen jedes Benutzerkontos.",
+      "Ein ausgeblendeter Adminbutton, der auf fremde Browserdaten zugreifen kann.",
+      "Ein production-Build, der lokale Daten automatisch weltweit synchronisiert."
+    ],
+    "correct": 0,
+    "explain": "Browserlokaler Speicher ist weder ein gemeinsamer Datenbankdienst noch eine serverseitige Mandantengrenze.",
+    "rationales": [
+      "Die gemeinsame Datenhaltung benötigt eine vertrauenswürdige Rechteinstanz.",
+      "Ein Schlüsselname schützt nicht gegen manipulierte Clients.",
+      "Ein Button kann nicht sicher fremde Browserspeicher verwalten.",
+      "Der Build erzeugt keinen Synchronisierungsdienst."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/best-practices/security.html",
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l16",
+    "index": 1,
+    "q": "Zwei Benutzer bearbeiten Revision 7 derselben Aufgabe. Das Backend akzeptiert beide PUTs ohne Vorbedingung. Welcher Vertrag verhindert einen stillen Lost Update?",
+    "options": [
+      "Beide Antworten nach lokaler Systemzeit sortieren und die erste behalten.",
+      "Jede Antwort mit HTTP 200 senden, damit der Client keine Konflikte sieht.",
+      "Nur im Frontend den Speichernbutton nach dem ersten Klick deaktivieren.",
+      "Beim Schreiben die erwartete Revision atomar vergleichen und Konflikte melden."
+    ],
+    "correct": 3,
+    "explain": "Optimistische Nebenläufigkeitskontrolle muss an der serverseitigen Schreibgrenze durchgesetzt werden.",
+    "rationales": [
+      "Lokale Uhren machen konkurrierende Writes nicht konsistent.",
+      "Verdeckte Konflikte verlieren weiterhin Änderungen.",
+      "Das verhindert keinen parallelen Client.",
+      "Der Vergleich stellt sicher, dass die gelesene Basis noch aktuell ist."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/If-Match"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "js-m1-l16",
+    "index": 2,
+    "q": "Beim Speichern einer Aufgabe antwortet die API 403. Welches UI-Verhalten wahrt den vereinbarten Serververtrag?",
+    "options": [
+      "Den 403-Status durch einen Browsercacheeintrag mit 200 ersetzen.",
+      "Den lokalen Erfolg dauerhaft anzeigen, weil der Klick erlaubt war.",
+      "Den Fehler verständlich anzeigen und keine bestätigte Speicherung vortäuschen.",
+      "Die Anfrage automatisch mit einer anderen Benutzer-id wiederholen."
+    ],
+    "correct": 2,
+    "explain": "Eine abgewiesene Operation ist kein bestätigter Erfolg; Clientreaktionen dürfen keine Rechte umgehen.",
+    "rationales": [
+      "Ein lokaler Ersatzstatus ändert die Serverentscheidung nicht.",
+      "Der Server hat die Änderung gerade nicht bestätigt.",
+      "Die UI trennt gewünschten und tatsächlich gespeicherten Zustand.",
+      "Identitätswechsel umgeht die Berechtigungsgrenze."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      "https://vuejs.org/guide/best-practices/security.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l1",
+    "index": 0,
+    "q": "Eine Lernseite benötigt einen Hauptinhalt, einen Seitentitel im Tab und ein eingebundenes Stylesheet. Welche Aufteilung passt zum HTML-Dokument?",
+    "options": [
+      "Alle drei Elemente als Text in meta schreiben.",
+      "title und link in head, main im body.",
+      "main und link in title, head im body.",
+      "title und main in head, link im main."
+    ],
+    "correct": 1,
+    "explain": "Metadaten gehören in head, der sichtbare Hauptinhalt in body.",
+    "rationales": [
+      "meta ersetzt keine strukturellen Elemente oder Stylesheetlinks.",
+      "title und Stylesheetbezug sind Metadaten; main strukturiert Inhalt.",
+      "title ist kein Container für Seiteninhalt.",
+      "main ist kein Dokumentmetadatum."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l1",
+    "index": 1,
+    "q": "Eine deutsche Seite wird mit englischer Sprachausgabe vorgelesen. Im Dokument fehlt die Sprachangabe. Welche Änderung adressiert die Standardsprache?",
+    "options": [
+      "<html lang=\"de\"> setzen.",
+      "<body name=\"de\"> setzen.",
+      "<title language=\"de\"> setzen.",
+      "<main class=\"de\"> setzen."
+    ],
+    "correct": 0,
+    "explain": "Die Dokumentensprache wird über lang angegeben und unterstützt unter anderem passende Sprachausgabe.",
+    "rationales": [
+      "lang am Wurzelelement gilt als Vorgabe für Nachfahren.",
+      "name am body legt keine Dokumentsprache fest.",
+      "Dieses Attribut legt die Seitensprache nicht fest.",
+      "Ein Klassenname ist keine semantische Sprachangabe."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l1",
+    "index": 2,
+    "q": "Der Browser-Tab einer Kursseite zeigt nur „Dokument“, während im Inhalt „Sicher mit APIs arbeiten“ steht. Welche Änderung verbessert gezielt die Tabbezeichnung?",
+    "options": [
+      "Dem body ein id=\"Sicher mit APIs\" geben.",
+      "Den ersten Absatz als HTML-Kommentar speichern.",
+      "Den sichtbaren h1-Text durch ein span ersetzen.",
+      "Im head einen aussagekräftigen title-Text setzen."
+    ],
+    "correct": 3,
+    "explain": "title bezeichnet das Dokument im Tab; die sichtbare Überschrift bleibt eine eigene semantische Struktur.",
+    "rationales": [
+      "Eine id ist kein Dokumenttitel.",
+      "Ein Kommentar erscheint weder als Inhalt noch als Tabtitel.",
+      "Ein span verändert die Tabmetadaten nicht.",
+      "title liefert die browserseitige Dokumentbezeichnung."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l2",
+    "index": 0,
+    "q": "Unter der h1 „Lernjournal“ stehen die Hauptabschnitte „Woche 1“ und „Woche 2“. „Tag 1“ gehört zu Woche 1. Welche Ebenen bilden diese Beziehung ab?",
+    "options": [
+      "Alle drei als h1, weil sie gleich groß aussehen sollen.",
+      "Alle drei als div, weil die Schriftgröße die Gliederung ersetzt.",
+      "Woche 1 als h2, Tag 1 als h3, Woche 2 als h2.",
+      "Woche 1 als h4, Tag 1 als h2, Woche 2 als h5."
+    ],
+    "correct": 2,
+    "explain": "Überschriftenebenen bilden die inhaltliche Hierarchie ab; Schriftgrößen werden unabhängig davon gestaltet.",
+    "rationales": [
+      "Gleiches visuelles Design rechtfertigt keine falsche Hierarchie.",
+      "div trägt keine Überschriftensemantik.",
+      "Die gleichrangigen Wochen und der untergeordnete Tag sind erkennbar.",
+      "Die Ebenen widersprechen der vorgegebenen Unterordnung."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l2",
+    "index": 1,
+    "q": "Eine Seite hat Hauptnavigation, Artikel und ergänzende Literaturhinweise. Welche Elementwahl macht die Rollen am besten erkennbar?",
+    "options": [
+      "span für Navigation, span für Hauptinhalt, span für Ergänzungen.",
+      "nav für Navigation, main für Hauptinhalt, aside für Ergänzungen.",
+      "aside für Navigation, footer für Hauptinhalt, title für Ergänzungen.",
+      "button für Navigation, head für Hauptinhalt, meta für Ergänzungen."
+    ],
+    "correct": 1,
+    "explain": "Semantische Bereiche beschreiben den Zweck und unterstützen Navigation durch assistive Technik.",
+    "rationales": [
+      "Reine spans machen die Seitenbereiche nicht semantisch erkennbar.",
+      "Die Elemente entsprechen den beschriebenen Inhaltsrollen.",
+      "footer und title sind kein Ersatz für Hauptinhalt und Ergänzungsbereich.",
+      "head und meta enthalten keine gewöhnlichen sichtbaren Inhaltsbereiche."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l2",
+    "index": 2,
+    "q": "Ein eigenständiger Kursbeitrag soll auch einzeln weiterveröffentlicht werden können. Welches Element passt für diesen zusammenhängenden Inhalt am besten?",
+    "options": [
+      "article mit eigener aussagekräftiger Überschrift.",
+      "nav mit allen Beitragstexten als Navigationslinks.",
+      "label mit dem gesamten Beitrag als Formularbeschriftung.",
+      "meta mit dem Beitragstext im content-Attribut."
+    ],
+    "correct": 0,
+    "explain": "article kennzeichnet eine eigenständige, unabhängig verwendbare inhaltliche Einheit.",
+    "rationales": [
+      "Die unabhängige Verwendbarkeit entspricht dem Elementzweck.",
+      "Ein Beitrag ist nicht insgesamt Navigation.",
+      "label beschreibt ein Formularsteuerelement, keinen Artikel.",
+      "Dokumentmetadaten ersetzen keinen zugänglichen Beitragstext."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l3",
+    "index": 0,
+    "q": "„Kurs öffnen“ soll auf /kurse/17 navigieren, ohne JavaScript vorauszusetzen. Welche Umsetzung hat die passende native Funktion?",
+    "options": [
+      "<span role=\"link\">Kurs öffnen</span>",
+      "<div href=\"/kurse/17\">Kurs öffnen</div>",
+      "<button onclick=\"location.href='/kurse/17'\">Kurs öffnen</button>",
+      "<a href=\"/kurse/17\">Kurs öffnen</a>"
+    ],
+    "correct": 3,
+    "explain": "Ein a-Element mit href bietet native Navigation einschließlich Linkfunktionen des Browsers.",
+    "rationales": [
+      "Die Rolle allein implementiert weder Ziel noch Bedienverhalten.",
+      "href auf div erzeugt keinen nativen Link.",
+      "Ein Button ist hier ein skriptbasierter Umweg für Navigation.",
+      "href auf a stellt eine echte native Verknüpfung her."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l3",
+    "index": 1,
+    "q": "Neben dem sichtbaren Text „PDF herunterladen“ steht ein rein dekoratives Pfeilbild. Welcher alt-Wert vermeidet eine unnötige doppelte Ansage?",
+    "options": [
+      "alt=\"Pfeil nach unten zum Herunterladen einer PDF-Datei\"",
+      "alt=\"PDF herunterladen\" als identische Textwiederholung",
+      "alt=\"\" für das ausschließlich dekorative Bild",
+      "Kein alt-Attribut, damit der Dateiname die Funktion erklärt"
+    ],
+    "correct": 2,
+    "explain": "Bei rein dekorativen Bildern ist ein leerer Alternativtext passend; informative Bilder benötigen einen inhaltlich sinnvollen Text.",
+    "rationales": [
+      "Die Formbeschreibung wiederholt hier keine benötigte Information.",
+      "Die sichtbare Linkbeschriftung wird unnötig wiederholt.",
+      "Der vorhandene Text trägt bereits die vollständige Bedeutung.",
+      "Fehlendes alt kann unerwünschte Dateinamenansagen verursachen."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l3",
+    "index": 2,
+    "q": "Ein Rezept beschreibt Schritte, deren Reihenfolge wichtig ist. Welche HTML-Struktur bildet diese Eigenschaft direkt ab?",
+    "options": [
+      "table mit jedem Schritt als leerem Kopfbereich.",
+      "ol mit je einem li pro Arbeitsschritt.",
+      "ul mit jedem Schritt als unabhängiger h1.",
+      "p mit per Leerzeichen eingerückten Nummern."
+    ],
+    "correct": 1,
+    "explain": "ol bildet eine geordnete Liste; reine Darstellung ersetzt die semantische Reihenfolge nicht.",
+    "rationales": [
+      "Ein Ablauf ohne tabellarische Beziehungen ist keine Datentabelle.",
+      "Die Schrittordnung wird nativ als geordnete Liste ausgezeichnet.",
+      "ul kennzeichnet keine bedeutungstragende Reihenfolge.",
+      "Manuelle Nummern im Absatz erzeugen keine Listenstruktur."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l4",
+    "index": 1,
+    "q": "In einem Formular löscht „Zurücksetzen“ nur einen lokalen Entwurf und darf nicht absenden. Der Button hat bisher keinen type. Welche Änderung macht die Absicht eindeutig?",
+    "options": [
+      "type=\"button\" setzen und die lokale Aktion gezielt anbinden.",
+      "name=\"button\" setzen und den Standardtyp unverändert lassen.",
+      "required am Button setzen und damit das Absenden verhindern.",
+      "Den Button in ein label verschieben und den Typ weglassen."
+    ],
+    "correct": 0,
+    "explain": "Ein button im Formular kann standardmäßig submit sein; type=\"button\" ist für die nicht absendende Aktion eindeutig.",
+    "rationales": [
+      "Der explizite Typ verhindert unbeabsichtigte Submission.",
+      "name ändert die Schaltflächenfunktion nicht.",
+      "required ist kein Submit-Sperrmechanismus für Buttons.",
+      "Die Elternstruktur ersetzt die Typfestlegung nicht."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input",
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l4",
+    "index": 2,
+    "q": "Ein E-Mail-Feld soll beschriftet und bei nativer Formularübermittlung als email übertragen werden. Welche Attribute erfüllen beide Aufgaben?",
+    "options": [
+      "Nur placeholder=\"E-Mail\" und class=\"email\" ohne name.",
+      "Nur id=\"email\", weil ids automatisch die Übermittlung steuern.",
+      "Nur label name=\"email\", weil Labeltexte immer mitgesendet werden.",
+      "id=\"email\" mit label for=\"email\" sowie name=\"email\"."
+    ],
+    "correct": 3,
+    "explain": "id/for stellen die Beschriftungsbeziehung her; name benennt den übertragenen Feldwert.",
+    "rationales": [
+      "Placeholder und Klasse ersetzen weder Label noch Feldnamen.",
+      "Eine id allein liefert keinen Formulardatenschlüssel.",
+      "Ein Labelname definiert keine erfolgreiche Formulardatenübermittlung.",
+      "Zuordnung und Übermittlung sind getrennt korrekt beschrieben."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label",
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l4",
+    "index": 3,
+    "q": "Ein Browserformular nutzt type=\"email\" und required. Ein Skript sendet direkt eine leere E-Mail an das Backend. Welche Regel muss dort gelten?",
+    "options": [
+      "Nur den User-Agent prüfen und bei bekanntem Browser ungeprüft speichern.",
+      "Die Eingabe speichern und erst nach dem Datenbankexport prüfen.",
+      "Die Eingabe serverseitig erneut validieren und bei Verstoß ablehnen.",
+      "Die Eingabe akzeptieren, weil HTML ungültige Requests unmöglich macht."
+    ],
+    "correct": 2,
+    "explain": "Native Validierung ist eine Bedienhilfe, aber keine Sicherheitsgrenze für direkte HTTP-Clients.",
+    "rationales": [
+      "Ein User-Agent ist kein verlässlicher Validierungsnachweis.",
+      "Eine spätere Prüfung verhindert keine bereits gespeicherten ungültigen Daten.",
+      "Der Server verantwortet die Gültigkeit jeder angenommenen Eingabe.",
+      "Direkte Requests umgehen die Browservalidierung."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l5",
+    "index": 0,
+    "q": "Eine Tabelle listet Kursnamen und Abschlussquoten. Screenreader-Nutzer sollen vor den Zellen den Tabellenzweck erkennen. Welches Element adressiert das?",
+    "options": [
+      "Ein unsichtbarer CSS-Pseudoinhalt hinter jeder Zahl.",
+      "caption mit „Abschlussquoten der Kurse im November“.",
+      "Ein leeres td mit einer Hintergrundgrafik des Titels.",
+      "Ein title-Attribut ausschließlich auf der letzten Datenzelle."
+    ],
+    "correct": 1,
+    "explain": "caption beschreibt die Tabelle als Ganzes und hilft bei der Entscheidung, ihren Inhalt zu erkunden.",
+    "rationales": [
+      "Generierter Zellinhalt ersetzt die Tabellenbeschriftung nicht.",
+      "Die Tabellenbeschriftung ist direkt mit der Tabelle verbunden.",
+      "Eine Hintergrundgrafik liefert keine gleichwertige Tabellenbeschriftung.",
+      "Ein Zelltooltip beschreibt nicht verlässlich die ganze Tabelle."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l5",
+    "index": 1,
+    "q": "Eine einfache Tabelle hat „Kurs“ und „Dauer“ als Spaltenüberschriften, bisher aber nur td. Welche Änderung verdeutlicht die Beziehung?",
+    "options": [
+      "Die Kopfzellen als th scope=\"col\" auszeichnen.",
+      "Die Kopfzellen ausschließlich mit font-weight:bold gestalten.",
+      "Jede Datenzelle in eine eigene table ohne Kopfzellen verschieben.",
+      "Die Überschriften per CSS vor der Tabelle zeichnen."
+    ],
+    "correct": 0,
+    "explain": "th und scope benennen die Kopfzellenrolle und ihren Bezug; Fettdruck allein macht keine Tabellenüberschrift.",
+    "rationales": [
+      "Die Spaltenbeziehung wird semantisch ausgezeichnet.",
+      "Visuelle Betonung liefert die Kopfzellenrolle nicht.",
+      "Die Aufspaltung zerstört die gemeinsamen Spaltenbeziehungen.",
+      "Die Zuordnung der externen Darstellung bleibt unklar."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "html-m1-l5",
+    "index": 2,
+    "q": "Eine Datentabelle enthält unerwartet versetzte Werte. Eine Zeile hat drei td, die übrigen vier. Welche Untersuchung ist zuerst fachlich passend?",
+    "options": [
+      "Die Schriftgröße aller Zellen verringern, bis die Verschiebung unsichtbar ist.",
+      "Das Problem allein mit einer zufälligen margin-left-Regel ausgleichen.",
+      "Alle th in span umwandeln, damit der Browser keine Spalten erkennt.",
+      "Zellzahl und vorhandene colspan/rowspan gegen das Tabellenraster prüfen."
+    ],
+    "correct": 3,
+    "explain": "Tabellenlayout folgt dem Zellraster einschließlich überspannter Zellen; strukturelle Fehler werden nicht durch kosmetischen Versatz gelöst.",
+    "rationales": [
+      "Kleinere Schrift repariert keine fehlende Zelle.",
+      "Ein visueller Offset ändert die Zellzuordnung nicht.",
+      "Entfernte Kopfzellensemantik verschlechtert die Tabelle zusätzlich.",
+      "Die tatsächliche Rasterursache wird nachvollzogen."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l1",
+    "index": 0,
+    "q": "Im selben Ursprung und derselben Kaskadenebene steht zuerst #karte { color:red }, später .karte { color:blue }. Das Element passt auf beide, !important fehlt. Welche Farbe gilt?",
+    "options": [
+      "Die Browser-Standardfarbe, weil zwei Regeln sich gegenseitig aufheben.",
+      "Blau, weil die letzte passende Regel immer gewinnt.",
+      "Rot, weil bei diesen gleichen Vorstufen die ID spezifischer ist.",
+      "Blau, weil Klassen grundsätzlich vor IDs ausgewertet werden."
+    ],
+    "correct": 2,
+    "explain": "Quellreihenfolge entscheidet erst nach vorherigen Kaskadenkriterien; hier trennt bereits die Spezifität.",
+    "rationales": [
+      "Konflikte werden priorisiert und nicht gegenseitig gelöscht.",
+      "Die Quellreihenfolge ist nicht das einzige Kriterium.",
+      "Der ID-Selektor gewinnt in der beschriebenen Konstellation.",
+      "Eine Klasse ist nicht spezifischer als eine ID."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l1",
+    "index": 1,
+    "q": "Eine Farbe aus einer Bibliothek scheint die eigene Regel zu verdrängen. Welche DevTools-Information hilft bei einer belastbaren Ursachenanalyse?",
+    "options": [
+      "Nur das Änderungsdatum der zuletzt gespeicherten CSS-Datei.",
+      "Die tatsächlich passenden Regeln mit Herkunft, Ebene, Wichtigkeit und Spezifität.",
+      "Nur die Anzahl aller CSS-Klassen im gesamten Projekt.",
+      "Die alphabetische Reihenfolge der Selektornamen im Stylesheet."
+    ],
+    "correct": 1,
+    "explain": "Die Kaskade priorisiert unter anderem Herkunft, Wichtigkeit und Ebenen vor Spezifität und späteren Gleichstandsregeln.",
+    "rationales": [
+      "Dateizeitstempel sind kein Kaskadenkriterium.",
+      "Die anwendbaren Deklarationen zeigen die tatsächliche Konkurrenz.",
+      "Die globale Klassenzahl erklärt den einzelnen Gewinner nicht.",
+      "Alphabetische Namen ordnen keine Deklarationspriorität."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l1",
+    "index": 2,
+    "q": "Zwei gleich spezifische normale Autorregeln derselben Ebene treffen auf dasselbe Element; Herkunft, Scoping-Nähe und weitere Prioritäten sind gleich. Welche Deklaration entscheidet den Gleichstand?",
+    "options": [
+      "Die später in der Quellreihenfolge vorkommende passende Deklaration.",
+      "Die Deklaration mit dem längeren Farbnamen.",
+      "Die Deklaration aus der Datei mit dem kürzeren Namen.",
+      "Die zuerst im Dokument vorkommende passende Deklaration."
+    ],
+    "correct": 0,
+    "explain": "Erst bei Gleichstand der vorherigen Kriterien greift die Quellreihenfolge.",
+    "rationales": [
+      "Die Quelle darf hier als letzter Tie-Breaker entscheiden.",
+      "Die Textlänge des Wertes beeinflusst die Priorität nicht.",
+      "Dateinamenlänge ist kein Kaskadenkriterium.",
+      "Die spätere Regel erhält den Vorrang im beschriebenen Gleichstand."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l2",
+    "index": 1,
+    "q": "Eine Karte mit width:100% läuft durch zusätzliches horizontales Padding und Border über ihren Container. Welche Boxmodelländerung ist für diesen Fall passend?",
+    "options": [
+      "box-sizing:content-box, damit alle Außenmaße automatisch verschwinden.",
+      "margin:auto, damit Padding und Border nicht mehr berechnet werden.",
+      "outline:none, damit jedes Größenproblem des Inhalts entfällt.",
+      "box-sizing:border-box, damit Padding und Border in der Breite liegen."
+    ],
+    "correct": 3,
+    "explain": "border-box bezieht Padding und Border in die gesetzte Breite ein, aber nicht Margin.",
+    "rationales": [
+      "content-box ist gerade die beschriebene Addition der Innenabstände.",
+      "Margin entfernt die zum Inhalt addierten Maße nicht.",
+      "Outline ist nicht die Ursache dieses Boxmodells.",
+      "Die äußere Borderbox bleibt bei hinreichender Breite im gesetzten Maß."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l2",
+    "index": 2,
+    "q": "Eine Borderbox ist mit width:200px, box-sizing:border-box, padding:20px und border:2px auf jeder Seite definiert. Wie breit ist ihr Inhaltsbereich ohne weitere Einschränkungen?",
+    "options": [
+      "200 px, weil der Inhalt die volle Borderbox bleibt.",
+      "160 px, weil nur das Padding abzuziehen ist.",
+      "156 px, weil Padding und Border beidseitig abzuziehen sind.",
+      "244 px, weil Innenabstände außen hinzukommen."
+    ],
+    "correct": 2,
+    "explain": "200 − 40 − 4 ergibt 156 px Inhalt; Margin gehört nicht zur Borderbox.",
+    "rationales": [
+      "Die gesetzte Breite umfasst hier bereits Padding und Border.",
+      "Die beiden Borders fehlen in dieser Rechnung.",
+      "Beide seitlichen Abstände werden korrekt berücksichtigt.",
+      "244 wäre die Borderbox bei content-box mit 200 px Inhalt."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l2",
+    "index": 3,
+    "q": "Ein Element hat width:200px, padding:20px und border:2px pro Seite, ohne Margin. Wie ändert box-sizing:border-box die Borderbox gegenüber content-box?",
+    "options": [
+      "Von 200 px auf 200 px, weil padding die Breite nie beeinflusst.",
+      "Von 244 px auf 200 px, bei verkleinertem Inhaltsbereich.",
+      "Von 200 px auf 244 px, bei gleichbleibendem Inhaltsbereich.",
+      "Von 240 px auf 204 px, weil Borders grundsätzlich außen bleiben."
+    ],
+    "correct": 1,
+    "explain": "content-box addiert 40 px Padding und 4 px Border; border-box rechnet sie in die 200 px ein.",
+    "rationales": [
+      "Padding beeinflusst die Aufteilung beziehungsweise Außenbreite.",
+      "Die beiden Modellrechnungen stimmen.",
+      "Die Wirkung der Modelle ist vertauscht.",
+      "border-box schließt auch den Border ein."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l3",
+    "index": 0,
+    "q": "Ein Design entfernt mit outline:none den nativen Fokus. Welche Ergänzung ist für Tastaturnutzung erforderlich?",
+    "options": [
+      "Ein gut wahrnehmbarer alternativer Fokusindikator, etwa bei :focus-visible.",
+      "Nur ein Hovereffekt, weil Tastaturfokus automatisch darauf abgebildet wird.",
+      "Ein title-Attribut, das erst nach längerem Mausverweilen erscheint.",
+      "Eine deaktivierte Tabnavigation für alle betroffenen Elemente."
+    ],
+    "correct": 0,
+    "explain": "Fokus muss beim Navigieren erkennbar bleiben; eine gestalterische Ersetzung darf ihn nicht unsichtbar machen.",
+    "rationales": [
+      "Die aktive Tastaturposition bleibt sichtbar.",
+      "Hover ist kein verlässlicher Tastaturindikator.",
+      "Ein Tooltip zeigt den aktuellen Fokus nicht gleichwertig an.",
+      "Entfernte Bedienbarkeit ist keine zugängliche Lösung."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l3",
+    "index": 1,
+    "q": "Ein Formular kennzeichnet Fehler nur durch roten Text, der sich vom Hintergrund kaum abhebt. Welche Verbesserung adressiert beide Probleme?",
+    "options": [
+      "Den Rotton beibehalten und ausschließlich ein Farbverlaufsbild ergänzen.",
+      "Nur die Schrift kursiv setzen und jeden erklärenden Text entfernen.",
+      "Die Fehlermeldung ausschließlich bei Hover über dem Feld zeigen.",
+      "Kontrast erhöhen und den Fehler zusätzlich mit verständlichem Text kennzeichnen."
+    ],
+    "correct": 3,
+    "explain": "Ausreichender Kontrast und Information jenseits von Farbe ergänzen einander; keines ersetzt das andere.",
+    "rationales": [
+      "Ein Verlauf garantiert weder Kontrast noch nichtfarbliche Erklärung.",
+      "Kursivschrift erklärt den konkreten Fehler nicht.",
+      "Hover-only schließt andere Eingabemethoden aus.",
+      "Wahrnehmbarkeit und eindeutige Bedeutung werden verbessert."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l3",
+    "index": 2,
+    "q": "Bei stark vergrößerter Schrift wird ein Absatz in einer festen height:80px-Box abgeschnitten. Welche Änderung folgt dem Inhaltsbedarf?",
+    "options": [
+      "Die Schrift bei Zoom automatisch wieder auf die kleine Ausgangsgröße setzen.",
+      "Die Absätze durch Hintergrundbilder mit festen Pixelmaßen ersetzen.",
+      "Eine starre Höhe vermeiden und den Textbereich mitwachsen lassen.",
+      "overflow:hidden ergänzen und den abgeschnittenen Text als dekorativ behandeln."
+    ],
+    "correct": 2,
+    "explain": "Text muss auch bei veränderter Darstellung nutzbar bleiben; feste Höhen können relevante Inhalte verstecken.",
+    "rationales": [
+      "Das Zurücksetzen unterläuft die gewählte Vergrößerung.",
+      "Textbilder verschlechtern flexible Darstellung und Zugänglichkeit.",
+      "Eine inhaltsabhängige Höhe erhält den vollständigen Text.",
+      "Unsichtbarer Inhalt bleibt ein Bedien- und Lesefehler."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l4",
+    "index": 0,
+    "q": "Ein Flexcontainer nutzt flex-direction:column. Wohin verteilt justify-content:space-between den freien Raum?",
+    "options": [
+      "Zwischen impliziten Gridspalten des Containers.",
+      "Zwischen Elementen entlang der vertikalen Hauptachse.",
+      "Zwischen Elementen ausschließlich entlang der horizontalen Querachse.",
+      "Zwischen Buchstaben innerhalb jedes einzelnen Flexitems."
+    ],
+    "correct": 1,
+    "explain": "justify-content folgt der Hauptachse; column legt sie in der üblichen horizontalen Schreibweise vertikal fest.",
+    "rationales": [
+      "Ein Flexcontainer verteilt keine Gridspalten.",
+      "Die Hauptachse verläuft bei dieser Konstellation von oben nach unten.",
+      "Die Querachse wird nicht durch justify-content adressiert.",
+      "Buchstabenabstände sind keine Flexverteilung."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l4",
+    "index": 1,
+    "q": "Eine lange URL in einem Flexitem verhindert trotz flex-shrink das gewünschte Schrumpfen. Welche Kombination adressiert die häufige Mindestgrößen- und Umbruchursache?",
+    "options": [
+      "min-width:0 am passenden Item und eine geeignete Textumbruchregel.",
+      "flex-grow:100 an allen Items und zusätzlich white-space:nowrap.",
+      "position:absolute an jedem Item und Entfernen aller Containermaße.",
+      "justify-content:center und eine unveränderte automatische Mindestbreite."
+    ],
+    "correct": 0,
+    "explain": "Flexitems können durch automatische Mindestgrößen und untrennbaren Inhalt begrenzt sein; Schrumpffaktor allein beseitigt das nicht.",
+    "rationales": [
+      "Mindestgröße und Textumbruch werden gezielt behandelt.",
+      "nowrap erhält gerade den ungetrennten Inhalt.",
+      "Absolute Positionierung verlässt den gewünschten Flexfluss.",
+      "Ausrichtung beseitigt die Mindestgrößenursache nicht."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l4",
+    "index": 2,
+    "q": "Eine Navigation soll bei Platzmangel auf mehrere Reihen umbrechen statt über den Viewport zu laufen. Welche Grundkonfiguration unterstützt das?",
+    "options": [
+      "display:flex; flex-wrap:nowrap; white-space:nowrap.",
+      "display:block; overflow:hidden; height:1rem.",
+      "display:flex; position:fixed; width:1600px.",
+      "display:flex; flex-wrap:wrap; gap:1rem."
+    ],
+    "correct": 3,
+    "explain": "wrap erlaubt weitere Flexzeilen; sinnvolle Inhaltsgrößen und Abstände ergänzen die responsive Navigation.",
+    "rationales": [
+      "nowrap verbietet gerade den geforderten Umbruch.",
+      "Verstecken entfernt Links statt den Raum anzupassen.",
+      "Eine feste große Breite erzeugt erneut Überlauf.",
+      "Die Items dürfen bei knapper Breite weitere Zeilen bilden."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox",
+      "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l5",
+    "index": 0,
+    "q": "Karten sollen in so viele Gridspalten passen, wie je mindestens 16rem erlauben; Restplatz wird verteilt. Welche Definition trifft das?",
+    "options": [
+      "grid-template-columns:1fr; grid-template-rows:repeat(4,16rem).",
+      "grid-template-columns:16rem; justify-content:space-between.",
+      "grid-template-columns:repeat(auto-fit,minmax(16rem,1fr)).",
+      "grid-template-columns:repeat(4,16rem) für jede verfügbare Breite."
+    ],
+    "correct": 2,
+    "explain": "auto-fit erzeugt passende Spaltenanzahlen, minmax begrenzt die Spur zwischen Mindestbreite und flexiblem Anteil; sehr schmale Container benötigen eine zusätzliche Anpassung.",
+    "rationales": [
+      "Die Definition erzeugt eine einzelne Spalte statt flexible Spaltenzahlen.",
+      "Eine einzelne feste Spalte verteilt keine weiteren Kartenspalten.",
+      "Die Spuren passen sich oberhalb der genannten Mindestbreite an.",
+      "Vier feste Spalten ignorieren knappe Container."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l5",
+    "index": 1,
+    "q": "Ein Grid mit zwei 1fr-Spalten läuft wegen eines sehr langen ungetrennten Textes über. Welche Spurdefinition kann die automatische Mindestbreite gezielt auf null begrenzen?",
+    "options": [
+      "repeat(2,max-content) mit white-space:nowrap.",
+      "repeat(2,minmax(0,1fr)) mit passendem Textumbruch.",
+      "repeat(2,minmax(100vw,1fr)) mit unverändertem Text.",
+      "repeat(2,500px) mit overflow:visible."
+    ],
+    "correct": 1,
+    "explain": "Flexible Spuren können an Inhaltsminima scheitern; eine Nulluntergrenze und Umbruch behandeln die konkrete Ursache.",
+    "rationales": [
+      "max-content und nowrap bevorzugen gerade die ungetrennte Breite.",
+      "Die Spuren dürfen schrumpfen und der Text kann umbrechen.",
+      "100vw je Spalte erzwingt zu große Mindestbreiten.",
+      "Feste 500 px reagieren nicht auf einen schmalen Container."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l5",
+    "index": 2,
+    "q": "Ein Team ordnet Karten per Grid visuell um, während die DOM-Reihenfolge unverändert bleibt. Bei Tabnavigation springt der Fokus scheinbar unlogisch. Was ist zu ändern?",
+    "options": [
+      "Die logische DOM-Reihenfolge mit einer sinnvollen visuellen Reihenfolge abstimmen.",
+      "Allen Karten willkürliche positive tabindex-Werte zum Layoutausgleich geben.",
+      "Den Fokusindikator verstecken, damit die Sprünge nicht auffallen.",
+      "Alle Karten deaktivieren und nur die grafische Reihenfolge beibehalten."
+    ],
+    "correct": 0,
+    "explain": "Visuelle Platzierung ändert nicht automatisch die semantische und Tastaturreihenfolge.",
+    "rationales": [
+      "Die zugrunde liegende Reihenfolge soll die Bedienlogik tragen.",
+      "Manuelle positive Tabindizes sind ein fragiler Ersatz für korrekte Struktur.",
+      "Unsichtbarer Fokus verschärft den Bedienfehler.",
+      "Entfernte Bedienbarkeit erfüllt die Navigation nicht."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l6",
+    "index": 0,
+    "q": "Die Navigation bricht schon bei 920px unschön um; ein verbreitetes Gerätelabel nennt 768px als „Tablet“. Welcher Breakpoint ist begründbar?",
+    "options": [
+      "Immer exakt 768px, unabhängig von Schrift und Navigationsinhalt.",
+      "Nur eine Abfrage nach dem Namen des Endgerätemodells verwenden.",
+      "Den Umbruch für alle Breiten mit horizontalem Abschneiden verhindern.",
+      "Ein inhaltsbezogener Wechsel dort, wo die Navigation tatsächlich Platz benötigt."
+    ],
+    "correct": 3,
+    "explain": "Responsive Breakpoints sollten den konkreten Inhalt und seine nutzbare Darstellung abbilden.",
+    "rationales": [
+      "Eine Gerätekategorie garantiert kein passendes Layout.",
+      "Gerätenamen bilden verfügbare Breiten nicht robust ab.",
+      "Abschneiden macht Navigation unzugänglich statt responsiv.",
+      "Das beobachtete Layoutproblem liefert den fachlichen Anlass."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l6",
+    "index": 1,
+    "q": "Ein großes dekoratives Pulsieren verursacht Beschwerden bei Personen mit reduzierter Bewegungspräferenz. Welche CSS-Reaktion passt?",
+    "options": [
+      "Animation nur bei Mausnutzung deaktivieren und die Systemeinstellung ignorieren.",
+      "Die Animation durch stärkere Zoomsprünge ohne Media Query ersetzen.",
+      "Unter prefers-reduced-motion:reduce die nicht notwendige Bewegung reduzieren oder entfernen.",
+      "Unter prefers-reduced-motion:reduce die Pulsfrequenz automatisch verdoppeln."
+    ],
+    "correct": 2,
+    "explain": "Die Media Query erkennt die Bewegungspräferenz und erlaubt eine gezielt ruhigere Darstellung.",
+    "rationales": [
+      "Die Eingabemethode ist nicht die Systemeinstellung für reduzierte Bewegung.",
+      "Zoomsprünge verstärken das ursprüngliche Problem.",
+      "Die nicht notwendige Bewegung wird der Präferenz angepasst.",
+      "Mehr Bewegung widerspricht dem geäußerten Bedarf."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l6",
+    "index": 2,
+    "q": "Eine mobile Seite wird zunächst wie eine verkleinerte Desktopfläche dargestellt. Welche Metadatenkonfiguration unterstützt einen Viewport entsprechend der Gerätebreite?",
+    "options": [
+      "<meta name=\"zoom\" content=\"user-scalable=no\">",
+      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
+      "<meta name=\"viewport\" content=\"width=1440, initial-scale=0.2\">",
+      "<meta name=\"device\" content=\"desktop-only\">"
+    ],
+    "correct": 1,
+    "explain": "Die übliche Viewportangabe ermöglicht layoutbezogene CSS-Pixelbreiten auf mobilen Geräten, ohne die Benutzervergrößerung zu sperren.",
+    "rationales": [
+      "Eine Zoomsperre ist weder die richtige Viewportkonfiguration noch zugänglich.",
+      "Die Layoutbreite folgt der Gerätebreite.",
+      "Eine starre Desktopbreite erhält das Skalierungsproblem.",
+      "Dieses Metadatum steuert den mobilen Layoutviewport nicht."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l7",
+    "index": 0,
+    "q": "Ein HTML/CSS-Demoformular zeigt nach Klick statisch „Gespeichert“, hat aber weder Handler noch Backend. Welche Aussage beschreibt den tatsächlichen Funktionsumfang?",
+    "options": [
+      "Die Nachricht belegt keine dauerhafte Speicherung oder serverseitige Prüfung.",
+      "Der Browser synchronisiert Formularwerte damit automatisch auf alle Geräte.",
+      "CSS validiert und speichert die Daten automatisch in einer SQL-Datenbank.",
+      "Die vorhandenen Labels genügen als dauerhafter Speichervertrag."
+    ],
+    "correct": 0,
+    "explain": "Darstellung und native Formularelemente implementieren nicht von sich aus einen persistenten Anwendungsdienst.",
+    "rationales": [
+      "Ohne Speicherpfad ist die Nachricht nur Darstellung.",
+      "Eine geräteübergreifende Synchronisierung braucht einen Dienst.",
+      "CSS ist kein Datenbankzugriffssystem.",
+      "Beschriftung schafft keine Persistenz."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements",
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l7",
+    "index": 1,
+    "q": "Im Lernjournal überdeckt ein fixierter Footer bei Zoom den letzten Speichernbutton. Welche Reparatur adressiert die Nutzbarkeit?",
+    "options": [
+      "Den letzten Button aus der Tabreihenfolge entfernen und das Layout unverändert lassen.",
+      "Die Vergrößerung verbieten, damit der Footer wieder unter den Text passt.",
+      "Den überdeckten Button durch eine ebenfalls verdeckte Hintergrundgrafik ersetzen.",
+      "Footerfluss beziehungsweise Inhaltsabstand so gestalten, dass der Button erreichbar und sichtbar bleibt."
+    ],
+    "correct": 3,
+    "explain": "Responsive Prüfung umfasst auch Zoom und überlagernde feste Bereiche, nicht nur typische Bildschirmbreiten.",
+    "rationales": [
+      "Ein nicht fokussierbarer Button erfüllt die Aktion nicht.",
+      "Zoomsperren unterlaufen den Nutzerbedarf.",
+      "Ein Bild ersetzt weder Sichtbarkeit noch Bedienbarkeit.",
+      "Die tatsächliche Interaktion bleibt trotz anderer Darstellung möglich."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "css-m1-l7",
+    "index": 2,
+    "q": "Bei 320 CSS-Pixeln läuft eine lange Kurskennung horizontal aus einer Karte. Welche Untersuchung ist fachlich zielgerichtet?",
+    "options": [
+      "Den gesamten body mit overflow:hidden abschneiden und den Test beenden.",
+      "Die Kennung aus dem Datensatz löschen, bis das Layout zufällig passt.",
+      "Mindestbreiten, feste Maße und Textumbruch des konkreten Inhalts prüfen.",
+      "Nur einen Desktop-Screenshot aufnehmen und mobile Überläufe ignorieren."
+    ],
+    "correct": 2,
+    "explain": "Ein konkreter Überlauffall benötigt Ursachenanalyse am Inhalt und seinen Layoutgrenzen.",
+    "rationales": [
+      "Abschneiden verdeckt Daten und gegebenenfalls Bedienelemente.",
+      "Produktive Daten an das fehlerhafte Layout anzupassen löst die Darstellung nicht.",
+      "So lässt sich eine inhaltserhaltende Layoutkorrektur finden.",
+      "Der fehlerhafte Viewport wird damit nicht geprüft."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+      "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l1",
+    "index": 0,
+    "q": "Ein Team überträgt einen Datenbankstand auf eine andere MariaDB-Version und plant ein physisches Backup als universellen Austausch. Welche Vorprüfung ist nötig?",
+    "options": [
+      "Den Servernamen auf mysql ändern, damit alle Formate kompatibel werden.",
+      "Backupformat, Zielversion und unterstützte Wiederherstellung konkret prüfen.",
+      "Nur prüfen, ob auf beiden Rechnern die Dateiendung .sql existiert.",
+      "Jede physische Datenkopie unabhängig von Version und Hardware öffnen."
+    ],
+    "correct": 1,
+    "explain": "Physische Backups sind an konkrete Voraussetzungen gebunden; ein gemeinsamer Produktursprung garantiert keine beliebige Austauschbarkeit.",
+    "rationales": [
+      "Ein Name ändert weder Dateiformat noch Enginekompatibilität.",
+      "Die dokumentierten Wiederherstellungsgrenzen werden konkret berücksichtigt.",
+      "Eine Dateiendung belegt weder Format noch Kompatibilität.",
+      "Physische Dateien sind kein universelles logisches Austauschformat."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l1",
+    "index": 1,
+    "q": "Eine Lernanwendung braucht SELECT und INSERT nur in der Datenbank lernlabor. Welche Zugangslösung begrenzt das Schadenspotenzial?",
+    "options": [
+      "Einen dedizierten Benutzer mit den benötigten Rechten auf lernlabor verwenden.",
+      "Den root-Benutzer verwenden und das Passwort nur im Frontend verstecken.",
+      "Allen Appbenutzern ALL PRIVILEGES auf *.* mit GRANT OPTION geben.",
+      "Den Administrationsaccount gemeinsam in allen Demo-Repositories veröffentlichen."
+    ],
+    "correct": 0,
+    "explain": "Datenbankrechte sollten auf die benötigten Objekte und Operationen begrenzt sein.",
+    "rationales": [
+      "Das Prinzip minimaler Rechte reduziert den erlaubten Eingriffsbereich.",
+      "root besitzt unnötige Rechte und Browsergeheimnisse sind keine Schutzgrenze.",
+      "Globale Rechte und Weitervergabe überschreiten den Bedarf deutlich.",
+      "Veröffentlichte Credentials schaffen unkontrollierbaren Zugang."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/account-management-sql-statements/grant"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l1",
+    "index": 2,
+    "q": "Ein Experiment soll Tabellen löschen und neu anlegen. Produktionsdaten dürfen dabei nicht gefährdet werden. Welche Vorbereitung passt?",
+    "options": [
+      "Nur den SQL-Dateinamen von produktiv.sql in demo.sql umbenennen.",
+      "Den Produktionsbenutzer weiterverwenden und DROP optisch grau darstellen.",
+      "Alle produktiven Tabellen verstecken, aber denselben globalen Adminzugang nutzen.",
+      "Ein getrenntes Lernschema mit Testdaten und einem dafür begrenzten Benutzer wählen."
+    ],
+    "correct": 3,
+    "explain": "Ein eingegrenztes Ziel und passende Rechte sind technische Schutzmaßnahmen; Benennung oder Darstellung allein begrenzen keine SQL-Wirkung.",
+    "rationales": [
+      "Der Dateiname ändert das verbundene Datenbankziel nicht.",
+      "SQL-Darstellung entzieht keine Löschberechtigung.",
+      "Versteckte Tabellen bleiben für den Admin erreichbar.",
+      "Ziel und Berechtigungen stimmen mit dem Experiment überein."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/account-management-sql-statements/grant"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l2",
+    "index": 0,
+    "q": "Eine Tabelle soll nur positive Lerndauern zulassen, auch wenn ein Import die App umgeht. Welche Definition bildet die Regel direkt ab?",
+    "options": [
+      "minuten INT mit einer ausschließlich clientseitigen Fehlermeldung",
+      "minuten INT NULL mit CHECK (minuten >= 0)",
+      "minuten INT NOT NULL CHECK (minuten > 0)",
+      "minuten TEXT mit einem erklärenden SQL-Kommentar"
+    ],
+    "correct": 2,
+    "explain": "Ein aktiver CHECK erzwingt die Bedingung in der Datenbank; NOT NULL schließt zusätzlich fehlende Werte aus.",
+    "rationales": [
+      "Der Import kann die Clientprüfung umgehen.",
+      "Diese Definition erlaubt null und null Minuten statt nur positiver Werte.",
+      "Positivität und Vorhandensein sind gemeinsam abgesichert.",
+      "Ein Kommentar erzwingt keine Datengültigkeit."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l2",
+    "index": 1,
+    "q": "Eine Zahlung benötigt centgenaue Beträge. Ein Team speichert beliebige Texte wie \"12,50 EUR\" in derselben Rechenspalte. Welche Modellierung ist belastbarer?",
+    "options": [
+      "Jede Währung als Spaltennamen aus einer ungeprüften Benutzereingabe übernehmen.",
+      "Einen geeigneten festen Dezimaltyp für den Betrag und eine separate Währung verwenden.",
+      "Alle Beträge als Freitext belassen und alphabetisch summieren.",
+      "Einen Boolean verwenden und den Betrag aus true oder false ableiten."
+    ],
+    "correct": 1,
+    "explain": "Fachlich passende numerische Repräsentation und getrennte Währungsinformation erleichtern korrekte Operationen und Validierung.",
+    "rationales": [
+      "Dynamische ungeprüfte Bezeichner sind kein geeignetes Betragsmodell.",
+      "Wert und Einheit erhalten einen definierten Datenvertrag.",
+      "Freitext ist kein zuverlässiger numerischer Rechenvertrag.",
+      "Ein Boolean kann die benötigten Geldwerte nicht ausdrücken."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/connectors/mariadb-connector-nodejs/connector-nodejs-promise-api",
+      "https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint",
+      "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/decimal"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l2",
+    "index": 2,
+    "q": "Zwei Importe dürfen denselben externen Aufgabenschlüssel nicht doppelt anlegen. Vorheriges SELECT allein ist bei Parallelität unsicher. Welche Datenbankregel ergänzt die App?",
+    "options": [
+      "Ein UNIQUE-Constraint auf dem verpflichtenden externen Schlüssel.",
+      "Ein normaler Kommentar mit dem Text „bitte eindeutig“.",
+      "Ein Index nur auf der meistgelesenen Beschreibungszeile.",
+      "Ein CHECK, der für jeden Datensatz ausschließlich 1 = 1 prüft."
+    ],
+    "correct": 0,
+    "explain": "Eine eindeutige Datenbankregel setzt die Invariante auch bei konkurrierenden Inserts durch; Fehler müssen gezielt behandelt werden.",
+    "rationales": [
+      "Der zweite konkurrierende gleiche Schlüssel wird abgewiesen.",
+      "Kommentare blockieren keinen Insert.",
+      "Ein gewöhnlicher Beschreibungsindex erzwingt keine Schlüsseleindeutigkeit.",
+      "Eine immer wahre Bedingung verhindert keine Dublette."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l3",
+    "index": 0,
+    "q": "Eine Auswertung zählt Aufgaben pro Kurs und soll nur Kurse mit mindestens fünf Aufgaben ausgeben. Wo gehört COUNT(*) >= 5 in dieser Gruppierungsabfrage hin?",
+    "options": [
+      "In ORDER BY statt einer Filterbedingung.",
+      "In LIMIT anstelle der gewünschten Gruppierung.",
+      "In SELECT als alleinigen Ersatz für GROUP BY.",
+      "In HAVING nach GROUP BY kurs_id."
+    ],
+    "correct": 3,
+    "explain": "HAVING filtert Gruppenergebnisse; ORDER BY und LIMIT haben andere Aufgaben.",
+    "rationales": [
+      "Sortieren entfernt Gruppen unter fünf nicht.",
+      "Ein Zeilenlimit ist keine gruppenbezogene Mindestanzahl.",
+      "Die Ausgabe eines Ausdrucks ersetzt die Gruppierungsregel nicht.",
+      "Die Bedingung bezieht sich auf den aggregierten Gruppenwert."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l3",
+    "index": 1,
+    "q": "Ein Suchbegriff enthält Apostrophe und stammt vom Benutzer. Welche Queryform hält Daten von SQL-Syntax getrennt?",
+    "options": [
+      "Den Suchtext unverändert als WHERE-Klausel übernehmen.",
+      "Nur Leerzeichen entfernen und den Rest in SQL einsetzen.",
+      "WHERE title = ? mit einem getrennt gebundenen Wert.",
+      "WHERE title = ' plus Suchtext plus ' als Stringverkettung."
+    ],
+    "correct": 2,
+    "explain": "Parameterbindung behandelt den Suchwert als Daten; Bezeichner oder freie SQL-Strukturen benötigen gesonderte sichere Auswahl.",
+    "rationales": [
+      "Ungeprüfte Klauseln übertragen die Querykontrolle an den Nutzer.",
+      "Whitespace-Entfernung ist keine sichere SQL-Parametrisierung.",
+      "Der Treiber verarbeitet den gebundenen Wert ohne SQL-Verkettung.",
+      "Stringverkettung eröffnet fehleranfällige Syntax- und Injektionspfade."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/connectors/mariadb-connector-nodejs/connector-nodejs-promise-api"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l3",
+    "index": 2,
+    "q": "Kurse werden per LEFT JOIN mit Aufgaben verbunden. Ein Kurs hat keine Aufgabe. Was zählt COUNT(aufgaben.id) im Unterschied zu COUNT(*) für diesen Kurs?",
+    "options": [
+      "Beide zählen alle Aufgaben der Datenbank ohne Kursbezug.",
+      "0 statt 1, weil die ergänzte Joinzeile keine Aufgaben-id hat.",
+      "1 statt 0, weil LEFT JOIN immer eine neue Aufgaben-id erzeugt.",
+      "Beide zählen zwingend 0, weil LEFT JOIN leere Kurse entfernt."
+    ],
+    "correct": 1,
+    "explain": "COUNT(spalte) ignoriert NULL; COUNT(*) zählt die vorhandene Ergebniszeile der linken Seite mit.",
+    "rationales": [
+      "Der Joinbezug bestimmt weiterhin die zugeordneten Zeilen.",
+      "Die NULL-erweiterte Zeile erklärt den Unterschied.",
+      "LEFT JOIN erzeugt keine fachliche Aufgabenidentität.",
+      "Der linke Kurs bleibt gerade erhalten."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l4",
+    "index": 1,
+    "q": "Eine InnoDB-Transaktion ändert erst eine Reservierung und ruft dann lange einen externen Zahlungsdienst auf, während sie Zeilenlocks hält. Welche Trennung ist sinnvoll?",
+    "options": [
+      "Lokale Invariante kurz transaktional sichern und externen Effekt separat zuverlässig koordinieren.",
+      "Die Datenbanktransaktion offen lassen, bis jeder denkbare Netzwerkfehler ausgeschlossen ist.",
+      "Annehmen, dass ROLLBACK eine bereits ausgeführte Fremdzahlung automatisch rückgängig macht.",
+      "Den Netzwerkrequest innerhalb der Transaktion beliebig oft ohne Idempotenz wiederholen."
+    ],
+    "correct": 0,
+    "explain": "Eine Datenbanktransaktion schützt lokale Änderungen; fremde Seiteneffekte und lange Netzwerkwartezeiten sind gesondert zu behandeln.",
+    "rationales": [
+      "Die Sperrdauer bleibt begrenzt und die externe Koordination wird explizit.",
+      "Unbegrenzte Netzwerkzeit hält konkurrierende Datenbankarbeit unnötig auf.",
+      "Ein lokales Rollback kontrolliert den Zahlungsdienst nicht.",
+      "Wiederholungen können zusätzliche Fremdzahlungen auslösen."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/transactions/start-transaction",
+      "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/for-update"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l4",
+    "index": 2,
+    "q": "In einer Lerntransaktion folgt auf UPDATE ein CREATE TABLE und danach ROLLBACK. Warum darf man nicht erwarten, dass das vorherige UPDATE sicher zurückgerollt wird?",
+    "options": [
+      "ROLLBACK ist in InnoDB grundsätzlich ohne jede Wirkung.",
+      "UPDATE kann nur bei deaktivierten Indizes transaktional sein.",
+      "CREATE TABLE wird vom Server grundsätzlich nur als Kommentar behandelt.",
+      "Viele DDL-Anweisungen wie CREATE TABLE bewirken einen impliziten Commit."
+    ],
+    "correct": 3,
+    "explain": "MariaDB dokumentiert implizite Commits bei vielen DDL-Statements; Transaktionsgrenzen müssen die konkreten Anweisungen berücksichtigen.",
+    "rationales": [
+      "InnoDB unterstützt Rollbacks transaktionaler Änderungen.",
+      "Indexaktivität ist nicht die genannte Commitursache.",
+      "CREATE TABLE ist eine wirksame DDL-Anweisung.",
+      "Das DDL verändert hier die erwartete Transaktionsgrenze."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/transactions/start-transaction"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l4",
+    "index": 3,
+    "q": "Zwei Clients sehen Bestand 1 und wollen je ein Stück verkaufen. Welcher einzelne atomare Schreibschritt kann die Invariante Bestand >= 0 sichern?",
+    "options": [
+      "SELECT bestand lesen; danach ohne Bedingung den gelesenen Wert minus eins schreiben.",
+      "Im Browser den zweiten Speichernbutton verstecken, aber jede API-Buchung akzeptieren.",
+      "UPDATE artikel SET bestand = bestand - 1 WHERE id = ? AND bestand > 0; betroffene Zeilen prüfen.",
+      "UPDATE artikel SET bestand = 0 WHERE id = ?; beide Verkäufe unabhängig bestätigen."
+    ],
+    "correct": 2,
+    "explain": "Ein bedingtes atomisches Update verbindet Prüfung und Änderung; null betroffene Zeilen bedeutet keine erfolgreiche Reservierung.",
+    "rationales": [
+      "Zwischen getrennter Prüfung und Änderung bleibt ein Rennen.",
+      "Eine UI-Regel schützt nicht vor parallelen Clients.",
+      "Nur ein Client kann den letzten verfügbaren Bestand erfolgreich vermindern.",
+      "Beide Bestätigungen könnten denselben letzten Bestand verkaufen."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/transactions/start-transaction",
+      "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/for-update"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l5",
+    "index": 0,
+    "q": "EXPLAIN zeigt für eine Query einen verwendeten Index. Welche Schlussfolgerung ist ohne weitere Messung nicht gedeckt?",
+    "options": [
+      "Der Optimizer plant für diese Abfrage einen entsprechenden Zugriffspfad.",
+      "Die Abfrage erfüllt damit garantiert das p95-Ziel unter produktiver Parallelität.",
+      "Der angezeigte Plan kann eine gezielte weitere Untersuchung unterstützen.",
+      "Andere Datenverteilungen können einen neuen Planvergleich erforderlich machen."
+    ],
+    "correct": 1,
+    "explain": "Ein geschätzter Plan belegt keine garantierte Laufzeit unter realer Last.",
+    "rationales": [
+      "Das ist der unmittelbare Zweck der Planauskunft.",
+      "Last, Datenmenge, Cache und Konkurrenz sind damit nicht gemessen.",
+      "Planinformation ist ein Diagnosemittel.",
+      "Statistiken und Datenverteilung beeinflussen Optimizerentscheidungen."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/analyze-and-explain-statements/explain",
+      "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimization-and-indexes"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l5",
+    "index": 1,
+    "q": "Eine Tabelle bekommt für jede Spalte einen zusätzlichen Index, obwohl nur zwei Filterpfade gebraucht werden. Welche Kosten müssen gegen den Nutzen abgewogen werden?",
+    "options": [
+      "Zusätzlicher Speicher und Pflegeaufwand bei schreibenden Änderungen.",
+      "Ein garantierter kostenloser Geschwindigkeitsgewinn für jede Query.",
+      "Automatische Entfernung aller Constraintprüfungen durch zusätzliche Indizes.",
+      "Unbegrenzte Parallelität aller Transaktionen ohne Sperren."
+    ],
+    "correct": 0,
+    "explain": "Indizes können Lesen beschleunigen, benötigen aber Speicher und Aktualisierung; ihr Nutzen hängt von konkreten Zugriffen ab.",
+    "rationales": [
+      "Die Indexpflege gehört zur Schreibkostenbetrachtung.",
+      "Nicht jeder Index hilft jeder Abfrage und nichts daran ist kostenlos.",
+      "Indizes entfernen keine allgemeinen Datenintegritätsregeln.",
+      "Indizes ersetzen keine Transaktions- und Sperrmechanismen."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimization-and-indexes"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l5",
+    "index": 2,
+    "q": "Ein neuer Index soll eine Kursauswertung beschleunigen. Welche Prüfung verbindet Performancegewinn mit fachlicher Korrektheit?",
+    "options": [
+      "Nur den Indexnamen im Schema ansehen und den Test als abgeschlossen markieren.",
+      "Ausschließlich mit einer einzigen Zeile messen und den Wert auf jede Last übertragen.",
+      "Die WHERE-Klausel entfernen, damit die Abfrage scheinbar schneller fertig wird.",
+      "Ergebnisgleichheit sowie Plan und Laufzeiten mit repräsentativen Daten vor und nach der Änderung vergleichen."
+    ],
+    "correct": 3,
+    "explain": "Performanceoptimierung darf den Ergebnisvertrag nicht verändern und benötigt messbare repräsentative Vergleichswerte.",
+    "rationales": [
+      "Der Objektname belegt keine genutzte oder hilfreiche Struktur.",
+      "Ein Minimaldatensatz repräsentiert die produktive Verteilung nicht.",
+      "Ein anderes Ergebnis ist keine gültige Optimierung derselben Aufgabe.",
+      "Korrektheit und tatsächliche Wirkung werden gemeinsam überprüft."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/analyze-and-explain-statements/explain",
+      "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimization-and-indexes"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l6",
+    "index": 0,
+    "q": "Ein versehentliches DROP DATABASE wird auf die Replica übertragen. Welche Eigenschaft des Sicherungskonzepts fehlt, wenn nur Replikation vorhanden ist?",
+    "options": [
+      "Ein gleichlautender Datenbankname auf beiden Servern.",
+      "Ein automatischer Retry des DROP auf jeder weiteren Replica.",
+      "Ein unabhängig nutzbarer Wiederherstellungspunkt vor der fehlerhaften Änderung.",
+      "Eine schnellere Replikationsverbindung, damit das DROP früher ankommt."
+    ],
+    "correct": 2,
+    "explain": "Replikation übernimmt auch unerwünschte Änderungen und ist allein kein vollständiges Backup.",
+    "rationales": [
+      "Die Benennung erhält keine vergangenen Daten.",
+      "Weitere Ausführung beseitigt keine Löschung.",
+      "Ein historischer gesicherter Stand ermöglicht Wiederherstellung nach logischem Fehler.",
+      "Schnellere Übernahme verstärkt statt behebt den Verlust."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/server-usage/backup-and-restore/replication-as-a-backup-solution"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l6",
+    "index": 1,
+    "q": "Ein Laravel-Projekt soll Datenbankzugang erhalten und sein Beispiel-Environment ins Repository aufnehmen. Welche Variante hält echte Zugangsdaten aus Git?",
+    "options": [
+      "Den Zugangsschlüssel in den öffentlichen Frontendbuild kopieren.",
+      "Nur Platzhalter in .env.example speichern und echte Secrets sicher separat bereitstellen.",
+      "Das root-Passwort als Kommentar in .env.example schreiben.",
+      "Alle echten Passwörter Base64-kodiert in die Konfiguration einchecken."
+    ],
+    "correct": 1,
+    "explain": "Beispielkonfiguration dokumentiert benötigte Werte, veröffentlicht aber keine produktiven Secrets; der Datenbankbenutzer erhält minimale Rechte.",
+    "rationales": [
+      "Öffentlich ausgelieferter Clientcode ist keine Geheimnisgrenze.",
+      "Dokumentation und vertrauliche Bereitstellung bleiben getrennt.",
+      "Kommentare sind weiterhin lesbarer Repositoryinhalt.",
+      "Base64 ist reversibel und kein Geheimnisschutz."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/reference/sql-statements/account-management-sql-statements/grant"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mariadb-m1-l6",
+    "index": 2,
+    "q": "Ein Backupjob meldet Exitcode 0. Das Team kennt weder Restorezeit noch Datenvollständigkeit. Welche nächste Prüfung liefert den fehlenden Nachweis?",
+    "options": [
+      "In isolierter Umgebung wiederherstellen, Integrität und fachliche Stichproben prüfen und Dauer erfassen.",
+      "Nur die Dateigröße notieren und den ursprünglichen Datenbestand löschen.",
+      "Die Backupdatei umbenennen und damit Restorefähigkeit bestätigen.",
+      "Die Replica kurz anhalten und ohne Datenprüfung wieder starten."
+    ],
+    "correct": 0,
+    "explain": "Ein angelegtes Backup ist erst durch einen dokumentierten Wiederherstellungstest praktisch auf Nutzbarkeit geprüft.",
+    "rationales": [
+      "Der Test untersucht Wiederherstellung und konkrete Datenqualität.",
+      "Dateigröße allein belegt keine brauchbare Wiederherstellung.",
+      "Umbenennen führt keine Wiederherstellung aus.",
+      "Ein Replikationsneustart testet die Backupdatei nicht."
+    ],
+    "sources": [
+      "https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l1",
+    "index": 0,
+    "q": "Ein Architekturpapier nennt JSON ein Übertragungsprotokoll und WebSocket ein Datenformat. Welche Korrektur ordnet die Ebenen richtig?",
+    "options": [
+      "JSON ist ein Berechtigungsmodell; WebSocket definiert eine Datenbanknormalform.",
+      "JSON und WebSocket sind lediglich zwei identische Dateiendungen.",
+      "JSON ersetzt HTTP-Statuscodes; WebSocket ersetzt jeden API-Vertrag.",
+      "JSON beschreibt Datenrepräsentation; WebSocket stellt einen Kommunikationskanal bereit."
+    ],
+    "correct": 3,
+    "explain": "Format und Kommunikationsmechanismus beantworten unterschiedliche Architekturfragen.",
+    "rationales": [
+      "Keine der genannten Sicherheits- oder Datenbankzuordnungen stimmt.",
+      "Die Begriffe bezeichnen keine identischen Formate.",
+      "Ein Format beziehungsweise Kanal definiert nicht die gesamte Fachsemantik.",
+      "Repräsentation und Kanal werden sachlich getrennt."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+      "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l1",
+    "index": 1,
+    "q": "Ein Bestandsdienst liefert JSON über HTTP. Allein daraus wird „vollständiges REST-Design“ behauptet. Welche zusätzliche Frage ist für die Schnittstelle substanziell?",
+    "options": [
+      "Ob jede URL möglichst viele Verben hintereinander enthält.",
+      "Ob die Antwort ausschließlich ohne Zeilenumbrüche übertragen wird.",
+      "Wie Ressourcen, Methoden, Status und Nebenläufigkeitsregeln fachlich definiert sind.",
+      "Ob die JSON-Datei im Repository alphabetisch vor den CSS-Dateien steht."
+    ],
+    "correct": 2,
+    "explain": "Ein JSON-Payload beschreibt weder Ressourcensemantik noch korrekte HTTP- oder Konfliktbehandlung.",
+    "rationales": [
+      "Viele Verben belegen kein geeignetes Ressourcendesign.",
+      "Whitespace bestimmt nicht die fachliche API-Architektur.",
+      "Der fachliche Interaktionsvertrag muss ausdrücklich beschrieben sein.",
+      "Die Dateisortierung beeinflusst die API-Semantik nicht."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/If-Match"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l1",
+    "index": 2,
+    "q": "Ein Team wählt zwischen HTTP-API und gRPC für interne Dienste mit typisierten Methoden und Streaming. Welche Anforderung stützt die gRPC-Prüfung direkt?",
+    "options": [
+      "Die Behauptung, dass JSON grundsätzlich keine Zahlen darstellen kann.",
+      "Ein expliziter Servicevertrag mit Request-/Response-Typen und benötigten Streamrichtungen.",
+      "Die Annahme, dass ein anderer Transport jede Autorisierung überflüssig macht.",
+      "Der Wunsch, ohne Schemaänderungsregeln beliebige Felder zu entfernen."
+    ],
+    "correct": 1,
+    "explain": "gRPC beschreibt Services und Methoden und unterstützt unterschiedliche Streamingformen; Sicherheit und Evolution bleiben eigene Aufgaben.",
+    "rationales": [
+      "JSON unterstützt Zahlen; das ist kein Auswahlargument.",
+      "Die geforderten Fähigkeiten entsprechen den dokumentierten RPC-Konzepten.",
+      "Transportwahl beseitigt keine Rechteprüfung.",
+      "Breaking Changes bleiben auch bei generierten Clients problematisch."
+    ],
+    "sources": [
+      "https://grpc.io/docs/what-is-grpc/core-concepts/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l2",
+    "index": 1,
+    "q": "Eine API löscht eine Aufgabe beim GET /tasks/17/delete. Linkvorschau und Crawler können die URL laden. Welche Änderung passt zur HTTP-Semantik?",
+    "options": [
+      "Die Mutation über eine passende schreibende Methode mit Rechteprüfung ausführen.",
+      "GET beibehalten und den URL-Pfad nur kürzer schreiben.",
+      "GET beibehalten und die Antwort als image/png deklarieren.",
+      "Das Löschen auf HEAD verlagern, weil dort kein Body zurückkommt."
+    ],
+    "correct": 0,
+    "explain": "GET und HEAD sind für sichere Lesezugriffe gedacht, nicht als fachlich beabsichtigte Löschaktionen.",
+    "rationales": [
+      "Schreibsemantik und Autorisierung werden an der Operation ausgedrückt.",
+      "Ein anderer Pfad macht GET nicht mutierend sicher.",
+      "Der Medientyp ändert die Methodensemantik nicht.",
+      "HEAD ist ebenfalls keine passende Löschmethode."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l2",
+    "index": 2,
+    "q": "Ein PUT setzt den vollständigen Aufgabenstatus auf denselben Wert. Eine Wiederholung kann einen anderen Antwortstatus liefern. Was bedeutet Idempotenz hier?",
+    "options": [
+      "Jede Wiederholung muss byteidentische Antworten und Zeitstempel liefern.",
+      "Die Methode darf keinen Serverzustand ändern und ist deshalb immer GET.",
+      "Die Methode garantiert ohne weitere Technik genau einen externen Zahlungseffekt.",
+      "Die beabsichtigte Serverwirkung mehrfacher gleicher Requests entspricht der einmaligen Wirkung."
+    ],
+    "correct": 3,
+    "explain": "Idempotenz betrifft die beabsichtigte Wirkung, nicht identische Antwortbytes oder automatisch Exactly-once über Fremdsysteme.",
+    "rationales": [
+      "Status oder Metadaten können sich trotz gleicher Endwirkung unterscheiden.",
+      "Schreibende Methoden können idempotent sein.",
+      "Externe Effekte benötigen einen eigenen zuverlässigen Vertrag.",
+      "Die Definition ist auf die Wirkung wiederholter gleicher Operationen bezogen."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l2",
+    "index": 3,
+    "q": "Zwei Clients bearbeiten ETag \"7\". Der Server sendet ETags, ignoriert If-Match beim PUT aber vollständig. Welche Aussage trifft zu?",
+    "options": [
+      "Die Konfliktprüfung wird zwingend vom Browser für jeden HTTP-Client durchgeführt.",
+      "Das ETag allein verhindert bereits jeden konkurrierenden Schreibverlust.",
+      "Ohne serverseitigen Vorbedingungsvergleich besteht keine solche Lost-Update-Garantie.",
+      "Das Vorhandensein eines ETags macht alle PUTs automatisch schreibgeschützt."
+    ],
+    "correct": 2,
+    "explain": "Der Server muss If-Match tatsächlich auswerten und nicht passende Schreibvorbedingungen ablehnen, typischerweise mit 412.",
+    "rationales": [
+      "Beliebige HTTP-Clients können senden; die API muss selbst prüfen.",
+      "Ein nur ausgegebener Versionswert erzwingt keine Schreibbedingung.",
+      "Die entscheidende Prüfung fehlt an der Schreibgrenze.",
+      "ETags sperren Ressourcen nicht automatisch."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/If-Match"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l3",
+    "index": 0,
+    "q": "Eine GraphQL-Abfrage lädt 30 Kurse und je deren Autor. Der Resolver fragt den Autor pro Kurs einzeln ab. Welche Optimierung adressiert N+1?",
+    "options": [
+      "Alle Autorisierungsprüfungen entfernen, damit jeder Resolver schneller wird.",
+      "Autorenzugriffe geeignet bündeln oder pro Request deduplizieren und das Ergebnis messen.",
+      "Nur die äußere Query von GraphQL in Großbuchstaben schreiben.",
+      "Die gleichen Einzelabfragen zusätzlich parallel ohne Begrenzung wiederholen."
+    ],
+    "correct": 1,
+    "explain": "GraphQL beseitigt N+1 nicht automatisch; Resolver- und Datenzugriffsdesign entscheiden über die Backendzugriffe.",
+    "rationales": [
+      "Fehlende Autorisierung ist keine zulässige Performanceoptimierung.",
+      "Batching und requestbezogene Deduplizierung können wiederholte Zugriffe reduzieren.",
+      "Schreibweise ändert den Zugriffspfad nicht.",
+      "Mehr doppelte Zugriffe lösen die Queryanzahl nicht."
+    ],
+    "sources": [
+      "https://graphql.org/learn/performance/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l3",
+    "index": 1,
+    "q": "Eine öffentliche GraphQL-API erlaubt beliebig tiefe verschachtelte Listen. Welche Schutzkombination behandelt die Ressourcenlast fachlich?",
+    "options": [
+      "Pagination sowie passende Tiefen-, Komplexitäts- und Mengenlimits durchsetzen.",
+      "Nur Introspection abschalten und jede Operation unbegrenzt ausführen.",
+      "Nur die Variablennamen kürzen und jede Liste vollständig liefern.",
+      "Jede eingehende Operation ungeprüft auf alle Resolver parallel verteilen."
+    ],
+    "correct": 0,
+    "explain": "Mehrschichtige Demand-Control begrenzt Aufwand; Introspection allein ist keine Abfragekostenkontrolle.",
+    "rationales": [
+      "Verschachtelung und Ergebnismengen erhalten überprüfbare Grenzen.",
+      "Auch bekannte Queryformen können übermäßig teuer sein.",
+      "Kurze Namen reduzieren die Resolverlast nicht wesentlich.",
+      "Unbegrenzte Parallelität kann den Lastangriff verstärken."
+    ],
+    "sources": [
+      "https://graphql.org/learn/security/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l3",
+    "index": 2,
+    "q": "Ein gRPC-Client wartet unbegrenzt auf einen internen Dienst. Die Gesamtoperation darf höchstens zwei Sekunden dauern. Welche Vertragsangabe ist unmittelbar nötig?",
+    "options": [
+      "Eine zusätzliche Dateiendung .grpc für jede Logdatei.",
+      "Ein Retry ohne Limit, damit irgendwann immer Erfolg gemeldet wird.",
+      "Die Annahme, dass generierte Stubs jede Latenz automatisch begrenzen.",
+      "Eine passende Deadline und ein definierter Umgang mit Timeout und Abbruch."
+    ],
+    "correct": 3,
+    "explain": "RPC-Aufrufe benötigen einen expliziten Zeitvertrag; generierter Code ersetzt keine fachliche Deadlineentscheidung.",
+    "rationales": [
+      "Lognamen begrenzen keine Remoteoperation.",
+      "Unbegrenzte Retries widersprechen dem Zeitbudget.",
+      "Stubs kennen das fachliche Gesamtlatenzziel nicht automatisch.",
+      "Die erlaubte Dauer und ihre Fehlerfolge werden festgelegt."
+    ],
+    "sources": [
+      "https://grpc.io/docs/what-is-grpc/core-concepts/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l4",
+    "index": 0,
+    "q": "Ein OData-Client blendet salary über $select aus. Ein anderer Client fordert das Feld ausdrücklich an. Wo muss unberechtigter Zugriff verhindert werden?",
+    "options": [
+      "Im CSS, das die Tabellenspalte mit salary unsichtbar macht.",
+      "Durch einen ungewöhnlichen Feldnamen ohne serverseitige Prüfung.",
+      "Im Server anhand der Rechte auf Datensatz und Feld.",
+      "Nur im ersten Client, weil $select eine globale Zugriffssperre setzt."
+    ],
+    "correct": 2,
+    "explain": "$select steuert die gewünschte Projektion, ist aber keine Autorisierungsregel.",
+    "rationales": [
+      "Versteckte Darstellung verhindert keine Datenübertragung.",
+      "Obskure Namen ersetzen keine Zugriffsprüfung.",
+      "Die tatsächliche Ausgabegrenze muss Feldrechte durchsetzen.",
+      "Die Projektion eines Clients bindet andere Clients nicht."
+    ],
+    "sources": [
+      "https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l4",
+    "index": 1,
+    "q": "Ein OData-Endpunkt akzeptiert tiefe $expand-Abfragen mit großen Ergebnismengen. Welche Servermaßnahme schützt vor übermäßigem Aufwand?",
+    "options": [
+      "Den Antwortheader entfernen, damit der Client die Datenmenge nicht erkennt.",
+      "Erlaubte Navigationen, Expansionstiefe und Ergebnismengen passend begrenzen.",
+      "Nur die Abfragezeichenfolge Base64-kodieren lassen.",
+      "Alle Filter und Expansionen allein anhand der UI-Sichtbarkeit erlauben."
+    ],
+    "correct": 1,
+    "explain": "Flexible Queryoptionen benötigen Kosten- und Berechtigungskontrollen; ein UI ist keine Ausführungsgrenze.",
+    "rationales": [
+      "Weniger Header begrenzen die ausgeführte Abfrage nicht.",
+      "Die teuren und sensiblen Abfragepfade werden explizit eingegrenzt.",
+      "Kodierung verändert die Querykosten nicht.",
+      "Direkte Requests umgehen UI-Beschränkungen."
+    ],
+    "sources": [
+      "https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l4",
+    "index": 2,
+    "q": "Ein Unternehmensdienst erwartet SOAP 1.2. Ein Client sendet stattdessen nur ein beliebiges JSON-Objekt mit HTTP 200. Welche Vertragsverletzung liegt nahe?",
+    "options": [
+      "Die vereinbarte SOAP-Nachrichtenstruktur mit XML-Envelope wird nicht eingehalten.",
+      "SOAP akzeptiert ausschließlich CSV, deshalb fehlt ein Komma.",
+      "Der HTTP-Status allein ersetzt bei SOAP jede Nachrichtenstruktur.",
+      "Ein JSON-Objekt wird ohne vereinbartes Mapping automatisch zum SOAP-Envelope."
+    ],
+    "correct": 0,
+    "explain": "SOAP 1.2 definiert ein XML-basiertes Nachrichtenframework; HTTP-Status und Nutzlastvertrag sind unterschiedliche Ebenen.",
+    "rationales": [
+      "Der Client verletzt den erwarteten Nachrichtentyp.",
+      "SOAP ist kein ausschließliches CSV-Format.",
+      "Erfolg auf Transportebene ersetzt keinen gültigen SOAP-Inhalt.",
+      "Ohne Mapping ist JSON nicht automatisch eine SOAP-Nachricht."
+    ],
+    "sources": [
+      "https://www.w3.org/TR/soap12-part1/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l5",
+    "index": 0,
+    "q": "Ein Browserdashboard braucht laufende Statusmeldungen vom Server; Befehle werden separat per HTTP gesendet. Welche Beschreibung passt zu SSE?",
+    "options": [
+      "Ein einzelner SSE-Kanal mit regulär symmetrischen Client- und Servernachrichten.",
+      "Ein Datenbankprotokoll, das SQL automatisch im Browser ausführt.",
+      "Eine Garantie, dass jede Fachtransaktion ohne Resync exakt einmal verarbeitet wird.",
+      "Ein Server-zu-Client-Ereignisstrom; Clientbefehle brauchen einen separaten Kanal."
+    ],
+    "correct": 3,
+    "explain": "EventSource/SSE liefert einen einseitigen Ereignisstrom; Rückkanal und fachliche Zustelllogik müssen gesondert geplant werden.",
+    "rationales": [
+      "Regulärer SSE ist kein symmetrischer WebSocketkanal.",
+      "SSE definiert keinen SQL-Client.",
+      "Reconnect allein garantiert keine fachliche Exactly-once-Verarbeitung.",
+      "Die Richtungen entsprechen dem beschriebenen Anwendungsbedarf."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l5",
+    "index": 1,
+    "q": "Ein Webhookanbieter liefert dasselbe Ereignis nach einem Timeout erneut. Wie verhindert der Empfänger eine doppelte fachliche Verbuchung?",
+    "options": [
+      "Nur den User-Agent prüfen und auf eindeutige Zustellung vertrauen.",
+      "Die zweite Antwort verzögern, ohne den bisherigen Verarbeitungsstand zu speichern.",
+      "Die Ereignisidentität atomar deduplizieren und die Verarbeitung idempotent gestalten.",
+      "Jede Lieferung als neues Geschäft behandeln, weil der Anbieter sie erneut sendet."
+    ],
+    "correct": 2,
+    "explain": "Retries sind ein normaler Zustellfall; Ereignis-id und Verarbeitungszustand müssen die fachliche Wiederholung absichern.",
+    "rationales": [
+      "Der User-Agent ist weder Ereignisidentität noch Deduplizierung.",
+      "Warten erkennt keinen schon ausgeführten Effekt.",
+      "Der gespeicherte Verarbeitungsvertrag unterscheidet Retry von neuem Ereignis.",
+      "Eine erneute Lieferung kann dieselbe ursprüngliche Fachaktion meinen."
+    ],
+    "sources": [
+      "https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l5",
+    "index": 2,
+    "q": "Nach einer getrennten SSE-Verbindung fehlen dem Dashboard möglicherweise Statusänderungen. Welche Ergänzung erlaubt eine belastbare Wiederaufnahme?",
+    "options": [
+      "Alle Ereignis-ids löschen, damit fehlende Daten nicht mehr auffallen.",
+      "Ereignis-ids und einen definierten Wiederaufnahme- oder Snapshot-Resync-Vertrag verwenden.",
+      "Nach Reconnect ohne Prüfung jede vorhandene Anzeige als garantiert aktuell behandeln.",
+      "Nur die Farbe des Verbindungsicons wechseln und den Datenstand unverändert lassen."
+    ],
+    "correct": 1,
+    "explain": "Last-Event-ID kann Wiederaufnahme unterstützen; der Dienst muss Replay beziehungsweise Resync und Grenzen konkret definieren.",
+    "rationales": [
+      "Gelöschte Identitäten verhindern gerade die Lückenerkennung.",
+      "Identität und Datenabgleich schließen bekannte Lücken gezielt.",
+      "Eine neue Verbindung beweist keinen lückenlosen Datenstand.",
+      "Ein Statusicon synchronisiert keine Fachinformationen."
+    ],
+    "sources": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l6",
+    "index": 0,
+    "q": "Im OpenAPI-Dokument stehen openapi: \"3.2.0\" und info.version: \"2026.11\". Welche Bedeutung hat info.version?",
+    "options": [
+      "Die Version des beschriebenen API-Vertrags beziehungsweise OpenAPI-Dokuments, nicht die OpenAPI-Spezifikation selbst.",
+      "Die zwingend installierte Version des Datenbankservers aller Clients.",
+      "Die identische Spezifikationskennung, die openapi lediglich wiederholt.",
+      "Die OAuth-Tokenrevision, die automatisch jede Berechtigung festlegt."
+    ],
+    "correct": 0,
+    "explain": "openapi benennt die verwendete Spezifikationsversion; info.version ist davon getrennt und bezeichnet die Versionsangabe der Beschreibung.",
+    "rationales": [
+      "Die Metadatenversion ist nicht der Wert des openapi-Felds.",
+      "Datenbankversionen werden dadurch nicht festgelegt.",
+      "Die beiden Felder haben verschiedene Aufgaben.",
+      "Das Metadatum erteilt keine Zugriffsrechte."
+    ],
+    "sources": [
+      "https://spec.openapis.org/oas/latest.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l6",
+    "index": 1,
+    "q": "Ein generierter Client kann DELETE /tasks/17 korrekt typisiert aufrufen. Warum ist damit die Berechtigung zum Löschen noch nicht bewiesen?",
+    "options": [
+      "Ein generierter Client kann prinzipiell keine unberechtigten Requests erzeugen.",
+      "Das Schema macht jeden id-Wert automatisch zum Eigentum des angemeldeten Nutzers.",
+      "Die Typprüfung übernimmt automatisch alle objektbezogenen Policies der Datenbank.",
+      "Das Backend muss die aktuelle Identität und deren Recht auf genau Aufgabe 17 prüfen."
+    ],
+    "correct": 3,
+    "explain": "Ein beschriebener oder typisierter Request ist kein Nachweis fachlicher Autorisierung.",
+    "rationales": [
+      "Auch korrekt typisierte Requests können unzulässige Ziele adressieren.",
+      "Schemavalidität verleiht kein Eigentum.",
+      "Clienttypen führen keine dynamische Backendpolicy aus.",
+      "Die Rechteprüfung gehört zur tatsächlichen Operation am geschützten Objekt."
+    ],
+    "sources": [
+      "https://spec.openapis.org/oas/latest.html",
+      "https://graphql.org/learn/security/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "api-m1-l6",
+    "index": 2,
+    "q": "Der Vertrag verlangt minuten als positive Ganzzahl, das Backend akzeptiert aber -3. Welche Testkombination deckt Struktur und Durchsetzung ab?",
+    "options": [
+      "Ausschließlich einen erfolgreichen Request mit minuten=20 senden.",
+      "Den negativen Wert vor jedem Test heimlich auf 0 umschreiben.",
+      "Schema- und Vertragstest mit gültigen Werten sowie explizitem Ablehnungstest für -3.",
+      "Nur prüfen, dass der generierte Client eine Datei besitzt."
+    ],
+    "correct": 2,
+    "explain": "Ein Vertrag muss mit Grenz- und Fehlerfällen gegen die reale Implementierung geprüft werden; positive Beispiele allein reichen nicht.",
+    "rationales": [
+      "Ein Erfolgsfall entdeckt den fehlenden negativen Grenzschutz nicht.",
+      "Die Umschreibung verhindert gerade den relevanten Testfall.",
+      "Der untersagte Wert wird gezielt an der Servergrenze getestet.",
+      "Das Vorhandensein von Code belegt keine Vertragsdurchsetzung."
+    ],
+    "sources": [
+      "https://spec.openapis.org/oas/latest.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l1",
+    "index": 0,
+    "q": "Eine Desktop-KI verbindet einen Datei-MCP-Server und einen Tickets-MCP-Server. Welche Zuständigkeit liegt beim Host statt beim Modell oder einzelnen Server?",
+    "options": [
+      "Jedem Server automatisch den gesamten Chat und alle fremden Serverdaten geben.",
+      "Clientinstanzen koordinieren und Toolrechte sowie Nutzerzustimmung durchsetzen.",
+      "Alle Ressourcen automatisch ohne Rückfrage ins öffentliche Internet kopieren.",
+      "Das Sprachmodell durch JSON-RPC ersetzen und dessen Training neu ausführen."
+    ],
+    "correct": 1,
+    "explain": "Der Host koordiniert Modellintegration und Sicherheitsgrenzen; MCP ist ein Protokoll, kein Sprachmodell.",
+    "rationales": [
+      "Die Architektur verlangt gerade eine kontrollierte Kontextweitergabe.",
+      "Diese Orchestrierungs- und Sicherheitsrollen nennt die Architektur ausdrücklich.",
+      "Ein Connector erteilt keine pauschale Veröffentlichungserlaubnis.",
+      "JSON-RPC transportiert Nachrichten und ersetzt kein trainiertes Modell."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/architecture"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l1",
+    "index": 1,
+    "q": "Ein Connector nennt sich MCP, spricht aber nur eine proprietäre REST-Route ohne MCP-Nachrichten. Welche Prüfung entscheidet über die behauptete Interoperabilität?",
+    "options": [
+      "Unterstützte MCP-Revision, Nachrichtenformen und Transportbinding mit dem Client abgleichen.",
+      "Nur prüfen, ob die Produktbeschreibung das Wort „KI“ enthält.",
+      "Jede JSON-Antwort unabhängig von Methode und Metadaten als MCP einstufen.",
+      "Den Servernamen auf mcp umbenennen und weitere Tests überspringen."
+    ],
+    "correct": 0,
+    "explain": "MCP-Kompatibilität folgt einem konkreten Protokollvertrag, nicht einem Marketingnamen oder bloßem JSON.",
+    "rationales": [
+      "Revision und Binding bestimmen, ob beide Seiten denselben Vertrag sprechen.",
+      "Ein Schlagwort belegt keinen Nachrichtenvertrag.",
+      "JSON allein ist kein vollständiges MCP.",
+      "Ein Name verändert das implementierte Protokoll nicht."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/lifecycle"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l1",
+    "index": 2,
+    "q": "Ein Host verbindet zwei MCP-Server. Der Wetterserver fordert die vollständigen privaten Tickets aus dem anderen Server an. Welche Kontextregel passt?",
+    "options": [
+      "Jeder verbundene Server erhält automatisch sämtliche Daten aller anderen Server.",
+      "Serverbeschreibungen erlauben automatisch jede Kontextweitergabe ohne Nutzerentscheidung.",
+      "Die MCP-Protokollrevision allein beweist, dass jede Datenweitergabe zulässig ist.",
+      "Nur ausdrücklich nötigen und erlaubten Kontext teilen, keine pauschale serverübergreifende Einsicht geben."
+    ],
+    "correct": 3,
+    "explain": "Der Host hält serverübergreifende Vertrauensgrenzen aufrecht und aggregiert Kontext kontrolliert.",
+    "rationales": [
+      "Verbindung ist keine Freigabe für sämtliche anderen Daten.",
+      "Fremdbeschreibungen sind keine Zustimmung des Dateneigentümers.",
+      "Eine Protokollkennung ist keine Datenschutz- oder Berechtigungsentscheidung.",
+      "Die Weitergabe folgt Zweck und vorhandener Autorisierung."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/architecture"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l2",
+    "index": 0,
+    "q": "Ein MCP-Tool update_task akzeptiert taskId als positive Ganzzahl. Nutzer A übergibt eine gültige id von Nutzer B. Welche zusätzliche Prüfung ist zwingend?",
+    "options": [
+      "Im Modellprompt behaupten, dass fremde ids grundsätzlich nicht vorkommen.",
+      "Den Toolnamen verlängern, damit ein direkter Aufruf erschwert wird.",
+      "Serverseitig feststellen, ob A diese konkrete Aufgabe ändern darf.",
+      "Nur die Ganzzahlvalidierung wiederholen und danach immer schreiben."
+    ],
+    "correct": 2,
+    "explain": "Inputschema und Objektberechtigung sind verschiedene Grenzen; formal gültige Parameter können ein unzulässiges Ziel angeben.",
+    "rationales": [
+      "Ein Prompt ist keine serverseitige Policyprüfung.",
+      "Obskure Namen begrenzen Zugriffsrechte nicht.",
+      "Die Operation wird gegen die tatsächlichen Objektzugriffsrechte geprüft.",
+      "Ein gültiger Zahlentyp beweist keine Berechtigung."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l2",
+    "index": 1,
+    "q": "Ein MCP-Tool sucht nach Dateinamen und setzt name direkt in einen Shellbefehl ein. Welche Umsetzung reduziert den konkreten Injektionspfad?",
+    "options": [
+      "Den Toolaufruf als readOnly annotieren und damit jede Parameterprüfung ersetzen.",
+      "Engen erlaubten Pfadvertrag prüfen und eine geeignete API beziehungsweise getrennte Argumente ohne Shellinterpolation verwenden.",
+      "Nur im Toolschema type:string eintragen und jeden String in die Shell übernehmen.",
+      "Den Namen zwischen zusätzliche Leerzeichen setzen und die Shell unverändert verwenden."
+    ],
+    "correct": 1,
+    "explain": "Schemas und beschreibende Annotationen ersetzen keine sichere Umsetzung an der Shell- und Dateisystemgrenze.",
+    "rationales": [
+      "Eine Annotation erzwingt keine sichere Ausführung.",
+      "Die Interpretation als Shellsyntax wird vermieden und der Scope begrenzt.",
+      "Ein Stringschema verbietet keine Shellmetazeichen oder unzulässigen Ziele.",
+      "Whitespace ist keine sichere Argumenttrennung gegen Injektion."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l2",
+    "index": 2,
+    "q": "Ein MCP-Tool soll ausschließlich die letzte freigegebene Monatskennzahl liefern, nicht beliebige Datenbankqueries ausführen. Welcher Vertrag ist angemessen eng?",
+    "options": [
+      "Ein benanntes read_monthly_metric-Tool mit erlaubter Kennzahl, Monatsgrenzen und begrenztem Resultat.",
+      "Ein run_sql-Tool mit beliebiger Query und globalem Administrationskonto.",
+      "Ein run_shell-Tool, das für die Kennzahl jedes Hostprogramm starten darf.",
+      "Ein einzelnes Stringfeld, dessen Text ungeprüft als neue Toolberechtigung gilt."
+    ],
+    "correct": 0,
+    "explain": "Ein auf die Aufgabe zugeschnittener Vertrag reduziert Angriffsfläche; Datenzugriff und Berechtigung werden weiterhin serverseitig geprüft.",
+    "rationales": [
+      "Parameterraum und Ausgabe entsprechen dem benötigten fachlichen Zweck.",
+      "Beliebiges SQL und globale Rechte überschreiten den Auftrag.",
+      "Freie Shellausführung ist für die einzelne Kennzahl unnötig.",
+      "Nutzlasttext kann keine wirksamen Rechte vergeben."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l3",
+    "index": 0,
+    "q": "Ein neuer Client verwendet MCP 2026-07-28 gegen einen Server, der nur 2025-11-25 versteht. Warum darf er Beispiele nicht unverändert mischen?",
+    "options": [
+      "Jede MCP-Revision hat zwingend identische Initialisierung und Nachrichtenrichtungen.",
+      "Die Versionszahl ist ausschließlich dekorativ und wird niemals geprüft.",
+      "Das Verwenden von HTTP macht sämtliche Protokollunterschiede automatisch bedeutungslos.",
+      "Moderne per-Request-Metadaten und ältere initialize-Sitzungssemantik benötigen bewusst implementierte Kompatibilität."
+    ],
+    "correct": 3,
+    "explain": "Die aktuelle Spezifikation trennt moderne, Legacy- und Dual-era-Implementierungen ausdrücklich.",
+    "rationales": [
+      "Die Revision 2026-07-28 ändert gerade zentrale Lifecycleannahmen.",
+      "Nicht unterstützte Versionen führen zu einem definierten Fehler.",
+      "Ein gemeinsamer Transport beseitigt Unterschiede der Protokollsemantik nicht.",
+      "Kompatibilität erfordert die passenden Versions- und Fallbackmechanismen."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/lifecycle"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l3",
+    "index": 1,
+    "q": "Ein MCP-Server läuft als stdio-Unterprozess und schreibt Debugtext in stdout zwischen JSON-RPC-Nachrichten. Welche Korrektur erhält den Transportvertrag?",
+    "options": [
+      "Protokollnachrichten und Logs ohne Trennung als denselben Datenstrom behandeln.",
+      "Auf jede Debugzeile mit initialize antworten, unabhängig von der verwendeten Revision.",
+      "Protokollnachrichten sauber auf stdout halten und Diagnoselogs über stderr ausgeben.",
+      "Debugtext mit zufälligen JSON-Klammern umgeben und weiterhin unstrukturiert senden."
+    ],
+    "correct": 2,
+    "explain": "Das stdio-Binding verwendet gerahmte Protokollnachrichten; fremder Ausgabetext kann deren Parsing beschädigen.",
+    "rationales": [
+      "Unstrukturierte Logs sind keine zulässigen Protokollmessages.",
+      "initialize repariert weder Framing noch moderne Lifecycleverträge.",
+      "Die Nachrichtenframing-Grenze bleibt intakt.",
+      "Zufällige Klammern erzeugen keine gültige MCP-Nachricht."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/stdio"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l3",
+    "index": 2,
+    "q": "Ein moderner MCP-2026-07-28-Client möchte direkt tools/list senden. Was gilt laut aktuellem Vertrag für Discovery und Metadaten?",
+    "options": [
+      "Die HTTP-Verbindung bestimmt die Capabilities dauerhaft, unabhängig vom jeweiligen Request.",
+      "server/discover ist optional für den Client; jeder Request trägt die erforderlichen Versions- und Clientmetadaten.",
+      "initialize ist zwingend vor jedem Request und ersetzt danach alle Requestmetadaten.",
+      "tools/list darf ohne Protokollversion senden, wenn derselbe Prozess vorher schon verbunden war."
+    ],
+    "correct": 1,
+    "explain": "Moderne Requests sind selbstbeschreibend; server/discover muss serverseitig implementiert sein, ist aber kein obligatorischer Client-Vorschritt.",
+    "rationales": [
+      "Der moderne Vertrag ist per Request und nicht verbindungsweit festgelegt.",
+      "Die Unterscheidung zwischen optionalem Discoveryaufruf und verpflichtenden Metadaten ist korrekt.",
+      "Die universelle initialize-Annahme gehört zur älteren Ära.",
+      "Prozess- oder Verbindungsgeschichte ersetzt die Metadaten nicht."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/lifecycle",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports",
+      "https://modelcontextprotocol.io/specification/2026-07-28/server/tools"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l4",
+    "index": 1,
+    "q": "Ein HTTP-MCP-Proxy erhält einen fremden Bearer-Token und will ihn ungeprüft an eine andere API weiterreichen. Welches Risiko muss die Umsetzung vermeiden?",
+    "options": [
+      "Token-Passthrough ohne passende Zielbindung und Validierung; Ressourcen und Scopes müssen zum vorgesehenen Empfänger passen.",
+      "Die bloße Tatsache, dass Token als Strings statt als Integer übertragen werden.",
+      "Die Verwendung eines eigenen OAuth-Clients mit ausdrücklich erteilten Zielscopes.",
+      "Die Prüfung von Issuer und Audience, weil sie den Zugriff unnötig einschränkt."
+    ],
+    "correct": 0,
+    "explain": "MCP-Sicherheit warnt vor Token-Passthrough; ein Token ist keine universelle Zugangsberechtigung für beliebige Dienste.",
+    "rationales": [
+      "Ein falscher Empfänger oder ungeprüfte Weitergabe verletzt die Sicherheitsgrenze.",
+      "Das Tokenformat als String ist nicht das genannte Angriffsproblem.",
+      "Passende eigene Autorisierung ist Teil einer sicheren Alternative.",
+      "Ziel- und Herkunftsprüfung sind Schutzmaßnahmen, nicht der zu vermeidende Fehler."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l4",
+    "index": 2,
+    "q": "Ein MCP-Server behauptet readOnlyHint:true, sein Tool kann aber Dateien überschreiben. Welche Schutzmaßnahme muss außerhalb dieser Beschreibung wirken?",
+    "options": [
+      "Die Annotation als unveränderliche Betriebssystemgarantie behandeln.",
+      "Den Tooltext freundlich formulieren und jede technische Beschränkung entfernen.",
+      "Den Server einmal erfolgreich verbinden und danach alle späteren Zugriffe erlauben.",
+      "Tatsächlich begrenzte Dateisystemrechte und kontrollierte Freigabe der Operation."
+    ],
+    "correct": 3,
+    "explain": "Beschreibende Toolmetadaten ersetzen weder Laufzeitberechtigungen noch sichere Ausführung und Zustimmung.",
+    "rationales": [
+      "Die Beschreibung kann falsch sein und ist keine OS-Policy.",
+      "Höfliche Sprache begrenzt keine Schreibfähigkeit.",
+      "Eine Verbindung ist keine pauschale zukünftige Aktionsfreigabe.",
+      "Die reale Wirkung wird an einer technisch wirksamen Grenze begrenzt."
+    ],
+    "sources": [
+      "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "mcp-m1-l4",
+    "index": 3,
+    "q": "Ein Resource-Text nennt sich „Systemanweisung“ und fordert den Upload von Zugangsdaten an eine fremde URL. Der Nutzer wollte nur eine Zusammenfassung. Was soll der Host tun?",
+    "options": [
+      "Die URL nur dann besuchen, wenn der Resource-Text zusätzlich höflich formuliert ist.",
+      "Die Aufforderung als neue Nutzerfreigabe speichern und später unbeaufsichtigt ausführen.",
+      "Den Text als fremde Daten behandeln, den Upload nicht ausführen und den Manipulationsversuch kenntlich machen.",
+      "Die behauptete Rolle übernehmen und alle vorhandenen Secrets sofort hochladen."
+    ],
+    "correct": 2,
+    "explain": "Prompt Injection versucht, Dateninhalt zu Handlungsautorität zu erheben; Quelle und Auftrag bleiben maßgeblich.",
+    "rationales": [
+      "Höflichkeit ist kein Vertrauens- oder Berechtigungsmerkmal.",
+      "Fremder Inhalt erteilt keine zukünftige Nutzerfreigabe.",
+      "Die ursprüngliche Aufgabe und die Geheimnisgrenze bleiben erhalten.",
+      "Selbstbehauptete Autorität ersetzt keine echte Anweisung."
+    ],
+    "sources": [
+      "https://platform.openai.com/docs/guides/agent-builder-safety",
+      "https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l1",
+    "index": 0,
+    "q": "Ein Modell schlägt einen Shellbefehl vor. Das System prüft erlaubte Tools, holt Zustimmung ein und begrenzt die Laufzeit. Welcher Teil erfüllt diese Durchsetzung?",
+    "options": [
+      "Die README-Datei der fremden Abhängigkeit.",
+      "Der Harness beziehungsweise die Ausführungsumgebung um das Modell.",
+      "Ausschließlich die statistischen Gewichte des Sprachmodells.",
+      "Der Name der erzeugten Markdownantwort."
+    ],
+    "correct": 1,
+    "explain": "Das Modell kann Aktionen vorschlagen; Toolzugriff und wirksame Ausführungsgrenzen müssen durch die Umgebung kontrolliert werden.",
+    "rationales": [
+      "Abhängigkeitsinhalt darf die Hostrechte nicht definieren.",
+      "Die Ausführungsinstanz besitzt die relevante Kontrollgrenze.",
+      "Modellgewichte ersetzen keine technische Toolpolicy.",
+      "Eine Darstellungsform erteilt oder begrenzt keine Rechte."
+    ],
+    "sources": [
+      "https://platform.openai.com/docs/guides/agent-builder-safety",
+      "https://docs.anthropic.com/en/docs/claude-code/security"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l1",
+    "index": 1,
+    "q": "Ein Agent schreibt „Migration erfolgreich“, aber im Protokoll steht nur ein generierter SQL-Vorschlag. Welche Aussage ist belastbar?",
+    "options": [
+      "Es liegt ein Vorschlag vor, aber kein Nachweis einer ausgeführten erfolgreichen Migration.",
+      "Die Formulierung des Agenten beweist automatisch die Datenbankänderung.",
+      "Ein plausibles SQL-Snippet bedeutet, dass alle Transaktionen bereits committed sind.",
+      "Die fehlende Toolausführung bestätigt, dass der Server die Migration heimlich erledigt hat."
+    ],
+    "correct": 0,
+    "explain": "Vorschlag, Toolausführung und überprüftes Ergebnis müssen in der Agentarbeit getrennt werden.",
+    "rationales": [
+      "Die beobachtbaren Belege reichen nur bis zum Entwurf.",
+      "Eine Behauptung ersetzt keinen Ausführungsnachweis.",
+      "Quelltext wird nicht durch seine Existenz committed.",
+      "Aus fehlender Ausführung folgt keine verborgene erfolgreiche Ausführung."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "https://platform.openai.com/docs/guides/agent-builder-safety"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l1",
+    "index": 2,
+    "q": "Ein Agent kann im Projekt Dateien lesen, aber keine Tests starten. Wie sollte sein Abschlussbericht die Änderung einordnen?",
+    "options": [
+      "Alle Tests als bestanden melden, weil keine Fehlermeldung eingetroffen ist.",
+      "Den fehlenden Testzugriff durch eine erfundene Exitcode-0-Zeile ersetzen.",
+      "Die Einschränkung verbergen, damit die Freigabe schneller erfolgt.",
+      "Implementierung und statischen Review beschreiben und den nicht ausgeführten Test als offenen Nachweis nennen."
+    ],
+    "correct": 3,
+    "explain": "Fehlende Ausführbarkeit ist ein Testblocker und darf nicht in einen positiven Ausführungsbeleg umgedeutet werden.",
+    "rationales": [
+      "Kein Teststart bedeutet nicht erfolgreiches Testergebnis.",
+      "Erfundene Protokolle verfälschen den Nachweis.",
+      "Verborgene Einschränkungen machen die Freigabeentscheidung uninformiert.",
+      "Der Bericht unterscheidet tatsächlich geleistete Arbeit und verbleibende Prüfung."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l2",
+    "index": 0,
+    "q": "„Mach den Export besser“ soll als überprüfbarer Coding-Auftrag konkretisiert werden. Welche Ergänzung ist am stärksten?",
+    "options": [
+      "Möglichst viele Dateien ändern und den Export danach optisch professionell nennen.",
+      "Die komplette Anwendung umgestalten, obwohl nur die Exportfunktion betroffen ist.",
+      "Für gefilterte Aufgaben UTF-8-CSV mit definierten Spalten liefern; Fremddaten ausschließen und Fälle mit Kommas sowie leerer Liste testen.",
+      "Eine moderne Lösung mit guter Qualität bauen und alle Details selbst neu definieren."
+    ],
+    "correct": 2,
+    "explain": "Ein überprüfbarer Auftrag benennt Datenvertrag, Grenze und beobachtbare Fälle statt nur eine qualitative Absicht.",
+    "rationales": [
+      "Dateizahl ist kein fachliches Qualitätsmerkmal.",
+      "Ein vollständiger Umbau überschreitet den beschriebenen Auftrag.",
+      "Ausgabe, Scope und relevante Beispiele sind konkret prüfbar.",
+      "Die Formulierung lässt Erfolg und Grenzen unbestimmt."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l2",
+    "index": 1,
+    "q": "Ein Agent soll einen 404-Bug in einer Route beheben und entdeckt nebenbei eine neue UI-Idee. Wie bleibt die Umsetzung im beauftragten Scope?",
+    "options": [
+      "Die neue Idee als zwingende Nutzerfreigabe interpretieren und veröffentlichen.",
+      "Den reproduzierbaren Routingfehler gezielt beheben und die UI-Idee separat vorschlagen.",
+      "Die UI sofort umgestalten und den ursprünglichen Bug nicht mehr prüfen.",
+      "Alle Router und Stores austauschen, weil größere Änderungen gründlicher wirken."
+    ],
+    "correct": 1,
+    "explain": "Zusätzliche Entdeckungen sind keine automatische Autorisierung für Nebenarbeiten.",
+    "rationales": [
+      "Eigene Einschätzung ist keine Nutzerzustimmung zur Veröffentlichung.",
+      "Der Auftrag wird erfüllt, ohne ungefragte Produktänderungen einzuschleusen.",
+      "Eine neue Idee ersetzt den bestehenden Fehlerauftrag nicht.",
+      "Ein breiter Austausch braucht einen begründeten und autorisierten Bedarf."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l2",
+    "index": 2,
+    "q": "Ein Auftrag verlangt, dass Nutzer A die Aufgaben von B nicht lesen kann. Welcher negative Test macht diese Grenze konkret überprüfbar?",
+    "options": [
+      "Als A eine bekannte Aufgaben-id von B anfragen und die definierte Ablehnung ohne Datenausgabe prüfen.",
+      "Nur mit einem Admin alle Aufgaben erfolgreich laden.",
+      "Nur den Link zu fremden Aufgaben aus der Navigation entfernen.",
+      "Nur die Variablen A und B im Test unterschiedlich benennen."
+    ],
+    "correct": 0,
+    "explain": "Objektbezogene Autorisierung wird am echten Zugriffsversuch auf ein fremdes Objekt überprüft.",
+    "rationales": [
+      "Die untersagte Operation wird direkt an der Datengrenze geprüft.",
+      "Adminerfolg belegt keine Trennung normaler Benutzer.",
+      "Versteckte Links verhindern keine direkten Requests.",
+      "Namen allein schaffen keinen getrennten Identitätskontext."
+    ],
+    "sources": [
+      "https://platform.openai.com/docs/guides/agent-builder-safety"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l3",
+    "index": 0,
+    "q": "Nach einer Agent-Übergabe soll ein anderes Teammitglied einen Race-Condition-Fix prüfen. Welche Information ist dafür am nützlichsten?",
+    "options": [
+      "Nur der Satz „Alles fertig“, ohne Dateien oder Testbelege.",
+      "Der gesamte Chatverlauf aller Projekte einschließlich fremder Zugangsdaten.",
+      "Eine Liste aller Dateinamen des Rechners ohne Bezug auf den Fix.",
+      "Betroffene Dateien, Reproduktionsfolge A/B, implementierter Aktualitätscheck und ausgeführte Testbefehle samt Ergebnis."
+    ],
+    "correct": 3,
+    "explain": "Eine gute Übergabe vermittelt relevanten Zustand und prüfbare Belege statt Informationsmasse oder unbelegter Abschlussformeln.",
+    "rationales": [
+      "Die Erfolgsaussage lässt sich nicht gezielt verifizieren.",
+      "Irrelevante Geheimnisse erhöhen Risiko statt Klarheit.",
+      "Ungezielte Dateilisten erklären den Fix nicht.",
+      "Die nächste Person kann Ursache, Änderung und Nachweis nachvollziehen."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l3",
+    "index": 1,
+    "q": "Eine Repositoryregel fordert Tests mit einem Projektkommando. Ein altes Ticket nennt ein inzwischen entferntes Skript. Was sollte der Agent tun?",
+    "options": [
+      "Das aktuelle Testskript löschen, damit das alte Ticket wieder recht hat.",
+      "Ohne Prüfung einen beliebigen global installierten Testrunner als gleichwertig melden.",
+      "Aktuelle Regeln und Paketkonfiguration lesen und das tatsächlich vorhandene passende Kommando verwenden.",
+      "Den veralteten Tickettext als zwingend aktuell behandeln und das Ergebnis erfinden."
+    ],
+    "correct": 2,
+    "explain": "Kontextpflege erfordert aktuelle, aufgabenbezogene Prüfung statt blinder Übernahme historischer Angaben.",
+    "rationales": [
+      "Tests zu entfernen repariert keine veraltete Dokumentation sachgerecht.",
+      "Eine andere Toolumgebung kann einen anderen Testvertrag ausführen.",
+      "Die gegenwärtige Projektkonfiguration bestimmt den realen Ausführungsweg.",
+      "Ein historischer Verweis beweist keine heutige Verfügbarkeit."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l3",
+    "index": 2,
+    "q": "Nach einer Kontextkürzung weiß der Agent nicht mehr, ob der Integrationslauf tatsächlich gestartet wurde. Welche Fortsetzung ist korrekt?",
+    "options": [
+      "Den Status „grün“ aus einem anderen Projekt übernehmen.",
+      "Vorhandene Ausführungsprotokolle prüfen und bei fehlendem Beleg den Lauf als unbestätigt kennzeichnen.",
+      "Den Lauf als erfolgreich annehmen, weil die Zusammenfassung kurz sein soll.",
+      "Eine wahrscheinliche Ausgabe aus dem Gedächtnis rekonstruieren und als Original speichern."
+    ],
+    "correct": 1,
+    "explain": "Zusammenfassungen sollten Belege referenzieren; unsicherer Zustand ist kein Erfolg.",
+    "rationales": [
+      "Ein anderer Projektlauf beweist diesen Integrationsstand nicht.",
+      "Der tatsächliche Nachweis wird geprüft statt vorausgesetzt.",
+      "Kürze rechtfertigt keine unbelegte Erfolgsannahme.",
+      "Rekonstruktion ist kein originales Ausführungsergebnis."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l4",
+    "index": 0,
+    "q": "Ein Agent arbeitet in einem Git-Worktree. Derselbe Prozess kann weiterhin die Home-Verzeichnisse und das Netzwerk lesen. Welche Sicherheitsbewertung trifft zu?",
+    "options": [
+      "Der Worktree trennt Arbeitsbäume, ist aber keine vollständige Prozess- oder Datensandbox.",
+      "Jeder Worktree sperrt automatisch alle Dateien außerhalb seines Verzeichnisses.",
+      "Jeder Worktree entfernt automatisch sämtliche Credentials aus der Prozessumgebung.",
+      "Jeder Worktree blockiert grundsätzlich Netzwerk und externe APIs."
+    ],
+    "correct": 0,
+    "explain": "Git-Worktrees erlauben getrennte Checkouts und teilen Teile der Git-Verwaltung; Betriebssystemrechte und Netzwerkisolation sind zusätzliche Mechanismen.",
+    "rationales": [
+      "Checkouttrennung ist nicht dasselbe wie Prozessisolation.",
+      "Die Dateisystemrechte werden nicht pauschal auf den Worktree begrenzt.",
+      "Umgebungscredentials verschwinden nicht durch das Checkoutmodell.",
+      "Netzwerkzugriff ist keine Git-Worktree-Policy."
+    ],
+    "sources": [
+      "https://git-scm.com/docs/git-worktree",
+      "https://docs.anthropic.com/en/docs/claude-code/security"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l4",
+    "index": 1,
+    "q": "Ein Container für Agenttests bindet das gesamte Host-Home schreibbar ein und reicht produktive Tokens durch. Was muss vor riskanter Ausführung verändert werden?",
+    "options": [
+      "Nur den Containernamen auf sandbox ändern und die Rechte beibehalten.",
+      "Den Agentprompt höflich um Vorsicht bitten und alle technischen Grenzen entfernen.",
+      "Den Container einmal neu starten, damit Produktivtokens automatisch ungefährlich werden.",
+      "Mounts, Credentials und Netzrechte auf den erforderlichen Testbedarf begrenzen."
+    ],
+    "correct": 3,
+    "explain": "Isolation hängt von realen Zugriffspfaden ab; breite Hostmounts und Tokens können die Schutzwirkung erheblich einschränken.",
+    "rationales": [
+      "Ein Name begrenzt keine Mount- oder Tokenrechte.",
+      "Ein Prompt ersetzt keine technische Zugriffsbeschränkung.",
+      "Ein Neustart entzieht unverändert konfigurierte Geheimnisse nicht.",
+      "Die tatsächlich verfügbaren Befugnisse werden reduziert."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/security",
+      "https://platform.openai.com/docs/guides/agent-builder-safety"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l4",
+    "index": 2,
+    "q": "Ein Agent möchte einen fehlgeschlagenen Build mit rm -rf auf das übergeordnete Projektverzeichnis „reparieren“. Der Auftrag erlaubt nur einen Komponentenfix. Was ist richtig?",
+    "options": [
+      "Den Pfad nur abkürzen, damit die Löschung weniger riskant wirkt.",
+      "Vor der Löschung alle uncommitteten fremden Änderungen ohne Rückfrage verwerfen.",
+      "Die destruktive Ausweitung stoppen und stattdessen die konkrete Buildursache im freigegebenen Scope untersuchen.",
+      "Den Befehl ausführen, weil ein Buildfehler pauschal jede Dateilöschung autorisiert."
+    ],
+    "correct": 2,
+    "explain": "Destruktive Aktionen brauchen passende ausdrückliche Autorisierung; ein Fehler erlaubt keine eigenmächtige Löschung fremder Arbeit.",
+    "rationales": [
+      "Ein kürzerer Pfad ändert die destruktive Wirkung nicht.",
+      "Fremde ungesicherte Arbeit darf nicht ungefragt verworfen werden.",
+      "Die Handlung bleibt innerhalb des Nutzerauftrags und erhält fremde Änderungen.",
+      "Der Buildstatus erteilt keine Löschfreigabe."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/security",
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l5",
+    "index": 1,
+    "q": "Ein Patch behebt einen Parserfehler. Der vorhandene Test prüft nur, dass der Parser eine Zahl zurückgibt. Welche Ergänzung schützt gegen den konkreten Regressionstyp?",
+    "options": [
+      "Ausschließlich einen Screenshot der grünen Editorfarbe speichern.",
+      "Eine vorher scheiternde Eingabe mit dem erwarteten exakten Ergebnis und passenden Fehlerfällen testen.",
+      "Nur die Testbeschreibung auf „Regression behoben“ umbenennen.",
+      "Die Assertion auf einen immer wahren Ausdruck umstellen."
+    ],
+    "correct": 1,
+    "explain": "Tests sollten das fehlerhafte Verhalten reproduzieren und die fachliche Korrektur konkret absichern.",
+    "rationales": [
+      "Editorfarben belegen kein ausgeführtes Verhalten.",
+      "Der relevante Fehler kann bei erneuter Einführung wieder auffallen.",
+      "Ein Name ändert den geprüften Vertrag nicht.",
+      "Eine Tautologie kann keine Regression erkennen."
+    ],
+    "sources": [
+      "https://playwright.dev/docs/best-practices",
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l5",
+    "index": 2,
+    "q": "Ein Agent meldet „27 Tests bestanden“. Die Ausgabe zeigt aber, dass alle 27 wegen fehlender Datenbank übersprungen wurden. Welche Berichtskorrektur ist nötig?",
+    "options": [
+      "27 übersprungene Tests und den Datenbankblocker nennen; keinen bestandenen Integrationsnachweis behaupten.",
+      "Die übersprungenen Tests als erfolgreich werten, weil kein Assert fehlschlug.",
+      "Nur den Exitcode nennen und den Skipstatus absichtlich weglassen.",
+      "Die Anzahl der Tests verdoppeln, damit der Nachweis umfangreicher wirkt."
+    ],
+    "correct": 0,
+    "explain": "Übersprungen ist nicht ausgeführt und daher kein positiver Beleg für den betreffenden Vertrag.",
+    "rationales": [
+      "Die tatsächliche Abdeckung und die Ursache ihrer Lücke sind sichtbar.",
+      "Nicht ausgeführte Assertions können keinen Erfolg nachweisen.",
+      "Ein Exitcode allein erklärt die fehlende Integrationsausführung nicht.",
+      "Eine erfundene Anzahl verfälscht den Prüfstatus zusätzlich."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "https://playwright.dev/docs/best-practices"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l5",
+    "index": 3,
+    "q": "Ein Agent entfernt eine fehlgeschlagene Berechtigungsassertion und erhält danach eine grüne Suite. Der Schutz war fachlich weiterhin gefordert. Wie ist der Patch zu bewerten?",
+    "options": [
+      "Als korrekter Fix, weil eine grüne Suite jede Vertragsänderung legitimiert.",
+      "Als Performanceoptimierung, weil weniger Assertions immer fachlich besser sind.",
+      "Als Nachweis, dass die ursprüngliche Sicherheitsregel automatisch entfallen ist.",
+      "Als nicht gelöste Anforderung: die Sicherheitsassertion erhalten und die Implementierung korrigieren."
+    ],
+    "correct": 3,
+    "explain": "Ein Test darf nicht durch Entfernen der weiterhin gültigen Anforderung „repariert“ werden.",
+    "rationales": [
+      "Ein manipulierter Test verändert nicht die fachliche Vorgabe.",
+      "Weniger Prüfung ist kein Ersatz für korrekte Autorisierung.",
+      "Der Agent kann die Anforderung nicht eigenmächtig aufheben.",
+      "Der Schutzvertrag bleibt maßgeblich und muss wieder geprüft werden."
+    ],
+    "sources": [
+      "https://playwright.dev/docs/best-practices",
+      "https://platform.openai.com/docs/guides/agent-builder-safety"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l6",
+    "index": 0,
+    "q": "Zwei unabhängige Änderungen betreffen getrennte Dokumentationsdateien; ein dritter Schritt integriert ihre Ergebnisse. Wann ist parallele Agentarbeit vertretbar?",
+    "options": [
+      "Wenn kein Agent die gemeinsame Zielanforderung kennen darf.",
+      "Wenn Integration grundsätzlich entfällt, weil Parallelität Konflikte unmöglich macht.",
+      "Wenn Aufgaben, Dateieigentum und anschließender Integrationsreview klar getrennt sind.",
+      "Wenn alle Agents gleichzeitig dieselben Zeilen ohne Abstimmung überschreiben."
+    ],
+    "correct": 2,
+    "explain": "Parallele Arbeit hilft bei unabhängigem Scope; gemeinsame Artefakte und Integration benötigen bewusste Koordination.",
+    "rationales": [
+      "Ohne Zielvertrag können unabhängige Ergebnisse fachlich auseinanderlaufen.",
+      "Parallelität beseitigt Integrationsbedarf nicht.",
+      "Die Unabhängigkeit reduziert Konflikte und ein Review verbindet die Ergebnisse.",
+      "Überlappende Schreibrechte erzeugen vermeidbare Konflikte."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "https://git-scm.com/docs/git-worktree"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l6",
+    "index": 1,
+    "q": "Ein Agent startet denselben fehlgeschlagenen Installationsbefehl zum zehnten Mal mit unveränderter Umgebung. Welche nächste Aktion nutzt das Budget sinnvoller?",
+    "options": [
+      "Die Fehlschläge aus dem Protokoll löschen und die Installation als abgeschlossen melden.",
+      "Die Fehlermeldung analysieren, die Hypothese ändern oder mit konkretem Blocker eskalieren.",
+      "Den identischen Befehl unbegrenzt wiederholen und jede Ausgabe ignorieren.",
+      "Mehr Agents mit exakt demselben ungeklärten Fehler ohne Aufgabenverteilung starten."
+    ],
+    "correct": 1,
+    "explain": "Wiederholtes unverändertes Scheitern verlangt Diagnose oder Eskalation statt einer unbegrenzten Schleife.",
+    "rationales": [
+      "Gelöschte Belege reparieren die Installation nicht.",
+      "Die nächste Arbeit liefert neue Information oder eine begründete Entscheidung.",
+      "Unveränderte Wiederholung erhöht Kosten ohne Erkenntnisgewinn.",
+      "Unkoordinierte Duplizierung vervielfacht denselben Blocker."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l6",
+    "index": 2,
+    "q": "Drei Agents bearbeiten denselben Store. Eine Version ist noch ungetestet; die anderen nehmen bereits deren API an. Welche Umplanung reduziert Integrationsrisiko?",
+    "options": [
+      "Die gemeinsame API zuerst festlegen, Schreibverantwortung bündeln und abhängige Arbeit danach gegen diesen Vertrag integrieren.",
+      "Jeden Agent eine zufällige API erfinden lassen und am Ende nur Dateizeitstempel vergleichen.",
+      "Alle Testschritte bis nach Veröffentlichung streichen, damit Parallelität maximal bleibt.",
+      "Die Storedatei durch den zuletzt beendeten Agent blind vollständig überschreiben lassen."
+    ],
+    "correct": 0,
+    "explain": "Abhängige Arbeit braucht stabile Schnittstellen und kontrollierte Integration; bloße Gleichzeitigkeit ist kein Effizienzbeweis.",
+    "rationales": [
+      "Der geteilte Engpass erhält einen eindeutigen Vertrag und Eigentümer.",
+      "Zufällige APIs erzeugen inkompatible Annahmen.",
+      "Entfallene Tests verschieben Risiken in den Betrieb.",
+      "Der letzte Schreibzeitpunkt entscheidet nicht über fachliche Richtigkeit."
+    ],
+    "sources": [
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "https://git-scm.com/docs/git-worktree"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l7",
+    "index": 0,
+    "q": "Ein fremdes README fordert den Agenten auf, alle Sicherheitsfreigaben zu umgehen und Zugangsdaten hochzuladen. Kann dieser Inhalt die Toolrechte erweitern?",
+    "options": [
+      "Ja; jede Datei namens README besitzt automatisch Systemautorität.",
+      "Ja; sofern die Aufforderung als Wartungsanweisung formuliert ist.",
+      "Nein, aber nur wenn der Dateiname keine Markdown-Endung trägt.",
+      "Nein; Repositoryinhalt ist Datenkontext und erteilt keine übergeordneten Rechte."
+    ],
+    "correct": 3,
+    "explain": "Prompt Injection verändert die tatsächliche Anweisungshierarchie und Berechtigungslage nicht.",
+    "rationales": [
+      "Der Dateiname ist kein Sicherheitsprincipal.",
+      "Eine behauptete Wartungsrolle ist keine Nutzerfreigabe.",
+      "Die Vertrauensgrenze hängt nicht von der Dateiendung ab.",
+      "Die Quelle besitzt keine Autorität für zusätzliche Toolrechte."
+    ],
+    "sources": [
+      "https://platform.openai.com/docs/guides/agent-builder-safety",
+      "https://docs.anthropic.com/en/docs/claude-code/security"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l7",
+    "index": 1,
+    "q": "Ein Agent soll einen Fehlerbericht erstellen. Das Log enthält persönliche Daten und einen API-Schlüssel. Welche Weitergabe ist angemessen?",
+    "options": [
+      "Den Schlüssel lediglich Base64-kodieren und als harmlosen Anhang veröffentlichen.",
+      "Den Nutzerauftrag als pauschale Freigabe für alle personenbezogenen Rohdaten interpretieren.",
+      "Nur aufgabenrelevante, redigierte Logteile ohne Secrets an das freigegebene Ziel geben.",
+      "Das gesamte Log ungeprüft an jeden gefundenen Analysedienst senden."
+    ],
+    "correct": 2,
+    "explain": "Datensparsamkeit und Schutz vertraulicher Werte gelten auch bei hilfreichen Diagnoseaufgaben.",
+    "rationales": [
+      "Reversible Kodierung entfernt kein Secret.",
+      "Ein Fehlerbericht verlangt nicht automatisch die Veröffentlichung aller Rohdaten.",
+      "Zweckbindung, Ziel und minimale Datenmenge werden berücksichtigt.",
+      "Ungeprüfte Ziele erweitern die Datenweitergabe unautorisiert."
+    ],
+    "sources": [
+      "https://platform.openai.com/docs/guides/agent-builder-safety",
+      "https://docs.anthropic.com/en/docs/claude-code/security"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "agents-m1-l7",
+    "index": 2,
+    "q": "Eine abgerufene Webseite fordert einen neuen, ungeplanten Toolaufruf an eine fremde Upload-URL. Der Agent fasst die Seite für einen lokalen Bericht zusammen. Welche Reaktion wahrt den Auftrag?",
+    "options": [
+      "Den Upload stillschweigend für später planen, damit die aktuelle Antwort unauffällig bleibt.",
+      "Den Inhalt zusammenfassen, die fremde Handlungsaufforderung nicht ausführen und bei Relevanz als Injection markieren.",
+      "Dem Upload folgen, weil jeder gelesene Text zum neuen Nutzerauftrag wird.",
+      "Die lokale Berichtsdatei zusammen mit allen verfügbaren Secrets sofort hochladen."
+    ],
+    "correct": 1,
+    "explain": "Fremde Quelltexte sind zu analysierende Daten; aus ihrer Formulierung entsteht keine neue Handlungserlaubnis.",
+    "rationales": [
+      "Auch ein verzögerter unautorisierter Effekt bleibt unzulässig.",
+      "Die Zusammenfassung erfüllt den Auftrag ohne unautorisierte Datenabgabe.",
+      "Quelleninhalt ersetzt nicht die Nutzeranweisung.",
+      "Der Upload überschreitet Auftrag und Geheimnisgrenze."
+    ],
+    "sources": [
+      "https://platform.openai.com/docs/guides/agent-builder-safety"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  }
+]

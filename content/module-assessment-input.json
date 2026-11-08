@@ -1,0 +1,5020 @@
+[
+  {
+    "id": "m1",
+    "title": "Pseudocode & Kontrollstrukturen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m1-l1",
+        "title": "Was ein Algorithmus ist – und was die IHK dazu fragt",
+        "exercises": []
+      },
+      {
+        "id": "m1-l2",
+        "title": "Die drei Kontrollstrukturen",
+        "exercises": []
+      },
+      {
+        "id": "m1-l3",
+        "title": "Variablen, Datentypen und Operatoren",
+        "exercises": []
+      },
+      {
+        "id": "m1-l4",
+        "title": "Arrays und Indizes – die Off-by-one-Falle",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m2",
+    "title": "Struktogramm & Programmablaufplan",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m2-l1",
+        "title": "Struktogramme (Nassi-Shneiderman) sicher zeichnen",
+        "exercises": []
+      },
+      {
+        "id": "m2-l2",
+        "title": "Programmablaufplan (PAP) und seine Symbole",
+        "exercises": []
+      },
+      {
+        "id": "m2-l3",
+        "title": "Verschachtelte Schleifen – das häufigste Prüfungsmuster",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m3",
+    "title": "Such-, Sortierverfahren & Komplexität",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m3-l1",
+        "title": "Lineare und binäre Suche",
+        "exercises": []
+      },
+      {
+        "id": "m3-l2",
+        "title": "Bubble-Sort und die Zählung der Vergleiche",
+        "exercises": []
+      },
+      {
+        "id": "m3-l3",
+        "title": "Komplexität in O-Notation",
+        "exercises": []
+      },
+      {
+        "id": "m3-l4",
+        "title": "Rekursion verstehen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m4",
+    "title": "Trockenlauf & Fehlersuche",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m4-l1",
+        "title": "Der Trockenlauf – die wichtigste Prüfungstechnik",
+        "exercises": []
+      },
+      {
+        "id": "m4-l2",
+        "title": "Fehlersuche in vorgegebenem Code",
+        "exercises": []
+      },
+      {
+        "id": "m4-l3",
+        "title": "Testverfahren: Black Box, White Box, Äquivalenzklassen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m5",
+    "title": "ER-Modell & Kardinalitäten",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m5-l1",
+        "title": "Die Notation des ER-Modells",
+        "exercises": []
+      },
+      {
+        "id": "m5-l2",
+        "title": "Kardinalitäten sicher herleiten",
+        "exercises": []
+      },
+      {
+        "id": "m5-l3",
+        "title": "Aus dem Aufgabentext das Modell ableiten",
+        "exercises": []
+      },
+      {
+        "id": "m5-l4",
+        "title": "Vom ER-Modell zum Relationenmodell",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m6",
+    "title": "Normalisierung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m6-l1",
+        "title": "Warum normalisiert wird: die drei Anomalien",
+        "exercises": []
+      },
+      {
+        "id": "m6-l2",
+        "title": "Die ersten drei Normalformen",
+        "exercises": []
+      },
+      {
+        "id": "m6-l3",
+        "title": "Denormalisierung – wann Redundanz erlaubt ist",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m7",
+    "title": "SQL für die AP1",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m7-l1",
+        "title": "SELECT, WHERE und die Klauselreihenfolge",
+        "exercises": []
+      },
+      {
+        "id": "m7-l2",
+        "title": "Aggregatfunktionen und GROUP BY",
+        "exercises": []
+      },
+      {
+        "id": "m7-l3",
+        "title": "JOINs – Tabellen verknüpfen",
+        "exercises": []
+      },
+      {
+        "id": "m7-l4",
+        "title": "Datumsfunktionen und Verneinungen",
+        "exercises": []
+      },
+      {
+        "id": "m7-l5",
+        "title": "DDL, DML, DCL, TCL und eine Abfrage beschreiben",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m34",
+    "title": "Objektorientierte Grundlagen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m34-l1",
+        "title": "Klasse, Objekt, Attribut, Methode",
+        "exercises": []
+      },
+      {
+        "id": "m34-l2",
+        "title": "Kapselung – warum Attribute privat sind",
+        "exercises": []
+      },
+      {
+        "id": "m34-l3",
+        "title": "Vererbung, Überschreiben und abstrakte Klassen",
+        "exercises": []
+      },
+      {
+        "id": "m34-l4",
+        "title": "Polymorphie und Schnittstellen",
+        "exercises": []
+      },
+      {
+        "id": "m34-l5",
+        "title": "Konstruktor, Objektlebenszyklus und Referenzen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m35",
+    "title": "Objektorientiert entwerfen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m35-l1",
+        "title": "Von der Anforderung zur Klasse",
+        "exercises": []
+      },
+      {
+        "id": "m35-l2",
+        "title": "Statisch oder Instanz? Klassen- und Objektebene",
+        "exercises": []
+      },
+      {
+        "id": "m35-l3",
+        "title": "Gute Klassen: Verantwortung, Kopplung, Kohäsion",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m8",
+    "title": "UML-Anwendungsfalldiagramm",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m8-l1",
+        "title": "Use-Case-Diagramm: die fünf Bausteine",
+        "exercises": []
+      },
+      {
+        "id": "m8-l2",
+        "title": "include, extend und Generalisierung",
+        "exercises": []
+      },
+      {
+        "id": "m8-l3",
+        "title": "Aktivitäts- und Sequenzdiagramm zur Abgrenzung",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m9",
+    "title": "UML-Klassendiagramm",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m9-l1",
+        "title": "Aufbau einer Klasse und Sichtbarkeiten",
+        "exercises": []
+      },
+      {
+        "id": "m9-l2",
+        "title": "Die Beziehungsarten und ihre Pfeile",
+        "exercises": []
+      },
+      {
+        "id": "m9-l3",
+        "title": "Klassenhierarchien entwerfen – das Drei-Schritt-Verfahren",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m39",
+    "title": "UML-Verhaltensdiagramme",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m39-l1",
+        "title": "Das Aktivitätsdiagramm",
+        "exercises": []
+      },
+      {
+        "id": "m39-l2",
+        "title": "Das Sequenzdiagramm",
+        "exercises": []
+      },
+      {
+        "id": "m39-l3",
+        "title": "Das Zustandsdiagramm",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m10",
+    "title": "Vorgehensmodelle & Anforderungen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m10-l1",
+        "title": "Lastenheft und Pflichtenheft",
+        "exercises": []
+      },
+      {
+        "id": "m10-l2",
+        "title": "Funktionale und nicht-funktionale Anforderungen",
+        "exercises": []
+      },
+      {
+        "id": "m10-l3",
+        "title": "Vorgehensmodelle: Wasserfall, V-Modell, agil",
+        "exercises": []
+      },
+      {
+        "id": "m10-l4",
+        "title": "Projektmerkmale und SMART-Ziele",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m31",
+    "title": "Netzwerkgrundlagen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m31-l1",
+        "title": "Netzarten, Reichweiten und Betriebsmodelle",
+        "exercises": []
+      },
+      {
+        "id": "m31-l2",
+        "title": "MAC und IP – warum zwei Adressen nötig sind",
+        "exercises": []
+      },
+      {
+        "id": "m31-l3",
+        "title": "Kapselung – wie aus Daten ein Frame wird",
+        "exercises": []
+      },
+      {
+        "id": "m31-l4",
+        "title": "Unicast, Multicast, Broadcast und Domänen",
+        "exercises": []
+      },
+      {
+        "id": "m31-l5",
+        "title": "Client-Server-Kommunikation, Ports und Sockets",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m11",
+    "title": "OSI-Modell & Protokolle",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m11-l1",
+        "title": "Die sieben Schichten – einmal richtig gelernt",
+        "exercises": []
+      },
+      {
+        "id": "m11-l2",
+        "title": "TCP und UDP im Vergleich",
+        "exercises": []
+      },
+      {
+        "id": "m11-l3",
+        "title": "Netzwerkgeräte und Topologien",
+        "exercises": []
+      },
+      {
+        "id": "m11-l4",
+        "title": "Fehlersuche nach OSI – die Bottom-up-Methode",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m40",
+    "title": "TCP im Detail",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m40-l1",
+        "title": "Der Drei-Wege-Handschlag",
+        "exercises": []
+      },
+      {
+        "id": "m40-l2",
+        "title": "TCP-Flags und der Verbindungsabbau",
+        "exercises": []
+      },
+      {
+        "id": "m40-l3",
+        "title": "Quittung, Fenster und der SYN-Flood",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m12",
+    "title": "IPv4 & Subnetting",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m12-l1",
+        "title": "Aufbau der IPv4-Adresse und Subnetzmaske",
+        "exercises": []
+      },
+      {
+        "id": "m12-l2",
+        "title": "Netzadresse, Broadcast und nutzbare Hosts berechnen",
+        "exercises": []
+      },
+      {
+        "id": "m12-l3",
+        "title": "Subnetze bilden – vom Bedarf zur Maske",
+        "exercises": []
+      },
+      {
+        "id": "m12-l4",
+        "title": "Statische Konfiguration und Sonderadressen",
+        "exercises": []
+      },
+      {
+        "id": "m12-l5",
+        "title": "NAT, Ports und die Adressknappheit",
+        "exercises": []
+      },
+      {
+        "id": "m12-l6",
+        "title": "VLSM – Subnetze nach Bedarf statt nach Schema",
+        "exercises": []
+      },
+      {
+        "id": "m12-l7",
+        "title": "Wie ein Router entscheidet",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m13",
+    "title": "IPv6",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m13-l1",
+        "title": "Aufbau und Kürzungsregeln",
+        "exercises": []
+      },
+      {
+        "id": "m13-l2",
+        "title": "Adresstypen, Präfix und Teilnetze",
+        "exercises": []
+      },
+      {
+        "id": "m13-l3",
+        "title": "Warum IPv6 – Vorteile und Autokonfiguration",
+        "exercises": []
+      },
+      {
+        "id": "m13-l4",
+        "title": "Nachbarschaft: NDP, Multicast und DAD",
+        "exercises": []
+      },
+      {
+        "id": "m13-l5",
+        "title": "Adressvergabe: SLAAC, DHCPv6 und Privacy Extensions",
+        "exercises": []
+      },
+      {
+        "id": "m13-l6",
+        "title": "Der Umstieg: Präfixplanung, Dual Stack und NAT64",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m14",
+    "title": "Netzdienste, WLAN & Speichernetze",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m14-l1",
+        "title": "DHCP und ARP",
+        "exercises": []
+      },
+      {
+        "id": "m14-l2",
+        "title": "DNS und Diagnosewerkzeuge",
+        "exercises": []
+      },
+      {
+        "id": "m14-l3",
+        "title": "WLAN und Sicherheitsverfahren",
+        "exercises": []
+      },
+      {
+        "id": "m14-l4",
+        "title": "DAS, NAS und SAN",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m15",
+    "title": "Schutzziele & Maßnahmen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m15-l1",
+        "title": "Die Schutzziele der Informationssicherheit",
+        "exercises": []
+      },
+      {
+        "id": "m15-l2",
+        "title": "Technische und organisatorische Maßnahmen",
+        "exercises": []
+      },
+      {
+        "id": "m15-l3",
+        "title": "Backup-Strategien und RAID",
+        "exercises": []
+      },
+      {
+        "id": "m15-l4",
+        "title": "Verfügbarkeit berechnen und USV",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m16",
+    "title": "Kryptografie, Angriffe & DSGVO",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m16-l1",
+        "title": "Symmetrisch, asymmetrisch, hybrid",
+        "exercises": []
+      },
+      {
+        "id": "m16-l2",
+        "title": "Hashes, Zertifikate und VPN",
+        "exercises": []
+      },
+      {
+        "id": "m16-l3",
+        "title": "Schadsoftware und Angriffsarten",
+        "exercises": []
+      },
+      {
+        "id": "m16-l4",
+        "title": "DSGVO – Grundsätze, Rechte, Pflichten",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m41",
+    "title": "Schlüssel und Zertifikate im Detail",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m41-l1",
+        "title": "Das Schlüsselpaar: öffentlich und privat",
+        "exercises": []
+      },
+      {
+        "id": "m41-l2",
+        "title": "Schlüsselaustausch und Perfect Forward Secrecy",
+        "exercises": []
+      },
+      {
+        "id": "m41-l3",
+        "title": "Zertifikate und die Vertrauenskette",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m32",
+    "title": "Datenschutz in der Praxis",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m32-l1",
+        "title": "Datenschutz gegen Datensicherheit",
+        "exercises": []
+      },
+      {
+        "id": "m32-l2",
+        "title": "Betroffenenrechte umsetzen",
+        "exercises": []
+      },
+      {
+        "id": "m32-l3",
+        "title": "Verzeichnis, Folgenabschätzung und Datenschutzbeauftragter",
+        "exercises": []
+      },
+      {
+        "id": "m32-l4",
+        "title": "Beschäftigtendatenschutz und Arbeitsplatz",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m33",
+    "title": "Datensicherheit im Betrieb",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m33-l1",
+        "title": "Authentifizierung, Autorisierung und MFA",
+        "exercises": []
+      },
+      {
+        "id": "m33-l2",
+        "title": "Berechtigungskonzepte und Rollenmodell",
+        "exercises": []
+      },
+      {
+        "id": "m33-l3",
+        "title": "Härtung, Patchmanagement und Schwachstellen",
+        "exercises": []
+      },
+      {
+        "id": "m33-l4",
+        "title": "Notfallmanagement und Wiederanlauf",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m17",
+    "title": "Netzplantechnik",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m17-l1",
+        "title": "Der Netzplan – Aufbau und Vorwärtsrechnung",
+        "exercises": []
+      },
+      {
+        "id": "m17-l2",
+        "title": "Rückwärtsrechnung, Puffer und kritischer Pfad",
+        "exercises": []
+      },
+      {
+        "id": "m17-l3",
+        "title": "Gantt-Diagramm, Meilensteine und Aufwandsschätzung",
+        "exercises": []
+      },
+      {
+        "id": "m17-l4",
+        "title": "Ein Netzplan von Anfang bis Ende",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m18",
+    "title": "Angebotsvergleich & Kalkulation",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m18-l1",
+        "title": "Die Nutzwertanalyse",
+        "exercises": []
+      },
+      {
+        "id": "m18-l2",
+        "title": "Bezugspreis und Angebotsvergleich",
+        "exercises": []
+      },
+      {
+        "id": "m18-l3",
+        "title": "Wirtschaftlichkeit, Amortisation und Finanzierung",
+        "exercises": []
+      },
+      {
+        "id": "m18-l4",
+        "title": "Verträge und Kaufvertragsstörungen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m20",
+    "title": "Beschaffung & Kostenrechnung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m20-l1",
+        "title": "Der Beschaffungsprozess und die ABC-Analyse",
+        "exercises": []
+      },
+      {
+        "id": "m20-l2",
+        "title": "Fixkosten, variable Kosten und Break-Even",
+        "exercises": []
+      },
+      {
+        "id": "m20-l3",
+        "title": "Abschreibung, TCO und Kostenvergleich",
+        "exercises": []
+      },
+      {
+        "id": "m20-l4",
+        "title": "Kennzahlen: Produktivität, Wirtschaftlichkeit, Rentabilität",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m36",
+    "title": "Rechnerarchitektur & IT-Grundkonzepte",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m36-l1",
+        "title": "EVA-Prinzip und Von-Neumann-Architektur",
+        "exercises": []
+      },
+      {
+        "id": "m36-l2",
+        "title": "Der Befehlszyklus und die drei Bussysteme",
+        "exercises": []
+      },
+      {
+        "id": "m36-l3",
+        "title": "Die Speicherpyramide und flüchtige Speicher",
+        "exercises": []
+      },
+      {
+        "id": "m36-l4",
+        "title": "Zeichen und Zahlen im Rechner darstellen",
+        "exercises": []
+      },
+      {
+        "id": "m36-l5",
+        "title": "Logische Gatter und Schaltnetze",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m19",
+    "title": "Einheiten, Datenmengen & Übertragung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m19-l1",
+        "title": "Bit, Byte und die beiden Präfixsysteme",
+        "exercises": []
+      },
+      {
+        "id": "m19-l2",
+        "title": "Übertragungsdauer und Datenmengen berechnen",
+        "exercises": []
+      },
+      {
+        "id": "m19-l3",
+        "title": "Zahlensysteme und Codierung",
+        "exercises": []
+      },
+      {
+        "id": "m19-l4",
+        "title": "Ergonomie, Green IT und Energiekosten",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m37",
+    "title": "Betriebssystem & Systemstart",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m37-l1",
+        "title": "Was ein Betriebssystem leistet",
+        "exercises": []
+      },
+      {
+        "id": "m37-l2",
+        "title": "Prozesse, Threads und Scheduling",
+        "exercises": []
+      },
+      {
+        "id": "m37-l3",
+        "title": "Speicherverwaltung und virtueller Speicher",
+        "exercises": []
+      },
+      {
+        "id": "m37-l4",
+        "title": "Vom Einschalten bis zum Desktop: BIOS, UEFI und Bootvorgang",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m21",
+    "title": "Hardware-Komponenten",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m21-l1",
+        "title": "CPU, Arbeitsspeicher und Mainboard",
+        "exercises": []
+      },
+      {
+        "id": "m21-l2",
+        "title": "Massenspeicher: HDD, SSD und NVMe",
+        "exercises": []
+      },
+      {
+        "id": "m21-l3",
+        "title": "Schnittstellen und ihre Datenraten",
+        "exercises": []
+      },
+      {
+        "id": "m21-l4",
+        "title": "Monitor und Drucker richtig auswählen",
+        "exercises": []
+      },
+      {
+        "id": "m21-l5",
+        "title": "Netzteil, Leistungsbedarf und USV",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m38",
+    "title": "Systemarchitekturen & Gerätewahl",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m38-l1",
+        "title": "Serverbauformen und Rechenzentrum",
+        "exercises": []
+      },
+      {
+        "id": "m38-l2",
+        "title": "Skalierung, Lastverteilung und Cluster",
+        "exercises": []
+      },
+      {
+        "id": "m38-l3",
+        "title": "Arbeitsplatzmodelle: Fat Client, Thin Client und VDI",
+        "exercises": []
+      },
+      {
+        "id": "m38-l4",
+        "title": "Embedded-Systeme, IoT und Peripherie",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m22",
+    "title": "Übertragungsmedien & Verkabelung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m22-l1",
+        "title": "Twisted-Pair-Kabel: Kategorien und Grenzen",
+        "exercises": []
+      },
+      {
+        "id": "m22-l2",
+        "title": "Glasfaser und die Wahl des Mediums",
+        "exercises": []
+      },
+      {
+        "id": "m22-l3",
+        "title": "Strukturierte Verkabelung und PoE",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m23",
+    "title": "Virtualisierung & Cloud",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m23-l1",
+        "title": "Virtualisierung und Hypervisor-Typen",
+        "exercises": []
+      },
+      {
+        "id": "m23-l2",
+        "title": "Container gegen virtuelle Maschine",
+        "exercises": []
+      },
+      {
+        "id": "m23-l3",
+        "title": "Cloud: Servicemodelle, Bereitstellung und Datenschutz",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m24",
+    "title": "Software, Lizenzen & Inbetriebnahme",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m24-l1",
+        "title": "Lizenzmodelle im Unternehmen",
+        "exercises": []
+      },
+      {
+        "id": "m24-l2",
+        "title": "Open Source, Urheberrecht und freie Software",
+        "exercises": []
+      },
+      {
+        "id": "m24-l3",
+        "title": "Installation, Imaging und Rollout",
+        "exercises": []
+      },
+      {
+        "id": "m24-l4",
+        "title": "Inbetriebnahme, Übergabe und Barrierefreiheit",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m25",
+    "title": "IT-Service-Management",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m25-l1",
+        "title": "Incident, Problem, Change und Service Request",
+        "exercises": []
+      },
+      {
+        "id": "m25-l2",
+        "title": "Support-Level, Eskalation und Ticketsystem",
+        "exercises": []
+      },
+      {
+        "id": "m25-l3",
+        "title": "SLA, OLA und Service-Kennzahlen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m26",
+    "title": "Kommunikation & Kundengespräch",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m26-l1",
+        "title": "Sender-Empfänger und das Vier-Ohren-Modell",
+        "exercises": []
+      },
+      {
+        "id": "m26-l2",
+        "title": "Das Kundengespräch führen",
+        "exercises": []
+      },
+      {
+        "id": "m26-l3",
+        "title": "Konflikte, Beschwerden und Feedback",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m27",
+    "title": "Qualität & Dokumentation",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m27-l1",
+        "title": "PDCA, KVP und Qualitätsmanagement",
+        "exercises": []
+      },
+      {
+        "id": "m27-l2",
+        "title": "Dokumentation und Inventarisierung",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m28",
+    "title": "KI-Grundlagen & Lernverfahren",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m28-l1",
+        "title": "KI, maschinelles Lernen und Deep Learning abgrenzen",
+        "exercises": []
+      },
+      {
+        "id": "m28-l2",
+        "title": "Die drei Lernarten",
+        "exercises": []
+      },
+      {
+        "id": "m28-l3",
+        "title": "Neuronale Netze und der Trainingsablauf",
+        "exercises": []
+      },
+      {
+        "id": "m28-l4",
+        "title": "Overfitting, Bias und Datenqualität",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m29",
+    "title": "KI im Unternehmen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m29-l1",
+        "title": "Große Sprachmodelle verstehen und einsetzen",
+        "exercises": []
+      },
+      {
+        "id": "m29-l2",
+        "title": "Einsatzszenarien und Wirtschaftlichkeit",
+        "exercises": []
+      },
+      {
+        "id": "m29-l3",
+        "title": "KI-Projekte planen und Daten bereitstellen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m30",
+    "title": "KI-Recht, Datenschutz & Ethik",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "m30-l1",
+        "title": "Die Risikoklassen der KI-Verordnung",
+        "exercises": []
+      },
+      {
+        "id": "m30-l2",
+        "title": "KI und Datenschutz",
+        "exercises": []
+      },
+      {
+        "id": "m30-l3",
+        "title": "Ethik, Urheberrecht und Verantwortung",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m52",
+    "title": "Einsteiger · PHP Schritt für Schritt",
+    "lessons": [
+      {
+        "id": "m52-l1",
+        "title": "Deine Werkstatt: PHP installieren und das erste Skript",
+        "exercises": []
+      },
+      {
+        "id": "m52-l2",
+        "title": "Text ausgeben: echo, Strings und Verkettung",
+        "exercises": []
+      },
+      {
+        "id": "m52-l3",
+        "title": "Zahlen und Rechnen ohne Überraschungen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erkläre 10/4 gegenüber intdiv(10,4).",
+            "acceptance": "5997 + intdiv(5997*19+50,100) ergibt 7136 Cent; drei einzeln besteuerte 3-Cent-Positionen ergeben 12 statt 11 Cent bei Gesamtrundung. Nur nichtnegative Beträge und kein Integer-Overflow vorausgesetzt."
+          },
+          {
+            "level": 2,
+            "task": "Berechne 5997 Cent plus 19 Prozent mit Integer-Halbaufrundung.",
+            "acceptance": "5997 + intdiv(5997*19+50,100) ergibt 7136 Cent; drei einzeln besteuerte 3-Cent-Positionen ergeben 12 statt 11 Cent bei Gesamtrundung. Nur nichtnegative Beträge und kein Integer-Overflow vorausgesetzt."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche Rundung je Position mit Gesamtrundung für drei Positionen zu 3 Cent.",
+            "acceptance": "5997 + intdiv(5997*19+50,100) ergibt 7136 Cent; drei einzeln besteuerte 3-Cent-Positionen ergeben 12 statt 11 Cent bei Gesamtrundung. Nur nichtnegative Beträge und kein Integer-Overflow vorausgesetzt."
+          }
+        ]
+      },
+      {
+        "id": "m52-l4",
+        "title": "Entscheidungen: if, else und Wahrheitswerte",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne '0', 'false', [] und [0] nach Wahrheitswert.",
+            "acceptance": "Für 0 bis 100 gibt es eindeutige Grenzen; außerhalb folgt eine dokumentierte Ablehnung statt einer scheinbar normalen Note."
+          },
+          {
+            "level": 2,
+            "task": "Teste die Notengrenzen 49,50,91,92.",
+            "acceptance": "Für 0 bis 100 gibt es eindeutige Grenzen; außerhalb folgt eine dokumentierte Ablehnung statt einer scheinbar normalen Note."
+          },
+          {
+            "level": 3,
+            "task": "Erweitere die Benotung um die Ablehnung von -1 und 101.",
+            "acceptance": "Für 0 bis 100 gibt es eindeutige Grenzen; außerhalb folgt eine dokumentierte Ablehnung statt einer scheinbar normalen Note."
+          }
+        ]
+      },
+      {
+        "id": "m52-l5",
+        "title": "Schleifen Schritt für Schritt",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Verfolge eine Schleife von 0 bis kleiner 3 auf Papier.",
+            "acceptance": "Summe 6; genau drei Versuche, auch wenn die Aufgabe jedes Mal scheitert. Keine Endlosschleife."
+          },
+          {
+            "level": 2,
+            "task": "Summiere nur gerade Werte aus [0,1,2,3,4].",
+            "acceptance": "Summe 6; genau drei Versuche, auch wenn die Aufgabe jedes Mal scheitert. Keine Endlosschleife."
+          },
+          {
+            "level": 3,
+            "task": "Begrenze eine Wiederholung auf maximal drei Versuche und erkläre den letzten Fehlschlag.",
+            "acceptance": "Summe 6; genau drei Versuche, auch wenn die Aufgabe jedes Mal scheitert. Keine Endlosschleife."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m42",
+    "title": "Einsteiger · Typen, Arrays und Funktionen kompakt",
+    "lessons": [
+      {
+        "id": "m42-l1",
+        "title": "Was PHP ist und wie ein Skript läuft",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne den Weg php hello.php.",
+            "acceptance": "Der Client sieht Ausgabe und Status, nicht automatisch PHP-Quellcode; CLI läuft ohne Browserrequest. Einstieg m52-l1 vorausgesetzt, hier nur Wiederholung."
+          },
+          {
+            "level": 2,
+            "task": "Zeichne Browser → HTTP → PHP → Response.",
+            "acceptance": "Der Client sieht Ausgabe und Status, nicht automatisch PHP-Quellcode; CLI läuft ohne Browserrequest. Einstieg m52-l1 vorausgesetzt, hier nur Wiederholung."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche den HTTP-Antworttext mit dem Quelltext der PHP-Datei.",
+            "acceptance": "Der Client sieht Ausgabe und Status, nicht automatisch PHP-Quellcode; CLI läuft ohne Browserrequest. Einstieg m52-l1 vorausgesetzt, hier nur Wiederholung."
+          }
+        ]
+      },
+      {
+        "id": "m42-l2",
+        "title": "Variablen, Typen und Vergleiche",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Vergleiche 0, '0', false mit ===.",
+            "acceptance": "Ungültiger Text wird abgelehnt; Zahl und Zahlentext bleiben bewusst getrennt. Null ist nur erlaubt, wenn der Vertrag es vorsieht."
+          },
+          {
+            "level": 2,
+            "task": "Schreibe eine getypte Additionsfunktion und teste sie aus strict_types-Code.",
+            "acceptance": "Ungültiger Text wird abgelehnt; Zahl und Zahlentext bleiben bewusst getrennt. Null ist nur erlaubt, wenn der Vertrag es vorsieht."
+          },
+          {
+            "level": 3,
+            "task": "Behandle einen ungültigen Zahlenstring ohne stillen Cast zu 0.",
+            "acceptance": "Ungültiger Text wird abgelehnt; Zahl und Zahlentext bleiben bewusst getrennt. Null ist nur erlaubt, wenn der Vertrag es vorsieht."
+          }
+        ]
+      },
+      {
+        "id": "m42-l3",
+        "title": "Kontrollstrukturen und Arrays",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lies einen optionalen Schlüssel mit ??.",
+            "acceptance": "[0=>1,2=>3] wird nach array_values zu einer lückenlosen Liste; null und fehlend werden bewusst unterschieden."
+          },
+          {
+            "level": 2,
+            "task": "Filtere positive Zahlen und beobachte die Schlüssel.",
+            "acceptance": "[0=>1,2=>3] wird nach array_values zu einer lückenlosen Liste; null und fehlend werden bewusst unterschieden."
+          },
+          {
+            "level": 3,
+            "task": "Erzeuge aus dem Ergebnis mit array_values eine JSON-Liste.",
+            "acceptance": "[0=>1,2=>3] wird nach array_values zu einer lückenlosen Liste; null und fehlend werden bewusst unterschieden."
+          }
+        ]
+      },
+      {
+        "id": "m42-l4",
+        "title": "Funktionen, Typen und Closures",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe eine Funktion mit int-Rückgabe.",
+            "acceptance": "Reine Berechnung braucht keine globale Variable; der Gültigkeitsbereich der Prozentwerte ist explizit. m52 wiederholt nur Kontrollfluss."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche use($rate) und use(&$rate) nach Änderung von rate.",
+            "acceptance": "Reine Berechnung braucht keine globale Variable; der Gültigkeitsbereich der Prozentwerte ist explizit. m52 wiederholt nur Kontrollfluss."
+          },
+          {
+            "level": 3,
+            "task": "Teste eine reine Rabattfunktion mit 0,100 und ungültigen Prozenten.",
+            "acceptance": "Reine Berechnung braucht keine globale Variable; der Gültigkeitsbereich der Prozentwerte ist explizit. m52 wiederholt nur Kontrollfluss."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m53",
+    "title": "Einsteiger · Arrays, Strings und Datum in der Tiefe",
+    "lessons": [
+      {
+        "id": "m53-l1",
+        "title": "Arrays anlegen, lesen und verändern",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue eine Bestellung mit benannten Schlüsseln.",
+            "acceptance": "Die zweite Schleife verändert nicht versehentlich das letzte Element; Referenzen sind nicht für normale Iteration nötig."
+          },
+          {
+            "level": 2,
+            "task": "Entferne ein Element und untersuche array_keys.",
+            "acceptance": "Die zweite Schleife verändert nicht versehentlich das letzte Element; Referenzen sind nicht für normale Iteration nötig."
+          },
+          {
+            "level": 3,
+            "task": "Reproduziere eine foreach-Referenzfalle und repariere sie mit unset.",
+            "acceptance": "Die zweite Schleife verändert nicht versehentlich das letzte Element; Referenzen sind nicht für normale Iteration nötig."
+          }
+        ]
+      },
+      {
+        "id": "m53-l2",
+        "title": "Sortieren und Umformen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Sortiere [3,1,2] aufsteigend.",
+            "acceptance": "IDs bleiben bis zur bewusst gewählten Reindexierung erhalten. Für Preisgleichheit ist eine zweite Sortierregel dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Sortiere Produktnamen unter Erhalt der IDs.",
+            "acceptance": "IDs bleiben bis zur bewusst gewählten Reindexierung erhalten. Für Preisgleichheit ist eine zweite Sortierregel dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Filtere Produkte, sortiere nach Preis und liefere eine JSON-Liste.",
+            "acceptance": "IDs bleiben bis zur bewusst gewählten Reindexierung erhalten. Für Preisgleichheit ist eine zweite Sortierregel dokumentiert."
+          }
+        ]
+      },
+      {
+        "id": "m53-l3",
+        "title": "Strings bearbeiten: suchen, zerlegen, ersetzen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Suche einen Begriff an Position 0.",
+            "acceptance": "Position 0 wird erkannt; mbstring/intl-Abhängigkeiten sind genannt. Keine pauschale Unicode-Sicherheit behaupten."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche strlen und mb_strlen für Grüße.",
+            "acceptance": "Position 0 wird erkannt; mbstring/intl-Abhängigkeiten sind genannt. Keine pauschale Unicode-Sicherheit behaupten."
+          },
+          {
+            "level": 3,
+            "task": "Zerlege CSV mit fgetcsv statt explode und erkläre ein Komma in Anführungszeichen.",
+            "acceptance": "Position 0 wird erkannt; mbstring/intl-Abhängigkeiten sind genannt. Keine pauschale Unicode-Sicherheit behaupten."
+          }
+        ]
+      },
+      {
+        "id": "m53-l4",
+        "title": "Datum und Zeit richtig behandeln",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erzeuge einen Zeitpunkt mit expliziter Zone.",
+            "acceptance": "Zeitpunkt bleibt identisch, Darstellung ändert sich; Kalenderaddition und Sekundenaddition werden unterschieden."
+          },
+          {
+            "level": 2,
+            "task": "Zeige denselben Zeitpunkt in UTC und Europe/Berlin.",
+            "acceptance": "Zeitpunkt bleibt identisch, Darstellung ändert sich; Kalenderaddition und Sekundenaddition werden unterschieden."
+          },
+          {
+            "level": 3,
+            "task": "Untersuche einen lokalen Kalendertag über eine Sommerzeitumstellung.",
+            "acceptance": "Zeitpunkt bleibt identisch, Darstellung ändert sich; Kalenderaddition und Sekundenaddition werden unterschieden."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m43",
+    "title": "Einsteiger · PHP im Web: Formulare, Sessions, Datenbank",
+    "lessons": [
+      {
+        "id": "m43-l1",
+        "title": "Formulare verarbeiten und Ausgaben absichern",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeige <b>Mira</b> als Text in HTML.",
+            "acceptance": "HTML-Text wird nicht als Tag interpretiert; CSRF-Token wird mit geheimem Sessionwert verglichen. Vollständige Webauth folgt m43-l2/m47."
+          },
+          {
+            "level": 2,
+            "task": "Validiere eine E-Mail ohne sie als Beweis der Identität zu betrachten.",
+            "acceptance": "HTML-Text wird nicht als Tag interpretiert; CSRF-Token wird mit geheimem Sessionwert verglichen. Vollständige Webauth folgt m43-l2/m47."
+          },
+          {
+            "level": 3,
+            "task": "Baue ein POST-Formular mit serverseitiger Validierung und erkläre den CSRF-Token-Lebenszyklus.",
+            "acceptance": "HTML-Text wird nicht als Tag interpretiert; CSRF-Token wird mit geheimem Sessionwert verglichen. Vollständige Webauth folgt m43-l2/m47."
+          }
+        ]
+      },
+      {
+        "id": "m43-l2",
+        "title": "Sessions, Cookies und Passwörter",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erzeuge Hashes desselben Passworts und vergleiche sie.",
+            "acceptance": "Kein Passwort in Logs; Login-Ratenbegrenzung und generische Fehlermeldungen gehören dazu. SameSite allein ersetzt CSRF nicht."
+          },
+          {
+            "level": 2,
+            "task": "Prüfe richtiges und falsches Passwort.",
+            "acceptance": "Kein Passwort in Logs; Login-Ratenbegrenzung und generische Fehlermeldungen gehören dazu. SameSite allein ersetzt CSRF nicht."
+          },
+          {
+            "level": 3,
+            "task": "Zeichne Login, Session-ID-Regeneration, Berechtigungsprüfung und Logout.",
+            "acceptance": "Kein Passwort in Logs; Login-Ratenbegrenzung und generische Fehlermeldungen gehören dazu. SameSite allein ersetzt CSRF nicht."
+          }
+        ]
+      },
+      {
+        "id": "m43-l3",
+        "title": "Datenbankzugriff mit PDO und Prepared Statements",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lies eine ID mit einem Prepared Statement.",
+            "acceptance": "Schemadaten bleiben unverändert; beide Writes werden gemeinsam bestätigt oder zurückgerollt. PDO-Ausnahmen werden nicht öffentlich ausgegeben."
+          },
+          {
+            "level": 2,
+            "task": "Teste einen SQL-Injection-String als Wert.",
+            "acceptance": "Schemadaten bleiben unverändert; beide Writes werden gemeinsam bestätigt oder zurückgerollt. PDO-Ausnahmen werden nicht öffentlich ausgegeben."
+          },
+          {
+            "level": 3,
+            "task": "Erzeuge zwei zusammengehörige Schreibvorgänge mit Rollback nach provoziertem Fehler.",
+            "acceptance": "Schemadaten bleiben unverändert; beide Writes werden gemeinsam bestätigt oder zurückgerollt. PDO-Ausnahmen werden nicht öffentlich ausgegeben."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m54",
+    "title": "Fortgeschritten · Dateien, JSON, HTTP und Fehler",
+    "lessons": [
+      {
+        "id": "m54-l1",
+        "title": "Dateien lesen und schreiben",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lies eine bekannte UTF-8-Datei.",
+            "acceptance": "Temporäre Datei liegt auf passendem Dateisystem; Fehler werden behandelt, Lock/Atomarität nicht über verschiedene Systeme hinweg versprochen."
+          },
+          {
+            "level": 2,
+            "task": "Behandle fehlende Datei ohne @-Unterdrückung.",
+            "acceptance": "Temporäre Datei liegt auf passendem Dateisystem; Fehler werden behandelt, Lock/Atomarität nicht über verschiedene Systeme hinweg versprochen."
+          },
+          {
+            "level": 3,
+            "task": "Schreibe in eine temporäre Datei und diskutiere atomaren Rename und parallele Writer.",
+            "acceptance": "Temporäre Datei liegt auf passendem Dateisystem; Fehler werden behandelt, Lock/Atomarität nicht über verschiedene Systeme hinweg versprochen."
+          }
+        ]
+      },
+      {
+        "id": "m54-l2",
+        "title": "JSON sauber verarbeiten",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Kodiere eine Liste mit Unicode.",
+            "acceptance": "Objekt/Liste und null sind bewusst unterschieden; quantity ist gültig und begrenzt. Kein blindes Casten fremder Werte."
+          },
+          {
+            "level": 2,
+            "task": "Fange einen Syntaxfehler im JSON.",
+            "acceptance": "Objekt/Liste und null sind bewusst unterschieden; quantity ist gültig und begrenzt. Kein blindes Casten fremder Werte."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe eine Bestellung mit quantity, unbekannten Feldern und Obergrenze.",
+            "acceptance": "Objekt/Liste und null sind bewusst unterschieden; quantity ist gültig und begrenzt. Kein blindes Casten fremder Werte."
+          }
+        ]
+      },
+      {
+        "id": "m54-l3",
+        "title": "HTTP-Anfragen an andere Dienste",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne 200,404,429 und Timeout ein.",
+            "acceptance": "Zeitlimits und Maximalversuche sind explizit; personenbezogene Daten und Tokens fehlen in Logs."
+          },
+          {
+            "level": 2,
+            "task": "Simuliere eine kaputte JSON-Antwort.",
+            "acceptance": "Zeitlimits und Maximalversuche sind explizit; personenbezogene Daten und Tokens fehlen in Logs."
+          },
+          {
+            "level": 3,
+            "task": "Entwerfe begrenzten Retry mit Backoff und Idempotency-Key für eine Bestellung.",
+            "acceptance": "Zeitlimits und Maximalversuche sind explizit; personenbezogene Daten und Tokens fehlen in Logs."
+          }
+        ]
+      },
+      {
+        "id": "m54-l4",
+        "title": "Fehler, Exceptions und Logging in der Praxis",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Fange eine erwartete Exception.",
+            "acceptance": "Nutzer erhalten keine Stacktraces; Fehlersuche bleibt mit Korrelations-ID möglich. PSR-3-Kontext statt String-Sammelsurium."
+          },
+          {
+            "level": 2,
+            "task": "Leite unerwartete Fehler an einen zentralen Handler.",
+            "acceptance": "Nutzer erhalten keine Stacktraces; Fehlersuche bleibt mit Korrelations-ID möglich. PSR-3-Kontext statt String-Sammelsurium."
+          },
+          {
+            "level": 3,
+            "task": "Entwerfe Log-Level und Redaction für Login- und Zahlungsfehler.",
+            "acceptance": "Nutzer erhalten keine Stacktraces; Fehlersuche bleibt mit Korrelations-ID möglich. PSR-3-Kontext statt String-Sammelsurium."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m44",
+    "title": "Fortgeschritten · Modernes, objektorientiertes PHP",
+    "lessons": [
+      {
+        "id": "m44-l1",
+        "title": "Klassen, Konstruktoren und readonly",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erzeuge ein readonly Value Object.",
+            "acceptance": "Der Unterschied zwischen Bindung und tiefem Zustand wird erklärt; Konstruktor lehnt ungültige Werte ab."
+          },
+          {
+            "level": 2,
+            "task": "Teste eine verbotene Neuzuweisung.",
+            "acceptance": "Der Unterschied zwischen Bindung und tiefem Zustand wird erklärt; Konstruktor lehnt ungültige Werte ab."
+          },
+          {
+            "level": 3,
+            "task": "Untersuche ein readonly Property mit DateTime versus DateTimeImmutable.",
+            "acceptance": "Der Unterschied zwischen Bindung und tiefem Zustand wird erklärt; Konstruktor lehnt ungültige Werte ab."
+          }
+        ]
+      },
+      {
+        "id": "m44-l2",
+        "title": "Interfaces, abstrakte Klassen und Traits",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere ein PaymentGateway-Interface.",
+            "acceptance": "Beide Implementierungen halten denselben Vertrag und behandeln Fehler konsistent; Aufrufer braucht keine Typabfrage."
+          },
+          {
+            "level": 2,
+            "task": "Implementiere einen Fake und eine zweite Variante.",
+            "acceptance": "Beide Implementierungen halten denselben Vertrag und behandeln Fehler konsistent; Aufrufer braucht keine Typabfrage."
+          },
+          {
+            "level": 3,
+            "task": "Entferne eine versteckte Trait-Abhängigkeit durch Konstruktorinjektion.",
+            "acceptance": "Beide Implementierungen halten denselben Vertrag und behandeln Fehler konsistent; Aufrufer braucht keine Typabfrage."
+          }
+        ]
+      },
+      {
+        "id": "m44-l3",
+        "title": "Enums und Exceptions",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erzeuge ein Status-Enum.",
+            "acceptance": "Abgewiesener Wechsel verändert den Zustand nicht. Status aus fremder Eingabe wird nicht ungeprüft übernommen."
+          },
+          {
+            "level": 2,
+            "task": "Teste from und tryFrom mit ungültigem Text.",
+            "acceptance": "Abgewiesener Wechsel verändert den Zustand nicht. Status aus fremder Eingabe wird nicht ungeprüft übernommen."
+          },
+          {
+            "level": 3,
+            "task": "Modelliere erlaubte Zustandswechsel mit fachlicher Exception.",
+            "acceptance": "Abgewiesener Wechsel verändert den Zustand nicht. Status aus fremder Eingabe wird nicht ungeprüft übernommen."
+          }
+        ]
+      },
+      {
+        "id": "m44-l4",
+        "title": "Namespaces, Composer und PSR-Standards",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne composer.json und composer.lock zu.",
+            "acceptance": "Klassenpfade stimmen auch bei case-sensitivem Dateisystem; vendor und Secrets werden nicht committet, Lockfile einer App schon."
+          },
+          {
+            "level": 2,
+            "task": "Baue PSR-4-Autoloading für zwei Klassen.",
+            "acceptance": "Klassenpfade stimmen auch bei case-sensitivem Dateisystem; vendor und Secrets werden nicht committet, Lockfile einer App schon."
+          },
+          {
+            "level": 3,
+            "task": "Reproduziere die Installation aus einem frischen Arbeitsverzeichnis und prüfe composer audit.",
+            "acceptance": "Klassenpfade stimmen auch bei case-sensitivem Dateisystem; vendor und Secrets werden nicht committet, Lockfile einer App schon."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m55",
+    "title": "Fortgeschritten · Modernes PHP und saubere Architektur",
+    "lessons": [
+      {
+        "id": "m55-l1",
+        "title": "Generatoren: große Datenmengen mit wenig Speicher",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe einen Generator für 1 bis 3.",
+            "acceptance": "Kein Vollmaterialisieren im Streaming-Pfad; Dateihandle wird auch bei Abbruch geschlossen."
+          },
+          {
+            "level": 2,
+            "task": "Verarbeite eine Datei zeilenweise.",
+            "acceptance": "Kein Vollmaterialisieren im Streaming-Pfad; Dateihandle wird auch bei Abbruch geschlossen."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche Speicherverhalten einer Streaming-Summe mit gesammelten Werten.",
+            "acceptance": "Kein Vollmaterialisieren im Streaming-Pfad; Dateihandle wird auch bei Abbruch geschlossen."
+          }
+        ]
+      },
+      {
+        "id": "m55-l2",
+        "title": "SOLID verständlich erklärt",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Finde zwei Verantwortlichkeiten in einer Checkout-Klasse.",
+            "acceptance": "Mehrfachzuständigkeit reduziert sich; Tests beschreiben Verhalten statt private Methoden."
+          },
+          {
+            "level": 2,
+            "task": "Trenne Preisberechnung vom Versand.",
+            "acceptance": "Mehrfachzuständigkeit reduziert sich; Tests beschreiben Verhalten statt private Methoden."
+          },
+          {
+            "level": 3,
+            "task": "Ergänze einen neuen Versanddienst ohne Änderungen an der reinen Berechnung.",
+            "acceptance": "Mehrfachzuständigkeit reduziert sich; Tests beschreiben Verhalten statt private Methoden."
+          }
+        ]
+      },
+      {
+        "id": "m55-l3",
+        "title": "Was PHP 8.4 und 8.5 Neues bringen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne Syntax zu 8.4/8.5.",
+            "acceptance": "Beide Varianten liefern gleiche Werte; ungeeignete Laufzeiten werden vor Deployment erkannt."
+          },
+          {
+            "level": 2,
+            "task": "Schreibe eine Pipeline als normale Funktionsaufrufe.",
+            "acceptance": "Beide Varianten liefern gleiche Werte; ungeeignete Laufzeiten werden vor Deployment erkannt."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche Lesbarkeit und Fehlerbehandlung beider Varianten.",
+            "acceptance": "Beide Varianten liefern gleiche Werte; ungeeignete Laufzeiten werden vor Deployment erkannt."
+          }
+        ]
+      },
+      {
+        "id": "m55-l4",
+        "title": "Dependency Injection und Unit-Tests ohne Framework",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe eine Preisregel ohne I/O.",
+            "acceptance": "Tests sind unabhängig von Tageszeit und externem Dienst; monetäre Rundungsregeln sind benannt."
+          },
+          {
+            "level": 2,
+            "task": "Injiziere einen festen Wechselkursanbieter.",
+            "acceptance": "Tests sind unabhängig von Tageszeit und externem Dienst; monetäre Rundungsregeln sind benannt."
+          },
+          {
+            "level": 3,
+            "task": "Teste Ausfall und Rundungsgrenzen ohne Netzwerk.",
+            "acceptance": "Tests sind unabhängig von Tageszeit und externem Dienst; monetäre Rundungsregeln sind benannt."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m45",
+    "title": "Fortgeschritten · Laravel-Einstieg",
+    "lessons": [
+      {
+        "id": "m45-l1",
+        "title": "Installation, Projektstruktur und Konfiguration",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne Projektverzeichnisse.",
+            "acceptance": "Keine Secrets im Repository; exakte Paketstände im Lockfile. Keine pauschale Marktführerschaft behaupten."
+          },
+          {
+            "level": 2,
+            "task": "Erzeuge ein lokales Laravel-13-Projekt nach offizieller Anleitung.",
+            "acceptance": "Keine Secrets im Repository; exakte Paketstände im Lockfile. Keine pauschale Marktführerschaft behaupten."
+          },
+          {
+            "level": 3,
+            "task": "Dokumentiere PHP, Extensions, Composer, DB und Testkommando für ein zweites Gerät.",
+            "acceptance": "Keine Secrets im Repository; exakte Paketstände im Lockfile. Keine pauschale Marktführerschaft behaupten."
+          }
+        ]
+      },
+      {
+        "id": "m45-l2",
+        "title": "Request-Lebenszyklus und Routing",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne den Request-Lebenszyklus.",
+            "acceptance": "Route Model Binding lädt ein Model, autorisiert aber nicht automatisch den Benutzer."
+          },
+          {
+            "level": 2,
+            "task": "Lege eine benannte Route mit Parameter an.",
+            "acceptance": "Route Model Binding lädt ein Model, autorisiert aber nicht automatisch den Benutzer."
+          },
+          {
+            "level": 3,
+            "task": "Teste public, auth und Model-Binding-404 getrennt.",
+            "acceptance": "Route Model Binding lädt ein Model, autorisiert aber nicht automatisch den Benutzer."
+          }
+        ]
+      },
+      {
+        "id": "m45-l3",
+        "title": "Controller und Blade-Templates",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Rendere einen Produktnamen mit Blade.",
+            "acceptance": "Kein unkontrolliertes Raw-HTML; fehlende Daten und Berechtigungen werden getrennt behandelt."
+          },
+          {
+            "level": 2,
+            "task": "Extrahiere ein Layout als Komponente.",
+            "acceptance": "Kein unkontrolliertes Raw-HTML; fehlende Daten und Berechtigungen werden getrennt behandelt."
+          },
+          {
+            "level": 3,
+            "task": "Teste fremde HTML-Zeichen und verweigere unberechtigten Datenzugriff vor dem Rendern.",
+            "acceptance": "Kein unkontrolliertes Raw-HTML; fehlende Daten und Berechtigungen werden getrennt behandelt."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m46",
+    "title": "Fortgeschritten · Datenbank mit Eloquent",
+    "lessons": [
+      {
+        "id": "m46-l1",
+        "title": "Migrationen, Factories und Seeder",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere Tabelle mit eindeutiger SKU.",
+            "acceptance": "Constraints schützen Invarianten; destruktive Schritte werden als solche erkannt. Seed-Daten verletzen keine fachlichen Regeln."
+          },
+          {
+            "level": 2,
+            "task": "Erzeuge Factory-Daten mit gültigen Beziehungen.",
+            "acceptance": "Constraints schützen Invarianten; destruktive Schritte werden als solche erkannt. Seed-Daten verletzen keine fachlichen Regeln."
+          },
+          {
+            "level": 3,
+            "task": "Plane Expand-Migrate-Contract für eine neue Pflichtspalte.",
+            "acceptance": "Constraints schützen Invarianten; destruktive Schritte werden als solche erkannt. Seed-Daten verletzen keine fachlichen Regeln."
+          }
+        ]
+      },
+      {
+        "id": "m46-l2",
+        "title": "Eloquent-Models und CRUD",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lege ein Model mit kleiner fillable-Liste an.",
+            "acceptance": "Kein Rollen-/Owner-Feld aus dem Request übernehmen. hidden/Resources steuern Ausgabe, nicht Schreibberechtigung."
+          },
+          {
+            "level": 2,
+            "task": "Sende ein unerlaubtes admin-Feld.",
+            "acceptance": "Kein Rollen-/Owner-Feld aus dem Request übernehmen. hidden/Resources steuern Ausgabe, nicht Schreibberechtigung."
+          },
+          {
+            "level": 3,
+            "task": "Teste gültige Daten eines fremden Benutzers und verweigere den Zugriff.",
+            "acceptance": "Kein Rollen-/Owner-Feld aus dem Request übernehmen. hidden/Resources steuern Ausgabe, nicht Schreibberechtigung."
+          }
+        ]
+      },
+      {
+        "id": "m46-l3",
+        "title": "Beziehungen zwischen Models",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere belongsTo und hasMany.",
+            "acceptance": "Null-Fall ist kontrolliert; Löschstrategie folgt Fachregel und Constraint."
+          },
+          {
+            "level": 2,
+            "task": "Lade Produkte mit Kategorien.",
+            "acceptance": "Null-Fall ist kontrolliert; Löschstrategie folgt Fachregel und Constraint."
+          },
+          {
+            "level": 3,
+            "task": "Teste fehlende optionale Beziehung und das Löschen eines Elternobjekts.",
+            "acceptance": "Null-Fall ist kontrolliert; Löschstrategie folgt Fachregel und Constraint."
+          }
+        ]
+      },
+      {
+        "id": "m46-l4",
+        "title": "N+1-Problem, Eager Loading und Query Builder",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zähle Queries einer Produktliste.",
+            "acceptance": "Query-Zahl steigt nicht linear mit der Zeilenanzahl; Speicher und Payload werden mitgemessen."
+          },
+          {
+            "level": 2,
+            "task": "Behebe N+1 mit with.",
+            "acceptance": "Query-Zahl steigt nicht linear mit der Zeilenanzahl; Speicher und Payload werden mitgemessen."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche withCount mit Laden aller Bestellungen bei 100 Produkten.",
+            "acceptance": "Query-Zahl steigt nicht linear mit der Zeilenanzahl; Speicher und Payload werden mitgemessen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m47",
+    "title": "Fortgeschritten · Validierung, Authentifizierung und Rechte",
+    "lessons": [
+      {
+        "id": "m47-l1",
+        "title": "Validierung und Form Requests",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Prüfe Pflichtfeld und Maximallänge.",
+            "acceptance": "Gültiges Format ist noch kein Beweis, dass ein referenziertes Objekt dem Benutzer gehört."
+          },
+          {
+            "level": 2,
+            "task": "Validiere verschachtelte Bestellpositionen.",
+            "acceptance": "Gültiges Format ist noch kein Beweis, dass ein referenziertes Objekt dem Benutzer gehört."
+          },
+          {
+            "level": 3,
+            "task": "Teste unbekannte Schlüssel, fremde IDs und übergroße Listen.",
+            "acceptance": "Gültiges Format ist noch kein Beweis, dass ein referenziertes Objekt dem Benutzer gehört."
+          }
+        ]
+      },
+      {
+        "id": "m47-l2",
+        "title": "Authentifizierung, Middleware und CSRF",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne Login und Session-Regeneration.",
+            "acceptance": "Keine offenen Redirects; Session wird beim Logout invalidiert. Verifikation und Autorisierung sind getrennt."
+          },
+          {
+            "level": 2,
+            "task": "Schütze eine Route mit auth und verified.",
+            "acceptance": "Keine offenen Redirects; Session wird beim Logout invalidiert. Verifikation und Autorisierung sind getrennt."
+          },
+          {
+            "level": 3,
+            "task": "Teste Loginfehler, Logout, CSRF und Wiederanmeldung im passenden Modus.",
+            "acceptance": "Keine offenen Redirects; Session wird beim Logout invalidiert. Verifikation und Autorisierung sind getrennt."
+          }
+        ]
+      },
+      {
+        "id": "m47-l3",
+        "title": "Autorisierung mit Gates und Policies",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe view/update-Regeln.",
+            "acceptance": "Alle Zugriffspfade sind abgedeckt, nicht nur die Detailseite. 403/404-Strategie ist bewusst gewählt."
+          },
+          {
+            "level": 2,
+            "task": "Teste Gast, Besitzer und Fremden.",
+            "acceptance": "Alle Zugriffspfade sind abgedeckt, nicht nur die Detailseite. 403/404-Strategie ist bewusst gewählt."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Bulk-Endpunkt und verschachtelte Route auf fremde IDs.",
+            "acceptance": "Alle Zugriffspfade sind abgedeckt, nicht nur die Detailseite. 403/404-Strategie ist bewusst gewählt."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m56",
+    "title": "Fortgeschritten · Blade-Komponenten und Frontend",
+    "lessons": [
+      {
+        "id": "m56-l1",
+        "title": "Blade-Komponenten bauen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue einen Button mit Defaulttyp button.",
+            "acceptance": "Kein unbeabsichtigter Submit; Label und Fehlermeldung bleiben zugänglich."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze benannten Slot und Fehlermeldung.",
+            "acceptance": "Kein unbeabsichtigter Submit; Label und Fehlermeldung bleiben zugänglich."
+          },
+          {
+            "level": 3,
+            "task": "Teste Attribute und Tastaturverhalten in zwei Formularen.",
+            "acceptance": "Kein unbeabsichtigter Submit; Label und Fehlermeldung bleiben zugänglich."
+          }
+        ]
+      },
+      {
+        "id": "m56-l2",
+        "title": "Vite, CSS und JavaScript einbinden",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Binde einen JS-Einstieg ein.",
+            "acceptance": "Produktion funktioniert ohne Devserver; keine Passwörter, privaten Keys oder API-Secrets im Bundle."
+          },
+          {
+            "level": 2,
+            "task": "Erzeuge einen Produktionsbuild.",
+            "acceptance": "Produktion funktioniert ohne Devserver; keine Passwörter, privaten Keys oder API-Secrets im Bundle."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Bundle/Manifest, fehlenden Devserver und ein absichtlich öffentliches Konfigurationsfeld.",
+            "acceptance": "Produktion funktioniert ohne Devserver; keine Passwörter, privaten Keys oder API-Secrets im Bundle."
+          }
+        ]
+      },
+      {
+        "id": "m56-l3",
+        "title": "Livewire: interaktiv ohne eigenes JavaScript",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue eine lokale Suchkomponente.",
+            "acceptance": "UI-Bindung schützt keine Daten; N+1, Debounce und autorisierte Query sind bewusst behandelt."
+          },
+          {
+            "level": 2,
+            "task": "Begrenze Suchtext und Ergebnisse.",
+            "acceptance": "UI-Bindung schützt keine Daten; N+1, Debounce und autorisierte Query sind bewusst behandelt."
+          },
+          {
+            "level": 3,
+            "task": "Manipuliere eine fremde Objekt-ID und prüfe die Policy.",
+            "acceptance": "UI-Bindung schützt keine Daten; N+1, Debounce und autorisierte Query sind bewusst behandelt."
+          }
+        ]
+      },
+      {
+        "id": "m56-l4",
+        "title": "Formulare mit gutem Nutzererlebnis",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue ein beschriftetes Feld.",
+            "acceptance": "Keine verlorenen Eingaben; Statusmeldung ist ohne Farbsehen erkennbar. Sensible Felder werden nicht wiederbefüllt."
+          },
+          {
+            "level": 2,
+            "task": "Verbinde Fehler über aria-describedby.",
+            "acceptance": "Keine verlorenen Eingaben; Statusmeldung ist ohne Farbsehen erkennbar. Sensible Felder werden nicht wiederbefüllt."
+          },
+          {
+            "level": 3,
+            "task": "Teste leere, zu lange und serverseitig abgelehnte Eingaben mit Tastatur.",
+            "acceptance": "Keine verlorenen Eingaben; Statusmeldung ist ohne Farbsehen erkennbar. Sensible Felder werden nicht wiederbefüllt."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m57",
+    "title": "Fortgeschritten · Dateien, Mails und Benachrichtigungen",
+    "lessons": [
+      {
+        "id": "m57-l1",
+        "title": "Datei-Uploads und das Storage-System",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Validiere eine kleine Bilddatei.",
+            "acceptance": "Kein ausführbarer Upload im Webroot; Limits gelten auch auf Proxy-/PHP-Ebene."
+          },
+          {
+            "level": 2,
+            "task": "Teste falschen Typ und Übergröße.",
+            "acceptance": "Kein ausführbarer Upload im Webroot; Limits gelten auch auf Proxy-/PHP-Ebene."
+          },
+          {
+            "level": 3,
+            "task": "Plane privaten Download mit Owner-Policy und Content-Disposition.",
+            "acceptance": "Kein ausführbarer Upload im Webroot; Limits gelten auch auf Proxy-/PHP-Ebene."
+          }
+        ]
+      },
+      {
+        "id": "m57-l2",
+        "title": "E-Mails mit Mailables",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Rendere eine Bestätigung lokal.",
+            "acceptance": "Keine echten Empfänger im Test; geheime Daten fehlen im Nachrichteninhalt und im Log."
+          },
+          {
+            "level": 2,
+            "task": "Teste Empfänger und Betreff.",
+            "acceptance": "Keine echten Empfänger im Test; geheime Daten fehlen im Nachrichteninhalt und im Log."
+          },
+          {
+            "level": 3,
+            "task": "Plane Retry, Dublettenbehandlung und Zustellfehler ohne echte Zahlung/Mail.",
+            "acceptance": "Keine echten Empfänger im Test; geheime Daten fehlen im Nachrichteninhalt und im Log."
+          }
+        ]
+      },
+      {
+        "id": "m57-l3",
+        "title": "Benachrichtigungen über mehrere Kanäle",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erzeuge Datenbanknachricht.",
+            "acceptance": "Nur der Empfänger darf seine Benachrichtigungen lesen/markieren; Queue- und Aufbewahrungsregeln sind sichtbar."
+          },
+          {
+            "level": 2,
+            "task": "Teste Kanalauswahl für Opt-out.",
+            "acceptance": "Nur der Empfänger darf seine Benachrichtigungen lesen/markieren; Queue- und Aufbewahrungsregeln sind sichtbar."
+          },
+          {
+            "level": 3,
+            "task": "Definiere Regeln für erneuten Versand und gelesene Nachrichten.",
+            "acceptance": "Nur der Empfänger darf seine Benachrichtigungen lesen/markieren; Queue- und Aufbewahrungsregeln sind sichtbar."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m58",
+    "title": "Experte · Eloquent für Profis",
+    "lessons": [
+      {
+        "id": "m58-l1",
+        "title": "Fortgeschrittene Abfragen: whereHas, Aggregate, Subqueries",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Filtere Kunden mit offenen Bestellungen.",
+            "acceptance": "Fachlich gleiche Ergebnismenge und stabile Sortierung; unbekannte Filter werden kontrolliert behandelt."
+          },
+          {
+            "level": 2,
+            "task": "Berechne Summe ohne alle Einzelobjekte zu laden.",
+            "acceptance": "Fachlich gleiche Ergebnismenge und stabile Sortierung; unbekannte Filter werden kontrolliert behandelt."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche Queryplan und Pagination bei klar definierten Filterparametern.",
+            "acceptance": "Fachlich gleiche Ergebnismenge und stabile Sortierung; unbekannte Filter werden kontrolliert behandelt."
+          }
+        ]
+      },
+      {
+        "id": "m58-l2",
+        "title": "Eigene Casts und Value Objects",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue unveränderliches Money-Objekt.",
+            "acceptance": "Roundtrip erhält Bedeutung; Rundungs- und Währungsregeln sind explizit."
+          },
+          {
+            "level": 2,
+            "task": "Teste Hin- und Rückkonvertierung eines Casts.",
+            "acceptance": "Roundtrip erhält Bedeutung; Rundungs- und Währungsregeln sind explizit."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Null, falsche Währung und negative Werte im vereinbarten Vertrag.",
+            "acceptance": "Roundtrip erhält Bedeutung; Rundungs- und Währungsregeln sind explizit."
+          }
+        ]
+      },
+      {
+        "id": "m58-l3",
+        "title": "Polymorphe Beziehungen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Modelliere Kommentare an zwei Typen.",
+            "acceptance": "Keine frei wählbaren PHP-Klassen aus Fremddaten; Lösch-/Archivierungsregeln sind dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Definiere eine Morph Map.",
+            "acceptance": "Keine frei wählbaren PHP-Klassen aus Fremddaten; Lösch-/Archivierungsregeln sind dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Teste unbekannten Typ, fehlendes Ziel und Fremdzugriff.",
+            "acceptance": "Keine frei wählbaren PHP-Klassen aus Fremddaten; Lösch-/Archivierungsregeln sind dokumentiert."
+          }
+        ]
+      },
+      {
+        "id": "m58-l4",
+        "title": "Globale Scopes, Soft Deletes und Pruning",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Teste Soft Delete und Wiederherstellung.",
+            "acceptance": "Kein fremder Tenant im normalen Zugriff; Wiederherstellung respektiert eindeutige Constraints."
+          },
+          {
+            "level": 2,
+            "task": "Untersuche withTrashed und withoutGlobalScope.",
+            "acceptance": "Kein fremder Tenant im normalen Zugriff; Wiederherstellung respektiert eindeutige Constraints."
+          },
+          {
+            "level": 3,
+            "task": "Plane Aufbewahrung, Pruning und echte Löschung mit Backupgrenzen.",
+            "acceptance": "Kein fremder Tenant im normalen Zugriff; Wiederherstellung respektiert eindeutige Constraints."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m48",
+    "title": "Experte · REST-APIs mit Laravel",
+    "lessons": [
+      {
+        "id": "m48-l1",
+        "title": "API-Routen, Ressourcen und Statuscodes",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Liefere einen dokumentierten 200-Response.",
+            "acceptance": "Keine internen Felder im Response; cursor pagination braucht stabile geeignete Sortierung und ist nicht pauschal schneller."
+          },
+          {
+            "level": 2,
+            "task": "Teste 201 mit Location und 204 ohne Body.",
+            "acceptance": "Keine internen Felder im Response; cursor pagination braucht stabile geeignete Sortierung und ist nicht pauschal schneller."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Pagination, sensible Felder, 401/403/404 und Validation-422.",
+            "acceptance": "Keine internen Felder im Response; cursor pagination braucht stabile geeignete Sortierung und ist nicht pauschal schneller."
+          }
+        ]
+      },
+      {
+        "id": "m48-l2",
+        "title": "Token-Authentifizierung mit Sanctum",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne beide Auth-Flows.",
+            "acceptance": "Abilities schützen nicht pauschal First-Party-SPA-Requests; tokenCan ist dort absichtlich true. Widerruf und Sessionlogout sind verschieden."
+          },
+          {
+            "level": 2,
+            "task": "Teste abgelaufenes Token und fehlende Ability.",
+            "acceptance": "Abilities schützen nicht pauschal First-Party-SPA-Requests; tokenCan ist dort absichtlich true. Widerruf und Sessionlogout sind verschieden."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe SPA-CSRF, Cookie-Domain und Logout ohne currentAccessToken()->delete auf einer Session.",
+            "acceptance": "Abilities schützen nicht pauschal First-Party-SPA-Requests; tokenCan ist dort absichtlich true. Widerruf und Sessionlogout sind verschieden."
+          }
+        ]
+      },
+      {
+        "id": "m48-l3",
+        "title": "Rate Limiting, Fehlerformat und Idempotenz",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere Fehlerformat und Rate-Limit.",
+            "acceptance": "Ein Schlüssel gehört zu Benutzer, Operation und Payload. Aufbewahrungszeit und Status laufender Verarbeitung sind definiert."
+          },
+          {
+            "level": 2,
+            "task": "Teste denselben Bestellrequest zweimal.",
+            "acceptance": "Ein Schlüssel gehört zu Benutzer, Operation und Payload. Aufbewahrungszeit und Status laufender Verarbeitung sind definiert."
+          },
+          {
+            "level": 3,
+            "task": "Plane Parallelaufrufe und Crash nach Commit vor Antwort mit DB-Unique-Key und gespeicherter Antwort.",
+            "acceptance": "Ein Schlüssel gehört zu Benutzer, Operation und Payload. Aufbewahrungszeit und Status laufender Verarbeitung sind definiert."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m49",
+    "title": "Experte · Architektur: Container, Provider, Events",
+    "lessons": [
+      {
+        "id": "m49-l1",
+        "title": "Service Container und Dependency Injection",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Binde ein Interface an einen Fake.",
+            "acceptance": "Keine nutzerspezifischen Daten über Requestgrenzen; Mock bleibt auf Testgrenze begrenzt."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche bind/singleton/scoped.",
+            "acceptance": "Keine nutzerspezifischen Daten über Requestgrenzen; Mock bleibt auf Testgrenze begrenzt."
+          },
+          {
+            "level": 3,
+            "task": "Teste zwei Nutzer nacheinander in einem langlebigen Worker-Szenario.",
+            "acceptance": "Keine nutzerspezifischen Daten über Requestgrenzen; Mock bleibt auf Testgrenze begrenzt."
+          }
+        ]
+      },
+      {
+        "id": "m49-l2",
+        "title": "Service Provider und Facades",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Registriere einen Dienst.",
+            "acceptance": "Test und Produktion lesen denselben Konfigurationsvertrag; keine I/O-Nebenwirkung beim bloßen Registrieren."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze einen Macro in boot.",
+            "acceptance": "Test und Produktion lesen denselben Konfigurationsvertrag; keine I/O-Nebenwirkung beim bloßen Registrieren."
+          },
+          {
+            "level": 3,
+            "task": "Teste gecachte Konfiguration ohne direkten env-Zugriff im Fachcode.",
+            "acceptance": "Test und Produktion lesen denselben Konfigurationsvertrag; keine I/O-Nebenwirkung beim bloßen Registrieren."
+          }
+        ]
+      },
+      {
+        "id": "m49-l3",
+        "title": "Events, Listener und Observer",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Löse ein Domain-Event aus.",
+            "acceptance": "Rollback erzeugt keine erfolgreiche Fachmeldung; kritische Seiteneffekte bleiben nachholbar."
+          },
+          {
+            "level": 2,
+            "task": "Teste Commit und Rollback.",
+            "acceptance": "Rollback erzeugt keine erfolgreiche Fachmeldung; kritische Seiteneffekte bleiben nachholbar."
+          },
+          {
+            "level": 3,
+            "task": "Plane Outbox oder Reconciliation für Crash zwischen DB-Commit und Nachricht.",
+            "acceptance": "Rollback erzeugt keine erfolgreiche Fachmeldung; kritische Seiteneffekte bleiben nachholbar."
+          }
+        ]
+      },
+      {
+        "id": "m49-l4",
+        "title": "Schlanke Controller: Actions und Services",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Extrahiere eine Checkout-Action.",
+            "acceptance": "Preise stammen vom Server, Bestand wird atomar geprüft; Kompensation und Wiederholung sind dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Injiziere einen Fake-Paymentdienst.",
+            "acceptance": "Preise stammen vom Server, Bestand wird atomar geprüft; Kompensation und Wiederholung sind dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Teste Bestandskonflikt, doppelte Ausführung und externen Timeout.",
+            "acceptance": "Preise stammen vom Server, Bestand wird atomar geprüft; Kompensation und Wiederholung sind dokumentiert."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m59",
+    "title": "Experte · Integrationen, Suche und Echtzeit",
+    "lessons": [
+      {
+        "id": "m59-l1",
+        "title": "Der HTTP-Client von Laravel",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Fake einen 200-JSON-Response.",
+            "acceptance": "Http::preventStrayRequests verhindert echte Netzaufrufe im Test; Zugangsdaten fehlen in Logs."
+          },
+          {
+            "level": 2,
+            "task": "Fake 404,500 und Timeout.",
+            "acceptance": "Http::preventStrayRequests verhindert echte Netzaufrufe im Test; Zugangsdaten fehlen in Logs."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe maximale Aufrufzahl und Verhalten bei ungültigem Response-Schema.",
+            "acceptance": "Http::preventStrayRequests verhindert echte Netzaufrufe im Test; Zugangsdaten fehlen in Logs."
+          }
+        ]
+      },
+      {
+        "id": "m59-l2",
+        "title": "Webhooks sicher empfangen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Prüfe ein bekanntes HMAC-Testpaar.",
+            "acceptance": "Verarbeitung wird dauerhaft einmal beansprucht, Wiederholung liefert passenden Erfolg; keine unsignierten Timestamps als Freshness-Beweis."
+          },
+          {
+            "level": 2,
+            "task": "Verändere ein Byte und lehne ab.",
+            "acceptance": "Verarbeitung wird dauerhaft einmal beansprucht, Wiederholung liefert passenden Erfolg; keine unsignierten Timestamps als Freshness-Beweis."
+          },
+          {
+            "level": 3,
+            "task": "Teste gleiche Event-ID parallel und einen alten korrekt signierten Timestamp.",
+            "acceptance": "Verarbeitung wird dauerhaft einmal beansprucht, Wiederholung liefert passenden Erfolg; keine unsignierten Timestamps als Freshness-Beweis."
+          }
+        ]
+      },
+      {
+        "id": "m59-l3",
+        "title": "Volltextsuche mit Laravel Scout",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere indexierte Produktfelder.",
+            "acceptance": "Nicht berechtigte Treffer werden nicht schon durch Titel/Counts verraten; Kosten/Engineabhängigkeiten sind genannt."
+          },
+          {
+            "level": 2,
+            "task": "Teste Aktualisierung und Löschung.",
+            "acceptance": "Nicht berechtigte Treffer werden nicht schon durch Titel/Counts verraten; Kosten/Engineabhängigkeiten sind genannt."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Tenant-Suche und Rebuild während des Betriebs.",
+            "acceptance": "Nicht berechtigte Treffer werden nicht schon durch Titel/Counts verraten; Kosten/Engineabhängigkeiten sind genannt."
+          }
+        ]
+      },
+      {
+        "id": "m59-l4",
+        "title": "Echtzeit mit Broadcasting und Reverb",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere einen Besitzerkanal.",
+            "acceptance": "UI ist nach Reconnect konsistent; Eventdaten nicht mit innerHTML darstellen. Separate Echo-/Reverb-Konfiguration gehört zum Setup."
+          },
+          {
+            "level": 2,
+            "task": "Teste fremden Abonnenten.",
+            "acceptance": "UI ist nach Reconnect konsistent; Eventdaten nicht mit innerHTML darstellen. Separate Echo-/Reverb-Konfiguration gehört zum Setup."
+          },
+          {
+            "level": 3,
+            "task": "Plane Reconnect und erneutes Laden des maßgeblichen Serverzustands.",
+            "acceptance": "UI ist nach Reconnect konsistent; Eventdaten nicht mit innerHTML darstellen. Separate Echo-/Reverb-Konfiguration gehört zum Setup."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m50",
+    "title": "Experte · Queues, Cache und Performance",
+    "lessons": [
+      {
+        "id": "m50-l1",
+        "title": "Jobs und Queues",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Teste einen Job ohne Worker synchron.",
+            "acceptance": "Doppelverarbeitung ist beherrscht; timeout liegt passend unter retry_after und Lockdauer, afterCommit und Fehlerüberwachung sind dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Führe ihn zweimal aus.",
+            "acceptance": "Doppelverarbeitung ist beherrscht; timeout liegt passend unter retry_after und Lockdauer, afterCommit und Fehlerüberwachung sind dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Simuliere Crash nach externem Erfolg vor lokaler Markierung.",
+            "acceptance": "Doppelverarbeitung ist beherrscht; timeout liegt passend unter retry_after und Lockdauer, afterCommit und Fehlerüberwachung sind dokumentiert."
+          }
+        ]
+      },
+      {
+        "id": "m50-l2",
+        "title": "Caching-Strategien",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Cache eine Kennzahl mit TTL.",
+            "acceptance": "Keine tenantübergreifenden Treffer; Lockbackend ist gemeinsam und Laufzeit begrenzt. Keine absolute Stampede-Garantie."
+          },
+          {
+            "level": 2,
+            "task": "Teste Invalidierung nach Update.",
+            "acceptance": "Keine tenantübergreifenden Treffer; Lockbackend ist gemeinsam und Laufzeit begrenzt. Keine absolute Stampede-Garantie."
+          },
+          {
+            "level": 3,
+            "task": "Simuliere zwei Tenants und gleichzeitige Neuberechnung nach Verfall.",
+            "acceptance": "Keine tenantübergreifenden Treffer; Lockbackend ist gemeinsam und Laufzeit begrenzt. Keine absolute Stampede-Garantie."
+          }
+        ]
+      },
+      {
+        "id": "m50-l3",
+        "title": "Performance messen und optimieren",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Miss Queryzahl und Laufzeit.",
+            "acceptance": "Fachlich gleiche Ergebnisse, keine unkontrollierten SQL-Parameter im Log. Streaming bedeutet nicht in jedem Umfeld konstanten Gesamtspeicher."
+          },
+          {
+            "level": 2,
+            "task": "Reduziere geladene Spalten und Zeilen.",
+            "acceptance": "Fachlich gleiche Ergebnisse, keine unkontrollierten SQL-Parameter im Log. Streaming bedeutet nicht in jedem Umfeld konstanten Gesamtspeicher."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche p50/p95 sowie Speicher unter realistischer Last.",
+            "acceptance": "Fachlich gleiche Ergebnisse, keine unkontrollierten SQL-Parameter im Log. Streaming bedeutet nicht in jedem Umfeld konstanten Gesamtspeicher."
+          }
+        ]
+      },
+      {
+        "id": "m50-l4",
+        "title": "Scheduler und Artisan-Commands",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe einen lesenden Command.",
+            "acceptance": "Produktivdaten werden nicht aus Versehen gelöscht; Zeitzone, Monitoring und Lockablauf sind geplant."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze validierte Option und Dry-run.",
+            "acceptance": "Produktivdaten werden nicht aus Versehen gelöscht; Zeitzone, Monitoring und Lockablauf sind geplant."
+          },
+          {
+            "level": 3,
+            "task": "Teste parallele Scheduler und wiederholten Aufruf.",
+            "acceptance": "Produktivdaten werden nicht aus Versehen gelöscht; Zeitzone, Monitoring und Lockablauf sind geplant."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m51",
+    "title": "Experte · Testen, Qualität und Deployment",
+    "lessons": [
+      {
+        "id": "m51-l1",
+        "title": "Feature-Tests mit Pest und PHPUnit",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Teste eine reine Funktion.",
+            "acceptance": "Tests laufen isoliert und ohne Produktionsdaten; echte Abhängigkeiten und Fixture-Aufbau sind genannt."
+          },
+          {
+            "level": 2,
+            "task": "Teste HTTP-Erfolg,422 und Fremdzugriff.",
+            "acceptance": "Tests laufen isoliert und ohne Produktionsdaten; echte Abhängigkeiten und Fixture-Aufbau sind genannt."
+          },
+          {
+            "level": 3,
+            "task": "Teste parallelen Bestellkonflikt auf dem vorgesehenen DB-System.",
+            "acceptance": "Tests laufen isoliert und ohne Produktionsdaten; echte Abhängigkeiten und Fixture-Aufbau sind genannt."
+          }
+        ]
+      },
+      {
+        "id": "m51-l2",
+        "title": "Fakes, Mocks und Zeitreisen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Fake Mail und prüfe Empfänger.",
+            "acceptance": "Keine echten Mails oder Zahlungen; Grenzzeitpunkt ist ausdrücklich inklusive oder exklusiv definiert."
+          },
+          {
+            "level": 2,
+            "task": "Fake HTTP mit verbotenem Stray-Request.",
+            "acceptance": "Keine echten Mails oder Zahlungen; Grenzzeitpunkt ist ausdrücklich inklusive oder exklusiv definiert."
+          },
+          {
+            "level": 3,
+            "task": "Teste Gutschein vor/auf/nach Ablauf ohne sleep.",
+            "acceptance": "Keine echten Mails oder Zahlungen; Grenzzeitpunkt ist ausdrücklich inklusive oder exklusiv definiert."
+          }
+        ]
+      },
+      {
+        "id": "m51-l3",
+        "title": "Codequalität: Pint, Larastan und CI",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lass Pint einen Stilbruch finden.",
+            "acceptance": "Keine Secrets in PRs aus Forks; Action-Versionen/SHAs und Updatepolitik bewusst prüfen. Ziel-PHP 8.5 dokumentieren."
+          },
+          {
+            "level": 2,
+            "task": "Lass PHPStan einen Typfehler finden.",
+            "acceptance": "Keine Secrets in PRs aus Forks; Action-Versionen/SHAs und Updatepolitik bewusst prüfen. Ziel-PHP 8.5 dokumentieren."
+          },
+          {
+            "level": 3,
+            "task": "Baue CI mit Lockfiles, Tests, Audit und Least-Privilege-Rechten.",
+            "acceptance": "Keine Secrets in PRs aus Forks; Action-Versionen/SHAs und Updatepolitik bewusst prüfen. Ziel-PHP 8.5 dokumentieren."
+          }
+        ]
+      },
+      {
+        "id": "m51-l4",
+        "title": "Deployment und Sicherheit in Produktion",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erstelle ein Release-Manifest.",
+            "acceptance": "Keine Produktionsbefehle hier ausführen. Secrets bleiben außerhalb Release; Worker-Restart, Build und Ressourcenrechte sind dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Übe additive Migration und Rollback auf Staging.",
+            "acceptance": "Keine Produktionsbefehle hier ausführen. Secrets bleiben außerhalb Release; Worker-Restart, Build und Ressourcenrechte sind dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Führe Restore und Healthcheck nach einem absichtlichen Fehlrelease durch.",
+            "acceptance": "Keine Produktionsbefehle hier ausführen. Secrets bleiben außerhalb Release; Worker-Restart, Build und Ressourcenrechte sind dokumentiert."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m60",
+    "title": "Experte · Sicherheit, Betrieb und Abschlussprojekt",
+    "lessons": [
+      {
+        "id": "m60-l1",
+        "title": "Security-Checkliste für Laravel",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erstelle eine Zugriffsmatrix.",
+            "acceptance": "Keine Geheimnisse im Frontend; Header ergänzen, ersetzen aber keine sichere Anwendung. HSTS erst nach geprüfter HTTPS-/Subdomain-Strategie."
+          },
+          {
+            "level": 2,
+            "task": "Teste IDOR, Raw-HTML und falschen CSRF-Kontext.",
+            "acceptance": "Keine Geheimnisse im Frontend; Header ergänzen, ersetzen aber keine sichere Anwendung. HSTS erst nach geprüfter HTTPS-/Subdomain-Strategie."
+          },
+          {
+            "level": 3,
+            "task": "Entwerfe eine signierte Bestätigungsseite mit mutierendem POST statt blindem GET.",
+            "acceptance": "Keine Geheimnisse im Frontend; Header ergänzen, ersetzen aber keine sichere Anwendung. HSTS erst nach geprüfter HTTPS-/Subdomain-Strategie."
+          }
+        ]
+      },
+      {
+        "id": "m60-l2",
+        "title": "Betrieb beobachten: Logs, Pulse, Telescope, Fehlerdienste",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erzeuge eine eigene Request-ID.",
+            "acceptance": "Keine Credentials oder Zahlungsdaten im Log; Liveness und Readiness werden nicht gleichgesetzt."
+          },
+          {
+            "level": 2,
+            "task": "Teste ungültige fremde IDs und Logredaction.",
+            "acceptance": "Keine Credentials oder Zahlungsdaten im Log; Liveness und Readiness werden nicht gleichgesetzt."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Dashboard-Zugriff, Alarm und Datenaufbewahrung in einem Fehlerfall.",
+            "acceptance": "Keine Credentials oder Zahlungsdaten im Log; Liveness und Readiness werden nicht gleichgesetzt."
+          }
+        ]
+      },
+      {
+        "id": "m60-l3",
+        "title": "Abschlussprojekt Teil 1: einen Mini-Shop planen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne Datenmodell und Preis-Snapshot.",
+            "acceptance": "Preis und Owner kommen vom Server; Lösch-/Retouren-/Zahlungsregeln sind vor Umsetzung geklärt."
+          },
+          {
+            "level": 2,
+            "task": "Schreibe Zugriffsmatrix pro Route.",
+            "acceptance": "Preis und Owner kommen vom Server; Lösch-/Retouren-/Zahlungsregeln sind vor Umsetzung geklärt."
+          },
+          {
+            "level": 3,
+            "task": "Definiere fünf Meilensteine mit je Erfolgs-,Fehler- und Fremdzugriffstest.",
+            "acceptance": "Preis und Owner kommen vom Server; Lösch-/Retouren-/Zahlungsregeln sind vor Umsetzung geklärt."
+          }
+        ]
+      },
+      {
+        "id": "m60-l4",
+        "title": "Abschlussprojekt Teil 2: Umsetzung und Release",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Setze den ersten vertikalen Schnitt um.",
+            "acceptance": "Keine erfundenen bestandenen Tests; rechtliche/operative Freigaben bleiben getrennt. Weiterführendes Vue-Frontend folgt im JavaScript-Pfad."
+          },
+          {
+            "level": 2,
+            "task": "Verbinde API,Policy und Queue mit Tests.",
+            "acceptance": "Keine erfundenen bestandenen Tests; rechtliche/operative Freigaben bleiben getrennt. Weiterführendes Vue-Frontend folgt im JavaScript-Pfad."
+          },
+          {
+            "level": 3,
+            "task": "Erstelle ein Releaseprotokoll mit Restore,Monitoring und bekannten Grenzen.",
+            "acceptance": "Keine erfundenen bestandenen Tests; rechtliche/operative Freigaben bleiben getrennt. Weiterführendes Vue-Frontend folgt im JavaScript-Pfad."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m61",
+    "title": "Git · Grundlagen",
+    "lessons": [
+      {
+        "id": "m61-l1",
+        "title": "Warum Versionskontrolle – und wie Git denkt",
+        "exercises": []
+      },
+      {
+        "id": "m61-l2",
+        "title": "Git installieren und einrichten",
+        "exercises": []
+      },
+      {
+        "id": "m61-l3",
+        "title": "Die drei Bereiche: Arbeitsverzeichnis, Staging, Repository",
+        "exercises": []
+      },
+      {
+        "id": "m61-l4",
+        "title": "Gute Commits schreiben",
+        "exercises": []
+      },
+      {
+        "id": "m61-l5",
+        "title": ".gitignore und was nie ins Repository gehört",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m65",
+    "title": "Git · Fachbegriffe, Interna und Fehlermeldungen",
+    "lessons": [
+      {
+        "id": "m65-l1",
+        "title": "Git-Glossar Teil 1: vom Repository bis zum Tag",
+        "exercises": []
+      },
+      {
+        "id": "m65-l2",
+        "title": "Git-Glossar Teil 2: Zusammenarbeit im Team",
+        "exercises": []
+      },
+      {
+        "id": "m65-l3",
+        "title": "Programmier-Fachbegriffe, die man im Team ständig hört",
+        "exercises": []
+      },
+      {
+        "id": "m65-l4",
+        "title": "Wie Git intern funktioniert: Objekte, Hashes, Referenzen",
+        "exercises": []
+      },
+      {
+        "id": "m65-l5",
+        "title": "Git-Meldungen verstehen: was Git dir sagen will",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m62",
+    "title": "Git · Branches, Merge und Rebase",
+    "lessons": [
+      {
+        "id": "m62-l1",
+        "title": "Branches verstehen",
+        "exercises": []
+      },
+      {
+        "id": "m62-l2",
+        "title": "Zusammenführen mit merge",
+        "exercises": []
+      },
+      {
+        "id": "m62-l3",
+        "title": "Konflikte lösen ohne Panik",
+        "exercises": []
+      },
+      {
+        "id": "m62-l4",
+        "title": "Rebase: Geschichte geradeziehen",
+        "exercises": []
+      },
+      {
+        "id": "m62-l5",
+        "title": "Stash und Cherry-Pick",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m63",
+    "title": "Git · Remote und Teamarbeit",
+    "lessons": [
+      {
+        "id": "m63-l1",
+        "title": "Remotes: clone, fetch, pull, push",
+        "exercises": []
+      },
+      {
+        "id": "m63-l2",
+        "title": "Pull Requests und Code-Review",
+        "exercises": []
+      },
+      {
+        "id": "m63-l3",
+        "title": "Branch-Strategien im Team",
+        "exercises": []
+      },
+      {
+        "id": "m63-l4",
+        "title": "Branch-Schutz, CI und Releases",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "m64",
+    "title": "Git · Fehler beheben und Profi-Werkzeuge",
+    "lessons": [
+      {
+        "id": "m64-l1",
+        "title": "Änderungen rückgängig machen",
+        "exercises": []
+      },
+      {
+        "id": "m64-l2",
+        "title": "Rettung mit reflog",
+        "exercises": []
+      },
+      {
+        "id": "m64-l3",
+        "title": "Fehler finden mit bisect, blame und log -S",
+        "exercises": []
+      },
+      {
+        "id": "m64-l4",
+        "title": "Hooks: Qualität automatisch prüfen",
+        "exercises": []
+      },
+      {
+        "id": "m64-l5",
+        "title": "Git im Laravel-Alltag",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m1",
+    "title": "Pseudocode, Algorithmen & die Brücke zu ABAP",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m1-l1",
+        "title": "Pseudocode-Grundlagen (IHK-Konvention)",
+        "exercises": []
+      },
+      {
+        "id": "abap-m1-l2",
+        "title": "Struktogramme & Programmablaufpläne (PAP)",
+        "exercises": []
+      },
+      {
+        "id": "abap-m1-l3",
+        "title": "Vom Pseudocode zu ABAP: durchgerechnete Beispiele",
+        "exercises": []
+      },
+      {
+        "id": "abap-m1-l4",
+        "title": "Komplexität verstehen: Big-O für Prüfung und Praxis",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m2",
+    "title": "Datenmodellierung: ER-Modell & Normalisierung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m2-l1",
+        "title": "Entity-Relationship-Modell: Entitäten & Kardinalitäten",
+        "exercises": []
+      },
+      {
+        "id": "abap-m2-l2",
+        "title": "Normalisierung 1NF bis 3NF",
+        "exercises": []
+      },
+      {
+        "id": "abap-m2-l3",
+        "title": "Vom ER-Modell zur ABAP-Datenbanktabelle (DDIC)",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m3",
+    "title": "SQL-Grundlagen vertieft",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m3-l1",
+        "title": "DDL/DML/DCL im Überblick",
+        "exercises": []
+      },
+      {
+        "id": "abap-m3-l2",
+        "title": "JOIN-Typen im Detail",
+        "exercises": []
+      },
+      {
+        "id": "abap-m3-l3",
+        "title": "Subqueries, Aggregatfunktionen, GROUP BY/HAVING",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m4",
+    "title": "Vorgehensmodelle & Software-Lifecycle",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m4-l1",
+        "title": "Wasserfall, V-Modell, Scrum/Kanban im Vergleich",
+        "exercises": []
+      },
+      {
+        "id": "abap-m4-l2",
+        "title": "Lasten-/Pflichtenheft & Anforderungsanalyse",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m5",
+    "title": "UML für Anwendungsentwickler",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m5-l1",
+        "title": "Use-Case-Diagramme lesen und erstellen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m5-l2",
+        "title": "Klassendiagramme: Notation & Beziehungstypen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m6",
+    "title": "Testtheorie & Qualitätssicherung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m6-l1",
+        "title": "Black-Box vs. White-Box, Äquivalenzklassen, Grenzwertanalyse",
+        "exercises": []
+      },
+      {
+        "id": "abap-m6-l2",
+        "title": "Testpyramide & Testarten mit ABAP-Unit-Bezug",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m7",
+    "title": "Syntax, Typsystem & moderne Sprachkonstrukte",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m7-quellen-abap-lesen-variablen-datentypen-und-entscheidungen",
+        "title": "ABAP lesen: Variablen, Datentypen und Entscheidungen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m7-l0",
+        "title": "Dein erstes ABAP-Programm",
+        "exercises": []
+      },
+      {
+        "id": "abap-m7-l1",
+        "title": "Typsystem im Detail: Referenz- vs. Wertsemantik",
+        "exercises": []
+      },
+      {
+        "id": "abap-m7-l2",
+        "title": "Moderne funktionale Konstrukte im Detail",
+        "exercises": []
+      },
+      {
+        "id": "abap-m7-l3",
+        "title": "Dynamisches Programmieren: Feldsymbole, Datenreferenzen, RTTI",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m8",
+    "title": "Interne Tabellen & Performance-Tiefenanalyse",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m8-quellen-interne-tabellen-positionen-sammeln-und-sicher-lesen",
+        "title": "Interne Tabellen: Positionen sammeln und sicher lesen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m8-l1",
+        "title": "Speichermodell & Sekundärschlüssel im Detail",
+        "exercises": []
+      },
+      {
+        "id": "abap-m8-l2",
+        "title": "Laufzeitanalyse mit SAT: Hotspots erkennen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m8-l3",
+        "title": "Parallelverarbeitung & Locking-Konzepte",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m9",
+    "title": "Open SQL & AMDP Expertenwissen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m9-quellen-abap-sql-nur-benotigte-daten-lesen-und-leistung-prufen",
+        "title": "ABAP SQL: Nur benötigte Daten lesen und Leistung prüfen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m9-l1",
+        "title": "Erweiterte Open-SQL-Muster: CTEs & Window Functions",
+        "exercises": []
+      },
+      {
+        "id": "abap-m9-l2",
+        "title": "SQL-Performance: Ausführungspläne & Table Buffering",
+        "exercises": []
+      },
+      {
+        "id": "abap-m9-l3",
+        "title": "AMDP: Native HANA-Prozeduren",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m10",
+    "title": "ABAP Objects & Entwurfsmuster",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m10-quellen-oo-abap-ein-objekt-kapselt-seinen-zahlerstand",
+        "title": "OO ABAP: Ein Objekt kapselt seinen Zählerstand",
+        "exercises": []
+      },
+      {
+        "id": "abap-m10-l1",
+        "title": "SOLID-Prinzipien in ABAP",
+        "exercises": []
+      },
+      {
+        "id": "abap-m10-l2",
+        "title": "Entwurfsmuster in ABAP: Strategy, Factory, Singleton, Observer",
+        "exercises": []
+      },
+      {
+        "id": "abap-m10-l3",
+        "title": "Erweiterbarkeit klassisch: BAdIs & Enhancement Framework",
+        "exercises": []
+      },
+      {
+        "id": "abap-m10-l4",
+        "title": "Exception-Design: eigene Hierarchien & Fehlerkategorien",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m11",
+    "title": "Core Data Services – Expertenwissen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m11-quellen-brucke-von-select-zu-cds-ein-lesbares-datenmodell-bauen",
+        "title": "Brücke von SELECT zu CDS: ein lesbares Datenmodell bauen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m11-quellen-assoziation-oder-join-beziehungen-und-ergebnismengen-verstehen",
+        "title": "Assoziation oder Join? Beziehungen und Ergebnismengen verstehen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m11-quellen-annotationen-sinnvoll-einsetzen-und-cds-performance-prufen",
+        "title": "Annotationen sinnvoll einsetzen und CDS-Performance prüfen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m11-l1",
+        "title": "Virtuelle Elemente & CDS Table Functions",
+        "exercises": []
+      },
+      {
+        "id": "abap-m11-l2",
+        "title": "Extend Views & Erweiterbarkeit von Standard-Views",
+        "exercises": []
+      },
+      {
+        "id": "abap-m11-l3",
+        "title": "Hierarchien, analytische Annotationen & Umrechnungen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m12",
+    "title": "RAP Expertenwissen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m12-quellen-rap-zuerst-verstehen-daten-verhalten-und-managed-unmanaged",
+        "title": "RAP zuerst verstehen: Daten, Verhalten und managed/unmanaged",
+        "exercises": []
+      },
+      {
+        "id": "abap-m12-quellen-validierung-determination-und-action-mit-eml-auseinanderhalten",
+        "title": "Validierung, Determination und Action mit EML auseinanderhalten",
+        "exercises": []
+      },
+      {
+        "id": "abap-m12-quellen-vom-business-object-zum-odata-v4-ui-service",
+        "title": "Vom Business Object zum OData-V4-UI-Service",
+        "exercises": []
+      },
+      {
+        "id": "abap-m12-l1",
+        "title": "Draft-Handling im Detail",
+        "exercises": []
+      },
+      {
+        "id": "abap-m12-l2",
+        "title": "Concurrency Control: ETag & Locking im Detail",
+        "exercises": []
+      },
+      {
+        "id": "abap-m12-l3",
+        "title": "Unmanaged & Mixed Scenarios: die Saver Class",
+        "exercises": []
+      },
+      {
+        "id": "abap-m12-l4",
+        "title": "RAP-Erweiterbarkeit: In-App vs. Side-by-Side",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m13",
+    "title": "Fiori Elements & UI-Erweiterbarkeit",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m13-quellen-fiori-ux-und-elements-list-report-und-object-page-mit-fiori-tools",
+        "title": "Fiori UX und Elements: List Report und Object Page mit Fiori Tools",
+        "exercises": []
+      },
+      {
+        "id": "abap-m13-quellen-javascript-und-ui5-brucke-model-xml-view-und-controller",
+        "title": "JavaScript- und UI5-Brücke: Model, XML-View und Controller",
+        "exercises": []
+      },
+      {
+        "id": "abap-m13-l1",
+        "title": "Flexible Programming Model & Extension Points",
+        "exercises": []
+      },
+      {
+        "id": "abap-m13-l2",
+        "title": "Value Helps & Filterlogik im Detail",
+        "exercises": []
+      },
+      {
+        "id": "abap-m13-l3",
+        "title": "Analytical List Page & Overview Page",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m14",
+    "title": "ABAP Cloud, BTP & Extensibility-Strategie",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m14-quellen-abap-cloud-rap-und-laufzeit-die-richtige-erweiterungsarchitektur-wahlen",
+        "title": "ABAP Cloud, RAP und Laufzeit: die richtige Erweiterungsarchitektur wählen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m14-quellen-released-apis-und-clean-core-level-an-einer-erweiterung-prufen",
+        "title": "Released APIs und Clean-Core-Level an einer Erweiterung prüfen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m14-l1",
+        "title": "ABAP Cloud vs. klassisches ABAP: Released APIs",
+        "exercises": []
+      },
+      {
+        "id": "abap-m14-l2",
+        "title": "Embedded Steampunk, Steampunk & Side-by-Side im Vergleich",
+        "exercises": []
+      },
+      {
+        "id": "abap-m14-l3",
+        "title": "Key-User- vs. Developer-Extensibility im Detail",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m15",
+    "title": "Security & Performance im Betrieb",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m15-l1",
+        "title": "Sichere Programmierung: Dynamisches SQL & SQL-Injection",
+        "exercises": []
+      },
+      {
+        "id": "abap-m15-l2",
+        "title": "Berechtigungskonzepte: PFCG-Rollen vs. Business Roles",
+        "exercises": []
+      },
+      {
+        "id": "abap-m15-l3",
+        "title": "Performance-Monitoring im Betrieb",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m16",
+    "title": "Transportwesen, DevOps & Testautomatisierung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m16-quellen-transporte-von-der-entwicklungsaufgabe-zur-getesteten-anderung",
+        "title": "Transporte: Von der Entwicklungsaufgabe zur getesteten Änderung",
+        "exercises": []
+      },
+      {
+        "id": "abap-m16-quellen-git-review-abapgit-und-gcts-vom-produktionsimport-trennen",
+        "title": "Git-Review, abapGit und gCTS vom Produktionsimport trennen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m16-l1",
+        "title": "abapGit-Workflows im Team",
+        "exercises": []
+      },
+      {
+        "id": "abap-m16-l2",
+        "title": "CI/CD mit gCTS & ATC-Gates",
+        "exercises": []
+      },
+      {
+        "id": "abap-m16-l3",
+        "title": "Testautomatisierung: Testdoubles & Testseams",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m17",
+    "title": "Das SAP-Laufzeitmodell verstehen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m17-quellen-sap-s-4hana-verstehen-erp-datenbank-und-oberflachen",
+        "title": "SAP S/4HANA verstehen: ERP, Datenbank und Oberflächen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m17-l1",
+        "title": "Die SAP LUW: COMMIT WORK und Verbuchung",
+        "exercises": []
+      },
+      {
+        "id": "abap-m17-l2",
+        "title": "Speicherkonzepte: ABAP Memory, SAP Memory, Shared Objects",
+        "exercises": []
+      },
+      {
+        "id": "abap-m17-l3",
+        "title": "Nummernkreise, Sperren und ihr Zusammenspiel",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m18",
+    "title": "Debugging & fremden Code verstehen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m18-quellen-fehler-verstehen-debugger-ausnahmen-und-ein-kontrollierter-test",
+        "title": "Fehler verstehen: Debugger, Ausnahmen und ein kontrollierter Test",
+        "exercises": []
+      },
+      {
+        "id": "abap-m18-l1",
+        "title": "Der Debugger als Profiwerkzeug",
+        "exercises": []
+      },
+      {
+        "id": "abap-m18-l2",
+        "title": "Sich in fremdem Code zurechtfinden",
+        "exercises": []
+      },
+      {
+        "id": "abap-m18-l3",
+        "title": "Fehleranalyse in Produktion",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m19",
+    "title": "Integration & Hintergrundverarbeitung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m19-quellen-http-und-json-in-abap-cloud-sicher-konsumieren",
+        "title": "HTTP und JSON in ABAP Cloud sicher konsumieren",
+        "exercises": []
+      },
+      {
+        "id": "abap-m19-quellen-odata-mit-metadaten-und-service-consumption-model-verstehen",
+        "title": "OData mit Metadaten und Service Consumption Model verstehen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m19-quellen-sap-integration-suite-integrationsvertrag-fehlerfalle-und-realistische-lernzugange",
+        "title": "SAP Integration Suite: Integrationsvertrag, Fehlerfälle und realistische Lernzugänge",
+        "exercises": []
+      },
+      {
+        "id": "abap-m19-l1",
+        "title": "RFC, BAPIs und ihre Tücken",
+        "exercises": []
+      },
+      {
+        "id": "abap-m19-l2",
+        "title": "HTTP und REST aus ABAP heraus konsumieren",
+        "exercises": []
+      },
+      {
+        "id": "abap-m19-l3",
+        "title": "Hintergrundverarbeitung & Application Jobs",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "abap-m20",
+    "title": "Werkzeugkasten & rote Linien",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "abap-m20-quellen-adt-sap-gui-und-s-4hana-werkzeug-und-laufzeit-auseinanderhalten",
+        "title": "ADT, SAP GUI und S/4HANA: Werkzeug und Laufzeit auseinanderhalten",
+        "exercises": []
+      },
+      {
+        "id": "abap-m20-l1",
+        "title": "ADT-Kniffe, die Tempo machen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m20-l2",
+        "title": "Vom SAP-Standard lernen",
+        "exercises": []
+      },
+      {
+        "id": "abap-m20-l3",
+        "title": "Anti-Patterns und rote Linien",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m1",
+    "title": "Pseudocode, Algorithmen & die Brücke zu Java",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m1-l1",
+        "title": "Pseudocode-Grundlagen (IHK-Konvention)",
+        "exercises": []
+      },
+      {
+        "id": "java-m1-l2",
+        "title": "Struktogramme & Programmablaufpläne (PAP)",
+        "exercises": []
+      },
+      {
+        "id": "java-m1-l3",
+        "title": "Vom Pseudocode zu Java: durchgerechnete Beispiele",
+        "exercises": []
+      },
+      {
+        "id": "java-m1-l4",
+        "title": "Komplexität verstehen: Big-O für Prüfung und Praxis",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m2",
+    "title": "Datenmodellierung: ER-Modell & Normalisierung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m2-l1",
+        "title": "Entity-Relationship-Modell & Kardinalitäten",
+        "exercises": []
+      },
+      {
+        "id": "java-m2-l2",
+        "title": "Normalisierung 1NF bis 3NF",
+        "exercises": []
+      },
+      {
+        "id": "java-m2-l3",
+        "title": "Vom ER-Modell zur Java-Klasse",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m3",
+    "title": "SQL-Grundlagen vertieft",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m3-l1",
+        "title": "DDL, DML und DCL im Überblick",
+        "exercises": []
+      },
+      {
+        "id": "java-m3-l2",
+        "title": "JOIN-Typen im Detail",
+        "exercises": []
+      },
+      {
+        "id": "java-m3-l3",
+        "title": "Aggregation, GROUP BY, HAVING und Subqueries",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m4",
+    "title": "Vorgehensmodelle & Software-Lifecycle",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m4-l1",
+        "title": "Wasserfall, V-Modell, Scrum und Kanban",
+        "exercises": []
+      },
+      {
+        "id": "java-m4-l2",
+        "title": "Lastenheft, Pflichtenheft & Anforderungsanalyse",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m5",
+    "title": "UML für Anwendungsentwickler",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m5-l1",
+        "title": "Use-Case-Diagramme",
+        "exercises": []
+      },
+      {
+        "id": "java-m5-l2",
+        "title": "Klassendiagramme & Beziehungstypen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m6",
+    "title": "Testtheorie & Qualitätssicherung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m6-l1",
+        "title": "Black-Box, White-Box, Äquivalenzklassen, Grenzwerte",
+        "exercises": []
+      },
+      {
+        "id": "java-m6-l2",
+        "title": "Testpyramide und Teststufen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m7",
+    "title": "Einstieg: Programm, JVM, Typen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m7-l1",
+        "title": "Dein erstes Java-Programm",
+        "exercises": []
+      },
+      {
+        "id": "java-m7-l2",
+        "title": "Primitive Typen und Referenztypen",
+        "exercises": []
+      },
+      {
+        "id": "java-m7-l3",
+        "title": "Strings und Textverarbeitung",
+        "exercises": []
+      },
+      {
+        "id": "java-m7-l4",
+        "title": "Kontrollstrukturen und moderne Syntax",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m8",
+    "title": "Objektorientierung im Kern",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m8-l1",
+        "title": "Klassen, Objekte, Konstruktoren",
+        "exercises": []
+      },
+      {
+        "id": "java-m8-l2",
+        "title": "Vererbung und Polymorphie",
+        "exercises": []
+      },
+      {
+        "id": "java-m8-l3",
+        "title": "Interfaces und abstrakte Klassen",
+        "exercises": []
+      },
+      {
+        "id": "java-m8-l4",
+        "title": "Records, Enums und sealed types",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m9",
+    "title": "Collections & Generics",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m9-l1",
+        "title": "List, Set, Map — welche wann?",
+        "exercises": []
+      },
+      {
+        "id": "java-m9-l2",
+        "title": "equals, hashCode und Comparable",
+        "exercises": []
+      },
+      {
+        "id": "java-m9-l3",
+        "title": "Generics und Wildcards",
+        "exercises": []
+      },
+      {
+        "id": "java-m9-l4",
+        "title": "Iteration, Modifikation und typische Fallen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m10",
+    "title": "Exceptions & Ressourcen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m10-l1",
+        "title": "Checked, Unchecked und die Fehlerhierarchie",
+        "exercises": []
+      },
+      {
+        "id": "java-m10-l2",
+        "title": "try-with-resources und sauberes Aufräumen",
+        "exercises": []
+      },
+      {
+        "id": "java-m10-l3",
+        "title": "Eigene Exceptions und der Umgang mit null",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m11",
+    "title": "Lambdas, Streams & funktionale Programmierung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m11-l1",
+        "title": "Lambdas und funktionale Interfaces",
+        "exercises": []
+      },
+      {
+        "id": "java-m11-l2",
+        "title": "Die Stream-Pipeline",
+        "exercises": []
+      },
+      {
+        "id": "java-m11-l3",
+        "title": "Collectors: Ergebnisse einsammeln",
+        "exercises": []
+      },
+      {
+        "id": "java-m11-l4",
+        "title": "Optional richtig einsetzen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m12",
+    "title": "Speichermodell & Performance",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m12-l1",
+        "title": "Stack, Heap und Garbage Collection",
+        "exercises": []
+      },
+      {
+        "id": "java-m12-l2",
+        "title": "Unveränderlichkeit und defensive Kopien",
+        "exercises": []
+      },
+      {
+        "id": "java-m12-l3",
+        "title": "Typische Performance-Fallen",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m13",
+    "title": "Nebenläufigkeit",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m13-l1",
+        "title": "Threads, Runnable und der Lebenszyklus",
+        "exercises": []
+      },
+      {
+        "id": "java-m13-l2",
+        "title": "Race Conditions, synchronized und volatile",
+        "exercises": []
+      },
+      {
+        "id": "java-m13-l3",
+        "title": "ExecutorService und Thread-Pools",
+        "exercises": []
+      },
+      {
+        "id": "java-m13-l4",
+        "title": "CompletableFuture: asynchrone Ketten",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m14",
+    "title": "Datum, Zeit, Dateien & JSON",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m14-l1",
+        "title": "java.time richtig verwenden",
+        "exercises": []
+      },
+      {
+        "id": "java-m14-l2",
+        "title": "Dateien lesen und schreiben mit NIO.2",
+        "exercises": []
+      },
+      {
+        "id": "java-m14-l3",
+        "title": "JSON und Datenaustausch",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m15",
+    "title": "Testen mit JUnit 5",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m15-l1",
+        "title": "JUnit 5: Struktur und Assertions",
+        "exercises": []
+      },
+      {
+        "id": "java-m15-l2",
+        "title": "Test Doubles mit Mockito",
+        "exercises": []
+      },
+      {
+        "id": "java-m15-l3",
+        "title": "TDD, Testabdeckung und was Tests wirklich wert sind",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m16",
+    "title": "Build, Abhängigkeiten & Ökosystem",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m16-l1",
+        "title": "Maven und Gradle verstehen",
+        "exercises": []
+      },
+      {
+        "id": "java-m16-l2",
+        "title": "Logging statt System.out",
+        "exercises": []
+      },
+      {
+        "id": "java-m16-l3",
+        "title": "Bibliotheken, Versionen und Sicherheit",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m17",
+    "title": "Datenbankzugriff mit Java",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m17-l1",
+        "title": "JDBC und PreparedStatement",
+        "exercises": []
+      },
+      {
+        "id": "java-m17-l2",
+        "title": "Transaktionen und Verbindungspools",
+        "exercises": []
+      },
+      {
+        "id": "java-m17-l3",
+        "title": "JPA/Hibernate: ORM und seine Tücken",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m18",
+    "title": "Debugging & fremden Code verstehen",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m18-l1",
+        "title": "Stacktraces richtig lesen",
+        "exercises": []
+      },
+      {
+        "id": "java-m18-l2",
+        "title": "Der Debugger als Profiwerkzeug",
+        "exercises": []
+      },
+      {
+        "id": "java-m18-l3",
+        "title": "Sich in fremdem Code zurechtfinden",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m19",
+    "title": "Entwurfsmuster & Clean Code",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m19-l1",
+        "title": "SOLID in der Praxis",
+        "exercises": []
+      },
+      {
+        "id": "java-m19-l2",
+        "title": "Die wichtigsten Entwurfsmuster",
+        "exercises": []
+      },
+      {
+        "id": "java-m19-l3",
+        "title": "Code Smells und Refactoring",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m20",
+    "title": "Anti-Patterns & rote Linien",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m20-l1",
+        "title": "Die klassischen Java-Fallen",
+        "exercises": []
+      },
+      {
+        "id": "java-m20-l2",
+        "title": "Sicherheitsgrundlagen für Anwendungsentwickler",
+        "exercises": []
+      },
+      {
+        "id": "java-m20-l3",
+        "title": "Produktionsreife: woran man erwachsenen Code erkennt",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m21",
+    "title": "Spring-Grundlagen & Dependency Injection",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m21-l1",
+        "title": "Was Spring Boot eigentlich löst",
+        "exercises": []
+      },
+      {
+        "id": "java-m21-l2",
+        "title": "Beans, Injektion und Bean-Scopes",
+        "exercises": []
+      },
+      {
+        "id": "java-m21-l3",
+        "title": "Konfiguration, Profile und Geheimnisse",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m22",
+    "title": "REST-APIs mit Spring Web",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m22-l1",
+        "title": "Controller, Mapping und HTTP richtig nutzen",
+        "exercises": []
+      },
+      {
+        "id": "java-m22-l2",
+        "title": "Validierung und zentrale Fehlerbehandlung",
+        "exercises": []
+      },
+      {
+        "id": "java-m22-l3",
+        "title": "Schichten, DTOs und saubere API-Evolution",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m23",
+    "title": "Datenzugriff mit Spring Data JPA",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m23-l1",
+        "title": "Repositories und Query-Methoden",
+        "exercises": []
+      },
+      {
+        "id": "java-m23-l2",
+        "title": "@Transactional und seine Fallstricke",
+        "exercises": []
+      },
+      {
+        "id": "java-m23-l3",
+        "title": "Paginierung, Projektionen und N+1 in Spring Data",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "java-m24",
+    "title": "Testen, Sicherheit & Betrieb",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "java-m24-l1",
+        "title": "Die Teststrategie einer Spring-Boot-Anwendung",
+        "exercises": []
+      },
+      {
+        "id": "java-m24-l2",
+        "title": "Spring Security: Grundlagen absichern",
+        "exercises": []
+      },
+      {
+        "id": "java-m24-l3",
+        "title": "Actuator, Observability und Produktionsbetrieb",
+        "exercises": []
+      }
+    ]
+  },
+  {
+    "id": "js-m1",
+    "title": "JavaScript & Vue · Vom Sprachkern zum getesteten Dashboard",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "js-m1-l1",
+        "title": "JavaScript-Einheit 1: Werte, Variablen und Kontrollfluss",
+        "exercises": []
+      },
+      {
+        "id": "js-m1-l2",
+        "title": "Funktionen, Scope, Closures und Callbacks",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe double und teste 0, 2, -2.",
+            "acceptance": "Counter liefern 3,4,11; keine globale Variable. Grenzwerte sind geprüft, Callback-Ausgabe ist nicht undefined."
+          },
+          {
+            "level": 2,
+            "task": "Erzeuge zwei unabhängige Counter und zeichne ihre Zustände.",
+            "acceptance": "Counter liefern 3,4,11; keine globale Variable. Grenzwerte sind geprüft, Callback-Ausgabe ist nicht undefined."
+          },
+          {
+            "level": 3,
+            "task": "Baue eine reine Rabattfunktion mit expliziten Grenzen und verwende sie als Callback.",
+            "acceptance": "Counter liefern 3,4,11; keine globale Variable. Grenzwerte sind geprüft, Callback-Ausgabe ist nicht undefined."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l3",
+        "title": "Objekte, Arrays, Referenzen, Prototypen und this",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne die gemeinsam referenzierten settings-Objekte.",
+            "acceptance": "Originalzustand bleibt im reinen Transformationspfad unverändert; verlorener this-Kontext wird erklärt, nicht durch zufällige Globals repariert."
+          },
+          {
+            "level": 2,
+            "task": "Filtere und sortiere Produkte ohne das Originalarray zu verändern.",
+            "acceptance": "Originalzustand bleibt im reinen Transformationspfad unverändert; verlorener this-Kontext wird erklärt, nicht durch zufällige Globals repariert."
+          },
+          {
+            "level": 3,
+            "task": "Schreibe eine Klassenmethode und prüfe direkten Aufruf gegenüber losgelöster Funktionsreferenz.",
+            "acceptance": "Originalzustand bleibt im reinen Transformationspfad unverändert; verlorener this-Kontext wird erklärt, nicht durch zufällige Globals repariert."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l4",
+        "title": "ESM, Promises, async/await und Event Loop",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Sage die Ausgabe A/C/B/6 ohne Ausführung voraus.",
+            "acceptance": "Kein unhandled rejection; der Aufrufer erhält ein dokumentiertes Ergebnis oder einen Fehler. Ein Timer ist kein Beweis für exakte Reihenfolge realer I/O."
+          },
+          {
+            "level": 2,
+            "task": "Teile eine Funktion in zwei .mjs-Dateien mit explizitem Export.",
+            "acceptance": "Kein unhandled rejection; der Aufrufer erhält ein dokumentiertes Ergebnis oder einen Fehler. Ein Timer ist kein Beweis für exakte Reihenfolge realer I/O."
+          },
+          {
+            "level": 3,
+            "task": "Simuliere einen fehlgeschlagenen Teilauftrag und entscheide zwischen all und allSettled.",
+            "acceptance": "Kein unhandled rejection; der Aufrufer erhält ein dokumentiertes Ergebnis oder einen Fehler. Ein Timer ist kein Beweis für exakte Reihenfolge realer I/O."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l5",
+        "title": "DOM, Events, Formulare, Fetch, CORS und Storage",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue einen nativen Button mit Statusmeldung und Tastaturbedienung.",
+            "acceptance": "HTTP-Fehler erscheinen sichtbar; keine Scriptausführung aus einem Titel. Späteres Vue-Labor demonstriert Abort plus Sequenznummer."
+          },
+          {
+            "level": 2,
+            "task": "Lade eine lokale JSON-Datei und behandle 404, leere Liste und ungültiges JSON.",
+            "acceptance": "HTTP-Fehler erscheinen sichtbar; keine Scriptausführung aus einem Titel. Späteres Vue-Labor demonstriert Abort plus Sequenznummer."
+          },
+          {
+            "level": 3,
+            "task": "Teste schnelle aufeinanderfolgende Anfragen und ignoriere veraltete Antworten.",
+            "acceptance": "HTTP-Fehler erscheinen sichtbar; keine Scriptausführung aus einem Titel. Späteres Vue-Labor demonstriert Abort plus Sequenznummer."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l6",
+        "title": "Node, npm, Vite und reproduzierbare Werkzeuge",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erkläre drei Skripte des Lernlabors.",
+            "acceptance": "Build läuft ohne produktiven Devserver; keine echten Secrets im Bundle oder Git. Node-Mindestversion aus Paketengines prüfen, unterstützte LTS verwenden."
+          },
+          {
+            "level": 2,
+            "task": "Installiere in einem frischen Arbeitsverzeichnis mit npm ci.",
+            "acceptance": "Build läuft ohne produktiven Devserver; keine echten Secrets im Bundle oder Git. Node-Mindestversion aus Paketengines prüfen, unterstützte LTS verwenden."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe Buildartefakte auf einen absichtlich öffentlichen Testwert und dokumentiere den Unterschied zu einem Secret.",
+            "acceptance": "Build läuft ohne produktiven Devserver; keine echten Secrets im Bundle oder Git. Node-Mindestversion aus Paketengines prüfen, unterstützte LTS verwenden."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l7",
+        "title": "TypeScript-Grundlagen und geprüfte Datengrenzen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Definiere einen Task-Typ ohne any.",
+            "acceptance": "vue-tsc besteht; ungültige Eingabe wirft kontrolliert. Schemafehler dürfen den bisherigen gültigen Storezustand nicht teilweise verändern."
+          },
+          {
+            "level": 2,
+            "task": "Narrowe string | null vor trim.",
+            "acceptance": "vue-tsc besteht; ungültige Eingabe wirft kontrolliert. Schemafehler dürfen den bisherigen gültigen Storezustand nicht teilweise verändern."
+          },
+          {
+            "level": 3,
+            "task": "Erweitere parseTasks um eine fachliche Regel und teste falsche Typen sowie doppelte IDs.",
+            "acceptance": "vue-tsc besteht; ungültige Eingabe wirft kontrolliert. Schemafehler dürfen den bisherigen gültigen Storezustand nicht teilweise verändern."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l8",
+        "title": "Vue-Einstieg mit SFC und script setup",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Rendere einen Text in einer SFC.",
+            "acceptance": "Jeder Counter startet bei 0 und verändert nur sich selbst; kein global geteilter ref im Modul als versehentliche Instanzquelle."
+          },
+          {
+            "level": 2,
+            "task": "Baue den Counter mit nativem Button.",
+            "acceptance": "Jeder Counter startet bei 0 und verändert nur sich selbst; kein global geteilter ref im Modul als versehentliche Instanzquelle."
+          },
+          {
+            "level": 3,
+            "task": "Erzeuge zwei Instanzen und beweise unabhängigen Zustand.",
+            "acceptance": "Jeder Counter startet bei 0 und verändert nur sich selbst; kein global geteilter ref im Modul als versehentliche Instanzquelle."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l9",
+        "title": "Reaktivität, computed, watch und Lifecycle",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Leite eine Gesamtsumme mit computed ab.",
+            "acceptance": "Computed bleibt rein; kein Request nach Disposition überschreibt die aktuelle Ansicht. Watcher-Synchronität und DOM-Updatezeitpunkt nicht gleichsetzen."
+          },
+          {
+            "level": 2,
+            "task": "Zeige den Unterschied zwischen watch-Quelle als Wert und Getter.",
+            "acceptance": "Computed bleibt rein; kein Request nach Disposition überschreibt die aktuelle Ansicht. Watcher-Synchronität und DOM-Updatezeitpunkt nicht gleichsetzen."
+          },
+          {
+            "level": 3,
+            "task": "Teste Änderung, erneute Anfrage und Aufräumen nach Unmount.",
+            "acceptance": "Computed bleibt rein; kein Request nach Disposition überschreibt die aktuelle Ansicht. Watcher-Synchronität und DOM-Updatezeitpunkt nicht gleichsetzen."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l10",
+        "title": "Props, Emits, Slots und zugängliche Formulare",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Rendere TaskItem mit Props.",
+            "acceptance": "Child-Prop bleibt unverändert; Event-ID stimmt. Kein innerHTML/v-html für untrusted Titel, Fehler ist textlich erkennbar."
+          },
+          {
+            "level": 2,
+            "task": "Prüfe emitted toggle statt Mutation der Prop.",
+            "acceptance": "Child-Prop bleibt unverändert; Event-ID stimmt. Kein innerHTML/v-html für untrusted Titel, Fehler ist textlich erkennbar."
+          },
+          {
+            "level": 3,
+            "task": "Baue ein Formular mit zugeordnetem Label, verständlichem Fehler und erhaltenem Eingabewert bei Ablehnung.",
+            "acceptance": "Child-Prop bleibt unverändert; Event-ID stimmt. Kein innerHTML/v-html für untrusted Titel, Fehler ist textlich erkennbar."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l11",
+        "title": "Composables, API-Zustände und Race-Sicherheit",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lade Demo-JSON und zeige einen Ladezustand.",
+            "acceptance": "Tests schicken keine echten Netzaufrufe. Error/Loading werden korrekt zurückgesetzt; ein altes finally beendet nicht den neuen Ladezustand."
+          },
+          {
+            "level": 2,
+            "task": "Teste 503 und kaputtes JSON mit Fake-Fetch.",
+            "acceptance": "Tests schicken keine echten Netzaufrufe. Error/Loading werden korrekt zurückgesetzt; ein altes finally beendet nicht den neuen Ladezustand."
+          },
+          {
+            "level": 3,
+            "task": "Lass die erste Anfrage später als die zweite antworten und teste, dass die neue Antwort bleibt.",
+            "acceptance": "Tests schicken keine echten Netzaufrufe. Error/Loading werden korrekt zurückgesetzt; ein altes finally beendet nicht den neuen Ladezustand."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l12",
+        "title": "Vue Router, Navigation und Backendgrenzen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Navigiere zwischen Aufgaben und About.",
+            "acceptance": "Kein offener Redirect; fremde Daten werden serverseitig verweigert. Navigation ist per Tastatur möglich, Fokus-/Seitentitelstrategie für weitere Views dokumentieren."
+          },
+          {
+            "level": 2,
+            "task": "Rufe /about direkt auf und prüfe den Hostingfallback.",
+            "acceptance": "Kein offener Redirect; fremde Daten werden serverseitig verweigert. Navigation ist per Tastatur möglich, Fokus-/Seitentitelstrategie für weitere Views dokumentieren."
+          },
+          {
+            "level": 3,
+            "task": "Zeichne den Laravel-SPA-Loginflow und ordne 401,403,419 den richtigen Reaktionen zu.",
+            "acceptance": "Kein offener Redirect; fremde Daten werden serverseitig verweigert. Navigation ist per Tastatur möglich, Fokus-/Seitentitelstrategie für weitere Views dokumentieren."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l13",
+        "title": "Pinia, Zustandsarchitektur und storeToRefs",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ergänze eine Aufgabe über store.add.",
+            "acceptance": "Keine direkte Props-Mutation; IDs sind im lokalen Demo eindeutig. Serverbetrieb braucht serverseitige IDs und Konfliktregeln, kein Math.max als Multiuser-Verfahren."
+          },
+          {
+            "level": 2,
+            "task": "Prüfe remaining nach Toggle aus einer anderen Komponente.",
+            "acceptance": "Keine direkte Props-Mutation; IDs sind im lokalen Demo eindeutig. Serverbetrieb braucht serverseitige IDs und Konfliktregeln, kein Math.max als Multiuser-Verfahren."
+          },
+          {
+            "level": 3,
+            "task": "Teste ungültige API-Daten und stelle sicher, dass die alte Liste bei Fehler vollständig bleibt.",
+            "acceptance": "Keine direkte Props-Mutation; IDs sind im lokalen Demo eindeutig. Serverbetrieb braucht serverseitige IDs und Konfliktregeln, kein Math.max als Multiuser-Verfahren."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l14",
+        "title": "Unit-, Komponenten- und E2E-Tests",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Teste normalizeTitle mit leerem und zu langem Text.",
+            "acceptance": "Tests bestehen reproduzierbar mit Lockfile; keine echten fremden API-Aufrufe. Testanzahl ist kein Qualitätsbeweis, failure modes zählen."
+          },
+          {
+            "level": 2,
+            "task": "Teste Prop-Unveränderlichkeit und emitted ID.",
+            "acceptance": "Tests bestehen reproduzierbar mit Lockfile; keine echten fremden API-Aufrufe. Testanzahl ist kein Qualitätsbeweis, failure modes zählen."
+          },
+          {
+            "level": 3,
+            "task": "Schreibe einen Playwright-Fluss: hinzufügen,toggle,filter,navigieren,Demo laden.",
+            "acceptance": "Tests bestehen reproduzierbar mit Lockfile; keine echten fremden API-Aufrufe. Testanzahl ist kein Qualitätsbeweis, failure modes zählen."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l15",
+        "title": "Security, Accessibility, Performance und Deployment",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Teste einen Titel mit HTML-Tags und prüfe, dass kein Element entsteht.",
+            "acceptance": "Keine echten Geheimnisse im Bundle; Lade-/Fehler-/Leerzustände vorhanden. Performance-/Accessibility-Aussagen benötigen eigene Messungen und manuelle Prüfung."
+          },
+          {
+            "level": 2,
+            "task": "Bediene die Aufgabenapp vollständig per Tastatur und kontrolliere Fehlerlabels.",
+            "acceptance": "Keine echten Geheimnisse im Bundle; Lade-/Fehler-/Leerzustände vorhanden. Performance-/Accessibility-Aussagen benötigen eigene Messungen und manuelle Prüfung."
+          },
+          {
+            "level": 3,
+            "task": "Erstelle ein Releaseprotokoll mit Build,HTTP-Fehlern,direktem Routenaufruf,Cache und Rückweg.",
+            "acceptance": "Keine echten Geheimnisse im Bundle; Lade-/Fehler-/Leerzustände vorhanden. Performance-/Accessibility-Aussagen benötigen eigene Messungen und manuelle Prüfung."
+          }
+        ]
+      },
+      {
+        "id": "js-m1-l16",
+        "title": "Abschlussprojekt: Aufgaben-Dashboard mit API-Vertrag",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Starte das vollständige Labor und dokumentiere alle Ansichten.",
+            "acceptance": "Das bestehende Labor bleibt ohne Backend ausführbar. Backendfreigabe erst nach getrennten Tests von Eigentümer,Fremdem,Gast und fehlerhaftem Payload; kein erfundener Produktionsnachweis."
+          },
+          {
+            "level": 2,
+            "task": "Füge eine getestete Filterfunktion mit unverändertem Datenvertrag hinzu.",
+            "acceptance": "Das bestehende Labor bleibt ohne Backend ausführbar. Backendfreigabe erst nach getrennten Tests von Eigentümer,Fremdem,Gast und fehlerhaftem Payload; kein erfundener Produktionsnachweis."
+          },
+          {
+            "level": 3,
+            "task": "Plane und implementiere in einem separaten Branch einen Laravel-Endpunkt mit Policy,Validierung,Session-CSRF und passenden Frontendfehlern.",
+            "acceptance": "Das bestehende Labor bleibt ohne Backend ausführbar. Backendfreigabe erst nach getrennten Tests von Eigentümer,Fremdem,Gast und fehlerhaftem Payload; kein erfundener Produktionsnachweis."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "html-m1",
+    "title": "HTML · Struktur und Bedeutung",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "html-m1-l1",
+        "title": "Deine erste HTML-Seite und das Dokumentgerüst",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Speichere die Seite lokal und ändere den title.",
+            "acceptance": "Tabtitel und Inhalt sind unterschieden; UTF-8-Zeichen werden korrekt dargestellt. Kein Browserplugin oder Framework erforderlich."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche Seitentitel im Tab mit h1 im Inhalt.",
+            "acceptance": "Tabtitel und Inhalt sind unterschieden; UTF-8-Zeichen werden korrekt dargestellt. Kein Browserplugin oder Framework erforderlich."
+          },
+          {
+            "level": 3,
+            "task": "Entferne absichtlich einen Endtag und untersuche, wie der Browser den DOM repariert.",
+            "acceptance": "Tabtitel und Inhalt sind unterschieden; UTF-8-Zeichen werden korrekt dargestellt. Kein Browserplugin oder Framework erforderlich."
+          }
+        ]
+      },
+      {
+        "id": "html-m1-l2",
+        "title": "Semantik, Überschriften und Seitenbereiche",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Markiere Hauptinhalt und Navigation.",
+            "acceptance": "Die Reihenfolge bleibt ohne Gestaltung verständlich; genau ein primärer main-Bereich in dieser Seite."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze zwei logisch gegliederte Einträge.",
+            "acceptance": "Die Reihenfolge bleibt ohne Gestaltung verständlich; genau ein primärer main-Bereich in dieser Seite."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe die Seite ohne CSS und über die Überschriftennavigation eines Screenreaders.",
+            "acceptance": "Die Reihenfolge bleibt ohne Gestaltung verständlich; genau ein primärer main-Bereich in dieser Seite."
+          }
+        ]
+      },
+      {
+        "id": "html-m1-l3",
+        "title": "Links, Listen und Bilder sinnvoll einsetzen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erstelle drei aussagekräftige Navigationslinks.",
+            "acceptance": "Das Beispielbild ist eine selbst anzulegende Datei; fehlende Ressourcen werden nicht als funktionierende Lieferung ausgegeben."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche informatives und dekoratives Bild mit passenden alt-Werten.",
+            "acceptance": "Das Beispielbild ist eine selbst anzulegende Datei; fehlende Ressourcen werden nicht als funktionierende Lieferung ausgegeben."
+          },
+          {
+            "level": 3,
+            "task": "Prüfe relative Pfade aus einem Unterordner und einen kaputten Bildpfad.",
+            "acceptance": "Das Beispielbild ist eine selbst anzulegende Datei; fehlende Ressourcen werden nicht als funktionierende Lieferung ausgegeben."
+          }
+        ]
+      },
+      {
+        "id": "html-m1-l4",
+        "title": "Formulare, Labels und native Validierung",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue ein Feld mit sichtbarem Label.",
+            "acceptance": "Das Beispiel definiert keinen echten /feedback-Server; ein erfolgreicher Versand wird nicht versprochen. Keine echten persönlichen Daten senden."
+          },
+          {
+            "level": 2,
+            "task": "Teste leer, ungültige E-Mail und 501 Zeichen.",
+            "acceptance": "Das Beispiel definiert keinen echten /feedback-Server; ein erfolgreicher Versand wird nicht versprochen. Keine echten persönlichen Daten senden."
+          },
+          {
+            "level": 3,
+            "task": "Bediene alles per Tastatur und notiere den fehlenden Backendvertrag für /feedback.",
+            "acceptance": "Das Beispiel definiert keinen echten /feedback-Server; ein erfolgreicher Versand wird nicht versprochen. Keine echten persönlichen Daten senden."
+          }
+        ]
+      },
+      {
+        "id": "html-m1-l5",
+        "title": "Tabellen, Barrierefreiheit und HTML-Debugging",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Füge caption und Spaltenüberschriften hinzu.",
+            "acceptance": "Datenbeziehungen bleiben erkennbar; ein grüner Validator gilt nicht als WCAG-Zertifikat."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze einen dritten Tag und prüfe die Zuordnung.",
+            "acceptance": "Datenbeziehungen bleiben erkennbar; ein grüner Validator gilt nicht als WCAG-Zertifikat."
+          },
+          {
+            "level": 3,
+            "task": "Validiere HTML und teste Tastatur/Zoom; dokumentiere verbleibende manuelle Prüfungen.",
+            "acceptance": "Datenbeziehungen bleiben erkennbar; ein grüner Validator gilt nicht als WCAG-Zertifikat."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "css-m1",
+    "title": "CSS · Gestaltung und responsive Layouts",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "css-m1-l1",
+        "title": "CSS einbinden, Selektoren und Kaskade",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Binde ein externes Stylesheet ein.",
+            "acceptance": "Die gewinnende Farbe ist vorhersagbar und im Computed-Panel überprüft; HTML-Bedeutung bleibt unverändert."
+          },
+          {
+            "level": 2,
+            "task": "Erzeuge einen Konflikt aus Element- und Klassenselektor.",
+            "acceptance": "Die gewinnende Farbe ist vorhersagbar und im Computed-Panel überprüft; HTML-Bedeutung bleibt unverändert."
+          },
+          {
+            "level": 3,
+            "task": "Erkläre eine überschriebene Regel ohne !important als Reparatur einzusetzen.",
+            "acceptance": "Die gewinnende Farbe ist vorhersagbar und im Computed-Panel überprüft; HTML-Bedeutung bleibt unverändert."
+          }
+        ]
+      },
+      {
+        "id": "css-m1-l2",
+        "title": "Boxmodell, Größen und Abstände",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Berechne Gesamtbreite einer content-box mit Padding und Border.",
+            "acceptance": "Bei 200px width, 20px Padding je Seite und 2px Border entsteht unter content-box 244px äußere Borderbox; unter border-box 200px."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche dieselbe Box mit border-box.",
+            "acceptance": "Bei 200px width, 20px Padding je Seite und 2px Border entsteht unter content-box 244px äußere Borderbox; unter border-box 200px."
+          },
+          {
+            "level": 3,
+            "task": "Teste langen Link, 200%-Zoom und 320px-Fenster ohne Seitenoverflow.",
+            "acceptance": "Bei 200px width, 20px Padding je Seite und 2px Border entsteht unter content-box 244px äußere Borderbox; unter border-box 200px."
+          }
+        ]
+      },
+      {
+        "id": "css-m1-l3",
+        "title": "Typografie, Farben und zugänglicher Fokus",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ändere Textgröße ohne starre Seitenhöhe.",
+            "acceptance": "Fokus ist erkennbar; Kontrastmessung dokumentiert, nicht geraten. Fehlertext bleibt ohne Farbsehen verständlich."
+          },
+          {
+            "level": 2,
+            "task": "Prüfe Link- und Fokuszustand per Tab.",
+            "acceptance": "Fokus ist erkennbar; Kontrastmessung dokumentiert, nicht geraten. Fehlertext bleibt ohne Farbsehen verständlich."
+          },
+          {
+            "level": 3,
+            "task": "Miss Kontrast der tatsächlichen Text-/Hintergrundpaare und teste Zoom.",
+            "acceptance": "Fokus ist erkennbar; Kontrastmessung dokumentiert, nicht geraten. Fehlertext bleibt ohne Farbsehen verständlich."
+          }
+        ]
+      },
+      {
+        "id": "css-m1-l4",
+        "title": "Flexbox für Navigation und flexible Reihen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne drei Links in einer Reihe an.",
+            "acceptance": "Links bleiben sichtbar und erreichbar; keine absolute Positionierung als Ersatz für normalen Layoutfluss."
+          },
+          {
+            "level": 2,
+            "task": "Wechsle flex-direction und erkläre die Achsen.",
+            "acceptance": "Links bleiben sichtbar und erreichbar; keine absolute Positionierung als Ersatz für normalen Layoutfluss."
+          },
+          {
+            "level": 3,
+            "task": "Teste zehn Links, lange Labels und kleine Breite ohne geänderte DOM-Reihenfolge.",
+            "acceptance": "Links bleiben sichtbar und erreichbar; keine absolute Positionierung als Ersatz für normalen Layoutfluss."
+          }
+        ]
+      },
+      {
+        "id": "css-m1-l5",
+        "title": "CSS Grid für Karten und zweidimensionale Layouts",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue zwei gleich große Gridspalten.",
+            "acceptance": "Keine horizontale Seitenscrollbar bei kleinen Breiten; Karte kann unter ihre normale Zielbreite schrumpfen."
+          },
+          {
+            "level": 2,
+            "task": "Verändere Containerbreite und beobachte auto-fit.",
+            "acceptance": "Keine horizontale Seitenscrollbar bei kleinen Breiten; Karte kann unter ihre normale Zielbreite schrumpfen."
+          },
+          {
+            "level": 3,
+            "task": "Teste eine Karte mit extrem langem Wort und 320px-Viewport.",
+            "acceptance": "Keine horizontale Seitenscrollbar bei kleinen Breiten; Karte kann unter ihre normale Zielbreite schrumpfen."
+          }
+        ]
+      },
+      {
+        "id": "css-m1-l6",
+        "title": "Responsive Seiten, Media Queries und Bewegung",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Prüfe die Seite bei 320,768 und 1280px.",
+            "acceptance": "Keine abgeschnittenen Inhalte; keine user-scalable=no-Einstellung. Das Formular bleibt auch bei Fehlertext bedienbar."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze einen Breakpoint erst wenn der Inhalt ihn benötigt.",
+            "acceptance": "Keine abgeschnittenen Inhalte; keine user-scalable=no-Einstellung. Das Formular bleibt auch bei Fehlertext bedienbar."
+          },
+          {
+            "level": 3,
+            "task": "Teste Zoom, Querformat und reduzierte Bewegung in DevTools.",
+            "acceptance": "Keine abgeschnittenen Inhalte; keine user-scalable=no-Einstellung. Das Formular bleibt auch bei Fehlertext bedienbar."
+          }
+        ]
+      },
+      {
+        "id": "css-m1-l7",
+        "title": "Abschlussprojekt: responsives Lernjournal prüfen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Baue ein Journal mit drei Einträgen und Hauptnavigation.",
+            "acceptance": "Struktur bleibt ohne CSS verständlich, keine falsche Versandzusage. Danach JavaScript-Einheit 1 und später Vue-Komponenten anschließen."
+          },
+          {
+            "level": 2,
+            "task": "Ergänze Gridkarten und ein beschriftetes Demoformular.",
+            "acceptance": "Struktur bleibt ohne CSS verständlich, keine falsche Versandzusage. Danach JavaScript-Einheit 1 und später Vue-Komponenten anschließen."
+          },
+          {
+            "level": 3,
+            "task": "Führe eine Abnahme mit Tastatur,320px,Zoom und fehlendem Stylesheet durch.",
+            "acceptance": "Struktur bleibt ohne CSS verständlich, keine falsche Versandzusage. Danach JavaScript-Einheit 1 und später Vue-Komponenten anschließen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mariadb-m1",
+    "title": "MariaDB · SQL, Integrität und Betrieb",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "mariadb-m1-l1",
+        "title": "MariaDB einordnen und eine sichere Lernumgebung wählen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Unterscheide Server,Client und Connector.",
+            "acceptance": "Kein Produktionszugang und keine automatische Installation. Konkrete Version und Berechtigungen stehen im Lernprotokoll."
+          },
+          {
+            "level": 2,
+            "task": "Notiere Version,SQL-Modus und Zeichensatz deiner isolierten Instanz.",
+            "acceptance": "Kein Produktionszugang und keine automatische Installation. Konkrete Version und Berechtigungen stehen im Lernprotokoll."
+          },
+          {
+            "level": 3,
+            "task": "Plane einen Zugang nur für ein Übungsschema ohne öffentliche Freigabe des Datenbankports.",
+            "acceptance": "Kein Produktionszugang und keine automatische Installation. Konkrete Version und Berechtigungen stehen im Lernprotokoll."
+          }
+        ]
+      },
+      {
+        "id": "mariadb-m1-l2",
+        "title": "Schema, Datentypen und Constraints für Lernaufgaben",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne Titel,ID,Minuten und Währung geeigneten Typen zu.",
+            "acceptance": "Ungültige Minuten werden zurückgewiesen; Schema und Appvertrag widersprechen sich nicht. Verhalten mit Zielversion und SQL-Modus testen."
+          },
+          {
+            "level": 2,
+            "task": "Erzeuge die Tabelle in einem Wegwerfschema und teste minutes=0.",
+            "acceptance": "Ungültige Minuten werden zurückgewiesen; Schema und Appvertrag widersprechen sich nicht. Verhalten mit Zielversion und SQL-Modus testen."
+          },
+          {
+            "level": 3,
+            "task": "Ergänze Besitzerbeziehung und eine fachlich begründete Eindeutigkeit, ohne eine künstliche globale Titelregel zu erfinden.",
+            "acceptance": "Ungültige Minuten werden zurückgewiesen; Schema und Appvertrag widersprechen sich nicht. Verhalten mit Zielversion und SQL-Modus testen."
+          }
+        ]
+      },
+      {
+        "id": "mariadb-m1-l3",
+        "title": "SELECT, Joins, Aggregate und sichere Parameter",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Sage die Gruppen für sechs selbst gewählte Zeilen voraus.",
+            "acceptance": "Keine beliebigen SQL-Bezeichner aus einem Request; erwartete Zeilen und Sortierung sind dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche COUNT(*) und COUNT(child.id) bei Eltern ohne Kinder.",
+            "acceptance": "Keine beliebigen SQL-Bezeichner aus einem Request; erwartete Zeilen und Sortierung sind dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Verbinde die Abfrage über PDO oder einen geprüften Connector mit einem gebundenen Wert und Test auf Injection-Text.",
+            "acceptance": "Keine beliebigen SQL-Bezeichner aus einem Request; erwartete Zeilen und Sortierung sind dokumentiert."
+          }
+        ]
+      },
+      {
+        "id": "mariadb-m1-l4",
+        "title": "Transaktionen, Isolation und konkurrierende Änderungen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Provoziere einen Fehler zwischen zwei lokalen Writes und teste Rollback.",
+            "acceptance": "Keine negative oder übergroße Restmenge; Retry ist begrenzt. SQLite-Tests ersetzen hier keinen MariaDB-Parallelitätstest."
+          },
+          {
+            "level": 2,
+            "task": "Simuliere zwei gleichzeitige Änderungen auf demselben Datensatz.",
+            "acceptance": "Keine negative oder übergroße Restmenge; Retry ist begrenzt. SQLite-Tests ersetzen hier keinen MariaDB-Parallelitätstest."
+          },
+          {
+            "level": 3,
+            "task": "Plane Deadlock-Retry mit begrenzten Versuchen für die ganze geeignete Transaktion.",
+            "acceptance": "Keine negative oder übergroße Restmenge; Retry ist begrenzt. SQLite-Tests ersetzen hier keinen MariaDB-Parallelitätstest."
+          }
+        ]
+      },
+      {
+        "id": "mariadb-m1-l5",
+        "title": "Indizes und EXPLAIN statt Performance-Raten",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Formuliere das Zugriffsmuster vor dem Index.",
+            "acceptance": "Keine garantierte Beschleunigungszahl erfinden; Soll-/Istwerte, Datenmenge und Queryplan gehören ins Protokoll."
+          },
+          {
+            "level": 2,
+            "task": "Vergleiche EXPLAIN vor/nach dem Index mit geeignetem Datenbestand.",
+            "acceptance": "Keine garantierte Beschleunigungszahl erfinden; Soll-/Istwerte, Datenmenge und Queryplan gehören ins Protokoll."
+          },
+          {
+            "level": 3,
+            "task": "Teste Pagination mit gleichen Sortierwerten, während neue Zeilen hinzukommen.",
+            "acceptance": "Keine garantierte Beschleunigungszahl erfinden; Soll-/Istwerte, Datenmenge und Queryplan gehören ins Protokoll."
+          }
+        ]
+      },
+      {
+        "id": "mariadb-m1-l6",
+        "title": "Rechte, Backup, Restore und Laravel-Anbindung",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erstelle eine Rechte-Matrix für Runtime,Migration und Backup.",
+            "acceptance": "Keine bestehenden Datenbanken verändert. Restore ist entweder belegt oder ausdrücklich offen. Betriebs-/Lizenzkosten von kostenloser Dokumentation unterscheiden."
+          },
+          {
+            "level": 2,
+            "task": "Plane einen Restore mit klarer Zielinstanz.",
+            "acceptance": "Keine bestehenden Datenbanken verändert. Restore ist entweder belegt oder ausdrücklich offen. Betriebs-/Lizenzkosten von kostenloser Dokumentation unterscheiden."
+          },
+          {
+            "level": 3,
+            "task": "Verbinde eine lokale Laravel-Testumgebung und prüfe Constraints/Transaktionen auf MariaDB statt nur SQLite.",
+            "acceptance": "Keine bestehenden Datenbanken verändert. Restore ist entweder belegt oder ausdrücklich offen. Betriebs-/Lizenzkosten von kostenloser Dokumentation unterscheiden."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "api-m1",
+    "title": "API-Arten · Verträge, Auth und Ereignisse",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "api-m1-l1",
+        "title": "API-Landkarte: Stil, Protokoll, Transport und Vertrag",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne REST,HTTP,JSON,OpenAPI und OAuth den Ebenen zu.",
+            "acceptance": "Kein pauschaler Gewinner; Fehler, Auth und Versionierung sind Teil des Vertrags."
+          },
+          {
+            "level": 2,
+            "task": "Entwirf einen lesenden Katalogvertrag.",
+            "acceptance": "Kein pauschaler Gewinner; Fehler, Auth und Versionierung sind Teil des Vertrags."
+          },
+          {
+            "level": 3,
+            "task": "Begründe eine Kombination aus Request/Response und Ereignisnachricht für denselben Prozess.",
+            "acceptance": "Kein pauschaler Gewinner; Fehler, Auth und Versionierung sind Teil des Vertrags."
+          }
+        ]
+      },
+      {
+        "id": "api-m1-l2",
+        "title": "HTTP und REST mit Status, Cache und Idempotenz",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne 201,204,401,403,409,412,422,429 passenden Fällen zu.",
+            "acceptance": "Keine stille Überschreibung, kein Body bei 204. POST-Retry erfordert eigene Deduplizierung statt bloßes Hoffen."
+          },
+          {
+            "level": 2,
+            "task": "Entwirf einen begrenzten paginierten GET.",
+            "acceptance": "Keine stille Überschreibung, kein Body bei 204. POST-Retry erfordert eigene Deduplizierung statt bloßes Hoffen."
+          },
+          {
+            "level": 3,
+            "task": "Teste zwei konkurrierende Änderungen mit demselben If-Match-Wert.",
+            "acceptance": "Keine stille Überschreibung, kein Body bei 204. POST-Retry erfordert eigene Deduplizierung statt bloßes Hoffen."
+          }
+        ]
+      },
+      {
+        "id": "api-m1-l3",
+        "title": "GraphQL, RPC und gRPC passend auswählen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Vergleiche dieselbe Anzeige als REST und GraphQL.",
+            "acceptance": "GraphQL-Daten-/Fehlerantwort und HTTP-Status sind nicht pauschal dasselbe. Ein Protobuf-Beispiel ist ohne Server noch kein ausgeführter Dienst."
+          },
+          {
+            "level": 2,
+            "task": "Skizziere eine RPC-Operation mit Request/Response-Schema.",
+            "acceptance": "GraphQL-Daten-/Fehlerantwort und HTTP-Status sind nicht pauschal dasselbe. Ein Protobuf-Beispiel ist ohne Server noch kein ausgeführter Dienst."
+          },
+          {
+            "level": 3,
+            "task": "Plane Tests für fehlende Feldrechte, Querykomplexität und Versionsänderung.",
+            "acceptance": "GraphQL-Daten-/Fehlerantwort und HTTP-Status sind nicht pauschal dasselbe. Ein Protobuf-Beispiel ist ohne Server noch kein ausgeführter Dienst."
+          }
+        ]
+      },
+      {
+        "id": "api-m1-l4",
+        "title": "SOAP und OData im Unternehmensumfeld",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Lies ein bereitgestelltes Metadatenschema.",
+            "acceptance": "Kein produktives SAP-System angesprochen. Versionsspezifische Details bleiben an der Quelle nachprüfbar."
+          },
+          {
+            "level": 2,
+            "task": "Beschreibe Filter,Auswahl und Seitengröße getrennt.",
+            "acceptance": "Kein produktives SAP-System angesprochen. Versionsspezifische Details bleiben an der Quelle nachprüfbar."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche SOAP-Operation und OData-Ressource für denselben Geschäftsfall.",
+            "acceptance": "Kein produktives SAP-System angesprochen. Versionsspezifische Details bleiben an der Quelle nachprüfbar."
+          }
+        ]
+      },
+      {
+        "id": "api-m1-l5",
+        "title": "Webhooks, SSE, WebSocket und Ereignisse",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Wähle einen Kanal für Live-Fortschritt und begründe ihn.",
+            "acceptance": "UI kann maßgeblichen Zustand erneut lesen; keine Exactly-once-Zusage ohne konkreten Nachweis."
+          },
+          {
+            "level": 2,
+            "task": "Simuliere doppelte Event-ID und Verbindungsabbruch.",
+            "acceptance": "UI kann maßgeblichen Zustand erneut lesen; keine Exactly-once-Zusage ohne konkreten Nachweis."
+          },
+          {
+            "level": 3,
+            "task": "Plane sicheren Webhook inklusive signiertem Timestamp und Crash nach DB-Commit.",
+            "acceptance": "UI kann maßgeblichen Zustand erneut lesen; keine Exactly-once-Zusage ohne konkreten Nachweis."
+          }
+        ]
+      },
+      {
+        "id": "api-m1-l6",
+        "title": "OpenAPI, JSON Schema, Auth und Vertragstests",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Beschreibe einen GET und seinen Fehlervertrag.",
+            "acceptance": "Spezifikationsversion und API-Version bleiben getrennt; keine echten Secrets in Beispielen."
+          },
+          {
+            "level": 2,
+            "task": "Wähle Session oder Bearer für einen konkreten Client.",
+            "acceptance": "Spezifikationsversion und API-Version bleiben getrennt; keine echten Secrets in Beispielen."
+          },
+          {
+            "level": 3,
+            "task": "Teste fremde Objekt-ID,unbekannte Felder und übergroße Antwort.",
+            "acceptance": "Spezifikationsversion und API-Version bleiben getrennt; keine echten Secrets in Beispielen."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mcp-m1",
+    "title": "MCP · Architektur, Verträge und Sicherheit",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "mcp-m1-l1",
+        "title": "MCP: Host, Client, Server und Anwendungsgrenzen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Ordne Host,Client,Server in einem DB-Assistenten zu.",
+            "acceptance": "Keine tatsächliche MCP-Verbindung oder Anmeldung angelegt. Das Diagramm ist ein Architekturmodell, keine ausführbare Konfiguration."
+          },
+          {
+            "level": 2,
+            "task": "Unterscheide MCP-Tool von der zugrunde liegenden REST-API.",
+            "acceptance": "Keine tatsächliche MCP-Verbindung oder Anmeldung angelegt. Das Diagramm ist ein Architekturmodell, keine ausführbare Konfiguration."
+          },
+          {
+            "level": 3,
+            "task": "Plane einen reinen Leseserver ohne beliebige SQL-/Shell-Eingaben.",
+            "acceptance": "Keine tatsächliche MCP-Verbindung oder Anmeldung angelegt. Das Diagramm ist ein Architekturmodell, keine ausführbare Konfiguration."
+          }
+        ]
+      },
+      {
+        "id": "mcp-m1-l2",
+        "title": "Tools, Resources und Prompts mit engen Verträgen",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Trenne eine Resource von einem Mutationstool.",
+            "acceptance": "Ein valides Schema ist kein Ownershipnachweis. Lesend/destruktiv wird nicht allein durch eine Annotation entschieden."
+          },
+          {
+            "level": 2,
+            "task": "Schreibe ein Schema ohne beliebige Zusatzfelder.",
+            "acceptance": "Ein valides Schema ist kein Ownershipnachweis. Lesend/destruktiv wird nicht allein durch eine Annotation entschieden."
+          },
+          {
+            "level": 3,
+            "task": "Teste fremde ID,fehlende ID und übergroße Toolausgabe als Vertragsfälle.",
+            "acceptance": "Ein valides Schema ist kein Ownershipnachweis. Lesend/destruktiv wird nicht allein durch eine Annotation entschieden."
+          }
+        ]
+      },
+      {
+        "id": "mcp-m1-l3",
+        "title": "Transporte, Protokollrevisionen und Kompatibilität",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Wähle einen lokalen stdio-Fall.",
+            "acceptance": "Keine geratenen Header oder nicht belegten SDK-Methoden. Unsichere Details werden als offen markiert."
+          },
+          {
+            "level": 2,
+            "task": "Zeichne einen Remote-Request mit Authgrenze.",
+            "acceptance": "Keine geratenen Header oder nicht belegten SDK-Methoden. Unsichere Details werden als offen markiert."
+          },
+          {
+            "level": 3,
+            "task": "Schreibe eine Kompatibilitätsmatrix aus zwei Hosts und zwei Serverrevisionen.",
+            "acceptance": "Keine geratenen Header oder nicht belegten SDK-Methoden. Unsichere Details werden als offen markiert."
+          }
+        ]
+      },
+      {
+        "id": "mcp-m1-l4",
+        "title": "MCP-Sicherheit, OAuth und Prompt Injection",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Markiere die Vertrauensgrenzen im MCP-Diagramm.",
+            "acceptance": "Keine echten Zugangsdaten verwenden. Ein bestandener Test ist kein allgemeiner Beweis gegen jede Injection."
+          },
+          {
+            "level": 2,
+            "task": "Entwirf einen Read-only-Scope und einen separaten Schreibfreigabefluss.",
+            "acceptance": "Keine echten Zugangsdaten verwenden. Ein bestandener Test ist kein allgemeiner Beweis gegen jede Injection."
+          },
+          {
+            "level": 3,
+            "task": "Teste indirekte Injection in einer Toolantwort und einen gestohlenen/abgelaufenen Token konzeptionell.",
+            "acceptance": "Keine echten Zugangsdaten verwenden. Ein bestandener Test ist kein allgemeiner Beweis gegen jede Injection."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "agents-m1",
+    "title": "KI-Harnesses · Effizient und überprüfbar programmieren",
+    "course": "ap1",
+    "lessons": [
+      {
+        "id": "agents-m1-l1",
+        "title": "KI-Stand 06.11.2026: Modell, Agent und Harness",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zeichne einen Coding-Agent ohne Werbenamen.",
+            "acceptance": "Angebote und Preisfreiheit nicht erfinden; kostenlose Dokumentation bedeutet nicht kostenlose Modellnutzung."
+          },
+          {
+            "level": 2,
+            "task": "Ordne Modell,Tool,SDK,Host und Sandbox zu.",
+            "acceptance": "Angebote und Preisfreiheit nicht erfinden; kostenlose Dokumentation bedeutet nicht kostenlose Modellnutzung."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche verwaltete und selbst betriebene Runtime nach Datenschutz,Betrieb und Freigaben.",
+            "acceptance": "Angebote und Preisfreiheit nicht erfinden; kostenlose Dokumentation bedeutet nicht kostenlose Modellnutzung."
+          }
+        ]
+      },
+      {
+        "id": "agents-m1-l2",
+        "title": "Gute Coding-Aufträge: Scope und Akzeptanz vor Umsetzung",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Wandle einen vagen Wunsch in drei Abnahmekriterien um.",
+            "acceptance": "Auftrag ist ohne Zugriff auf Secrets verständlich; Erfolg kann ein anderer Reviewer selbst prüfen."
+          },
+          {
+            "level": 2,
+            "task": "Definiere Nichtziele für ein Bugfix-Ticket.",
+            "acceptance": "Auftrag ist ohne Zugriff auf Secrets verständlich; Erfolg kann ein anderer Reviewer selbst prüfen."
+          },
+          {
+            "level": 3,
+            "task": "Lass einen Agent erst Diagnose und kleinsten Änderungsvorschlag liefern, bevor er schreibt.",
+            "acceptance": "Auftrag ist ohne Zugriff auf Secrets verständlich; Erfolg kann ein anderer Reviewer selbst prüfen."
+          }
+        ]
+      },
+      {
+        "id": "agents-m1-l3",
+        "title": "Kontextpflege, Repository-Regeln und Übergaben",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe eine Übergabe nach einem kleinen Bugfix.",
+            "acceptance": "Kein Kontextverlust durch bloßes Vertrauen auf alte Zusammenfassung; offene Arbeit wird nicht in erledigte umbenannt."
+          },
+          {
+            "level": 2,
+            "task": "Markiere Behauptung und ausgeführten Nachweis getrennt.",
+            "acceptance": "Kein Kontextverlust durch bloßes Vertrauen auf alte Zusammenfassung; offene Arbeit wird nicht in erledigte umbenannt."
+          },
+          {
+            "level": 3,
+            "task": "Setze mit frischem Kontext fort und prüfe die Übergabe gegen git diff und Tests.",
+            "acceptance": "Kein Kontextverlust durch bloßes Vertrauen auf alte Zusammenfassung; offene Arbeit wird nicht in erledigte umbenannt."
+          }
+        ]
+      },
+      {
+        "id": "agents-m1-l4",
+        "title": "Rechte, Worktrees und sichere Toolausführung",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erstelle eine Tool-Rechtematrix für Lesen,Ändern,Ausführen,Veröffentlichen.",
+            "acceptance": "Keine globale Harness-Konfiguration angefasst. Ein erlaubter Lesebefehl ist keine Erlaubnis für jede verkettete Shelloperation."
+          },
+          {
+            "level": 2,
+            "task": "Plane ein Wegwerfarbeitsverzeichnis ohne Produktionssecrets.",
+            "acceptance": "Keine globale Harness-Konfiguration angefasst. Ein erlaubter Lesebefehl ist keine Erlaubnis für jede verkettete Shelloperation."
+          },
+          {
+            "level": 3,
+            "task": "Teste eine verweigerte Push-/Delete-Aktion mit harmlosen Fixtures.",
+            "acceptance": "Keine globale Harness-Konfiguration angefasst. Ein erlaubter Lesebefehl ist keine Erlaubnis für jede verkettete Shelloperation."
+          }
+        ]
+      },
+      {
+        "id": "agents-m1-l5",
+        "title": "Mit Agents testen, reviewen und Beweise liefern",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Schreibe einen Test, der vor dem Fix scheitert.",
+            "acceptance": "Kein erfundener Testlauf; sensible Fehlerfälle werden nicht nur durch Modellurteil bewertet."
+          },
+          {
+            "level": 2,
+            "task": "Prüfe, ob ein Test nur die Implementierung nacherzählt.",
+            "acceptance": "Kein erfundener Testlauf; sensible Fehlerfälle werden nicht nur durch Modellurteil bewertet."
+          },
+          {
+            "level": 3,
+            "task": "Reviewe einen Agent-Diff mit absichtlich entferntem Zugriffsschutz und erkläre, warum Happy-Path-Tests nicht genügen.",
+            "acceptance": "Kein erfundener Testlauf; sensible Fehlerfälle werden nicht nur durch Modellurteil bewertet."
+          }
+        ]
+      },
+      {
+        "id": "agents-m1-l6",
+        "title": "Effiziente Agent-Arbeit: Budgets und sinnvolle Parallelität",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Zerlege ein Feature in abhängige und unabhängige Teile.",
+            "acceptance": "Keine universelle Beschleunigungsquote behaupten; unterschiedliche Modellpreise und Abnahmequalität sind dokumentiert."
+          },
+          {
+            "level": 2,
+            "task": "Definiere ein Retrybudget mit Abbruchbedingung.",
+            "acceptance": "Keine universelle Beschleunigungsquote behaupten; unterschiedliche Modellpreise und Abnahmequalität sind dokumentiert."
+          },
+          {
+            "level": 3,
+            "task": "Vergleiche Einzelagent und klar begrenzte Parallelität an denselben drei Tickets.",
+            "acceptance": "Keine universelle Beschleunigungsquote behaupten; unterschiedliche Modellpreise und Abnahmequalität sind dokumentiert."
+          }
+        ]
+      },
+      {
+        "id": "agents-m1-l7",
+        "title": "Prompt Injection, Datenschutz und Abschlussprojekt mit KI",
+        "exercises": [
+          {
+            "level": 1,
+            "task": "Erstelle drei harmlose Injection-Fixtures.",
+            "acceptance": "Kein echtes Modellkonto oder externer kostenpflichtiger Dienst erforderlich. Das Planspiel beweist keine Immunität gegen alle Angriffe."
+          },
+          {
+            "level": 2,
+            "task": "Teste einen Datenabflussversuch ohne echte Secrets.",
+            "acceptance": "Kein echtes Modellkonto oder externer kostenpflichtiger Dienst erforderlich. Das Planspiel beweist keine Immunität gegen alle Angriffe."
+          },
+          {
+            "level": 3,
+            "task": "Bearbeite ein kleines Feature mit Threat Model,Tests,Diffreview und ehrlicher Übergabe.",
+            "acceptance": "Kein echtes Modellkonto oder externer kostenpflichtiger Dienst erforderlich. Das Planspiel beweist keine Immunität gegen alle Angriffe."
+          }
+        ]
+      }
+    ]
+  }
+]

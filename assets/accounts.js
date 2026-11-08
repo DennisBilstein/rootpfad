@@ -5,8 +5,11 @@ var rpSyncBusy = false;
 var rpSyncAgain = false;
 var rpSyncMessage = 'Nicht angemeldet';
 async function rpAPI(url,method,body){
-  var response = await fetch(url,{method:method || 'GET',headers:body ? {'Content-Type':'application/json'} : {},body:body ? JSON.stringify(body) : undefined,credentials:'same-origin'});
-  var result = await response.json();
+  var headers=body?{'Content-Type':'application/json'}:{};
+   if(rpAccount&&url.startsWith('/api/'))headers['X-Rootpfad-User']=String(rpAccount.id);
+  var response = await fetch(url,{method:method || 'GET',headers:headers,body:body ? JSON.stringify(body) : undefined,credentials:'same-origin'});
+  var result;
+  try{result=await response.json();}catch(e){throw new Error('Keine gültige Serverantwort. Prüfe, ob der ROOTPFAD-Server erreichbar ist.');}
   if(!response.ok) throw new Error(result.error || 'Server nicht erreichbar.');
   return result;
 }
@@ -20,7 +23,7 @@ function rpAccountForm(){
   var params = new URLSearchParams(location.hash.slice(1));
   var mode = params.has('setup') ? 'setup' : params.has('invite') ? 'register' : 'login';
   var h = '<h1>'+({setup:'Administrator einrichten',register:'Einladung annehmen',login:'Anmelden'})[mode]+'</h1>';
-  h += '<p>Dein Lernstand wird automatisch auf diesem ROOTPFAD-Server gespeichert. Administratoren sehen Name, E-Mail, gewählten Lernpfad, bearbeitete Lektionen, Quizquote, fällige Karten und letzte übertragene Lernaktivität. Die Ampel bewertet Aktivität und Bearbeitungsstand, nicht deine persönliche Fähigkeit.</p>';
+  h += '<p>Dein Lernstand wird automatisch auf diesem ROOTPFAD-Server gespeichert. Administratoren sehen Name, E-Mail, gewählten Lernpfad, bearbeitete Lektionen, Quizquote, fällige Karten und letzte übertragene Lernaktivität. Praktische Einreichungen und Hinweise zu unklaren Fragen werden ebenfalls übertragen. Revisionsbezogene Erstversuche dienen der redaktionellen Fragenprüfung; daraus wird keine automatische Kompetenz- oder Schwierigkeitsnote berechnet. Die Ampel bewertet Aktivität und Bearbeitungsstand, nicht deine persönliche Fähigkeit.</p>';
   h += '<p>Beim Anmelden wird nur der Lernstand dieses Kontos geladen. Ein vorhandener Gast-Lernstand wird nicht automatisch übertragen.</p><form id="rpLoginForm" class="callout" data-mode="'+mode+'">';
   if(mode !== 'login') h += '<label for="rpName">Anzeigename</label><input class="sb-input" id="rpName" name="name" required maxlength="100" autocomplete="name">';
   h += '<label for="rpEmail">E-Mail</label><input class="sb-input" id="rpEmail" name="email" type="email" required maxlength="254" autocomplete="username"><label for="rpPassword">Passwort'+(mode !== 'login' ? ' · mindestens 12 Zeichen' : '')+'</label><input class="sb-input" id="rpPassword" name="password" type="password" required '+(mode !== 'login' ? 'minlength="12"' : '')+' maxlength="200" autocomplete="'+(mode === 'login' ? 'current-password' : 'new-password')+'"><p id="rpLoginError" role="alert"></p><button class="start-btn" type="submit">'+(mode === 'login' ? 'Anmelden' : 'Konto erstellen')+'</button></form>';
@@ -48,7 +51,7 @@ async function rpSync(){
   rpSyncBusy = true;
   try {
     var response = await rpAPI('/api/progress','PUT',{data:serialize(),learningPath:rpPath});
-    if(response.data){ mergeIn(response.data); saveLocal(); }
+    if(response.data && rpSyncReady && rpAccount){ mergeIn(response.data); saveLocal(); }
     rpSyncMessage = 'Übertragen · '+new Date().toLocaleTimeString('de-DE');
   } catch(e){ rpSyncMessage = 'Nicht übertragen: '+e.message+' · lokaler Stand bleibt erhalten'; }
   finally { rpSyncBusy = false; rpAccountBar(); if(rpSyncAgain){rpSyncAgain=false;rpScheduleSync();} }

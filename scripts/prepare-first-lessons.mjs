@@ -33,4 +33,10 @@ const js = {
     {q:'Wie oft läuft for (let i = 1; i <= 3; i += 1)?',options:['Dreimal','Zweimal','Viermal'],correct:0,explain:'Der Rumpf läuft für i=1, 2 und 3. Bei i=4 ist die Bedingung false.'}
   ]
 };
-fs.writeFileSync('content/learning-refinements.json',JSON.stringify({updates:[php],modules:[{id:'js-m1',part:23,partTitle:'JavaScript & Vue · Einstieg',title:'JavaScript · Sprachgrundlagen',course:'javascript',lessons:[js]}]},null,2)+'\n');
+const target = 'content/learning-refinements.json';
+// Bootstrap once; subsequent editorial refinements must never be overwritten.
+if(fs.existsSync(target)){
+  console.log('Redaktioneller Datensatz vorhanden; keine Inhalte überschrieben.');
+} else {
+  fs.writeFileSync(target,JSON.stringify({updates:[php],modules:[{id:'js-m1',part:23,partTitle:'JavaScript & Vue · Einstieg',title:'JavaScript · Sprachgrundlagen',course:'javascript',lessons:[js]}]},null,2)+'\n');
+}

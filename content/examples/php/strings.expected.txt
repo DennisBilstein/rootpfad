@@ -1,0 +1,9 @@
+Hello, $name!
+Hello, Mira!
+Hello, Mira!
+Progress: 3 lessons
+Mira completed 003 lessons (100% effort).
+Hello, Mira!
+Completed lessons: 3
+Hello, $name!
+Next total: 5

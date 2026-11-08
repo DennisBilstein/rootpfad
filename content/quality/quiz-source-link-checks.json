@@ -1,0 +1,4099 @@
+{
+  "total": 455,
+  "checked": 455,
+  "results": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "status": 200,
+      "finalURL": "https://docs.python.org/3/tutorial/controlflow.html",
+      "bytes": 140035,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:47.138Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://help.structorizer.fisch.lu/index.php?menu=55",
+      "status": 200,
+      "finalURL": "https://help.structorizer.fisch.lu/index.php?menu=55",
+      "bytes": 26473,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:47.122Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/office/create-a-basic-flowchart-in-visio-e207d975-4a51-4bfa-a356-eeec314bd276",
+      "status": 200,
+      "finalURL": "https://support.microsoft.com/en-us/visio/create-a-basic-flowchart-in-visio",
+      "bytes": 118806,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:49.883Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.istqb.org/certifications/certified-tester-foundation-level",
+      "status": 200,
+      "finalURL": "https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/",
+      "bytes": 224954,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:49.524Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+      "status": 200,
+      "finalURL": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+      "bytes": 46601,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:49.379Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.red-gate.com/blog/chen-erd-notation/",
+      "status": 200,
+      "finalURL": "https://www.red-gate.com/blog/chen-erd-notation/",
+      "bytes": 306424,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:49.294Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/office/troubleshoot/access/database-normalization-description",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/previous-versions/troubleshoot/microsoft-365/microsoft-365-apps/access/database-normalization-description",
+      "bytes": 45069,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:49.857Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/sql-select.html",
+      "status": 200,
+      "finalURL": "https://www.postgresql.org/docs/current/sql-select.html",
+      "bytes": 118016,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:49.496Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/sql-truncate.html",
+      "status": 200,
+      "finalURL": "https://www.postgresql.org/docs/current/sql-truncate.html",
+      "bytes": 21243,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.543Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/tutorial/java/concepts/",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/tutorial/java/concepts/",
+      "bytes": 19621,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:48.307Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.omg.org/spec/UML/2.5.1",
+      "status": 200,
+      "finalURL": "https://www.omg.org/spec/UML/2.5.1",
+      "bytes": 84141,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.482Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.johner-institut.de/blog/iec-62304-medizinische-software/lastenheft-pflichtenheft-systemspezifikation",
+      "status": 200,
+      "finalURL": "https://www.johner-institut.de/blog/iec-62304-medizinische-software/lastenheft-pflichtenheft-systemspezifikation/",
+      "bytes": 283946,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.650Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__631.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__631.html",
+      "bytes": 3759,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.443Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.agilebusiness.org/resource/what-is-moscow-prioritization/",
+      "status": 200,
+      "finalURL": "https://www.agilebusiness.org/resource/what-is-moscow-prioritization/",
+      "bytes": 327555,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.485Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://scrumguides.org/scrum-guide.html",
+      "status": 200,
+      "finalURL": "https://scrumguides.org/scrum-guide.html",
+      "bytes": 34920,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.566Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/solutions/small-business/resource-center/networking/networking-basics.html",
+      "status": 200,
+      "finalURL": "https://www.cisco.com/site/us/en/learn/topics/small-business/networking-basics.html",
+      "bytes": 133931,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.046Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "bytes": 531242,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.689Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.itu.int/rec/T-REC-X.200-199407-I/en",
+      "status": 200,
+      "finalURL": "https://www.itu.int/rec/T-REC-X.200-199407-I/en",
+      "bytes": 19423,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.575Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc791.txt",
+      "bytes": 94892,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:57.681Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc2131.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc2131.txt",
+      "bytes": 113738,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.300Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9293.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9293.txt",
+      "bytes": 263691,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.294Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc768.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc768.txt",
+      "bytes": 5896,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.314Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc826.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc826.txt",
+      "bytes": 21556,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.334Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3927.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc3927.txt",
+      "bytes": 83102,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.326Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3022.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc3022.txt",
+      "bytes": 37675,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.323Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4291.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc4291.html",
+      "bytes": 63683,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.320Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc5952.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc5952.txt",
+      "bytes": 26570,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.331Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4861.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc4861.txt",
+      "bytes": 235106,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:59.594Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4862.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc4862.txt",
+      "bytes": 72482,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:37:58.306Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8106.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc8106.txt",
+      "bytes": 43092,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:08.445Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8981.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc8981.txt",
+      "bytes": 54909,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:08.539Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8200.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc8200.html",
+      "bytes": 113361,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:10.605Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc6146.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc6146.txt",
+      "bytes": 107954,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:10.479Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc6147.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc6147.txt",
+      "bytes": 75103,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:08.165Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3596.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc3596.txt",
+      "bytes": 14093,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:10.777Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ipconfig",
+      "bytes": 55001,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:06.270Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracert",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracert",
+      "bytes": 55558,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:07.617Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.wi-fi.org/discover-wi-fi/security",
+      "status": 200,
+      "finalURL": "https://www.wi-fi.org/security",
+      "bytes": 146390,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:09.860Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc5416.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc5416.txt",
+      "bytes": 175870,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:10.782Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3748.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc3748.txt",
+      "bytes": 157994,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.112Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.ibm.com/think/topics/san-vs-nas",
+      "status": 200,
+      "finalURL": "https://www.ibm.com/think/topics/san-vs-nas",
+      "bytes": 179367,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.919Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/fips/186-5/final",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/fips/186-5/final",
+      "bytes": 43469,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.555Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.cisa.gov/stopransomware/ransomware-guide",
+      "status": 200,
+      "finalURL": "https://www.cisa.gov/stopransomware/ransomware-guide",
+      "bytes": 106749,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.695Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/deu",
+      "status": 200,
+      "finalURL": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/deu",
+      "bytes": 1117357,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.012Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final",
+      "bytes": 46288,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.594Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.ibm.com/support/pages/re-evaluating-raid-5-and-raid-6-slower-larger-drives",
+      "status": 200,
+      "finalURL": "https://www.ibm.com/support/pages/re-evaluating-raid-5-and-raid-6-slower-larger-drives",
+      "bytes": 54309,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.317Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8446.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc8446.txt",
+      "bytes": 337736,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.162Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+      "status": 200,
+      "finalURL": "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html",
+      "bytes": 96007,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.404Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc5280.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc5280.txt",
+      "bytes": 352580,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:11.449Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+      "status": 200,
+      "finalURL": "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+      "bytes": 79849,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.705Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8446.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc8446.html",
+      "bytes": 419115,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.855Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+      "status": 200,
+      "finalURL": "https://pages.nist.gov/800-63-4/sp800-63b.html",
+      "bytes": 353248,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.925Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r5/final",
+      "bytes": 47179,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.492Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc5280.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc5280.html",
+      "bytes": 417320,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.796Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://cabforum.org/working-groups/server/baseline-requirements/requirements/",
+      "status": 200,
+      "finalURL": "https://cabforum.org/working-groups/server/baseline-requirements/requirements/",
+      "bytes": 692256,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.920Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "status": 200,
+      "finalURL": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "bytes": 1115779,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.246Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bdsg_2018/__38.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bdsg_2018/__38.html",
+      "bytes": 4488,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.490Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+      "bytes": 57048,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.523Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+      "bytes": 43145,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:12.895Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.cve.org/ResourcesSupport/AllResources/Introduction",
+      "status": 200,
+      "finalURL": "https://www.cve.org/ResourcesSupport/AllResources/Introduction",
+      "bytes": 880,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.744Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://it-berufe-podcast.de/nutzwertanalyse-in-der-projektdokumentation",
+      "status": 200,
+      "finalURL": "https://it-berufe-podcast.de/nutzwertanalyse-in-der-projektdokumentation/",
+      "bytes": 199856,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.849Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openstax.org/books/principles-finance-2e/pages/19-2-what-is-trade-credit",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/principles-finance-2e/pages/19-2-what-is-trade-credit",
+      "bytes": 290643,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.402Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/ustg_1980/__12.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/ustg_1980/__12.html",
+      "bytes": 15219,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.289Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openstax.org/books/principles-finance/pages/16-1-payback-period-method",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/principles-finance/pages/16-1-payback-period-method",
+      "bytes": 290325,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.844Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/principles-finance-2e/pages/8-3-loan-amortization",
+      "bytes": 310110,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.418Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__437.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__437.html",
+      "bytes": 4202,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.409Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__439.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__439.html",
+      "bytes": 5402,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.429Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__535.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__535.html",
+      "bytes": 3883,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.433Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__611.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__611.html",
+      "bytes": 3671,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.891Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.weclapp.com/de/lexikon/abc-analyse/",
+      "status": 200,
+      "finalURL": "https://www.weclapp.com/de/lexikon/abc-analyse/",
+      "bytes": 615604,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.373Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-1-explain-contribution-margin-and-calculate-contribution-margin-per-unit-contribution-margin-ratio-and-total-contribution-margin",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/principles-managerial-accounting/pages/3-1-explain-contribution-margin-and-calculate-contribution-margin-per-unit-contribution-margin-ratio-and-total-contribution-margin",
+      "bytes": 307157,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.899Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/principles-managerial-accounting/pages/3-2-calculate-a-break-even-point-in-units-and-dollars",
+      "bytes": 340510,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.946Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/estg/__7.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/estg/__7.html",
+      "bytes": 21792,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:13.909Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.ibm.com/think/topics/total-cost-of-ownership",
+      "status": 200,
+      "finalURL": "https://www.ibm.com/think/topics/total-cost-of-ownership",
+      "bytes": 138357,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.598Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html",
+      "status": 200,
+      "finalURL": "https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html",
+      "bytes": 151396,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.539Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc3629.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc3629.html",
+      "bytes": 40971,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.043Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.3.1",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html",
+      "bytes": 222113,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.083Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://physics.nist.gov/cuu/Units/binary.html",
+      "status": 200,
+      "finalURL": "https://physics.nist.gov/cuu/Units/binary.html",
+      "bytes": 14645,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.303Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4291.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc4291.txt",
+      "bytes": 52897,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.812Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc20.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc20.txt",
+      "bytes": 18504,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.808Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.dguv.de/de/mediencenter/pm/pressemitteilung_492800.jsp",
+      "status": 200,
+      "finalURL": "https://www.dguv.de/de/mediencenter/pm/pressemitteilung_492800.jsp",
+      "bytes": 40989,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.750Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.thegreengrid.org/node/372",
+      "status": 200,
+      "finalURL": "https://www.thegreengrid.org/node/372",
+      "bytes": 28039,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:15.327Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Arbeitsumgebungsbedingungen/Beleuchtung-Licht/Beleuchtung-Licht_dossier?pos=2",
+      "status": 200,
+      "finalURL": "https://www.baua.de/DE/Themen/Arbeitsgestaltung/Gefaehrdungsbeurteilung/Handbuch-Gefaehrdungsbeurteilung/Expertenwissen/Arbeitsumgebungsbedingungen/Beleuchtung-Licht/Beleuchtung-Licht_dossier?pos=2",
+      "bytes": 265964,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.813Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/about-processes-and-threads",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/windows/win32/procthread/about-processes-and-threads",
+      "bytes": 50545,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:15.030Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html",
+      "status": 200,
+      "finalURL": "https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html",
+      "bytes": 166769,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:14.966Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.intel.com/content/www/us/en/support/articles/000005657/boards-and-kits.html",
+      "status": 200,
+      "finalURL": "https://www.intel.com/content/www/us/en/support.html",
+      "bytes": 136690,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:15.925Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.intel.com/content/www/us/en/products/docs/memory-storage/what-is-ecc-memory.html",
+      "status": 200,
+      "finalURL": "https://www.intel.com/content/www/us/en/products/overview.html",
+      "bytes": 181844,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:15.738Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://nvmexpress.org/specifications/",
+      "status": 200,
+      "finalURL": "https://nvmexpress.org/specifications/",
+      "bytes": 91322,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.728Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.snia.org/education/what-is-nvme",
+      "status": 200,
+      "finalURL": "https://www.snia.org/education/what-is-nvme",
+      "bytes": 82075,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.197Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.usb.org/usb-32-0",
+      "status": 200,
+      "finalURL": "https://www.usb.org/usb-32-0",
+      "bytes": 40117,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.676Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.usb.org/usb2",
+      "status": 200,
+      "finalURL": "https://www.usb.org/usb2",
+      "bytes": 40138,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.677Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.usb.org/usb-charger-pd",
+      "status": 200,
+      "finalURL": "https://www.usb.org/usb-charger-pd",
+      "bytes": 43263,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.612Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.itu.int/rec/R-REC-BT.709",
+      "status": 200,
+      "finalURL": "https://www.itu.int/rec/R-REC-BT.709",
+      "bytes": 13709,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.190Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.itu.int/rec/R-REC-BT.2020",
+      "status": 200,
+      "finalURL": "https://www.itu.int/rec/R-REC-BT.2020",
+      "bytes": 12143,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.197Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.energystar.gov/products",
+      "status": 200,
+      "finalURL": "https://www.energystar.gov/products",
+      "bytes": 60526,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.333Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.apc.com/us/en/solutions/",
+      "status": 200,
+      "finalURL": "https://www.se.com/us/en/brands/apc/",
+      "bytes": 2191923,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:29.925Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/azure/architecture/guide/design-principles/scale-out",
+      "bytes": 54344,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:16.015Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/overview",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/overview",
+      "bytes": 57429,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:30.422Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors",
+      "status": 200,
+      "finalURL": "https://www.microchip.com/en-us/products/microcontrollers",
+      "bytes": 723740,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:33.294Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/solutions/enterprise-networks/what-is-power-over-ethernet.html",
+      "status": 200,
+      "finalURL": "https://www.cisco.com/site/us/en/learn/topics/networking/what-is-power-over-ethernet.html",
+      "bytes": 124420,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:31.254Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/",
+      "status": 200,
+      "finalURL": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container/",
+      "bytes": 219411,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:30.467Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/145/final",
+      "status": 200,
+      "finalURL": "https://csrc.nist.gov/pubs/sp/800/145/final",
+      "bytes": 42844,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:30.565Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.microsoft.com/useterms",
+      "status": 200,
+      "finalURL": "https://www.microsoft.com/de-de/useterms",
+      "bytes": 1704743,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:30.954Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-client-access-license",
+      "bytes": 56393,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:30.500Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.ibm.com/docs/en/common-licensing/9.0.0?topic=types-floating-licenses",
+      "status": 200,
+      "finalURL": "https://www.ibm.com/docs/en/common-licensing/9.0.0",
+      "bytes": 39240,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:31.070Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/urhg/__69b.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/urhg/__69b.html",
+      "bytes": 3849,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:30.482Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://opensource.org/osd",
+      "status": 200,
+      "finalURL": "https://opensource.org/osd",
+      "bytes": 197802,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.046Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation?view=windows-11",
+      "status": 200,
+      "finalURL": "https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation?view=windows-11",
+      "bytes": 45597,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:34.718Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__641.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__641.html",
+      "bytes": 5237,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.022Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "status": 200,
+      "finalURL": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "bytes": 80477,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.039Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__634a.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__634a.html",
+      "bytes": 5301,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.032Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1",
+      "status": 200,
+      "finalURL": "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1",
+      "bytes": 584421,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.032Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.schulz-von-thun.de/die-modelle/das-kommunikationsquadrat",
+      "status": 200,
+      "finalURL": "https://www.schulz-von-thun.de/die-modelle/das-kommunikationsquadrat",
+      "bytes": 39562,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.363Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://scikit-learn.org/stable/user_guide.html",
+      "status": 200,
+      "finalURL": "https://scikit-learn.org/stable/user_guide.html",
+      "bytes": 89646,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.232Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "status": 200,
+      "finalURL": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "bytes": 109723,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:35.236Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://scikit-learn.org/stable/model_selection.html",
+      "status": 200,
+      "finalURL": "https://scikit-learn.org/stable/model_selection.html",
+      "bytes": 39476,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.520Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "status": 200,
+      "finalURL": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "bytes": 93599,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.798Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/retrieval",
+      "status": 200,
+      "finalURL": "https://developers.openai.com/api/docs/guides/retrieval",
+      "bytes": 1069350,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:37.152Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/model-optimization",
+      "status": 200,
+      "finalURL": "https://developers.openai.com/api/docs/guides/model-optimization",
+      "bytes": 411729,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:37.078Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689",
+      "status": 200,
+      "finalURL": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1689",
+      "bytes": 1592747,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:37.669Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/urhg/__2.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/urhg/__2.html",
+      "bytes": 4976,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.090Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__823.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__823.html",
+      "bytes": 3935,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.440Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/features.commandline.options.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/features.commandline.options.php",
+      "bytes": 61968,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.779Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/features.commandline.webserver.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/features.commandline.webserver.php",
+      "bytes": 58875,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.778Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.types.string.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.types.string.php",
+      "bytes": 134286,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:36.782Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.sprintf.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.sprintf.php",
+      "bytes": 175617,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.369Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.operators.arithmetic.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.operators.arithmetic.php",
+      "bytes": 40500,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.097Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.types.float.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.types.float.php",
+      "bytes": 65465,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.363Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.round.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.round.php",
+      "bytes": 91860,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.368Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.types.boolean.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.types.boolean.php",
+      "bytes": 72377,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.367Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/functions.returning-values.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/functions.returning-values.php",
+      "bytes": 57364,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.364Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.operators.assignment.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.operators.assignment.php",
+      "bytes": 54279,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.356Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/control-structures.do.while.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/control-structures.do.while.php",
+      "bytes": 43799,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.367Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/control-structures.continue.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/control-structures.continue.php",
+      "bytes": 57841,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.365Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/control-structures.for.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/control-structures.for.php",
+      "bytes": 52964,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.366Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/book.session.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/book.session.php",
+      "bytes": 43551,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.470Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.basic-syntax.phptags.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.basic-syntax.phptags.php",
+      "bytes": 37574,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.462Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.operators.comparison.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.operators.comparison.php",
+      "bytes": 113319,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.481Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.types.declarations.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.types.declarations.php",
+      "bytes": 87801,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.519Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/control-structures.match.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/control-structures.match.php",
+      "bytes": 102092,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.529Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.array-filter.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.array-filter.php",
+      "bytes": 80448,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.478Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/functions.arrow.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/functions.arrow.php",
+      "bytes": 54601,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.464Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.types.never.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.types.never.php",
+      "bytes": 42213,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.465Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.types.array.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.types.array.php",
+      "bytes": 154249,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.527Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.array-key-exists.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.array-key-exists.php",
+      "bytes": 66834,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:40.480Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.array-values.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.array-values.php",
+      "bytes": 71029,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.236Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.asort.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.asort.php",
+      "bytes": 151152,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.244Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.sort.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.sort.php",
+      "bytes": 196072,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.245Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.mb-strlen.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.mb-strlen.php",
+      "bytes": 60140,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.091Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.explode.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.explode.php",
+      "bytes": 73988,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.094Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/regexp.reference.anchors.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/regexp.reference.anchors.php",
+      "bytes": 40044,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.089Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/class.datetimeimmutable.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/class.datetimeimmutable.php",
+      "bytes": 65644,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.235Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/datetimeimmutable.modify.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/datetimeimmutable.modify.php",
+      "bytes": 45432,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.091Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/class.datetimezone.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/class.datetimezone.php",
+      "bytes": 54238,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.092Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.htmlspecialchars.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.htmlspecialchars.php",
+      "bytes": 122780,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.243Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-303-see-other",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "bytes": 1184898,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.766Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/reserved.variables.server.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/reserved.variables.server.php",
+      "bytes": 115908,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.483Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.password-hash.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.password-hash.php",
+      "bytes": 76291,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.484Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/session.security.ini.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/session.security.ini.php",
+      "bytes": 47368,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.337Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.setcookie.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.setcookie.php",
+      "bytes": 98542,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.464Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/pdo.prepare.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/pdo.prepare.php",
+      "bytes": 92665,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.347Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/pdo.rollback.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/pdo.rollback.php",
+      "bytes": 44814,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.334Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.fgets.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.fgets.php",
+      "bytes": 72160,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.339Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.file-put-contents.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.file-put-contents.php",
+      "bytes": 100784,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.482Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/security.filesystem.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/security.filesystem.php",
+      "bytes": 57549,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:41.333Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.json-decode.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.json-decode.php",
+      "bytes": 70104,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.025Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.json-encode.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.json-encode.php",
+      "bytes": 84550,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.024Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.guzzlephp.org/en/stable/request-options.html#timeout",
+      "status": 200,
+      "finalURL": "https://docs.guzzlephp.org/en/stable/request-options.html",
+      "bytes": 100313,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.190Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-503-service-unavailable",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "bytes": 1184898,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.217Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions",
+      "status": 200,
+      "finalURL": "https://docs.guzzlephp.org/en/stable/quickstart.html",
+      "bytes": 65078,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.204Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/errors",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/errors",
+      "bytes": 359031,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.977Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php-fig.org/psr/psr-3/",
+      "status": 200,
+      "finalURL": "https://www.php-fig.org/psr/psr-3/",
+      "bytes": 25470,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.480Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.decon.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.decon.php",
+      "bytes": 110226,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.025Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.references.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.references.php",
+      "bytes": 130196,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.027Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.properties.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.properties.php",
+      "bytes": 81200,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:42.135Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.traits.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.traits.php",
+      "bytes": 165054,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.502Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.inheritance.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.inheritance.php",
+      "bytes": 68536,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.500Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.final.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.final.php",
+      "bytes": 80735,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.494Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.enumerations.backed.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.enumerations.backed.php",
+      "bytes": 47802,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.492Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/class.throwable.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/class.throwable.php",
+      "bytes": 45064,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.491Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/exception.construct.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/exception.construct.php",
+      "bytes": 42874,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.495Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php-fig.org/psr/psr-4/",
+      "status": 200,
+      "finalURL": "https://www.php-fig.org/psr/psr-4/",
+      "bytes": 12750,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.486Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control",
+      "status": 200,
+      "finalURL": "https://getcomposer.org/doc/01-basic-usage.md",
+      "bytes": 21355,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.494Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://getcomposer.org/doc/articles/versions.md#caret-version-range-",
+      "status": 200,
+      "finalURL": "https://getcomposer.org/doc/articles/versions.md",
+      "bytes": 21644,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.491Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.generators.overview.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.generators.overview.php",
+      "bytes": 57763,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.499Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.iterator-to-array.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.iterator-to-array.php",
+      "bytes": 54086,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.757Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/class.generator.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/class.generator.php",
+      "bytes": 44815,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.755Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/container",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/container",
+      "bytes": 529575,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:45.809Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.interfaces.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.interfaces.php",
+      "bytes": 72691,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.757Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/language.oop5.visibility.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/language.oop5.visibility.php",
+      "bytes": 92414,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.601Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/manual/en/function.array-find.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/manual/en/function.array-find.php",
+      "bytes": 64369,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.576Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.php.net/releases/8.5/en.php",
+      "status": 200,
+      "finalURL": "https://www.php.net/releases/8.5/en.php",
+      "bytes": 90616,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.541Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.phpunit.de/en/12.0/test-doubles.html",
+      "status": 200,
+      "finalURL": "https://docs.phpunit.de/en/12.0/test-doubles.html",
+      "bytes": 166655,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:43.796Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/deployment",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/deployment",
+      "bytes": 158650,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:45.060Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/configuration",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/configuration",
+      "bytes": 224745,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:45.595Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/routing",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/routing",
+      "bytes": 689754,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.909Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/controllers",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/controllers",
+      "bytes": 474282,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.889Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/blade",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/blade",
+      "bytes": 1109521,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.872Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/migrations",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/migrations",
+      "bytes": 674294,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.610Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/eloquent-factories",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-factories",
+      "bytes": 458150,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.897Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/eloquent",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/eloquent",
+      "bytes": 1150384,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.399Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/authorization",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/authorization",
+      "bytes": 563442,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.977Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/eloquent-relationships",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-relationships",
+      "bytes": 1533474,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.413Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/database",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/database",
+      "bytes": 387465,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:46.876Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/validation",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/validation",
+      "bytes": 1555566,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.406Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/middleware",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/middleware",
+      "bytes": 358903,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.867Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/csrf",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/csrf",
+      "bytes": 146643,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.845Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/authentication",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/authentication",
+      "bytes": 508645,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.913Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/vite",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/vite",
+      "bytes": 683137,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.918Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://livewire.laravel.com/docs/4.x/wire-model",
+      "status": 200,
+      "finalURL": "https://livewire.laravel.com/docs/4.x/wire-model",
+      "bytes": 269990,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.067Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://livewire.laravel.com/docs/4.x/security",
+      "status": 200,
+      "finalURL": "https://livewire.laravel.com/docs/4.x/security",
+      "bytes": 264327,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.057Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://livewire.laravel.com/docs/4.x/quickstart",
+      "status": 200,
+      "finalURL": "https://livewire.laravel.com/docs/4.x/quickstart",
+      "bytes": 234938,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.979Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/requests",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/requests",
+      "bytes": 491442,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.883Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/session",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/session",
+      "bytes": 277430,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.866Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.w3.org/WAI/tutorials/forms/notifications/",
+      "status": 200,
+      "finalURL": "https://www.w3.org/WAI/tutorials/forms/notifications/",
+      "bytes": 75261,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:47.533Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/filesystem",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/filesystem",
+      "bytes": 618110,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.610Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/mail",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/mail",
+      "bytes": 1045979,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.627Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/notifications",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/notifications",
+      "bytes": 1219571,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.671Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/eloquent-mutators",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-mutators",
+      "bytes": 711773,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.581Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/eloquent-resources",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-resources",
+      "bytes": 829084,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.632Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-201-created",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "bytes": 1184898,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.591Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/sanctum",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/sanctum",
+      "bytes": 347545,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.585Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-idempotent-methods",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "bytes": 1184898,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.570Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc6585.html#section-4",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc6585.html",
+      "bytes": 23151,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.418Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-409-conflict",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "bytes": 1184898,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:48.576Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/providers",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/providers",
+      "bytes": 189200,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.057Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/facades",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/facades",
+      "bytes": 280691,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.140Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/events",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/events",
+      "bytes": 810019,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.214Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/queries",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/queries",
+      "bytes": 1215237,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.265Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/http-client",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/http-client",
+      "bytes": 694844,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.287Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.stripe.com/webhooks/signature",
+      "status": 200,
+      "finalURL": "https://docs.stripe.com/events/manage-webhook-endpoints",
+      "bytes": 1628530,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:50.169Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.stripe.com/webhooks#handle-duplicate-events",
+      "status": 200,
+      "finalURL": "https://docs.stripe.com/webhooks",
+      "bytes": 1542070,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.805Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.stripe.com/webhooks#preventing-replay-attacks",
+      "status": 200,
+      "finalURL": "https://docs.stripe.com/webhooks",
+      "bytes": 1541938,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:50.103Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/scout",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/scout",
+      "bytes": 755946,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.189Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/reverb",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/reverb",
+      "bytes": 205333,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:49.100Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/broadcasting",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/broadcasting",
+      "bytes": 1259788,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:51.780Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/queues",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/queues",
+      "bytes": 1997175,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:52.995Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.stripe.com/api/idempotent_requests",
+      "status": 200,
+      "finalURL": "https://docs.stripe.com/api/idempotent_requests",
+      "bytes": 1373196,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:50.865Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/cache",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/cache",
+      "bytes": 506372,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:52.216Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/pulse",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/pulse",
+      "bytes": 430731,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:52.855Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/octane",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/octane",
+      "bytes": 414653,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:52.332Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/scheduling",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/scheduling",
+      "bytes": 384609,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:52.221Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/database-testing",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/database-testing",
+      "bytes": 220268,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:50.871Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/http-tests",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/http-tests",
+      "bytes": 1117179,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:51.925Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/mocking",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/mocking",
+      "bytes": 277915,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:50.881Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://github.com/larastan/larastan",
+      "status": 200,
+      "finalURL": "https://github.com/larastan/larastan",
+      "bytes": 300959,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.508Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://phpstan.org/user-guide/baseline",
+      "status": 200,
+      "finalURL": "https://phpstan.org/user-guide/baseline",
+      "bytes": 38271,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.120Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/pint",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/pint",
+      "bytes": 184365,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.510Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/urls",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/urls",
+      "bytes": 289194,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.527Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://getcomposer.org/doc/03-cli.md#audit",
+      "status": 200,
+      "finalURL": "https://getcomposer.org/doc/03-cli.md",
+      "bytes": 122048,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.328Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://laravel.com/docs/13.x/logging",
+      "status": 200,
+      "finalURL": "https://laravel.com/framework/docs/13.x/logging",
+      "bytes": 392188,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.544Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.stripe.com/webhooks",
+      "status": 200,
+      "finalURL": "https://docs.stripe.com/webhooks",
+      "bytes": 1541809,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.788Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://semver.org/spec/v2.0.0.html",
+      "status": 200,
+      "finalURL": "https://semver.org/spec/v2.0.0.html",
+      "bytes": 30857,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.201Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-commit-tree",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-commit-tree",
+      "bytes": 46746,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.250Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-clone",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-clone",
+      "bytes": 107669,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.289Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/get-started/start-your-journey/about-github-and-git",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/get-started/start-your-journey/what-is-github",
+      "bytes": 181249,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.163Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-config",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-config",
+      "bytes": 830505,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.884Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-add",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-add",
+      "bytes": 79223,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.826Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-diff",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-diff",
+      "bytes": 229056,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.912Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-status",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-status",
+      "bytes": 99860,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.893Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-commit",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-commit",
+      "bytes": 122777,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.898Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.conventionalcommits.org/en/v1.0.0/",
+      "status": 200,
+      "finalURL": "https://www.conventionalcommits.org/en/v1.0.0/",
+      "bytes": 21734,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.958Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://getcomposer.org/doc/01-basic-usage.md",
+      "status": 200,
+      "finalURL": "https://getcomposer.org/doc/01-basic-usage.md",
+      "bytes": 21355,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:53.853Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/gitignore",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/gitignore",
+      "bytes": 50365,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.083Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+      "bytes": 203097,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.039Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-branch",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-branch",
+      "bytes": 118387,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.340Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-symbolic-ref",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-symbolic-ref",
+      "bytes": 28629,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.339Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-push",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-push",
+      "bytes": 158404,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.289Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/pull-requests/reference/forks",
+      "bytes": 166003,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.436Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-fetch",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-fetch",
+      "bytes": 165720,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.322Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://refactoring.com/",
+      "status": 200,
+      "finalURL": "https://refactoring.com/",
+      "bytes": 25440,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.554Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html",
+      "bytes": 13373,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.404Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://martinfowler.com/bliki/InversionOfControl.html",
+      "status": 200,
+      "finalURL": "https://martinfowler.com/bliki/InversionOfControl.html",
+      "bytes": 19698,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.557Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-hash-object",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-hash-object",
+      "bytes": 29882,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.337Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-show-ref",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-show-ref",
+      "bytes": 39856,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.325Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-checkout",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-checkout",
+      "bytes": 115058,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.587Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-switch",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-switch",
+      "bytes": 56403,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.762Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-merge",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-merge",
+      "bytes": 142033,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.741Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-rebase",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-rebase",
+      "bytes": 178556,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.775Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-stash",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-stash",
+      "bytes": 89261,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.618Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-cherry-pick",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-cherry-pick",
+      "bytes": 59749,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.616Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-pull",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-pull",
+      "bytes": 174254,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.646Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/pull-requests/reference/pull-requests",
+      "bytes": 153541,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.779Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/pull-requests/reference/pull-request-merges",
+      "bytes": 160253,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.827Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/helping-others-review-your-changes",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/pull-requests/concepts/helping-others-review-your-changes",
+      "bytes": 142922,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:54.984Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/get-started/using-github/github-flow",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/get-started/using-github/github-flow",
+      "bytes": 199779,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.129Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://trunkbaseddevelopment.com/feature-flags/",
+      "status": 200,
+      "finalURL": "https://trunkbaseddevelopment.com/feature-flags/",
+      "bytes": 28517,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.736Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/gitworkflows",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/gitworkflows",
+      "bytes": 50277,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.145Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+      "bytes": 280775,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.118Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-revert",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-revert",
+      "bytes": 48448,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.190Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-reset",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-reset",
+      "bytes": 77147,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.189Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-restore",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-restore",
+      "bytes": 51118,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.140Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-reflog",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-reflog",
+      "bytes": 43960,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.179Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-bisect",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-bisect",
+      "bytes": 72206,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.049Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-log",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-log",
+      "bytes": 375739,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.185Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/githooks",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/githooks",
+      "bytes": 97446,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.794Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/actions/deployment/about-deployments/deploying-with-github-actions",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/control-deployments",
+      "bytes": 382190,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.410Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://github.com/SAP-samples/abap-cheat-sheets",
+      "status": 200,
+      "finalURL": "https://github.com/SAP-samples/abap-cheat-sheets",
+      "bytes": 453019,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.392Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-14.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-14.html",
+      "bytes": 516603,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:22.249Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://de.wikipedia.org/wiki/Programmablaufplan",
+      "status": 200,
+      "finalURL": "https://de.wikipedia.org/wiki/Programmablaufplan",
+      "bytes": 109450,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:20.774Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://de.wikipedia.org/wiki/Nassi-Shneiderman-Diagramm",
+      "status": 200,
+      "finalURL": "https://de.wikipedia.org/wiki/Nassi-Shneiderman-Diagramm",
+      "bytes": 147159,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:19.630Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-15.html",
+      "bytes": 1025337,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.092Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://dev.java/learn/",
+      "status": 200,
+      "finalURL": "https://dev.java/learn/",
+      "bytes": 18372,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.040Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashMap.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/HashMap.html",
+      "bytes": 75737,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.984Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html",
+      "bytes": 51945,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.109Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/index.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/index.html",
+      "bytes": 128511,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:55.952Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html",
+      "bytes": 134942,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.885Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Arrays.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Arrays.html",
+      "bytes": 619309,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.001Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/Connection.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/Connection.html",
+      "bytes": 182046,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.042Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/queries.html",
+      "status": 200,
+      "finalURL": "https://www.postgresql.org/docs/current/queries.html",
+      "bytes": 17417,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.617Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf",
+      "status": 200,
+      "finalURL": "https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf",
+      "bytes": 1009042,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.224Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://kanbanguides.org/english/",
+      "status": 200,
+      "finalURL": "https://kanbanguides.org/the-kanban-guide/2025.5/",
+      "bytes": 44935,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.713Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://refa.de/service/refa-lexikon/pflichtenheft",
+      "status": 200,
+      "finalURL": "https://refa.de/service/refa-lexikon/pflichtenheft",
+      "bytes": 103271,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.242Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.omg.org/spec/UML/2.5.1/PDF",
+      "status": 200,
+      "finalURL": "https://www.omg.org/spec/UML/2.5.1/PDF",
+      "bytes": 17171665,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.239Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://martinfowler.com/articles/practical-test-pyramid.html",
+      "status": 200,
+      "finalURL": "https://martinfowler.com/articles/practical-test-pyramid.html",
+      "bytes": 114127,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.331Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.junit.org/current/user-guide/",
+      "status": 200,
+      "finalURL": "https://docs.junit.org/6.1.3/overview.html",
+      "bytes": 28192,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:38:56.275Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/specs/man/javac.html",
+      "bytes": 106849,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.924Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-4.html",
+      "bytes": 361264,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.976Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-5.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-5.html",
+      "bytes": 252081,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:24.957Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html",
+      "bytes": 219428,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.532Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-8.html",
+      "bytes": 600649,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.453Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html",
+      "bytes": 112981,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.427Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-9.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-9.html",
+      "bytes": 344988,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.452Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/package-summary.html",
+      "bytes": 60318,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.372Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Collectors.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Collectors.html",
+      "bytes": 181596,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.391Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html",
+      "bytes": 53663,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.432Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-2.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jvms/se25/html/jvms-2.html",
+      "bytes": 222277,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.433Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/package-summary.html",
+      "bytes": 64391,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.456Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html",
+      "bytes": 54562,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.410Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html",
+      "bytes": 252182,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.503Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/package-summary.html",
+      "bytes": 29779,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.446Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Files.html",
+      "bytes": 289682,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.485Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/requestbody.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-controller/ann-methods/requestbody.html",
+      "bytes": 115108,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.461Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://martinfowler.com/articles/mocksArentStubs.html",
+      "status": 200,
+      "finalURL": "https://martinfowler.com/articles/mocksArentStubs.html",
+      "bytes": 55285,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.464Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/core/beans/dependencies/factory-collaborators.html",
+      "bytes": 140992,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.476Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html",
+      "status": 200,
+      "finalURL": "https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html",
+      "bytes": 49305,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.476Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.slf4j.org/faq.html",
+      "status": 200,
+      "finalURL": "https://www.slf4j.org/faq.html",
+      "bytes": 76649,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.596Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://semver.org/",
+      "status": 200,
+      "finalURL": "https://semver.org/",
+      "bytes": 30838,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.532Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/PreparedStatement.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.sql/java/sql/PreparedStatement.html",
+      "bytes": 166036,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.792Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html",
+      "bytes": 118371,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.796Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openjdk.org/jeps/358",
+      "status": 200,
+      "finalURL": "https://openjdk.org/jeps/358",
+      "bytes": 33967,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.941Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.jetbrains.com/help/idea/using-breakpoints.html",
+      "status": 200,
+      "finalURL": "https://www.jetbrains.com/help/idea/using-breakpoints.html",
+      "bytes": 81366,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.011Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.jetbrains.com/help/idea/viewing-structure-and-hierarchy-of-the-source-code.html",
+      "status": 200,
+      "finalURL": "https://www.jetbrains.com/help/idea/viewing-structure-and-hierarchy-of-the-source-code.html",
+      "bytes": 28967,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.671Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html",
+      "status": 200,
+      "finalURL": "https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html",
+      "bytes": 35588,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.738Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html",
+      "bytes": 125425,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.670Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Password_Storage_Cheat_Sheet.md",
+      "status": 200,
+      "finalURL": "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Password_Storage_Cheat_Sheet.md",
+      "bytes": 20540,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.791Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/SecureRandom.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/security/SecureRandom.html",
+      "bytes": 81516,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.657Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/actuator/endpoints.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-boot/reference/actuator/endpoints.html",
+      "bytes": 235655,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.967Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/using/using-the-springbootapplication-annotation.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-boot/reference/using/using-the-springbootapplication-annotation.html",
+      "bytes": 91777,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.919Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html",
+      "bytes": 154359,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.674Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/features/external-config.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-boot/reference/features/external-config.html",
+      "bytes": 264002,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.962Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "bytes": 1184898,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.270Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html",
+      "bytes": 125519,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.945Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-data/commons/reference/repositories/query-methods-details.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-data/commons/reference/repositories/query-methods-details.html",
+      "bytes": 79047,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.943Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/annotations.html",
+      "bytes": 151426,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.949Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/rolling-back.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/data-access/transaction/declarative/rolling-back.html",
+      "bytes": 123547,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.399Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/testing/spring-boot-applications.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-boot/reference/testing/spring-boot-applications.html",
+      "bytes": 333214,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.398Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html",
+      "bytes": 141089,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.393Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types",
+      "bytes": 243529,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.569Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+      "bytes": 230562,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.568Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects",
+      "bytes": 226542,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.738Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+      "bytes": 229113,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.556Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+      "bytes": 260043,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.521Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+      "bytes": 183900,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.570Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label",
+      "bytes": 195746,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.621Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vite.dev/guide/env-and-mode",
+      "status": 200,
+      "finalURL": "https://vite.dev/guide/env-and-mode",
+      "bytes": 74613,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.965Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.npmjs.com/cli/v11/commands/npm-ci",
+      "status": 200,
+      "finalURL": "https://docs.npmjs.com/cli/v11/commands/npm-ci/",
+      "bytes": 595865,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.388Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "status": 200,
+      "finalURL": "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html",
+      "bytes": 324595,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.141Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/api/sfc-script-setup.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/api/sfc-script-setup.html",
+      "bytes": 156489,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.947Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/list.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/essentials/list.html",
+      "bytes": 141148,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.960Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/computed.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/essentials/computed.html",
+      "bytes": 127669,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.956Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/watchers.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/essentials/watchers.html",
+      "bytes": 159227,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.964Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/components/props.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/components/props.html",
+      "bytes": 161500,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:08.974Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/components/events.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/components/events.html",
+      "bytes": 117745,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.224Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/reusability/composables.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/reusability/composables.html",
+      "bytes": 142831,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.226Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+      "status": 200,
+      "finalURL": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+      "bytes": 109771,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.893Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://vuejs.org/guide/best-practices/security.html",
+      "status": 200,
+      "finalURL": "https://vuejs.org/guide/best-practices/security.html",
+      "bytes": 109217,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.464Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+      "status": 200,
+      "finalURL": "https://router.vuejs.org/guide/essentials/dynamic-matching.html",
+      "bytes": 68037,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.847Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://pinia.vuejs.org/core-concepts/",
+      "status": 200,
+      "finalURL": "https://pinia.vuejs.org/core-concepts/",
+      "bytes": 87695,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.356Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://playwright.dev/docs/best-practices",
+      "status": 200,
+      "finalURL": "https://playwright.dev/docs/best-practices",
+      "bytes": 126224,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.989Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://test-utils.vuejs.org/guide/essentials/event-handling.html",
+      "status": 200,
+      "finalURL": "https://test-utils.vuejs.org/guide/essentials/event-handling.html",
+      "bytes": 71111,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.045Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://router.vuejs.org/guide/essentials/history-mode.html",
+      "status": 200,
+      "finalURL": "https://router.vuejs.org/guide/essentials/history-mode.html",
+      "bytes": 79064,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.197Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/If-Match",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/If-Match",
+      "bytes": 214700,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.522Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements",
+      "bytes": 232625,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.524Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input",
+      "bytes": 309313,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:09.486Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table",
+      "bytes": 247819,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.482Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascade/Cascade",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Introduction",
+      "bytes": 354399,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:11.428Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/box-sizing",
+      "bytes": 335086,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.597Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible",
+      "bytes": 331568,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.623Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/Guides/Understanding_WCAG/Perceivable/Color_contrast",
+      "bytes": 170844,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.459Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
+      "bytes": 214053,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.479Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts",
+      "bytes": 359122,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:10.620Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Basic_concepts",
+      "bytes": 364312,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:11.268Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion",
+      "bytes": 330203,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:11.326Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/server-usage/backup-and-restore/backup-and-restore-overview",
+      "bytes": 2020978,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:11.692Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/sql-statements/account-management-sql-statements/grant",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/account-management-sql-statements/grant",
+      "bytes": 3449052,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.233Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/data-definition/constraint",
+      "bytes": 2124465,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.416Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/connectors/mariadb-connector-nodejs/connector-nodejs-promise-api",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/connectors/mariadb-connector-nodejs/connector-nodejs-promise-api",
+      "bytes": 2725245,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.113Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/decimal",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/data-types/numeric-data-types/decimal",
+      "bytes": 2054393,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.492Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select",
+      "bytes": 2265633,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.335Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/sql-statements/transactions/start-transaction",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/transactions/start-transaction",
+      "bytes": 2038312,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.479Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/for-update",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/for-update",
+      "bytes": 1915168,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.401Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/analyze-and-explain-statements/explain",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/analyze-and-explain-statements/explain",
+      "bytes": 2446206,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.533Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimization-and-indexes",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/ha-and-performance/optimization-and-tuning/optimization-and-indexes",
+      "bytes": 1863200,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.351Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://mariadb.com/docs/server/server-usage/backup-and-restore/replication-as-a-backup-solution",
+      "status": 200,
+      "finalURL": "https://mariadb.com/docs/server/server-usage/backup-and-restore/replication-as-a-backup-solution",
+      "bytes": 1919664,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:12.321Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+      "bytes": 166754,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.208Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+      "bytes": 157371,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.209Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods",
+      "bytes": 214117,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.168Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "status": 200,
+      "finalURL": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+      "bytes": 82528,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.482Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://graphql.org/learn/performance/",
+      "status": 200,
+      "finalURL": "https://graphql.org/learn/performance/",
+      "bytes": 68291,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.337Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://graphql.org/learn/security/",
+      "status": 200,
+      "finalURL": "https://graphql.org/learn/security/",
+      "bytes": 90956,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.322Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html",
+      "status": 200,
+      "finalURL": "https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html",
+      "bytes": 764180,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.349Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.w3.org/TR/soap12-part1/",
+      "status": 200,
+      "finalURL": "https://www.w3.org/TR/soap12-part1/",
+      "bytes": 166492,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.250Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+      "status": 200,
+      "finalURL": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+      "bytes": 163267,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.216Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks",
+      "status": 200,
+      "finalURL": "https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks",
+      "bytes": 100789,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.321Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://spec.openapis.org/oas/latest.html",
+      "status": 200,
+      "finalURL": "https://spec.openapis.org/oas/latest.html",
+      "bytes": 677846,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.819Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/architecture",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/architecture",
+      "bytes": 153647,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.798Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports",
+      "bytes": 152354,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.643Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/lifecycle",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning",
+      "bytes": 191244,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.000Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "bytes": 522717,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.810Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+      "bytes": 269988,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.802Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/security_best_practices",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices",
+      "bytes": 315437,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.027Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/stdio",
+      "status": 200,
+      "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/stdio",
+      "bytes": 164296,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.815Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://platform.openai.com/docs/guides/agent-builder-safety",
+      "status": 200,
+      "finalURL": "https://developers.openai.com/api/docs/guides/agent-builder-safety",
+      "bytes": 395786,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.920Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/security",
+      "status": 200,
+      "finalURL": "https://code.claude.com/docs/en/security",
+      "bytes": 271619,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:13.820Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "status": 200,
+      "finalURL": "https://code.claude.com/docs/en/common-workflows",
+      "bytes": 596084,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.145Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://git-scm.com/docs/git-worktree",
+      "status": 200,
+      "finalURL": "https://git-scm.com/docs/git-worktree",
+      "bytes": 98847,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.110Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/dads/HTML/deterministicAlgorithm.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/deterministicAlgorithm.html",
+      "bytes": 3894,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.847Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.python.org/3/reference/expressions.html",
+      "status": 200,
+      "finalURL": "https://docs.python.org/3/reference/expressions.html",
+      "bytes": 273625,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.209Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/dads/HTML/linearSearch.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/linearSearch.html",
+      "bytes": 4324,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.715Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/dads/HTML/bubblesort.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/bubblesort.html",
+      "bytes": 6209,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.762Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/dads/HTML/mergesort.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/mergesort.html",
+      "bytes": 7119,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.723Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/sql-grant.html",
+      "status": 200,
+      "finalURL": "https://www.postgresql.org/docs/current/sql-grant.html",
+      "bytes": 37198,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:25.580Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+      "status": 200,
+      "finalURL": "https://www.iana.org/assignments/service-names-port-numbers",
+      "bytes": 63301,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:15.083Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc1918.html",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc1918.html",
+      "bytes": 24972,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:14.279Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc1035.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc1035.txt",
+      "bytes": 122549,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.497Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc4301.txt",
+      "status": 200,
+      "finalURL": "https://www.rfc-editor.org/rfc/rfc4301.txt",
+      "bytes": 262123,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.512Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__443.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__443.html",
+      "bytes": 4509,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.487Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/bgb/__438.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/bgb/__438.html",
+      "bytes": 5870,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.494Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://openstax.org/books/principles-managerial-accounting/pages/12-3-evaluate-an-operating-segment-or-a-project-using-return-on-investment-residual-income-and-economic-value-added",
+      "status": 200,
+      "finalURL": "https://openstax.org/books/principles-managerial-accounting/pages/12-3-evaluate-an-operating-segment-or-a-project-using-return-on-investment-residual-income-and-economic-value-added",
+      "bytes": 317935,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.827Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gesetze-im-internet.de/betrvg/__87.html",
+      "status": 200,
+      "finalURL": "https://www.gesetze-im-internet.de/betrvg/__87.html",
+      "bytes": 7304,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.547Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html#jvms-2.5.3",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jvms/se21/html/jvms-2.html",
+      "bytes": 222113,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.429Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://xlinux.nist.gov/dads/HTML/binarySearch.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/binarySearch.html",
+      "bytes": 5784,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:26.324Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-6.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/javase/specs/jls/se25/html/jls-6.html",
+      "bytes": 376694,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:26.023Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/LinkedHashSet.html",
+      "status": 200,
+      "finalURL": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/LinkedHashSet.html",
+      "bytes": 47616,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:26.042Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-framework/reference/core/beans/classpath-scanning.html",
+      "bytes": 167044,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:40:26.001Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-data/jpa/reference/repositories/projections.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-data/jpa/reference/repositories/projections.html",
+      "bytes": 60886,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:24.492Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html",
+      "status": 200,
+      "finalURL": "https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html",
+      "bytes": 148310,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:39:07.795Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://uefi.org/specifications",
+      "status": 403,
+      "finalURL": "https://uefi.org/specifications",
+      "bytes": 5455,
+      "reachable": false,
+      "checkedAt": "2026-11-08T18:46:44.146Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.iso.org/quality-management",
+      "status": 403,
+      "finalURL": "https://www.iso.org/quality-management",
+      "bytes": 5509,
+      "reachable": false,
+      "checkedAt": "2026-11-08T18:46:44.150Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://platform.openai.com/tokenizer",
+      "status": 403,
+      "finalURL": "https://platform.openai.com/tokenizer",
+      "bytes": 9811,
+      "reachable": false,
+      "checkedAt": "2026-11-08T18:46:44.151Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.pmi.org/learning/library/critical-path-scheduling-work-breakdown-6212",
+      "status": 403,
+      "finalURL": "https://www.pmi.org/learning/library/critical-path-scheduling-work-breakdown-6212",
+      "bytes": 19815,
+      "reachable": false,
+      "checkedAt": "2026-11-08T18:46:44.153Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.pmi.org/learning/library/five-keys-accurate-project-estimating-6927",
+      "status": 403,
+      "finalURL": "https://www.pmi.org/learning/library/five-keys-accurate-project-estimating-6927",
+      "bytes": 19815,
+      "reachable": false,
+      "checkedAt": "2026-11-08T18:46:44.153Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.nist.gov/dads/HTML/binarySearch.html",
+      "status": 200,
+      "finalURL": "https://xlinux.nist.gov/dads/HTML/binarySearch.html",
+      "bytes": 5784,
+      "reachable": true,
+      "checkedAt": "2026-11-08T18:46:44.858Z",
+      "contentReviewed": false
+    },
+    {
+      "url": "https://www.gnu.org/licenses/gpl-faq.html",
+      "reachable": false,
+      "error": "fetch failed",
+      "checkedAt": "2026-11-08T18:46:54.457Z",
+      "contentReviewed": false
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+async function rpRequestReset(event){event.preventDefault();var form=event.currentTarget,status=document.getElementById('rpRecoveryStatus'),button=form.querySelector('button');button.disabled=true;try{var result=await rpAPI('/api/password/request','POST',{email:new FormData(form).get('email')});status.textContent=result.message;}catch(error){status.textContent=error.message;}finally{button.disabled=false;}}
+async function rpFinishReset(event){event.preventDefault();var form=event.currentTarget,fields=Object.fromEntries(new FormData(form)),status=document.getElementById('rpRecoveryStatus');if(fields.password!==fields.confirm){status.textContent='Passwörter stimmen nicht überein.';return;}var button=form.querySelector('button');button.disabled=true;try{var result=await rpAPI('/api/password/reset','POST',{token:rpRecoveryToken,password:fields.password});rpRecoveryToken=null;form.remove();status.textContent=result.message;}catch(error){status.textContent=error.message;button.disabled=false;}}
+async function rpDeleteAccount(event){event.preventDefault();var form=event.currentTarget,fields=Object.fromEntries(new FormData(form)),status=document.getElementById('rpDeletionStatus'),button=form.querySelector('button');button.disabled=true;
+ try{
+  rpSyncReady=false;clearTimeout(rpSyncTimer);
+  // A deletion request supersedes unsent changes; do not upload them afterwards.
+  var result=await rpAPI('/api/account/delete','POST',fields);
+  localStorage.removeItem(STORAGE_KEY);sessionStorage.removeItem('rp-login-request');rpAccount=null;rpSyncAgain=false;rpAccountBar();
+  sessionStorage.setItem('rp-account-deleted',result.message);location.replace('/');
+ }catch(error){rpSyncReady=!!rpAccount;status.textContent=error.message;button.disabled=false;}
+}
+var rpRecoveryToken=new URLSearchParams(location.hash.slice(1)).get('reset');
+if(rpRecoveryToken){history.replaceState(null,'',location.pathname+location.search);state.currentId='reset-password';}
+(function(){
+ var base=renderContent;renderContent=function(){
+  if(['forgot-password','reset-password','delete-account'].includes(state.currentId)){
+   var reset=state.currentId==='reset-password',deletion=state.currentId==='delete-account';
+   if(deletion){document.getElementById('content').innerHTML='<h1>Konto und Lernstand löschen</h1><p>Diese Aktion löscht Konto,Sitzungen und zugehörigen aktiven Serverlernstand einschließlich Einreichungen und Fragenhinweisen. Sichere gewünschte Daten vorher. Bereits heruntergeladene Exporte,Backups,Mailzustellung und andere Geräte werden nicht automatisch gelöscht. Der letzte Admin bleibt vor versehentlichem Aussperren geschützt.</p><form class="callout" id="rpDeleteForm"><label for="delete-password">Aktuelles Passwort</label><input class="sb-input" id="delete-password" type="password" name="password" required autocomplete="current-password" maxlength="200"><label for="delete-confirmation">Tippe KONTO LÖSCHEN</label><input class="sb-input" id="delete-confirmation" name="confirmation" required autocomplete="off"><button class="check-btn">Konto unwiderruflich aus aktivem System löschen</button></form><p id="rpDeletionStatus" role="alert"></p>';document.getElementById('rpDeleteForm').addEventListener('submit',rpDeleteAccount);return;}
+   document.getElementById('content').innerHTML='<h1>'+(reset?'Neues Passwort setzen':'Passwort vergessen')+'</h1><p>'+(reset?'Der Link ist einmalig und 15 Minuten gültig. Nach Änderung ist eine neue Anmeldung nötig.':'Die Antwort verrät nicht,ob ein Konto existiert. Ohne eingerichteten Maildienst wird keine E-Mail versendet. Ein lokaler Vorschaumodus ist nur für Entwickler vorgesehen.')+'</p><form id="rpRecoveryForm" class="callout">'+(reset?'<label for="reset-password">Neues Passwort</label><input class="sb-input" id="reset-password" type="password" name="password" required minlength="12" maxlength="200" autocomplete="new-password"><label for="reset-confirm">Passwort wiederholen</label><input class="sb-input" id="reset-confirm" type="password" name="confirm" required minlength="12" maxlength="200" autocomplete="new-password">':'<label for="reset-email">E-Mail</label><input class="sb-input" id="reset-email" name="email" type="email" required maxlength="254" autocomplete="username">')+'<button class="start-btn">'+(reset?'Passwort setzen':'Reset-Link anfordern')+'</button></form><p role="status" id="rpRecoveryStatus"></p>';
+   document.getElementById('rpRecoveryForm').addEventListener('submit',reset?rpFinishReset:rpRequestReset);return;
+  }
+  base.apply(this,arguments);
+  if(state.currentId==='account'&&!document.getElementById('rpForgotButton')){var b=document.createElement('button');b.type='button';b.id='rpForgotButton';b.className='ex-btn';b.textContent='Passwort vergessen';b.onclick=function(){selectLesson('forgot-password');};document.getElementById('content').appendChild(b);}
+  if(state.currentId==='account-settings'&&rpAccount)document.getElementById('content').insertAdjacentHTML('beforeend','<section class="callout"><h2>Konto und Daten löschen</h2><p>Vorher gegebenenfalls exportieren. Löschung ist keine forensische Bereinigung externer Kopien oder Backups.</p><button class="ex-btn" onclick="selectLesson(\'delete-account\')">Löschvorgang öffnen</button></section>');
+ };
+ if(rpRecoveryToken)renderContent();
+ var deleted=sessionStorage.getItem('rp-account-deleted');if(deleted){sessionStorage.removeItem('rp-account-deleted');var notice=document.createElement('p');notice.setAttribute('role','status');notice.textContent=deleted+' Lokaler Kontolernstand entfernt; andere Geräte und Downloads separat löschen.';document.getElementById('content').before(notice);}
+})();

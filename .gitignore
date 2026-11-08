@@ -11,3 +11,10 @@ __pycache__/
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
+vendor/
+content/examples/laravel-lab/bootstrap/cache/*.php
+content/examples/laravel-lab/storage/logs/*
+content/examples/laravel-lab/storage/framework/views/*.php
+content/examples/laravel-lab/.phpunit.result.cache
+content/examples/vue-lab/dist/
+content/quality/.runtime/

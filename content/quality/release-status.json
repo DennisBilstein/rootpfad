@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-11-08T20:14:20.624Z",
+  "modules": 116,
+  "lessons": 462,
+  "lessonQuestions": 1253,
+  "extraCards": 306,
+  "totalCards": 1559,
+  "allQuestionContentRevised": true,
+  "independentHumanFactualReview": false,
+  "questionSources": 455,
+  "technicallyReachableSources": 449,
+  "unresolvedAutomaticSourceFetches": 6,
+  "styleWarnings": 0,
+  "manualModuleAssignments": 116,
+  "draftModuleRubrics": 0,
+  "parallelTaskFamilies": 3,
+  "parallelTaskVariants": 6,
+  "labChecks": [
+    {
+      "name": "laravel-tests",
+      "passed": true
+    },
+    {
+      "name": "vue-tests",
+      "passed": true
+    },
+    {
+      "name": "vue-build",
+      "passed": true
+    },
+    {
+      "name": "vue-audit",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "pendingSourceFetches": 0,
+  "individuallyAuthoredModuleAssignments": 116
+}

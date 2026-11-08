@@ -1,0 +1,32 @@
+[
+  {
+    "name": "ap1a",
+    "expected": 312,
+    "integrated": 312
+  },
+  {
+    "name": "ap1b",
+    "expected": 396,
+    "integrated": 396
+  },
+  {
+    "name": "php",
+    "expected": 216,
+    "integrated": 216
+  },
+  {
+    "name": "abap",
+    "expected": 207,
+    "integrated": 207
+  },
+  {
+    "name": "java",
+    "expected": 209,
+    "integrated": 209
+  },
+  {
+    "name": "web",
+    "expected": 153,
+    "integrated": 153
+  }
+]

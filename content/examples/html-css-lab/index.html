@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lernjournal · HTML/CSS-Labor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <header class="navigation"><strong>Mein Lernjournal</strong><nav aria-label="Hauptnavigation"><a href="#entries">Einträge</a><a href="#feedback">Feedback-Demo</a></nav></header>
+  <main id="main" tabindex="-1">
+    <h1>Jeden Tag einen Schritt verstehen</h1>
+    <p>Ein eigenes HTML-/CSS-Lernprojekt ohne Framework, Skripte oder Backend.</p>
+    <section id="entries" aria-labelledby="entries-title">
+      <h2 id="entries-title">Meine Lernwoche</h2>
+      <div class="cards">
+        <article class="card"><h3>HTML strukturieren</h3><p>Überschriften beschreiben die Gliederung, nicht die Schriftgröße.</p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML bei MDN vertiefen</a></article>
+        <article class="card"><h3>CSS verstehen</h3><p>Boxmodell und Kaskade prüfen statt zufällige Werte ändern.</p></article>
+        <article class="card"><h3>Layout testen</h3><p>Lange Wörter, schmale Fenster und Tastaturbedienung gehören zur Abnahme.</p></article>
+      </div>
+    </section>
+    <section id="feedback" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Feedbackformular als lokale Demo</h2>
+      <p id="demo-note">Hier wird nichts versendet. Ein Backend ist bewusst nicht implementiert. Keine persönlichen Daten eingeben.</p>
+      <form aria-describedby="demo-note">
+        <label for="name">Testname</label><input id="name" name="name" autocomplete="off" required maxlength="80">
+        <label for="message">Testnachricht</label><textarea id="message" name="message" required maxlength="500"></textarea>
+        <button type="button">Demo – kein Versand</button>
+      </form>
+    </section>
+  </main>
+  <footer><p>Eigenes Übungsprojekt für ROOTPFAD. Keine automatische WCAG-Zertifizierung.</p></footer>
+</body>
+</html>

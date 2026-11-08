@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-06T22:01:47.953Z",
+  "passed": true,
+  "flow": [
+    "add",
+    "toggle",
+    "filter",
+    "route",
+    "direct-reload",
+    "demo-api"
+  ],
+  "errors": []
+}

@@ -1,0 +1,706 @@
+[
+  {
+    "url": "https://www.php.net/manual/en/security.errors.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/security.errors.php",
+    "bytes": 43246,
+    "checkedAt": "2026-11-06T21:57:02.941Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/features.commandline.options.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/features.commandline.options.php",
+    "bytes": 61968,
+    "checkedAt": "2026-11-06T21:57:02.958Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/features.commandline.webserver.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/features.commandline.webserver.php",
+    "bytes": 58875,
+    "checkedAt": "2026-11-06T21:57:02.958Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/function.echo.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/function.echo.php",
+    "bytes": 74398,
+    "checkedAt": "2026-11-06T21:57:02.959Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.types.declarations.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.types.declarations.php",
+    "bytes": 87801,
+    "checkedAt": "2026-11-06T21:57:02.960Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.types.string.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.types.string.php",
+    "bytes": 134286,
+    "checkedAt": "2026-11-06T21:57:02.965Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/function.htmlspecialchars.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/function.htmlspecialchars.php",
+    "bytes": 122780,
+    "checkedAt": "2026-11-06T21:57:02.969Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/install.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/install.php",
+    "bytes": 38331,
+    "checkedAt": "2026-11-06T21:57:03.006Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.types.boolean.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.types.boolean.php",
+    "bytes": 72377,
+    "checkedAt": "2026-11-06T21:57:03.080Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.control-structures.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.control-structures.php",
+    "bytes": 38862,
+    "checkedAt": "2026-11-06T21:57:03.086Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.types.array.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.types.array.php",
+    "bytes": 154249,
+    "checkedAt": "2026-11-06T21:57:03.088Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/features.commandline.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/features.commandline.php",
+    "bytes": 112157,
+    "checkedAt": "2026-11-06T21:57:03.090Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/array.sorting.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/array.sorting.php",
+    "bytes": 42960,
+    "checkedAt": "2026-11-06T21:57:03.111Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/functions.anonymous.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/functions.anonymous.php",
+    "bytes": 126972,
+    "checkedAt": "2026-11-06T21:57:03.112Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.types.float.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.types.float.php",
+    "bytes": 65465,
+    "checkedAt": "2026-11-06T21:57:03.113Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/function.sprintf.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/function.sprintf.php",
+    "bytes": 175617,
+    "checkedAt": "2026-11-06T21:57:03.161Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/ref.strings.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/ref.strings.php",
+    "bytes": 46754,
+    "checkedAt": "2026-11-06T21:57:03.233Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/session.security.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/session.security.php",
+    "bytes": 35551,
+    "checkedAt": "2026-11-06T21:57:03.245Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/ref.filesystem.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/ref.filesystem.php",
+    "bytes": 42777,
+    "checkedAt": "2026-11-06T21:57:03.253Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/book.curl.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/book.curl.php",
+    "bytes": 88072,
+    "checkedAt": "2026-11-06T21:57:03.254Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/class.datetimeimmutable.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/class.datetimeimmutable.php",
+    "bytes": 65644,
+    "checkedAt": "2026-11-06T21:57:03.254Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/function.json-decode.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/function.json-decode.php",
+    "bytes": 70104,
+    "checkedAt": "2026-11-06T21:57:03.261Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.error-handling.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.error-handling.php",
+    "bytes": 38633,
+    "checkedAt": "2026-11-06T21:57:03.265Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/pdo.prepared-statements.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/pdo.prepared-statements.php",
+    "bytes": 60722,
+    "checkedAt": "2026-11-06T21:57:03.265Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.oop5.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.oop5.php",
+    "bytes": 38928,
+    "checkedAt": "2026-11-06T21:57:03.343Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.enumerations.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.enumerations.php",
+    "bytes": 38157,
+    "checkedAt": "2026-11-06T21:57:03.348Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.generators.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.generators.php",
+    "bytes": 37229,
+    "checkedAt": "2026-11-06T21:57:03.349Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/migration85.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/migration85.php",
+    "bytes": 40823,
+    "checkedAt": "2026-11-06T21:57:03.349Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.namespaces.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.namespaces.php",
+    "bytes": 52555,
+    "checkedAt": "2026-11-06T21:57:03.349Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.oop5.interfaces.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.oop5.interfaces.php",
+    "bytes": 72691,
+    "checkedAt": "2026-11-06T21:57:03.398Z",
+    "verified": true
+  },
+  {
+    "url": "https://getcomposer.org/doc/01-basic-usage.md",
+    "status": 200,
+    "finalURL": "https://getcomposer.org/doc/01-basic-usage.md",
+    "bytes": 21355,
+    "checkedAt": "2026-11-06T21:57:03.415Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php-fig.org/psr/psr-4/",
+    "status": 200,
+    "finalURL": "https://www.php-fig.org/psr/psr-4/",
+    "bytes": 12750,
+    "checkedAt": "2026-11-06T21:57:03.679Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.php.net/manual/en/language.oop5.decon.php",
+    "status": 200,
+    "finalURL": "https://www.php.net/manual/en/language.oop5.decon.php",
+    "bytes": 110226,
+    "checkedAt": "2026-11-06T21:57:03.751Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/lifecycle",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/lifecycle",
+    "bytes": 97466,
+    "checkedAt": "2026-11-06T21:57:04.169Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/middleware",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/middleware",
+    "bytes": 358831,
+    "checkedAt": "2026-11-06T21:57:04.179Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/installation",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/installation",
+    "bytes": 185726,
+    "checkedAt": "2026-11-06T21:57:04.268Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/blade",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/blade",
+    "bytes": 1109553,
+    "checkedAt": "2026-11-06T21:57:04.634Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/migrations",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/migrations",
+    "bytes": 674350,
+    "checkedAt": "2026-11-06T21:57:05.159Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/eloquent",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/eloquent",
+    "bytes": 1150384,
+    "checkedAt": "2026-11-06T21:57:06.316Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/authorization",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/authorization",
+    "bytes": 563442,
+    "checkedAt": "2026-11-06T21:57:06.584Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/filesystem",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/filesystem",
+    "bytes": 618102,
+    "checkedAt": "2026-11-06T21:57:06.891Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/authentication",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/authentication",
+    "bytes": 508657,
+    "checkedAt": "2026-11-06T21:57:06.977Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/vite",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/vite",
+    "bytes": 683209,
+    "checkedAt": "2026-11-06T21:57:07.049Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/mail",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/mail",
+    "bytes": 1046047,
+    "checkedAt": "2026-11-06T21:57:07.067Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/notifications",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/notifications",
+    "bytes": 1219607,
+    "checkedAt": "2026-11-06T21:57:07.099Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/eloquent-relationships",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-relationships",
+    "bytes": 1533478,
+    "checkedAt": "2026-11-06T21:57:07.174Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/validation",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/validation",
+    "bytes": 1555590,
+    "checkedAt": "2026-11-06T21:57:07.197Z",
+    "verified": true
+  },
+  {
+    "url": "https://livewire.laravel.com/docs/4.x/components",
+    "status": 200,
+    "finalURL": "https://livewire.laravel.com/docs/4.x/components",
+    "bytes": 286803,
+    "checkedAt": "2026-11-06T21:57:07.209Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/rate-limiting",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/rate-limiting",
+    "bytes": 159991,
+    "checkedAt": "2026-11-06T21:57:07.416Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/providers",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/providers",
+    "bytes": 189184,
+    "checkedAt": "2026-11-06T21:57:07.430Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/eloquent-mutators",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-mutators",
+    "bytes": 711689,
+    "checkedAt": "2026-11-06T21:57:07.494Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/sanctum",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/sanctum",
+    "bytes": 347581,
+    "checkedAt": "2026-11-06T21:57:07.514Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/container",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/container",
+    "bytes": 529635,
+    "checkedAt": "2026-11-06T21:57:07.546Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/queries",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/queries",
+    "bytes": 1215261,
+    "checkedAt": "2026-11-06T21:57:07.572Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/eloquent-resources",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/eloquent-resources",
+    "bytes": 829092,
+    "checkedAt": "2026-11-06T21:57:07.578Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/events",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/events",
+    "bytes": 810011,
+    "checkedAt": "2026-11-06T21:57:07.810Z",
+    "verified": true
+  },
+  {
+    "url": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+    "status": 200,
+    "finalURL": "https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html",
+    "bytes": 98202,
+    "checkedAt": "2026-11-06T21:57:07.927Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/database",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/database",
+    "bytes": 387481,
+    "checkedAt": "2026-11-06T21:57:08.059Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/scheduling",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/scheduling",
+    "bytes": 384577,
+    "checkedAt": "2026-11-06T21:57:08.083Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/cache",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/cache",
+    "bytes": 506440,
+    "checkedAt": "2026-11-06T21:57:08.091Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/scout",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/scout",
+    "bytes": 755946,
+    "checkedAt": "2026-11-06T21:57:08.123Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/http-client",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/http-client",
+    "bytes": 694880,
+    "checkedAt": "2026-11-06T21:57:08.145Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/broadcasting",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/broadcasting",
+    "bytes": 1259824,
+    "checkedAt": "2026-11-06T21:57:08.203Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/queues",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/queues",
+    "bytes": 1997215,
+    "checkedAt": "2026-11-06T21:57:08.316Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling",
+    "bytes": 216277,
+    "checkedAt": "2026-11-06T21:57:08.393Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration",
+    "bytes": 216508,
+    "checkedAt": "2026-11-06T21:57:08.397Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types",
+    "bytes": 243531,
+    "checkedAt": "2026-11-06T21:57:08.401Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/deployment",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/deployment",
+    "bytes": 158626,
+    "checkedAt": "2026-11-06T21:57:08.538Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/mocking",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/mocking",
+    "bytes": 277947,
+    "checkedAt": "2026-11-06T21:57:08.543Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/testing",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/testing",
+    "bytes": 208207,
+    "checkedAt": "2026-11-06T21:57:08.550Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/pint",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/pint",
+    "bytes": 184433,
+    "checkedAt": "2026-11-06T21:57:08.551Z",
+    "verified": true
+  },
+  {
+    "url": "https://laravel.com/framework/docs/13.x/logging",
+    "status": 200,
+    "finalURL": "https://laravel.com/framework/docs/13.x/logging",
+    "bytes": 392240,
+    "checkedAt": "2026-11-06T21:57:08.561Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions",
+    "bytes": 230562,
+    "checkedAt": "2026-11-06T21:57:08.589Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects",
+    "bytes": 226540,
+    "checkedAt": "2026-11-06T21:57:08.590Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises",
+    "bytes": 229111,
+    "checkedAt": "2026-11-06T21:57:08.591Z",
+    "verified": true
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+    "bytes": 183898,
+    "checkedAt": "2026-11-06T21:57:08.685Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/introduction.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/introduction.html",
+    "bytes": 114092,
+    "checkedAt": "2026-11-06T21:57:08.687Z",
+    "verified": true
+  },
+  {
+    "url": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+    "status": 200,
+    "finalURL": "https://www.typescriptlang.org/docs/handbook/2/narrowing.html",
+    "bytes": 335618,
+    "checkedAt": "2026-11-06T21:57:08.692Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/api/sfc-script-setup.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/api/sfc-script-setup.html",
+    "bytes": 156489,
+    "checkedAt": "2026-11-06T21:57:08.808Z",
+    "verified": true
+  },
+  {
+    "url": "https://vite.dev/guide/",
+    "status": 200,
+    "finalURL": "https://vite.dev/guide/",
+    "bytes": 89766,
+    "checkedAt": "2026-11-06T21:57:08.835Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/components/props.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/components/props.html",
+    "bytes": 161500,
+    "checkedAt": "2026-11-06T21:57:08.862Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+    "bytes": 153500,
+    "checkedAt": "2026-11-06T21:57:08.864Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/reusability/composables.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/reusability/composables.html",
+    "bytes": 142831,
+    "checkedAt": "2026-11-06T21:57:08.945Z",
+    "verified": true
+  },
+  {
+    "url": "https://pinia.vuejs.org/core-concepts/",
+    "status": 200,
+    "finalURL": "https://pinia.vuejs.org/core-concepts/",
+    "bytes": 87695,
+    "checkedAt": "2026-11-06T21:57:08.967Z",
+    "verified": true
+  },
+  {
+    "url": "https://router.vuejs.org/guide/",
+    "status": 200,
+    "finalURL": "https://router.vuejs.org/guide/",
+    "bytes": 71449,
+    "checkedAt": "2026-11-06T21:57:09.074Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/best-practices/security.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/best-practices/security.html",
+    "bytes": 109217,
+    "checkedAt": "2026-11-06T21:57:09.177Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/scaling-up/tooling.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/scaling-up/tooling.html",
+    "bytes": 106573,
+    "checkedAt": "2026-11-06T21:57:09.178Z",
+    "verified": true
+  },
+  {
+    "url": "https://vuejs.org/guide/scaling-up/testing.html",
+    "status": 200,
+    "finalURL": "https://vuejs.org/guide/scaling-up/testing.html",
+    "bytes": 140510,
+    "checkedAt": "2026-11-06T21:57:09.179Z",
+    "verified": true
+  }
+]

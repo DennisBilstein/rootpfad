@@ -44,11 +44,12 @@ test('Expertenpfade sind vollständig, eindeutig und im Training verfügbar', as
     await expect(page.locator(`input[name="rq_${id}_0"]`).first()).toBeAttached();
     const correct = await page.evaluate(id => lessonById(id).quiz.map(q => q.correct), id);
     for (let i = 0; i < correct.length; i++) {
+      await page.evaluate(({id,i})=>rpQuizReveal(id,i),{id,i});
       await page.locator(`input[name="rq_${id}_${i}"][value="${correct[i]}"]`).check();
     }
     await page.evaluate(id => checkQuiz(id), id);
     await expect(page.locator('.qfeedback.correct')).toHaveCount(correct.length);
-    expect(await page.evaluate(id => !!state.srs[id + '#0'], id)).toBe(true);
+    expect(await page.evaluate(id => !!state.srs[rpQuestionId(lessonById(id),0)], id)).toBe(true);
   }
   await page.evaluate(() => selectLesson('exercises'));
   await expect(page.locator('main')).toContainText('ABAP · Summe aller geraden Zahlen');

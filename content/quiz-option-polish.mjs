@@ -1,0 +1,27 @@
+// Shorten the actual answer, move nuance to explanation. Index semantics unchanged.
+export const correctOptionText={
+ 'm1-l2#0':'Kopfgesteuert nullmal, fußgesteuert einmal.',
+ 'm1-l4#0':'Mit fünf und null Elementen die obere Zugriffsgrenze prüfen.',
+ 'm3-l1#1':'Zehn Halbierungen; Vergleichszahl hängt von Variante und Fall ab.',
+ 'm6-l2#0':'Partielle Schlüsselabhängigkeit: 2NF verletzt.',
+ 'm6-l3#0':'Der Kaufpreis ist ein historischer Positionsfakt.',
+ 'm6-l3#1':'Queries und Konsistenzkosten vor Denormalisierung messen.',
+ 'm7-l2#0':'SUM(quantity) liefert die Stückzahl 20.',
+ 'm31-l2#1':'MAC gilt je Link; IP-Ziel bleibt ohne NAT der entfernte Host.',
+ 'm31-l5#1':'Betriebssysteme können andere Ephemeral-Ranges konfigurieren.',
+ 'm11-l4#0':'DNS gezielt prüfen; ein Ping beweist keine Anwendungserreichbarkeit.',
+ 'm12-l6#1':'Im unterstützten /31-Fall sind beide Adressen Endpunkte.',
+ 'm15-l1#0':'RAID schützt nicht gegen jede logische Löschung; Backup nötig.',
+ 'm15-l1#1':'Ohne vertrauenswürdige Referenz kein Herkunftsnachweis.',
+ 'm48-l2#0':'Nein; tokenCan ersetzt keine Ownership-Policy.',
+ 'm59-l2#0':'Signierte Frist prüfen und Ereignis-ID dauerhaft deduplizieren.',
+ 'm50-l1#0':'Dauerhafte Deduplizierung plus idempotenter Anbieterauftrag.',
+ 'abap-m7-l1#0':'Den geänderten Zustand desselben referenzierten Objekts.',
+ 'java-m7-l1#1':'Klassische Form; weitere Einstiege sind versionsabhängig möglich.',
+ 'js-m1-l9#0':'Nur defineProps erhält hier eine spezielle Compilerbehandlung.',
+ 'html-m1-l4#0':'Format,Grenzen und Rechte serverseitig selbst prüfen.',
+ 'mariadb-m1-l4#0':'Atomare Bedingung oder kurze geprüfte Sperrtransaktion.',
+ 'api-m1-l2#0':'Ohne atomare If-Match-Prüfung besteht kein solcher Schutz.',
+ 'agents-m1-l3#0':'Dateien,A/B-Reproduktion,Fix und echte Testbelege.',
+ 'agents-m1-l5#0':'Anforderung und entfernte Sicherheitsassertion reviewen.'
+};

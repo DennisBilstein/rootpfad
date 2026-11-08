@@ -5,17 +5,22 @@
   "description": "ROOTPFAD – lokale Lernplattform aus dem HTML-Original",
   "scripts": {
     "test": "playwright test",
+    "test:labs": "node scripts/run-learning-checks.mjs",
+    "audit:learning": "node scripts/validate-learning-release.mjs",
     "build:experts": "node scripts/build-experts.mjs",
     "build": "node scripts/build-experts.mjs --cached",
     "dev": "node server.mjs",
     "start": "node server.mjs"
   },
   "devDependencies": {
-    "@playwright/test": "^1.65.0"
+    "@playwright/test": "^1.65.0",
+    "acorn": "^8.19.0"
   },
   "dependencies": {
     "better-sqlite3": "^13.0.3",
+    "compression": "^1.8.2",
     "express": "^5.3.0",
-    "express-rate-limit": "^8.7.3"
+    "express-rate-limit": "^8.7.3",
+    "nodemailer": "^10.4.0"
   }
 }

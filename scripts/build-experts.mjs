@@ -49,6 +49,11 @@ if (fs.existsSync(supplementFile)) {
 const target = path.join(root, 'assets/script-01.js');
 let script = fs.readFileSync(target, 'utf8');
 script = script.replace(/\n\/\* LESSON-REFINEMENTS:START \*\/[\s\S]*?\/\* LESSON-REFINEMENTS:END \*\/\n/g,'');
+script = script.replace(/\n\/\* QUIZ-TRANSFER:START \*\/[\s\S]*?\/\* QUIZ-TRANSFER:END \*\/\n/g,'');
+script = script.replace(/\n\/\* QUIZ-REVISIONS:START \*\/[\s\S]*?\/\* QUIZ-REVISIONS:END \*\/\n/g,'');
+script = script.replace(/\n\/\* QUIZ-CONTRACTS:START \*\/[\s\S]*?\/\* QUIZ-CONTRACTS:END \*\/\n/g,'');
+script = script.replace(/\n\/\* QUIZ-EXTRA-REVISIONS:START \*\/[\s\S]*?\/\* QUIZ-EXTRA-REVISIONS:END \*\/\n/g,'');
+script = script.replace(/\n\/\* LESSON-FACT-CORRECTIONS:START \*\/[\s\S]*?\/\* LESSON-FACT-CORRECTIONS:END \*\/\n/g,'');
 // Keep the original export's AP1 pool safe after a fresh HTML import too.
 script = script.replace(
   'else pool = pool.filter(function(c){ return ZUSATZ_TEILE.indexOf(c.part) === -1; });',
@@ -94,4 +99,15 @@ insert('traces', 'var CARDS = [];', `TRACES.push.apply(TRACES, ${JSON.stringify(
 insert('cards', 'EXTRA_CARDS.forEach(function(row, idx)', `EXTRA_CARDS.push.apply(EXTRA_CARDS, ${JSON.stringify(extras)});`);
 fs.writeFileSync(target, script);
 if(fs.existsSync(path.join(root,'content/learning-refinements.json'))) execFileSync(process.execPath,[path.join(root,'scripts/build-learning-content.mjs')],{stdio:'inherit'});
+execFileSync(process.execPath,[path.join(root,'scripts/build-lesson-fact-corrections.mjs')],{stdio:'inherit'});
+execFileSync(process.execPath,[path.join(root,'scripts/build-application-supplements.mjs')],{stdio:'inherit'});
+if(fs.existsSync(path.join(root,'content/quiz-transfer.mjs'))) execFileSync(process.execPath,[path.join(root,'scripts/build-quiz-transfer.mjs')],{stdio:'inherit'});
+if(fs.existsSync(path.join(root,'content/quiz-revisions.mjs'))) execFileSync(process.execPath,[path.join(root,'scripts/build-quiz-revisions.mjs')],{stdio:'inherit'});
+execFileSync(process.execPath,[path.join(root,'scripts/build-quiz-learning-contracts.mjs')],{stdio:'inherit'});
+execFileSync(process.execPath,[path.join(root,'scripts/build-module-assessments.mjs')],{stdio:'inherit'});
+if(fs.existsSync(path.join(root,'content/quality/quiz-source-link-checks.json'))) {
+  execFileSync(process.execPath,[path.join(root,'scripts/audit-quiz-editorial.mjs')],{stdio:'inherit'});
+  execFileSync(process.execPath,[path.join(root,'scripts/build-source-status.mjs')],{stdio:'inherit'});
+}
 console.log(`Integriert: ${modules.length} Module, ${modules.reduce((n, m) => n + m.lessons.length, 0)} Lektionen, ${exercises.length} Übungen, ${traces.length} Traces, ${extras.length} Zusatzkarten.`);
+execFileSync(process.execPath,[path.join(root,'scripts/split-learning-bundle.mjs')],{stdio:'inherit'});

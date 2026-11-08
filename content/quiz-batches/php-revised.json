@@ -1,0 +1,4754 @@
+[
+  {
+    "lesson": "m52-l1",
+    "index": 0,
+    "q": "Vor dem Commit soll hello.php auf Syntaxfehler geprüft werden, ohne seine Datenbankzugriffe auszuführen. Welcher Aufruf passt?",
+    "options": [
+      "php -l hello.php",
+      "php -S localhost:8000",
+      "php --ini hello.php"
+    ],
+    "correct": 0,
+    "explain": "-l prüft die Syntax ohne Skriptausführung; Laufzeit- und Logikfehler können bestehen bleiben.",
+    "rationales": [
+      "-l prüft die Syntax ohne Skriptausführung; Laufzeit- und Logikfehler können bestehen bleiben.",
+      "-S startet einen Entwicklungsserver und ist kein reiner Syntaxcheck.",
+      "--ini zeigt Konfigurationsdateien und prüft nicht die Skriptsyntax."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/features.commandline.options.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l1",
+    "index": 1,
+    "q": "Ein fehlendes Anführungszeichen verhindert den Start von kaputt.php. Auch ini_set darin läuft nicht. Wie wird display_errors vor dem Parsen gesetzt?",
+    "options": [
+      "ini_set ans Dateiende verschieben",
+      "Vor ini_set ein echo ergänzen",
+      "php -d display_errors=1 kaputt.php"
+    ],
+    "correct": 2,
+    "explain": "Die CLI-Option wirkt vor der Verarbeitung der fehlerhaften Datei.",
+    "rationales": [
+      "Eine spätere Anweisung wird bei diesem Parsefehler ebenfalls nicht erreicht.",
+      "Auch echo wird in dieser syntaktisch defekten Datei nicht ausgeführt.",
+      "Die CLI-Option wirkt vor der Verarbeitung der fehlerhaften Datei."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/features.commandline.options.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l1",
+    "index": 2,
+    "q": "Mira demonstriert ein Formular ausschließlich auf ihrem Laptop. Welcher Serveraufruf bindet nur die lokale IPv4-Loopback-Adresse?",
+    "options": [
+      "php -S 192.168.1.20:8000",
+      "php -S 127.0.0.1:8000",
+      "php -S 0.0.0.0:8000"
+    ],
+    "correct": 1,
+    "explain": "127.0.0.1 begrenzt den Zugriff auf die lokale Maschine; der Server bleibt ein Entwicklungswerkzeug.",
+    "rationales": [
+      "Eine LAN-Adresse kann den Server für andere Geräte erreichbar machen.",
+      "127.0.0.1 begrenzt den Zugriff auf die lokale Maschine; der Server bleibt ein Entwicklungswerkzeug.",
+      "0.0.0.0 bindet alle IPv4-Schnittstellen und kann Zugriffe aus dem LAN erlauben."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/features.commandline.webserver.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l2",
+    "index": 0,
+    "q": "Die Ausgabe echo 'Hello, $name!'; zeigt den Variablennamen statt Mira. Welche Änderung interpoliert $name?",
+    "options": [
+      "echo 'Hello, {$name}!';",
+      "echo 'Hello, ' + $name;",
+      "echo \"Hello, {$name}!\";"
+    ],
+    "correct": 2,
+    "explain": "Doppelte Anführungszeichen erlauben die Interpolation der Variable.",
+    "rationales": [
+      "Einfache Anführungszeichen lassen auch diese Schreibweise wörtlich stehen.",
+      "+ ist keine Stringverkettung und erzeugt hier nicht die gewünschte Begrüßung.",
+      "Doppelte Anführungszeichen erlauben die Interpolation der Variable."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.string.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l2",
+    "index": 1,
+    "q": "Ein Export formatiert IDs mit sprintf('%03d', $id). Welche Ergebnisse entstehen für 12 und 1234?",
+    "options": [
+      "12 und 1234",
+      "012 und 1234",
+      "012 und 234"
+    ],
+    "correct": 1,
+    "explain": "Die Breite ist eine Mindestbreite: kurze Zahlen werden aufgefüllt, lange nicht abgeschnitten.",
+    "rationales": [
+      "Die Nullfüllung ergänzt bei 12 eine führende Null.",
+      "Die Breite ist eine Mindestbreite: kurze Zahlen werden aufgefüllt, lange nicht abgeschnitten.",
+      "1234 wird nicht auf drei Stellen gekürzt."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.sprintf.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l2",
+    "index": 2,
+    "q": "Ein PHP-String soll JavaScript mit dem wörtlichen Text $price enthalten, ohne Variablenersetzung. Welche Literalform passt direkt?",
+    "options": [
+      "Nowdoc mit einfachem Begrenzer",
+      "Heredoc mit normalem Begrenzer",
+      "String mit doppelten Anführungszeichen"
+    ],
+    "correct": 0,
+    "explain": "Nowdoc interpoliert nicht; die sichere Ausgabe dynamischer Inhalte bleibt eine eigene Aufgabe.",
+    "rationales": [
+      "Nowdoc interpoliert nicht; die sichere Ausgabe dynamischer Inhalte bleibt eine eigene Aufgabe.",
+      "Heredoc interpoliert Variablen ähnlich wie doppelt zitierte Strings.",
+      "Doppelt zitierte Strings interpolieren $price ohne zusätzliche Maskierung."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.string.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l3",
+    "index": 1,
+    "q": "Ein Ringpuffer berechnet $rest = -7 % 3. Welcher Wert erklärt den fehlgeschlagenen Test auf einen positiven Rest?",
+    "options": [
+      "1",
+      "-1",
+      "2"
+    ],
+    "correct": 1,
+    "explain": "Der Rest hat in PHP das Vorzeichen des linken Operanden; hier ist das -1.",
+    "rationales": [
+      "Der Betrag stimmt, das Vorzeichen muss aber negativ sein.",
+      "Der Rest hat in PHP das Vorzeichen des linken Operanden; hier ist das -1.",
+      "PHP normalisiert einen negativen Rest nicht automatisch in den nichtnegativen Bereich."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.operators.arithmetic.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l3",
+    "index": 2,
+    "q": "Ein Warenkorb addiert ganze Centbeträge im geprüften Integerbereich. Welche Darstellung vermeidet dabei binäre Dezimalabweichungen?",
+    "options": [
+      "Integerwerte wie 199 und 250",
+      "Floatwerte wie 1.99 und 2.50",
+      "Anzeigetexte wie '1,99 €'"
+    ],
+    "correct": 0,
+    "explain": "Ganze Cent lassen sich innerhalb des gültigen Integerbereichs exakt addieren; Prozentrechnungen brauchen zusätzlich eine Rundungsregel.",
+    "rationales": [
+      "Ganze Cent lassen sich innerhalb des gültigen Integerbereichs exakt addieren; Prozentrechnungen brauchen zusätzlich eine Rundungsregel.",
+      "Viele Dezimalbrüche sind als binäre Floats nur näherungsweise darstellbar.",
+      "Formatierte Texte müssen erst eindeutig in Rechenwerte übersetzt werden."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.float.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l3",
+    "index": 3,
+    "q": "Drei Artikel kosten je 3 Cent netto. 19 Prozent Steuer werden halbauf auf ganze Cent gerundet. Welche Bruttosummen ergeben Positionsrundung und Gesamtrundung?",
+    "options": [
+      "Positionen 11, Gesamt 12 Cent",
+      "Positionen 11, Gesamt 11 Cent",
+      "Positionen 12, Gesamt 11 Cent"
+    ],
+    "correct": 2,
+    "explain": "Pro Position entsteht ein Cent Steuer; insgesamt sind es 12 Cent brutto. Auf neun Cent netto ergeben gerundete 1,71 Cent Steuer elf Cent brutto.",
+    "rationales": [
+      "Die beiden Verfahren sind vertauscht.",
+      "Positionsrundung erzeugt hier drei statt zwei Cent Steuer.",
+      "Pro Position entsteht ein Cent Steuer; insgesamt sind es 12 Cent brutto. Auf neun Cent netto ergeben gerundete 1,71 Cent Steuer elf Cent brutto."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.round.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l4",
+    "index": 0,
+    "q": "Eine gültige Formulareingabe ist der String '0'. if ($menge) verwirft sie. Welche Prüfung lehnt bei garantiertem Stringtyp nur den leeren String ab?",
+    "options": [
+      "$menge !== ''",
+      "(bool) $menge === true",
+      "empty($menge) === false"
+    ],
+    "correct": 0,
+    "explain": "Der explizite Vergleich mit dem leeren String akzeptiert auch die Zeichenfolge 0.",
+    "rationales": [
+      "Der explizite Vergleich mit dem leeren String akzeptiert auch die Zeichenfolge 0.",
+      "Die boolesche Umwandlung des Strings 0 ergibt false.",
+      "Auch empty behandelt den String 0 als leer."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.boolean.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l4",
+    "index": 1,
+    "q": "berechneRabatt() soll bei inaktiven Kunden sofort 0 liefern; der Normalfall soll danach ohne else folgen. Welche Zeile passt?",
+    "options": [
+      "if ($aktiv) return 0;",
+      "try { return 0; } finally {}",
+      "if (!$aktiv) return 0;"
+    ],
+    "correct": 2,
+    "explain": "Der frühe Return erledigt den Sonderfall und lässt den Normalfall außerhalb weiterer Verschachtelung.",
+    "rationales": [
+      "Die Bedingung kehrt die Fachregel um und weist aktive Kunden ab.",
+      "Der unbedingte Return beendet auch den Normalfall sofort.",
+      "Der frühe Return erledigt den Sonderfall und lässt den Normalfall außerhalb weiterer Verschachtelung."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/functions.returning-values.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l4",
+    "index": 2,
+    "q": "Vor if ($x = 5) enthält $x den Wert 0. Warum läuft der Block trotzdem?",
+    "options": [
+      "Die alte Null wird automatisch negiert",
+      "Die Zuweisung ergibt den wahren Wert 5",
+      "Der Ausdruck prüft nur den Typ von $x"
+    ],
+    "correct": 1,
+    "explain": "= weist zu; der Ausdruck hat danach den Wert 5, der boolesch true ist.",
+    "rationales": [
+      "Der bisherige Wert wird überschrieben, nicht negiert.",
+      "= weist zu; der Ausdruck hat danach den Wert 5, der boolesch true ist.",
+      "Ein einzelnes Gleichheitszeichen führt keinen Vergleich durch."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.operators.assignment.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l5",
+    "index": 0,
+    "q": "Ein Verbindungsversuch muss einmal stattfinden, selbst wenn $erneut anfangs false ist. Welche Schleife erfüllt das?",
+    "options": [
+      "while ($erneut) { versuch(); }",
+      "for (; $erneut;) { versuch(); }",
+      "do { versuch(); } while ($erneut);"
+    ],
+    "correct": 2,
+    "explain": "do prüft die Bedingung erst nach dem ersten Durchlauf.",
+    "rationales": [
+      "while führt bei einer anfangs falschen Bedingung keinen Durchlauf aus.",
+      "Auch diese for-Schleife prüft vor dem ersten Durchlauf.",
+      "do prüft die Bedingung erst nach dem ersten Durchlauf."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/control-structures.do.while.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l5",
+    "index": 1,
+    "q": "Eine Schleife addiert [2, -1, 3] zu einer Summe ab 0. Vor dem Addieren steht bei negativen Zahlen continue;. Welche Summe entsteht?",
+    "options": [
+      "4",
+      "5",
+      "2"
+    ],
+    "correct": 1,
+    "explain": "Nur der negative Wert wird übersprungen; 2 und 3 ergeben 5.",
+    "rationales": [
+      "4 wäre die Summe einschließlich -1; dessen Addition wird übersprungen.",
+      "Nur der negative Wert wird übersprungen; 2 und 3 ergeben 5.",
+      "continue beendet nicht die ganze Schleife; die 3 folgt noch."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/control-structures.continue.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m52-l5",
+    "index": 2,
+    "q": "Ein Export nutzt for ($i = 0; $i < 5; $i++) { sende($i); }. Welche Werte werden gesendet?",
+    "options": [
+      "0 bis 4: fünf Werte",
+      "0 bis 5: sechs Werte",
+      "1 bis 5: fünf Werte"
+    ],
+    "correct": 0,
+    "explain": "Die Schleife startet bei 0 und schließt die obere Grenze 5 aus.",
+    "rationales": [
+      "Die Schleife startet bei 0 und schließt die obere Grenze 5 aus.",
+      "Der Wert 5 erfüllt die strikte Kleiner-Bedingung nicht.",
+      "Die Schleife beginnt nicht bei 1."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/control-structures.for.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l1",
+    "index": 0,
+    "q": "Ein gewöhnlicher PHP-FPM-Request setzt $warenkorb = ['A'];. Der nächste Request kennt ihn nicht. Was fehlt für einen benutzerbezogenen Warenkorb?",
+    "options": [
+      "Eine statische Variable in einer Funktion",
+      "Explizite Speicherung etwa in einer Session",
+      "Das Schlüsselwort global vor der Variable"
+    ],
+    "correct": 1,
+    "explain": "Requestlokale Variablen werden nicht automatisch zwischen Requests als Benutzerzustand gespeichert.",
+    "rationales": [
+      "Eine statische Funktionsvariable ist in diesem Requestmodell keine dauerhafte Benutzersession.",
+      "Requestlokale Variablen werden nicht automatisch zwischen Requests als Benutzerzustand gespeichert.",
+      "global verändert den Gültigkeitsbereich, nicht die Persistenz über Requests."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/book.session.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l1",
+    "index": 1,
+    "q": "Eine reine PHP-Bibliothek erzeugt nach ?> versehentlich Leerzeichen. Später scheitert header(). Welche Änderung entfernt diese konkrete Ausgabequelle?",
+    "options": [
+      "Den schließenden PHP-Tag weglassen",
+      "Vor header() strlen() aufrufen",
+      "Nach ?> einen HTML-Kommentar setzen"
+    ],
+    "correct": 0,
+    "explain": "Ohne schließenden Tag werden nachfolgende Leerzeichen nicht versehentlich als HTML ausgegeben.",
+    "rationales": [
+      "Ohne schließenden Tag werden nachfolgende Leerzeichen nicht versehentlich als HTML ausgegeben.",
+      "strlen macht bereits ausgegebene Bytes nicht rückgängig.",
+      "Ein HTML-Kommentar außerhalb des PHP-Blocks ist ebenfalls Ausgabe."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.basic-syntax.phptags.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l1",
+    "index": 2,
+    "q": "Im Übungsordner liegt index.php. Welcher Aufruf startet den lokalen PHP-HTTP-Server auf Port 8000?",
+    "options": [
+      "php -l index.php",
+      "php --ini index.php",
+      "php -S 127.0.0.1:8000"
+    ],
+    "correct": 2,
+    "explain": "-S startet den eingebauten Entwicklungsserver im aktuellen Verzeichnis.",
+    "rationales": [
+      "-l prüft Syntax, öffnet aber keinen HTTP-Port.",
+      "--ini zeigt PHP-Konfigurationsdateien statt einen Server zu starten.",
+      "-S startet den eingebauten Entwicklungsserver im aktuellen Verzeichnis."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/features.commandline.webserver.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l2",
+    "index": 0,
+    "q": "Eine Formular-ID '1' wird mit der Integer-ID 1 durch === verglichen. Welches Testergebnis passt?",
+    "options": [
+      "false wegen unterschiedlicher Typen",
+      "true wegen gleichem Zahlenwert",
+      "TypeError wegen verschiedener Typen"
+    ],
+    "correct": 0,
+    "explain": "Strikte Identität verlangt gleichen Wert und gleichen Typ.",
+    "rationales": [
+      "Strikte Identität verlangt gleichen Wert und gleichen Typ.",
+      "Gleicher Zahlenwert genügt bei === nicht.",
+      "Der Vergleich verschiedener Typen ist zulässig und liefert einen Boolean."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.operators.comparison.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l2",
+    "index": 1,
+    "q": "Aus einer Datei mit strict_types=1 wird eine eigene Funktion summe(int $x) direkt mit '7' aufgerufen. Was passiert?",
+    "options": [
+      "Der String wird still zu 7 konvertiert",
+      "Der Parameter wird automatisch null",
+      "Der Aufruf wirft einen TypeError"
+    ],
+    "correct": 2,
+    "explain": "Beim direkten Aufruf aus dieser strikt typisierten Datei wird der String nicht zu int koerziert.",
+    "rationales": [
+      "Diese Koerzierung gehört nicht zur hier aktivierten strikten Parameterprüfung.",
+      "Ungültige Argumenttypen werden nicht automatisch durch null ersetzt.",
+      "Beim direkten Aufruf aus dieser strikt typisierten Datei wird der String nicht zu int koerziert."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.declarations.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l2",
+    "index": 2,
+    "q": "$eingabe ist der Integer 0. Was zeigt echo $eingabe ?? 'leer'; an?",
+    "options": [
+      "Keine Zeichen",
+      "0",
+      "leer"
+    ],
+    "correct": 1,
+    "explain": "?? nimmt den Ersatz nur bei null oder fehlender Variable, nicht bei 0.",
+    "rationales": [
+      "echo gibt die Zahl 0 als Zeichen aus.",
+      "?? nimmt den Ersatz nur bei null oder fehlender Variable, nicht bei 0.",
+      "0 ist vorhanden und nicht null, daher wird der Ersatz nicht verwendet."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.operators.comparison.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l3",
+    "index": 0,
+    "q": "Ein match deckt 'offen' und 'bezahlt' ohne default ab. Der Import liefert 'storniert'. Welche Folge muss behandelt werden?",
+    "options": [
+      "Ein stiller Rückgabewert null",
+      "Die Wahl des ersten Stringzweigs",
+      "Ein UnhandledMatchError"
+    ],
+    "correct": 2,
+    "explain": "Ein nicht abgedeckter Wert führt bei match ohne default zu UnhandledMatchError.",
+    "rationales": [
+      "match verwendet keinen impliziten null-Ersatz.",
+      "Gleicher Typ genügt nicht; match vergleicht strikt die Werte.",
+      "Ein nicht abgedeckter Wert führt bei match ohne default zu UnhandledMatchError."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/control-structures.match.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l3",
+    "index": 1,
+    "q": "array_filter entfernt aus [0 => 'A', 1 => '', 2 => 'B'] per Callback nur den leeren String. Welche Schlüssel bleiben?",
+    "options": [
+      "1 und 2",
+      "0 und 2",
+      "0 und 1"
+    ],
+    "correct": 1,
+    "explain": "array_filter erhält die Schlüssel der verbliebenen Elemente.",
+    "rationales": [
+      "Der entfernte Eintrag hatte Schlüssel 1 und bleibt nicht erhalten.",
+      "array_filter erhält die Schlüssel der verbliebenen Elemente.",
+      "Eine Neuindizierung erfolgt erst durch eine zusätzliche Operation wie array_values."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.array-filter.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l3",
+    "index": 2,
+    "q": "Ein Parser verwendet match ('1') { 1 => 'int', '1' => 'text' }. Welcher Wert entsteht?",
+    "options": [
+      "text",
+      "int",
+      "null"
+    ],
+    "correct": 0,
+    "explain": "match vergleicht strikt und trifft den Stringzweig.",
+    "rationales": [
+      "match vergleicht strikt und trifft den Stringzweig.",
+      "Der Integerzweig scheitert am unterschiedlichen Typ.",
+      "Es existiert ein passender Zweig, der text zurückgibt."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/control-structures.match.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l4",
+    "index": 0,
+    "q": "$faktor = 2; $f = fn($x) => $x * $faktor; $faktor = 3;. Was liefert danach $f(4)?",
+    "options": [
+      "Ein Undefined-variable-Fehler",
+      "8",
+      "12"
+    ],
+    "correct": 1,
+    "explain": "Die Arrow Function erfasst den äußeren skalaren Faktor bei der Definition per Wert.",
+    "rationales": [
+      "Benötigte äußere Variablen werden von Arrow Functions automatisch erfasst.",
+      "Die Arrow Function erfasst den äußeren skalaren Faktor bei der Definition per Wert.",
+      "Die spätere Zuweisung ändert den bereits erfassten Wert nicht."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/functions.arrow.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l4",
+    "index": 1,
+    "q": "fehlschlag() wirft auf jedem Pfad eine Exception und kehrt nie normal zurück. Welcher Rückgabetyp bildet genau diesen Vertrag ab?",
+    "options": [
+      "never",
+      "void",
+      "?Exception"
+    ],
+    "correct": 0,
+    "explain": "never kennzeichnet eine Funktion, die nicht normal zurückkehrt.",
+    "rationales": [
+      "never kennzeichnet eine Funktion, die nicht normal zurückkehrt.",
+      "void erlaubt eine normale Rückkehr ohne Wert.",
+      "?Exception beschreibt einen möglichen Rückgabewert, nicht das zwingende Werfen."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.never.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m42-l4",
+    "index": 2,
+    "q": "Eine Funktion erwartet ?string $notiz ohne Standardwert. Welcher Aufruf erfüllt den Parametervertrag?",
+    "options": [
+      "Das Argument ganz weglassen",
+      "Ein leeres Array übergeben",
+      "Ein explizites null übergeben"
+    ],
+    "correct": 2,
+    "explain": "Der Typ erlaubt string oder null; das Argument bleibt erforderlich.",
+    "rationales": [
+      "Nullable bedeutet ohne Standardwert nicht optional.",
+      "Ein Array ist weder ein String noch null.",
+      "Der Typ erlaubt string oder null; das Argument bleibt erforderlich."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.declarations.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l1",
+    "index": 0,
+    "q": "$liste enthält [10, 20]. Die Zahl 30 soll angehängt werden, ohne die vorhandenen Elemente zu ersetzen. Welche Zeile passt?",
+    "options": [
+      "$liste[] = 30;",
+      "$liste = 30;",
+      "$liste[0] = 30;"
+    ],
+    "correct": 0,
+    "explain": "Der leere Index fügt den Wert am nächsten Integerindex an.",
+    "rationales": [
+      "Der leere Index fügt den Wert am nächsten Integerindex an.",
+      "Diese Zuweisung ersetzt das gesamte Array durch einen Integer.",
+      "Diese Zuweisung überschreibt den ersten Eintrag."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.types.array.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l1",
+    "index": 1,
+    "q": "$a = ['x' => null];. Ein Import muss den vorhandenen Schlüssel vom fehlenden Schlüssel unterscheiden. Welche Prüfung ergibt true?",
+    "options": [
+      "isset($a['x'])",
+      "$a['x'] !== null",
+      "array_key_exists('x', $a)"
+    ],
+    "correct": 2,
+    "explain": "array_key_exists prüft die Existenz unabhängig vom gespeicherten null-Wert.",
+    "rationales": [
+      "isset ergibt bei vorhandenem null ebenfalls false.",
+      "Der gespeicherte Wert ist gerade null, der Vergleich daher false.",
+      "array_key_exists prüft die Existenz unabhängig vom gespeicherten null-Wert."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.array-key-exists.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l1",
+    "index": 2,
+    "q": "Nach unset($liste[0]) enthält die Liste noch die Schlüssel 1 und 2. Die Reihenfolge soll bleiben, die Indizes aber wieder 0 und 1 sein. Was passt?",
+    "options": [
+      "rsort($liste);",
+      "$liste = array_values($liste);",
+      "$liste = array_keys($liste);"
+    ],
+    "correct": 1,
+    "explain": "array_values übernimmt die Werte in ihrer Reihenfolge und indiziert sie neu.",
+    "rationales": [
+      "rsort verändert zusätzlich die Wertreihenfolge und erfüllt die Anforderung nicht allgemein.",
+      "array_values übernimmt die Werte in ihrer Reihenfolge und indiziert sie neu.",
+      "array_keys liefert die bisherigen Schlüssel statt der ursprünglichen Werte."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.array-values.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l2",
+    "index": 0,
+    "q": "Preise stehen in ['rot' => 30, 'blau' => 10]. Sie sollen aufsteigend sortiert werden, wobei die Farbzuordnung erhalten bleibt. Welcher Aufruf passt?",
+    "options": [
+      "sort($preise);",
+      "ksort($preise);",
+      "asort($preise);"
+    ],
+    "correct": 2,
+    "explain": "asort sortiert Werte aufsteigend und bewahrt die zugehörigen Schlüssel.",
+    "rationales": [
+      "sort ersetzt die Farb-Schlüssel durch numerische Indizes.",
+      "ksort ordnet nach Schlüsseln statt nach Preisen.",
+      "asort sortiert Werte aufsteigend und bewahrt die zugehörigen Schlüssel."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.asort.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l2",
+    "index": 1,
+    "q": "Ein Entwickler schreibt $sortiert = sort($liste); und iteriert danach über $sortiert. Warum fehlt dort das erwartete Array?",
+    "options": [
+      "sort verändert ausschließlich eine Kopie",
+      "sort liefert true und verändert $liste",
+      "sort liefert nur das kleinste Element"
+    ],
+    "correct": 1,
+    "explain": "Das sortierte Array steht in der übergebenen Variable; der Rückgabewert ist true.",
+    "rationales": [
+      "sort verändert das Array direkt und nicht bloß eine interne Kopie.",
+      "Das sortierte Array steht in der übergebenen Variable; der Rückgabewert ist true.",
+      "sort gibt keinen einzelnen Arraywert zurück."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.sort.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l2",
+    "index": 2,
+    "q": "Ein usort-Comparator wertet für 3 und 7 den Ausdruck 3 <=> 7 aus. Was bedeutet das Ergebnis?",
+    "options": [
+      "-1: 3 wird vor 7 eingeordnet",
+      "1: 3 wird hinter 7 eingeordnet",
+      "0: beide Werte gelten als gleich"
+    ],
+    "correct": 0,
+    "explain": "Der Spaceship-Operator liefert hier -1, weil der linke Wert kleiner ist.",
+    "rationales": [
+      "Der Spaceship-Operator liefert hier -1, weil der linke Wert kleiner ist.",
+      "Ein positives Ergebnis würde den größeren linken Wert anzeigen.",
+      "Verschiedene Werte ergeben hier nicht 0."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.operators.comparison.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l3",
+    "index": 0,
+    "q": "strlen('Müller') meldet bei UTF-8 sieben Bytes. Welche Funktion zählt hier bei installierter mbstring-Erweiterung sechs Zeichen?",
+    "options": [
+      "count(str_split($name))",
+      "mb_strlen($name, 'UTF-8')",
+      "strlen(trim($name))"
+    ],
+    "correct": 1,
+    "explain": "mb_strlen berücksichtigt die angegebene Mehrbytekodierung; Graphemcluster sind eine zusätzliche Ebene.",
+    "rationales": [
+      "str_split zerlegt ohne Mehrbytebehandlung die Bytes und führt ebenfalls zu sieben Teilen.",
+      "mb_strlen berücksichtigt die angegebene Mehrbytekodierung; Graphemcluster sind eine zusätzliche Ebene.",
+      "trim entfernt hier nichts und strlen zählt weiterhin Bytes."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.mb-strlen.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l3",
+    "index": 1,
+    "q": "Ein garantiert ungequotetes Format enthält 'a,b,c'. Welcher Ausdruck liefert die drei Teile als Array?",
+    "options": [
+      "explode(',', $text)",
+      "implode(',', $text)",
+      "str_replace(',', '', $text)"
+    ],
+    "correct": 0,
+    "explain": "explode zerlegt den Text an jedem Komma.",
+    "rationales": [
+      "explode zerlegt den Text an jedem Komma.",
+      "implode verbindet ein Array zu einem String und zerlegt keinen Text.",
+      "str_replace entfernt die Kommas und liefert den String abc."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.explode.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l3",
+    "index": 2,
+    "q": "Eine Kennung muss exakt fünf ASCII-Ziffern enthalten, auch ohne abschließenden Zeilenumbruch. Welches Muster prüft den gesamten String eindeutig?",
+    "options": [
+      "/[0-9]{5}/",
+      "/^[0-9]{5}$/",
+      "/\\A[0-9]{5}\\z/"
+    ],
+    "correct": 2,
+    "explain": "\\A und \\z verlangen Anfang und absolutes Ende des gesamten Strings.",
+    "rationales": [
+      "Ohne Anker genügt eine passende Teilfolge innerhalb eines längeren Strings.",
+      "$ kann auch vor einem abschließenden Zeilenumbruch passen und ist daher hier weniger strikt.",
+      "\\A und \\z verlangen Anfang und absolutes Ende des gesamten Strings."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/regexp.reference.anchors.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l4",
+    "index": 0,
+    "q": "$start ist DateTimeImmutable. Nach $ende = $start->modify('+1 day'); wird $start erneut ausgegeben. Welcher Zustand gilt?",
+    "options": [
+      "$start bleibt, $ende liegt einen Tag später",
+      "Beide Variablen zeigen den Folgetag",
+      "$start wird leer, $ende zeigt den Folgetag"
+    ],
+    "correct": 0,
+    "explain": "DateTimeImmutable gibt bei modify ein neues Objekt zurück und lässt das ursprüngliche unverändert.",
+    "rationales": [
+      "DateTimeImmutable gibt bei modify ein neues Objekt zurück und lässt das ursprüngliche unverändert.",
+      "Das ursprüngliche Objekt wird gerade nicht mitverändert.",
+      "Die Operation leert oder entfernt das ursprüngliche Objekt nicht."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/class.datetimeimmutable.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l4",
+    "index": 1,
+    "q": "Ein Monatslauf berechnet (new DateTimeImmutable('2026-01-31'))->modify('+1 month'). Welches Datum muss der Regressionstest erwarten?",
+    "options": [
+      "2026-02-28",
+      "2026-03-01",
+      "2026-03-03"
+    ],
+    "correct": 2,
+    "explain": "Der rechnerische 31. Februar läuft um drei Tage in den März über.",
+    "rationales": [
+      "modify begrenzt den Tag nicht automatisch auf den letzten Februartag.",
+      "Der Überlauf beträgt hier drei statt einen Tag.",
+      "Der rechnerische 31. Februar läuft um drei Tage in den März über."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/datetimeimmutable.modify.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m53-l4",
+    "index": 2,
+    "q": "Ein bereits bestimmtes Ereignis wird weltweit angezeigt. Welche Datenbasis vermeidet die Abhängigkeit von der lokalen Serverzeitzone?",
+    "options": [
+      "Eine unmarkierte Serverlokalzeit",
+      "Einen eindeutigen Zeitpunkt etwa in UTC",
+      "Nur die lokale Uhrzeit ohne Datum"
+    ],
+    "correct": 1,
+    "explain": "Ein eindeutiger UTC-Zeitpunkt lässt sich für jede Zielzeitzone darstellen; lokale Terminregeln können zusätzlich eine Zonenkennung benötigen.",
+    "rationales": [
+      "Ohne definierten Zeitzonenbezug hängt die Interpretation von der Umgebung ab.",
+      "Ein eindeutiger UTC-Zeitpunkt lässt sich für jede Zielzeitzone darstellen; lokale Terminregeln können zusätzlich eine Zonenkennung benötigen.",
+      "Eine Uhrzeit allein legt keinen eindeutigen Zeitpunkt fest."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/class.datetimezone.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l1",
+    "index": 0,
+    "q": "Ein unverändert gespeicherter Kommentar erscheint als HTML-Text. Wo gehört htmlspecialchars hin?",
+    "options": [
+      "Vor die SQL-Abfrage",
+      "Nur in die Eingabeprüfung",
+      "An die HTML-Ausgabe"
+    ],
+    "correct": 2,
+    "explain": "Die Kodierung muss zum Ausgabekontext passen.",
+    "rationales": [
+      "SQL benötigt Parameterbindung statt HTML-Kodierung.",
+      "Validierung ersetzt keine Ausgabekodierung.",
+      "Die Kodierung muss zum Ausgabekontext passen."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.htmlspecialchars.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l1",
+    "index": 1,
+    "q": "Nach erfolgreichem Bestell-POST darf Aktualisieren der Bestätigung keinen weiteren POST auslösen. Welche Antwort passt?",
+    "options": [
+      "307 auf dieselbe Bestellroute",
+      "303 auf eine GET-Bestätigungsseite",
+      "200 mit dem bisherigen POST-Formular"
+    ],
+    "correct": 1,
+    "explain": "303 trennt den schreibenden Request von der GET-Anzeige.",
+    "rationales": [
+      "307 erhält die Methode und löst das Problem nicht.",
+      "303 trennt den schreibenden Request von der GET-Anzeige.",
+      "Aktualisieren kann die POST-Anfrage erneut senden."
+    ],
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html#name-303-see-other"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l1",
+    "index": 2,
+    "q": "Ein PHP-Endpunkt akzeptiert ausschließlich POST. Welche Angabe prüft die tatsächliche HTTP-Methode?",
+    "options": [
+      "$_SERVER['REQUEST_METHOD']",
+      "$_POST['REQUEST_METHOD']",
+      "$_COOKIE['REQUEST_METHOD']"
+    ],
+    "correct": 0,
+    "explain": "Die Servervariable beschreibt die Requestmethode.",
+    "rationales": [
+      "Die Servervariable beschreibt die Requestmethode.",
+      "Ein Formularfeld kann frei vom Client gesetzt werden.",
+      "Ein Cookie ist nicht die HTTP-Methode."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/reserved.variables.server.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l2",
+    "index": 0,
+    "q": "Eine Passwortdatenbank verwendet einfaches SHA-256. Welche Umstellung erschwert Offline-Raten durch ein vorgesehenes Passwortverfahren?",
+    "options": [
+      "SHA-256 zweimal hintereinander",
+      "password_hash und password_verify",
+      "base64_encode und base64_decode"
+    ],
+    "correct": 1,
+    "explain": "Die Passwort-API bietet geeignete Verfahren mit Salt und Kostenparametern.",
+    "rationales": [
+      "Zwei schnelle Hashes ersetzen keinen einstellbar aufwendigen Passwort-Hash.",
+      "Die Passwort-API bietet geeignete Verfahren mit Salt und Kostenparametern.",
+      "Base64 ist reversibel und kein Passwort-Hash."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.password-hash.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l2",
+    "index": 1,
+    "q": "Nach dem Login bleibt die vorher bekannte anonyme Session-ID erhalten. Welche Maßnahme adressiert Session-Fixation?",
+    "options": [
+      "Session-ID beim Login erneuern",
+      "Nur die Cookie-Laufzeit verlängern",
+      "Nur das Passwort erneut hashen"
+    ],
+    "correct": 0,
+    "explain": "Ein neuer Bezeichner verhindert die Weiterverwendung der alten ID; parallele Requests sind zu berücksichtigen.",
+    "rationales": [
+      "Ein neuer Bezeichner verhindert die Weiterverwendung der alten ID; parallele Requests sind zu berücksichtigen.",
+      "Eine längere Laufzeit entfernt die bekannte ID nicht.",
+      "Der Passwort-Hash ändert die Session-ID nicht."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/session.security.ini.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l2",
+    "index": 2,
+    "q": "Ein Sessioncookie ist HttpOnly. Was gilt trotz einer XSS-Lücke weiterhin?",
+    "options": [
+      "Authentifizierte Requests sind gesperrt",
+      "Automatische Cookieübertragung ist gesperrt",
+      "Direktes Lesen per JavaScript ist gesperrt"
+    ],
+    "correct": 2,
+    "explain": "HttpOnly blockiert direkten Skriptzugriff auf das Cookie, beseitigt XSS aber nicht.",
+    "rationales": [
+      "XSS kann weiterhin Requests im Benutzerkontext senden.",
+      "Der Browser sendet das Cookie weiterhin an passende Ziele.",
+      "HttpOnly blockiert direkten Skriptzugriff auf das Cookie, beseitigt XSS aber nicht."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.setcookie.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l3",
+    "index": 0,
+    "q": "Eine Suche erhält den Text OR 1=1 als Namen. Welche PDO-Verwendung hält ihn im Datenkontext?",
+    "options": [
+      "WHERE name = :name mit Parameterbindung",
+      "WHERE name mit verketteter Eingabe",
+      "WHERE name mit HTML-kodierter Eingabe"
+    ],
+    "correct": 0,
+    "explain": "Gebundene Werte werden nicht als zusätzliche SQL-Struktur interpretiert.",
+    "rationales": [
+      "Gebundene Werte werden nicht als zusätzliche SQL-Struktur interpretiert.",
+      "Verkettete Eingaben können SQL-Syntax beeinflussen.",
+      "HTML-Kodierung schützt nicht den SQL-Kontext."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/pdo.prepare.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l3",
+    "index": 1,
+    "q": "Ein Listing erlaubt als Sortierung preis oder name. Wie wird die gewünschte Spalte sicher in ORDER BY eingesetzt?",
+    "options": [
+      "Spaltenname als Wertparameter binden",
+      "Spaltenname lediglich mit trim kürzen",
+      "Eingabe auf feste Spalten abbilden"
+    ],
+    "correct": 2,
+    "explain": "Eine Allowlist liefert vertrauenswürdige SQL-Bezeichner.",
+    "rationales": [
+      "Wertparameter ersetzen keine Spaltenbezeichner.",
+      "trim begrenzt keine SQL-Struktur.",
+      "Eine Allowlist liefert vertrauenswürdige SQL-Bezeichner."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/pdo.prepare.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m43-l3",
+    "index": 2,
+    "q": "Zwei InnoDB-Updates laufen in derselben offenen PDO-Transaktion. Vor dem Commit scheitert das zweite. Was bewirkt rollBack für das erste?",
+    "options": [
+      "Die Änderung bleibt bis zum Neustart",
+      "Die Änderung wird zurückgenommen",
+      "Die Änderung wird sofort bestätigt"
+    ],
+    "correct": 1,
+    "explain": "Nicht bestätigte Änderungen derselben Transaktion werden zurückgenommen; externe Effekte nicht.",
+    "rationales": [
+      "Transaktionales Rollback wartet nicht auf einen Neustart.",
+      "Nicht bestätigte Änderungen derselben Transaktion werden zurückgenommen; externe Effekte nicht.",
+      "Rollback ist keine Bestätigung."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/pdo.rollback.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l1",
+    "index": 0,
+    "q": "Eine 4-GB-Textdatei übersteigt das Speicherlimit; gebraucht wird jeweils nur eine Zeile. Welcher Ansatz passt?",
+    "options": [
+      "file_get_contents und explode",
+      "file und anschließend array_map",
+      "fopen und schrittweise fgets"
+    ],
+    "correct": 2,
+    "explain": "Zeilenweises Lesen begrenzt den Speicher, solange Ergebnisse nicht komplett gesammelt werden.",
+    "rationales": [
+      "Hier liegen vollständiger Inhalt und Teilstrings im Speicher.",
+      "file liest die gesamte Datei in ein Array.",
+      "Zeilenweises Lesen begrenzt den Speicher, solange Ergebnisse nicht komplett gesammelt werden."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.fgets.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l1",
+    "index": 1,
+    "q": "Zwei Prozesse schreiben mit file_put_contents und LOCK_EX. Was leistet die Sperre bei kooperierenden Zugriffen?",
+    "options": [
+      "Jedes ungesperrte Lesen verhindern",
+      "Exklusive Schreibzugriffe koordinieren",
+      "Geschriebene Daten verschlüsseln"
+    ],
+    "correct": 1,
+    "explain": "Kooperierende Prozesse können Zugriffe über dieselbe Dateisperre serialisieren.",
+    "rationales": [
+      "Advisory Locks zwingen ungesperrte Leser nicht automatisch zum Warten.",
+      "Kooperierende Prozesse können Zugriffe über dieselbe Dateisperre serialisieren.",
+      "LOCK_EX ist keine Verschlüsselung."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.file-put-contents.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l1",
+    "index": 2,
+    "q": "Ein Download erhält file=../../.env. Welche Schnittstelle vermeidet frei wählbare Pfade?",
+    "options": [
+      "Erlaubte Dokument-ID mit Rechteprüfung",
+      "URL-Dekodierung des Dateiparameters",
+      "Dateiparameter an storage anhängen"
+    ],
+    "correct": 0,
+    "explain": "Eine ID wird serverseitig auf eine bekannte Datei abgebildet und autorisiert.",
+    "rationales": [
+      "Eine ID wird serverseitig auf eine bekannte Datei abgebildet und autorisiert.",
+      "Dekodierung begrenzt den Pfad nicht.",
+      "Relative Bestandteile können das Zielverzeichnis verlassen."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/security.filesystem.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l2",
+    "index": 0,
+    "q": "Ein Import muss ungültiges JSON vom gültigen Literal null unterscheiden. Welche Verarbeitung macht Fehler explizit?",
+    "options": [
+      "json_decode und nur auf null prüfen",
+      "json_decode mit JSON_THROW_ON_ERROR",
+      "json_decode nur mit assoc=true"
+    ],
+    "correct": 1,
+    "explain": "Fehlerhaftes JSON wirft dann eine JsonException.",
+    "rationales": [
+      "null kann ohne Fehlerprüfung auch ein Fehlerergebnis sein.",
+      "Fehlerhaftes JSON wirft dann eine JsonException.",
+      "assoc bestimmt die Objektform, nicht diese Fehlerunterscheidung."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.json-decode.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l2",
+    "index": 1,
+    "q": "Der JSON-Export soll Müller lesbar statt mit Unicode-Escapes darstellen. Welche Option passt?",
+    "options": [
+      "JSON_UNESCAPED_UNICODE",
+      "JSON_NUMERIC_CHECK",
+      "JSON_FORCE_OBJECT"
+    ],
+    "correct": 0,
+    "explain": "Die Option lässt Unicodezeichen unmaskiert, ohne ihren Datenwert zu ändern.",
+    "rationales": [
+      "Die Option lässt Unicodezeichen unmaskiert, ohne ihren Datenwert zu ändern.",
+      "NUMERIC_CHECK betrifft numerische Strings.",
+      "FORCE_OBJECT betrifft die Darstellung von Arrays."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.json-encode.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l2",
+    "index": 2,
+    "q": "json_decode dekodiert ein JSON-Objekt erfolgreich mit assoc=true. Wie wird der Schlüssel name gelesen?",
+    "options": [
+      "$daten->name",
+      "$daten->name()",
+      "$daten['name']"
+    ],
+    "correct": 2,
+    "explain": "assoc=true liefert für JSON-Objekte assoziative Arrays.",
+    "rationales": [
+      "Objektzugriff passt nicht zum Array.",
+      "Eine name-Methode wird nicht erzeugt.",
+      "assoc=true liefert für JSON-Objekte assoziative Arrays."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.json-decode.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l3",
+    "index": 0,
+    "q": "Die Produktseite wartet unbegrenzt auf einen ausgefallenen Kursdienst. Welche Clientoption begrenzt den gesamten Aufruf?",
+    "options": [
+      "Ein explizites Gesamt-Timeout",
+      "Ein zusätzlicher Accept-Header",
+      "Ein größerer JSON-Puffer"
+    ],
+    "correct": 0,
+    "explain": "Ein Gesamt-Timeout begrenzt die Dauer; ein Verbindungs-Timeout kann ergänzen.",
+    "rationales": [
+      "Ein Gesamt-Timeout begrenzt die Dauer; ein Verbindungs-Timeout kann ergänzen.",
+      "Accept beschreibt das Antwortformat.",
+      "Ein Puffer begrenzt keine Netzwartezeit."
+    ],
+    "sources": [
+      "https://docs.guzzlephp.org/en/stable/request-options.html#timeout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l3",
+    "index": 1,
+    "q": "Ein wiederholbarer GET auf einen Kursdienst erhält 503. Der Vertrag erlaubt Retries. Welche Strategie passt?",
+    "options": [
+      "Sofort ohne Grenze wiederholen",
+      "Mit zufälligem Token wiederholen",
+      "Begrenzt mit Backoff wiederholen"
+    ],
+    "correct": 2,
+    "explain": "Ein begrenzter Retry kann einen vorübergehenden Ausfall überbrücken.",
+    "rationales": [
+      "Unbegrenzte Wiederholungen verstärken möglicherweise die Überlast.",
+      "503 beweist keinen ungültigen Zugangstoken.",
+      "Ein begrenzter Retry kann einen vorübergehenden Ausfall überbrücken."
+    ],
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html#name-503-service-unavailable"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l3",
+    "index": 2,
+    "q": "Guzzle erhält wegen verweigerter TCP-Verbindung keine HTTP-Antwort. Welcher Exceptiontyp passt spezifisch?",
+    "options": [
+      "ServerException",
+      "ConnectException",
+      "ClientException"
+    ],
+    "correct": 1,
+    "explain": "ConnectException beschreibt Verbindungsfehler.",
+    "rationales": [
+      "ServerException betrifft erhaltene 5xx-Antworten bei http_errors.",
+      "ConnectException beschreibt Verbindungsfehler.",
+      "ClientException betrifft erhaltene 4xx-Antworten bei http_errors."
+    ],
+    "sources": [
+      "https://docs.guzzlephp.org/en/stable/quickstart.html#exceptions"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l4",
+    "index": 0,
+    "q": "Ein Import verschluckt Throwable und meldet Erfolg trotz fehlender Speicherung. Welche Änderung behebt die falsche Erfolgsmeldung?",
+    "options": [
+      "Nur die Logdatei täglich rotieren",
+      "Nur display_errors im Browser aktivieren",
+      "Fehler protokollieren und Fehlschlag melden"
+    ],
+    "correct": 2,
+    "explain": "Fehler müssen beobachtbar bleiben und dürfen nicht als Erfolg erscheinen.",
+    "rationales": [
+      "Rotation erzeugt keine fehlende Fehlermeldung.",
+      "Browserausgabe ist keine belastbare Fehlerbehandlung und kann Details offenlegen.",
+      "Fehler müssen beobachtbar bleiben und dürfen nicht als Erfolg erscheinen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/errors"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l4",
+    "index": 1,
+    "q": "Ein optionaler Kursdienst fällt aus; ein dokumentierter Ersatzwert hält den Request erfolgreich. Welches Log-Level passt zur betrieblichen Warnung?",
+    "options": [
+      "debug",
+      "warning",
+      "emergency"
+    ],
+    "correct": 1,
+    "explain": "warning passt zur unerwarteten, aber abgefangenen Störung.",
+    "rationales": [
+      "debug kann für diese Betriebswarnung zu niedrig gefiltert sein.",
+      "warning passt zur unerwarteten, aber abgefangenen Störung.",
+      "emergency würde ein unbenutzbares System anzeigen."
+    ],
+    "sources": [
+      "https://www.php-fig.org/psr/psr-3/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m54-l4",
+    "index": 2,
+    "q": "Fehler sollen über request_id korreliert werden, ohne den gesamten Request zu loggen. Welche Verwendung unterstützt strukturierte Auswertung?",
+    "options": [
+      "Kontext ['request_id' => $id]",
+      "Vollständige Request-JSON als Nachricht",
+      "Nur eine zufällige Fehlermeldung"
+    ],
+    "correct": 0,
+    "explain": "Ein gezieltes Kontextfeld erlaubt Korrelation, sofern der Handler es ausgibt.",
+    "rationales": [
+      "Ein gezieltes Kontextfeld erlaubt Korrelation, sofern der Handler es ausgibt.",
+      "Der gesamte Request kann unnötige Geheimnisse enthalten.",
+      "Ohne gemeinsame ID fehlt die Korrelation."
+    ],
+    "sources": [
+      "https://www.php-fig.org/psr/psr-3/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l1",
+    "index": 0,
+    "q": "Eine Klasse verwendet __construct(public string $name) {}. Welche manuelle Zeile ersetzt Property Promotion bereits?",
+    "options": [
+      "$this->speichere();",
+      "$this->name = $name;",
+      "$this->pruefeName($name);"
+    ],
+    "correct": 1,
+    "explain": "Promotion deklariert und initialisiert die Property.",
+    "rationales": [
+      "Promotion persistiert das Objekt nicht.",
+      "Promotion deklariert und initialisiert die Property.",
+      "Fachliche Validierung wird nicht automatisch ausgeführt."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.decon.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l1",
+    "index": 1,
+    "q": "Nach $b = $a setzt $b->name = 'Neu'. $a ist ein Objekt mit veränderlicher Property. Was sieht $a->name?",
+    "options": [
+      "Neu am selben Objekt",
+      "Den alten Wert einer Objektkopie",
+      "Einen Schreibschutzfehler"
+    ],
+    "correct": 0,
+    "explain": "Ohne clone bezeichnen beide Variablen dasselbe Objekt.",
+    "rationales": [
+      "Ohne clone bezeichnen beide Variablen dasselbe Objekt.",
+      "Zuweisung erzeugt keine separate Objektkopie.",
+      "Die Zuweisung macht die Property nicht readonly."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.references.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l1",
+    "index": 2,
+    "q": "Ein DTO enthält public readonly DateTime $zeit. Kann $dto->zeit->modify('+1 day') das enthaltene Objekt ändern?",
+    "options": [
+      "Nein, readonly sperrt alle Unterobjekte",
+      "Nein, DateTime wird implizit immutable",
+      "Ja, innere Mutation bleibt möglich"
+    ],
+    "correct": 2,
+    "explain": "readonly verhindert die Neuzuweisung der Property, nicht innere Mutation des Objekts.",
+    "rationales": [
+      "readonly ist keine tiefe Unveränderlichkeit.",
+      "Der deklarierte Typ wird nicht automatisch ausgetauscht.",
+      "readonly verhindert die Neuzuweisung der Property, nicht innere Mutation des Objekts."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.properties.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l2",
+    "index": 0,
+    "q": "Zwei unabhängige Versandklassen benötigen dieselbe konkrete formatLabel-Implementierung. Welches Konstrukt kann den Methodenrumpf einbringen?",
+    "options": [
+      "Ein Trait mit dieser Methode",
+      "Ein Interface ohne Methodenrumpf",
+      "Ein gleichnamiger Namespace"
+    ],
+    "correct": 0,
+    "explain": "Ein Trait kann konkrete Implementierungen in mehrere Klassen einbringen.",
+    "rationales": [
+      "Ein Trait kann konkrete Implementierungen in mehrere Klassen einbringen.",
+      "Ein Vertrag allein liefert diesen Methodenrumpf nicht.",
+      "Namespaces organisieren Namen, nicht Methodenwiederverwendung."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.traits.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l2",
+    "index": 1,
+    "q": "Eine Klasse soll Funktionen aus zwei Basisklassen nutzen. Welche PHP-Struktur ist zulässig?",
+    "options": [
+      "extends BasisA, BasisB",
+      "implements BasisA, BasisB für Klassen",
+      "Eine Elternklasse plus Komposition"
+    ],
+    "correct": 2,
+    "explain": "PHP erlaubt eine Elternklasse und zusätzliche eingebundene Objekte.",
+    "rationales": [
+      "Mehrfachvererbung von Klassen ist nicht erlaubt.",
+      "implements erwartet Interfaces statt Basisklassen.",
+      "PHP erlaubt eine Elternklasse und zusätzliche eingebundene Objekte."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.inheritance.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l2",
+    "index": 2,
+    "q": "Ein Paket markiert Rechnung als final class. Was passiert bei class SpezialRechnung extends Rechnung?",
+    "options": [
+      "Die Unterklasse wird automatisch ein Alias",
+      "Die Definition wird abgewiesen",
+      "Nur öffentliche Properties werden geerbt"
+    ],
+    "correct": 1,
+    "explain": "Eine finale Klasse darf nicht erweitert werden.",
+    "rationales": [
+      "PHP erzeugt keinen Ersatzalias für eine verbotene Unterklasse.",
+      "Eine finale Klasse darf nicht erweitert werden.",
+      "final begrenzt nicht bloß die geerbten Daten."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.final.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l3",
+    "index": 0,
+    "q": "Ein Backed Enum kennt offen und bezahlt; der Import enthält unbekannt. Welche Konvertierung liefert einen behandelbaren null-Fall?",
+    "options": [
+      "Status::from($wert)",
+      "Status::cases($wert)",
+      "Status::tryFrom($wert)"
+    ],
+    "correct": 2,
+    "explain": "tryFrom liefert für einen unbekannten Backing-Wert null.",
+    "rationales": [
+      "from wirft dafür ValueError.",
+      "cases listet Fälle statt einen Wert so zu konvertieren.",
+      "tryFrom liefert für einen unbekannten Backing-Wert null."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.enumerations.backed.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l3",
+    "index": 1,
+    "q": "Eine Fehlergrenze soll sowohl Exception als auch TypeError erfassen. Welcher Typ deckt beide ab?",
+    "options": [
+      "RuntimeException",
+      "Throwable",
+      "Exception"
+    ],
+    "correct": 1,
+    "explain": "Throwable ist das gemeinsame Interface von Error und Exception, keine gemeinsame Oberklasse.",
+    "rationales": [
+      "RuntimeException deckt nur einen Teil der Exception-Hierarchie ab.",
+      "Throwable ist das gemeinsame Interface von Error und Exception, keine gemeinsame Oberklasse.",
+      "TypeError gehört zur Error-Hierarchie."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/class.throwable.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l3",
+    "index": 2,
+    "q": "Ein Adapter übersetzt PDOException in DomainException. Wie bleibt die ursprüngliche Ursache diagnostizierbar?",
+    "options": [
+      "Die alte Exception als previous übergeben",
+      "Nur ihren Nachrichtentext übernehmen",
+      "Die alte Exception vorher mit unset löschen"
+    ],
+    "correct": 0,
+    "explain": "previous erhält die Ausnahmeverkettung einschließlich ursprünglichem Typ und Trace.",
+    "rationales": [
+      "previous erhält die Ausnahmeverkettung einschließlich ursprünglichem Typ und Trace.",
+      "Die Nachricht allein erhält die vollständige Ursache nicht.",
+      "Löschen bewahrt keine Diagnosekette."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/exception.construct.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l4",
+    "index": 0,
+    "q": "Composer bildet App\\ auf src/ ab. Wo liegt App\\Billing\\Rechnung unter PSR-4?",
+    "options": [
+      "src/Billing/Rechnung.class.php",
+      "src/Billing/Rechnung.php",
+      "src/App/Billing/Rechnung.php"
+    ],
+    "correct": 1,
+    "explain": "Das Präfix entfällt; Namespace und Klassenname bestimmen den Restpfad.",
+    "rationales": [
+      "Die vorgeschriebene Endung ist .php.",
+      "Das Präfix entfällt; Namespace und Klassenname bestimmen den Restpfad.",
+      "App ist bereits durch die Zuordnung abgedeckt."
+    ],
+    "sources": [
+      "https://www.php-fig.org/psr/psr-4/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l4",
+    "index": 1,
+    "q": "Staging und Produktion sollen bei composer install dieselben Paketversionen erhalten. Was wird mitversioniert?",
+    "options": [
+      "composer.lock",
+      "Nur composer.json",
+      "Nur vendor/bin"
+    ],
+    "correct": 0,
+    "explain": "Der Lock hält konkret aufgelöste Versionen fest.",
+    "rationales": [
+      "Der Lock hält konkret aufgelöste Versionen fest.",
+      "Versionsbereiche legen nicht alle konkreten Versionen fest.",
+      "Ausführbare Dateien ersetzen keinen Abhängigkeits-Lock."
+    ],
+    "sources": [
+      "https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m44-l4",
+    "index": 2,
+    "q": "Eine Bibliothek verlangt ^2.3. Welches stabile Update liegt im erlaubten Bereich?",
+    "options": [
+      "3.0.0",
+      "2.2.9",
+      "2.9.0"
+    ],
+    "correct": 2,
+    "explain": "Der Bereich reicht von 2.3.0 bis ausschließlich 3.0.0.",
+    "rationales": [
+      "Ein neuer Major liegt außerhalb.",
+      "Die Version liegt unter der Untergrenze.",
+      "Der Bereich reicht von 2.3.0 bis ausschließlich 3.0.0."
+    ],
+    "sources": [
+      "https://getcomposer.org/doc/articles/versions.md#caret-version-range-"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l1",
+    "index": 0,
+    "q": "Eine Lesefunktion enthält yield $zeile. Was erhält der Aufrufer beim Aufruf vor der Iteration?",
+    "options": [
+      "Ein Generator-Objekt",
+      "Ein vollständiges Zeilenarray",
+      "Direkt den ersten Zeilenstring"
+    ],
+    "correct": 0,
+    "explain": "Die Iteration steuert die Ausführung des Generators.",
+    "rationales": [
+      "Die Iteration steuert die Ausführung des Generators.",
+      "yield materialisiert kein vollständiges Array.",
+      "Der Aufruf liefert nicht unmittelbar den ersten Einzelwert."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.generators.overview.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l1",
+    "index": 1,
+    "q": "Ein Dateigenerator liest zeilenweise. Warum steigt der Speicherbedarf bei iterator_to_array stark?",
+    "options": [
+      "Generatoren behalten zwingend jede Zeile",
+      "fgets kopiert automatisch die ganze Datei",
+      "Alle erzeugten Werte werden gesammelt"
+    ],
+    "correct": 2,
+    "explain": "Materialisierung hebt den Streaming-Vorteil für das Ergebnis auf.",
+    "rationales": [
+      "Vergangene Werte müssen nicht gespeichert bleiben.",
+      "fgets liest eine Zeile statt die gesamte Datei.",
+      "Materialisierung hebt den Streaming-Vorteil für das Ergebnis auf."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.iterator-to-array.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l1",
+    "index": 2,
+    "q": "Ein Generator wurde vollständig konsumiert. Wie kann ein zweiter Export dieselbe Datenquelle erneut durchlaufen?",
+    "options": [
+      "Denselben Generator erneut foreach geben",
+      "Die Generatorfunktion erneut aufrufen",
+      "Den geschlossenen Generator zurücksetzen"
+    ],
+    "correct": 1,
+    "explain": "Ein neuer Aufruf erzeugt einen neuen Generator.",
+    "rationales": [
+      "Der vollständig beendete Generator ist nicht erneut durchlaufbar.",
+      "Ein neuer Aufruf erzeugt einen neuen Generator.",
+      "Ein geschlossener Generator lässt sich nicht neu starten."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/class.generator.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l2",
+    "index": 0,
+    "q": "ReportService ändert sich unabhängig wegen Steuerregeln und SMTP-Anbindung. Welche Aufteilung reduziert unabhängige Änderungsgründe?",
+    "options": [
+      "Alle Methoden static machen",
+      "Beides in denselben Trait verschieben",
+      "Berechnung und Versand trennen"
+    ],
+    "correct": 2,
+    "explain": "Getrennte Verantwortlichkeiten isolieren unabhängige Änderungen.",
+    "rationales": [
+      "static beseitigt die vermischte Verantwortung nicht.",
+      "Verschieben allein trennt die Verantwortlichkeiten nicht.",
+      "Getrennte Verantwortlichkeiten isolieren unabhängige Änderungen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l2",
+    "index": 1,
+    "q": "ReadOnlyStore erbt save(), wirft aber immer nicht unterstützt. Aufrufer erwarten Speicherung. Welche Änderung repariert den Vertrag?",
+    "options": [
+      "Den Fehler im Aufrufer verschlucken",
+      "Lese- und Schreibverträge trennen",
+      "Die Exception nur umbenennen"
+    ],
+    "correct": 1,
+    "explain": "Ein reiner Lesevertrag verlangt keine unzulässige Schreiboperation.",
+    "rationales": [
+      "Verschlucken kann falschen Erfolg signalisieren.",
+      "Ein reiner Lesevertrag verlangt keine unzulässige Schreiboperation.",
+      "Der gebrochene Vertrag bleibt bestehen."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.interfaces.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l2",
+    "index": 2,
+    "q": "Checkout hängt direkt am Bank-SDK. Eine zweite Bank soll ohne Änderung der Checkout-Regel hinzukommen. Welche Abhängigkeit passt?",
+    "options": [
+      "Ein injiziertes PaymentGateway-Interface",
+      "Eine Basisklasse des konkreten SDKs",
+      "Beide SDKs intern mit new erzeugen"
+    ],
+    "correct": 0,
+    "explain": "Adapter implementieren den stabilen fachlichen Vertrag.",
+    "rationales": [
+      "Adapter implementieren den stabilen fachlichen Vertrag.",
+      "Vererbung koppelt weiter ans SDK.",
+      "Interne Erzeugung hält die konkrete Kopplung im Checkout."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l3",
+    "index": 0,
+    "q": "Ein Konto nutzt public private(set) int $stand. Welche Zugriffe hat fremder Code?",
+    "options": [
+      "Lesen ja, direkte Zuweisung ja",
+      "Lesen ja, direkte Zuweisung nein",
+      "Lesen nein, direkte Zuweisung ja"
+    ],
+    "correct": 1,
+    "explain": "Lesen ist public, Schreiben auf die deklarierende Klasse begrenzt.",
+    "rationales": [
+      "public für Lesen hebt private(set) nicht auf.",
+      "Lesen ist public, Schreiben auf die deklarierende Klasse begrenzt.",
+      "Die Sichtbarkeiten sind vertauscht."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/language.oop5.visibility.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l3",
+    "index": 1,
+    "q": "array_find([2, 1, 4, 3], fn($n) => $n > 2) wird ausgewertet. Welches Resultat entsteht?",
+    "options": [
+      "Der Wert 4",
+      "Der Schlüssel 2",
+      "Die Trefferliste [4, 3]"
+    ],
+    "correct": 0,
+    "explain": "Die erste passende Zahl in Iterationsreihenfolge ist 4.",
+    "rationales": [
+      "Die erste passende Zahl in Iterationsreihenfolge ist 4.",
+      "array_find liefert den Wert, nicht den Schlüssel.",
+      "Es liefert nur den ersten Treffer."
+    ],
+    "sources": [
+      "https://www.php.net/manual/en/function.array-find.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l3",
+    "index": 2,
+    "q": "PHP 8.5 wertet ' AB ' |> trim(...) |> strtolower(...) aus. Welches Resultat entsteht?",
+    "options": [
+      "' AB '",
+      "'ab '",
+      "'ab'"
+    ],
+    "correct": 2,
+    "explain": "Die Pipe reicht das Ergebnis von trim an strtolower weiter.",
+    "rationales": [
+      "Die Callables werden tatsächlich ausgeführt.",
+      "trim entfernt beide Rand-Leerzeichen.",
+      "Die Pipe reicht das Ergebnis von trim an strtolower weiter."
+    ],
+    "sources": [
+      "https://www.php.net/releases/8.5/en.php"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l4",
+    "index": 0,
+    "q": "InvoiceService erzeugt intern SystemClock. Ein Test benötigt einen festen Zeitpunkt. Welche Änderung schafft Austauschbarkeit?",
+    "options": [
+      "Clock im Konstruktor entgegennehmen",
+      "Die Uhr in einer globalen Variable halten",
+      "Den Konstruktor im Test überspringen"
+    ],
+    "correct": 0,
+    "explain": "Ein Test kann eine feste Clock injizieren.",
+    "rationales": [
+      "Ein Test kann eine feste Clock injizieren.",
+      "Die versteckte globale Abhängigkeit erschwert Isolation.",
+      "Ein übersprungener Konstruktor kann ungültigen Objektzustand erzeugen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l4",
+    "index": 1,
+    "q": "Ein Test soll send() genau einmal nachweisen. Welches Double unterstützt diese Interaktionsprüfung?",
+    "options": [
+      "Stub mit festem Rückgabewert",
+      "Produktivclient mit echtem Netzwerk",
+      "Mock mit Aufruferwartung"
+    ],
+    "correct": 2,
+    "explain": "Ein Mock kann Anzahl und Argumente prüfen.",
+    "rationales": [
+      "Ein Stub allein prüft nicht automatisch die Interaktion.",
+      "Ein echter Client ist kein isoliertes Double.",
+      "Ein Mock kann Anzahl und Argumente prüfen."
+    ],
+    "sources": [
+      "https://docs.phpunit.de/en/12.0/test-doubles.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m55-l4",
+    "index": 2,
+    "q": "Eine Preisregel erzeugt intern einen HTTP-Client. Tests sollen Timeouts ohne Netz simulieren. Welche Änderung passt?",
+    "options": [
+      "Den HTTP-Aufruf auskommentieren",
+      "Einen Kursdienst injizieren",
+      "Das Testtimeout nur erhöhen"
+    ],
+    "correct": 1,
+    "explain": "Ein injizierter Dienst erlaubt kontrollierte Antworten und Fehler.",
+    "rationales": [
+      "Auskommentieren verändert den getesteten Ablauf.",
+      "Ein injizierter Dienst erlaubt kontrollierte Antworten und Fehler.",
+      "Mehr Wartezeit entfernt die Netzabhängigkeit nicht."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l1",
+    "index": 0,
+    "q": "Nach einem Deployment liefert der Webserver auch .env aus. Welches Document Root muss konfiguriert werden?",
+    "options": [
+      "Das Projektwurzelverzeichnis",
+      "Das Verzeichnis storage/",
+      "Das Verzeichnis public/"
+    ],
+    "correct": 2,
+    "explain": "public enthält den Einstieg und öffentliche Assets, nicht die gesamte Anwendung.",
+    "rationales": [
+      "Die Projektwurzel kann sensible Dateien exponieren.",
+      "storage ist nicht der Web-Einstiegspunkt.",
+      "public enthält den Einstieg und öffentliche Assets, nicht die gesamte Anwendung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/deployment"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l1",
+    "index": 1,
+    "q": "Ein Team will die produktive .env ins öffentliche Repository legen. Welche Alternative passt?",
+    "options": [
+      ".env in env.txt umbenennen",
+      ".env.example ohne Geheimnisse versionieren",
+      "Nur APP_KEY aus .env entfernen"
+    ],
+    "correct": 1,
+    "explain": "Produktive Geheimnisse werden getrennt bereitgestellt.",
+    "rationales": [
+      "Ein anderer Dateiname schützt keine Geheimnisse.",
+      "Produktive Geheimnisse werden getrennt bereitgestellt.",
+      "Andere Werte können weiterhin Zugangsdaten enthalten."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/configuration"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l1",
+    "index": 2,
+    "q": "Nach config:cache liefert env im Controller unerwartet null. Welche Änderung passt?",
+    "options": [
+      "env in config verwenden, dann config lesen",
+      "env erst im Blade-Template aufrufen",
+      "Die .env nach public kopieren"
+    ],
+    "correct": 0,
+    "explain": "Nach dem Caching wird .env nicht regulär geladen; Anwendungscode liest Konfiguration.",
+    "rationales": [
+      "Nach dem Caching wird .env nicht regulär geladen; Anwendungscode liest Konfiguration.",
+      "Der Templateort ändert das Ladeverhalten nicht.",
+      "Die öffentliche Kopie würde Geheimnisse offenlegen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/configuration"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l2",
+    "index": 0,
+    "q": "Eine implizit gebundene Produkt-ID existiert nicht. Es gibt keine eigene missing-Behandlung. Welche Antwort entsteht?",
+    "options": [
+      "Automatisch ein neuer Datensatz",
+      "404 vor der Controlleraktion",
+      "Ein leeres Produkt mit Status 200"
+    ],
+    "correct": 1,
+    "explain": "Nicht gefundenes implizites Binding führt standardmäßig zu 404.",
+    "rationales": [
+      "Binding ist keine automatische Erstellung.",
+      "Nicht gefundenes implizites Binding führt standardmäßig zu 404.",
+      "Ein leeres Model wird nicht als Ersatz erzeugt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/routing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l2",
+    "index": 1,
+    "q": "Ein Team registriert Route::resource ohne Einschränkungen. Welche beiden Formularrouten entfallen erst bei apiResource?",
+    "options": [
+      "create und edit",
+      "store und update",
+      "index und show"
+    ],
+    "correct": 0,
+    "explain": "API-Ressourcen benötigen keine HTML-Formularseiten create und edit.",
+    "rationales": [
+      "API-Ressourcen benötigen keine HTML-Formularseiten create und edit.",
+      "Speichern und Aktualisieren bleiben API-Aktionen.",
+      "Listen und Anzeigen bleiben API-Aktionen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/controllers"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l2",
+    "index": 2,
+    "q": "Der Pfad /produkte wird zu /katalog geändert. Wie bleiben interne Links bei stabiler Routenkennung konsistent?",
+    "options": [
+      "Den alten Pfad überall fest eintragen",
+      "Nur den Controller umbenennen",
+      "Links über route mit Routennamen erzeugen"
+    ],
+    "correct": 2,
+    "explain": "Benannte Routen entkoppeln Linkerzeugung vom konkreten Pfad.",
+    "rationales": [
+      "Fest codierte Links bleiben nach der Änderung falsch.",
+      "Der Controllername aktualisiert keine fest codierten Links.",
+      "Benannte Routen entkoppeln Linkerzeugung vom konkreten Pfad."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/routing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l3",
+    "index": 0,
+    "q": "Ein Benutzername enthält ein script-Element und soll als Text erscheinen. Welche Blade-Ausgabe passt?",
+    "options": [
+      "{{ $name }}",
+      "{!! $name !!}",
+      "Ungefiltertes echo im Template"
+    ],
+    "correct": 0,
+    "explain": "Blade kodiert diese Ausgabe für HTML.",
+    "rationales": [
+      "Blade kodiert diese Ausgabe für HTML.",
+      "Die rohe Ausgabe interpretiert enthaltenes Markup.",
+      "Unkodierte Ausgabe kann ausführbares Markup erzeugen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/blade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l3",
+    "index": 1,
+    "q": "Eine Update-Route erwartet PUT, das HTML-Formular sendet POST. Welche Blade-Ergänzung setzt die beabsichtigte Laravel-Methode?",
+    "options": [
+      "@csrf allein",
+      "Ein method=\"PUT\" am nativen Formular",
+      "@method(\"PUT\")"
+    ],
+    "correct": 2,
+    "explain": "Method Spoofing erzeugt das versteckte _method-Feld.",
+    "rationales": [
+      "CSRF-Schutz ändert die HTTP-Methode nicht.",
+      "Native HTML-Formulare unterstützen PUT nicht direkt.",
+      "Method Spoofing erzeugt das versteckte _method-Feld."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/routing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m45-l3",
+    "index": 2,
+    "q": "CheckoutController enthält dieselbe Lagerregel wie ein Artisan-Command. Wo wird die Regel gemeinsam nutzbar?",
+    "options": [
+      "In einer zweiten Controllerkopie",
+      "In einer injizierten Action oder einem Service",
+      "In einem zusätzlichen Blade-Template"
+    ],
+    "correct": 1,
+    "explain": "Der fachliche Ablauf wird unabhängig vom HTTP-Einstieg aufrufbar.",
+    "rationales": [
+      "Kopieren lässt die Regeln auseinanderlaufen.",
+      "Der fachliche Ablauf wird unabhängig vom HTTP-Einstieg aufrufbar.",
+      "Ein Template ist kein geeigneter gemeinsamer Fachablauf."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l1",
+    "index": 0,
+    "q": "Eine Migration ist in Produktion bereits gelaufen. Ihre falsche Spaltenlänge muss korrigiert werden. Welche Änderung ist nachvollziehbar ausrollbar?",
+    "options": [
+      "Nur die alte Migration bearbeiten",
+      "Produktiv migrate:fresh ausführen",
+      "Eine neue korrigierende Migration"
+    ],
+    "correct": 2,
+    "explain": "Eine neue Migration erreicht auch bereits migrierte Umgebungen.",
+    "rationales": [
+      "Ausgeführte Migrationen laufen durch Editieren nicht erneut.",
+      "migrate:fresh löscht Tabellen und ist hier destruktiv.",
+      "Eine neue Migration erreicht auch bereits migrierte Umgebungen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/migrations"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l1",
+    "index": 1,
+    "q": "Eine foreignId besitzt constrained und cascadeOnDelete. Was passiert beim Löschen des referenzierten Elternsatzes bei aktiver FK-Prüfung?",
+    "options": [
+      "Der Elternsatz bleibt stets erhalten",
+      "Abhängige Kindzeilen werden gelöscht",
+      "Nur der Fremdschlüssel wird null"
+    ],
+    "correct": 1,
+    "explain": "Die Datenbank führt den konfigurierten Lösch-Cascade aus.",
+    "rationales": [
+      "CASCADE blockiert das Löschen nicht grundsätzlich.",
+      "Die Datenbank führt den konfigurierten Lösch-Cascade aus.",
+      "SET NULL wäre eine andere referenzielle Aktion."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/migrations"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l1",
+    "index": 2,
+    "q": "Ein Feature-Test benötigt drei Produkte mit definiertem Lagerbestand. Welches Werkzeug erzeugt diese Testdaten gezielt?",
+    "options": [
+      "Eine Model-Factory mit Zustand",
+      "Eine produktive Datenbankkopie",
+      "Eine Schema-Migration pro Produkt"
+    ],
+    "correct": 0,
+    "explain": "Factories erzeugen reproduzierbare Modeldaten für Tests.",
+    "rationales": [
+      "Factories erzeugen reproduzierbare Modeldaten für Tests.",
+      "Produktivdaten bringen Datenschutz- und Reproduzierbarkeitsrisiken.",
+      "Migrationen beschreiben Schemaänderungen statt einzelne Testprodukte."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-factories"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l2",
+    "index": 1,
+    "q": "Produkt::where(\"aktiv\", true)->get() findet keine Produkte. Welches Ergebnis muss der Aufrufer behandeln?",
+    "options": [
+      "Eine ModelNotFoundException",
+      "Eine leere Eloquent-Collection",
+      "Den Rückgabewert null"
+    ],
+    "correct": 1,
+    "explain": "get liefert auch ohne Treffer eine Collection.",
+    "rationales": [
+      "get wirft bei leeren Ergebnissen nicht wie firstOrFail.",
+      "get liefert auch ohne Treffer eine Collection.",
+      "null gehört etwa zu first ohne Treffer."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l2",
+    "index": 2,
+    "q": "Ein Produktmodel nutzt SoftDeletes. Was bewirkt sein reguläres delete?",
+    "options": [
+      "deleted_at setzen und standardmäßig ausblenden",
+      "Die Zeile immer physisch entfernen",
+      "Nur den PHP-Objektinhalt leeren"
+    ],
+    "correct": 0,
+    "explain": "Soft Delete markiert die Zeile und der globale Scope blendet sie aus.",
+    "rationales": [
+      "Soft Delete markiert die Zeile und der globale Scope blendet sie aus.",
+      "Physisches Entfernen erfolgt etwa mit forceDelete.",
+      "Die Datenbankzeile wird verändert, nicht nur das Objekt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l2",
+    "index": 3,
+    "q": "Gültige name/preis-Felder ändern ein fremdes Produkt. Validierung und Fillable sind korrekt. Welcher fehlende Schutz adressiert diesen Fehler?",
+    "options": [
+      "Ein zusätzlicher Preis-Datentyp",
+      "Ein weiteres erlaubtes Fillable-Feld",
+      "Objektbezogene Autorisierung"
+    ],
+    "correct": 2,
+    "explain": "Eine Policy muss den Benutzer für genau dieses Produkt berechtigen.",
+    "rationales": [
+      "Gültige Werte beweisen keine Änderungsrechte.",
+      "Mass Assignment begrenzt Felder, nicht Objektzugriff.",
+      "Eine Policy muss den Benutzer für genau dieses Produkt berechtigen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l3",
+    "index": 0,
+    "q": "Ein Kunde hat viele Bestellungen. Was erlaubt $kunde->bestellungen()->where(\"offen\", true)->get()?",
+    "options": [
+      "Die Relationsabfrage weiter einschränken",
+      "Nur eine bereits geladene Collection filtern",
+      "Den Fremdschlüssel automatisch entfernen"
+    ],
+    "correct": 0,
+    "explain": "Die Methode liefert ein Relationsobjekt mit Query-Funktionen.",
+    "rationales": [
+      "Die Methode liefert ein Relationsobjekt mit Query-Funktionen.",
+      "Die Property ohne Klammern liefert typischerweise geladene Daten.",
+      "Die Abfrage entfernt keinen Fremdschlüssel."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l3",
+    "index": 1,
+    "q": "In bestellungen liegt kunde_id. Welche Relation definiert Bestellung für ihren Kunden?",
+    "options": [
+      "hasMany(Kunde::class)",
+      "belongsToMany(Kunde::class)",
+      "belongsTo(Kunde::class)"
+    ],
+    "correct": 2,
+    "explain": "Das Model mit dem Fremdschlüssel gehört zum referenzierten Kunden.",
+    "rationales": [
+      "hasMany beschreibt hier die Gegenrichtung.",
+      "Eine Pivot-Tabelle wird für diese Relation nicht benötigt.",
+      "Das Model mit dem Fremdschlüssel gehört zum referenzierten Kunden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l3",
+    "index": 2,
+    "q": "Eine Rolle hat bisher Rechte 1 und 3. Was bewirkt rechte()->sync([3, 5])?",
+    "options": [
+      "Danach ist nur 3 zugeordnet",
+      "Danach sind 3 und 5 zugeordnet",
+      "Danach sind 1, 3 und 5 zugeordnet"
+    ],
+    "correct": 1,
+    "explain": "sync gleicht die Pivot-Zuordnung exakt mit der übergebenen Liste ab.",
+    "rationales": [
+      "Das neue Recht 5 wird ebenfalls angehängt.",
+      "sync gleicht die Pivot-Zuordnung exakt mit der übergebenen Liste ab.",
+      "Das wäre eher syncWithoutDetaching."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l4",
+    "index": 0,
+    "q": "100 Beiträge mit Autor erzeugen 101 Abfragen. Welche Abfrage reduziert das typische N+1 beim anschließenden Autorzugriff?",
+    "options": [
+      "Post::all()->sortBy(\"autor\")",
+      "Post::query()->get() ohne with",
+      "Post::with(\"autor\")->get()"
+    ],
+    "correct": 2,
+    "explain": "Eager Loading lädt die Autoren gebündelt.",
+    "rationales": [
+      "Sortierung einer Collection löst das fehlende Laden nicht.",
+      "Ohne Eager Loading bleibt der relationale Einzelzugriff.",
+      "Eager Loading lädt die Autoren gebündelt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l4",
+    "index": 1,
+    "q": "Eine Liste braucht nur die Kommentaranzahl je Beitrag, nicht die Kommentare. Welche Lösung passt?",
+    "options": [
+      "Pro Beitrag kommentare()->get()->count()",
+      "withCount(\"kommentare\")",
+      "with(\"kommentare\") und alle serialisieren"
+    ],
+    "correct": 1,
+    "explain": "withCount ergänzt kommentare_count ohne die Kommentar-Models zu laden.",
+    "rationales": [
+      "Die Schleife verursacht zusätzliche Abfragen und lädt unnötige Daten.",
+      "withCount ergänzt kommentare_count ohne die Kommentar-Models zu laden.",
+      "Vollständiges Laden ist für die reine Anzahl unnötig."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m46-l4",
+    "index": 2,
+    "q": "Eine DB::transaction-Closure wirft nach zwei Updates eine Exception. Die Tabellen sind transaktional. Was folgt?",
+    "options": [
+      "Rollback und Weiterwerfen der Exception",
+      "Commit und stiller Rückgabewert false",
+      "Nur das zweite Update wird zurückgenommen"
+    ],
+    "correct": 0,
+    "explain": "Laravel rollt die Transaktion zurück und reicht die Exception weiter.",
+    "rationales": [
+      "Laravel rollt die Transaktion zurück und reicht die Exception weiter.",
+      "Ein Fehler bewirkt hier keinen stillen Commit.",
+      "Die gesamte Transaktion wird zurückgenommen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/database"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l1",
+    "index": 0,
+    "q": "Eine JSON erwartende Anfrage verletzt required|email. Welche Standardantwort muss der Client auswerten?",
+    "options": [
+      "500 ohne Feldinformationen",
+      "422 mit Validierungsfehlern",
+      "302 auf die Loginseite"
+    ],
+    "correct": 1,
+    "explain": "Laravel liefert JSON-Validierungsfehler mit Status 422.",
+    "rationales": [
+      "Ein Eingabefehler ist kein interner Serverfehler.",
+      "Laravel liefert JSON-Validierungsfehler mit Status 422.",
+      "Die Anfrage ist keine gewöhnliche HTML-Weiterleitung und der Fehler ist keine Anmeldung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/validation"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l1",
+    "index": 1,
+    "q": "Ein Controller erhält StoreProductRequest per Type-Hint. Bei ungültigem Preis wird sein erster Befehl nicht erreicht. Warum?",
+    "options": [
+      "Form Requests validieren vor der Aktion",
+      "Validierung läuft erst nach dem Response",
+      "Eloquent unterdrückt den Controlleraufruf"
+    ],
+    "correct": 0,
+    "explain": "Laravel validiert den aufgelösten Form Request vor dem Aufruf der Controller-Methode.",
+    "rationales": [
+      "Laravel validiert den aufgelösten Form Request vor dem Aufruf der Controller-Methode.",
+      "Nachträgliche Validierung könnte die Aktion nicht verhindern.",
+      "Der Mechanismus gehört zum Request-Lebenszyklus, nicht zu Eloquent."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/validation"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l1",
+    "index": 2,
+    "q": "Das Browserformular erlaubt nur positive Preise. Ein direkter HTTP-Client sendet -5. Was muss die Anwendung tun?",
+    "options": [
+      "Nur das HTML-min-Attribut verschärfen",
+      "Den negativen Wert ungeprüft speichern",
+      "Den Preis zusätzlich serverseitig validieren"
+    ],
+    "correct": 2,
+    "explain": "Clients können Browserprüfungen vollständig umgehen.",
+    "rationales": [
+      "Auch ein strengeres HTML-Attribut bindet direkte Clients nicht.",
+      "Ungeprüfte Speicherung verletzt die Eingaberegel.",
+      "Clients können Browserprüfungen vollständig umgehen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/validation"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l2",
+    "index": 0,
+    "q": "Eine Middleware prüft einen Header und ruft danach return $next($request) auf. Was passiert?",
+    "options": [
+      "Die nächste Pipeline-Stufe wird ausgeführt",
+      "Der Request wird automatisch beendet",
+      "Alle folgenden Middleware werden übersprungen"
+    ],
+    "correct": 0,
+    "explain": "$next setzt die Verarbeitung fort und liefert deren Response zurück.",
+    "rationales": [
+      "$next setzt die Verarbeitung fort und liefert deren Response zurück.",
+      "Beenden würde eine eigene Response ohne $next erfordern.",
+      "$next ist gerade die Fortsetzung der Pipeline."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/middleware"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l2",
+    "index": 1,
+    "q": "Ein Laravel-13-POST-Formular nutzt die Standard-web-Middleware. Warum bleibt @csrf sinnvoll, obwohl sichere Same-Origin-Requests ohne Tokenprüfung passieren können?",
+    "options": [
+      "Es ersetzt jede objektbezogene Policy",
+      "Ohne Token schlägt jeder POST zwingend fehl",
+      "Es liefert den Token für den Fallback"
+    ],
+    "correct": 2,
+    "explain": "PreventRequestForgery prüft zuerst den Ursprung und fällt gegebenenfalls auf Tokenprüfung zurück.",
+    "rationales": [
+      "CSRF-Schutz erteilt keine Objektberechtigung.",
+      "Bei erfolgreicher Origin-Prüfung ist die Tokenprüfung nicht zwingend nötig.",
+      "PreventRequestForgery prüft zuerst den Ursprung und fällt gegebenenfalls auf Tokenprüfung zurück."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/csrf"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l2",
+    "index": 2,
+    "q": "Eine Kontoseite soll nur für eingeloggte Benutzer erreichbar sein. Welche Middleware prüft diese Voraussetzung?",
+    "options": [
+      "throttle",
+      "auth",
+      "guest"
+    ],
+    "correct": 1,
+    "explain": "auth prüft die Authentifizierung mit dem gewählten Guard.",
+    "rationales": [
+      "throttle begrenzt Aufrufraten statt die Anmeldung zu prüfen.",
+      "auth prüft die Authentifizierung mit dem gewählten Guard.",
+      "guest ist für nicht angemeldete Besucher gedacht."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authentication"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l3",
+    "index": 0,
+    "q": "Mira ist eingeloggt, darf aber die Rechnung eines anderen Kunden nicht lesen. Welche zusätzliche Prüfung fehlt?",
+    "options": [
+      "Erneute Passwort-Hashberechnung",
+      "Nur die Existenz der Session",
+      "Autorisierung für diese Rechnung"
+    ],
+    "correct": 2,
+    "explain": "Authentifizierung identifiziert Mira; Autorisierung entscheidet über ihren konkreten Zugriff.",
+    "rationales": [
+      "Ein neuer Hash klärt keine Objektberechtigung.",
+      "Die Anmeldung allein gewährt keinen Zugriff auf fremde Rechnungen.",
+      "Authentifizierung identifiziert Mira; Autorisierung entscheidet über ihren konkreten Zugriff."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l3",
+    "index": 1,
+    "q": "Eine aufgerufene Policy hat before(), das für Administratoren true zurückgibt. Welche Folge gilt für deren geprüfte Aktion?",
+    "options": [
+      "Alle Benutzer werden dadurch erlaubt",
+      "Die Aktion wird vor der Fachmethode erlaubt",
+      "Die Fachmethode muss zusätzlich true liefern"
+    ],
+    "correct": 1,
+    "explain": "Ein nicht-null Ergebnis von before entscheidet die Autorisierung vor der eigentlichen Methode.",
+    "rationales": [
+      "Die im Szenario genannte Bedingung betrifft nur Administratoren.",
+      "Ein nicht-null Ergebnis von before entscheidet die Autorisierung vor der eigentlichen Methode.",
+      "Die eigentliche Methode wird bei diesem true-Ergebnis nicht mehr zur Entscheidung benötigt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m47-l3",
+    "index": 2,
+    "q": "Ein Mandant darf die Existenz fremder Rechnungen nicht erkennen. Welche verweigerte Antwort kann eine Policy gezielt liefern?",
+    "options": [
+      "denyAsNotFound mit 404",
+      "200 mit leerem Rechnungsobjekt",
+      "401 trotz gültiger Anmeldung"
+    ],
+    "correct": 0,
+    "explain": "Eine 404-Antwort kann die Existenz verbergen, ersetzt aber keine Rechteprüfung.",
+    "rationales": [
+      "Eine 404-Antwort kann die Existenz verbergen, ersetzt aber keine Rechteprüfung.",
+      "200 würde Erfolg signalisieren statt verweigerten Zugriff.",
+      "401 beschreibt fehlende gültige Authentifizierung, nicht diese autorisierte Verweigerung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l1",
+    "index": 0,
+    "q": "Eine anonyme Blade-Komponente erwartet typ mit Standard info. Welche Deklaration trennt diese Daten von den übrigen HTML-Attributen?",
+    "options": [
+      "@method('info')",
+      "@props(['typ' => 'info'])",
+      "@include('typ', ['info'])"
+    ],
+    "correct": 1,
+    "explain": "@props deklariert die Daten der anonymen Komponente samt Standardwert.",
+    "rationales": [
+      "method dient dem HTTP-Method-Spoofing.",
+      "@props deklariert die Daten der anonymen Komponente samt Standardwert.",
+      "include lädt eine View, deklariert aber keine Komponenten-Props."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/blade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l1",
+    "index": 1,
+    "q": "Eine Blade-Komponente soll den Wert der PHP-Variable $warnung erhalten, nicht deren wörtlichen Namen. Welches Attribut passt?",
+    "options": [
+      ":typ=\"$warnung\"",
+      "typ=\"$warnung\"",
+      "typ=\"warnung\""
+    ],
+    "correct": 0,
+    "explain": "Der Doppelpunkt kennzeichnet eine auszuwertende PHP-Expression.",
+    "rationales": [
+      "Der Doppelpunkt kennzeichnet eine auszuwertende PHP-Expression.",
+      "Ohne Doppelpunkt ist dies ein wörtlicher Attributwert.",
+      "Diese Variante übergibt den festen Text warnung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/blade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l1",
+    "index": 2,
+    "q": "Eine anonyme Komponente hat Standardklasse p-4; der Aufrufer ergänzt text-red-600. Wie bleiben beide erhalten?",
+    "options": [
+      "class='p-4' ohne Attributausgabe",
+      "$attributes->except('class')",
+      "$attributes->merge(['class' => 'p-4'])"
+    ],
+    "correct": 2,
+    "explain": "merge führt class-Werte zusammen, sodass Standard und Aufruferklassen erscheinen.",
+    "rationales": [
+      "Ohne Attributausgabe geht die Aufruferklasse verloren.",
+      "except entfernt die übergebene Klasse ausdrücklich.",
+      "merge führt class-Werte zusammen, sodass Standard und Aufruferklassen erscheinen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/blade"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l2",
+    "index": 0,
+    "q": "Die Produktionsauslieferung hat keinen Vite-Devserver. Was muss die Build-Pipeline mit npm run build erzeugen?",
+    "options": [
+      "Produktionsassets samt Manifest",
+      "Einen dauerhaft laufenden HMR-Server",
+      "Eine neue PHP-Konfigurationsdatei"
+    ],
+    "correct": 0,
+    "explain": "Vite erstellt die Produktionsdateien und das zugehörige Manifest.",
+    "rationales": [
+      "Vite erstellt die Produktionsdateien und das zugehörige Manifest.",
+      "Der Devserver gehört zum Entwicklungsmodus.",
+      "Der Frontendbuild erzeugt nicht die Laravel-Konfiguration."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/vite"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l2",
+    "index": 1,
+    "q": "Auf dem Server meldet @vite Vite manifest not found. Der Build lief lokal. Welche Prüfung ist zuerst zielführend?",
+    "options": [
+      "APP_KEY durch einen neuen Wert ersetzen",
+      "Die Datenbankmigrationen zurückrollen",
+      "Build-Ausgabe und Manifest im Release prüfen"
+    ],
+    "correct": 2,
+    "explain": "Fehlende oder falsch platzierte Build-Artefakte erklären diese Meldung direkt.",
+    "rationales": [
+      "Der Anwendungsschlüssel erzeugt kein Vite-Manifest.",
+      "Schema-Rollback repariert fehlende Assets nicht.",
+      "Fehlende oder falsch platzierte Build-Artefakte erklären diese Meldung direkt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/vite"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l2",
+    "index": 2,
+    "q": "Dasselbe Blade-Layout soll lokal HMR und produktiv versionierte Assets laden. Welche Einbindung übernimmt die Auswahl?",
+    "options": [
+      "Ein Link direkt auf resources/js/app.js",
+      "@vite mit den Entry-Points",
+      "Eine fest codierte localhost-Script-URL"
+    ],
+    "correct": 1,
+    "explain": "@vite verwendet je nach Umgebung Devserver oder Build-Manifest.",
+    "rationales": [
+      "Quelldateien ersetzen nicht die produktive Build-Ausgabe.",
+      "@vite verwendet je nach Umgebung Devserver oder Build-Manifest.",
+      "localhost verweist beim Besucher auf dessen eigene Maschine."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/vite"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l3",
+    "index": 0,
+    "q": "Ein Livewire-Suchfeld aktualisiert Ergebnisse erst beim Klick. Welche Bindung sendet zusätzlich während der Eingabe Updates?",
+    "options": [
+      "wire:model=\"suche\" ohne Modifier",
+      "Ein HTML-name ohne wire:model",
+      "wire:model.live=\"suche\""
+    ],
+    "correct": 2,
+    "explain": ".live aktiviert Serverupdates während der Eingabe mit standardmäßigem Debounce.",
+    "rationales": [
+      "Die normale Bindung sendet standardmäßig erst zusammen mit Aktionen.",
+      "Ein name-Attribut allein erzeugt keine Livewire-Livebindung.",
+      ".live aktiviert Serverupdates während der Eingabe mit standardmäßigem Debounce."
+    ],
+    "sources": [
+      "https://livewire.laravel.com/docs/4.x/wire-model"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l3",
+    "index": 1,
+    "q": "Ein Benutzer manipuliert die öffentliche Livewire-Property produktId vor dem Speichern. Welche Prüfung ist in der Aktion nötig?",
+    "options": [
+      "Nur die ursprüngliche ID beim Rendern prüfen",
+      "Validierung und objektbezogene Autorisierung",
+      "Nur ein verstecktes HTML-Eingabefeld"
+    ],
+    "correct": 1,
+    "explain": "Clientbeeinflussbare Werte müssen beim schreibenden Aufruf geprüft und berechtigt werden.",
+    "rationales": [
+      "Eine frühere Anzeigeprüfung schützt einen später manipulierten Aktionsaufruf nicht.",
+      "Clientbeeinflussbare Werte müssen beim schreibenden Aufruf geprüft und berechtigt werden.",
+      "Versteckte Felder sind nicht vertrauenswürdig."
+    ],
+    "sources": [
+      "https://livewire.laravel.com/docs/4.x/security"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l3",
+    "index": 2,
+    "q": "Ein PHP-Team baut eine interne CRUD-Verwaltung mit Live-Suche und ohne separates JavaScript-Team. Welcher Ansatz passt zum Rahmen?",
+    "options": [
+      "Blade mit Livewire-Komponenten",
+      "Eine neue SPA mit separater API erzwingen",
+      "Alle Änderungen nur per Vollseiten-Reload"
+    ],
+    "correct": 0,
+    "explain": "Livewire ergänzt servergetriebene Interaktivität im vorhandenen Laravel-Stack.",
+    "rationales": [
+      "Livewire ergänzt servergetriebene Interaktivität im vorhandenen Laravel-Stack.",
+      "Eine separate SPA ist möglich, bringt hier aber zusätzliche Frontendverantwortung.",
+      "Vollseiten-Reloads erfüllen die gewünschte Live-Interaktion nicht direkt."
+    ],
+    "sources": [
+      "https://livewire.laravel.com/docs/4.x/quickstart"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l4",
+    "index": 0,
+    "q": "Ein Profilformular scheitert an einem anderen Feld. Was zeigt old(\"email\", $user->email) bei vorhandener alter E-Mail-Eingabe?",
+    "options": [
+      "Immer einen leeren String",
+      "Die zuletzt übermittelte Eingabe",
+      "Immer den gespeicherten Modelwert"
+    ],
+    "correct": 1,
+    "explain": "old priorisiert den geflashten Eingabewert; der zweite Wert ist nur ein Fallback.",
+    "rationales": [
+      "Eine vorhandene Eingabe wird nicht pauschal geleert.",
+      "old priorisiert den geflashten Eingabewert; der zweite Wert ist nur ein Fallback.",
+      "Der Modelwert ist nicht vorrangig, wenn alte Eingabe vorliegt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/requests"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l4",
+    "index": 1,
+    "q": "Nach einem Redirect wird with(\"status\", \"Gespeichert\") verwendet. Wie lange bleibt diese Flash-Nachricht standardmäßig verfügbar?",
+    "options": [
+      "Im folgenden Request",
+      "Bis zum nächsten erfolgreichen Login",
+      "Dauerhaft bis zu einem manuellen Löschen"
+    ],
+    "correct": 0,
+    "explain": "Flash-Daten sind für den nächsten Request vorgesehen und werden danach entfernt, sofern sie nicht verlängert werden.",
+    "rationales": [
+      "Flash-Daten sind für den nächsten Request vorgesehen und werden danach entfernt, sofern sie nicht verlängert werden.",
+      "Die Dauer ist nicht an den Login gebunden.",
+      "Dauerhafte Sessiondaten benötigen eine andere Speicherung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/session"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m56-l4",
+    "index": 2,
+    "q": "Ein E-Mail-Feld zeigt Fehler nur als rote Umrandung. Welche Ergänzung vermittelt den Fehler auch ohne Farbwahrnehmung?",
+    "options": [
+      "Die Umrandung ausschließlich dicker machen",
+      "Das Label durch einen Placeholder ersetzen",
+      "Textfehler über aria-describedby zuordnen"
+    ],
+    "correct": 2,
+    "explain": "Ein zugeordneter Fehlertext macht Ursache und Feldbezug zugänglich; ein echtes Label bleibt nötig.",
+    "rationales": [
+      "Eine dickere Linie liefert keine verständliche Fehlerbeschreibung.",
+      "Ein Placeholder ersetzt kein dauerhaftes Label und keine Fehlermeldung.",
+      "Ein zugeordneter Fehlertext macht Ursache und Feldbezug zugänglich; ein echtes Label bleibt nötig."
+    ],
+    "sources": [
+      "https://www.w3.org/WAI/tutorials/forms/notifications/"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l1",
+    "index": 0,
+    "q": "Ein Upload ruft store(\"avatare\", \"public\") auf. Welchen Wert speichert das Profil für die spätere Dateiauflösung?",
+    "options": [
+      "Den zurückgegebenen relativen Speicherpfad",
+      "Zwingend eine vollständige HTTPS-URL",
+      "Den originalen lokalen Clientpfad"
+    ],
+    "correct": 0,
+    "explain": "store liefert den gespeicherten Pfad relativ zum Datenträger.",
+    "rationales": [
+      "store liefert den gespeicherten Pfad relativ zum Datenträger.",
+      "Eine öffentliche URL wird getrennt erzeugt.",
+      "Der Clientpfad ist weder Speicherort noch vertrauenswürdige Referenz."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/filesystem"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l1",
+    "index": 1,
+    "q": "Avatare liegen auf dem lokalen public-Datenträger, sind aber unter /storage nicht erreichbar. Welche Einrichtung ist vorgesehen?",
+    "options": [
+      "Den gesamten storage-Ordner veröffentlichen",
+      "Die Dateien nach vendor verschieben",
+      "php artisan storage:link"
+    ],
+    "correct": 2,
+    "explain": "storage:link verbindet public/storage mit dem vorgesehenen öffentlichen Speicher.",
+    "rationales": [
+      "Der gesamte storage-Ordner kann private Daten und Logs enthalten.",
+      "vendor ist kein öffentlicher Uploadspeicher.",
+      "storage:link verbindet public/storage mit dem vorgesehenen öffentlichen Speicher."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/filesystem"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l1",
+    "index": 2,
+    "q": "Eine private Rechnung darf nur ihrem Eigentümer zugestellt werden. Welche Auslieferung passt?",
+    "options": [
+      "Öffentliche URL mit schwer erratbarem Namen",
+      "Autorisierter Controller mit privatem Download",
+      "Permanenter Link im public-Datenträger"
+    ],
+    "correct": 1,
+    "explain": "Die Datei bleibt privat und wird erst nach einer Rechteprüfung ausgeliefert.",
+    "rationales": [
+      "Nicht erratbare Namen ersetzen keine Autorisierung.",
+      "Die Datei bleibt privat und wird erst nach einer Rechteprüfung ausgeliefert.",
+      "Ein öffentlicher Datenträger umgeht die beabsichtigte Zugriffskontrolle."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/filesystem"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l2",
+    "index": 0,
+    "q": "Ein modernes Mailable soll den Betreff Bestellung 42 setzen. Wo wird er in der üblichen Klassendefinition angegeben?",
+    "options": [
+      "Im Content aus content()",
+      "Nur im Namen der Blade-Datei",
+      "Im Envelope aus envelope()"
+    ],
+    "correct": 2,
+    "explain": "Der Envelope definiert unter anderem den Betreff.",
+    "rationales": [
+      "Content beschreibt den Nachrichteninhalt und die Views.",
+      "Ein Dateiname wird nicht automatisch zum Betreff.",
+      "Der Envelope definiert unter anderem den Betreff."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/mail"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l2",
+    "index": 1,
+    "q": "SMTP braucht mehrere Sekunden. Der Checkout soll schnell antworten, die Mail aber später versenden. Welche Einrichtung passt?",
+    "options": [
+      "Queue mit sync als Hintergrund garantieren",
+      "Mailable asynchron mit laufendem Worker queuen",
+      "Nur die SMTP-Wartezeit verstecken"
+    ],
+    "correct": 1,
+    "explain": "Eine asynchrone Queue entkoppelt die Wartezeit; Worker und Fehlerbehandlung müssen betrieben werden.",
+    "rationales": [
+      "Der sync-Treiber führt unmittelbar im aktuellen Prozess aus.",
+      "Eine asynchrone Queue entkoppelt die Wartezeit; Worker und Fehlerbehandlung müssen betrieben werden.",
+      "Der Request wartet weiterhin auf denselben Aufruf."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/mail"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l2",
+    "index": 2,
+    "q": "Lokale Bestelltests dürfen keine echten Kundenmails versenden. Welche Transportkonfiguration passt?",
+    "options": [
+      "Den log-Mailer lokal verwenden",
+      "Produktiv-SMTP mit anderem Betreff nutzen",
+      "Nur die Absenderadresse verändern"
+    ],
+    "correct": 0,
+    "explain": "Der log-Transport schreibt die Nachricht statt sie extern zuzustellen.",
+    "rationales": [
+      "Der log-Transport schreibt die Nachricht statt sie extern zuzustellen.",
+      "Ein anderer Betreff verhindert keine Zustellung.",
+      "Ein anderer Absender verhindert ebenfalls keine Zustellung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/mail"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l3",
+    "index": 0,
+    "q": "Eine Notification soll für Benutzer nur Datenbank und Mail verwenden. Welche Methode wählt diese Kanäle?",
+    "options": [
+      "routeNotificationForMail()",
+      "via($notifiable)",
+      "toArray($notifiable)"
+    ],
+    "correct": 1,
+    "explain": "via gibt die verwendeten Zustellkanäle zurück.",
+    "rationales": [
+      "routeNotificationForMail bestimmt die Mailadresse statt alle Kanäle.",
+      "via gibt die verwendeten Zustellkanäle zurück.",
+      "toArray beschreibt Daten, nicht die Kanalauswahl."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/notifications"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l3",
+    "index": 1,
+    "q": "Ein gewöhnliches Benutzer-Model soll $user->notify(...) unterstützen. Welche Ergänzung stellt diese Komfort-API bereit?",
+    "options": [
+      "Den Notifiable-Trait verwenden",
+      "Nur eine notifications-Spalte ergänzen",
+      "Nur das Model als readonly markieren"
+    ],
+    "correct": 0,
+    "explain": "Notifiable stellt die Benachrichtigungsfunktionen des Models bereit.",
+    "rationales": [
+      "Notifiable stellt die Benachrichtigungsfunktionen des Models bereit.",
+      "Eine Spalte erzeugt keine notify-Methode.",
+      "readonly hat mit der Notification-API nichts zu tun."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/notifications"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m57-l3",
+    "index": 2,
+    "q": "Eine Notification nutzt den database-Kanal und definiert kein toDatabase. Welche Methode liefert standardmäßig dessen Nutzdaten?",
+    "options": [
+      "envelope()",
+      "middleware()",
+      "toArray($notifiable)"
+    ],
+    "correct": 2,
+    "explain": "Der Datenbankkanal kann die Daten aus toArray verwenden.",
+    "rationales": [
+      "envelope gehört zur Mailable-Definition.",
+      "middleware beschreibt nicht die gespeicherten Notification-Daten.",
+      "Der Datenbankkanal kann die Daten aus toArray verwenden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/notifications"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l1",
+    "index": 0,
+    "q": "Eine Kampagne soll nur Kunden mit mindestens einer offenen Bestellung auswählen. Welcher Ansatz filtert bereits in SQL?",
+    "options": [
+      "whereHas(\"bestellungen\", passender Callback)",
+      "with(\"bestellungen\") ohne Bedingung",
+      "Alle Kunden laden und später zählen"
+    ],
+    "correct": 0,
+    "explain": "whereHas schränkt Kunden anhand der Existenz passender Beziehungen ein.",
+    "rationales": [
+      "whereHas schränkt Kunden anhand der Existenz passender Beziehungen ein.",
+      "Eager Loading allein filtert die Elternmenge nicht.",
+      "Spätes Filtern lädt unnötige Kunden und Beziehungen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l1",
+    "index": 1,
+    "q": "Kunde::withSum(\"bestellungen\", \"summe_cent\")->get() nutzt keinen Alias. Unter welchem Attribut steht das Aggregat?",
+    "options": [
+      "summe_cent_sum",
+      "bestellungen_count",
+      "bestellungen_sum_summe_cent"
+    ],
+    "correct": 2,
+    "explain": "Laravel kombiniert Relationsname, Aggregat und Spaltenname.",
+    "rationales": [
+      "Diese Kurzform entspricht nicht der Standardbenennung.",
+      "count bezeichnet die Anzahl, nicht die Summe.",
+      "Laravel kombiniert Relationsname, Aggregat und Spaltenname."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l1",
+    "index": 2,
+    "q": "Ein Kunde hat viele Bestellungen mit monotonen Integer-IDs. Die Relation soll nur die mit höchster ID liefern. Welche Definition passt?",
+    "options": [
+      "belongsToMany(...)->sync([])",
+      "hasOne(...)->latestOfMany()",
+      "hasMany(...)->get()"
+    ],
+    "correct": 1,
+    "explain": "latestOfMany verwendet standardmäßig den sortierbaren Primärschlüssel für den einen neuesten Datensatz.",
+    "rationales": [
+      "sync verändert Pivot-Zuordnungen statt die neueste Bestellung zu lesen.",
+      "latestOfMany verwendet standardmäßig den sortierbaren Primärschlüssel für den einen neuesten Datensatz.",
+      "get liefert eine Sammlung statt der gewünschten One-of-Many-Relation."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l2",
+    "index": 0,
+    "q": "Ein bidirektionaler Custom Cast übersetzt Datenbankwerte in ein Money-Objekt und zurück. Welche Methoden des CastsAttributes-Vertrags implementiert er?",
+    "options": [
+      "up und down",
+      "authorize und rules",
+      "get und set"
+    ],
+    "correct": 2,
+    "explain": "get liest den Attributwert, set wandelt den zu speichernden Wert um.",
+    "rationales": [
+      "up und down gehören zu Migrationen.",
+      "authorize und rules gehören typischerweise zu Form Requests.",
+      "get liest den Attributwert, set wandelt den zu speichernden Wert um."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-mutators"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l2",
+    "index": 1,
+    "q": "Ein Model nutzt den encrypted-Cast. Welche Anwendungskonfiguration ist für die Entschlüsselung maßgeblich?",
+    "options": [
+      "Der Name der verschlüsselten Spalte",
+      "Der konfigurierte Anwendungsschlüssel",
+      "Das Hash-Passwort des angemeldeten Users"
+    ],
+    "correct": 1,
+    "explain": "Die Laravel-Verschlüsselung verwendet den Anwendungsschlüssel; Rotation und alte Schlüssel müssen geplant werden.",
+    "rationales": [
+      "Ein Spaltenname ist kein geheimer Schlüssel.",
+      "Die Laravel-Verschlüsselung verwendet den Anwendungsschlüssel; Rotation und alte Schlüssel müssen geplant werden.",
+      "Benutzerpasswörter sind nicht der generische Cast-Schlüssel."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-mutators"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l2",
+    "index": 2,
+    "q": "Eine Kundennotiz ist per encrypted-Cast gespeichert. Warum liefert eine normale SQL-Suche nach Klartext nicht das erwartete Ergebnis?",
+    "options": [
+      "SQL sieht den verschlüsselten Speicherwert",
+      "Der Cast löscht jeden gespeicherten Text",
+      "Der Cast erzeugt automatisch einen Suchindex"
+    ],
+    "correct": 0,
+    "explain": "Die Klartexttransformation erfolgt im Anwendungscode; der gespeicherte Ciphertext ist nicht direkt nach Klartext durchsuchbar.",
+    "rationales": [
+      "Die Klartexttransformation erfolgt im Anwendungscode; der gespeicherte Ciphertext ist nicht direkt nach Klartext durchsuchbar.",
+      "Die Daten bleiben verschlüsselt gespeichert.",
+      "Ein Klartext-Suchindex wird nicht automatisch angelegt."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-mutators"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l3",
+    "index": 0,
+    "q": "Kommentare gehören wahlweise zu Beiträgen oder Videos. Welche Felder bestimmen beim üblichen morphTo den Elternsatz?",
+    "options": [
+      "post_id und video_id gleichzeitig",
+      "commentable_type und commentable_id",
+      "commentable_id und created_at"
+    ],
+    "correct": 1,
+    "explain": "Typ und ID bestimmen gemeinsam die polymorphe Referenz.",
+    "rationales": [
+      "Zwei getrennte Fremdschlüssel entsprechen nicht der üblichen morphTo-Struktur.",
+      "Typ und ID bestimmen gemeinsam die polymorphe Referenz.",
+      "Ein Zeitstempel ersetzt keinen Modeltyp."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l3",
+    "index": 1,
+    "q": "Nach Umbenennung von Model-Namespaces sollen polymorphe Typwerte stabil bleiben. Welche Einrichtung hilft?",
+    "options": [
+      "enforceMorphMap mit stabilen Aliasnamen",
+      "Klassennamen fest in jedes Template schreiben",
+      "Nur die IDs in den Kindtabellen ändern"
+    ],
+    "correct": 0,
+    "explain": "Eine Morph Map entkoppelt gespeicherte Typwerte von vollständigen Klassennamen; vorhandene Werte sind zu migrieren.",
+    "rationales": [
+      "Eine Morph Map entkoppelt gespeicherte Typwerte von vollständigen Klassennamen; vorhandene Werte sind zu migrieren.",
+      "Templatewerte reparieren gespeicherte Typbezeichner nicht.",
+      "Die ID allein klärt den veränderten Modeltyp nicht."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l3",
+    "index": 2,
+    "q": "Ein Kommentar referenziert über type/id entweder posts oder videos. Welche Datenbankgrenze muss berücksichtigt werden?",
+    "options": [
+      "Die Referenz benötigt überhaupt keine Prüfung",
+      "Jede SQL-Datenbank erzeugt dafür automatisch zwei FKs",
+      "Ein normaler FK kann nicht beide Zieltables wählen"
+    ],
+    "correct": 2,
+    "explain": "Ein gewöhnlicher Fremdschlüssel hat eine feste Zieltabelle, nicht eine durch type bestimmte.",
+    "rationales": [
+      "Integrität muss trotzdem durch geeignetes Design und Prüfungen abgesichert werden.",
+      "Zwei konkurrierende FKs auf dieselbe ID bilden diese Auswahl nicht automatisch ab.",
+      "Ein gewöhnlicher Fremdschlüssel hat eine feste Zieltabelle, nicht eine durch type bestimmte."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l4",
+    "index": 0,
+    "q": "Ein globaler Scope ergänzt bei Produktabfragen mandant_id. Was bewirkt Produkt::query()->get() standardmäßig?",
+    "options": [
+      "Die Scope-Bedingung wird mit angewandt",
+      "Der Scope gilt nur beim Einfügen",
+      "Der Scope ersetzt jede Policyprüfung"
+    ],
+    "correct": 0,
+    "explain": "Globale Scopes verändern standardmäßig die Abfragen des Models.",
+    "rationales": [
+      "Globale Scopes verändern standardmäßig die Abfragen des Models.",
+      "Sie sind nicht bloß Insert-Hooks.",
+      "Scopes können umgangen oder ungeeignet verwendet werden und ersetzen nicht alle Autorisierung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l4",
+    "index": 1,
+    "q": "Eine Adminansicht soll aktive und soft-gelöschte Produkte zeigen. Welche Erweiterung der Eloquent-Abfrage passt?",
+    "options": [
+      "onlyTrashed()",
+      "forceDelete()",
+      "withTrashed()"
+    ],
+    "correct": 2,
+    "explain": "withTrashed bezieht auch soft-gelöschte Zeilen ein.",
+    "rationales": [
+      "onlyTrashed schließt aktive Zeilen aus.",
+      "forceDelete löscht endgültig statt Daten zu lesen.",
+      "withTrashed bezieht auch soft-gelöschte Zeilen ein."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m58-l4",
+    "index": 2,
+    "q": "Ein Prunable-Model definiert abgelaufene Entwürfe in prunable(). Welcher geplante Artisan-Befehl führt die Bereinigung aus?",
+    "options": [
+      "queue:restart",
+      "model:prune",
+      "migrate:refresh"
+    ],
+    "correct": 1,
+    "explain": "model:prune wertet die Pruning-Definitionen aus.",
+    "rationales": [
+      "queue:restart erneuert Worker statt Models zu prunen.",
+      "model:prune wertet die Pruning-Definitionen aus.",
+      "migrate:refresh ist ein Schema-Neuaufbau und nicht diese Bereinigung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l1",
+    "index": 0,
+    "q": "Eine API gibt Models direkt aus; ein neues internes Attribut taucht unerwartet im JSON auf. Welche Schicht stabilisiert den Ausgabevertrag?",
+    "options": [
+      "Ein weiteres Fillable-Feld",
+      "Ein längeres Token für den Benutzer",
+      "Eine Resource mit expliziten Feldern"
+    ],
+    "correct": 2,
+    "explain": "Eine Resource steuert gezielt die öffentliche Darstellung; Autorisierung bleibt zusätzlich nötig.",
+    "rationales": [
+      "Fillable betrifft Eingaben, nicht den API-Ausgabevertrag.",
+      "Tokenlänge begrenzt keine serialisierten Felder.",
+      "Eine Resource steuert gezielt die öffentliche Darstellung; Autorisierung bleibt zusätzlich nötig."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-resources"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l1",
+    "index": 1,
+    "q": "Ein erfolgreicher POST hat eine neue Bestellung angelegt. Welcher Status beschreibt die Erstellung?",
+    "options": [
+      "409 Conflict",
+      "201 Created",
+      "204 No Content als Erstellungsnachweis"
+    ],
+    "correct": 1,
+    "explain": "201 kennzeichnet eine erstellte Ressource; ein Location-Header kann ihre URI angeben.",
+    "rationales": [
+      "409 bezeichnet einen Konflikt statt Erfolg.",
+      "201 kennzeichnet eine erstellte Ressource; ein Location-Header kann ihre URI angeben.",
+      "204 ist ein erfolgreicher leerer Response, signalisiert aber nicht spezifisch Erstellung."
+    ],
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html#name-201-created"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l1",
+    "index": 2,
+    "q": "Ein gültig angemeldeter Benutzer darf ein existierendes fremdes Produkt nicht löschen. Die API will dessen Existenz nicht verbergen. Welcher Status passt?",
+    "options": [
+      "403 Forbidden",
+      "401 Unauthorized",
+      "422 Unprocessable Content"
+    ],
+    "correct": 0,
+    "explain": "403 beschreibt den verweigerten Zugriff trotz identifizierter Anfrage.",
+    "rationales": [
+      "403 beschreibt den verweigerten Zugriff trotz identifizierter Anfrage.",
+      "401 betrifft fehlende gültige Authentifizierung.",
+      "422 betrifft verarbeitbare Syntax mit fachlich ungültigem Inhalt, nicht diese Rechteverweigerung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l2",
+    "index": 1,
+    "q": "Die eigene Vue-SPA und Laravel-API teilen die Hauptdomain. Welche Sanctum-Variante ist für dieses First-Party-Frontend vorgesehen?",
+    "options": [
+      "API-Schlüssel öffentlich ins JavaScript schreiben",
+      "Cookiebasierte Session mit CSRF-Schutz",
+      "Persönlichen Bearer-Token im Frontend ablegen"
+    ],
+    "correct": 1,
+    "explain": "Sanctum empfiehlt für eigene SPAs die Session-Authentifizierung mit korrekter Stateful- und Cookie-Konfiguration.",
+    "rationales": [
+      "Ein öffentlicher Schlüssel kann keine vertrauliche Benutzeranmeldung herstellen.",
+      "Sanctum empfiehlt für eigene SPAs die Session-Authentifizierung mit korrekter Stateful- und Cookie-Konfiguration.",
+      "Persönliche Tokens sind nicht die empfohlene First-Party-SPA-Anmeldung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/sanctum"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l2",
+    "index": 2,
+    "q": "Ein persönlicher Sanctum-Token besitzt produkte:schreiben. Darf der Benutzer damit ein fremdes Produkt ändern?",
+    "options": [
+      "Nur wenn zusätzlich die Objektpolicy erlaubt",
+      "Ja, die Ability ersetzt Eigentumsregeln",
+      "Ja, sofern der Preis korrekt validiert ist"
+    ],
+    "correct": 0,
+    "explain": "Tokenfähigkeit und Objektberechtigung sind getrennte Voraussetzungen.",
+    "rationales": [
+      "Tokenfähigkeit und Objektberechtigung sind getrennte Voraussetzungen.",
+      "Eine allgemeine Ability gewährt keinen Zugriff auf jedes Objekt.",
+      "Gültige Daten beweisen keine Autorisierung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/sanctum"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l2",
+    "index": 3,
+    "q": "Eine First-Party-SPA nutzt Sanctum-Session; tokenCan liefert true. Welche Prüfung verhindert das Bearbeiten fremder Objekte?",
+    "options": [
+      "Nur tokenCan erneut aufrufen",
+      "Den CSRF-Token als Eigentumsnachweis nutzen",
+      "Eine Policy mit Benutzer- und Objektregeln"
+    ],
+    "correct": 2,
+    "explain": "Bei First-Party-Sessionanfragen kann tokenCan immer true liefern; die Policy muss trotzdem entscheiden.",
+    "rationales": [
+      "Ein erneuter identischer Aufruf ergänzt keine Objektprüfung.",
+      "Ein CSRF-Token erteilt keine Objektberechtigung.",
+      "Bei First-Party-Sessionanfragen kann tokenCan immer true liefern; die Policy muss trotzdem entscheiden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/sanctum"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l3",
+    "index": 0,
+    "q": "Ein Client will einen Bestellaufruf nach Verbindungsabbruch wiederholen. Welche Methode garantiert ohne zusätzlichen Vertrag keine Idempotenz?",
+    "options": [
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "correct": 0,
+    "explain": "POST ist nicht allgemein idempotent; ein Idempotenzvertrag kann Wiederholungen absichern.",
+    "rationales": [
+      "POST ist nicht allgemein idempotent; ein Idempotenzvertrag kann Wiederholungen absichern.",
+      "PUT ist semantisch idempotent, auch wenn Antworten unterschiedlich sein können.",
+      "DELETE ist semantisch idempotent hinsichtlich der beabsichtigten Wirkung."
+    ],
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html#name-idempotent-methods"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l3",
+    "index": 1,
+    "q": "Eine API antwortet mit 429 und will eine Wartezeit von 30 Sekunden mitteilen. Welcher Header passt?",
+    "options": [
+      "Content-Length: 30",
+      "ETag: 30",
+      "Retry-After: 30"
+    ],
+    "correct": 2,
+    "explain": "Retry-After kann die Wartezeit bis zum nächsten Versuch angeben.",
+    "rationales": [
+      "Content-Length beschreibt die Nutzdatenlänge.",
+      "ETag kennzeichnet eine Repräsentationsversion statt eine Wartezeit.",
+      "Retry-After kann die Wartezeit bis zum nächsten Versuch angeben."
+    ],
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc6585.html#section-4"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m48-l3",
+    "index": 2,
+    "q": "Eine bereits versendete Bestellung darf laut Zustandsregel nicht storniert werden. Die Anfrage ist ansonsten gültig und autorisiert. Welcher Status erklärt den Zustandskonflikt?",
+    "options": [
+      "201 Created",
+      "409 Conflict",
+      "401 Unauthorized"
+    ],
+    "correct": 1,
+    "explain": "409 beschreibt den Konflikt mit dem aktuellen Ressourcenzustand.",
+    "rationales": [
+      "Es wurde keine Ressource erfolgreich erstellt.",
+      "409 beschreibt den Konflikt mit dem aktuellen Ressourcenzustand.",
+      "Die Anmeldung ist im Szenario gültig."
+    ],
+    "sources": [
+      "https://www.rfc-editor.org/rfc/rfc9110.html#name-409-conflict"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l1",
+    "index": 0,
+    "q": "Ein Konstruktor erwartet PaymentGateway ohne Bind-Attribut oder vorhandene Bindung. Zwei Implementierungen existieren. Was benötigt der Container?",
+    "options": [
+      "Nur einen weiteren Aufruf von make",
+      "Automatisch die alphabetisch erste Klasse",
+      "Eine Zuordnung zu einer Implementierung"
+    ],
+    "correct": 2,
+    "explain": "Für einen nicht auflösbar zugeordneten Interfacevertrag muss eine Implementierung festgelegt werden.",
+    "rationales": [
+      "Wiederholtes Auflösen liefert keine fehlende Auswahlregel.",
+      "Der Container rät nicht anhand von Klassennamen.",
+      "Für einen nicht auflösbar zugeordneten Interfacevertrag muss eine Implementierung festgelegt werden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l1",
+    "index": 1,
+    "q": "Ein mandantenbezogener Kontext darf in Octane pro Request neu entstehen, innerhalb desselben Requests aber wiederverwendet werden. Welche Bindung passt?",
+    "options": [
+      "bind() für jede Auflösung",
+      "scoped()",
+      "singleton()"
+    ],
+    "correct": 1,
+    "explain": "scoped teilt die Instanz innerhalb des Request-/Job-Lebenszyklus und verwirft sie vor dem nächsten.",
+    "rationales": [
+      "bind erzeugt typischerweise bei jeder Auflösung eine neue Instanz und teilt nicht gezielt pro Request.",
+      "scoped teilt die Instanz innerhalb des Request-/Job-Lebenszyklus und verwirft sie vor dem nächsten.",
+      "Ein Singleton kann im langlebigen Container über Requests hinweg bestehen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l1",
+    "index": 2,
+    "q": "Ein Zahlungsservice muss im Test ohne echte Bankaufrufe laufen. Welchen praktischen Vorteil bringt ein injiziertes Gateway?",
+    "options": [
+      "Kontrollierbare Testimplementierung einsetzen",
+      "Automatisch jede Fachregel korrekt machen",
+      "Jede Datenbanktransaktion überflüssig machen"
+    ],
+    "correct": 0,
+    "explain": "Die Abhängigkeit lässt sich gezielt austauschen, ohne den Service umzuschreiben.",
+    "rationales": [
+      "Die Abhängigkeit lässt sich gezielt austauschen, ohne den Service umzuschreiben.",
+      "DI beweist nicht die fachliche Korrektheit.",
+      "DI ersetzt keine nötigen Transaktionen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/container"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l2",
+    "index": 0,
+    "q": "Ein Service Provider soll Gateway an BankAdapter binden. Wo gehört diese Containerregistrierung hin?",
+    "options": [
+      "In die globale Fehlerseite",
+      "In register()",
+      "In das Blade-Layout"
+    ],
+    "correct": 1,
+    "explain": "register ist für Containerbindungen vorgesehen; andere bereits gebootete Dienste sollen dort nicht vorausgesetzt werden.",
+    "rationales": [
+      "Eine Fehlerseite wird nicht regulär zum Registrieren verwendet.",
+      "register ist für Containerbindungen vorgesehen; andere bereits gebootete Dienste sollen dort nicht vorausgesetzt werden.",
+      "Ein Layout ist keine zentrale Dienstregistrierung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/providers"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l2",
+    "index": 1,
+    "q": "Cache::get(\"x\") sieht wie ein statischer Aufruf aus. Was geschieht bei dieser Laravel-Facade?",
+    "options": [
+      "Weiterleitung an einen Dienst aus dem Container",
+      "Direkter Zugriff auf eine globale PHP-Konstante",
+      "Automatisch eine SQL-Abfrage ohne Cachetreiber"
+    ],
+    "correct": 0,
+    "explain": "Die Facade vermittelt den Aufruf an die aufgelöste zugrunde liegende Instanz.",
+    "rationales": [
+      "Die Facade vermittelt den Aufruf an die aufgelöste zugrunde liegende Instanz.",
+      "x ist ein Cache-Schlüssel, keine globale Konstante.",
+      "Das Verhalten hängt vom konfigurierten Cache-Dienst ab."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/facades"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l2",
+    "index": 2,
+    "q": "Provider B benötigt beim Bootstrapping die Bindung von Provider A. Welche Lebenszyklusaussage gilt für reguläre geladene Provider?",
+    "options": [
+      "boot läuft vor jeder Containerregistrierung",
+      "boot wird für jede Serviceauflösung wiederholt",
+      "boot läuft nach deren register-Phase"
+    ],
+    "correct": 2,
+    "explain": "Laravel registriert die Provider vor dem anschließenden Bootstrapping; Deferred Provider sind gesondert zu beachten.",
+    "rationales": [
+      "Die Reihenfolge ist umgekehrt.",
+      "boot ist keine Methode, die bei jeder Auflösung neu ausgeführt wird.",
+      "Laravel registriert die Provider vor dem anschließenden Bootstrapping; Deferred Provider sind gesondert zu beachten."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/providers"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l3",
+    "index": 0,
+    "q": "Nach einer Bestellung sollen Mail und Statistik reagieren, ohne den Checkout mit beiden Implementierungen zu koppeln. Welcher Ansatz passt?",
+    "options": [
+      "Ein fachliches Event mit getrennten Listenern",
+      "Beide Reaktionen ins Blade-Template legen",
+      "Zwei Kopien des Checkout-Controllers anlegen"
+    ],
+    "correct": 0,
+    "explain": "Listener entkoppeln Reaktionen vom Auslöser; Reihenfolge und Transaktionen müssen weiterhin geplant werden.",
+    "rationales": [
+      "Listener entkoppeln Reaktionen vom Auslöser; Reihenfolge und Transaktionen müssen weiterhin geplant werden.",
+      "Ein Template ist kein verlässlicher Auslöser fachlicher Seiteneffekte.",
+      "Kopien erhöhen die Kopplung und Inkonsistenzgefahr."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/events"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l3",
+    "index": 1,
+    "q": "Produkt::where(\"aktiv\", false)->update([...]) aktualisiert viele Zeilen. Warum läuft der updated-Observer nicht für jede Zeile?",
+    "options": [
+      "Observer laufen grundsätzlich nur im Browser",
+      "Jedes Update deaktiviert alle Events dauerhaft",
+      "Die Models werden beim Massenupdate nicht geladen"
+    ],
+    "correct": 2,
+    "explain": "Massenupdates lösen diese individuellen Model-Events nicht aus, weil keine einzelnen Models hydriert werden.",
+    "rationales": [
+      "Observer sind nicht an einen Browser gebunden.",
+      "Das Massenupdate deaktiviert nicht dauerhaft das gesamte Eventsystem.",
+      "Massenupdates lösen diese individuellen Model-Events nicht aus, weil keine einzelnen Models hydriert werden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l3",
+    "index": 2,
+    "q": "Ein Bestell-Event soll erst nach erfolgreichem DB-Commit ausgelöst werden. Was bewirkt ShouldDispatchAfterCommit bei offener Transaktion?",
+    "options": [
+      "Bei Rollback trotzdem sofort dispatchen",
+      "Dispatch bis zum Commit verschieben",
+      "Externe Mail atomar mit SQL speichern"
+    ],
+    "correct": 1,
+    "explain": "Das Event wird nach Commit dispatcht und bei Rollback verworfen.",
+    "rationales": [
+      "Ein Rollback soll gerade keine erfolgreiche Bestellung signalisieren.",
+      "Das Event wird nach Commit dispatcht und bei Rollback verworfen.",
+      "Ein externer Dienst wird dadurch nicht Teil einer atomaren SQL-Transaktion."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/events"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l4",
+    "index": 0,
+    "q": "CreateOrderAction kapselt den Bestellablauf. Welche Aufgabe bleibt sinnvoll im HTTP-Controller?",
+    "options": [
+      "Die gesamte Lagerregel erneut implementieren",
+      "Alle E-Mails im Template synchron versenden",
+      "Request koordinieren und HTTP-Response erzeugen"
+    ],
+    "correct": 2,
+    "explain": "Der Controller verbindet HTTP-Eingabe, Autorisierung, Action und Antwort.",
+    "rationales": [
+      "Doppelte Fachlogik unterläuft die Kapselung.",
+      "Templates sind kein Ort für den Versandablauf.",
+      "Der Controller verbindet HTTP-Eingabe, Autorisierung, Action und Antwort."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/controllers"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l4",
+    "index": 1,
+    "q": "Zwei Checkouts sehen gleichzeitig den letzten Lagerartikel. Welche Verwendung von lockForUpdate adressiert die konkurrierende Bestandsänderung?",
+    "options": [
+      "Nach dem Commit eine Sperre anfordern",
+      "Zeile innerhalb einer Transaktion sperren",
+      "Nur die Produktseite im Browser sperren"
+    ],
+    "correct": 1,
+    "explain": "Die Sperre schützt Lesen und Ändern derselben Zeile im Transaktionsablauf, abhängig vom Datenbanksystem.",
+    "rationales": [
+      "Nach dem Commit ist die kritische Änderung bereits erfolgt.",
+      "Die Sperre schützt Lesen und Ändern derselben Zeile im Transaktionsablauf, abhängig vom Datenbanksystem.",
+      "Eine Browsersperre koordiniert keine anderen Clients."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/queries"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m49-l4",
+    "index": 2,
+    "q": "Ein Controller liefert eine statische Hilfeseite ohne wiederverwendbare Fachregel. Welche Umsetzung vermeidet hier unnötige Action-Schichten?",
+    "options": [
+      "Die View direkt zurückgeben",
+      "Drei Actions für denselben View-Aufruf",
+      "Ein Repository für den Seitentitel anlegen"
+    ],
+    "correct": 0,
+    "explain": "Ohne eigenständigen Fachablauf ist ein direkter View-Response ausreichend.",
+    "rationales": [
+      "Ohne eigenständigen Fachablauf ist ein direkter View-Response ausreichend.",
+      "Zusätzliche Klassen schaffen hier keinen klaren Nutzen.",
+      "Ein Repository ohne Datenzugriff abstrahiert keinen vorhandenen Bedarf."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/controllers"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l1",
+    "index": 0,
+    "q": "Http::get erhält Status 500, ohne throw(). Was muss der Aufrufer standardmäßig tun?",
+    "options": [
+      "Mit einem garantierten null rechnen",
+      "Den Response auf Fehlschlag prüfen",
+      "Immer RequestException abfangen"
+    ],
+    "correct": 1,
+    "explain": "Laravel wirft für HTTP-Fehler standardmäßig nicht automatisch; Netzwerkfehler bleiben davon getrennt.",
+    "rationales": [
+      "Ein Response wird nicht pauschal durch null ersetzt.",
+      "Laravel wirft für HTTP-Fehler standardmäßig nicht automatisch; Netzwerkfehler bleiben davon getrennt.",
+      "Eine 500-Antwort allein wirft ohne throw nicht zwingend RequestException."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-client"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l1",
+    "index": 1,
+    "q": "Mehrere Dienste benötigen denselben Basis-URL- und Headeraufbau für eine Partner-API. Was kann Http::macro bereitstellen?",
+    "options": [
+      "Eine wiederverwendbare Clientkonfiguration",
+      "Eine neue Datenbanktabellenstruktur",
+      "Automatisch garantierte Idempotenz"
+    ],
+    "correct": 0,
+    "explain": "Ein Macro kann eine vorbereitete PendingRequest-Konfiguration kapseln.",
+    "rationales": [
+      "Ein Macro kann eine vorbereitete PendingRequest-Konfiguration kapseln.",
+      "HTTP-Macros migrieren kein Schema.",
+      "Idempotenz entsteht durch einen Vertrag, nicht durch die Macro-Registrierung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-client"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l1",
+    "index": 2,
+    "q": "Eine Seite benötigt drei unabhängige Fremd-GETs. Was bringt Http::pool gegenüber seriellen Aufrufen?",
+    "options": [
+      "Alle Antworten sind garantiert erfolgreich",
+      "Es entsteht eine gemeinsame SQL-Transaktion",
+      "Die Requests können nebenläufig laufen"
+    ],
+    "correct": 2,
+    "explain": "Pooling reduziert bei unabhängigen Requests mögliche Gesamtwartezeit; Fehler müssen weiter behandelt werden.",
+    "rationales": [
+      "Nebenläufigkeit garantiert keine Verfügbarkeit.",
+      "Externe HTTP-Aufrufe werden dadurch nicht atomar.",
+      "Pooling reduziert bei unabhängigen Requests mögliche Gesamtwartezeit; Fehler müssen weiter behandelt werden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-client"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l2",
+    "index": 1,
+    "q": "Ein Webhook signiert die übertragenen Body-Bytes. Warum darf vor der HMAC-Prüfung nicht JSON dekodiert und neu kodiert werden?",
+    "options": [
+      "Die Bytefolge kann sich dabei verändern",
+      "JSON-Dekodierung entschlüsselt den HMAC",
+      "Jede Leerzeichenänderung ist signaturfrei"
+    ],
+    "correct": 0,
+    "explain": "Whitespace und Reihenfolge können sich ändern, obwohl die Daten semantisch gleich bleiben.",
+    "rationales": [
+      "Whitespace und Reihenfolge können sich ändern, obwohl die Daten semantisch gleich bleiben.",
+      "Ein HMAC ist kein verschlüsselter JSON-Inhalt.",
+      "Der vereinbarte Bytevertrag umfasst solche Änderungen."
+    ],
+    "sources": [
+      "https://docs.stripe.com/webhooks/signature"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l2",
+    "index": 2,
+    "q": "Zwei Worker erhalten denselben Webhook mit identischer Ereignis-ID gleichzeitig. Was verhindert doppelte lokale Verarbeitung belastbar?",
+    "options": [
+      "Vorher ohne Sperre exists abfragen",
+      "Bei jedem Retry eine neue ID erzeugen",
+      "Eindeutige ID plus atomare Verarbeitung"
+    ],
+    "correct": 2,
+    "explain": "Eine Unique-Constraint und transaktionale Statuslogik schließen das Race beim lokalen Deduplizieren.",
+    "rationales": [
+      "Beide Worker können gleichzeitig kein Ergebnis sehen.",
+      "Neue IDs zerstören die Wiedererkennung desselben Ereignisses.",
+      "Eine Unique-Constraint und transaktionale Statuslogik schließen das Race beim lokalen Deduplizieren."
+    ],
+    "sources": [
+      "https://docs.stripe.com/webhooks#handle-duplicate-events"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l2",
+    "index": 3,
+    "q": "Ein alter korrekt signierter Webhook wird erneut gesendet. Welche zusätzliche Prüfung adressiert Replay innerhalb des vereinbarten Protokolls?",
+    "options": [
+      "Nur die Content-Length vergleichen",
+      "Signierten Zeitstempel mit Toleranz prüfen",
+      "Nur denselben Body erneut hashen"
+    ],
+    "correct": 1,
+    "explain": "Ein signierter Zeitstempel mit akzeptiertem Zeitfenster begrenzt die Wiederverwendung; Ereignis-Deduplizierung ergänzt dies.",
+    "rationales": [
+      "Die Länge beweist keine Aktualität.",
+      "Ein signierter Zeitstempel mit akzeptiertem Zeitfenster begrenzt die Wiederverwendung; Ereignis-Deduplizierung ergänzt dies.",
+      "Eine gültige alte Signatur bleibt bei identischen Bytes gültig."
+    ],
+    "sources": [
+      "https://docs.stripe.com/webhooks#preventing-replay-attacks"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l3",
+    "index": 0,
+    "q": "Ein Produktmodel soll in Laravel Scout indexiert werden. Welche Ergänzung bindet es an Scout an?",
+    "options": [
+      "Nur ein search-Feld in der Tabelle anlegen",
+      "Nur den Controller SearchController nennen",
+      "Den Searchable-Trait verwenden"
+    ],
+    "correct": 2,
+    "explain": "Searchable integriert das Model in die Scout-Indexierung mit konfigurierter Suchengine.",
+    "rationales": [
+      "Ein Feld allein aktiviert keine Scout-Synchronisierung.",
+      "Ein Klassenname registriert das Model nicht bei Scout.",
+      "Searchable integriert das Model in die Scout-Indexierung mit konfigurierter Suchengine."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/scout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l3",
+    "index": 1,
+    "q": "Ein Scout-Index soll nur Titel und Beschreibung enthalten, nicht Einkaufspreise. Wo wird die Suchrepräsentation festgelegt?",
+    "options": [
+      "Nur in der Routen-Policy",
+      "In toSearchableArray()",
+      "Nur in der Fillable-Liste"
+    ],
+    "correct": 1,
+    "explain": "toSearchableArray definiert die an den Index gesendeten Daten.",
+    "rationales": [
+      "Eine Policy begrenzt Zugriffe, bestimmt aber nicht allein die Indexfelder.",
+      "toSearchableArray definiert die an den Index gesendeten Daten.",
+      "Fillable steuert Mass Assignment und nicht diesen Export."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/scout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l3",
+    "index": 2,
+    "q": "Scout wurde nachträglich für ein vorhandenes Produktmodel eingerichtet. Welcher Befehl importiert die bisherigen Datensätze?",
+    "options": [
+      "scout:import mit dem Modelnamen",
+      "migrate:fresh ohne Seeder",
+      "queue:flush für alle Jobs"
+    ],
+    "correct": 0,
+    "explain": "scout:import stößt die Indexierung vorhandener Modeldaten an.",
+    "rationales": [
+      "scout:import stößt die Indexierung vorhandener Modeldaten an.",
+      "Ein Tabellen-Neuaufbau löscht Daten statt sie zu indexieren.",
+      "queue:flush verwirft fehlgeschlagene Jobdaten und importiert keinen Suchindex."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/scout"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l4",
+    "index": 0,
+    "q": "Ein Laravel-Projekt soll WebSocket-Verbindungen selbst betreiben. Welche Rolle übernimmt Reverb?",
+    "options": [
+      "Den Ersatz aller Queue-Worker",
+      "Den WebSocket-Server für Echtzeitkommunikation",
+      "Die relationale Datenbank für Events"
+    ],
+    "correct": 1,
+    "explain": "Reverb stellt die WebSocket-Serverkomponente im Broadcasting-Stack bereit.",
+    "rationales": [
+      "Queuebasierte Broadcasts benötigen weiterhin passende Verarbeitung.",
+      "Reverb stellt die WebSocket-Serverkomponente im Broadcasting-Stack bereit.",
+      "Reverb ist kein relationales Datenbanksystem."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/reverb"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l4",
+    "index": 1,
+    "q": "Nur Eigentümer dürfen den privaten Kanal orders.42 abonnieren. Wo wird die Kanalberechtigung geprüft?",
+    "options": [
+      "In der Broadcast-Kanalautorisierung",
+      "Nur im öffentlichen JavaScript-Kanalnamen",
+      "Nur in einer CSS-Klasse des Buttons"
+    ],
+    "correct": 0,
+    "explain": "Die serverseitige Kanalautorisierung prüft Benutzer und Kanalparameter.",
+    "rationales": [
+      "Die serverseitige Kanalautorisierung prüft Benutzer und Kanalparameter.",
+      "Ein Kanalname im Client kann manipuliert werden.",
+      "CSS erteilt oder verweigert keinen serverseitigen Zugriff."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/broadcasting"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m59-l4",
+    "index": 2,
+    "q": "Ein ShouldBroadcast-Event erreicht den Browser nicht. Es liegt noch in der Queue. Welche Prüfung ist am unmittelbarsten?",
+    "options": [
+      "Sofort alle Kanalpolicies entfernen",
+      "Die Ereignisdatenbank vollständig leeren",
+      "Passenden Queue-Worker und Fehlerjobs prüfen"
+    ],
+    "correct": 2,
+    "explain": "Ohne Verarbeitung des Broadcast-Jobs wird nichts an den Broadcaster übergeben.",
+    "rationales": [
+      "Autorisierung pauschal zu entfernen ist unsicher und löst den ausstehenden Job nicht.",
+      "Datenlöschen verarbeitet keine wartenden Jobs.",
+      "Ohne Verarbeitung des Broadcast-Jobs wird nichts an den Broadcaster übergeben."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/broadcasting"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l1",
+    "index": 1,
+    "q": "Neue Joblogik wurde deployed, Queue-Worker laufen unverändert weiter. Welche Betriebsmaßnahme lädt den neuen Code?",
+    "options": [
+      "Worker kontrolliert neu starten lassen",
+      "Nur den Browsercache leeren",
+      "Nur composer.json umbenennen"
+    ],
+    "correct": 0,
+    "explain": "Langlebige Worker behalten geladenen Code; queue:restart mit Prozessüberwachung ermöglicht kontrollierte Erneuerung.",
+    "rationales": [
+      "Langlebige Worker behalten geladenen Code; queue:restart mit Prozessüberwachung ermöglicht kontrollierte Erneuerung.",
+      "Browsercache beeinflusst Worker-Code nicht.",
+      "Ein Dateiname bewirkt keinen Worker-Neustart."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/queues"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l1",
+    "index": 2,
+    "q": "Ein Standard-Queuejob serialisiert mit Laravel-Traits ein Eloquent-Model. Zwischen Dispatch und Ausführung ändert sich sein Preis. Welche Annahme ist richtig?",
+    "options": [
+      "Alle Attribute sind ein unveränderlicher Snapshot",
+      "Das Model wird als aktive DB-Verbindung versendet",
+      "Das Model wird anhand seiner ID neu geladen"
+    ],
+    "correct": 2,
+    "explain": "Die Modelserialisierung speichert Identität und lädt später erneut; historische Werte müssen explizit mitgegeben werden.",
+    "rationales": [
+      "Der Dispatch garantiert keinen vollständigen unveränderten Attributsnapshot.",
+      "Eine aktive Datenbankverbindung ist nicht die serialisierte Modelreferenz.",
+      "Die Modelserialisierung speichert Identität und lädt später erneut; historische Werte müssen explizit mitgegeben werden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/queues"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l1",
+    "index": 3,
+    "q": "Ein Job erstellt extern eine Rechnung und stürzt vor dem lokalen Speichern der ID ab. Was verhindert beim Retry eine zweite externe Rechnung im vereinbarten API-Vertrag?",
+    "options": [
+      "Nur if(invoice_path) vor dem API-Aufruf",
+      "Derselbe vom Anbieter unterstützte Idempotenzschlüssel",
+      "Nur ShouldBeUnique am Laravel-Job"
+    ],
+    "correct": 1,
+    "explain": "Der Anbieter muss wiederholte identische Vorgänge anhand des stabilen Schlüssels deduplizieren; Aufbewahrungsgrenzen gelten.",
+    "rationales": [
+      "Nach dem Absturz ist der lokale Pfad noch leer.",
+      "Der Anbieter muss wiederholte identische Vorgänge anhand des stabilen Schlüssels deduplizieren; Aufbewahrungsgrenzen gelten.",
+      "Unique Jobs verhindern nicht jeden erneuten Seiteneffekt desselben laufenden Jobs."
+    ],
+    "sources": [
+      "https://docs.stripe.com/api/idempotent_requests"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l2",
+    "index": 0,
+    "q": "Eine Produktliste nutzt Cache::remember mit TTL und Closure. Wann wird die Closure regulär ausgeführt?",
+    "options": [
+      "Bei jedem erfolgreichen Cachetreffer",
+      "Nur einmal für die gesamte Lebensdauer",
+      "Wenn der Cachewert nicht vorhanden ist"
+    ],
+    "correct": 2,
+    "explain": "Bei einem Miss wird berechnet und der Wert gespeichert; remember ist keine allgemeine Stampede-Sperre.",
+    "rationales": [
+      "Ein Treffer liefert den vorhandenen Wert ohne Neuberechnung.",
+      "Ablauf oder Invalidierung können weitere Berechnungen nötig machen.",
+      "Bei einem Miss wird berechnet und der Wert gespeichert; remember ist keine allgemeine Stampede-Sperre."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/cache"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l2",
+    "index": 1,
+    "q": "Ein beliebter Cachekey läuft ab; hundert Requests starten dieselbe teure Berechnung. Welche Gegenmaßnahme adressiert diesen Stampede?",
+    "options": [
+      "Nur den JSON-Key anders benennen",
+      "Neuberechnung mit gemeinsamem Lock koordinieren",
+      "Die Berechnung hundertmal parallel zulassen"
+    ],
+    "correct": 1,
+    "explain": "Ein geeigneter gemeinsamer Lock kann einen koordinierten Neuaufbau ermöglichen.",
+    "rationales": [
+      "Ein anderer Name beseitigt das gleichzeitige Ablaufproblem nicht.",
+      "Ein geeigneter gemeinsamer Lock kann einen koordinierten Neuaufbau ermöglichen.",
+      "Parallelität verstärkt hier die unnötige Last."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/cache"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l2",
+    "index": 2,
+    "q": "Ein Test benötigt einen flüchtigen Cache ohne requestübergreifende Persistenz. Welcher Store passt?",
+    "options": [
+      "array",
+      "redis mit produktivem Prefix",
+      "database mit produktiver Tabelle"
+    ],
+    "correct": 0,
+    "explain": "Der array-Store hält Werte nur im laufenden Prozess und ist für isolierte Tests geeignet, aber nicht ausschließlich dort nutzbar.",
+    "rationales": [
+      "Der array-Store hält Werte nur im laufenden Prozess und ist für isolierte Tests geeignet, aber nicht ausschließlich dort nutzbar.",
+      "Produktives Redis bringt gemeinsame persistente Zustände in den Test.",
+      "Eine produktive Tabelle gefährdet Isolation und Daten."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/cache"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l3",
+    "index": 0,
+    "q": "Ein Shop ist langsam, die Ursache unklar. Was liefert eine begründete erste Optimierungsentscheidung?",
+    "options": [
+      "Ohne Messung weitere Server kaufen",
+      "Latenz und Abfragen unter Last messen",
+      "Ohne Messung alle Daten vorab cachen"
+    ],
+    "correct": 1,
+    "explain": "Ein Profil und eine Ausgangsmessung zeigen den tatsächlichen Engpass und spätere Verbesserungen.",
+    "rationales": [
+      "Mehr Hardware adressiert nicht automatisch die Ursache.",
+      "Ein Profil und eine Ausgangsmessung zeigen den tatsächlichen Engpass und spätere Verbesserungen.",
+      "Blindes Caching kann Konsistenzprobleme erzeugen und den Engpass verfehlen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/pulse"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l3",
+    "index": 1,
+    "q": "Ein Request muss nur wissen, ob offene Bestellungen existieren. Welche Abfrage drückt diesen Bedarf direkt aus?",
+    "options": [
+      "where(...)->exists()",
+      "where(...)->get()->count() > 0",
+      "where(...)->get()->first() !== null"
+    ],
+    "correct": 0,
+    "explain": "exists prüft Existenz ohne alle passenden Models zu laden; konkrete Laufzeiten bleiben datenbankabhängig.",
+    "rationales": [
+      "exists prüft Existenz ohne alle passenden Models zu laden; konkrete Laufzeiten bleiben datenbankabhängig.",
+      "Die Sammlung lädt unnötig alle Treffer.",
+      "Auch dieser Weg hydriert erst die gesamte Ergebnismenge."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/queries"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l3",
+    "index": 2,
+    "q": "Unter Octane speichert ein Singleton den Benutzer des ersten Requests. Was ist das zentrale Risiko?",
+    "options": [
+      "Singletons werden zwingend je Request gelöscht",
+      "PHP verhindert jede objektinterne Mutation",
+      "Benutzerzustand kann in spätere Requests gelangen"
+    ],
+    "correct": 2,
+    "explain": "Langlebige Instanzen können requestbezogenen Zustand behalten; Scope und Abhängigkeiten müssen passend gewählt werden.",
+    "rationales": [
+      "Ein Singleton ist im langlebigen Container nicht automatisch requestlokal.",
+      "PHP macht mutable Objekte nicht automatisch unveränderlich.",
+      "Langlebige Instanzen können requestbezogenen Zustand behalten; Scope und Abhängigkeiten müssen passend gewählt werden."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/octane"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l4",
+    "index": 0,
+    "q": "Ein einzelner Server soll viele Laravel-Termine ausführen. Welche Cron-Anbindung reicht typischerweise?",
+    "options": [
+      "Ein minütlicher Aufruf von schedule:run",
+      "Ein Cron-Eintrag je Laravel-Termin",
+      "Nur ein einmaliger schedule:list-Aufruf"
+    ],
+    "correct": 0,
+    "explain": "Der Scheduler entscheidet bei jedem minütlichen Aufruf über die fälligen Aufgaben.",
+    "rationales": [
+      "Der Scheduler entscheidet bei jedem minütlichen Aufruf über die fälligen Aufgaben.",
+      "Laravel benötigt nicht für jede Definition einen eigenen Cron-Eintrag.",
+      "schedule:list zeigt Termine an und führt sie nicht regelmäßig aus."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/scheduling"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l4",
+    "index": 1,
+    "q": "Ein nächtlicher Import dauert manchmal länger als sein Intervall. Was bewirkt withoutOverlapping mit geeignetem Cache-Lock?",
+    "options": [
+      "Den alten Lauf automatisch zurückrollen",
+      "Externe Effekte exakt einmal garantieren",
+      "Einen neuen Lauf bei bestehender Sperre überspringen"
+    ],
+    "correct": 2,
+    "explain": "Der Scheduler verhindert überlappende Ausführung über eine Sperre; Ablaufzeiten müssen passend sein.",
+    "rationales": [
+      "Die Sperre rollt keine bereits erledigte Arbeit zurück.",
+      "Locks allein liefern keine Exactly-once-Garantie externer Effekte.",
+      "Der Scheduler verhindert überlappende Ausführung über eine Sperre; Ablaufzeiten müssen passend sein."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/scheduling"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m50-l4",
+    "index": 2,
+    "q": "Drei Server führen dieselbe Scheduler-Definition aus. Was braucht onOneServer für eine koordinierte Einzelausführung?",
+    "options": [
+      "Auf jedem Server eine andere Aufgabenkennung",
+      "Einen gemeinsamen unterstützten Cache-Lockstore",
+      "Drei voneinander getrennte lokale array-Stores"
+    ],
+    "correct": 1,
+    "explain": "Die Server müssen dieselbe atomare Sperre sehen können.",
+    "rationales": [
+      "Unterschiedliche Schlüssel würden die gemeinsame Sperre aufteilen.",
+      "Die Server müssen dieselbe atomare Sperre sehen können.",
+      "Getrennte lokale Stores koordinieren die Server nicht."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/scheduling"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l1",
+    "index": 0,
+    "q": "Feature-Tests nutzen RefreshDatabase gegen eine isolierte Testdatenbank. Welche Erwartung ist korrekt?",
+    "options": [
+      "Alle externen API-Aufrufe werden automatisch gefakt",
+      "Die Produktionsdatenbank wird als Testfixture kopiert",
+      "Der Datenbankzustand wird für Tests isoliert"
+    ],
+    "correct": 2,
+    "explain": "Der Trait sorgt für passenden Datenbank-Reset beziehungsweise Transaktionen; die Testverbindung muss sicher konfiguriert sein.",
+    "rationales": [
+      "HTTP-Fakes sind eine getrennte Einrichtung.",
+      "RefreshDatabase kopiert keine produktiven Daten als Voraussetzung.",
+      "Der Trait sorgt für passenden Datenbank-Reset beziehungsweise Transaktionen; die Testverbindung muss sicher konfiguriert sein."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/database-testing"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l1",
+    "index": 1,
+    "q": "Eine Rabatt-API soll Routing, Validierung, Policy und Datenbank gemeinsam prüfen, aber keinen Browser starten. Welche Testart passt?",
+    "options": [
+      "Nur ein Screenshotvergleich",
+      "Ein HTTP-Feature-Test",
+      "Nur ein Unit-Test des Prozentrechners"
+    ],
+    "correct": 1,
+    "explain": "Ein Feature-Test prüft den zusammengesetzten HTTP-Ablauf einschließlich Status und Persistenz.",
+    "rationales": [
+      "Ein Screenshot belegt die serverseitigen Regeln nicht zuverlässig.",
+      "Ein Feature-Test prüft den zusammengesetzten HTTP-Ablauf einschließlich Status und Persistenz.",
+      "Ein isolierter Rechner prüft weder Route noch Policy."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-tests"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l1",
+    "index": 2,
+    "q": "Ein Test erzeugt einen Benutzer, sendet einen POST und prüft Status plus Datenbank. Welche Zuordnung passt zu Arrange–Act–Assert?",
+    "options": [
+      "Benutzer anlegen – POST senden – Ergebnis prüfen",
+      "POST senden – Ergebnis prüfen – Benutzer anlegen",
+      "Ergebnis prüfen – Benutzer anlegen – POST senden"
+    ],
+    "correct": 0,
+    "explain": "Voraussetzungen, Aktion und Ergebnisprüfung stehen in dieser Reihenfolge.",
+    "rationales": [
+      "Voraussetzungen, Aktion und Ergebnisprüfung stehen in dieser Reihenfolge.",
+      "Die Voraussetzung fehlt beim ersten Schritt.",
+      "Eine Ergebnisprüfung vor der Aktion prüft nicht deren Wirkung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-tests"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l2",
+    "index": 0,
+    "q": "Ein Http::fake deckt nur eine Partner-URL ab. Andere URLs dürfen im Test niemals ins Netz. Welche Ergänzung passt?",
+    "options": [
+      "Http::acceptJson()",
+      "Http::preventStrayRequests()",
+      "Http::timeout(60)"
+    ],
+    "correct": 1,
+    "explain": "Nicht gefakte Anfragen werden damit abgewiesen.",
+    "rationales": [
+      "Der Accept-Header blockiert keinen Netzverkehr.",
+      "Nicht gefakte Anfragen werden damit abgewiesen.",
+      "Ein Timeout erlaubt weiterhin echte Netzaufrufe."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-client"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l2",
+    "index": 1,
+    "q": "Ein Gutschein verfällt exakt nach 30 Tagen. Wie prüft ein Test den Grenzfall ohne echtes Warten?",
+    "options": [
+      "Zeit fixieren und bis zur Grenze reisen",
+      "Den Test 30 Tage schlafen lassen",
+      "Nur eine beliebige zukünftige Uhrzeit prüfen"
+    ],
+    "correct": 0,
+    "explain": "Kontrollierte Zeit ermöglicht Tests direkt vor, an und nach der definierten Grenze; die Fachregel legt Inklusivität fest.",
+    "rationales": [
+      "Kontrollierte Zeit ermöglicht Tests direkt vor, an und nach der definierten Grenze; die Fachregel legt Inklusivität fest.",
+      "Echtes Warten ist unpraktikabel und unnötig.",
+      "Ein beliebiger Zeitpunkt belegt die genaue Grenze nicht."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/mocking"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l2",
+    "index": 2,
+    "q": "Ein Feature-Test soll eine echte Bestellregel prüfen, aber keine Bankzahlung auslösen. Welche Grenze wird vorrangig ersetzt?",
+    "options": [
+      "Die gesamte getestete Bestellregel",
+      "Alle Wertobjekte der Bestellung",
+      "Der externe Zahlungsadapter"
+    ],
+    "correct": 2,
+    "explain": "Das externe System wird kontrolliert ersetzt, während die relevante eigene Logik real ausgeführt wird.",
+    "rationales": [
+      "Wenn die Zielregel selbst gemockt wird, prüft der Test sie nicht.",
+      "Reine Wertobjekte benötigen typischerweise keinen Ersatz.",
+      "Das externe System wird kontrolliert ersetzt, während die relevante eigene Logik real ausgeführt wird."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/mocking"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l3",
+    "index": 0,
+    "q": "Larastan meldet einen Methodenaufruf auf möglicherweise null vor der Ausführung. Welche Fehlerklasse zeigt das?",
+    "options": [
+      "Einen statisch erkennbaren Typfehler",
+      "Einen garantierten Produktions-Deadlock",
+      "Eine automatisch reparierte SQL-Injection"
+    ],
+    "correct": 0,
+    "explain": "Statische Analyse kann Typ- und bestimmte Aufruffehler ohne Ausführung erkennen.",
+    "rationales": [
+      "Statische Analyse kann Typ- und bestimmte Aufruffehler ohne Ausführung erkennen.",
+      "Ein gemeldeter Nullzugriff beweist keinen Deadlock.",
+      "Eine Meldung repariert keine Sicherheitslücke automatisch."
+    ],
+    "sources": [
+      "https://github.com/larastan/larastan"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l3",
+    "index": 1,
+    "q": "Ein Altprojekt hat viele bekannte PHPStan-Befunde; neue sollen die CI trotzdem stoppen. Welche Funktion hat eine Baseline?",
+    "options": [
+      "Jede zukünftige Meldung pauschal erlauben",
+      "Den Quellcode automatisch korrigieren",
+      "Bekannte Befunde gezielt ausblenden"
+    ],
+    "correct": 2,
+    "explain": "Eine Baseline erlaubt schrittweise Verbesserung, muss aber gepflegt und abgebaut werden.",
+    "rationales": [
+      "Neue unpassende Befunde sollen weiterhin sichtbar bleiben.",
+      "Eine Baseline ist keine automatische Fehlerkorrektur.",
+      "Eine Baseline erlaubt schrittweise Verbesserung, muss aber gepflegt und abgebaut werden."
+    ],
+    "sources": [
+      "https://phpstan.org/user-guide/baseline"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l3",
+    "index": 2,
+    "q": "Die CI führt pint --test aus und findet Formatabweichungen. Was soll der Job erwarten?",
+    "options": [
+      "Nur eine Prüfung auf Laufzeitfehler",
+      "Fehlschlag ohne Dateien umzuschreiben",
+      "Automatische Korrektur und immer Erfolg"
+    ],
+    "correct": 1,
+    "explain": "--test prüft den Stil und signalisiert Abweichungen über den Exitstatus.",
+    "rationales": [
+      "Pint ist ein Stilwerkzeug und kein Laufzeittest.",
+      "--test prüft den Stil und signalisiert Abweichungen über den Exitstatus.",
+      "Der Testmodus verändert Dateien nicht wie ein normaler Formatlauf."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/pint"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l4",
+    "index": 0,
+    "q": "Ein geprüftes Deployment führt Migrationen unbeaufsichtigt in Produktion aus. Wozu dient migrate --force?",
+    "options": [
+      "Jede Migration garantiert risikofrei machen",
+      "Fehlerhafte Migrationen automatisch zurückrollen",
+      "Die interaktive Sicherheitsabfrage umgehen"
+    ],
+    "correct": 2,
+    "explain": "--force erlaubt den nichtinteraktiven Produktionslauf, ersetzt aber keine Prüfung oder Sicherung.",
+    "rationales": [
+      "Die Option beseitigt keine Schema- oder Datenrisiken.",
+      "Ein automatischer vollständiger Rollback wird dadurch nicht garantiert.",
+      "--force erlaubt den nichtinteraktiven Produktionslauf, ersetzt aber keine Prüfung oder Sicherung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/migrations"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l4",
+    "index": 1,
+    "q": "Alte und neue App-Version laufen beim Deployment parallel. Eine Spalte soll umbenannt werden. Welche Strategie erhält Kompatibilität?",
+    "options": [
+      "Nur das neue Model vorab deployen",
+      "Erweitern, migrieren, umstellen, später entfernen",
+      "Die alte Spalte sofort löschen"
+    ],
+    "correct": 1,
+    "explain": "Expand-and-Contract erhält die alten Zugriffe bis zur vollständigen Umstellung und Datenmigration.",
+    "rationales": [
+      "Neuer Code allein schafft keine kompatible Datenstruktur.",
+      "Expand-and-Contract erhält die alten Zugriffe bis zur vollständigen Umstellung und Datenmigration.",
+      "Die alte Version kann sofort fehlschlagen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/deployment"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m51-l4",
+    "index": 2,
+    "q": "APP_DEBUG=true bleibt auf einem öffentlichen Produktionsserver aktiv. Welches Risiko muss sofort adressiert werden?",
+    "options": [
+      "Interne Details können offengelegt werden",
+      "Passwörter werden automatisch sicherer",
+      "Fehlermeldungen werden grundsätzlich verborgen"
+    ],
+    "correct": 0,
+    "explain": "Debug-Ausgaben können sensible Konfiguration und Interna offenlegen.",
+    "rationales": [
+      "Debug-Ausgaben können sensible Konfiguration und Interna offenlegen.",
+      "Debug verändert nicht das Passwort-Hashverfahren zum Besseren.",
+      "Der Debugmodus erhöht gerade die sichtbare Fehlerdetailtiefe."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/deployment"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l1",
+    "index": 0,
+    "q": "Ein Downloadlink soll nach zehn Minuten ungültig werden und gegen Parameteränderung geschützt sein. Was bietet temporarySignedRoute?",
+    "options": [
+      "Automatische Eigentumsprüfung",
+      "Signatur mit Ablaufzeit",
+      "Automatische Einmalverwendung"
+    ],
+    "correct": 1,
+    "explain": "Bei geprüfter Signatur schützt der Link Integrität und Ablauf; zusätzliche Rechte können nötig bleiben.",
+    "rationales": [
+      "Die Signatur prüft nicht automatisch den aktuellen Eigentümer.",
+      "Bei geprüfter Signatur schützt der Link Integrität und Ablauf; zusätzliche Rechte können nötig bleiben.",
+      "Ein signierter Link ist nicht automatisch nur einmal verwendbar."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/urls"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l1",
+    "index": 1,
+    "q": "Die CI soll bekannte Sicherheitsmeldungen zu installierten Composer-Paketen prüfen. Welcher Befehl passt?",
+    "options": [
+      "composer audit",
+      "composer dump-autoload",
+      "composer validate allein"
+    ],
+    "correct": 0,
+    "explain": "audit prüft Abhängigkeiten gegen bekannte Advisories; es beweist keine vollständige Anwendungssicherheit.",
+    "rationales": [
+      "audit prüft Abhängigkeiten gegen bekannte Advisories; es beweist keine vollständige Anwendungssicherheit.",
+      "dump-autoload erzeugt Autoload-Dateien.",
+      "validate prüft Paketmetadaten, nicht allein die Advisory-Lage."
+    ],
+    "sources": [
+      "https://getcomposer.org/doc/03-cli.md#audit"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l1",
+    "index": 2,
+    "q": "Die Oberfläche versteckt den Löschbutton für fremde Produkte; ein direkter DELETE funktioniert trotzdem. Welche Korrektur ist entscheidend?",
+    "options": [
+      "Den Button zusätzlich transparent machen",
+      "Die Produkt-ID nur länger gestalten",
+      "Die Policy am serverseitigen Endpunkt prüfen"
+    ],
+    "correct": 2,
+    "explain": "Zugriffskontrolle muss beim schreibenden Request serverseitig erfolgen.",
+    "rationales": [
+      "Darstellung verhindert keine direkten Requests.",
+      "Schwer erratbare IDs ersetzen keine Autorisierung.",
+      "Zugriffskontrolle muss beim schreibenden Request serverseitig erfolgen."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/authorization"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l2",
+    "index": 0,
+    "q": "Der Betrieb will langsame Routen und Abfragen aggregiert in Produktion sehen. Welches Laravel-Werkzeug passt dafür?",
+    "options": [
+      "Pulse mit passenden Recordern",
+      "Pint als HTTP-Middleware",
+      "Nur composer dump-autoload"
+    ],
+    "correct": 0,
+    "explain": "Pulse bietet Produktionsmetriken wie langsame Requests und Queries; Zugriff und Datenumfang sind zu begrenzen.",
+    "rationales": [
+      "Pulse bietet Produktionsmetriken wie langsame Requests und Queries; Zugriff und Datenumfang sind zu begrenzen.",
+      "Pint formatiert Code statt Laufzeitmetriken zu erfassen.",
+      "Autoload-Erzeugung beobachtet keine Requests."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/pulse"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l2",
+    "index": 1,
+    "q": "Alle Logs eines Requests sollen dieselbe Korrelations-ID enthalten. Welche Verwendung passt?",
+    "options": [
+      "Die ID ausschließlich im CSS speichern",
+      "Die ID bei jeder Logzeile neu erzeugen",
+      "Log::withContext mit request_id setzen"
+    ],
+    "correct": 2,
+    "explain": "Gemeinsamer Log-Kontext ergänzt die folgenden Einträge; in langlebigen Prozessen ist korrekte Lebensdauer wichtig.",
+    "rationales": [
+      "CSS erreicht die serverseitigen Logeinträge nicht.",
+      "Neue IDs je Zeile verhindern die gewünschte Gruppierung.",
+      "Gemeinsamer Log-Kontext ergänzt die folgenden Einträge; in langlebigen Prozessen ist korrekte Lebensdauer wichtig."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/logging"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l2",
+    "index": 2,
+    "q": "Ein Loadbalancer ruft /up eines neuen Laravel-Projekts auf. Welche Aussage beschreibt den Standardcheck präzise?",
+    "options": [
+      "Er prüft automatisch jeden Bestellablauf",
+      "Er prüft, ob die Anwendung booten kann",
+      "Er beweist jede externe API erreichbar"
+    ],
+    "correct": 1,
+    "explain": "Die Health-Route ist ein grundlegender Boot-Check; weitergehende Prüfungen können ergänzt werden.",
+    "rationales": [
+      "Ein End-to-End-Geschäftsprozess ist nicht der Standardumfang.",
+      "Die Health-Route ist ein grundlegender Boot-Check; weitergehende Prüfungen können ergänzt werden.",
+      "Externe Abhängigkeiten werden nicht pauschal vollständig geprüft."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/deployment"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l3",
+    "index": 0,
+    "q": "Der Katalogpreis ändert sich nach einer Bestellung. Warum speichert die Bestellposition zusätzlich den damaligen Einzelpreis?",
+    "options": [
+      "Jede Bestellung übernimmt spätere Preiserhöhungen",
+      "Ein Fremdschlüssel wird dadurch überflüssig",
+      "Historische Abrechnung bleibt rekonstruierbar"
+    ],
+    "correct": 2,
+    "explain": "Der Preis zum Kaufzeitpunkt ist ein fachlicher Snapshot, unabhängig vom aktuellen Katalog.",
+    "rationales": [
+      "Spätere Änderungen dürfen historische Beträge nicht still verändern.",
+      "Der Preissnapshot ersetzt nicht automatisch die Produktreferenz.",
+      "Der Preis zum Kaufzeitpunkt ist ein fachlicher Snapshot, unabhängig vom aktuellen Katalog."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/eloquent-relationships"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l3",
+    "index": 1,
+    "q": "Der Shop-Meilenstein lautet bisher nur Checkout fertig. Welche Abnahmebedingung ist konkret überprüfbar?",
+    "options": [
+      "Das Team arbeitet drei Tage am Checkout",
+      "Gültige Bestellung speichert Summe und Positionen",
+      "Checkout wirkt professionell und modern"
+    ],
+    "correct": 1,
+    "explain": "Eine beobachtbare Speicherung mit festgelegten Werten ist prüfbar.",
+    "rationales": [
+      "Zeitaufwand beweist kein funktionierendes Ergebnis.",
+      "Eine beobachtbare Speicherung mit festgelegten Werten ist prüfbar.",
+      "Die Formulierung enthält keine messbare fachliche Abnahme."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-tests"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l3",
+    "index": 2,
+    "q": "Die Zahlungs-Webhookroute liegt außerhalb der Session-CSRF-Prüfung. Welcher Schutz muss trotzdem an den Eingang?",
+    "options": [
+      "Anbietersignatur und Replay-/Duplikatprüfung",
+      "Nur ein schwer erratbarer URL-Pfad",
+      "Nur ein CSRF-Token eines beliebigen Users"
+    ],
+    "correct": 0,
+    "explain": "Server-zu-Server-Webhooks werden gemäß Anbieterprotokoll verifiziert; CSRF-Ausnahme ist keine Authentifizierung.",
+    "rationales": [
+      "Server-zu-Server-Webhooks werden gemäß Anbieterprotokoll verifiziert; CSRF-Ausnahme ist keine Authentifizierung.",
+      "Ein unbekannter Pfad ist kein belastbarer Herkunftsnachweis.",
+      "Der Anbieter kennt keine Benutzersession; der Token ersetzt den Signaturvertrag nicht."
+    ],
+    "sources": [
+      "https://docs.stripe.com/webhooks"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l4",
+    "index": 0,
+    "q": "Ein Meilenstein soll Bestellungen mit ausreichendem Lagerbestand anlegen. Welcher erste Test macht die Fachregel konkret?",
+    "options": [
+      "Nur einen Screenshot der Startseite speichern",
+      "Normalfall und zu knappen Bestand definieren",
+      "Nur den Klassennamen auf Länge prüfen"
+    ],
+    "correct": 1,
+    "explain": "Erfolgs- und Grenzfälle präzisieren das erwartete Verhalten vor der Umsetzung.",
+    "rationales": [
+      "Die Startseite belegt keinen Bestellablauf.",
+      "Erfolgs- und Grenzfälle präzisieren das erwartete Verhalten vor der Umsetzung.",
+      "Die Namenslänge belegt keine Bestandsregel."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/http-tests"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l4",
+    "index": 1,
+    "q": "Ein Release enthält ein destruktives Schema-Update. Welcher vorbereitete Nachweis reduziert das Wiederherstellungsrisiko?",
+    "options": [
+      "Ein erfolgreich getesteter Restore des Backups",
+      "Nur das Vorhandensein einer Backupdatei",
+      "Nur eine grüne CSS-Buildprüfung"
+    ],
+    "correct": 0,
+    "explain": "Ein Restoretest zeigt, dass Daten tatsächlich wiederhergestellt werden können; Zeit und Kompatibilität bleiben zu planen.",
+    "rationales": [
+      "Ein Restoretest zeigt, dass Daten tatsächlich wiederhergestellt werden können; Zeit und Kompatibilität bleiben zu planen.",
+      "Eine Datei allein beweist weder Lesbarkeit noch Vollständigkeit.",
+      "Ein Assetbuild prüft keine Datenwiederherstellung."
+    ],
+    "sources": [
+      "https://laravel.com/docs/13.x/deployment"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  },
+  {
+    "lesson": "m60-l4",
+    "index": 2,
+    "q": "Ein Team veröffentlicht v1.0.0 nach Semantic Versioning. Was muss es dafür fachlich festlegen?",
+    "options": [
+      "Dass keinerlei Fehler mehr existieren",
+      "Dass jeder spätere Release ein neuer Major ist",
+      "Die stabile öffentliche API und ihren Vertrag"
+    ],
+    "correct": 2,
+    "explain": "1.0.0 definiert die öffentliche API; spätere Änderungen werden nach Kompatibilität versioniert.",
+    "rationales": [
+      "Semantic Versioning garantiert keine Fehlerfreiheit.",
+      "Kompatible Ergänzungen und Korrekturen nutzen Minor beziehungsweise Patch.",
+      "1.0.0 definiert die öffentliche API; spätere Änderungen werden nach Kompatibilität versioniert."
+    ],
+    "sources": [
+      "https://semver.org/spec/v2.0.0.html"
+    ],
+    "revision": "2026-11-07-full-v3",
+    "level": "Anwendung/Analyse"
+  }
+]

@@ -1,0 +1,154 @@
+[
+  {
+    "url": "https://mariadb.com/docs/server/security",
+    "status": 200,
+    "finalURL": "https://mariadb.com/docs/server/security",
+    "bytes": 1806945,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:28.693Z"
+  },
+  {
+    "url": "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/analyze-and-explain-statements/explain",
+    "status": 200,
+    "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/administrative-sql-statements/analyze-and-explain-statements/explain",
+    "bytes": 2446335,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:28.737Z"
+  },
+  {
+    "url": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select",
+    "status": 200,
+    "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/data-manipulation/selecting-data/select",
+    "bytes": 2265463,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:28.774Z"
+  },
+  {
+    "url": "https://mariadb.com/docs/server/reference/sql-statements/transactions",
+    "status": 200,
+    "finalURL": "https://mariadb.com/docs/server/reference/sql-statements/transactions",
+    "bytes": 1899190,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.001Z"
+  },
+  {
+    "url": "https://mariadb.org/about/#maintenance-policy",
+    "status": 200,
+    "finalURL": "https://mariadb.org/about/",
+    "bytes": 233563,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.014Z"
+  },
+  {
+    "url": "https://mariadb.com/docs/server/reference/sql-statements/data-definition/create/create-table",
+    "status": 200,
+    "finalURL": "https://mariadb.com/docs/server/server-usage/tables/create-table",
+    "bytes": 3200027,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.080Z"
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events",
+    "bytes": 163267,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.175Z"
+  },
+  {
+    "url": "https://graphql.org/learn/",
+    "status": 200,
+    "finalURL": "https://graphql.org/learn/",
+    "bytes": 126464,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.227Z"
+  },
+  {
+    "url": "https://spec.openapis.org/oas/v3.2.1.html",
+    "status": 200,
+    "finalURL": "https://spec.openapis.org/oas/v3.2.1.html",
+    "bytes": 677846,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.319Z"
+  },
+  {
+    "url": "https://developer.mozilla.org/en-US/docs/Glossary/API",
+    "status": 200,
+    "finalURL": "https://developer.mozilla.org/en-US/docs/Glossary/API",
+    "bytes": 186136,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.323Z"
+  },
+  {
+    "url": "https://www.odata.org/documentation/",
+    "status": 200,
+    "finalURL": "https://www.odata.org/documentation/",
+    "bytes": 23494,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:29.655Z"
+  },
+  {
+    "url": "https://www.rfc-editor.org/rfc/rfc9110",
+    "status": 200,
+    "finalURL": "https://www.rfc-editor.org/info/rfc9110/",
+    "bytes": 4897240,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:30.809Z"
+  },
+  {
+    "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports",
+    "status": 200,
+    "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports",
+    "bytes": 152938,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:30.930Z"
+  },
+  {
+    "url": "https://modelcontextprotocol.io/specification/2026-07-28",
+    "status": 200,
+    "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28",
+    "bytes": 169048,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:30.939Z"
+  },
+  {
+    "url": "https://modelcontextprotocol.io/specification/2026-07-28/server",
+    "status": 200,
+    "finalURL": "https://modelcontextprotocol.io/specification/2026-07-28/server",
+    "bytes": 135670,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:30.945Z"
+  },
+  {
+    "url": "https://opencode.ai/v2/docs/permissions",
+    "status": 200,
+    "finalURL": "https://opencode.ai/docs/permissions",
+    "bytes": 52383,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:30.966Z"
+  },
+  {
+    "url": "https://platform.openai.com/docs/guides/agents",
+    "status": 200,
+    "finalURL": "https://developers.openai.com/api/docs/guides/agents",
+    "bytes": 375061,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:31.138Z"
+  },
+  {
+    "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+    "status": 200,
+    "finalURL": "https://www.anthropic.com/research/effective-harnesses-for-long-running-agents",
+    "bytes": 191228,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:31.279Z"
+  },
+  {
+    "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+    "status": 200,
+    "finalURL": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+    "bytes": 364079,
+    "ok": true,
+    "checkedAt": "2026-11-06T22:35:31.401Z"
+  }
+]

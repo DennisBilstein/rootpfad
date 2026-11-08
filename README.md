@@ -1,5 +1,157 @@
 # ROOTPFAD
 
+## Kontosicherheit und Auslieferung · 08.11.2026
+
+Angemeldete Konten können unter „Kontoeinstellungen“ ihr Passwort ändern und
+Konto/Serverlernstand als JSON herunterladen. Passwortänderung verlangt das alte
+Passwort, widerruft alle bisherigen Sitzungen und stellt eine neue für das
+aktuelle Gerät aus. „Passwort vergessen“ ermöglicht einen 15 Minuten gültigen,
+einmaligen Reset; echte Zustellung benötigt SMTP-Konfiguration. Standard: kein
+Versand. Einrichtung und privater Entwicklungsmodus: [Mailkonfiguration](docs/mail-configuration.md).
+Unter Kontoeinstellungen ist außerdem passwortbestätigte Konto-/Datenlöschung
+verfügbar; letzter Admin geschützt, Backups/Downloads/andere Geräte nicht umfasst.
+Export enthält keine Passwort-Hashes oder Sessiontokens; Datei geschützt halten.
+
+Passwortableitung nutzt asynchrones scrypt und bleibt mit bisherigen Hashes
+kompatibel. Registrierung/Setup prüfen nach der Berechnung erneut Einmalrechte,
+damit parallele Requests keinen Einladungs-/Setup-Token mehrfach verbrauchen.
+Öffentliche Assets werden bei Clientunterstützung komprimiert. Authentifizierte
+API-Antworten sind davon ausgeschlossen. Das reduziert Übertragungsgröße, ersetzt
+aber kein Lasttestkonzept. Der Browser lädt jetzt 34 geordnete Skripte unter
+300 KB über `assets/learning-manifest.json`, nicht mehr das große Quellaggregat.
+Das ist keine Lazy-Loading-Lösung: alle Teile werden weiterhin beim Start geladen.
+`assets/script-01.js` bleibt Build-/Prüfaggregat; nach Inhaltsänderungen `npm run build`.
+
+### Gezielte Inhaltsvertiefung
+
+Bestehende API-/Event-Lektionen enthalten zusätzliche Abschnitte zu SSRF,
+HTTP Caching und Transactional Outbox mit Normal-,Grenz-,Fehlerfällen und
+begründeten Selbsttests. IDs und historische Lernstände bleiben unverändert.
+Quelle: `content/application-supplements.mjs`. Bestand weiterhin 116 Module,
+462 Lektionen und 1.559 Karten. Technische Prüfungen sind keine unabhängige
+menschliche Fachbegutachtung.
+
+## Vollständige Abdeckung mit Selbstprüfkriterien
+
+Alle 1.559 vorhandenen Lektions- und Zusatzkarten besitzen einen fragebezogenen
+Abrufauftrag und Kriterien für Entscheidung,Begründung,Abgrenzung und Anwendung.
+Die Rubrik erscheint in Lektionsquiz und Wiederholung. Sie wird nicht automatisch
+benotet, bleibt sitzungsbezogen und begründet keine zusätzlichen Kompetenz-XP.
+Abdeckung: `content/quality/quiz-contract-coverage.json`.
+Zusätzlich ist die gesamte Inhaltsredaktion jetzt integriert: 1.253
+Lektionsfragen und 306 Zusatzkarten wurden individuell neu bearbeitet. Eine
+unabhängige menschliche Fach-Zweitbegutachtung ist damit nicht behauptet.
+
+## Fachliche Quizrevisionen
+
+Alle 1.559 Fragen/Karten wurden durch neue Anwendungsfragen samt eigener
+Distraktorbegründungen ersetzt. Revidierte Fragen erhalten neue Kartenrevisionen;
+alte Lernstände bleiben gespeichert, gelten aber nicht als neuer Nachweis.
+Fortschrittszählung für bearbeitete Lektionen bleibt davon getrennt.
+**Vollständige redaktionelle Abdeckung:** keine Lektionsfrage oder Zusatzkarte
+ohne neue Inhaltsrevision. Technische Prüfung ist nicht Fachzertifizierung. Maschinenlesbarer
+Stand: `content/quality/quiz-editorial-status.json`, Bericht:
+`reports/Vollständige fachliche Quizredaktion.md`.
+
+## Kompetenzen, Prüfqualität und praktische Arbeiten
+
+„Kompetenzen & Abnahmen“ trennt Lesemarkierungen und Auswahl-Erkennen von
+praktisch eingereichter/abgenommener Arbeit. Alle 116 Module haben eigene
+Abnahmeaufträge mit 348 konkreten Fällen und modulspezifischen Kriterien.
+Sie bleiben manuell zu prüfen, keine 116 unabhängig validierten Fachprüfungen. Adminfreigaben sind serverseitig
+geschützt. Der bestehende Ampelvertrag bleibt Aktivität/Bearbeitung.
+
+Drei Aufgabenfamilien haben je zwei getrennte numerische Parallelformen, mit
+einer transparenten Dreitagesregel. Noch keine Parallelformen für jeden Stoff.
+Fragenunklarheit kann gemeldet werden. Adminauswertung zählt Erstversuche pro
+Revision und Konto, keine vorgetäuschte statistische Schwierigkeit bei kleinen
+Stichproben. Quellenregister trennt Abrufstatus und Inhaltsprüfung; einige
+automatisierte Abrufe sind gesperrt. Ein Link-200 ist kein Inhaltsnachweis.
+
+`npm run audit:learning` prüft Vollständigkeit, Karten-IDs und Laufnachweise.
+`npm run test:labs` führt die separaten Laravel-/Vue-Laborprüfungen aus.
+
+## Einheitliches Codebild und vertiefte Quizansicht
+
+Tokyo Night gilt auch für neu hinzugekommene Codeflächen. Der vorhandene
+escaped Regex-Tokenizer wurde um JS/TS,Vue/HTML,CSS,Java und ABAP ergänzt;
+er ist keine vollständige Sprachgrammatik. Reine Codeinhalte und Kopiertexte
+bleiben erhalten; editierbare Textareas nutzen die gleiche Palette, ohne
+vorzutäuschen, dort einen vollständigen Syntaxeditor anzubieten.
+
+Alle Lektionsquizze bieten zuerst eine optionale freie Erklärung mit Grenzfall
+und Sicherheitseinschätzung; Optionen werden bewusst aufgeklappt. Freitext
+wird nicht automatisch benotet. Nach Prüfung folgen ursprüngliche Begründung,
+Antwortvergleich und Transferauftrag. Entwürfe sind nur sitzungsbezogen.
+15 zusätzliche fachlich ausgearbeitete Szenariofragen mit individuellen
+Distraktorbegründungen stehen in `content/quiz-transfer.mjs`; bestehende
+Frageindizes bleiben unverändert. Das ist keine Behauptung, sämtliche alten
+Fragen bereits fachlich neu geschrieben zu haben. Prüfungs-/Wiederholungspools
+erhalten die neuen Fragen, nicht automatisch die gesamte Freitextansicht.
+
+## MariaDB, APIs und KI-Engineering · Stichtag 06.11.2026
+
+Drei weitere Lernpfade: MariaDB (6 Lektionen), APIs & Integration (6),
+KI/MCP/Agents (4 MCP- und 7 Harness-/Arbeitsablauflektionen). Zusammen 23 neue
+Lektionen mit 69 Selbsttestfragen und je drei Übungen. Zehn bestehende
+AP1-KI-Lektionen behalten ihre Grundlagen und erhalten datierte Ergänzungen;
+das ist keine vollständige neue Rechts-/Versionsprüfung ihrer älteren Texte.
+
+MCP referenziert ausdrücklich Revision 2026-07-28, OpenAPI die geprüfte
+veröffentlichte 3.2.1. MariaDB-Linien werden anhand der Maintenance-Policy
+eingeordnet; ein konkreter lokaler DB-/SDK-Lauf wird nicht behauptet.
+19 unterschiedliche neue Quellen erreichbar, Abrufprotokoll unter
+`content/quality/platform-sources.json`. Eigene Beispiele und Erklärungen;
+kostenlose Doku bedeutet nicht kostenlose Modell-/Cloudnutzung.
+
+Generator: `node scripts/prepare-platform-content.mjs`, danach `npm run build`.
+Inhalte: `content/platform-curriculum.mjs`. Die Werkstatt umfasst nun
+15 Spuren mit 45 Aufgaben. MariaDB-/API-/MCP-Ergänzungen führen keine echte
+DB-,Netzwerk- oder Agentaktion aus. Keine produktive Datenbank oder globale
+Harness-Konfiguration wurde verändert.
+
+## HTML und CSS
+
+Eigener Lernpfad mit 12 Lektionen in zwei Modulen: HTML-Dokument, Semantik,
+Links/Bilder, Formulare, Tabellen/Accessibility sowie CSS-Kaskade, Boxmodell,
+Typografie/Fokus, Flexbox, Grid, Responsive Design und Abschlussprojekt.
+36 Quizkarten, je drei Übungen mit Abnahme und sechs Codewerkstatt-Ergänzungen.
+Das eigene statische Beispiel liegt in `content/examples/html-css-lab/` und kann
+ohne Build geöffnet werden. Kein echtes Formularbackend. Generator:
+`node scripts/prepare-html-css.mjs`, anschließend `npm run build`.
+Die Werkstatt umfasst damit insgesamt 12 Spuren und 36 Aufgaben.
+
+## Geführte Codewerkstatt
+
+30 eigene interaktive Aufgaben für JavaScript, TypeScript, Vue, PHP, Laravel,
+Java, ABAP, SQL, Git und Pseudocode. Über „Geführte Codewerkstatt“ in der
+Seitenleiste öffnen; die Spuren folgen der Lernpfadauswahl. Erklären, bearbeiten,
+Feedback, Hinweise und Lösungen sind direkt verbunden. Drei JS-Funktionsaufgaben
+werden in einer netzwerkgesperrten Frame-/Worker-Umgebung mit Zeitlimit ausgeführt.
+Alle anderen Spuren kennzeichnen die Prüfung als Codeergänzung ohne Laufzeit.
+Kein beliebiger PHP-/Java-/ABAP-Code wird auf dem App-Server ausgeführt.
+Details und Grenzen: `reports/Geführte Codewerkstatt.md`.
+
+## Aktueller Lerninhalt nach Gesamtrevision
+
+Alle 72 PHP-/Laravel-Lektionen besitzen jetzt Lernziele, verlinkte Quellen,
+themenspezifische Fehler-/Entscheidungshinweise, drei abgestufte Aufgaben und
+Abnahmekriterien. Der JavaScript-/Vue-Pfad umfasst 16 zusammenhängende Einheiten
+bis zu einem Aufgaben-Dashboard. Ältere unten dokumentierte Ausbauzahlen sind
+historisch; maßgeblich ist `reports/Lernpfade Gesamtrevision.md`.
+
+Ausführbare Labore (separat von der Node-Lernplattform):
+
+- `content/examples/laravel-lab`: Laravel 13, PHP 8.5, PHPUnit, SQLite-Testdaten.
+- `content/examples/vue-lab`: Vue 3.5, Router 5, Pinia 4, Vite 8, TS und Vitest.
+
+`content/quality/` unterscheidet pro Block Syntaxcheck, tatsächliche Ausführung
+und nicht integrierte Projektfragmente. Die Überarbeitung ist kein Beweis für
+Produktionsreife sämtlicher Codebeispiele. Setup/Prüfbefehle stehen in den
+Lab-READMEs. Lokale vendor/node_modules, DBs, Secrets und Buildartefakte bleiben
+außerhalb von Git. Keine neue ROOTPFAD-UI oder technische Vue-Migration der
+Lernplattform: Vue ist hier Lerninhalt und separates Übungsprojekt.
+
 Übernahme aus `ROOTPFAD_pro.html` mit Node-Server, Anmeldung und SQLite-Datenbank.
 Design, Lerninhalte und die vorhandene Anwendungslogik bleiben erhalten.
 
@@ -161,6 +313,12 @@ Fehleranalyse, Quellen, drei abgestuften Übungen und Selbsttest überarbeitet.
 Die vorhandene ID bleibt bestehen; die drei Quizfragen wurden inhaltlich
 aktualisiert. Bereits gespeicherte Quizstatistiken werden nicht rückwirkend
 als neuer Kompetenznachweis gewertet oder gelöscht.
+
+Auch `m52-l2` (Strings, echo und Verkettung) wurde vollständig ausgearbeitet:
+Interpolation, Punkt/.=, sprintf, Heredoc/Nowdoc, typische Fehler, Quellen und
+drei abgestufte Aufgaben. `content/examples/php/strings.php` wird im Test mit
+der vollständigen Sollausgabe verglichen (PHP CLI erforderlich). Damit sind
+2 von 72 PHP-Lektionen überarbeitet, nicht der gesamte Pfad.
 
 Der neue Lernpfad „JavaScript & Vue“ enthält zunächst **nur Einheit 1**
 (`js-m1-l1`: Werte, Variablen und Kontrollfluss), noch keinen vollständigen

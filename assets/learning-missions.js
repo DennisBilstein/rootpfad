@@ -20,7 +20,7 @@ function rpEvidence(event){
 function rpEvents(){ return Object.values(rpLearning.events); }
 function rpBossForModule(id){ return RP_BOSSES.find(function(b){ return b.modules.includes(id); }); }
 function rpLessonMastery(lesson){
-  var ids = (lesson.quiz || []).map(function(q,i){ return lesson.id+'#'+i; });
+  var ids = (lesson.quiz || []).map(function(q,i){ return typeof rpQuestionId==='function'?rpQuestionId(lesson,i):lesson.id+'#'+i; });
   var events = rpEvents().filter(function(e){ return e.kind === 'answer' && ids.includes(e.cardId); });
   var practiced = ids.length && ids.every(function(id){ return (state.stats[id]?.right || 0) > 0; });
   var retained = practiced && ids.every(function(id){
