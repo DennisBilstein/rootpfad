@@ -20,7 +20,7 @@ test('Expertenpfade sind vollständig, eindeutig und im Training verfügbar', as
       parts: experts.every(m => PARTS.includes(m.part) && m.part >= 10),
     };
   });
-  expect(summary).toMatchObject({ modules: 44, lessons: 166, exercises: 36, traces: 9, unique: true, references: true, parts: true });
+  expect(summary).toMatchObject({ modules: 46, lessons: 178, exercises: 36, traces: 9, unique: true, references: true, parts: true });
   expect(summary.cards).toBe(summary.quizzes + 92);
 
   // Render every imported lesson, including all code/text block combinations.

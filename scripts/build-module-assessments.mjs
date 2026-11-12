@@ -14,7 +14,7 @@ let assignments=c.MODULES.map(m=>{
     evidence:'Textprotokoll mit Befehlen/Testfällen/Ergebnissen oder Verweis auf ein freigegebenes Arbeitsartefakt. Keine Geheimnisse, Kundendaten oder öffentlichen Uploads nötig.',
     rubric:['Fachlich passender Vertrag und klare Voraussetzungen','Normal-,Grenz- und Fehlerfall mit Soll/Ist','Nachvollziehbares Arbeitsprodukt statt bloßer Auswahlantwort','Eigene Begründung, benutzte Hilfen und verbleibende Grenzen'],revision:'assessment-v1'};
 });
-const authored=['content/assessments-ap1.json','content/assessments-backend.json','content/assessments-java-web.json'].filter(file=>fs.existsSync(file)).flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')));
+const authored=['content/assessments-ap1.json','content/assessments-backend.json','content/assessments-java-web.json','content/assessments-java-vue.json'].filter(file=>fs.existsSync(file)).flatMap(file=>JSON.parse(fs.readFileSync(file,'utf8')));
 const authoredMap=new Map();
 for(const item of authored){
  if(authoredMap.has(item.moduleId)||!c.MODULES.some(m=>m.id===item.moduleId)||item.rubric?.length!==4||!['normal','boundary','failure'].every(k=>item[k]?.input&&item[k]?.expected)||!item.sources?.length)throw Error('Ungültige Abnahme: '+item.moduleId);

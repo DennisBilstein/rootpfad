@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T21:19:27.980Z",
+  "generatedAt": "2026-11-12T09:53:04.676Z",
   "policy": "Drei Monate sind eine organisatorische Prüffrist, keine fachliche Aktualitätsgarantie.",
   "sources": [
     {
@@ -3047,7 +3047,10 @@
     {
       "url": "https://www.rfc-editor.org/rfc/rfc6585.html#section-4",
       "questionIds": [
-        "m48-l3#1@2026-11-07-full-v3"
+        "m48-l3#1@2026-11-07-full-v3",
+        "js-m4-l6#0@2026-11-12-java-vue-v1",
+        "js-m4-l6#1@2026-11-12-java-vue-v1",
+        "js-m4-l6#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -4609,7 +4612,10 @@
     {
       "url": "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html",
       "questionIds": [
-        "java-m13-l1#1@2026-11-07-full-v3"
+        "java-m13-l1#1@2026-11-07-full-v3",
+        "java-m25-l4#0@2026-11-12-java-vue-v1",
+        "java-m25-l4#1@2026-11-12-java-vue-v1",
+        "java-m25-l4#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -4660,6 +4666,249 @@
         "java-m22-l2#0@2026-11-07-full-v3",
         "x#297@2026-11-07-full-v3",
         "x#298@2026-11-07-full-v3"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/441",
+      "questionIds": [
+        "java-m25-l1#0@2026-11-12-java-vue-v1",
+        "java-m25-l1#1@2026-11-12-java-vue-v1",
+        "java-m25-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/440",
+      "questionIds": [
+        "java-m25-l1#0@2026-11-12-java-vue-v1",
+        "java-m25-l1#1@2026-11-12-java-vue-v1",
+        "java-m25-l1#2@2026-11-12-java-vue-v1",
+        "java-m25-l2#0@2026-11-12-java-vue-v1",
+        "java-m25-l2#1@2026-11-12-java-vue-v1",
+        "java-m25-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/21/language/pattern-matching.html",
+      "questionIds": [
+        "java-m25-l1#0@2026-11-12-java-vue-v1",
+        "java-m25-l1#1@2026-11-12-java-vue-v1",
+        "java-m25-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/409",
+      "questionIds": [
+        "java-m25-l2#0@2026-11-12-java-vue-v1",
+        "java-m25-l2#1@2026-11-12-java-vue-v1",
+        "java-m25-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/21/language/sealed-classes-and-interfaces.html",
+      "questionIds": [
+        "java-m25-l2#0@2026-11-12-java-vue-v1",
+        "java-m25-l2#1@2026-11-12-java-vue-v1",
+        "java-m25-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/431",
+      "questionIds": [
+        "java-m25-l3#0@2026-11-12-java-vue-v1",
+        "java-m25-l3#1@2026-11-12-java-vue-v1",
+        "java-m25-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html",
+      "questionIds": [
+        "java-m25-l3#0@2026-11-12-java-vue-v1",
+        "java-m25-l3#1@2026-11-12-java-vue-v1",
+        "java-m25-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://dev.java/learn/new-features/",
+      "questionIds": [
+        "java-m25-l3#0@2026-11-12-java-vue-v1",
+        "java-m25-l3#1@2026-11-12-java-vue-v1",
+        "java-m25-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/444",
+      "questionIds": [
+        "java-m25-l4#0@2026-11-12-java-vue-v1",
+        "java-m25-l4#1@2026-11-12-java-vue-v1",
+        "java-m25-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/491",
+      "questionIds": [
+        "java-m25-l4#0@2026-11-12-java-vue-v1",
+        "java-m25-l4#1@2026-11-12-java-vue-v1",
+        "java-m25-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/features/spring-application.html",
+      "questionIds": [
+        "java-m25-l4#0@2026-11-12-java-vue-v1",
+        "java-m25-l4#1@2026-11-12-java-vue-v1",
+        "java-m25-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/506",
+      "questionIds": [
+        "java-m25-l5#0@2026-11-12-java-vue-v1",
+        "java-m25-l5#1@2026-11-12-java-vue-v1",
+        "java-m25-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/525",
+      "questionIds": [
+        "java-m25-l5#0@2026-11-12-java-vue-v1",
+        "java-m25-l5#1@2026-11-12-java-vue-v1",
+        "java-m25-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/533",
+      "questionIds": [
+        "java-m25-l5#0@2026-11-12-java-vue-v1",
+        "java-m25-l5#1@2026-11-12-java-vue-v1",
+        "java-m25-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/core/structured-concurrency.html",
+      "questionIds": [
+        "java-m25-l5#0@2026-11-12-java-vue-v1",
+        "java-m25-l5#1@2026-11-12-java-vue-v1",
+        "java-m25-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/core/scoped-values.html",
+      "questionIds": [
+        "java-m25-l5#0@2026-11-12-java-vue-v1",
+        "java-m25-l5#1@2026-11-12-java-vue-v1",
+        "java-m25-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/485",
+      "questionIds": [
+        "java-m25-l6#0@2026-11-12-java-vue-v1",
+        "java-m25-l6#1@2026-11-12-java-vue-v1",
+        "java-m25-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/456",
+      "questionIds": [
+        "java-m25-l6#0@2026-11-12-java-vue-v1",
+        "java-m25-l6#1@2026-11-12-java-vue-v1",
+        "java-m25-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherers.html",
+      "questionIds": [
+        "java-m25-l6#0@2026-11-12-java-vue-v1",
+        "java-m25-l6#1@2026-11-12-java-vue-v1",
+        "java-m25-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://openjdk.org/jeps/513",
+      "questionIds": [
+        "java-m25-l6#0@2026-11-12-java-vue-v1",
+        "java-m25-l6#1@2026-11-12-java-vue-v1",
+        "java-m25-l6#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -4887,7 +5136,10 @@
     {
       "url": "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html",
       "questionIds": [
-        "java-m22-l2#1@2026-11-07-full-v3"
+        "java-m22-l2#1@2026-11-07-full-v3",
+        "java-m26-l3#0@2026-11-12-java-vue-v1",
+        "java-m26-l3#1@2026-11-12-java-vue-v1",
+        "java-m26-l3#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -4944,6 +5196,153 @@
       "questionIds": [
         "java-m24-l2#0@2026-11-07-full-v3",
         "java-m24-l2#1@2026-11-07-full-v3"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://flywaydb.org/documentation/",
+      "questionIds": [
+        "java-m26-l1#0@2026-11-12-java-vue-v1",
+        "java-m26-l1#1@2026-11-12-java-vue-v1",
+        "java-m26-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+      "questionIds": [
+        "java-m26-l1#0@2026-11-12-java-vue-v1",
+        "java-m26-l1#1@2026-11-12-java-vue-v1",
+        "java-m26-l1#2@2026-11-12-java-vue-v1",
+        "java-m26-l5#0@2026-11-12-java-vue-v1",
+        "java-m26-l5#1@2026-11-12-java-vue-v1",
+        "java-m26-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://github.com/flyway/flyway",
+      "questionIds": [
+        "java-m26-l1#0@2026-11-12-java-vue-v1",
+        "java-m26-l1#1@2026-11-12-java-vue-v1",
+        "java-m26-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/testing/testcontainers.html",
+      "questionIds": [
+        "java-m26-l2#0@2026-11-12-java-vue-v1",
+        "java-m26-l2#1@2026-11-12-java-vue-v1",
+        "java-m26-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://java.testcontainers.org/modules/databases/postgres/",
+      "questionIds": [
+        "java-m26-l2#0@2026-11-12-java-vue-v1",
+        "java-m26-l2#1@2026-11-12-java-vue-v1",
+        "java-m26-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9457",
+      "questionIds": [
+        "java-m26-l3#0@2026-11-12-java-vue-v1",
+        "java-m26-l3#1@2026-11-12-java-vue-v1",
+        "java-m26-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/web/webmvc-versioning.html",
+      "questionIds": [
+        "java-m26-l4#0@2026-11-12-java-vue-v1",
+        "java-m26-l4#1@2026-11-12-java-vue-v1",
+        "java-m26-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://springdoc.org/",
+      "questionIds": [
+        "java-m26-l4#0@2026-11-12-java-vue-v1",
+        "java-m26-l4#1@2026-11-12-java-vue-v1",
+        "java-m26-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/system-requirements.html",
+      "questionIds": [
+        "java-m26-l5#0@2026-11-12-java-vue-v1",
+        "java-m26-l5#1@2026-11-12-java-vue-v1",
+        "java-m26-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://start.spring.io/",
+      "questionIds": [
+        "java-m26-l5#0@2026-11-12-java-vue-v1",
+        "java-m26-l5#1@2026-11-12-java-vue-v1",
+        "java-m26-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.spring.io/spring-framework/reference/core/resilience.html",
+      "questionIds": [
+        "java-m26-l6#0@2026-11-12-java-vue-v1",
+        "java-m26-l6#1@2026-11-12-java-vue-v1",
+        "java-m26-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://docs.spring.io/spring-boot/reference/io/rest-client.html",
+      "questionIds": [
+        "java-m26-l6#0@2026-11-12-java-vue-v1",
+        "java-m26-l6#1@2026-11-12-java-vue-v1",
+        "java-m26-l6#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -5107,7 +5506,10 @@
     {
       "url": "https://vuejs.org/guide/essentials/watchers.html",
       "questionIds": [
-        "js-m1-l9#2@2026-11-07-full-v3"
+        "js-m1-l9#2@2026-11-07-full-v3",
+        "js-m4-l4#0@2026-11-12-java-vue-v1",
+        "js-m4-l4#1@2026-11-12-java-vue-v1",
+        "js-m4-l4#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -5143,7 +5545,10 @@
         "js-m1-l11#1@2026-11-07-full-v3",
         "js-m1-l11#2@2026-11-07-full-v3",
         "js-m1-l11#3@2026-11-07-full-v3",
-        "js-m1-l13#2@2026-11-07-full-v3"
+        "js-m1-l13#2@2026-11-07-full-v3",
+        "js-m4-l4#0@2026-11-12-java-vue-v1",
+        "js-m4-l4#1@2026-11-12-java-vue-v1",
+        "js-m4-l4#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -5154,7 +5559,10 @@
       "url": "https://router.vuejs.org/guide/advanced/navigation-guards.html",
       "questionIds": [
         "js-m1-l12#0@2026-11-07-full-v3",
-        "js-m1-l12#2@2026-11-07-full-v3"
+        "js-m1-l12#2@2026-11-07-full-v3",
+        "js-m4-l1#0@2026-11-12-java-vue-v1",
+        "js-m4-l1#1@2026-11-12-java-vue-v1",
+        "js-m4-l1#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -5239,6 +5647,649 @@
         "js-m1-l16#1@2026-11-07-full-v3",
         "api-m1-l1#1@2026-11-07-full-v3",
         "api-m1-l2#3@2026-11-07-full-v3"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/components/v-model.html",
+      "questionIds": [
+        "js-m2-l1#0@2026-11-12-java-vue-v1",
+        "js-m2-l1#1@2026-11-12-java-vue-v1",
+        "js-m2-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/api/sfc-script-setup.html#definemodel",
+      "questionIds": [
+        "js-m2-l1#0@2026-11-12-java-vue-v1",
+        "js-m2-l1#1@2026-11-12-java-vue-v1",
+        "js-m2-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/components/provide-inject.html",
+      "questionIds": [
+        "js-m2-l2#0@2026-11-12-java-vue-v1",
+        "js-m2-l2#1@2026-11-12-java-vue-v1",
+        "js-m2-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/typescript/composition-api.html",
+      "questionIds": [
+        "js-m2-l2#0@2026-11-12-java-vue-v1",
+        "js-m2-l2#1@2026-11-12-java-vue-v1",
+        "js-m2-l2#2@2026-11-12-java-vue-v1",
+        "js-m2-l7#0@2026-11-12-java-vue-v1",
+        "js-m2-l7#1@2026-11-12-java-vue-v1",
+        "js-m2-l7#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/components/slots.html",
+      "questionIds": [
+        "js-m2-l3#0@2026-11-12-java-vue-v1",
+        "js-m2-l3#1@2026-11-12-java-vue-v1",
+        "js-m2-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/api/sfc-script-setup.html#defineslots",
+      "questionIds": [
+        "js-m2-l3#0@2026-11-12-java-vue-v1",
+        "js-m2-l3#1@2026-11-12-java-vue-v1",
+        "js-m2-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/built-ins/teleport.html",
+      "questionIds": [
+        "js-m2-l4#0@2026-11-12-java-vue-v1",
+        "js-m2-l4#1@2026-11-12-java-vue-v1",
+        "js-m2-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+      "questionIds": [
+        "js-m2-l4#0@2026-11-12-java-vue-v1",
+        "js-m2-l4#1@2026-11-12-java-vue-v1",
+        "js-m2-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/",
+      "questionIds": [
+        "js-m2-l4#0@2026-11-12-java-vue-v1",
+        "js-m2-l4#1@2026-11-12-java-vue-v1",
+        "js-m2-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/built-ins/suspense.html",
+      "questionIds": [
+        "js-m2-l5#0@2026-11-12-java-vue-v1",
+        "js-m2-l5#1@2026-11-12-java-vue-v1",
+        "js-m2-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/components/async.html",
+      "questionIds": [
+        "js-m2-l5#0@2026-11-12-java-vue-v1",
+        "js-m2-l5#1@2026-11-12-java-vue-v1",
+        "js-m2-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/built-ins/transition.html",
+      "questionIds": [
+        "js-m2-l6#0@2026-11-12-java-vue-v1",
+        "js-m2-l6#1@2026-11-12-java-vue-v1",
+        "js-m2-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+      "questionIds": [
+        "js-m2-l6#0@2026-11-12-java-vue-v1",
+        "js-m2-l6#1@2026-11-12-java-vue-v1",
+        "js-m2-l6#2@2026-11-12-java-vue-v1",
+        "css-m1-l6#1@2026-11-07-full-v3"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C39",
+      "questionIds": [
+        "js-m2-l6#0@2026-11-12-java-vue-v1",
+        "js-m2-l6#1@2026-11-12-java-vue-v1",
+        "js-m2-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/api/sfc-script-setup.html#generics",
+      "questionIds": [
+        "js-m2-l7#0@2026-11-12-java-vue-v1",
+        "js-m2-l7#1@2026-11-12-java-vue-v1",
+        "js-m2-l7#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://zod.dev/",
+      "questionIds": [
+        "js-m3-l1#0@2026-11-12-java-vue-v1",
+        "js-m3-l1#1@2026-11-12-java-vue-v1",
+        "js-m3-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/WAI/tutorials/forms/validation/",
+      "questionIds": [
+        "js-m3-l1#0@2026-11-12-java-vue-v1",
+        "js-m3-l1#1@2026-11-12-java-vue-v1",
+        "js-m3-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/overview",
+      "questionIds": [
+        "js-m3-l2#0@2026-11-12-java-vue-v1",
+        "js-m3-l2#1@2026-11-12-java-vue-v1",
+        "js-m3-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/important-defaults",
+      "questionIds": [
+        "js-m3-l2#0@2026-11-12-java-vue-v1",
+        "js-m3-l2#1@2026-11-12-java-vue-v1",
+        "js-m3-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9457.html",
+      "questionIds": [
+        "js-m3-l2#0@2026-11-12-java-vue-v1",
+        "js-m3-l2#1@2026-11-12-java-vue-v1",
+        "js-m3-l2#2@2026-11-12-java-vue-v1",
+        "js-m3-l5#0@2026-11-12-java-vue-v1",
+        "js-m3-l5#1@2026-11-12-java-vue-v1",
+        "js-m3-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/optimistic-updates",
+      "questionIds": [
+        "js-m3-l3#0@2026-11-12-java-vue-v1",
+        "js-m3-l3#1@2026-11-12-java-vue-v1",
+        "js-m3-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/mutations",
+      "questionIds": [
+        "js-m3-l3#0@2026-11-12-java-vue-v1",
+        "js-m3-l3#1@2026-11-12-java-vue-v1",
+        "js-m3-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://router.vuejs.org/guide/essentials/navigation.html",
+      "questionIds": [
+        "js-m3-l4#0@2026-11-12-java-vue-v1",
+        "js-m3-l4#1@2026-11-12-java-vue-v1",
+        "js-m3-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams",
+      "questionIds": [
+        "js-m3-l4#0@2026-11-12-java-vue-v1",
+        "js-m3-l4#1@2026-11-12-java-vue-v1",
+        "js-m3-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/queries",
+      "questionIds": [
+        "js-m3-l5#0@2026-11-12-java-vue-v1",
+        "js-m3-l5#1@2026-11-12-java-vue-v1",
+        "js-m3-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/TR/wai-aria-1.2/#status",
+      "questionIds": [
+        "js-m3-l5#0@2026-11-12-java-vue-v1",
+        "js-m3-l5#1@2026-11-12-java-vue-v1",
+        "js-m3-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://router.vuejs.org/guide/advanced/meta.html",
+      "questionIds": [
+        "js-m4-l1#0@2026-11-12-java-vue-v1",
+        "js-m4-l1#1@2026-11-12-java-vue-v1",
+        "js-m4-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "questionIds": [
+        "js-m4-l1#0@2026-11-12-java-vue-v1",
+        "js-m4-l1#1@2026-11-12-java-vue-v1",
+        "js-m4-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html",
+      "questionIds": [
+        "js-m4-l1#0@2026-11-12-java-vue-v1",
+        "js-m4-l1#1@2026-11-12-java-vue-v1",
+        "js-m4-l1#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+      "questionIds": [
+        "js-m4-l2#0@2026-11-12-java-vue-v1",
+        "js-m4-l2#1@2026-11-12-java-vue-v1",
+        "js-m4-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+      "questionIds": [
+        "js-m4-l2#0@2026-11-12-java-vue-v1",
+        "js-m4-l2#1@2026-11-12-java-vue-v1",
+        "js-m4-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc6750.html",
+      "questionIds": [
+        "js-m4-l2#0@2026-11-12-java-vue-v1",
+        "js-m4-l2#1@2026-11-12-java-vue-v1",
+        "js-m4-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-browser-based-apps/",
+      "questionIds": [
+        "js-m4-l2#0@2026-11-12-java-vue-v1",
+        "js-m4-l2#1@2026-11-12-java-vue-v1",
+        "js-m4-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials",
+      "questionIds": [
+        "js-m4-l2#0@2026-11-12-java-vue-v1",
+        "js-m4-l2#1@2026-11-12-java-vue-v1",
+        "js-m4-l2#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/api/composition-api-helpers.html#useid",
+      "questionIds": [
+        "js-m4-l3#0@2026-11-12-java-vue-v1",
+        "js-m4-l3#1@2026-11-12-java-vue-v1",
+        "js-m4-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/template-refs.html",
+      "questionIds": [
+        "js-m4-l3#0@2026-11-12-java-vue-v1",
+        "js-m4-l3#1@2026-11-12-java-vue-v1",
+        "js-m4-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/components/attrs.html",
+      "questionIds": [
+        "js-m4-l3#0@2026-11-12-java-vue-v1",
+        "js-m4-l3#1@2026-11-12-java-vue-v1",
+        "js-m4-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/components/props.html#reactive-props-destructure",
+      "questionIds": [
+        "js-m4-l3#0@2026-11-12-java-vue-v1",
+        "js-m4-l3#1@2026-11-12-java-vue-v1",
+        "js-m4-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1.html",
+      "questionIds": [
+        "js-m4-l3#0@2026-11-12-java-vue-v1",
+        "js-m4-l3#1@2026-11-12-java-vue-v1",
+        "js-m4-l3#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "questionIds": [
+        "js-m4-l4#0@2026-11-12-java-vue-v1",
+        "js-m4-l4#1@2026-11-12-java-vue-v1",
+        "js-m4-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "questionIds": [
+        "js-m4-l4#0@2026-11-12-java-vue-v1",
+        "js-m4-l4#1@2026-11-12-java-vue-v1",
+        "js-m4-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/api/reactivity-advanced.html",
+      "questionIds": [
+        "js-m4-l4#0@2026-11-12-java-vue-v1",
+        "js-m4-l4#1@2026-11-12-java-vue-v1",
+        "js-m4-l4#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://zod.dev/api",
+      "questionIds": [
+        "js-m4-l5#0@2026-11-12-java-vue-v1",
+        "js-m4-l5#1@2026-11-12-java-vue-v1",
+        "js-m4-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key",
+      "questionIds": [
+        "js-m4-l5#0@2026-11-12-java-vue-v1",
+        "js-m4-l5#1@2026-11-12-java-vue-v1",
+        "js-m4-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for",
+      "questionIds": [
+        "js-m4-l5#0@2026-11-12-java-vue-v1",
+        "js-m4-l5#1@2026-11-12-java-vue-v1",
+        "js-m4-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+      "questionIds": [
+        "js-m4-l5#0@2026-11-12-java-vue-v1",
+        "js-m4-l5#1@2026-11-12-java-vue-v1",
+        "js-m4-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+      "questionIds": [
+        "js-m4-l5#0@2026-11-12-java-vue-v1",
+        "js-m4-l5#1@2026-11-12-java-vue-v1",
+        "js-m4-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions",
+      "questionIds": [
+        "js-m4-l5#0@2026-11-12-java-vue-v1",
+        "js-m4-l5#1@2026-11-12-java-vue-v1",
+        "js-m4-l5#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/infinite-queries",
+      "questionIds": [
+        "js-m4-l6#0@2026-11-12-java-vue-v1",
+        "js-m4-l6#1@2026-11-12-java-vue-v1",
+        "js-m4-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/query-retries",
+      "questionIds": [
+        "js-m4-l6#0@2026-11-12-java-vue-v1",
+        "js-m4-l6#1@2026-11-12-java-vue-v1",
+        "js-m4-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://tanstack.com/query/latest/docs/framework/vue/guides/prefetching",
+      "questionIds": [
+        "js-m4-l6#0@2026-11-12-java-vue-v1",
+        "js-m4-l6#1@2026-11-12-java-vue-v1",
+        "js-m4-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After",
+      "questionIds": [
+        "js-m4-l6#0@2026-11-12-java-vue-v1",
+        "js-m4-l6#1@2026-11-12-java-vue-v1",
+        "js-m4-l6#2@2026-11-12-java-vue-v1"
+      ],
+      "checkedAt": null,
+      "checkStatus": "not-content-reviewed-in-this-audit",
+      "reviewDue": "2027-02-08",
+      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API",
+      "questionIds": [
+        "js-m4-l6#0@2026-11-12-java-vue-v1",
+        "js-m4-l6#1@2026-11-12-java-vue-v1",
+        "js-m4-l6#2@2026-11-12-java-vue-v1"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",
@@ -5374,16 +6425,6 @@
         "css-m1-l5#1@2026-11-07-full-v3",
         "css-m1-l5#2@2026-11-07-full-v3",
         "css-m1-l7#2@2026-11-07-full-v3"
-      ],
-      "checkedAt": null,
-      "checkStatus": "not-content-reviewed-in-this-audit",
-      "reviewDue": "2027-02-08",
-      "scope": "Fragebezogene Quelle; Erreichbarkeit und fachliche Passung getrennt prüfen."
-    },
-    {
-      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
-      "questionIds": [
-        "css-m1-l6#1@2026-11-07-full-v3"
       ],
       "checkedAt": null,
       "checkStatus": "not-content-reviewed-in-this-audit",

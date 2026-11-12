@@ -5,6 +5,7 @@ const checks=[
   {name:'vue-tests',command:'npm',args:['test'],cwd:'content/examples/vue-lab'},
   {name:'vue-build',command:'npm',args:['run','build'],cwd:'content/examples/vue-lab'},
   {name:'vue-audit',command:'npm',args:['audit','--json'],cwd:'content/examples/vue-lab'},
+  {name:'spring-tests',command:'./mvnw',args:['-B','-q','test'],cwd:'content/examples/spring-lab'},
 ];
 const results=[];
 for(const check of checks){const result=spawnSync(check.command,check.args,{cwd:check.cwd,encoding:'utf8',timeout:120000});results.push({...check,exitCode:result.status,stdout:result.stdout,stderr:result.stderr});console.log(check.name,result.status===0?'PASS':'FAIL');}

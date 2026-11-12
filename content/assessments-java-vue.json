@@ -1,0 +1,153 @@
+[
+  {
+    "moduleId": "java-m25",
+    "title": "Zahlungsergebnis mit versiegelten Typen und exhaustivem switch modellieren",
+    "brief": "Modelliere in Java 21 ein Ergebnis einer Zahlung als sealed interface PaymentResult mit den Records Paid(long cents) und Declined(String reason). Schreibe eine Methode describe(PaymentResult), die ausschließlich per switch-Ausdruck mit Record-Pattern antwortet, keinen default-Zweig verwendet und für Paid(1250) den Text \"Bezahlt: 12,50 EUR\" liefert. Ergänze eine Methode lastEntry(SequencedCollection<String>), die den letzten Eintrag liefert.",
+    "normal": {
+      "input": "describe(new Paid(1250)) und describe(new Declined(\"Karte abgelaufen\"))",
+      "expected": "\"Bezahlt: 12,50 EUR\" bzw. \"Abgelehnt: Karte abgelaufen\"; der Compiler akzeptiert den switch ohne default."
+    },
+    "boundary": {
+      "input": "lastEntry mit einer leeren LinkedHashSet<String> und mit einer Liste mit genau einem Element",
+      "expected": "Leere Sammlung: NoSuchElementException aus getLast(); ein Element: genau dieses Element. Das Verhalten wird im Test beobachtet und nicht angenommen."
+    },
+    "failure": {
+      "input": "Füge dem sealed interface einen dritten Record Refunded(long cents) hinzu, ohne den switch anzupassen.",
+      "expected": "Die Übersetzung schlägt fehl, weil der switch-Ausdruck nicht alle möglichen Eingabewerte abdeckt; nach Ergänzung des Falls Refunded kompiliert der Code wieder. Ein default-Zweig würde den Fehler verdecken und wird begründet abgelehnt."
+    },
+    "rubric": [
+      "Das sealed interface und die Records sind so modelliert, dass der switch ohne default vollständig ist.",
+      "Der Normalfall wird mit konkreten Ein- und Ausgaben geprüft, nicht nur beschrieben.",
+      "Die leere Sammlung wird gezielt getestet und die tatsächlich geworfene Ausnahme benannt.",
+      "Der Fehlerfall zeigt die Compilermeldung und erklärt, warum ein default-Zweig die Sicherheit verringert."
+    ],
+    "sources": [
+      "https://openjdk.org/jeps/441",
+      "https://openjdk.org/jeps/431",
+      "https://dev.java/learn/new-features/"
+    ],
+    "execution": "manual-review-required",
+    "revision": "assessment-java-vue-v1"
+  },
+  {
+    "moduleId": "java-m26",
+    "title": "Migration, Fehlervertrag und Test für ein Spring-Boot-4-Feld ergänzen",
+    "brief": "Erweitere das spring-lab um das optionale Feld priority (Text, höchstens 10 Zeichen). Schreibe die additive Flyway-Migration V3, passe Entity, Request und Response an und beweise mit Tests: Die Anwendung startet mit Migrationen, eine zu lange Priorität wird mit Status 422 und application/problem+json abgelehnt, und eine nachträglich geänderte V1-Datei lässt die Flyway-Validierung scheitern.",
+    "normal": {
+      "input": "POST /api/tasks mit {\"title\":\"Einkaufen\",\"priority\":\"hoch\"}",
+      "expected": "Status 201, Location-Header auf die neue Aufgabe, Antwort enthält priority \"hoch\"; Flyway hat V1, V2 und V3 angewendet."
+    },
+    "boundary": {
+      "input": "priority mit genau 10 und mit 11 Zeichen sowie ohne priority",
+      "expected": "10 Zeichen und fehlendes Feld werden akzeptiert (Status 201); 11 Zeichen führen zu 422."
+    },
+    "failure": {
+      "input": "POST mit 11 Zeichen in priority; außerdem V1 nach der Anwendung im Testverzeichnis um ein Leerzeichen ändern und erneut validieren",
+      "expected": "422 mit Content-Type application/problem+json und einer Verletzung für das Feld priority; Flyway meldet bei der geänderten V1 einen Checksummenfehler. Der Postgres-Test wird ohne Docker als übersprungen gemeldet und nicht als bestanden gezählt."
+    },
+    "rubric": [
+      "Die Migration ist additiv (neue nullable Spalte) und ändert keine bereits angewendete Datei.",
+      "Der Fehlervertrag nennt Status, Medientyp und das betroffene Feld; kein Stacktrace gelangt nach außen.",
+      "Grenzwerte 10 und 11 Zeichen sowie das fehlende Feld sind im Test abgedeckt.",
+      "Nicht ausgeführte Tests (ohne Docker) werden als nicht ausgeführt ausgewiesen."
+    ],
+    "sources": [
+      "https://docs.spring.io/spring-boot/reference/testing/testcontainers.html",
+      "https://www.rfc-editor.org/rfc/rfc9457.html",
+      "https://flywaydb.org/documentation/"
+    ],
+    "execution": "manual-review-required",
+    "revision": "assessment-java-vue-v1"
+  },
+  {
+    "moduleId": "js-m2",
+    "title": "Mengenfeld mit defineModel, Klemmen und Fehlervertrag testen",
+    "brief": "Baue eine Komponente StepperField mit defineModel<number>, einer Schrittweite von 1 und dem eigenen Modifikator .clamp, der Werte in den Bereich 0 bis 10 zwingt. Beschrifte das Feld mit einem label. Schreibe Tests für Normal-, Grenz- und Fehlerfall und prüfe zusätzlich im Browser, dass die Bedienung mit der Tastatur möglich ist.",
+    "normal": {
+      "input": "Eingabe 4 ohne Modifikator",
+      "expected": "update:modelValue wird genau einmal mit 4 ausgelöst."
+    },
+    "boundary": {
+      "input": "v-model.clamp mit 0, 10, 10.9 und -0.5",
+      "expected": "0 bleibt 0, 10 bleibt 10, 10.9 wird zu 10, -0.5 wird zu 0; die gewählte Rundungsregel ist dokumentiert."
+    },
+    "failure": {
+      "input": "Eingabe 99 mit .clamp und Eingabe \"abc\" in einem type=number-Feld",
+      "expected": "99 wird als 10 gemeldet; für \"abc\" wird der tatsächlich gemeldete Wert beobachtet und eine sichtbare Textmeldung (nicht nur Farbe) vorgeschlagen."
+    },
+    "rubric": [
+      "Die Komponente verändert keine Props, sondern nutzt defineModel.",
+      "Grenzwerte werden im Test mit konkreten Zahlen belegt, nicht nur beschrieben.",
+      "Das Feld hat eine programmatisch verknüpfte Beschriftung und ist per Tastatur bedienbar.",
+      "Die Grenzen des jsdom-Tests gegenüber echtem Browserverhalten werden benannt."
+    ],
+    "sources": [
+      "https://vuejs.org/guide/components/v-model.html",
+      "https://vuejs.org/api/sfc-script-setup.html#definemodel",
+      "https://www.w3.org/WAI/WCAG22/Understanding/"
+    ],
+    "execution": "manual-review-required",
+    "revision": "assessment-java-vue-v1"
+  },
+  {
+    "moduleId": "js-m3",
+    "title": "Aufgabenformular mit Zod, Query-Cache und Serverfehlern abnehmen",
+    "brief": "Erweitere die TaskInbox um das Feld priority (niedrig, mittel, hoch) mit z.enum. Das Schema, der API-Vertrag und der Fake-Server werden angepasst. Weise nach: Rohwerte werden geprüft und normalisiert, ein 422 des Servers erscheint am richtigen Feld, ein Vertragsbruch der Antwort wird abgelehnt, und ein Serverfehler beim Umschalten rollt die Anzeige zurück.",
+    "normal": {
+      "input": "title \"  Einkaufen  \", dueDate \"\", priority \"mittel\"",
+      "expected": "Geprüfte Daten { title: \"Einkaufen\", dueDate: null, priority: \"mittel\" }; die Liste lädt nach dem Anlegen neu."
+    },
+    "boundary": {
+      "input": "title mit 120 und mit 121 Zeichen; dueDate heute und gestern",
+      "expected": "120 Zeichen und heute sind gültig; 121 Zeichen und gestern liefern je eine feldbezogene Meldung."
+    },
+    "failure": {
+      "input": "Server antwortet 422 mit Verletzung für title; Server liefert items mit id \"x\"; PATCH antwortet 500",
+      "expected": "Die Meldung steht am Titelfeld, das Feld ist mit aria-describedby verknüpft und die Eingabe bleibt erhalten; die Antwort mit id \"x\" wird abgelehnt; nach dem 500 zeigt die Liste wieder den alten Haken."
+    },
+    "rubric": [
+      "Das Schema ist die einzige Quelle für Regeln und Typen (z.input und z.output unterscheiden sich sichtbar).",
+      "Fremde Antworten werden an der Grenze geprüft und nie ungeprüft weitergereicht.",
+      "Optimistisches Update und Rollback sind durch einen Test mit angehaltener Serverantwort belegt.",
+      "Lade-, Fehler-, Leer- und Datenzustand sind sichtbar und zugänglich umgesetzt; Grenzen des Fake-Servers werden genannt."
+    ],
+    "sources": [
+      "https://zod.dev/",
+      "https://tanstack.com/query/latest/docs/framework/vue/guides/optimistic-updates",
+      "https://www.rfc-editor.org/rfc/rfc9457.html"
+    ],
+    "execution": "manual-review-required",
+    "revision": "assessment-java-vue-v1"
+  },
+  {
+    "moduleId": "js-m4",
+    "title": "Geschützten Bereich mit Anmeldung, Einladungsformular und Aktivitätsliste abnehmen",
+    "brief": "Baue im vue-lab einen geschützten Bereich /team: Der Router-Guard verlangt Anmeldung und die Rolle \"admin\", der Rücksprung ist gegen Open Redirects geprüft, und die Sitzung wird nach einem Reload still wiederhergestellt. Darin liegt ein Einladungsformular mit bis zu fünf Zeilen (stabile Keys, Fokusführung, Ansage) und eine Aktivitätsliste mit Infinite Query, Entdoppelung und begrenzter Wiederholung. Weise das Verhalten mit Tests nach und nenne, was nur das Backend absichern kann.",
+    "normal": {
+      "input": "Gast öffnet /team?tab=2; nach dem Login als admin; zwei Einladungen mit gültigen Adressen; Liste mit 25 Einträgen in Seiten zu 10",
+      "expected": "Umleitung zu /login mit redirect=/team?tab=2 und danach Rücksprung; geprüfte Ausgabe { team, emails } ohne UI-Schlüssel; Liste lädt 10, 20, 25 Einträge und blendet den Knopf am Ende aus."
+    },
+    "boundary": {
+      "input": "redirect=//evil.example; fünf und sechs Einladungszeilen; Zeile 1 wird bei drei Zeilen entfernt; zwei Anfragen mit abgelaufenem Token gleichzeitig",
+      "expected": "Fremdes Ziel wird zu \"/\"; fünf Zeilen gültig, sechs mit Listenfehler, Hinzufügen gesperrt mit Begründung; übrige Eingaben und Fokus bleiben richtig zugeordnet; genau ein Refresh-Aufruf."
+    },
+    "failure": {
+      "input": "Refresh antwortet 401, später nur Netzwerkfehler; Server liefert 503 beim Nachladen; user ohne Rolle öffnet /team",
+      "expected": "Bei 401 endet die Sitzung mit Rückleitung zur Anmeldung, bei Netzwerkfehler bleibt sie bestehen; geladene Einträge bleiben, Fehlermeldung und \"Erneut versuchen\" erscheinen; /forbidden wird angezeigt, und der Bericht nennt, dass die API selbst serverseitig prüfen muss."
+    },
+    "rubric": [
+      "Guard, Rücksprungprüfung und Sitzungswiederherstellung sind durch Tests belegt; das Dokument sagt klar, dass Guards keine Sicherheitsgrenze sind.",
+      "Token liegen nur im Arbeitsspeicher, gehen nur an die eigene Origin, und Single Flight verhindert mehrfache Erneuerung; es gibt keine Endlosschleife.",
+      "Formular und Liste decken Fokus, Live-Region, Lade-, Fehler-, Leer- und Endzustand zugänglich ab und sind mit der Tastatur bedienbar.",
+      "Grenzen werden genannt: Fake-Server statt echter Anmeldung, keine Screenreader-Prüfung, feste Wartezeit ohne Retry-After."
+    ],
+    "sources": [
+      "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+      "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+      "https://tanstack.com/query/latest/docs/framework/vue/guides/infinite-queries",
+      "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html"
+    ],
+    "execution": "manual-review-required",
+    "revision": "assessment-java-vue-v1"
+  }
+]

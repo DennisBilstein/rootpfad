@@ -380,6 +380,9 @@ main.content{flex:1; min-width:0; padding:var(--s6) clamp(var(--s4),4vw,var(--s7
 .lesson-body ul{padding-left:1.15em; margin:0 0 1em;}
 .lesson-body li{margin-bottom:.45em; padding-left:.15em;}
 .lesson-body li::marker{color:var(--text-dim);}
+.lesson-body dl{margin:0 0 1em;}
+.lesson-body dt{font-weight:600; color:var(--text); margin-top:.75em;}
+.lesson-body dd{margin:.15em 0 0; padding-left:1em; border-left:2px solid var(--border); overflow-wrap:anywhere;}
 .lesson-body code{background:var(--surface-2); border:1px solid var(--border); border-radius:5px;
   padding:1px 5px; font-size:.86em; color:var(--text); white-space:nowrap;}
 

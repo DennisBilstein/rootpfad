@@ -6,7 +6,7 @@ test('Jede Lektionsfrage und Zusatzkarte besitzt explizite Abruf-/Bewertungskrit
     contracts:RP_QUIZ_CONTRACTS.length,
     covered:CARDS.every(c=>RP_QUIZ_CONTRACT_BY_ID[c.id]?.criteria.length===4),
     extras:CARDS.filter(c=>c.id.startsWith('x#')).every(c=>RP_QUIZ_CONTRACT_BY_ID[c.id]),
-  }));expect(result).toEqual({cards:1583,contracts:1583,covered:true,extras:true});
+  }));expect(result).toEqual({cards:1673,contracts:1673,covered:true,extras:true});
 });
 test('Selbstrubrik ist sichtbar, nicht als automatische Fachprüfung bewertet',async({page})=>{
   await page.goto('/');await page.waitForFunction(()=>window.RP_APP_READY);

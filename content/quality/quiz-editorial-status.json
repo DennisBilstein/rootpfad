@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-08T21:19:21.382Z",
-  "revised": 1277,
-  "total": 1277,
+  "updatedAt": "2026-11-12T09:53:03.900Z",
+  "revised": 1367,
+  "total": 1367,
   "remaining": 0,
   "extras": {
     "total": 306,
@@ -7388,6 +7388,132 @@
       "question": "Eine API gibt bisher ihre interne Kunde-Entity aus; ein neues internes Feld passwortHash würde sichtbar. Welche Grenze hilft?"
     },
     {
+      "lesson": "java-m25-l1",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Team ersetzt eine lange instanceof-Kette durch einen switch über Object. Im Test mit einem null-Wert stürzt der Code ab. Was ist die direkte Ursache?"
+    },
+    {
+      "lesson": "java-m25-l1",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Im Code stehen „case Integer i ->“ und danach „case Integer i when i > 10 ->“. Was passiert beim Kompilieren?"
+    },
+    {
+      "lesson": "java-m25-l1",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient „case Money(var amount, var currency)“?"
+    },
+    {
+      "lesson": "java-m25-l2",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein switch über ein sealed Interface hat keinen default. Ein Kollege fügt dem Interface einen neuen Untertyp hinzu, ohne die switches zu ändern. Was geschieht?"
+    },
+    {
+      "lesson": "java-m25-l2",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wofür ist ein Ergebnistyp Result<T> mit Ok und Failure besser geeignet als eine Exception?"
+    },
+    {
+      "lesson": "java-m25-l2",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum passt ein Record gut als Untertyp eines sealed Interface?"
+    },
+    {
+      "lesson": "java-m25-l3",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Eine Methode ruft list.reversed() auf und fügt danach mit addFirst(\"Z\") ein. Wo steht „Z“ in der Originalliste?"
+    },
+    {
+      "lesson": "java-m25-l3",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welche Aussage stimmt für ein HashSet?"
+    },
+    {
+      "lesson": "java-m25-l3",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was passiert bei new ArrayList<String>().getFirst()?"
+    },
+    {
+      "lesson": "java-m25-l4",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Service wartet pro Anfrage 300 ms auf eine Datenbank und rechnet 2 ms. Er läuft mit einem Pool von 200 Threads und wird bei hoher Last langsam. Was bringt Virtual Threads hier am ehesten?"
+    },
+    {
+      "lesson": "java-m25-l4",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum soll man virtuelle Threads nicht in einem Pool halten?"
+    },
+    {
+      "lesson": "java-m25-l4",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was ändert JEP 491 (Java 24) für virtuelle Threads?"
+    },
+    {
+      "lesson": "java-m25-l5",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Zwei Teilaufgaben laufen in einem StructuredTaskScope. Die erste wirft nach 50 ms eine Ausnahme, die zweite läuft noch 10 Sekunden. Was geschieht im Standardfall?"
+    },
+    {
+      "lesson": "java-m25-l5",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welcher Status gilt laut den JEPs für Java 26?"
+    },
+    {
+      "lesson": "java-m25-l5",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Worin unterscheidet sich ein Scoped Value wesentlich von einem ThreadLocal?"
+    },
+    {
+      "lesson": "java-m25-l6",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Du willst aus einem Stream die laufende Summe jedes Zwischenstands ausgeben. Welcher Baustein passt?"
+    },
+    {
+      "lesson": "java-m25-l6",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was bedeutet „return false“ aus downstream.push(...) in einem eigenen Gatherer?"
+    },
+    {
+      "lesson": "java-m25-l6",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wann kannst du „catch (NumberFormatException _)“ ohne Vorschaufunktionen verwenden?"
+    },
+    {
       "lesson": "java-m15-l1",
       "index": 0,
       "revision": "2026-11-07-full-v3",
@@ -7808,6 +7934,132 @@
       "question": "Die Liveness-Probe prüft die gemeinsame Datenbank. Ein kurzer DB-Ausfall startet dadurch alle Pods neu. Was sollte korrigiert werden?"
     },
     {
+      "lesson": "java-m26-l1",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Teammitglied fügt nach dem Deployment in V1__create_task.sql nur einen Kommentar hinzu. Beim nächsten Start in Test bricht die Anwendung ab. Was ist die wahrscheinlichste Ursache?"
+    },
+    {
+      "lesson": "java-m26-l1",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient spring.jpa.hibernate.ddl-auto=validate, wenn Flyway das Schema verwaltet?"
+    },
+    {
+      "lesson": "java-m26-l1",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Du musst eine neue Pflichtspalte zu einer Tabelle mit 2 Millionen Zeilen hinzufügen. Welches Vorgehen ist am sichersten?"
+    },
+    {
+      "lesson": "java-m26-l2",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein @DataJpaTest soll gegen den PostgreSQL-Container laufen. Er verwendet aber trotz @ServiceConnection eine eingebettete Datenbank. Was fehlt am wahrscheinlichsten?"
+    },
+    {
+      "lesson": "java-m26-l2",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Maven zeigt für einen Testcontainers-Test „Skipped: 1“. Wie ist das einzuordnen?"
+    },
+    {
+      "lesson": "java-m26-l2",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum sollte der Container als static Feld deklariert werden?"
+    },
+    {
+      "lesson": "java-m26-l3",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welchen Content-Type muss eine Fehlerantwort nach RFC 9457 haben?"
+    },
+    {
+      "lesson": "java-m26-l3",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Client wertet bei Validierungsfehlern immer violations[0] aus. Nach einem Update meldet die Anwendung dieselben Fehler in anderer Reihenfolge. Was ist das Problem?"
+    },
+    {
+      "lesson": "java-m26-l3",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wann ist Status 422 gegenüber 400 passend?"
+    },
+    {
+      "lesson": "java-m26-l4",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Eine Methode hat @GetMapping(version = \"1.1+\"). Ein Client sendet API-Version 1.2 (unterstützt). Wird die Methode aufgerufen?"
+    },
+    {
+      "lesson": "java-m26-l4",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Das generierte OpenAPI-Dokument zeigt für den POST nur die Antwort 200, obwohl der Controller 201 liefert. Was ist die beste Reaktion?"
+    },
+    {
+      "lesson": "java-m26-l4",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wann lohnt sich eine neue API-Version?"
+    },
+    {
+      "lesson": "java-m26-l5",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Beim Start einer Boot-4-Anwendung fehlt die Bean RestClient$Builder. Welche Ursache passt zur neuen Modularität?"
+    },
+    {
+      "lesson": "java-m26-l5",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wie lautet der empfohlene Zwischenschritt bei einer großen Migration auf Boot 4?"
+    },
+    {
+      "lesson": "java-m26-l5",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was gilt für Spring Retry in Boot 4?"
+    },
+    {
+      "lesson": "java-m26-l6",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Client mit @Retryable(maxRetries = 2) trifft auf einen dauerhaft ausgefallenen Dienst (503). Wie viele Aufrufe finden statt?"
+    },
+    {
+      "lesson": "java-m26-l6",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum sollte ein POST, der eine Zahlung auslöst, nicht blind wiederholt werden?"
+    },
+    {
+      "lesson": "java-m26-l6",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welche Wirkung hat @ConcurrencyLimit(4) auf eine Methode?"
+    },
+    {
       "lesson": "js-m1-l1",
       "index": 0,
       "revision": "2026-11-07-full-v3",
@@ -8170,6 +8422,384 @@
       "revision": "2026-11-07-full-v3",
       "scenario": true,
       "question": "Beim Speichern einer Aufgabe antwortet die API 403. Welches UI-Verhalten wahrt den vereinbarten Serververtrag?"
+    },
+    {
+      "lesson": "js-m2-l1",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was verbirgt sich hinter <MyInput v-model=\"name\" />?"
+    },
+    {
+      "lesson": "js-m2-l1",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Eine Komponente setzt im Kind props.modelValue = 5. Was ist das Problem?"
+    },
+    {
+      "lesson": "js-m2-l1",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient die Option set in defineModel?"
+    },
+    {
+      "lesson": "js-m2-l2",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum verwendet man bei provide/inject einen InjectionKey statt eines Textschlüssels?"
+    },
+    {
+      "lesson": "js-m2-l2",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Entwickler ergänzt bei inject einen Standardwert, damit der Fehler bei fehlendem Provider verschwindet. Was ist das Risiko?"
+    },
+    {
+      "lesson": "js-m2-l2",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum gibt provideTheme den Modus als readonly und die Änderung als Funktion weiter?"
+    },
+    {
+      "lesson": "js-m2-l3",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient ein Scoped Slot gegenüber einem einfachen Slot?"
+    },
+    {
+      "lesson": "js-m2-l3",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Eine Liste wird nach dem Hinzufügen neu sortiert, und eingegebene Texte in Zeilen springen zur falschen Zeile. Was ist die wahrscheinlichste Ursache?"
+    },
+    {
+      "lesson": "js-m2-l3",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was bewirkt defineSlots in TypeScript-Projekten?"
+    },
+    {
+      "lesson": "js-m2-l4",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Nach Esc ist der Dialog geschlossen, aber die Schaltfläche „Öffnen“ reagiert nicht mehr. Was fehlt am wahrscheinlichsten?"
+    },
+    {
+      "lesson": "js-m2-l4",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welchen Vorteil hat showModal() gegenüber einem selbstgebauten Overlay aus div-Elementen?"
+    },
+    {
+      "lesson": "js-m2-l4",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Der Test mit jsdom ist grün. Was sagt er über die echte Tastaturbedienung aus?"
+    },
+    {
+      "lesson": "js-m2-l5",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Eine async Komponente im <Suspense> wirft beim Laden einen Fehler. Auf der Seite erscheint nichts Verständliches. Was ist der richtige Weg?"
+    },
+    {
+      "lesson": "js-m2-l5",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was bewirkt delay: 200 bei defineAsyncComponent?"
+    },
+    {
+      "lesson": "js-m2-l5",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welcher Status gilt laut Vue-Dokumentation (Stand 12.11.2026) für <Suspense>?"
+    },
+    {
+      "lesson": "js-m2-l6",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum animiert man bevorzugt transform und opacity?"
+    },
+    {
+      "lesson": "js-m2-l6",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Nutzer hat im Betriebssystem „Bewegung reduzieren“ aktiviert. Was ist die passende Reaktion der Anwendung?"
+    },
+    {
+      "lesson": "js-m2-l6",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient onScopeDispose in usePrefersReducedMotion?"
+    },
+    {
+      "lesson": "js-m2-l7",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was bewirkt generic=\"T extends { id: string | number }\" an einer Komponente?"
+    },
+    {
+      "lesson": "js-m2-l7",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient der Kommentar <!-- @vue-expect-error --> im Template?"
+    },
+    {
+      "lesson": "js-m2-l7",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum reicht ein grüner Vite-Build nicht als Nachweis, dass alle Typen in Templates stimmen?"
+    },
+    {
+      "lesson": "js-m3-l1",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was ist der Vorteil, Regeln und Typen aus einem Zod-Schema abzuleiten?"
+    },
+    {
+      "lesson": "js-m3-l1",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum wird „heute“ in todayIso() mit lokalen Datumsteilen gebildet?"
+    },
+    {
+      "lesson": "js-m3-l1",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Beim Absenden sind mehrere Felder ungültig. Was ist für Tastatur- und Screenreader-Nutzer die beste Reaktion?"
+    },
+    {
+      "lesson": "js-m3-l2",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum gehört der Seitenwert in den queryKey?"
+    },
+    {
+      "lesson": "js-m3-l2",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was bewirkt staleTime: 30_000?"
+    },
+    {
+      "lesson": "js-m3-l2",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Server liefert plötzlich ein anderes JSON-Format. Wie verhindert die Schema-Prüfung Folgeschäden?"
+    },
+    {
+      "lesson": "js-m3-l3",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient cancelQueries in onMutate?"
+    },
+    {
+      "lesson": "js-m3-l3",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum werden im Beispiel Schnappschüsse der Cache-Einträge gespeichert?"
+    },
+    {
+      "lesson": "js-m3-l3",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wann ist ein optimistisches Update eine schlechte Idee?"
+    },
+    {
+      "lesson": "js-m3-l4",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum gehört die Seitennummer in die URL?"
+    },
+    {
+      "lesson": "js-m3-l4",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was liefert parsePage(\"-5\")?"
+    },
+    {
+      "lesson": "js-m3-l4",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum ist „Weiter“ deaktiviert, solange isPlaceholderData wahr ist?"
+    },
+    {
+      "lesson": "js-m3-l5",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welche vier Zustände muss jede Datenansicht abdecken?"
+    },
+    {
+      "lesson": "js-m3-l5",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Der Server antwortet auf das Anlegen mit 422 und einer Feldmeldung. Wohin gehört sie?"
+    },
+    {
+      "lesson": "js-m3-l5",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Was belegt ein grüner Test mit dem Fake-Server nicht?"
+    },
+    {
+      "lesson": "js-m4-l1",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Nach einem Reload zeigt die Anwendung kurz die Anmeldeseite, obwohl die Sitzung noch gültig ist. Was fehlt im Guard am wahrscheinlichsten?"
+    },
+    {
+      "lesson": "js-m4-l1",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Guard schützt /admin mit roles: [\"admin\"]. Warum ist damit die Verwaltungs-API noch nicht geschützt?"
+    },
+    {
+      "lesson": "js-m4-l1",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Welcher Wert für ?redirect muss safeRedirectTarget ablehnen, weil er die eigene Anwendung verlässt?"
+    },
+    {
+      "lesson": "js-m4-l2",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Fünf Anfragen scheitern gleichzeitig mit 401. Wie viele Aufrufe von /auth/refresh sendet authFetch?"
+    },
+    {
+      "lesson": "js-m4-l2",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wo wird das Access-Token in diesem Entwurf gespeichert, und warum?"
+    },
+    {
+      "lesson": "js-m4-l2",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Die Erneuerung scheitert mit einem Netzwerkfehler (TypeError aus fetch). Was ist die richtige Reaktion?"
+    },
+    {
+      "lesson": "js-m4-l3",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum nutzt FormField useId() statt einer selbst gebauten Zufallszahl?"
+    },
+    {
+      "lesson": "js-m4-l3",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum ist inputAttrs() eine Funktion im Template und kein computed?"
+    },
+    {
+      "lesson": "js-m4-l3",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Eine Elternkomponente hält eine Ref auf FormField und ruft focus() auf. Was ist dafür in FormField nötig?"
+    },
+    {
+      "lesson": "js-m4-l4",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Nach `const { count } = state` ändert sich state.count auf 5, aber count bleibt 0. Wie hältst du die Verbindung?"
+    },
+    {
+      "lesson": "js-m4-l4",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "watchEffect(async () => { const a = x.value; await load(); use(y.value); }): Was passiert bei einer Änderung von y?"
+    },
+    {
+      "lesson": "js-m4-l4",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Ein Watcher soll die Höhe eines Elements nach einer Zustandsänderung messen. Welche Einstellung liefert den aktuellen Stand?"
+    },
+    {
+      "lesson": "js-m4-l5",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "In einer Liste wird die erste Zeile gelöscht, und ein Eingabetext erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?"
+    },
+    {
+      "lesson": "js-m4-l5",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Wozu dient die immer vorhandene `<p role=\"status\">` im Formular?"
+    },
+    {
+      "lesson": "js-m4-l5",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum gibt das Schema am Ende nur { team, emails } zurück und nicht die Zeilen mit key?"
+    },
+    {
+      "lesson": "js-m4-l6",
+      "index": 0,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Der Server antwortet auf eine Detailabfrage mit 404. Was sollte die Wiederholungsstrategie tun?"
+    },
+    {
+      "lesson": "js-m4-l6",
+      "index": 1,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Zwischen zwei Seitenabrufen wurde vorn ein Eintrag eingefügt, und Eintrag 10 steht auf Seite 1 und 2. Wie vermeidet die Liste doppelte Zeilen?"
+    },
+    {
+      "lesson": "js-m4-l6",
+      "index": 2,
+      "revision": "2026-11-12-java-vue-v1",
+      "scenario": true,
+      "question": "Warum zeigt die Anwendung Fehler von prefetchQuery nicht an?"
     },
     {
       "lesson": "html-m1-l1",

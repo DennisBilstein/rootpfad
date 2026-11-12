@@ -1,5 +1,35 @@
 # ROOTPFAD
 
+## Java 21–27, Spring Boot 4, Vue-Komponenten und Serverdaten · 12.11.2026
+
+24 neue Lektionen in vier Modulen, jeweils mit „In einfachen Worten“, Schritt-für-Schritt-Ablauf,
+Code aus einem getesteten Lab, Typischen Fehlern, drei Übungen (Normal-/Grenz-/Fehlerfall),
+drei Quizfragen mit Begründungen und Quellen:
+
+- `java-m25` (6): Pattern Matching, Sealed Types, Sequenced Collections, Virtual Threads,
+  Structured Concurrency (Preview) und Stream Gatherers.
+- `java-m26` (6): Flyway, Testcontainers, ProblemDetail (RFC 9457), API-Versionierung und OpenAPI,
+  Boot-4-/Framework-7-Migration, RestClient mit Resilienz.
+- `js-m2` (7): defineModel, provide/inject, Scoped Slots, Teleport mit `<dialog>`, Suspense (experimentell),
+  Transition und reduzierte Bewegung, generische Komponenten.
+- `js-m3` (5): Zod-Formulare, Query-Cache, optimistische Updates, URL-Zustand, Mini-Projekt TaskInbox.
+- `js-m4` (6): Router-Guards und sicherer Rücksprung, Anmeldung mit Token-Erneuerung (Fake-Server), Vue-3.5-APIs
+  (useId, useTemplateRef, defineExpose, Attribute), Reaktivitätsfallen, dynamische Formulare, Infinite Queries mit Retry und Prefetching.
+
+Quellen der Inhalte: `content/java-vue/*.mjs` (eigene Texte). Generator: `node scripts/prepare-java-vue-content.mjs`
+schreibt die Module in `content/learning-refinements.json`; danach `npm run build`. Code-Ausschnitte werden beim Erzeugen
+aus den Lab-Dateien gelesen. Vier Modulabnahmen: `content/assessments-java-vue.json`.
+
+Ausführbare Belege (Stand 12.11.2026): `content/examples/java-modern` (JDK 21 und 26; Structured Concurrency mit
+`--enable-preview`, Gatherers erst ab JDK 24), `content/examples/spring-lab` (Spring Boot 4.1.2, Maven Wrapper; 18 Tests,
+17 bestanden, 1 übersprungen: der Testcontainers-Test braucht Docker und wurde nicht ausgeführt) und
+`content/examples/vue-lab` (38 Tests, `vue-tsc` und Build ohne Fehler). `npm run test:labs` führt alle Lab-Prüfungen aus.
+Lizenzhinweise: Vue-Dokumentation steht unter CC BY 4.0, Zod und TanStack Query unter MIT; es wurde kein fremder Code
+kopiert, Texte sind eigene Zusammenfassungen mit Quellenlinks. JEP- und Oracle-Texte sind nur verlinkt.
+Nicht geprüft: unabhängige Fachfreigabe, PostgreSQL-Lauf, echte Browser-/Screenreader-Bedienung des Dialogs.
+
+Aktueller Bestand: **121 Module, 500 Lektionen, 1.367 Lektionsfragen + 306 Zusatzkarten = 1.673 Karten**.
+
 ## ABAP / BTP / S/4HANA / Fiori · Vertiefung 08.11.2026
 
 Acht neue Lektionen zu durchgängiger RAP-Autorisierung, EML-/Save-Tests,
@@ -10,8 +40,8 @@ Normal-,Grenz-,Fehlerfälle. 24 neue und 20 ersetzte Szenariofragen mit jeweils
 begründeten Antwortoptionen, Quellen und Abruf-/Selbstprüfkriterien.
 Alte Quiz-Evidenz bleibt erhalten, zählt nicht automatisch für neue Revisionen.
 
-Aktueller Bestand: **116 Module, 470 Lektionen, 1.277 Lektionsfragen + 306
-Zusatzkarten = 1.583 Karten**. Quelle: `content/abap-senior-curriculum.mjs`;
+Bestand nach dieser Vertiefung: 116 Module, 470 Lektionen, 1.277 Lektionsfragen + 306
+Zusatzkarten = 1.583 Karten (aktueller Bestand siehe oben). Quelle: `content/abap-senior-curriculum.mjs`;
 lesbare Exporte unter `content/abap-senior/`. „Senior-Praxis“ bezeichnet
 quellenbasierte Reviewhinweise, keine persönliche Berufserfahrung und keine
 unabhängige Senior-Freigabe. SAP-Code wurde nicht in einem SAP-System ausgeführt.
@@ -72,9 +102,9 @@ Stand: `content/quality/quiz-editorial-status.json`, Bericht:
 ## Kompetenzen, Prüfqualität und praktische Arbeiten
 
 „Kompetenzen & Abnahmen“ trennt Lesemarkierungen und Auswahl-Erkennen von
-praktisch eingereichter/abgenommener Arbeit. Alle 116 Module haben eigene
-Abnahmeaufträge mit 348 konkreten Fällen und modulspezifischen Kriterien.
-Sie bleiben manuell zu prüfen, keine 116 unabhängig validierten Fachprüfungen. Adminfreigaben sind serverseitig
+praktisch eingereichter/abgenommener Arbeit. Alle 121 Module haben eigene
+Abnahmeaufträge mit 363 konkreten Fällen und modulspezifischen Kriterien.
+Sie bleiben manuell zu prüfen, keine 121 unabhängig validierten Fachprüfungen. Adminfreigaben sind serverseitig
 geschützt. Der bestehende Ampelvertrag bleibt Aktivität/Bearbeitung.
 
 Drei Aufgabenfamilien haben je zwei getrennte numerische Parallelformen, mit
@@ -159,7 +189,9 @@ historisch; maßgeblich ist `reports/Lernpfade Gesamtrevision.md`.
 Ausführbare Labore (separat von der Node-Lernplattform):
 
 - `content/examples/laravel-lab`: Laravel 13, PHP 8.5, PHPUnit, SQLite-Testdaten.
-- `content/examples/vue-lab`: Vue 3.5, Router 5, Pinia 4, Vite 8, TS und Vitest.
+- `content/examples/vue-lab`: Vue 3.5, Router 5, Pinia 4, Vite 8, TS und Vitest; seit 12.11.2026 mit Zod 4 und TanStack Query.
+- `content/examples/spring-lab`: Spring Boot 4.1, Java 21, Maven Wrapper (`./mvnw test`), H2 für Tests.
+- `content/examples/java-modern`: einzelne Java-Dateien (`java Datei.java`), siehe README dort.
 
 `content/quality/` unterscheidet pro Block Syntaxcheck, tatsächliche Ausführung
 und nicht integrierte Projektfragmente. Die Überarbeitung ist kein Beweis für

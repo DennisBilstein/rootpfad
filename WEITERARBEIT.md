@@ -1,5 +1,27 @@
 # ROOTPFAD – hier geht es weiter
 
+## Neuester Stand 12.11.2026: Java- und Vue-Vertiefung (30 Lektionen)
+
+Bestand jetzt 121 Module / 500 Lektionen / 1367+306=1673 Karten; Manifest 38 Skripte; 42 Playwright-Tests,
+`npm run audit:learning` ohne Fehler, `npm run test:labs` (Laravel, Vue, Spring) grün; vue-lab 109 Tests in 10 Dateien.
+Neue Module: java-m25 (Teil 19), java-m26 (Teil 22), js-m2, js-m3 und js-m4 (Teil 23). Inhalte in `content/java-vue/*.mjs`
+(js-m4: `vue-advanced.mjs`; Lektionen mit optionalen Feldern `background` und `terms`, `<dl>`-Stil in `assets/style-02.css`),
+Generator `scripts/prepare-java-vue-content.mjs` (liest Code aus den Labs, schreibt `content/learning-refinements.json`),
+Abnahmen `content/assessments-java-vue.json`, Quizrevision `2026-11-12-java-vue-v1`.
+Labs: `content/examples/java-modern` (Einzeldateien, JDK 21/26), `spring-lab` (Boot 4.1.2, `./mvnw test`),
+`vue-lab` (zod 4.6.7, @tanstack/vue-query 5.107.1). Neu aufgenommen in `scripts/run-learning-checks.mjs`: spring-tests.
+Offen/ehrlich: Testcontainers-Test (Docker-Daemon lief nicht) nur kompiliert; kein PostgreSQL-Lauf; Structured Concurrency ist
+Preview; Suspense laut Vue-Doku experimentell; Dialog-Test nutzt jsdom-Nachbildungen, echte Tastatur-/Screenreaderprüfung fehlt;
+keine unabhängige Fachfreigabe. Die ursprüngliche Anfrage des Nutzers war abgeschnitten („…ziehe dir das aus dem dazugehö“):
+nachfragen, welche weitere Quelle gemeint war. Bekannt, nicht von diesem Auftrag: Quiz-Kasten (fieldset.qcard) läuft bei 375 px
+horizontal über (bestehende Lektionen +106 px).
+js-m4 ehrlich: Anmeldung ist reine Client-Logik gegen einen Fake-Server (Spring-Lab hat keine Anmeldung, Refresh-Rotation/CSRF sind
+Serverthemen); Retry-After wird nicht ausgewertet (Übung); infinite.spec.ts nutzt kurze Timer (3 Läufe stabil); Live-Region,
+Fokus und Tastatur nur strukturell in jsdom getestet; IETF-Entwurf zu Browser-Apps ist noch nicht final. Nicht abgedeckt
+(Lücken-Liste): SSR/Nuxt, i18n, KeepAlive, eigene Direktiven/Plugins, WebSocket, v-memo, DevTools.
+Neuinhalte ändern: Quelldateien in `content/java-vue/` anpassen, dann `node scripts/prepare-java-vue-content.mjs && npm run build`.
+Unbekannte Datei rootpfad.iml ist lokale IDE-Datei, NICHT mitcommitten. Nicht committet (auf Wunsch committen).
+
 ## AKTUELL – Gesamtrevision auf ausdrücklichen Auftrag
 
 ## Maßgeblicher Abschlussstand 08.11.2026 (ältere Zahlen unten historisch)

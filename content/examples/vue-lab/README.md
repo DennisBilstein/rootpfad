@@ -1,6 +1,13 @@
 # ROOTPFAD JavaScript-/Vue-Lernlabor
 
-Eigenes zusammenhängendes Beispiel für `js-m1-l6` bis `js-m1-l16`.
+Eigenes zusammenhängendes Beispiel für `js-m1-l6` bis `js-m1-l16`. Seit 12.11.2026 zusätzlich
+die Belege für `js-m2` (Komponenten-Architektur, `src/lessons/components`, `src/lessons/injection`,
+`tests/components.spec.ts`) und `js-m3` (Formulare und Serverdaten mit Zod 4 und TanStack Query,
+`src/lessons/forms`, `src/lessons/data`, `tests/data.spec.ts`, `tests/fakeServer.ts`) sowie `js-m4`
+(Vue für Fortgeschrittene): `src/lessons/router` (Guards, `tests/router-guards.spec.ts`), `auth` (Token-Erneuerung gegen
+`tests/fakeAuthServer.ts`, `tests/auth.spec.ts`), `modern` (`tests/modern-apis.spec.ts`), `reactivity`
+(`tests/reactivity-pitfalls.spec.ts`), `dynamic-forms` (`tests/invite-schema.spec.ts`, `tests/dynamic-forms.spec.ts`) und
+`infinite` (`tests/infinite.spec.ts`). Die Anmeldung ist eine Client-Simulation ohne echtes Backend.
 Code und Fachbegriffe Englisch, Oberfläche und Erklärungen Deutsch.
 
 ```sh
@@ -11,7 +18,10 @@ npm run dev
 ```
 
 Der Devserver bindet nur lokal an Port 5190. Paketstände stehen in package-lock.json.
-Verwendet werden Vue 3.5, Vue Router 5, Pinia 4, Vite 8 und TypeScript.
+Verwendet werden Vue 3.5, Vue Router 5, Pinia 4, Vite 8 und TypeScript sowie zod 4.6.7
+und @tanstack/vue-query 5.107.1 (beide MIT, exakt festgelegt). Die jsdom-Tests ersetzen
+`showModal`, `close` und `matchMedia` durch Nachbildungen und Transition-Komponenten durch Stubs:
+Dialog-Fokus, Esc und Animation müssen zusätzlich manuell im Browser geprüft werden.
 Die Grund-APIs des Pinia-Stores wurden nicht nur aus der teilweise älteren
 Dokumentationsnavigation übernommen, sondern mit den installierten Paketen getestet.
 Die Overrides für glob/minimatch beheben gemeldete transitive Auditbefunde der

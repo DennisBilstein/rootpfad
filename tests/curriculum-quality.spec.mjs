@@ -13,5 +13,5 @@ test('Alle PHP- und JS/Vue-Lektionen besitzen Ziele, Übungen, Quellen und gült
     }
     return {php:php.length,js:js.length,failures};
   });
-  expect(result).toEqual({php:72,js:16,failures:[]});
+  expect(result).toEqual({php:72,js:34,failures:[]});
 });

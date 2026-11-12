@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-11-08T21:19:23.233Z",
-  "cards": 1583,
-  "learningContracts": 1583,
-  "individuallyRevised": 1583,
+  "updatedAt": "2026-11-12T09:53:04.160Z",
+  "cards": 1673,
+  "learningContracts": 1673,
+  "individuallyRevised": 1673,
   "independentFactualReviewComplete": false,
   "contracts": [
     {
@@ -34088,6 +34088,630 @@
       "editorialStatus": "individually-revised"
     },
     {
+      "id": "java-m25-l1#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l1",
+      "recall": "Beantworte „Ein Team ersetzt eine lange instanceof-Kette durch einen switch über Object. Im Test mit einem null-Wert stürzt der Code ab. Was ist die direkte Ursache?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Pattern Matching für switch und Record Patterns“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der switch kennt für null keinen eigenen Fall und wirft deshalb eine NullPointerException."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Ein switch über Referenzwerte wirft bei null eine NullPointerException, wenn kein „case null“ vorhanden ist."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Pattern Matching für switch und Record Patterns“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/441",
+        "https://openjdk.org/jeps/440",
+        "https://docs.oracle.com/en/java/javase/21/language/pattern-matching.html"
+      ],
+      "rationales": [
+        "Ohne „case null“ ist null für einen solchen switch ein Fehler, nicht stiller Durchlauf in default.",
+        "Typmuster sind genau für Referenztypen gedacht; primitive Typen sind nicht das Problem.",
+        "Der Cast ist bei einem Treffer korrekt; der Absturz entsteht vorher, beim Auswerten von null."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l1#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l1",
+      "recall": "Beantworte „Im Code stehen „case Integer i ->“ und danach „case Integer i when i > 10 ->“. Was passiert beim Kompilieren?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Pattern Matching für switch und Record Patterns“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Compiler lehnt den zweiten Fall ab, weil der erste ihn bereits vollständig abdeckt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Die Fälle werden von oben nach unten geprüft; ein allgemeiner Fall vor einem spezielleren macht diesen unerreichbar und ist ein Kompilierfehler."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Pattern Matching für switch und Record Patterns“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/441",
+        "https://openjdk.org/jeps/440",
+        "https://docs.oracle.com/en/java/javase/21/language/pattern-matching.html"
+      ],
+      "rationales": [
+        "Fälle überschreiben sich nicht; die Auswertung bricht beim ersten Treffer ab.",
+        "Es gewinnt der erste passende Fall, nicht der letzte.",
+        "Der zweite Fall wäre nie erreichbar. Java meldet das als Fehler („dominiert“)."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l1#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l1",
+      "recall": "Beantworte „Wozu dient „case Money(var amount, var currency)“?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Pattern Matching für switch und Record Patterns“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Es prüft den Typ Money und legt dessen Komponenten gleich unter den Namen amount und currency bereit."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Ein Record Pattern kombiniert Typprüfung und Dekonstruktion der Record-Komponenten."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Pattern Matching für switch und Record Patterns“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/441",
+        "https://openjdk.org/jeps/440",
+        "https://docs.oracle.com/en/java/javase/21/language/pattern-matching.html"
+      ],
+      "rationales": [
+        "Ein Muster erzeugt nichts, es zerlegt ein vorhandenes Objekt.",
+        "Das ist ein Record Pattern: Typprüfung und Auslesen der Komponenten in einem Schritt.",
+        "Ein Record Pattern kopiert nichts; Records bleiben unveränderlich."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l2#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l2",
+      "recall": "Beantworte „Ein switch über ein sealed Interface hat keinen default. Ein Kollege fügt dem Interface einen neuen Untertyp hinzu, ohne die switches zu ändern. Was geschieht?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sealed Types und Records als Domänenmodell“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Compiler meldet an jedem betroffenen switch, dass nicht alle Fälle abgedeckt sind."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Bei sealed Typen prüft der Compiler die Vollständigkeit; fehlende Fälle sind Kompilierfehler."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Sealed Types und Records als Domänenmodell“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/409",
+        "https://openjdk.org/jeps/440",
+        "https://docs.oracle.com/en/java/javase/21/language/sealed-classes-and-interfaces.html"
+      ],
+      "rationales": [
+        "Es gibt keinen stillen Treffer; ein passender Fall existiert für den neuen Typ nicht.",
+        "Genau dafür ist sealed da: Die Vollständigkeit wird zur Kompilierzeit geprüft.",
+        "Eine MatchException droht nur bei nachträglich geänderten, getrennt kompilierten Klassen, nicht beim regulären Neukompilieren."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l2#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l2",
+      "recall": "Beantworte „Wofür ist ein Ergebnistyp Result<T> mit Ok und Failure besser geeignet als eine Exception?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sealed Types und Records als Domänenmodell“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Für erwartbare, fachliche Fälle wie „Eingabe ist keine Zahl“, die der Aufrufer bewusst behandeln soll."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Result eignet sich für erwartbare, behandelbare Fälle; echte Programmfehler bleiben Exceptions."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Sealed Types und Records als Domänenmodell“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/409",
+        "https://openjdk.org/jeps/440",
+        "https://docs.oracle.com/en/java/javase/21/language/sealed-classes-and-interfaces.html"
+      ],
+      "rationales": [
+        "Nicht behebbare Zustände sind klassisch Exceptions; der Aufrufer kann ohnehin nichts tun.",
+        "Der Aufrufer wird durch den Typ gezwungen, beide Fälle zu behandeln.",
+        "Das Argument „Exceptions sind langsam“ ist keine tragfähige Grundregel; entscheidend ist die Fachlichkeit."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l2#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l2",
+      "recall": "Beantworte „Warum passt ein Record gut als Untertyp eines sealed Interface?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sealed Types und Records als Domänenmodell“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Records sind automatisch final und dadurch ohne weitere Angabe als erlaubter Untertyp zulässig."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Records sind implizit final und deshalb direkt als Untertypen sealed Interfaces nutzbar."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Sealed Types und Records als Domänenmodell“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/409",
+        "https://openjdk.org/jeps/440",
+        "https://docs.oracle.com/en/java/javase/21/language/sealed-classes-and-interfaces.html"
+      ],
+      "rationales": [
+        "Ein erlaubter Untertyp muss final, sealed oder non-sealed sein; Records erfüllen das von Haus aus.",
+        "Normale Klassen können sealed Interfaces auch implementieren, sofern sie final, sealed oder non-sealed sind.",
+        "Records sind unveränderlich; Setter gibt es nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l3#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l3",
+      "recall": "Beantworte „Eine Methode ruft list.reversed() auf und fügt danach mit addFirst(\"Z\") ein. Wo steht „Z“ in der Originalliste?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sequenced Collections: Anfang, Ende und Umkehr“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Am Ende, weil die umgekehrte Sicht mit der Originalliste verbunden ist."
+        },
+        {
+          "label": "Begründung",
+          "reference": "reversed() liefert eine veränderliche Sicht auf dieselben Daten, keine Kopie."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Sequenced Collections: Anfang, Ende und Umkehr“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/431",
+        "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html",
+        "https://dev.java/learn/new-features/"
+      ],
+      "rationales": [
+        "„Vorn“ bezieht sich auf die umgekehrte Sicht; dort liegt der Anfang am Ende des Originals.",
+        "reversed() ist eine Sicht; addFirst auf der Sicht wirkt als addLast auf dem Original.",
+        "reversed() kopiert nicht. Eine Kopie müsstest du ausdrücklich anlegen."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l3#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l3",
+      "recall": "Beantworte „Welche Aussage stimmt für ein HashSet?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sequenced Collections: Anfang, Ende und Umkehr“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Es ist kein SequencedSet, weil es keine garantierte Reihenfolge hat."
+        },
+        {
+          "label": "Begründung",
+          "reference": "HashSet und HashMap haben keine definierte Reihenfolge und sind nicht sequenced."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Sequenced Collections: Anfang, Ende und Umkehr“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/431",
+        "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html",
+        "https://dev.java/learn/new-features/"
+      ],
+      "rationales": [
+        "HashSet garantiert keine Reihenfolge, die man ansprechen könnte.",
+        "Reihenfolgegarantie ist die Voraussetzung für SequencedCollection; HashSet erfüllt sie nicht.",
+        "Es gibt keine automatische Umwandlung; die Klasse bleibt HashSet."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l3#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l3",
+      "recall": "Beantworte „Was passiert bei new ArrayList<String>().getFirst()?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Sequenced Collections: Anfang, Ende und Umkehr“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Es wird eine NoSuchElementException geworfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "getFirst auf einer leeren Collection wirft eine NoSuchElementException."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Sequenced Collections: Anfang, Ende und Umkehr“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/431",
+        "https://docs.oracle.com/en/java/javase/25/core/java-collections-framework.html",
+        "https://dev.java/learn/new-features/"
+      ],
+      "rationales": [
+        "null als Rückgabe gibt es hier nicht; sonst ließe sich „leer“ nicht von „null gespeichert“ unterscheiden.",
+        "So ist es definiert und im Beispiel beobachtet.",
+        "Es gibt keinen Standardwert; der Typ kennt keinen „leeren String“."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l4#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l4",
+      "recall": "Beantworte „Ein Service wartet pro Anfrage 300 ms auf eine Datenbank und rechnet 2 ms. Er läuft mit einem Pool von 200 Threads und wird bei hoher Last langsam. Was bringt Virtual Threads hier am ehesten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtual Threads: wann sie helfen und wann nicht“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Wartende Anfragen blockieren keine knappen Plattform-Threads mehr; deutlich mehr Anfragen laufen gleichzeitig."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Virtual Threads lösen das Problem blockierender Wartezeiten, nicht das von Rechenzeit."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Virtual Threads: wann sie helfen und wann nicht“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/444",
+        "https://openjdk.org/jeps/491",
+        "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html",
+        "https://docs.spring.io/spring-boot/reference/features/spring-application.html"
+      ],
+      "rationales": [
+        "Virtuelle Threads rechnen nicht schneller; die Rechenzeit bleibt gleich.",
+        "Das Warten ist der Engpass; virtuelle Threads geben beim Warten den Träger frei.",
+        "Die Datenbank merkt keinen Unterschied; sie kann durch mehr Parallelität sogar stärker belastet werden."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l4#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l4",
+      "recall": "Beantworte „Warum soll man virtuelle Threads nicht in einem Pool halten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtual Threads: wann sie helfen und wann nicht“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Weil sie so billig sind, dass Pooling nichts spart und nur die Zahl gleichzeitiger Aufgaben künstlich begrenzt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Virtuelle Threads sind für „ein Thread pro Aufgabe“ gedacht; Begrenzung macht man mit Semaphore o. Ä."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Virtual Threads: wann sie helfen und wann nicht“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/444",
+        "https://openjdk.org/jeps/491",
+        "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html",
+        "https://docs.spring.io/spring-boot/reference/features/spring-application.html"
+      ],
+      "rationales": [
+        "Ein virtueller Thread führt eine Aufgabe aus und endet; das ist normal, nicht ein Fehler.",
+        "Das Wiederverwenden von Threads ist hier unnötig; Begrenzung erreichst du gezielter mit Semaphore.",
+        "Man kann Thread-Fabriken für virtuelle Threads verwenden; technisch möglich, aber unsinnig."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l4#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l4",
+      "recall": "Beantworte „Was ändert JEP 491 (Java 24) für virtuelle Threads?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Virtual Threads: wann sie helfen und wann nicht“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Ein virtueller Thread blockiert in einem synchronized-Block den Träger-Thread nicht mehr."
+        },
+        {
+          "label": "Begründung",
+          "reference": "JEP 491 beseitigt das häufigste Pinning durch synchronized."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Virtual Threads: wann sie helfen und wann nicht“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/444",
+        "https://openjdk.org/jeps/491",
+        "https://docs.oracle.com/en/java/javase/25/core/virtual-threads.html",
+        "https://docs.spring.io/spring-boot/reference/features/spring-application.html"
+      ],
+      "rationales": [
+        "Das wäre das Gegenteil: Genau diese Umwandlung wird vermieden.",
+        "Seit Java 24 geben virtuelle Threads den Träger auch in synchronized-Blöcken frei; Pinning durch nativen Code kann bleiben.",
+        "Es gibt kein solches Verbot."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l5#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l5",
+      "recall": "Beantworte „Zwei Teilaufgaben laufen in einem StructuredTaskScope. Die erste wirft nach 50 ms eine Ausnahme, die zweite läuft noch 10 Sekunden. Was geschieht im Standardfall?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Structured Concurrency und Scoped Values“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Scope bricht die zweite Aufgabe per Interrupt ab und join() meldet den Fehler."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Standardmäßig scheitert der Scope, sobald eine Teilaufgabe scheitert, und bricht die übrigen ab."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Structured Concurrency und Scoped Values“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/506",
+        "https://openjdk.org/jeps/525",
+        "https://openjdk.org/jeps/533",
+        "https://docs.oracle.com/en/java/javase/25/core/structured-concurrency.html",
+        "https://docs.oracle.com/en/java/javase/25/core/scoped-values.html"
+      ],
+      "rationales": [
+        "Dieses Verhalten kennst du von Futures; ein Scope vermeidet genau dieses Warten.",
+        "Das ist die Kerneigenschaft: Fehler → Abbruch der Geschwister → Weitergabe der Ausnahme.",
+        "Fehler werden nicht verschluckt; sie sind der Anlass für den Abbruch."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l5#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l5",
+      "recall": "Beantworte „Welcher Status gilt laut den JEPs für Java 26?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Structured Concurrency und Scoped Values“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "StructuredTaskScope ist Preview (JEP 525), Scoped Values sind seit Java 25 final (JEP 506)."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Scoped Values: final seit Java 25. Structured Concurrency: Preview (Java 26: JEP 525, Java 27: JEP 533)."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Structured Concurrency und Scoped Values“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/506",
+        "https://openjdk.org/jeps/525",
+        "https://openjdk.org/jeps/533",
+        "https://docs.oracle.com/en/java/javase/25/core/structured-concurrency.html",
+        "https://docs.oracle.com/en/java/javase/25/core/scoped-values.html"
+      ],
+      "rationales": [
+        "Scoped Values sind seit Java 25 final (JEP 506); nur StructuredTaskScope ist in Java 26 noch Preview.",
+        "So steht es in JEP 525 (Sixth Preview) und JEP 506 (final, Release 25).",
+        "Weder das eine noch das andere war in Java 21 final; Structured Concurrency ist weiterhin Preview."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l5#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l5",
+      "recall": "Beantworte „Worin unterscheidet sich ein Scoped Value wesentlich von einem ThreadLocal?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Structured Concurrency und Scoped Values“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Er ist unveränderlich und nur innerhalb eines klar begrenzten Blocks gebunden."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Scoped Values sind unveränderlich und an die Dauer eines Codeblocks gebunden."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Structured Concurrency und Scoped Values“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/506",
+        "https://openjdk.org/jeps/525",
+        "https://openjdk.org/jeps/533",
+        "https://docs.oracle.com/en/java/javase/25/core/structured-concurrency.html",
+        "https://docs.oracle.com/en/java/javase/25/core/scoped-values.html"
+      ],
+      "rationales": [
+        "Bindung per where(...).run(...); danach ist der Wert weg. Es gibt kein set().",
+        "Das beschreibt eher einen ThreadLocal und genau dessen Probleme.",
+        "Scoped Values werden in Teilaufgaben eines Scopes mitgegeben, nicht nur im Main-Thread."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l6#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l6",
+      "recall": "Beantworte „Du willst aus einem Stream die laufende Summe jedes Zwischenstands ausgeben. Welcher Baustein passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Stream Gatherers und unbenannte Variablen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Gatherers.scan(() -> 0, Integer::sum)"
+        },
+        {
+          "label": "Begründung",
+          "reference": "scan liefert die fortlaufende Aggregation als neuen Stream."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Stream Gatherers und unbenannte Variablen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/485",
+        "https://openjdk.org/jeps/456",
+        "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherers.html",
+        "https://openjdk.org/jeps/513"
+      ],
+      "rationales": [
+        "windowFixed gruppiert in Pakete, es bildet keine laufende Summe.",
+        "scan gibt nach jedem Element den aktuellen Zwischenstand aus: 1, 3, 6, 10.",
+        "Der Collector liefert nur das Endergebnis, keine Zwischenstände."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l6#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l6",
+      "recall": "Beantworte „Was bedeutet „return false“ aus downstream.push(...) in einem eigenen Gatherer?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Stream Gatherers und unbenannte Variablen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der nachfolgende Teil der Pipeline will keine weiteren Elemente; der Gatherer soll aufhören."
+        },
+        {
+          "label": "Begründung",
+          "reference": "false von push heißt: kein Bedarf mehr; der Gatherer soll die Verarbeitung beenden."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Stream Gatherers und unbenannte Variablen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/485",
+        "https://openjdk.org/jeps/456",
+        "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherers.html",
+        "https://openjdk.org/jeps/513"
+      ],
+      "rationales": [
+        "Der Rückgabewert meldet nur, ob weitergemacht werden soll; er bewertet das Element nicht.",
+        "Typischer Fall: ein nachfolgendes limit(n) ist erfüllt.",
+        "Parallelität wählt man mit parallel() am Stream, nicht über den Rückgabewert von push."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m25-l6#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m25-l6",
+      "recall": "Beantworte „Wann kannst du „catch (NumberFormatException _)“ ohne Vorschaufunktionen verwenden?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Stream Gatherers und unbenannte Variablen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Ab Java 22."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Unbenannte Variablen und Muster sind seit Java 22 finaler Bestandteil der Sprache."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Stream Gatherers und unbenannte Variablen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://openjdk.org/jeps/485",
+        "https://openjdk.org/jeps/456",
+        "https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Gatherers.html",
+        "https://openjdk.org/jeps/513"
+      ],
+      "rationales": [
+        "Unbenannte Variablen sind seit Java 22 final (JEP 456).",
+        "Unter Java 17 existiert das Feature nicht.",
+        "Seit Java 22 ist keine Preview-Option mehr nötig."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
       "id": "java-m15-l1#0@2026-11-07-full-v3",
       "lessonId": "java-m15-l1",
       "recall": "Beantworte „Ein Test erstellt ein Konto, führt genau eine Abbuchung aus und prüft den Saldo. Welche AAA-Zuordnung passt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „JUnit 5: Struktur und Assertions“.",
@@ -36070,6 +36694,606 @@
       "editorialStatus": "individually-revised"
     },
     {
+      "id": "java-m26-l1#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l1",
+      "recall": "Beantworte „Ein Teammitglied fügt nach dem Deployment in V1__create_task.sql nur einen Kommentar hinzu. Beim nächsten Start in Test bricht die Anwendung ab. Was ist die wahrscheinlichste Ursache?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Datenbank-Migrationen mit Flyway“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Prüfsumme der bereits angewendeten Migration passt nicht mehr zur Datei."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Angewendete Migrationen sind unveränderlich; Änderungen führen zu „checksum mismatch“."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Datenbank-Migrationen mit Flyway“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://flywaydb.org/documentation/",
+        "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+        "https://github.com/flyway/flyway"
+      ],
+      "rationales": [
+        "Mit validate verändert Hibernate das Schema nicht; hier liegt der Fehler bei Flyway selbst.",
+        "Flyway vergleicht die gespeicherte Prüfsumme mit der Datei. Schon eine Kommentaränderung verändert sie.",
+        "SQL-Kommentare sind erlaubt; das Problem ist die geänderte Datei, nicht der Kommentar an sich."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l1#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l1",
+      "recall": "Beantworte „Wozu dient spring.jpa.hibernate.ddl-auto=validate, wenn Flyway das Schema verwaltet?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Datenbank-Migrationen mit Flyway“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Hibernate prüft beim Start, ob die Entities zum vorhandenen Schema passen, und ändert nichts."
+        },
+        {
+          "label": "Begründung",
+          "reference": "validate dient als Konsistenzprüfung; Änderungen übernimmt ausschließlich Flyway."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Datenbank-Migrationen mit Flyway“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://flywaydb.org/documentation/",
+        "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+        "https://github.com/flyway/flyway"
+      ],
+      "rationales": [
+        "Das würde create oder update tun; validate ändert nichts am Schema.",
+        "validate ist eine reine Sicherheitsprüfung gegen Abweichungen zwischen Code und Schema.",
+        "Migrationen führt Flyway aus; Hibernate prüft nur das Ergebnis."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l1#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l1",
+      "recall": "Beantworte „Du musst eine neue Pflichtspalte zu einer Tabelle mit 2 Millionen Zeilen hinzufügen. Welches Vorgehen ist am sichersten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Datenbank-Migrationen mit Flyway“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Erst nullable hinzufügen, dann Werte nachfüllen, dann NOT NULL in einer späteren Migration setzen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Expand/Contract in kleinen, additiven Schritten ist das sichere Muster."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Datenbank-Migrationen mit Flyway“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://flywaydb.org/documentation/",
+        "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+        "https://github.com/flyway/flyway"
+      ],
+      "rationales": [
+        "Auf einer gefüllten Tabelle scheitert das ohne Standardwert, weil bestehende Zeilen null enthalten würden.",
+        "Die Schritte sind klein, einzeln prüfbar und vertragen alte und neue Anwendungsversionen.",
+        "Das verursacht Ausfallzeit und Datenverlustrisiko; additive Schritte sind sicherer."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l2#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l2",
+      "recall": "Beantworte „Ein @DataJpaTest soll gegen den PostgreSQL-Container laufen. Er verwendet aber trotz @ServiceConnection eine eingebettete Datenbank. Was fehlt am wahrscheinlichsten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Integrationstests mit Testcontainers und @ServiceConnection“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "@AutoConfigureTestDatabase(replace = NONE)"
+        },
+        {
+          "label": "Begründung",
+          "reference": "Standardmäßig ersetzt @DataJpaTest die Datenquelle; NONE schaltet das ab."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Integrationstests mit Testcontainers und @ServiceConnection“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-boot/reference/testing/testcontainers.html",
+        "https://java.testcontainers.org/modules/databases/postgres/"
+      ],
+      "rationales": [
+        "Ohne diese Angabe ersetzt @DataJpaTest die DataSource durch eine eingebettete Datenbank.",
+        "Transaktionen ändern nichts an der Wahl der Datenbank.",
+        "Die Anwendungsklasse ist vorhanden; sie entscheidet hier nicht über die Datenbank."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l2#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l2",
+      "recall": "Beantworte „Maven zeigt für einen Testcontainers-Test „Skipped: 1“. Wie ist das einzuordnen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Integrationstests mit Testcontainers und @ServiceConnection“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Test wurde nicht ausgeführt, z. B. weil kein Docker lief; er beweist nichts."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Skipped bedeutet „nicht ausgeführt“ und ist kein Qualitätsnachweis."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Integrationstests mit Testcontainers und @ServiceConnection“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-boot/reference/testing/testcontainers.html",
+        "https://java.testcontainers.org/modules/databases/postgres/"
+      ],
+      "rationales": [
+        "Ein übersprungener Test hat nichts geprüft und taugt nicht als Nachweis.",
+        "Mit disabledWithoutDocker = true wird er ohne Docker übersprungen; das ist ein Lücken-Signal.",
+        "Fehlschläge werden als Failures/Errors gezählt, nicht als Skipped."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l2#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l2",
+      "recall": "Beantworte „Warum sollte der Container als static Feld deklariert werden?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Integrationstests mit Testcontainers und @ServiceConnection“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Damit ein Container pro Testklasse geteilt wird und die Tests schneller laufen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "static: ein Containerstart pro Testklasse statt pro Testmethode."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Integrationstests mit Testcontainers und @ServiceConnection“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-boot/reference/testing/testcontainers.html",
+        "https://java.testcontainers.org/modules/databases/postgres/"
+      ],
+      "rationales": [
+        "Das wäre ohne static der Fall und ist langsam.",
+        "Ein Start pro Klasse spart viel Zeit; die Tests teilen sich die frische Datenbank.",
+        "Es funktioniert auch nicht-statisch, nur langsamer."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l3#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l3",
+      "recall": "Beantworte „Welchen Content-Type muss eine Fehlerantwort nach RFC 9457 haben?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fehlerantworten mit ProblemDetail (RFC 9457)“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "application/problem+json"
+        },
+        {
+          "label": "Begründung",
+          "reference": "Problem Details haben den Medientyp application/problem+json."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fehlerantworten mit ProblemDetail (RFC 9457)“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9457",
+        "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html"
+      ],
+      "rationales": [
+        "Das wäre ein normales JSON; der Medientyp für Problemdetails ist ein eigener.",
+        "RFC 9457 definiert application/problem+json (und problem+xml).",
+        "Reiner Text enthält keine strukturierten Felder."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l3#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l3",
+      "recall": "Beantworte „Ein Client wertet bei Validierungsfehlern immer violations[0] aus. Nach einem Update meldet die Anwendung dieselben Fehler in anderer Reihenfolge. Was ist das Problem?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fehlerantworten mit ProblemDetail (RFC 9457)“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Client verlässt sich auf etwas, das nicht zugesagt ist; er soll nach field zuordnen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Clients sollen violations nach field auswerten, nicht nach Listenposition."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fehlerantworten mit ProblemDetail (RFC 9457)“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9457",
+        "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html"
+      ],
+      "rationales": [
+        "Eine Reihenfolge ist in diesem Vertrag nicht zugesagt; im Lauf stand dueDate vor title.",
+        "Zuordnung über das Feld field ist stabil und unabhängig von der Position.",
+        "Die Reihenfolge ist deterministisch genug; sie ist nur nicht Teil des Vertrags."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l3#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l3",
+      "recall": "Beantworte „Wann ist Status 422 gegenüber 400 passend?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fehlerantworten mit ProblemDetail (RFC 9457)“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Wenn die Anfrage lesbar ist, aber fachliche Regeln verletzt (z. B. leerer Titel)."
+        },
+        {
+          "label": "Begründung",
+          "reference": "400 für nicht lesbare, 422 für fachlich ungültige Anfragen (so im Lab festgelegt)."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fehlerantworten mit ProblemDetail (RFC 9457)“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://www.rfc-editor.org/rfc/rfc9457",
+        "https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html"
+      ],
+      "rationales": [
+        "Unlesbares JSON ist ein Syntaxfehler: 400 Bad Request.",
+        "422 steht für „verstanden, aber inhaltlich ungültig“; im Lab so festgelegt.",
+        "Fehlende Anmeldung ist 401, nicht 422."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l4#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l4",
+      "recall": "Beantworte „Eine Methode hat @GetMapping(version = \"1.1+\"). Ein Client sendet API-Version 1.2 (unterstützt). Wird die Methode aufgerufen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „API-Versionierung und OpenAPI mit springdoc“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Ja, \"1.1+\" bedeutet Version 1.1 und alle späteren unterstützten Versionen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "„1.1+“ ist eine Baseline: ab 1.1 aufwärts, wenn nichts Spezielleres passt."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „API-Versionierung und OpenAPI mit springdoc“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-framework/reference/web/webmvc-versioning.html",
+        "https://springdoc.org/"
+      ],
+      "rationales": [
+        "So ist die Mindestversionsschreibweise definiert, solange keine spezifischere Methode für 1.2 existiert.",
+        "Exakte Version wäre version = \"1.1\" ohne Plus.",
+        "Ein zusätzlicher Eintrag ist nur nötig, wenn 1.2 anders reagieren soll."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l4#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l4",
+      "recall": "Beantworte „Das generierte OpenAPI-Dokument zeigt für den POST nur die Antwort 200, obwohl der Controller 201 liefert. Was ist die beste Reaktion?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „API-Versionierung und OpenAPI mit springdoc“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Den Statuscode per @ApiResponse beschreiben und das Dokument in einem Test prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Generierte Dokumentation ersetzt nicht die Prüfung; wichtige Antworten ausdrücklich beschreiben und testen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „API-Versionierung und OpenAPI mit springdoc“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-framework/reference/web/webmvc-versioning.html",
+        "https://springdoc.org/"
+      ],
+      "rationales": [
+        "Ein falsches Dokument führt Client-Entwickler in die Irre.",
+        "So ist die Lücke geschlossen und bleibt es durch den Test.",
+        "Der Vertrag (201 + Location) ist fachlich richtig; das Dokument muss sich anpassen, nicht umgekehrt."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l4#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l4",
+      "recall": "Beantworte „Wann lohnt sich eine neue API-Version?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „API-Versionierung und OpenAPI mit springdoc“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Bei einer inkompatiblen Änderung, z. B. wenn ein Feld entfällt oder seine Bedeutung ändert."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Neue Version nur bei inkompatiblen Änderungen; sonst additiv erweitern."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „API-Versionierung und OpenAPI mit springdoc“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-framework/reference/web/webmvc-versioning.html",
+        "https://springdoc.org/"
+      ],
+      "rationales": [
+        "Ein zusätzliches optionales Feld ist abwärtskompatibel; dafür braucht es keine neue Version.",
+        "Inkompatible Änderungen würden alte Clients brechen und brauchen einen getrennten Vertrag.",
+        "Versionen folgen aus inkompatiblen Änderungen, nicht aus dem Kalender."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l5#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l5",
+      "recall": "Beantworte „Beim Start einer Boot-4-Anwendung fehlt die Bean RestClient$Builder. Welche Ursache passt zur neuen Modularität?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Spring Boot 4 und Spring Framework 7: was sich ändert“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Starter spring-boot-starter-restclient fehlt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Boot 4 verteilt Funktionen auf thematische Starter; fehlende Starter führen zu fehlenden Beans."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Spring Boot 4 und Spring Framework 7: was sich ändert“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+        "https://docs.spring.io/spring-boot/system-requirements.html",
+        "https://start.spring.io/"
+      ],
+      "rationales": [
+        "RestClient-Unterstützung hat einen eigenen Starter; ohne ihn gibt es die Auto-Konfiguration nicht (im Lab so erlebt).",
+        "Boot 4 verlangt Java 17 oder neuer, nicht Java 8.",
+        "Spring Retry ist für diese Bean nicht zuständig."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l5#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l5",
+      "recall": "Beantworte „Wie lautet der empfohlene Zwischenschritt bei einer großen Migration auf Boot 4?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Spring Boot 4 und Spring Framework 7: was sich ändert“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Zuerst die Classic-Starter einsetzen, bis alles läuft, und sie danach durch die gezielten Starter ersetzen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Classic-Starter geben eine lauffähige Zwischenstufe; danach wird auf modulare Starter umgestellt."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Spring Boot 4 und Spring Framework 7: was sich ändert“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+        "https://docs.spring.io/spring-boot/system-requirements.html",
+        "https://start.spring.io/"
+      ],
+      "rationales": [
+        "Das ist unverhältnismäßig; die Classic-Starter ermöglichen einen schrittweisen Umstieg.",
+        "Der Leitfaden beschreibt genau diesen zweistufigen Weg.",
+        "Eine eigene Serialisierung ist Aufwand ohne Nutzen; Boot 4 nutzt Jackson 3 (Paket tools.jackson)."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l5#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l5",
+      "recall": "Beantworte „Was gilt für Spring Retry in Boot 4?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Spring Boot 4 und Spring Framework 7: was sich ändert“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Versionsverwaltung durch Boot wurde entfernt; die Funktionen liegen jetzt im Spring Framework."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Retry-Funktionen gehören jetzt zum Framework; Spring Retry braucht eine ausdrückliche Version, falls weiter verwendet."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Spring Boot 4 und Spring Framework 7: was sich ändert“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide",
+        "https://docs.spring.io/spring-boot/system-requirements.html",
+        "https://start.spring.io/"
+      ],
+      "rationales": [
+        "Die Versionsverwaltung durch Boot wurde laut Migrationsleitfaden entfernt.",
+        "Das Framework 7 enthält @Retryable und @ConcurrencyLimit im Kern.",
+        "Spring Framework 7 bringt eigene Resilienz-Funktionen (@Retryable) mit."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l6#0@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l6",
+      "recall": "Beantworte „Ein Client mit @Retryable(maxRetries = 2) trifft auf einen dauerhaft ausgefallenen Dienst (503). Wie viele Aufrufe finden statt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fremdsysteme aufrufen: Timeouts, Retry und Parallelitätsgrenze“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "3"
+        },
+        {
+          "label": "Begründung",
+          "reference": "Gesamtversuche = 1 + maxRetries."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fremdsysteme aufrufen: Timeouts, Retry und Parallelitätsgrenze“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-framework/reference/core/resilience.html",
+        "https://docs.spring.io/spring-boot/reference/io/rest-client.html"
+      ],
+      "rationales": [
+        "maxRetries zählt nur die Wiederholungen, der erste Versuch kommt hinzu.",
+        "Ein Versuch plus zwei Wiederholungen ergibt drei Aufrufe (im Lab-Test belegt).",
+        "Mit einem Aufruf würde nie wiederholt; der Fall ist dafür gedacht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l6#1@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l6",
+      "recall": "Beantworte „Warum sollte ein POST, der eine Zahlung auslöst, nicht blind wiederholt werden?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fremdsysteme aufrufen: Timeouts, Retry und Parallelitätsgrenze“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Weil die Zahlung doppelt ausgelöst werden könnte, wenn nur die Antwort verloren ging."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nicht idempotente Aufrufe brauchen einen Idempotenzschlüssel, bevor sie wiederholt werden dürfen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fremdsysteme aufrufen: Timeouts, Retry und Parallelitätsgrenze“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-framework/reference/core/resilience.html",
+        "https://docs.spring.io/spring-boot/reference/io/rest-client.html"
+      ],
+      "rationales": [
+        "POST hat keine besondere Timeout-Eigenschaft.",
+        "Nicht-idempotente Operationen dürfen nur mit Idempotenzschlüssel wiederholt werden.",
+        "Rückgabewerte sind kein Hindernis (das Lab liefert ein BigDecimal)."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "java-m26-l6#2@2026-11-12-java-vue-v1",
+      "lessonId": "java-m26-l6",
+      "recall": "Beantworte „Welche Wirkung hat @ConcurrencyLimit(4) auf eine Methode?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Fremdsysteme aufrufen: Timeouts, Retry und Parallelitätsgrenze“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Höchstens 4 Threads dürfen sie gleichzeitig ausführen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "@ConcurrencyLimit begrenzt die Zahl gleichzeitiger Aufrufe."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Fremdsysteme aufrufen: Timeouts, Retry und Parallelitätsgrenze“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://docs.spring.io/spring-framework/reference/core/resilience.html",
+        "https://docs.spring.io/spring-boot/reference/io/rest-client.html"
+      ],
+      "rationales": [
+        "Das wäre eine Gesamtbegrenzung; es geht um Gleichzeitigkeit.",
+        "Die Zahl begrenzt die parallele Ausführung und schützt das Fremdsystem.",
+        "Wiederholungen steuert @Retryable."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
       "id": "js-m1-l1#0@2026-11-07-full-v3",
       "lessonId": "js-m1-l1",
       "recall": "Beantworte „Ein Tageszähler startet bei 0 und erhält in drei Durchläufen jeweils 20 Minuten hinzu. Welche Deklaration passt, wenn der Zahlenwert neu zugewiesen wird?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „JavaScript-Einheit 1: Werte, Variablen und Kontrollfluss“.",
@@ -37789,6 +39013,1857 @@
         "Der Server hat die Änderung gerade nicht bestätigt.",
         "Die UI trennt gewünschten und tatsächlich gespeicherten Zustand.",
         "Identitätswechsel umgeht die Berechtigungsgrenze."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l1#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l1",
+      "recall": "Beantworte „Was verbirgt sich hinter <MyInput v-model=\"name\" />?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „defineModel: eigene Komponenten mit v-model“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Eine Prop modelValue und ein Ereignis update:modelValue."
+        },
+        {
+          "label": "Begründung",
+          "reference": "v-model ist Kurzschreibweise für Prop modelValue plus Ereignis update:modelValue."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „defineModel: eigene Komponenten mit v-model“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/v-model.html",
+        "https://vuejs.org/api/sfc-script-setup.html#definemodel"
+      ],
+      "rationales": [
+        "So ist der Vertrag definiert; defineModel erzeugt beides für dich.",
+        "Es gibt keine globale Variable; der Wert gehört dem Elternteil.",
+        "Ein Store ist nicht beteiligt; die Bindung läuft über Prop und Ereignis."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l1#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l1",
+      "recall": "Beantworte „Eine Komponente setzt im Kind props.modelValue = 5. Was ist das Problem?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „defineModel: eigene Komponenten mit v-model“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Props sind schreibgeschützt; Änderungen müssen per Ereignis oder defineModel zum Elternteil gehen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Props sind schreibgeschützt; defineModel oder ein Emit ist der richtige Weg."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „defineModel: eigene Komponenten mit v-model“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/v-model.html",
+        "https://vuejs.org/api/sfc-script-setup.html#definemodel"
+      ],
+      "rationales": [
+        "Einseitiger Datenfluss: Daten laufen nach unten, Änderungen als Ereignisse nach oben.",
+        "Der Typ ist nicht entscheidend; das Schreiben auf Props ist unzulässig.",
+        "Vue warnt und synchronisiert nichts automatisch; dafür gibt es Ereignisse und defineModel."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l1#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l1",
+      "recall": "Beantworte „Wozu dient die Option set in defineModel?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „defineModel: eigene Komponenten mit v-model“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Sie verändert den Wert, bevor er an den Elternteil gemeldet wird (z. B. Normalisieren oder Klemmen)."
+        },
+        {
+          "label": "Begründung",
+          "reference": "set transformiert den Wert vor dem Emit; typisch für Normalisierung."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „defineModel: eigene Komponenten mit v-model“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/v-model.html",
+        "https://vuejs.org/api/sfc-script-setup.html#definemodel"
+      ],
+      "rationales": [
+        "Der Anfangswert kommt aus default bzw. vom Elternteil; set wirkt erst beim Schreiben.",
+        "Damit setzt die Komponente ihre eigenen Regeln durch, bevor der Elternteil den Wert sieht.",
+        "Das Sperren übernehmen disabled und readonly."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l2#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l2",
+      "recall": "Beantworte „Warum verwendet man bei provide/inject einen InjectionKey statt eines Textschlüssels?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „provide und inject mit Typ und Fehlervertrag“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Er trägt den Typ der bereitgestellten Werte und kann nicht versehentlich kollidieren."
+        },
+        {
+          "label": "Begründung",
+          "reference": "InjectionKey verbindet Schlüssel und Typ und verhindert Namenskollisionen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „provide und inject mit Typ und Fehlervertrag“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/provide-inject.html",
+        "https://vuejs.org/guide/typescript/composition-api.html"
+      ],
+      "rationales": [
+        "Textschlüssel funktionieren technisch, sind aber fehleranfällig und ohne Typ.",
+        "Ein Symbol-Schlüssel ist eindeutig und macht inject typsicher.",
+        "Geschwindigkeit ist hier kein relevanter Unterschied."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l2#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l2",
+      "recall": "Beantworte „Ein Entwickler ergänzt bei inject einen Standardwert, damit der Fehler bei fehlendem Provider verschwindet. Was ist das Risiko?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „provide und inject mit Typ und Fehlervertrag“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Ein vergessener Provider fällt nicht mehr auf und die Komponente arbeitet unbemerkt mit falschen Daten."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Bei Pflicht-Kontext lieber ein klarer Fehler als ein stiller Standard."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „provide und inject mit Typ und Fehlervertrag“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/provide-inject.html",
+        "https://vuejs.org/guide/typescript/composition-api.html"
+      ],
+      "rationales": [
+        "Ein Standardwert kann fachlich falsch sein und verdeckt die fehlende Voraussetzung.",
+        "Pflicht-Abhängigkeiten sollen laut und deutlich scheitern.",
+        "Vue unterstützt Standardwerte bei inject; das ist nicht das Problem."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l2#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l2",
+      "recall": "Beantworte „Warum gibt provideTheme den Modus als readonly und die Änderung als Funktion weiter?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „provide und inject mit Typ und Fehlervertrag“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Damit nur eine Stelle den Wert ändern darf und jede Änderung nachvollziehbar bleibt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Lesender Zugriff plus benannte Änderungsfunktionen halten den Datenfluss nachvollziehbar."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „provide und inject mit Typ und Fehlervertrag“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/provide-inject.html",
+        "https://vuejs.org/guide/typescript/composition-api.html"
+      ],
+      "rationales": [
+        "Kontrollierte Änderungen verhindern verteilte, schwer auffindbare Mutationen.",
+        "Vue kann es, aber es wäre ein schlechter Entwurf.",
+        "Lesen im Template ist ausdrücklich erlaubt."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l3#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l3",
+      "recall": "Beantworte „Wozu dient ein Scoped Slot gegenüber einem einfachen Slot?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Slots mit Vertrag: Scoped Slots und defineSlots“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Komponente übergibt Daten an den Slot-Inhalt, den der Elternteil damit gestaltet."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Scoped Slots reichen Daten der Komponente an den Slot-Inhalt weiter."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Slots mit Vertrag: Scoped Slots und defineSlots“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/slots.html",
+        "https://vuejs.org/api/sfc-script-setup.html#defineslots"
+      ],
+      "rationales": [
+        "Der Datenfluss geht hier vom Kind zum Slot-Inhalt des Elternteils.",
+        "Es geht nicht um Geschwindigkeit, sondern um Datenübergabe.",
+        "Props bleiben nötig; Scoped Slots ergänzen sie."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l3#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l3",
+      "recall": "Beantworte „Eine Liste wird nach dem Hinzufügen neu sortiert, und eingegebene Texte in Zeilen springen zur falschen Zeile. Was ist die wahrscheinlichste Ursache?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Slots mit Vertrag: Scoped Slots und defineSlots“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Index wird als Key verwendet."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Stabile ids als Key verhindern falsche Zuordnung bei Umsortierung."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Slots mit Vertrag: Scoped Slots und defineSlots“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/slots.html",
+        "https://vuejs.org/api/sfc-script-setup.html#defineslots"
+      ],
+      "rationales": [
+        "Mit Index als Key erkennt Vue Zeilen nach Position, nicht nach Inhalt; Zustand wandert mit.",
+        "Fallback betrifft den Leerzustand, nicht die Zuordnung.",
+        "Die Länge allein verursacht dieses Verhalten nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l3#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l3",
+      "recall": "Beantworte „Was bewirkt defineSlots in TypeScript-Projekten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Slots mit Vertrag: Scoped Slots und defineSlots“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Es beschreibt Slots mit ihren Daten, sodass der Elternteil typgeprüft darauf zugreifen kann."
+        },
+        {
+          "label": "Begründung",
+          "reference": "defineSlots typisiert Slot-Namen und Slot-Props."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Slots mit Vertrag: Scoped Slots und defineSlots“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/components/slots.html",
+        "https://vuejs.org/api/sfc-script-setup.html#defineslots"
+      ],
+      "rationales": [
+        "Inhalte kommen vom Elternteil, nicht von defineSlots.",
+        "vue-tsc nutzt die Typen, um Fehler wie falsche Feldnamen zu melden.",
+        "Es beschreibt Slots, es sperrt sie nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l4#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l4",
+      "recall": "Beantworte „Nach Esc ist der Dialog geschlossen, aber die Schaltfläche „Öffnen“ reagiert nicht mehr. Was fehlt am wahrscheinlichsten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Teleport und natives <dialog>: zugängliche Modale“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Ein Listener auf das close-Ereignis, der den Vue-Zustand zurücksetzt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Das close-Ereignis hält Zustand und Element synchron."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Teleport und natives <dialog>: zugängliche Modale“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/teleport.html",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+        "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+      ],
+      "rationales": [
+        "Esc schließt das Element, aber der Vue-Zustand bleibt true; close synchronisiert beides.",
+        "Teleport bestimmt den Ort im DOM, nicht den Zustand.",
+        "CSS beeinflusst das Aussehen, nicht die Ereigniskette."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l4#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l4",
+      "recall": "Beantworte „Welchen Vorteil hat showModal() gegenüber einem selbstgebauten Overlay aus div-Elementen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Teleport und natives <dialog>: zugängliche Modale“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Browser liefert Fokusfalle, Esc-Behandlung und Sperre des Hintergrunds mit."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Der native Dialog erspart viel Eigenbau und potenzielle Fehler."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Teleport und natives <dialog>: zugängliche Modale“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/teleport.html",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+        "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+      ],
+      "rationales": [
+        "Diese Funktionen sind im nativen Dialog eingebaut und müssen nicht nachgebaut werden.",
+        "Das Element ist in aktuellen Browsern unterstützt; das Gegenteil trifft zu.",
+        "Es ist ein HTML-Element."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l4#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l4",
+      "recall": "Beantworte „Der Test mit jsdom ist grün. Was sagt er über die echte Tastaturbedienung aus?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Teleport und natives <dialog>: zugängliche Modale“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Er prüft nur die eigene Logik; echte Tastaturbedienung bleibt manuell zu prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Tests mit Nachbildungen belegen Logik; Browser- und Screenreaderverhalten braucht eigene Prüfungen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Teleport und natives <dialog>: zugängliche Modale“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/teleport.html",
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog",
+        "https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/"
+      ],
+      "rationales": [
+        "Das Verhalten der Fokusfalle gehört dem Browser und wird im Test nicht ausgeführt.",
+        "Ehrlich ist: Logiktest ja, Browserverhalten nein.",
+        "Automatische Tests decken nur einen Teil der Anforderungen ab."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l5#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l5",
+      "recall": "Beantworte „Eine async Komponente im <Suspense> wirft beim Laden einen Fehler. Auf der Seite erscheint nichts Verständliches. Was ist der richtige Weg?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Suspense und asynchrone Komponenten“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "In einem Elternteil mit onErrorCaptured den Fehler fangen und einen Fehlerzustand anzeigen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Suspense behandelt Fehler nicht selbst; onErrorCaptured im Elternteil übernimmt das."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Suspense und asynchrone Komponenten“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/suspense.html",
+        "https://vuejs.org/guide/components/async.html"
+      ],
+      "rationales": [
+        "Laut Vue-Dokumentation bietet Suspense keine eigene Fehlerbehandlung; der Hook im Elternteil ist der vorgesehene Weg.",
+        "Ein solches Attribut gibt es nicht.",
+        "Es gibt keine automatische Meldung für Nutzer."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l5#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l5",
+      "recall": "Beantworte „Was bewirkt delay: 200 bei defineAsyncComponent?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Suspense und asynchrone Komponenten“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Ladeanzeige erscheint erst nach 200 ms, damit schnelle Ladevorgänge nicht flackern."
+        },
+        {
+          "label": "Begründung",
+          "reference": "delay verzögert die Ladeanzeige, nicht den Ladevorgang."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Suspense und asynchrone Komponenten“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/suspense.html",
+        "https://vuejs.org/guide/components/async.html"
+      ],
+      "rationales": [
+        "Geladen wird sofort; nur die Ladeanzeige wird verzögert.",
+        "So steht es in der Vue-Dokumentation (Standard 200 ms).",
+        "Abbrechen steuert timeout, nicht delay."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l5#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l5",
+      "recall": "Beantworte „Welcher Status gilt laut Vue-Dokumentation (Stand 12.11.2026) für <Suspense>?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Suspense und asynchrone Komponenten“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Es ist ein experimentelles Feature; die API kann sich ändern."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Die Dokumentation markiert Suspense als experimentell; Verwendung bewusst entscheiden."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Suspense und asynchrone Komponenten“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/suspense.html",
+        "https://vuejs.org/guide/components/async.html"
+      ],
+      "rationales": [
+        "Die Dokumentation nennt es ausdrücklich experimentell.",
+        "Der Hinweis auf der Seite lautet „experimental feature“ und „API may change“.",
+        "Die Seite existiert und beschreibt das Feature weiterhin."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l6#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l6",
+      "recall": "Beantworte „Warum animiert man bevorzugt transform und opacity?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Transition, TransitionGroup und reduzierte Bewegung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Weil sie das Layout nicht neu berechnen müssen und deshalb flüssig laufen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "transform und opacity sind günstig für den Browser und vermeiden Layout-Neuberechnung."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Transition, TransitionGroup und reduzierte Bewegung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/transition.html",
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+        "https://www.w3.org/WAI/WCAG22/Techniques/css/C39"
+      ],
+      "rationales": [
+        "Viele Eigenschaften sind animierbar; der Unterschied liegt im Aufwand.",
+        "Layout-Eigenschaften wie width oder top lösen aufwendige Neuberechnungen aus.",
+        "Vue setzt lediglich Klassen; was du animierst, entscheidet das CSS."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l6#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l6",
+      "recall": "Beantworte „Ein Nutzer hat im Betriebssystem „Bewegung reduzieren“ aktiviert. Was ist die passende Reaktion der Anwendung?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Transition, TransitionGroup und reduzierte Bewegung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Nicht wesentliche Animationen abschalten oder stark vereinfachen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Die Einstellung respektieren: Bewegung abschalten oder reduzieren."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Transition, TransitionGroup und reduzierte Bewegung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/transition.html",
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+        "https://www.w3.org/WAI/WCAG22/Techniques/css/C39"
+      ],
+      "rationales": [
+        "Das wäre das Gegenteil des Nutzerwunsches.",
+        "prefers-reduced-motion ist genau dafür gedacht und wird vom Browser bereitgestellt.",
+        "Browser stellen die Einstellung über prefers-reduced-motion zur Verfügung."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l6#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l6",
+      "recall": "Beantworte „Wozu dient onScopeDispose in usePrefersReducedMotion?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Transition, TransitionGroup und reduzierte Bewegung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Um den matchMedia-Listener aufzuräumen, wenn der Kontext (Komponente oder Scope) endet."
+        },
+        {
+          "label": "Begründung",
+          "reference": "onScopeDispose beendet Listener und Ressourcen sauber."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Transition, TransitionGroup und reduzierte Bewegung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/built-ins/transition.html",
+        "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+        "https://www.w3.org/WAI/WCAG22/Techniques/css/C39"
+      ],
+      "rationales": [
+        "Ohne Aufräumen bliebe der Listener nach dem Unmount bestehen (Speicherleck).",
+        "Mit der Geschwindigkeit hat der Hook nichts zu tun.",
+        "Speichern ist nicht seine Aufgabe; er räumt auf."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l7#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l7",
+      "recall": "Beantworte „Was bewirkt generic=\"T extends { id: string | number }\" an einer Komponente?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Generische Komponenten mit TypeScript“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Sie akzeptiert jeden Typ T mit mindestens einer id; TypeScript leitet T aus den Props ab."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Generics + Einschränkung geben Typsicherheit für beliebige, aber passende Typen – zur Entwicklungszeit."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Generische Komponenten mit TypeScript“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/typescript/composition-api.html",
+        "https://vuejs.org/api/sfc-script-setup.html#generics"
+      ],
+      "rationales": [
+        "So funktioniert ein eingeschränkter Typparameter; die Inferenz findet T beim Aufruf.",
+        "Typen existieren zur Laufzeit nicht mehr; geprüft wird beim Bauen.",
+        "Die Einschränkung erlaubt string und number als id."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l7#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l7",
+      "recall": "Beantworte „Wozu dient der Kommentar <!-- @vue-expect-error --> im Template?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Generische Komponenten mit TypeScript“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Er erwartet an der folgenden Zeile einen Typfehler; fehlt dieser, schlägt vue-tsc fehl."
+        },
+        {
+          "label": "Begründung",
+          "reference": "@vue-expect-error macht Negativfälle der Typen prüfbar."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Generische Komponenten mit TypeScript“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/typescript/composition-api.html",
+        "https://vuejs.org/api/sfc-script-setup.html#generics"
+      ],
+      "rationales": [
+        "Er unterdrückt nicht pauschal; er verlangt genau einen Fehler.",
+        "So wird ein beabsichtigter Typfehler zum überprüfbaren Vertrag.",
+        "Er beeinflusst die Darstellung im Browser nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m2-l7#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m2-l7",
+      "recall": "Beantworte „Warum reicht ein grüner Vite-Build nicht als Nachweis, dass alle Typen in Templates stimmen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Generische Komponenten mit TypeScript“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Vite führt keine Typprüfung durch; die übernimmt vue-tsc."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Typprüfung braucht vue-tsc; Vite allein prüft keine Typen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Generische Komponenten mit TypeScript“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/typescript/composition-api.html",
+        "https://vuejs.org/api/sfc-script-setup.html#generics"
+      ],
+      "rationales": [
+        "Vite transpiliert ohne Typprüfung; deshalb gehört vue-tsc in den Build.",
+        "Vite zeigt keine Typfehler an, weder als Warnung noch als Fehler.",
+        "Vite verarbeitet .vue-Dateien normal (mit dem Vue-Plugin), nur eben ohne Typprüfung."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l1#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l1",
+      "recall": "Beantworte „Was ist der Vorteil, Regeln und Typen aus einem Zod-Schema abzuleiten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Formulare mit Zod: ein Schema für Regeln und Typen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Es gibt nur eine Quelle der Wahrheit; Regeln und Typen können nicht auseinanderlaufen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Ein Schema vermeidet doppelte Regeln und doppelte Typen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Formulare mit Zod: ein Schema für Regeln und Typen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://zod.dev/",
+        "https://www.w3.org/WAI/tutorials/forms/validation/"
+      ],
+      "rationales": [
+        "Das Schema liefert Prüfung und Typen gemeinsam.",
+        "Der Server muss immer selbst prüfen; Clientprüfung ist nur Komfort.",
+        "Typen verschwinden beim Bauen; Zod prüft Werte zur Laufzeit, TypeScript nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l1#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l1",
+      "recall": "Beantworte „Warum wird „heute“ in todayIso() mit lokalen Datumsteilen gebildet?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Formulare mit Zod: ein Schema für Regeln und Typen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "toISOString() liefert UTC; das Datum kann je nach Uhrzeit um einen Tag abweichen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Für „heute“ des Nutzers zählt das lokale Datum."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Formulare mit Zod: ein Schema für Regeln und Typen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://zod.dev/",
+        "https://www.w3.org/WAI/tutorials/forms/validation/"
+      ],
+      "rationales": [
+        "Rund um Mitternacht fällt UTC und Ortszeit auseinander; die Prüfung wäre falsch.",
+        "Geschwindigkeit spielt hier keine Rolle.",
+        "Zod verlangt das nicht; es ist eine fachliche Entscheidung."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l1#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l1",
+      "recall": "Beantworte „Beim Absenden sind mehrere Felder ungültig. Was ist für Tastatur- und Screenreader-Nutzer die beste Reaktion?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Formulare mit Zod: ein Schema für Regeln und Typen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Fokus auf das erste ungültige Feld setzen, Fehlertext per aria-describedby verknüpfen, Eingaben behalten."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Fokus, Textfehler und erhaltene Eingaben sind die Grundlage zugänglicher Fehlerbehandlung."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Formulare mit Zod: ein Schema für Regeln und Typen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://zod.dev/",
+        "https://www.w3.org/WAI/tutorials/forms/validation/"
+      ],
+      "rationales": [
+        "Farbe allein ist nicht zugänglich, und der Fokus bleibt irgendwo.",
+        "So finden Nutzer den Fehler sofort und können ihn beheben.",
+        "Verlorene Eingaben sind eines der größten Ärgernisse in Formularen."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l2#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l2",
+      "recall": "Beantworte „Warum gehört der Seitenwert in den queryKey?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Serverdaten und Query-Cache mit TanStack Query“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Damit jede Seite einen eigenen Cache-Eintrag hat und bei Änderung automatisch neu geladen wird."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Alles, wovon das Ergebnis abhängt, gehört in den Schlüssel."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Serverdaten und Query-Cache mit TanStack Query“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/overview",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/important-defaults",
+        "https://www.rfc-editor.org/rfc/rfc9457.html"
+      ],
+      "rationales": [
+        "Der Schlüssel beschreibt die Daten; Abhängigkeiten gehören hinein.",
+        "Länge ist kein Ziel; der Schlüssel beschreibt die Daten.",
+        "Anfragen werden auch ohne Seitenwert gesendet, nur mit falscher Zuordnung."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l2#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l2",
+      "recall": "Beantworte „Was bewirkt staleTime: 30_000?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Serverdaten und Query-Cache mit TanStack Query“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Daten gelten 30 Sekunden als frisch; in dieser Zeit löst Anzeigen keinen neuen Request aus."
+        },
+        {
+          "label": "Begründung",
+          "reference": "staleTime legt fest, wie lange Daten als aktuell gelten."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Serverdaten und Query-Cache mit TanStack Query“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/overview",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/important-defaults",
+        "https://www.rfc-editor.org/rfc/rfc9457.html"
+      ],
+      "rationales": [
+        "Gelöscht werden Daten über gcTime, nicht über staleTime.",
+        "So steht es in der Dokumentation: frische Daten werden aus dem Cache bedient.",
+        "Verzögert wird nichts; es geht um Frische."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l2#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l2",
+      "recall": "Beantworte „Ein Server liefert plötzlich ein anderes JSON-Format. Wie verhindert die Schema-Prüfung Folgeschäden?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Serverdaten und Query-Cache mit TanStack Query“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Sie wirft an der Grenze einen Fehler; die Oberfläche zeigt den Fehlerzustand."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Schema-Prüfung macht Vertragsbrüche sofort sichtbar."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Serverdaten und Query-Cache mit TanStack Query“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/overview",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/important-defaults",
+        "https://www.rfc-editor.org/rfc/rfc9457.html"
+      ],
+      "rationales": [
+        "Ein Schema kennt kein altes Format und rät nicht.",
+        "Fehler früh und sichtbar zu machen ist der Sinn der Prüfung an der Grenze.",
+        "Stilles Ignorieren verschleiert den Fehler."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l3#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l3",
+      "recall": "Beantworte „Wozu dient cancelQueries in onMutate?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Mutationen und optimistische Updates mit Rollback“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Laufende Abrufe dürfen das optimistische Ergebnis nicht überschreiben."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Abbrechen verhindert, dass alte Antworten das optimistische Ergebnis überschreiben."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Mutationen und optimistische Updates mit Rollback“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/optimistic-updates",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/mutations"
+      ],
+      "rationales": [
+        "Eine ältere Antwort könnte sonst nach dem optimistischen Update eintreffen und es überschreiben.",
+        "Der Cache bleibt erhalten, es werden nur laufende Abfragen abgebrochen.",
+        "Mit Geschwindigkeit hat es nichts zu tun."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l3#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l3",
+      "recall": "Beantworte „Warum werden im Beispiel Schnappschüsse der Cache-Einträge gespeichert?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Mutationen und optimistische Updates mit Rollback“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Damit bei einem Fehler der frühere Stand wiederhergestellt werden kann."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Der Schnappschuss ist die Grundlage des Rollbacks."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Mutationen und optimistische Updates mit Rollback“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/optimistic-updates",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/mutations"
+      ],
+      "rationales": [
+        "onError schreibt die Schnappschüsse zurück (Rollback).",
+        "Doppelte Daten sind kein Ziel.",
+        "Vue verlangt das nicht; es ist Teil des Musters."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l3#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l3",
+      "recall": "Beantworte „Wann ist ein optimistisches Update eine schlechte Idee?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Mutationen und optimistische Updates mit Rollback“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Bei Zahlungen oder anderen Aktionen, bei denen ein falsch bestätigtes Ergebnis schwerwiegend ist."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Optimistisch nur für harmlose, leicht umkehrbare Änderungen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Mutationen und optimistische Updates mit Rollback“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/optimistic-updates",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/mutations"
+      ],
+      "rationales": [
+        "Hier ist es unkritisch und üblich.",
+        "Bei folgenreichen Aktionen ist ehrliches Warten besser als eine vorschnelle Bestätigung.",
+        "Die Länge der Liste ist unerheblich."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l4#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l4",
+      "recall": "Beantworte „Warum gehört die Seitennummer in die URL?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die URL als Zustand: teilbare Seitennummer“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Seite ist teilbar, überlebt einen Reload und die Zurück-Taste funktioniert wie erwartet."
+        },
+        {
+          "label": "Begründung",
+          "reference": "URL-Zustand ist teilbar, reload-fest und verlaufsfähig."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Die URL als Zustand: teilbare Seitennummer“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://router.vuejs.org/guide/essentials/navigation.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
+      ],
+      "rationales": [
+        "Das sind die Vorteile von URL-Zustand.",
+        "Variablen funktionieren; sie sind nur nicht teilbar.",
+        "Der Server erhält den Parameter ja gerade."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l4#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l4",
+      "recall": "Beantworte „Was liefert parsePage(\"-5\")?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die URL als Zustand: teilbare Seitennummer“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "1"
+        },
+        {
+          "label": "Begründung",
+          "reference": "Unlesbare Werte werden zu Seite 1."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Die URL als Zustand: teilbare Seitennummer“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://router.vuejs.org/guide/essentials/navigation.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
+      ],
+      "rationales": [
+        "Negative Seiten sind nicht erlaubt.",
+        "Die Regex akzeptiert nur Ziffern; alles andere wird zu 1.",
+        "Es gibt keinen NaN-Pfad; der Code liefert immer eine gültige Zahl."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l4#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l4",
+      "recall": "Beantworte „Warum ist „Weiter“ deaktiviert, solange isPlaceholderData wahr ist?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Die URL als Zustand: teilbare Seitennummer“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Damit niemand weiterblättert, solange noch die alte Seite angezeigt wird und die neue lädt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Das Sperren verhindert Seitensprünge auf Basis veralteter Anzeige."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Die URL als Zustand: teilbare Seitennummer“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://router.vuejs.org/guide/essentials/navigation.html",
+        "https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams"
+      ],
+      "rationales": [
+        "Während der alten Daten ist unklar, ob es eine nächste Seite gibt; Springen würde Seiten überspringen.",
+        "Technisch wären Klicks möglich; es ist eine bewusste Entscheidung.",
+        "Es ist ein normaler Zwischenzustand, kein Fehler."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l5#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l5",
+      "recall": "Beantworte „Welche vier Zustände muss jede Datenansicht abdecken?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Mini-Projekt TaskInbox: alles zusammen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Laden, Fehler, leer und Daten."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Laden, Fehler, leer und Daten sind die Grundzustände."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Mini-Projekt TaskInbox: alles zusammen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/queries",
+        "https://www.w3.org/TR/wai-aria-1.2/#status",
+        "https://www.rfc-editor.org/rfc/rfc9457.html"
+      ],
+      "rationales": [
+        "Diese Zustände erleben Nutzer tatsächlich; jeder braucht eine sichtbare, zugängliche Darstellung.",
+        "Das sind Darstellungsvarianten, keine Datenzustände.",
+        "Das sind fachliche Workflow-Stufen."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l5#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l5",
+      "recall": "Beantworte „Der Server antwortet auf das Anlegen mit 422 und einer Feldmeldung. Wohin gehört sie?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Mini-Projekt TaskInbox: alles zusammen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "An das betroffene Feld, verknüpft per aria-describedby, mit Fokus."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Feldfehler gehören an das Feld und müssen zugänglich verknüpft sein."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Mini-Projekt TaskInbox: alles zusammen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/queries",
+        "https://www.w3.org/TR/wai-aria-1.2/#status",
+        "https://www.rfc-editor.org/rfc/rfc9457.html"
+      ],
+      "rationales": [
+        "Verschwindende Meldungen sind für viele Nutzer nicht zugänglich.",
+        "So erreicht die Meldung auch Tastatur- und Screenreader-Nutzer.",
+        "Nutzer sehen die Konsole nicht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m3-l5#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m3-l5",
+      "recall": "Beantworte „Was belegt ein grüner Test mit dem Fake-Server nicht?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Mini-Projekt TaskInbox: alles zusammen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Dass reale Netzwerkfehler, CORS, Anmeldung und CSRF im echten Zusammenspiel funktionieren."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Fake-Server belegen Logik, nicht die reale Integration."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Mini-Projekt TaskInbox: alles zusammen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/queries",
+        "https://www.w3.org/TR/wai-aria-1.2/#status",
+        "https://www.rfc-editor.org/rfc/rfc9457.html"
+      ],
+      "rationales": [
+        "Das belegt der Test sehr wohl.",
+        "Der Fake-Server simuliert nur Antworten; reale Umgebung braucht eigene Prüfungen.",
+        "Auch das ist durch den Test abgedeckt."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l1#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l1",
+      "recall": "Beantworte „Nach einem Reload zeigt die Anwendung kurz die Anmeldeseite, obwohl die Sitzung noch gültig ist. Was fehlt im Guard am wahrscheinlichsten?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Router-Guards: Zugriffsschutz, Rollen und sicherer Rücksprung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Ein await auf die Wiederherstellung der Sitzung, bevor die Anmeldung geprüft wird."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Der Guard muss auf die Sitzungswiederherstellung warten (await auth.ready), sonst entscheidet er mit einem leeren Zustand."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Router-Guards: Zugriffsschutz, Rollen und sicherer Rücksprung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+        "https://router.vuejs.org/guide/advanced/meta.html",
+        "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html"
+      ],
+      "rationales": [
+        "Ohne Warten sieht der Guard den leeren Anfangszustand und leitet fälschlich um; mit await bleibt die Navigation offen, bis der Zustand bekannt ist.",
+        "Die Anmeldeseite ist ohnehin öffentlich; das erklärt kein Flackern nach einem Reload.",
+        "afterEach läuft erst nach dem Wechsel und kann ihn nicht mehr verhindern oder umlenken."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l1#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l1",
+      "recall": "Beantworte „Ein Guard schützt /admin mit roles: [\"admin\"]. Warum ist damit die Verwaltungs-API noch nicht geschützt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Router-Guards: Zugriffsschutz, Rollen und sicherer Rücksprung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Guards laufen im Browser und lassen sich umgehen; die API muss jede Anfrage selbst prüfen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Ein Guard ist Bedienkomfort im Browser. Autorisierung muss serverseitig bei jedem Aufruf erfolgen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Router-Guards: Zugriffsschutz, Rollen und sicherer Rücksprung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+        "https://router.vuejs.org/guide/advanced/meta.html",
+        "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html"
+      ],
+      "rationales": [
+        "Wer die Oberfläche kontrolliert (der Nutzer), kann den Guard entfernen oder die API direkt aufrufen; verbindliche Prüfung gehört auf den Server.",
+        "Guards laufen für alle passenden Routen, auch für Unterseiten; das Problem liegt nicht in der Pfadabdeckung.",
+        "Guards dürfen beliebige Bedingungen prüfen; sie sind nur keine Sicherheitsgrenze."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l1#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l1",
+      "recall": "Beantworte „Welcher Wert für ?redirect muss safeRedirectTarget ablehnen, weil er die eigene Anwendung verlässt?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Router-Guards: Zugriffsschutz, Rollen und sicherer Rücksprung“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "//evil.example"
+        },
+        {
+          "label": "Begründung",
+          "reference": "Nur Werte mit genau einem führenden Schrägstrich sind eigene Pfade; \"//host\" zeigt auf eine fremde Origin."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Router-Guards: Zugriffsschutz, Rollen und sicherer Rücksprung“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://router.vuejs.org/guide/advanced/navigation-guards.html",
+        "https://router.vuejs.org/guide/advanced/meta.html",
+        "https://owasp.org/Top10/A01_2021-Broken_Access_Control/",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Unvalidated_Redirects_and_Forwards_Cheat_Sheet.html"
+      ],
+      "rationales": [
+        "Ein Pfad der eigenen Anwendung mit Query-Parameter ist ausdrücklich erlaubt.",
+        "Ein Pfad mit Fragment (#top) bleibt innerhalb der Anwendung und ist erlaubt.",
+        "Zwei Schrägstriche am Anfang bedeuten „gleiches Protokoll, andere Domain“ und sind damit ein Open Redirect."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l2#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l2",
+      "recall": "Beantworte „Fünf Anfragen scheitern gleichzeitig mit 401. Wie viele Aufrufe von /auth/refresh sendet authFetch?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Anmeldung und Token-Erneuerung ohne Endlosschleifen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Genau einen: Die Anfragen teilen sich dieselbe laufende Erneuerung und werden danach wiederholt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Single Flight verhindert mehrfache Erneuerungen und schützt rotierende Refresh-Token."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Anmeldung und Token-Erneuerung ohne Endlosschleifen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+        "https://www.rfc-editor.org/rfc/rfc6750.html",
+        "https://datatracker.ietf.org/doc/draft-ietf-oauth-browser-based-apps/",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials"
+      ],
+      "rationales": [
+        "Fünf Erneuerungen verschwenden Anfragen und können bei rotierenden Refresh-Token die Sitzung beenden.",
+        "So funktioniert Single Flight: ein Promise wird gemerkt und geteilt; der Test belegt genau einen Aufruf.",
+        "Ein 401 am Datenendpunkt löst zuerst eine Erneuerung aus; nur wenn sie mit 401/403 scheitert, endet die Sitzung."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l2#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l2",
+      "recall": "Beantworte „Wo wird das Access-Token in diesem Entwurf gespeichert, und warum?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Anmeldung und Token-Erneuerung ohne Endlosschleifen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "In einer Variable im Arbeitsspeicher, weil Skripte der Seite localStorage lesen können und Tokens dort leichter gestohlen werden."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Ein Token im Arbeitsspeicher ist schwerer abzugreifen als eines in localStorage; der Preis ist die Wiederherstellung beim Start."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Anmeldung und Token-Erneuerung ohne Endlosschleifen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+        "https://www.rfc-editor.org/rfc/rfc6750.html",
+        "https://datatracker.ietf.org/doc/draft-ietf-oauth-browser-based-apps/",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials"
+      ],
+      "rationales": [
+        "Der Speicherort begrenzt die Angriffsfläche; die Sitzung wird beim Start per httpOnly-Cookie wiederhergestellt.",
+        "localStorage ist für jedes Skript der Seite lesbar; Bequemlichkeit ist hier kein Sicherheitsargument.",
+        "URLs landen in Verlauf, Logs und Referer-Headern; Token gehören nie dorthin."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l2#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l2",
+      "recall": "Beantworte „Die Erneuerung scheitert mit einem Netzwerkfehler (TypeError aus fetch). Was ist die richtige Reaktion?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Anmeldung und Token-Erneuerung ohne Endlosschleifen“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Den Fehler an den Aufrufer geben und die Sitzung behalten; die Oberfläche bietet „Erneut versuchen“ an."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Netzwerkfehler sind vorübergehend: Sitzung behalten, Fehler melden, Wiederholung anbieten."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Anmeldung und Token-Erneuerung ohne Endlosschleifen“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html",
+        "https://www.rfc-editor.org/rfc/rfc6750.html",
+        "https://datatracker.ietf.org/doc/draft-ietf-oauth-browser-based-apps/",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials"
+      ],
+      "rationales": [
+        "Ein Netzausfall sagt nichts über die Gültigkeit der Sitzung; Abmelden würde Eingaben unnötig vernichten.",
+        "Unbegrenzte Wiederholung erzeugt eine Dauerschleife und belastet das Gerät und später den Server.",
+        "Nur 401/403 bei der Erneuerung beenden die Sitzung; alles andere ist ein vorübergehendes Problem."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l3#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l3",
+      "recall": "Beantworte „Warum nutzt FormField useId() statt einer selbst gebauten Zufallszahl?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Moderne Vue-3.5-APIs: useId, useTemplateRef, defineExpose und Attribute“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "useId liefert pro Anwendung eindeutige Werte, die beim Server- und Browser-Rendering übereinstimmen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "useId ist eindeutig und SSR-stabil; selbstgebaute Werte können beim Hydrieren abweichen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Moderne Vue-3.5-APIs: useId, useTemplateRef, defineExpose und Attribute“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/api/composition-api-helpers.html#useid",
+        "https://vuejs.org/guide/essentials/template-refs.html",
+        "https://vuejs.org/guide/components/attrs.html",
+        "https://vuejs.org/guide/components/props.html#reactive-props-destructure",
+        "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1.html"
+      ],
+      "rationales": [
+        "Zufallswerte sind erlaubt; sie führen aber beim Server-Rendering zu Abweichungen.",
+        "Das verhindert Hydration-Mismatches und doppelte ids; so steht es in der Vue-Dokumentation.",
+        "Länge oder Geschwindigkeit sind nicht der Grund; es geht um Eindeutigkeit und Stabilität."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l3#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l3",
+      "recall": "Beantworte „Warum ist inputAttrs() eine Funktion im Template und kein computed?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Moderne Vue-3.5-APIs: useId, useTemplateRef, defineExpose und Attribute“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "useAttrs() ist laut Vue-Doku nicht reaktiv; ein computed würde sich bei geänderten Attributen nicht aktualisieren."
+        },
+        {
+          "label": "Begründung",
+          "reference": "$attrs/useAttrs sind nicht reaktiv; die Aufteilung muss bei jedem Rendern neu erfolgen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Moderne Vue-3.5-APIs: useId, useTemplateRef, defineExpose und Attribute“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/api/composition-api-helpers.html#useid",
+        "https://vuejs.org/guide/essentials/template-refs.html",
+        "https://vuejs.org/guide/components/attrs.html",
+        "https://vuejs.org/guide/components/props.html#reactive-props-destructure",
+        "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1.html"
+      ],
+      "rationales": [
+        "computed kann beliebige Werte zurückgeben, auch Objekte.",
+        "Der Unterschied ist nicht die Geschwindigkeit, sondern die Aktualität der Werte.",
+        "Die Attribute ändern sich außerhalb des Reaktivitätssystems; die Funktion wird bei jedem Rendern neu ausgewertet."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l3#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l3",
+      "recall": "Beantworte „Eine Elternkomponente hält eine Ref auf FormField und ruft focus() auf. Was ist dafür in FormField nötig?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Moderne Vue-3.5-APIs: useId, useTemplateRef, defineExpose und Attribute“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "defineExpose({ focus }), denn script-setup-Komponenten geben ohne diese Freigabe nichts nach außen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Ohne defineExpose bleibt eine script-setup-Komponente geschlossen; der Vertrag wird bewusst klein gehalten."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Moderne Vue-3.5-APIs: useId, useTemplateRef, defineExpose und Attribute“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/api/composition-api-helpers.html#useid",
+        "https://vuejs.org/guide/essentials/template-refs.html",
+        "https://vuejs.org/guide/components/attrs.html",
+        "https://vuejs.org/guide/components/props.html#reactive-props-destructure",
+        "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA1.html"
+      ],
+      "rationales": [
+        "Der Vertrag wird ausdrücklich freigegeben; im Test sind nur \"focus\" und sonst nichts sichtbar.",
+        "Komponenten mit script setup sind standardmäßig geschlossen.",
+        "Eine Prop würde einen Zustand beschreiben, kein einmaliges Kommando; „true setzen“ löst bei zweitem Aufruf nichts aus."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l4#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l4",
+      "recall": "Beantworte „Nach `const { count } = state` ändert sich state.count auf 5, aber count bleibt 0. Wie hältst du die Verbindung?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Reaktivitätsfallen erkennen und beheben“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Mit toRefs(state) destrukturieren; dann ist count eine ref, die auf state.count zeigt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "toRefs erhält die Verbindung; Destrukturieren allein kopiert nur den aktuellen Wert."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Reaktivitätsfallen erkennen und beheben“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "https://vuejs.org/guide/essentials/watchers.html",
+        "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "https://vuejs.org/guide/reusability/composables.html",
+        "https://vuejs.org/api/reactivity-advanced.html"
+      ],
+      "rationales": [
+        "toRefs erzeugt für jede Eigenschaft eine ref mit Verbindung zum Original (Lesen und Schreiben).",
+        "let oder const spielt keine Rolle; beides kopiert den Wert zum Zeitpunkt des Destrukturierens.",
+        "Eine tiefe Kopie ist eine Momentaufnahme und verliert die Verbindung erst recht."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l4#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l4",
+      "recall": "Beantworte „watchEffect(async () => { const a = x.value; await load(); use(y.value); }): Was passiert bei einer Änderung von y?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Reaktivitätsfallen erkennen und beheben“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Nichts, denn y wurde erst nach dem await gelesen und wird deshalb nicht als Abhängigkeit verfolgt."
+        },
+        {
+          "label": "Begründung",
+          "reference": "watchEffect verfolgt nur synchron gelesene Werte; nach dem await braucht es ausdrückliche Quellen."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Reaktivitätsfallen erkennen und beheben“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "https://vuejs.org/guide/essentials/watchers.html",
+        "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "https://vuejs.org/guide/reusability/composables.html",
+        "https://vuejs.org/api/reactivity-advanced.html"
+      ],
+      "rationales": [
+        "Das Lesen nach dem await gehört nicht mehr zu den gesammelten Abhängigkeiten.",
+        "Abhängigkeiten werden nur bis zum ersten await gesammelt; y.value kommt danach.",
+        "Asynchrone Effekte sind erlaubt, nur ihre Abhängigkeiten nach dem await werden nicht verfolgt."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l4#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l4",
+      "recall": "Beantworte „Ein Watcher soll die Höhe eines Elements nach einer Zustandsänderung messen. Welche Einstellung liefert den aktuellen Stand?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Reaktivitätsfallen erkennen und beheben“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "flush: \"post\", denn dann ist das DOM bereits aktualisiert."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Für Zugriff auf das fertige DOM braucht der Watcher flush: \"post\" oder nextTick."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Reaktivitätsfallen erkennen und beheben“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "https://vuejs.org/guide/essentials/watchers.html",
+        "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "https://vuejs.org/guide/reusability/composables.html",
+        "https://vuejs.org/api/reactivity-advanced.html"
+      ],
+      "rationales": [
+        "pre läuft vor dem DOM-Update und sieht noch den alten Zustand.",
+        "sync läuft sofort und damit noch vor dem Rendern; das DOM ist nicht aktualisiert.",
+        "post läuft nach dem DOM-Update; FlushDemo zeigt den Unterschied am echten DOM (\"0\" bei pre, \"1\" bei post)."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l5#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l5",
+      "recall": "Beantworte „In einer Liste wird die erste Zeile gelöscht, und ein Eingabetext erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Der Listenindex dient als :key, daher werden Elemente anhand ihrer Position statt ihrer Identität wiederverwendet."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Stabile ids als Key sorgen dafür, dass Eingaben mit ihrer Zeile wandern."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://zod.dev/api",
+        "https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key",
+        "https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for",
+        "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+        "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions"
+      ],
+      "rationales": [
+        "Die Anzahl der Einträge spielt hier keine Rolle; Vue verarbeitet auch lange Listen korrekt.",
+        "Der Fokus verschiebt keine Eingabewerte; das Problem liegt in der Zuordnung von Elementen.",
+        "Mit dem Index als Key bekommt die bisherige Zeile 1 den Key 0 und übernimmt das DOM-Element der gelöschten Zeile."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l5#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l5",
+      "recall": "Beantworte „Wozu dient die immer vorhandene `<p role=\"status\">` im Formular?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Sie meldet Änderungen wie „Zeile 2 entfernt“ an Screenreader, ohne den Fokus zu bewegen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Statusmeldungen sollen ohne Fokuswechsel ansagbar sein (WCAG 4.1.3)."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://zod.dev/api",
+        "https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key",
+        "https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for",
+        "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+        "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions"
+      ],
+      "rationales": [
+        "Farbe allein ist nicht zugänglich; die Region dient der Ansage, nicht der Optik.",
+        "Eine Live-Region sagt Textänderungen höflich an; so erfahren Nutzer von Änderungen außerhalb des Fokus.",
+        "Beschriftungen bleiben über label und id erhalten; die Region hat damit nichts zu tun."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l5#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l5",
+      "recall": "Beantworte „Warum gibt das Schema am Ende nur { team, emails } zurück und nicht die Zeilen mit key?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Die Schlüssel dienen nur der Oberfläche; die API-Daten sollen ohne interne Details und im vereinbarten Format ankommen."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Die Ausgabe wird mit transform auf den API-Vertrag zugeschnitten; UI-Details bleiben im Formular."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://zod.dev/api",
+        "https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key",
+        "https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for",
+        "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html",
+        "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html",
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Guides/Live_regions"
+      ],
+      "rationales": [
+        "Zod hat keine solche Grenze; die Ausgabeform legt das Schema mit transform fest.",
+        "transform trennt Eingabe und Ausgabe (z.input/z.output); interne Schlüssel gehören nicht in den API-Vertrag.",
+        "JSON.stringify behält alle Eigenschaften; nichts geht automatisch verloren."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l6#0@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l6",
+      "recall": "Beantworte „Der Server antwortet auf eine Detailabfrage mit 404. Was sollte die Wiederholungsstrategie tun?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Infinite Queries, Prefetching und eine ehrliche Retry-Strategie“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Nicht wiederholen und sofort den Fehlerzustand zeigen, denn ein 404 ändert sich durch Wiederholen nicht."
+        },
+        {
+          "label": "Begründung",
+          "reference": "shouldRetry wiederholt nur vorübergehende Fehler; 404 bleibt ein sofort sichtbarer Fehler."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Infinite Queries, Prefetching und eine ehrliche Retry-Strategie“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/infinite-queries",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/query-retries",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/prefetching",
+        "https://www.rfc-editor.org/rfc/rfc6585.html#section-4",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+      ],
+      "rationales": [
+        "Das ist der TanStack-Standard, verlängert aber bei dauerhaften Fehlern nur die Wartezeit und belastet den Server.",
+        "Dauerhafte Clientfehler (4xx) werden nicht wiederholt; nur Netzwerk, 5xx, 408 und 429 sind vorübergehend.",
+        "Eine unbegrenzte Wiederholung erzeugt eine Dauerlast und blockiert die Anzeige."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l6#1@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l6",
+      "recall": "Beantworte „Zwischen zwei Seitenabrufen wurde vorn ein Eintrag eingefügt, und Eintrag 10 steht auf Seite 1 und 2. Wie vermeidet die Liste doppelte Zeilen?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Infinite Queries, Prefetching und eine ehrliche Retry-Strategie“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Sie führt die Seiten zusammen und entfernt Einträge mit bereits gesehener id."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Entdoppeln nach id schützt vor überlappenden Seiten und doppelten Schlüsseln."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Infinite Queries, Prefetching und eine ehrliche Retry-Strategie“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/infinite-queries",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/query-retries",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/prefetching",
+        "https://www.rfc-editor.org/rfc/rfc6585.html#section-4",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+      ],
+      "rationales": [
+        "Das wäre teuer und löst das Problem nur teilweise, weil sich der Bestand auch danach ändern kann.",
+        "Die Position ist kein Merkmal des Eintrags; doppelte Zeilen blieben bestehen und Schlüssel kollidieren.",
+        "Nach id zu entdoppeln ist einfach, schnell und im Test belegt (19 statt 20 Einträge)."
+      ],
+      "editorialStatus": "individually-revised"
+    },
+    {
+      "id": "js-m4-l6#2@2026-11-12-java-vue-v1",
+      "lessonId": "js-m4-l6",
+      "recall": "Beantworte „Warum zeigt die Anwendung Fehler von prefetchQuery nicht an?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Infinite Queries, Prefetching und eine ehrliche Retry-Strategie“.",
+      "criteria": [
+        {
+          "label": "Fachliche Entscheidung",
+          "reference": "Vorladen ist eine Optimierung auf Verdacht; scheitert es, lädt der spätere Klick regulär und zeigt Fehler dort."
+        },
+        {
+          "label": "Begründung",
+          "reference": "Vorladen ist optional: Scheitert es, lädt der Klick normal und zeigt Fehler dort an."
+        },
+        {
+          "label": "Abgrenzung",
+          "reference": "Erkläre anhand der Begründung, welche Annahme einer konkreten anderen Antwort widerspricht. Ist der Widerspruch nicht belegbar, markiere die Frage zur Prüfung."
+        },
+        {
+          "label": "Anwendung",
+          "reference": "Formuliere zu „Infinite Queries, Prefetching und eine ehrliche Retry-Strategie“ einen neuen Fall und ein beobachtbares Soll-Ergebnis. Bei einer reinen Begriffsfrage darf dies eine begründete Zuordnung statt ausführbarem Code sein."
+        }
+      ],
+      "sources": [
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/infinite-queries",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/query-retries",
+        "https://tanstack.com/query/latest/docs/framework/vue/guides/prefetching",
+        "https://www.rfc-editor.org/rfc/rfc6585.html#section-4",
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Retry-After",
+        "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+      ],
+      "rationales": [
+        "prefetchQuery verschluckt Fehler und wiederholt nicht; die eigentliche Abfrage macht später sichtbar, was schiefgeht.",
+        "Sie sind nicht immer harmlos; sie betreffen nur nicht die aktuelle Nutzeraktion, und die Anzeige bleibt korrekt ohne Vorladen.",
+        "prefetchQuery sendet eine echte Anfrage, die scheitern kann; das Ergebnis ist nur ein leerer Cache-Eintrag."
       ],
       "editorialStatus": "individually-revised"
     },
