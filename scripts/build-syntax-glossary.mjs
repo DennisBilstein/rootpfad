@@ -24,8 +24,14 @@ const runners = {
 const codeLanguages = new Set(['html', 'css', 'javascript', 'typescript', 'vue', 'php', 'blade', 'java', 'abap', 'sql', 'bash']);
 
 const files = fs.readdirSync(sourceDir).filter((name) => name.endsWith('.mjs')).sort();
+// Dateien wie javascript.more.mjs (nur { id, entries }) hängen ihre Einträge an die Sprache mit gleicher id an.
 const languages = [];
-for (const file of files) languages.push((await import(pathToFileURL(path.resolve(sourceDir, file)).href)).default);
+for (const file of files) {
+  const module = (await import(pathToFileURL(path.resolve(sourceDir, file)).href)).default;
+  const existing = languages.find((language) => language.id === module.id);
+  if (existing) existing.entries.push(...module.entries);
+  else languages.push({ ...module, entries: [...module.entries] });
+}
 languages.sort((a, b) => a.order - b.order);
 
 const lessonIds = loadLessonIds();

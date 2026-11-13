@@ -88,7 +88,7 @@ test('Daten sind konsistent: eindeutige IDs, vorhandene Lektionen, Pflichtfelder
     return { count: ids.size, languages: RP_GLOSSARY.length, problems };
   });
   expect(result.problems).toEqual([]);
-  expect(result.languages).toBe(10);
+  expect(result.languages).toBe(12);
   expect(result.count).toBeGreaterThan(200);
 });
 
@@ -96,7 +96,7 @@ test('Code wird eingefärbt, und bei 375 px läuft in keiner Sprache die Seite �
   await page.setViewportSize({ width: 375, height: 800 });
   await open(page, { viaMenu: false });
   const labels = await page.locator('.gl-lang').allTextContents();
-  expect(labels).toHaveLength(10);
+  expect(labels).toHaveLength(12);
   for (const label of labels) {
     await page.getByRole('button', { name: label, exact: true }).click();
     await expect(page.locator('.gl-entry').first()).toBeVisible();

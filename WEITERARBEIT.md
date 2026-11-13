@@ -17,10 +17,10 @@ Neue Bausteine (Plan „Videos, Denkaufgaben, Wiederholplan“): `content/lesson
 `assets/weak-spots*.{js,css}`; Teil-CSP in `server.mjs`. NACH Änderungen an `assets/script-01.js` immer `npm run build`, weil die
 Lernskripte unter `assets/learning/` daraus erzeugt werden. Videos: 23 Einträge (Stand 13.11.2026, Titel/Kanal per oEmbed geprüft, Inhalt nicht);
 für HTML, Laravel-Vertiefung, Rest von ABAP/SAP gibt es noch keine. Schriften sind selbst gehostet (`assets/fonts/`, `assets/fonts.css`).
-Syntax-Glossar (13.11.2026): `content/syntax-glossary/<sprache>.mjs` (10 Sprachen, 234 Einträge) → `scripts/build-syntax-glossary.mjs` →
+Syntax-Glossar (13.11.2026): `content/syntax-glossary/<sprache>.mjs` (12 Sprachen, 444 Einträge; Erweiterungen in `<sprache>.more.mjs` werden an die Basisdatei angehängt) → `scripts/build-syntax-glossary.mjs` →
 `assets/syntax-glossary-data.js`; Oberfläche `assets/syntax-glossary.{js,css}`, Menüpunkt `navGlossar` (Ansicht-ID `glossar`) in `index.html`/`script-01.js`.
-`npm run verify:glossary` führt die Beispiele mit `run` wirklich aus (Node, PHP, Java, SQLite, Git; 127 Beispiele) und vergleicht die Ausgabe.
-Nicht ausgeführt: HTML, CSS, Vue, Laravel, ABAP, Spring/JUnit-Ausschnitte, MariaDB-Besonderheiten (kein ABAP-/Laravel-Lauf, Vue nur in den Labs).
+`npm run verify:glossary` führt die Beispiele mit `run` wirklich aus (Node, PHP, Java, SQLite, Git; 204 Beispiele) und vergleicht die Ausgabe.
+Nicht ausgeführt: HTML, CSS, Vue, Laravel, ABAP, Fiori/UI5, BTP, Spring/JUnit-Ausschnitte, MariaDB-Besonderheiten (kein ABAP-/Laravel-Lauf, Vue nur in den Labs).
 Neue Einträge: `id` mit Sprachpräfix, `lesson` muss existieren (Build prüft), `out` nur zusammen mit `run`. Git-Beispiele laufen mit englischer Locale.
 Die gemeinsame Lektions-ID-Prüfung liegt in `scripts/lib/lesson-ids.mjs`.
 Offen/ehrlich (Stand 12.11.): Structured Concurrency ist
