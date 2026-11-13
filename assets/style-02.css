@@ -419,6 +419,9 @@ table.lesson-table tr:last-child td{border-bottom:none;}
 fieldset.qcard{border:1px solid var(--border); border-radius:var(--r-md); padding:var(--s4);
   margin-bottom:var(--s3); background:var(--surface); box-shadow:var(--sh-sm);}
 fieldset.qcard legend{font-weight:600; font-size:.9rem; padding:0 6px; font-family:var(--display);}
+/* Fieldsets sind standardmäßig min-content breit; lange Badges im Quiz müssen umbrechen dürfen (sonst Überlauf bei 375 px). */
+fieldset.qcard{min-inline-size:0;}
+fieldset.qcard p.badge{white-space:normal; border-radius:var(--r-sm);}
 .opt{display:flex; align-items:flex-start; gap:var(--s2); padding:7px 6px; border-radius:var(--r-sm);
   font-size:.89rem; cursor:pointer; color:var(--text-2); transition:background .13s;}
 .opt:hover{background:var(--surface-2); color:var(--text);}

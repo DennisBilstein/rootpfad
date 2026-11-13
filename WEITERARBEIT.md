@@ -26,8 +26,7 @@ Die gemeinsame Lektions-ID-Prüfung liegt in `scripts/lib/lesson-ids.mjs`.
 Offen/ehrlich (Stand 12.11.): Structured Concurrency ist
 Preview; Suspense laut Vue-Doku experimentell; Dialog-Test nutzt jsdom-Nachbildungen, echte Tastatur-/Screenreaderprüfung fehlt;
 keine unabhängige Fachfreigabe. Die ursprüngliche Anfrage des Nutzers war abgeschnitten („…ziehe dir das aus dem dazugehö“):
-nachfragen, welche weitere Quelle gemeint war. Bekannt, nicht von diesem Auftrag: Quiz-Kasten (fieldset.qcard) läuft bei 375 px
-horizontal über (bestehende Lektionen +106 px).
+nachfragen, welche weitere Quelle gemeint war. Quiz-Kasten-Überlauf bei 375 px (fieldset.qcard, nowrap-Badge) am 13.11.2026 behoben, Test `tests/mobile-lessons.spec.mjs`.
 js-m4 ehrlich: Anmeldung ist reine Client-Logik gegen einen Fake-Server (Spring-Lab hat keine Anmeldung, Refresh-Rotation/CSRF sind
 Serverthemen); Retry-After wird nicht ausgewertet (Übung); infinite.spec.ts nutzt kurze Timer (3 Läufe stabil); Live-Region,
 Fokus und Tastatur nur strukturell in jsdom getestet; IETF-Entwurf zu Browser-Apps ist noch nicht final. Nicht abgedeckt
