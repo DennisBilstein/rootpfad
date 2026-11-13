@@ -35,7 +35,12 @@ app.use(compression({threshold:1024,filter:(req,res)=>!req.path.startsWith('/api
 app.use((req,res,next) => {
   res.set({'X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','X-Frame-Options':'DENY',
     // Teil-CSP: erlaubt Frames nur für die eigene Seite und die Zwei-Klick-Videos; verbietet Plugins und fremde base-URLs.
-    'Content-Security-Policy':"frame-src 'self' https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"});
+    'Content-Security-Policy':"frame-src 'self' https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+    // Die App nutzt keine dieser Browser-Funktionen; so kann auch eingebundener Fremdcode sie nicht anfordern.
+    'Permissions-Policy':'camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=()',
+    'Cross-Origin-Opener-Policy':'same-origin','Cross-Origin-Resource-Policy':'same-origin'});
+  // HSTS nur über HTTPS (hinter einem Proxy mit TRUST_PROXY=1) und in Produktion; lokal über http würde es nur schaden.
+  if(process.env.NODE_ENV === 'production' && req.secure) res.set('Strict-Transport-Security','max-age=31536000');
   if(req.path.startsWith('/api/')) res.set('Cache-Control','no-store');
   if(req.path.startsWith('/api/') && !['GET','HEAD'].includes(req.method)){
     const origin = req.get('origin');
@@ -239,9 +244,15 @@ app.get('/api/admin/participants',auth,admin,(req,res) => {
     return {...u,summary,light,reason};
   })});
 });
-app.use('/assets',express.static(path.join(root,'assets'),{dotfiles:'deny'}));
-app.get(['/', '/index.html'],(req,res) => res.sendFile(path.join(root,'index.html')));
-app.get('/admin',(req,res) => res.sendFile(path.join(root,'admin.html')));
+// Skripte, Styles und Daten haben keine Hash-Dateinamen: Sie werden bei jedem Aufruf per ETag revalidiert (304),
+// damit nach einer Änderung nie alte und neue Dateien gemischt laufen. Nur Schriften ändern sich praktisch nie
+// und bekommen deshalb eine lange Laufzeit.
+const revalidate = 'no-cache';
+app.use('/assets',express.static(path.join(root,'assets'),{dotfiles:'deny',setHeaders:(res,file) => {
+  res.setHeader('Cache-Control',/\.woff2?$/.test(file) ? 'public, max-age=2592000' : revalidate);
+}}));
+app.get(['/', '/index.html'],(req,res) => res.set('Cache-Control',revalidate).sendFile(path.join(root,'index.html')));
+app.get('/admin',(req,res) => res.set('Cache-Control',revalidate).sendFile(path.join(root,'admin.html')));
 app.use((err,req,res,next) => { console.error(err.message); const status=err.status===413?413:err instanceof SyntaxError&&err.status===400?400:500;res.status(status).json({error:status===400?'Ungültiges JSON.':'Anfrage konnte nicht verarbeitet werden.'}); });
 const port = Number(process.env.PORT || 5173), host = process.env.HOST || '127.0.0.1';
 app.listen(port,host,() => {
