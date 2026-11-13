@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 const checks=[
   {name:'laravel-tests',command:'php',args:['artisan','test','--compact'],cwd:'content/examples/laravel-lab'},
@@ -10,5 +11,6 @@ const checks=[
 ];
 const results=[];
 for(const check of checks){const result=spawnSync(check.command,check.args,{cwd:check.cwd,encoding:'utf8',timeout:check.timeout??120000});results.push({...check,exitCode:result.status,stdout:result.stdout,stderr:result.stderr});console.log(check.name,result.status===0?'PASS':'FAIL');}
-fs.writeFileSync('content/quality/lab-checks.json',JSON.stringify({checkedAt:new Date().toISOString(),results},null,2)+'\n');
+// Lokale Pfade (Projekt, Home-Verzeichnis) nicht ins öffentliche Repository schreiben.
+fs.writeFileSync('content/quality/lab-checks.json',JSON.stringify({checkedAt:new Date().toISOString(),results},null,2).replaceAll(process.cwd(),'<repo>').replaceAll(os.homedir(),'~')+'\n');
 if(results.some(r=>r.exitCode!==0))process.exitCode=1;

@@ -2,6 +2,8 @@ node_modules/
 test-results/
 playwright-report/
 .idea/
+*.iml
+.claude/settings.local.json
 .DS_Store
 .env
 .env.*

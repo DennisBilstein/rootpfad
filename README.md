@@ -19,6 +19,7 @@
   Sprachen) und Kategorie-Filter. `npm run verify:glossary` führt 127 Beispiele wirklich aus (Node 22, PHP 8.5, Java 26, SQLite, Git) und
   vergleicht die Ausgabe; jeder Eintrag zeigt, ob sein Beispiel getestet oder nur gezeigt wird. HTML, CSS, Vue, Laravel und ABAP werden
   nicht ausgeführt. Keine unabhängige Fachprüfung.
+- **Secret-Scan** (`npm run scan:secrets`): prüft alle von Git verfolgten Textdateien auf typische Schlüssel, Tokens, Zugangsdaten in URLs und lokale Home-Pfade; gibt nie den gefundenen Wert aus. Prüft nicht die Git-Historie (Stand 13.11.2026: Verlauf manuell mit denselben Mustern gescannt, keine Funde).
 - `npm run build` erzeugt `assets/lesson-videos-data.js`, `assets/syntax-glossary-data.js` und `assets/practice-puzzles-data.js`.
 
 ## Java 21–27, Spring Boot 4, Vue-Komponenten und Serverdaten · 12.11.2026
@@ -404,7 +405,7 @@ Beispiel unter Node 22.23.3; keine automatische Installation neuer Laufzeiten.
 ## Original-HTML erneut importieren
 
 ```sh
-python3 scripts/import-source.py /Users/dennis/Downloads/ROOTPFAD_pro.html
+python3 scripts/import-source.py ~/Downloads/ROOTPFAD_pro.html
 ```
 
 Dabei werden `index.html` und die aus dem Export erzeugten Assets überschrieben.

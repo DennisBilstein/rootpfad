@@ -11,6 +11,7 @@
     "build": "node scripts/build-lesson-videos.mjs && node scripts/build-syntax-glossary.mjs && node scripts/build-puzzles.mjs && node scripts/build-experts.mjs --cached",
     "verify:videos": "node scripts/build-lesson-videos.mjs --verify",
     "verify:glossary": "node scripts/build-syntax-glossary.mjs --verify",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
     "verify:puzzles": "node scripts/build-puzzles.mjs --verify",
     "dev": "node server.mjs",
     "start": "node server.mjs"
