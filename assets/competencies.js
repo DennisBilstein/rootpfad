@@ -62,5 +62,5 @@ function rpRenderCompetencies(){
     if(state.currentId==='lernwerkstatt')document.getElementById('content').insertAdjacentHTML('afterbegin','<div class="callout"><h2>Gelesen ≠ wiedererkannt ≠ angewendet</h2><p>Praktische Arbeiten und getrennte Kompetenznachweise ansehen.</p><button class="start-btn" onclick="selectLesson(\'competencies\')">Kompetenzübersicht öffnen</button></div>');
   };
   var sideBase=renderSidebar;renderSidebar=function(){sideBase.apply(this,arguments);if(!document.getElementById('rpCompetencyNav')){var b=document.createElement('button');b.id='rpCompetencyNav';b.type='button';b.className='nav-link';b.textContent='Kompetenzen & Abnahmen';b.onclick=function(){selectLesson('competencies');};document.getElementById('moduleNav').before(b);}};
-  render();
+  if(!window.RP_BOOTING) render();
 })();

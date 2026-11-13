@@ -113,5 +113,5 @@ function rpRenderPractice(){
   };
   var sideBase=renderSidebar;
   renderSidebar=function(){sideBase.apply(this,arguments);var button=document.getElementById('gp-nav');if(!button){button=document.createElement('button');button.id='gp-nav';button.type='button';button.textContent='Geführte Codewerkstatt';button.className='nav-link';button.onclick=function(){selectLesson('guided');};document.getElementById('moduleNav').before(button);}};
-  render();
+  if(!window.RP_BOOTING) render();
 })();

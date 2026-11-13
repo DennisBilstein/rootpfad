@@ -35,6 +35,22 @@ function rpData(selected){
   };
 }
 function rpCompleted(){ return FLAT.filter(function(l){ return state.completed.has(l.id); }).length; }
+/* Der Spickzettel (ca. 100 KB HTML) wird je Lernpfad nur einmal gefiltert; rpScoped läuft bei jedem Rendern mehrfach. */
+var rpSheetCache = {};
+function rpSheetHtml(selected){
+  var key = selected || rpPath;
+  if(rpSheetCache[key] === undefined){
+    var sheet = document.createElement('div'); sheet.innerHTML = rpCatalog.sheet;
+    sheet.querySelectorAll('[id^="spickzettel-"]').forEach(function(section){
+      if(!rpMatches(section.id.replace('spickzettel-', ''), selected)) section.remove();
+    });
+    if(key === 'java' || key === 'abap') {
+      var section = sheet.querySelector('#spickzettel-' + key);
+      rpSheetCache[key] = section ? section.outerHTML : '';
+    } else rpSheetCache[key] = sheet.innerHTML;
+  }
+  return rpSheetCache[key];
+}
 var rpScopeDepth = 0;
 function rpScoped(fn, selected){
   if(rpScopeDepth) return fn();
@@ -44,14 +60,7 @@ function rpScoped(fn, selected){
   MODULES = d.modules; FLAT = d.lessons; CARDS = d.cards; EXERCISES = d.exercises; TRACES = d.traces; LABOR = d.labor;
   PARTS = Array.from(new Set(MODULES.map(function(m){ return m.part; })));
   TOTAL = FLAT.length; TOTAL_MIN = FLAT.reduce(function(n,l){ return n + l.minutes; },0);
-  var sheet = document.createElement('div'); sheet.innerHTML = rpCatalog.sheet;
-  sheet.querySelectorAll('[id^="spickzettel-"]').forEach(function(section){
-    if(!rpMatches(section.id.replace('spickzettel-', ''), selected)) section.remove();
-  });
-  if((selected || rpPath) === 'java' || (selected || rpPath) === 'abap') {
-    var section = sheet.querySelector('#spickzettel-' + (selected || rpPath));
-    CHEATSHEET_HTML = section ? section.outerHTML : '';
-  } else CHEATSHEET_HTML = sheet.innerHTML;
+  CHEATSHEET_HTML = rpSheetHtml(selected);
   try { return fn(); }
   finally {
     [MODULES, FLAT, CARDS, EXERCISES, TRACES, PARTS, TOTAL, TOTAL_MIN, CHEATSHEET_HTML, LABOR] = old;
@@ -145,5 +154,5 @@ function rpPicker(){
   EXAM_MODES.fehler.allPaths = true;
   EXAM_MODES.weak.allPaths = true;
   if(rpLessonPaths[state.currentId] && !rpMatches(rpLessonPaths[state.currentId])) state.currentId = 'intro';
-  render();
+  if(!window.RP_BOOTING) render();
 })();

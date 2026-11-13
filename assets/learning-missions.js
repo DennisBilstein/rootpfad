@@ -186,5 +186,5 @@ function rpRenderWorkshop(){
     if(!button){ button = document.createElement('button'); button.id = 'rpWorkshopNav'; button.type = 'button'; button.textContent = 'Lernwerkstatt & Missionen'; button.onclick = function(){selectLesson('lernwerkstatt');}; document.getElementById('moduleNav').before(button); }
     button.className = 'nav-link'+(['lernwerkstatt','mission','boss'].includes(state.currentId) ? ' active' : '');
   };
-  render();
+  if(!window.RP_BOOTING) render();
 })();

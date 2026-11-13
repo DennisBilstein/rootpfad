@@ -88,6 +88,6 @@ window.RP_ACCOUNT_READY=(async function(){
     }
     var params = new URLSearchParams(location.hash.slice(1));
     if(!rpAccount && (params.has('setup') || params.has('invite'))) state.currentId = 'account';
-    render();
+    if(!window.RP_BOOTING) render();
   } catch(e){ rpSyncMessage = 'Offline-Modus · Anmeldung benötigt den ROOTPFAD-Server'; rpAccountBar(); }
 })();
