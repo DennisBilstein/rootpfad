@@ -10,7 +10,7 @@
   (Entwurf, rechtlich prüfen lassen).
 - **Kleine Denkaufgaben** (`content/puzzles.json`, 7 Aufgaben in `java-m25-l1`, `java-m25-l2`, `js-m4-l1`, `js-m4-l2`, `js-m4-l4`):
   „Fehler finden“ und „Zeilen ordnen“ (Parsons-Aufgabe, per Pfeil-Schaltflächen bedienbar). Jede Aufgabe nennt, womit sie geprüft wurde;
-  Java-Aufgaben prüft `npm run verify:puzzles` mit `javac`. Einmal 10 XP je Aufgabe, nicht nach Lösungsansicht. Kein neuer Speicher:
+  Java-Aufgaben prüft `npm run verify:puzzles` mit `javac`. Einmal 10 Grund-XP je Aufgabe (20 mit dem globalen XP-Faktor), nicht nach Lösungsansicht. Kein neuer Speicher:
   der Marker liegt im vorhandenen `xpLog`.
 - **Wiederholplan und schwächste Lektionen** im Fehlerheft (`assets/weak-spots.js`): fällige Karten der nächsten 7 Tage und die Lektionen
   mit der niedrigsten Trefferquote (ab 3 Antworten, unter 80 %), berechnet aus den vorhandenen Lerndaten.

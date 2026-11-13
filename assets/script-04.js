@@ -180,7 +180,7 @@ function labAufgabeHtml(t){
        '<span class="lab-chip' + (t.stufe === 4 ? ' boss' : '') + '">' + LAB_STUFEN[t.stufe] + '</span>' +
        (kata ? '<span class="lab-chip kata">Daily Dojo · doppelte XP</span>' : '') +
        (geloest ? '<span class="lab-chip ok">✓ gelöst</span>' : '') +
-       '<span class="lab-chip xp">+' + LAB_XP[t.stufe] + ' XP</span></div>';
+       '<span class="lab-chip xp">+' + xpAnzeige(LAB_XP[t.stufe]) + ' XP</span></div>';
   h += '<h4>' + esc(t.titel) + '</h4><p>' + esc(t.aufgabe) + '</p>';
   var sp = rbSprache(t.sprache);
 
@@ -363,6 +363,7 @@ function labGeschafft(t, st){
     var bonus = perfekt ? Math.min(25, (lab.combo - 1) * 5) : 0;
     if(bonus > 0) gruende.push('Combo ' + lab.combo + ' +' + bonus);
     gesamt += awardXp(basis + bonus, 'Code-Labor: ' + t.titel, 'lab:' + t.id) || 0;
+    gruende.push('alle XP ×' + XP_FAKTOR);
     if(labKata().id === t.id){
       var k = awardXp(LAB_XP[t.stufe], 'Daily Dojo', 'kata:' + labHeute()) || 0;
       if(k) { gesamt += k; gruende.push('Daily Dojo ×2'); }
@@ -491,7 +492,7 @@ function renderLabor(){
       h += '<button class="lab-mini' + (labGeloest(t.id) ? ' geloest' : '') + '" type="button" onclick="labOeffnen(\'' + t.id + '\')">' +
            '<span class="m-status">' + (labGeloest(t.id) ? '✓' : '') + '</span><span>' + esc(t.titel) +
            (m ? ' <span style="color:var(--text-dim);font-size:.8rem;">· ' + esc(m.title) + '</span>' : '') + '</span>' +
-           '<span class="m-typ">' + LAB_TYPEN[t.typ] + ' · +' + LAB_XP[t.stufe] + '</span></button>';
+           '<span class="m-typ">' + LAB_TYPEN[t.typ] + ' · +' + xpAnzeige(LAB_XP[t.stufe]) + '</span></button>';
     });
   });
   return h;

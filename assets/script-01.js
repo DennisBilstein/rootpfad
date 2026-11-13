@@ -15003,12 +15003,18 @@ function showToast(html, cls){
   setTimeout(function(){ if(el.parentNode) el.parentNode.removeChild(el); }, 3100);
 }
 
+/* Alle neu vergebenen XP werden mit XP_FAKTOR multipliziert. Beträge an den Aufrufstellen sind Grundwerte; Texte rechnen mit xpAnzeige() um.
+   Bereits gesammelte XP, Rangschwellen und Abzeichen-Grenzen bleiben unverändert. */
+var XP_FAKTOR = 2;
+function xpAnzeige(basis){ return basis * XP_FAKTOR; }
+
 /* once: optionaler Schlüssel, der XP nur einmalig vergibt */
 function awardXp(amount, reason, once){
   if(once){
     if(state.xpLog[once]) return 0;
     state.xpLog[once] = 1;
   }
+  amount = xpAnzeige(amount);
   var before = rankFor(state.xp || 0).lvl;
   state.xp = (state.xp || 0) + amount;
   bumpStreak();
@@ -15027,7 +15033,7 @@ function grantBadge(id){
   if(!b) return;
   state.badges[id] = Date.now();
   showToast('<span class="t-xp">'+b.icon+' Abzeichen</span><span class="t-reason">'+esc(b.name)+'</span>', 'badge');
-  state.xp = (state.xp || 0) + 25;
+  state.xp = (state.xp || 0) + xpAnzeige(25);
   updateXpBar();
   saveProgress();
 }
@@ -15705,7 +15711,7 @@ function renderExercises(){
 
     html += '<div class="ex-actions">';
     html += '<button class="ex-btn'+(solved?'':' primary')+'" id="sv_'+ex.id+'" onclick="toggleSolved(\''+ex.id+'\')">'+
-            (solved ? '✓ Gelöst' : 'Als gelöst markieren +30 XP')+'</button>';
+            (solved ? '✓ Gelöst' : 'Als gelöst markieren +'+xpAnzeige(30)+' XP')+'</button>';
     ex.hints.forEach(function(h, i){
       html += '<button class="ex-btn" onclick="toggleHint(\''+ex.id+'\','+i+')">💡 Tipp '+(i+1)+'</button>';
     });
@@ -15734,7 +15740,7 @@ function renderExercises(){
         '<button class="ex-btn primary" id="ueBtn_'+ex.id+'" onclick="uePruefen(\''+ex.id+'\')">Lösung prüfen lassen</button>'+
         '<button class="ex-btn" onclick="ueLeeren(\''+ex.id+'\')">Leeren</button>'+
         '<button class="ex-btn" onclick="togglePrompt(\''+ex.id+'\')">Prüfauftrag für den Chat</button>'+
-        '<span class="ue-note" id="ueNote_'+ex.id+'">Strg + Enter prüft · '+ueMax+' Punkte möglich · +10 XP</span>'+
+        '<span class="ue-note" id="ueNote_'+ex.id+'">Strg + Enter prüft · '+ueMax+' Punkte möglich · +'+xpAnzeige(10)+' XP</span>'+
       '</div>'+
       '<div class="ue-erg" id="ueErg_'+ex.id+'"'+(ueHtml ? '' : ' hidden')+'>'+ueHtml+'</div>'+
       '</div>';
@@ -15793,7 +15799,7 @@ function ueLeeren(exId){
   delete ue.fehler[exId];
   ueErgZeichnen(exId);
   var n = document.getElementById('ueNote_' + exId);
-  if(n){ n.className = 'ue-note'; n.textContent = 'Strg + Enter prüft · +10 XP'; }
+  if(n){ n.className = 'ue-note'; n.textContent = 'Strg + Enter prüft · +' + xpAnzeige(10) + ' XP'; }
 }
 
 function ueKnopfStand(exId){
@@ -15881,7 +15887,7 @@ async function uePruefen(exId){
     if(feld) feld.focus();
     return;
   }
-  if(note){ note.className = 'ue-note'; note.textContent = 'Strg + Enter prüft · +10 XP'; }
+  if(note){ note.className = 'ue-note'; note.textContent = 'Strg + Enter prüft · +' + xpAnzeige(10) + ' XP'; }
 
   if(!tutor.ready) await tutorInit();
   if(!tutor.fn){
@@ -16641,7 +16647,7 @@ function renderProfile(){
     '<textarea class="io-area" id="ioArea" hidden spellcheck="false"></textarea>'+
     '</div>';
 
-  h += '<div class="ex-panel" style="margin-top:20px;"><strong>Wie XP entstehen:</strong> Lektion abschließen +50 · Quizfrage erstmals richtig +10 · Karteikarte gewusst +5 (gefestigte Karten +8) · Vorhersage im Algorithmus-Trainer +15 · Trockendurchlauf gelöst +40 · Übungsaufgabe gelöst +30 · Prüfung 3 XP je richtiger Antwort · Abzeichen +25. Punkte gibt es pro Aufgabe nur einmal — Wiederholen zählt fürs Gedächtnis, nicht fürs Punktekonto.</div>';
+  h += '<div class="ex-panel" style="margin-top:20px;"><strong>Wie XP entstehen:</strong> Lektion abschließen +'+xpAnzeige(50)+' · Quizfrage erstmals richtig +'+xpAnzeige(10)+' · Karteikarte gewusst +'+xpAnzeige(5)+' (gefestigte Karten +'+xpAnzeige(8)+') · Vorhersage im Algorithmus-Trainer +'+xpAnzeige(15)+' · Trockendurchlauf gelöst +'+xpAnzeige(40)+' · Übungsaufgabe gelöst +'+xpAnzeige(30)+' · Prüfung '+xpAnzeige(3)+' XP je richtiger Antwort · Abzeichen +'+xpAnzeige(25)+'. Punkte gibt es pro Aufgabe nur einmal — Wiederholen zählt fürs Gedächtnis, nicht fürs Punktekonto.</div>';
   return h;
 }
 
@@ -16842,7 +16848,7 @@ function renderSubnet(){
   var t = subnet.task;
 
   var h = '<div class="breadcrumb">Training</div><h1>Subnetting-Trainer</h1>';
-  h += '<p class="intro-sub">Subnetting lernt man nicht durch Lesen, sondern durch Wiederholung. Dieser Trainer erzeugt bei jedem Klick eine neue Aufgabe aus vier Typen &mdash; Adresse analysieren, Maske umrechnen, Praefix aus dem Hostbedarf bestimmen und ein Netz aufteilen. Jede geloeste Aufgabe bringt 10 XP.</p>';
+  h += '<p class="intro-sub">Subnetting lernt man nicht durch Lesen, sondern durch Wiederholung. Dieser Trainer erzeugt bei jedem Klick eine neue Aufgabe aus vier Typen &mdash; Adresse analysieren, Maske umrechnen, Praefix aus dem Hostbedarf bestimmen und ein Netz aufteilen. Jede geloeste Aufgabe bringt '+xpAnzeige(10)+' XP.</p>';
 
   h += '<div class="stat-row" style="margin-bottom:18px;">'+
     '<div class="stat-tile"><div class="num">'+subnet.right+'</div><div class="lbl">richtig</div></div>'+
@@ -17389,7 +17395,7 @@ function renderTutor(){
 
   h += '<p class="intro-sub">Frag alles zum Pr\u00fcfungsstoff: Begriffe erkl\u00e4ren lassen, eine \u00dcbungsaufgabe anfordern, ' +
        'deine eigene L\u00f6sung pr\u00fcfen lassen oder zwei Begriffe gegen\u00fcberstellen. Der Tutor kennt den Aufbau dieses Kurses ' +
-       'und verweist auf die passende Lektion. Jede Frage bringt 5 XP.</p>' +
+       'und verweist auf die passende Lektion. Jede Frage bringt ' + xpAnzeige(5) + ' XP.</p>' +
        '<p class="intro-sub">Derselbe Tutor sitzt unten rechts in jeder Ansicht \u2014 dort beantwortet er Fragen, '+
        'ohne dass du die Lektion verl\u00e4sst. Der Verlauf ist hier und dort derselbe.</p>';
 
@@ -19645,7 +19651,7 @@ function dockZeichnen(){
   if(v){
     if(!tutor.turns.length){
       v.innerHTML = '<div class="dock-leer">Frag alles zum Pr\u00fcfungsstoff. Der Tutor wei\u00df, ' +
-        'wo du gerade bist, und verweist auf die passende Lektion. Jede Frage bringt 5 XP.</div>';
+        'wo du gerade bist, und verweist auf die passende Lektion. Jede Frage bringt ' + xpAnzeige(5) + ' XP.</div>';
     } else {
       var h = '';
       tutor.turns.forEach(function(t, i){

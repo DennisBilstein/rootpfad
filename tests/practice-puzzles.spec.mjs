@@ -22,9 +22,9 @@ test('Fehler finden: falsche Antwort gibt nur einen Tipp, richtige erklärt und 
   await expect(puzzle.locator('.rp-feedback')).toContainText('toRefs');
   await expect(puzzle.locator('.rp-feedback')).toContainText('Geprüft: vue-lab');
   await expect(puzzle.locator('.rp-solved')).toBeVisible();
-  expect(await page.evaluate(() => state.xp || 0)).toBe(xpBefore + 10);
+  expect(await page.evaluate(() => state.xp || 0)).toBe(xpBefore + 20);
   await puzzle.getByRole('button', { name: 'Antwort prüfen' }).click();            // erneut prüfen: keine zweite Belohnung
-  expect(await page.evaluate(() => state.xp || 0)).toBe(xpBefore + 10);
+  expect(await page.evaluate(() => state.xp || 0)).toBe(xpBefore + 20);
   await open(page, 'js-m4-l4');                                                    // gelöst bleibt nach Neurendern sichtbar
   await expect(card(page, 'js-m4-l4-destructured-reactive').locator('.rp-solved')).toBeVisible();
 });

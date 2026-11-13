@@ -1888,7 +1888,7 @@ function dockZeichnen(){
   if(v){
     if(!tutor.turns.length){
       v.innerHTML = '<div class="dock-leer">Frag alles zum Pr\u00fcfungsstoff. Der Tutor wei\u00df, ' +
-        'wo du gerade bist, und verweist auf die passende Lektion. Jede Frage bringt 5 XP.</div>';
+        'wo du gerade bist, und verweist auf die passende Lektion. Jede Frage bringt ' + xpAnzeige(5) + ' XP.</div>';
     } else {
       var h = '';
       tutor.turns.forEach(function(t, i){

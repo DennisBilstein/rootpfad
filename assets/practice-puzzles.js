@@ -1,6 +1,6 @@
 /* Kleine Denkaufgaben in Lektionen: „Fehler finden“ (bug) und „Zeilen ordnen“ (order, Parsons-Aufgabe).
    Daten: practice-puzzles-data.js (aus content/puzzles.json). Der Fortschritt nutzt das vorhandene XP-System
-   (einmal 10 XP je Aufgabe, Marker state.xpLog['puzzle:<id>']); es kommen keine neuen Speicherfelder dazu. */
+   (einmal 10 Grund-XP je Aufgabe, vom Faktor XP_FAKTOR in awardXp verdoppelt, Marker state.xpLog['puzzle:<id>']); es kommen keine neuen Speicherfelder dazu. */
 (function(){
   var XP = 10;
   function esc(value){ return String(value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }

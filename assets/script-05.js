@@ -248,7 +248,7 @@ renderLabor = function(){
     return '<div class="lab-quest' + (st.voll ? ' fertig' : '') + '"><div class="q-kopf"><span class="q-icon">' + q.icon + '</span>' +
       '<span class="q-titel">' + esc(q.titel) + '</span></div><div class="q-text">' + esc(q.text) + '</div>' +
       '<div class="q-bahn"><i style="width:' + Math.round(st.fertig / st.gesamt * 100) + '%"></i></div>' +
-      '<div class="q-fuss"><span>' + st.fertig + '/' + st.gesamt + ' · +' + q.xp + ' XP</span>' +
+      '<div class="q-fuss"><span>' + st.fertig + '/' + st.gesamt + ' · +' + xpAnzeige(q.xp) + ' XP</span>' +
       (st.voll ? '<span style="color:var(--success)">✓ geschafft</span>' :
        '<button class="ex-btn q-weiter" type="button" onclick="labOeffnen(\'' + st.naechste + '\')" title="' + esc(n ? n.titel : '') + '">Weiter</button>') +
       '</div></div>';
@@ -279,7 +279,7 @@ renderLabor = function(){
       h += '<button class="lab-mini' + (labGeloest(t.id) ? ' geloest' : '') + '" type="button" onclick="labOeffnen(\'' + t.id + '\')">' +
            '<span class="m-status">' + (labGeloest(t.id) ? '✓' : '') + '</span><span>' + esc(t.titel) +
            (m ? ' <span style="color:var(--text-dim);font-size:.8rem;">· ' + esc(m.title) + '</span>' : '') + '</span>' +
-           '<span class="m-typ">' + LAB_TYPEN[t.typ] + ' · +' + LAB_XP[t.stufe] + '</span></button>';
+           '<span class="m-typ">' + LAB_TYPEN[t.typ] + ' · +' + xpAnzeige(LAB_XP[t.stufe]) + '</span></button>';
     });
   });
   return h;
