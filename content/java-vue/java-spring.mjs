@@ -24,7 +24,7 @@ Flyway löst das wie Git für die Datenbank: Jede Strukturänderung steht in ein
 
 Hibernate bekommt dabei eine reine Prüfrolle: ddl-auto=validate. Es erzeugt nichts, sondern meldet beim Start, wenn eine Entity nicht zur Tabelle passt.`,
     steps: [
-      'Abhängigkeit: In Spring Boot 4 brauchst du spring-boot-starter-flyway. Die reine Flyway-Bibliothek allein reicht nicht mehr (laut Boot-4-Migrationsleitfaden).',
+      'Abhängigkeit: In Spring Boot 4 brauchst du spring-boot-starter-flyway. Die reine Flyway-Bibliothek allein reicht nicht mehr (laut Boot-4-Migrationsleitfaden). Für PostgreSQL kommt außerdem org.flywaydb:flyway-database-postgresql dazu; ohne dieses Modul meldete Flyway im Lab „Unsupported Database: PostgreSQL 17.11“.',
       'Dateien liegen in src/main/resources/db/migration und heißen V<Version>__<Beschreibung>.sql, mit zwei Unterstrichen.',
       'V1 legt die Tabelle task an. V2 fügt eine optionale Spalte due_date hinzu. Beide Dateien siehst du unten.',
       'In application.properties steht spring.jpa.hibernate.ddl-auto=validate. Das Schema gehört Flyway; Hibernate prüft nur.',
@@ -101,14 +101,20 @@ Spring Boot macht das Anbinden fast unsichtbar: @ServiceConnection am Container 
       '@ServiceConnection bindet den Container an die DataSource der Anwendung.',
       '@DataJpaTest lädt nur den Datenzugriff (Entities, Repositories, Flyway). Mit @AutoConfigureTestDatabase(replace = NONE) verhinderst du, dass Boot automatisch eine eingebettete Datenbank anstelle deines Containers einsetzt.',
       'Flyway läuft dabei mit denselben SQL-Dateien wie in Produktion. Der Test prüft also gleichzeitig Migrationen und Abfragen.',
-      'Wichtig zur Ehrlichkeit: In dieser Lernumgebung lief kein Docker-Daemon. Der Test wurde deshalb nur kompiliert, aber nicht ausgeführt; Maven meldet „Skipped: 1“.',
+      'Beobachtung im Lab: Ohne Docker meldete Maven „Skipped: 1“ und alles wirkte grün. Als Docker später lief, scheiterte der Test mit „Unsupported Database: PostgreSQL 17.11“. Ursache: Flyway braucht für PostgreSQL das Zusatzmodul flyway-database-postgresql (pom.xml). Nach dem Ergänzen lief der Test gegen einen echten PostgreSQL-17-Container grün. Genau dafür gibt es solche Tests, und genau das hat der übersprungene Lauf verdeckt.',
     ],
     code: { file: lab + 'src/test/java/de/rootpfad/lab/task/PostgresTaskRepositoryTest.java', lang: 'Java' },
     code2: { file: lab + 'pom.xml', lang: 'XML', from: '<artifactId>spring-boot-testcontainers</artifactId>', to: '<artifactId>postgresql</artifactId>', back: 2, plus: 2 },
     order: ['body', 'code', 'code2', 'body2'],
-    output: `Beobachtet ohne laufenden Docker-Daemon:
+    output: `1) Ohne laufenden Docker-Daemon:
 [WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1 -- in de.rootpfad.lab.task.PostgresTaskRepositoryTest
-(nicht ausgeführt – das ist kein bestandener Test)`,
+(nicht ausgeführt – das ist kein bestandener Test)
+
+2) Mit Docker, aber ohne Flyway-PostgreSQL-Modul:
+Error creating bean with name 'flywayInitializer': Unsupported Database: PostgreSQL 17.11
+
+3) Mit Docker und flyway-database-postgresql:
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0 -- in de.rootpfad.lab.task.PostgresTaskRepositoryTest`,
     mistakes: [
       { wrong: 'Den Container als nicht-statisches Feld anlegen.',
         why: 'Dann startet für jede Testmethode ein neuer Container. Das macht die Testsuite sehr langsam.',
@@ -150,7 +156,7 @@ Spring Boot macht das Anbinden fast unsichtbar: @ServiceConnection am Container 
       docs('Spring Boot Referenz: Testcontainers', 'https://docs.spring.io/spring-boot/reference/testing/testcontainers.html'),
       docs('Testcontainers for Java: PostgreSQL-Modul', 'https://java.testcontainers.org/modules/databases/postgres/', 'Testcontainers-Quelltext laut GitHub: MIT-Lizenz.'),
     ],
-    verification: 'Der Test kompiliert unter Spring Boot 4.1.2 mit Testcontainers 2.x (Paket org.testcontainers.postgresql). NICHT ausgeführt: In dieser Umgebung lief kein Docker-Daemon; Maven meldete den Test als übersprungen.',
+    verification: 'Der Test lief unter Spring Boot 4.1.2 mit Testcontainers 2.x (Paket org.testcontainers.postgresql) gegen einen echten PostgreSQL-17-Container (Docker Desktop, Maven-Lauf des Labs, 1 Test grün). Der erste Lauf mit Docker deckte den fehlenden Flyway-Baustein flyway-database-postgresql auf. NICHT geprüft: andere Datenbankversionen, CI-Umgebungen ohne Docker (dort wird der Test übersprungen) und Testcontainers Cloud.',
   },
 
   {

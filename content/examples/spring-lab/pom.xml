@@ -34,6 +34,12 @@
 			<artifactId>spring-boot-starter-flyway</artifactId>
 		</dependency>
 		<dependency>
+			<!-- Flyway bringt den Datenbanktreiber-Baustein nicht mit: ohne ihn meldet Flyway "Unsupported Database: PostgreSQL". -->
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-restclient</artifactId>
 		</dependency>

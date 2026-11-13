@@ -1,0 +1,30 @@
+.rp-puzzles{margin:var(--s4, 32px) 0; padding-top:var(--s2, 16px); border-top:1px solid var(--border);}
+.rp-puzzles h2{margin:0 0 .35em;}
+.rp-puzzle-hint{color:var(--text-2); font-size:.9rem; margin:0 0 1em; max-width:70ch;}
+.rp-puzzle{border:1px solid var(--border); border-radius:8px; padding:14px 16px; margin:0 0 14px; max-width:70ch;}
+.rp-puzzle h3{margin:0 0 .3em; font-size:1rem;}
+.rp-solved{font-size:.8rem; font-weight:600; color:var(--success, #1a7f37); margin-left:.4em;}
+.rp-lang{margin:0 0 .6em; font-size:.85rem; color:var(--text-2);}
+.rp-bug{border:0; padding:0; margin:0 0 .8em; min-width:0;}
+.rp-bug legend{font-size:.85rem; font-weight:600; padding:0; margin-bottom:.3em;}
+.rp-line{display:flex; align-items:center; gap:10px; min-height:44px; padding:2px 8px; border-radius:6px; cursor:pointer; overflow-x:auto;}
+.rp-line:hover{background:color-mix(in srgb, var(--accent) 10%, transparent);}
+.rp-line:has(input:checked){background:color-mix(in srgb, var(--accent) 18%, transparent);}
+.rp-line input{flex:none; width:20px; height:20px; accent-color:var(--accent);}
+.rp-line:has(input:focus-visible){outline:3px solid var(--accent); outline-offset:1px;}
+.rp-no{flex:none; width:1.6em; text-align:right; color:var(--text-2); font:.8rem var(--mono, monospace);}
+.rp-sr{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap;}
+.rp-line code,.rp-order code{white-space:pre; font-size:.85rem;}
+.rp-order{list-style:none; padding:0; margin:0 0 .8em;}
+.rp-order li{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:4px 6px 4px 10px; margin-bottom:4px; border:1px solid var(--border); border-radius:6px;}
+.rp-order li code{overflow-x:auto; min-width:0;}
+.rp-order-btns{display:flex; flex:none; gap:6px;}
+.rp-order-btns button{min-width:44px; min-height:44px; font:inherit; font-size:1.1rem; border-radius:6px; border:1px solid var(--border); background:transparent; color:var(--text); cursor:pointer;}
+.rp-puzzle button:hover{background:color-mix(in srgb, var(--accent) 12%, transparent);}
+.rp-puzzle button:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+.rp-puzzle-actions{display:flex; flex-wrap:wrap; gap:10px;}
+.rp-puzzle-actions button{font:inherit; font-weight:600; padding:10px 14px; min-height:44px; border-radius:8px; border:1px solid var(--accent); background:transparent; color:var(--accent); cursor:pointer;}
+.rp-puzzle-actions .rp-secondary{border-color:var(--border); color:var(--text-2); font-weight:500;}
+.rp-feedback{margin:.7em 0 0; min-height:1.4em; font-size:.92rem; color:var(--text); overflow-wrap:anywhere;}
+.rp-feedback small{color:var(--text-2);}
+@media (prefers-reduced-motion:reduce){.rp-puzzle *{transition:none!important;}}

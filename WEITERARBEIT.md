@@ -3,14 +3,21 @@
 ## Neuester Stand 12.11.2026: Java- und Vue-Vertiefung (30 Lektionen)
 
 Bestand jetzt 121 Module / 500 Lektionen / 1367+306=1673 Karten; Manifest 38 Skripte; 42 Playwright-Tests,
-`npm run audit:learning` ohne Fehler, `npm run test:labs` (Laravel, Vue, Spring) grün; vue-lab 109 Tests in 10 Dateien.
+`npm run audit:learning` ohne Fehler, `npm run test:labs` (Laravel, Vue, Spring) grün; vue-lab 110 Tests in 10 Dateien.
 Neue Module: java-m25 (Teil 19), java-m26 (Teil 22), js-m2, js-m3 und js-m4 (Teil 23). Inhalte in `content/java-vue/*.mjs`
 (js-m4: `vue-advanced.mjs`; Lektionen mit optionalen Feldern `background` und `terms`, `<dl>`-Stil in `assets/style-02.css`),
 Generator `scripts/prepare-java-vue-content.mjs` (liest Code aus den Labs, schreibt `content/learning-refinements.json`),
 Abnahmen `content/assessments-java-vue.json`, Quizrevision `2026-11-12-java-vue-v1`.
 Labs: `content/examples/java-modern` (Einzeldateien, JDK 21/26), `spring-lab` (Boot 4.1.2, `./mvnw test`),
 `vue-lab` (zod 4.6.7, @tanstack/vue-query 5.107.1). Neu aufgenommen in `scripts/run-learning-checks.mjs`: spring-tests.
-Offen/ehrlich: Testcontainers-Test (Docker-Daemon lief nicht) nur kompiliert; kein PostgreSQL-Lauf; Structured Concurrency ist
+Stand 13.11.2026: Testcontainers-Test lief mit Docker gegen PostgreSQL 17 und deckte das fehlende Modul flyway-database-postgresql auf
+(pom.xml ergänzt, Lektionen java-m26-l1/l2 angepasst); der Spring-Check in `run-learning-checks.mjs` hat jetzt 10 Minuten Zeit.
+Neue Bausteine (Plan „Videos, Denkaufgaben, Wiederholplan“): `content/lesson-videos.json` + `scripts/build-lesson-videos.mjs`,
+`content/puzzles.json` + `scripts/build-puzzles.mjs`, `assets/lesson-videos*.{js,css}`, `assets/practice-puzzles*.{js,css}`,
+`assets/weak-spots*.{js,css}`; Teil-CSP in `server.mjs`. NACH Änderungen an `assets/script-01.js` immer `npm run build`, weil die
+Lernskripte unter `assets/learning/` daraus erzeugt werden. Noch offen: Videos für Vue/PHP-Laravel (keine verifizierten IDs gefunden),
+Rest von ABAP/SAP; Google Fonts wird in `index.html` weiterhin von Google geladen (Datenschutz, nicht Teil dieses Auftrags).
+Offen/ehrlich (Stand 12.11.): Structured Concurrency ist
 Preview; Suspense laut Vue-Doku experimentell; Dialog-Test nutzt jsdom-Nachbildungen, echte Tastatur-/Screenreaderprüfung fehlt;
 keine unabhängige Fachfreigabe. Die ursprüngliche Anfrage des Nutzers war abgeschnitten („…ziehe dir das aus dem dazugehö“):
 nachfragen, welche weitere Quelle gemeint war. Bekannt, nicht von diesem Auftrag: Quiz-Kasten (fieldset.qcard) läuft bei 375 px

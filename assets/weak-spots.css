@@ -1,0 +1,16 @@
+.ws-panel{margin:0 0 var(--s4, 28px); max-width:70ch;}
+.ws-panel h2{margin:0 0 .4em; font-size:1.15rem;}
+.ws-note{color:var(--text-2); font-size:.9rem; margin:.5em 0;}
+.ws-table{width:100%; border-collapse:collapse; font-size:.92rem; margin:.4em 0;}
+.ws-table caption{text-align:left; color:var(--text-2); font-size:.85rem; padding-bottom:.4em;}
+.ws-table th,.ws-table td{padding:8px 10px; border-bottom:1px solid var(--border); text-align:left; vertical-align:middle;}
+.ws-table thead th{font-size:.8rem; color:var(--text-2); font-weight:600;}
+.ws-table tbody th{font-weight:500; overflow-wrap:anywhere;}
+.ws-table button{min-height:44px;}
+@media (max-width:560px){
+  .ws-table,.ws-table thead,.ws-table tbody,.ws-table tr,.ws-table th,.ws-table td{display:block;}
+  .ws-table thead{position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%);}
+  .ws-table tr{padding:8px 0; border-bottom:1px solid var(--border);}
+  .ws-table th,.ws-table td{border:0; padding:2px 0;}
+  .ws-table td[data-label]::before{content:attr(data-label) ": "; color:var(--text-2);}
+}

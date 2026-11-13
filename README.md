@@ -1,5 +1,21 @@
 # ROOTPFAD
 
+## Lernfunktionen: Videos, Denkaufgaben, Wiederholplan · 13.11.2026
+
+- **Videos zu Lektionen** (`content/lesson-videos.json`, aktuell 6 Videos, Englisch, offizielle Kanäle von Java, Spring und SAP):
+  nichts wird heruntergeladen oder gespiegelt. Das Video wird erst nach einem Klick auf „Video laden“ über
+  `youtube-nocookie.com` eingebettet; vorher gibt es keine Anfrage an YouTube/Google. Daneben steht immer ein Direktlink.
+  Titel und Kanal prüft `npm run verify:videos` per oEmbed (braucht Netz); der Inhalt der Videos ist nicht geprüft.
+  Der Server sendet dafür eine Teil-CSP (frame-src, object-src, base-uri, frame-ancestors). Die Datenschutzseite nennt die Einbettung
+  (Entwurf, rechtlich prüfen lassen).
+- **Kleine Denkaufgaben** (`content/puzzles.json`, 7 Aufgaben in `java-m25-l1`, `java-m25-l2`, `js-m4-l1`, `js-m4-l2`, `js-m4-l4`):
+  „Fehler finden“ und „Zeilen ordnen“ (Parsons-Aufgabe, per Pfeil-Schaltflächen bedienbar). Jede Aufgabe nennt, womit sie geprüft wurde;
+  Java-Aufgaben prüft `npm run verify:puzzles` mit `javac`. Einmal 10 XP je Aufgabe, nicht nach Lösungsansicht. Kein neuer Speicher:
+  der Marker liegt im vorhandenen `xpLog`.
+- **Wiederholplan und schwächste Lektionen** im Fehlerheft (`assets/weak-spots.js`): fällige Karten der nächsten 7 Tage und die Lektionen
+  mit der niedrigsten Trefferquote (ab 3 Antworten, unter 80 %), berechnet aus den vorhandenen Lerndaten.
+- `npm run build` erzeugt `assets/lesson-videos-data.js` und `assets/practice-puzzles-data.js` aus den JSON-Dateien.
+
 ## Java 21–27, Spring Boot 4, Vue-Komponenten und Serverdaten · 12.11.2026
 
 24 neue Lektionen in vier Modulen, jeweils mit „In einfachen Worten“, Schritt-für-Schritt-Ablauf,
@@ -21,12 +37,12 @@ schreibt die Module in `content/learning-refinements.json`; danach `npm run buil
 aus den Lab-Dateien gelesen. Vier Modulabnahmen: `content/assessments-java-vue.json`.
 
 Ausführbare Belege (Stand 12.11.2026): `content/examples/java-modern` (JDK 21 und 26; Structured Concurrency mit
-`--enable-preview`, Gatherers erst ab JDK 24), `content/examples/spring-lab` (Spring Boot 4.1.2, Maven Wrapper; 18 Tests,
-17 bestanden, 1 übersprungen: der Testcontainers-Test braucht Docker und wurde nicht ausgeführt) und
-`content/examples/vue-lab` (38 Tests, `vue-tsc` und Build ohne Fehler). `npm run test:labs` führt alle Lab-Prüfungen aus.
+`--enable-preview`, Gatherers erst ab JDK 24), `content/examples/spring-lab` (Spring Boot 4.1.2, Maven Wrapper; 18 Tests, alle bestanden; der Testcontainers-Test
+startet einen PostgreSQL-17-Container und braucht laufendes Docker, sonst wird er übersprungen) und
+`content/examples/vue-lab` (110 Tests, `vue-tsc` und Build ohne Fehler). `npm run test:labs` führt alle Lab-Prüfungen aus.
 Lizenzhinweise: Vue-Dokumentation steht unter CC BY 4.0, Zod und TanStack Query unter MIT; es wurde kein fremder Code
 kopiert, Texte sind eigene Zusammenfassungen mit Quellenlinks. JEP- und Oracle-Texte sind nur verlinkt.
-Nicht geprüft: unabhängige Fachfreigabe, PostgreSQL-Lauf, echte Browser-/Screenreader-Bedienung des Dialogs.
+Nicht geprüft: unabhängige Fachfreigabe, echte Browser-/Screenreader-Bedienung des Dialogs.
 
 Aktueller Bestand: **121 Module, 500 Lektionen, 1.367 Lektionsfragen + 306 Zusatzkarten = 1.673 Karten**.
 

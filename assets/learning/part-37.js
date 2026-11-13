@@ -1728,6 +1728,7 @@ function renderContentIntern(){
   html += '<div class="lesson-head"><div><h1>'+esc(lesson.title)+'</h1><div class="meta-row"><span>⏱ ca. '+lesson.minutes+' Min.</span> '+relBadge(mod.relevanz)+'</div></div>';
   html += '<label class="complete-toggle'+(done?' on':'')+'"><input type="checkbox" '+(done?'checked':'')+' onchange="toggleComplete(\''+lesson.id+'\', this.checked)"> '+(done?'Abgeschlossen':'Als abgeschlossen markieren')+'</label></div>';
   html += renderLessonBlocks(lesson);
+  html += typeof rpPuzzleSection === 'function' ? rpPuzzleSection(lesson.id) : '';
   html += typeof rpVideoSection === 'function' ? rpVideoSection(lesson.id) : '';
   html += renderLektionWerkzeuge(lesson.id);
   if(lesson.tip){ html += '<div class="callout callout-tip"><div class="callout-label">★ Experten-Tipp</div><p>'+lesson.tip+'</p></div>'; }

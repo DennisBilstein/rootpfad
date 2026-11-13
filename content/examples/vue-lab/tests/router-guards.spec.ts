@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isNavigationFailure, NavigationFailureType } from 'vue-router';
+import { createMemoryHistory, createRouter, isNavigationFailure, NavigationFailureType } from 'vue-router';
 import { createAppRouter, safeRedirectTarget, type AuthState, type Role } from '../src/lessons/router/guards';
 
 function fakeAuth(state: { loggedIn: boolean; roles?: Role[]; ready?: Promise<void> }): AuthState {
@@ -67,6 +67,18 @@ describe('Navigation Guards', () => {
     const result = await router.push('/');
     expect(isNavigationFailure(result, NavigationFailureType.aborted)).toBe(true);
     expect(router.currentRoute.value.name).toBe('account');             // Ausgangsseite bleibt
+  });
+
+  it('eine geschützte Anmeldeseite erzeugt eine Endlosumleitung, die der Router abbricht', async () => {
+    const page = { template: '<p></p>' };
+    const router = createRouter({ history: createMemoryHistory(), routes: [
+      { path: '/', name: 'home', component: page },
+      { path: '/login', name: 'login', component: page, meta: { requiresAuth: true } },    // Fehler: Ausweichseite ist selbst geschützt
+      { path: '/account', name: 'account', component: page, meta: { requiresAuth: true } },
+    ] });
+    router.beforeEach((to) => (to.meta.requiresAuth ? { name: 'login' } : true));
+    await expect(router.push('/account')).rejects.toThrow('Infinite redirect in navigation guard');
+    expect(router.currentRoute.value.fullPath).toBe('/');                  // die Navigation kam nie an
   });
 
   it('setzt den Dokumenttitel nach jeder Navigation', async () => {

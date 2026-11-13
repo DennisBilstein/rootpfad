@@ -1,0 +1,149 @@
+{
+  "_comment": "Kleine Denkaufgaben je Lektion: 'bug' (fehlerhafte Zeile finden) und 'order' (Zeilen in die richtige Reihenfolge bringen, Parsons-Aufgabe). Bei 'order' stehen lines in der richtigen Reihenfolge, scramble ist die angezeigte Reihenfolge (Indizes). Jede Aussage ist geprüft; das Feld verified nennt womit.",
+  "puzzles": [
+    {
+      "id": "java-m25-l1-dominated-case",
+      "lessonId": "java-m25-l1",
+      "type": "bug",
+      "title": "Der Compiler lehnt den switch ab",
+      "task": "Dieser Code lässt sich nicht übersetzen. In welcher Zeile meldet der Compiler den Fehler?",
+      "language": "Java",
+      "lines": [
+        "static String describe(Object o) {",
+        "  return switch (o) {",
+        "    case CharSequence cs -> \"Text mit \" + cs.length() + \" Zeichen\";",
+        "    case String s -> \"String \" + s;",
+        "    default -> \"etwas anderes\";",
+        "  };",
+        "}"
+      ],
+      "bugLine": 3,
+      "hint": "Der switch prüft die Fälle von oben nach unten. Welche Fälle kann ein früherer Fall schon vollständig abdecken?",
+      "explanation": "String ist ein Untertyp von CharSequence. Jeder String wird deshalb schon vom ersten Fall erfasst; der zweite Fall wäre nie erreichbar („dominiert“). Die Lösung ist die umgekehrte Reihenfolge: erst der spezielle Typ (String), dann der allgemeine (CharSequence).",
+      "verified": "javac 26.0.1: Fehler „Dieses CASE-Label wird von einem vorherigen CASE-Label dominiert“ in dieser Zeile; mit vertauschten Fällen übersetzt der Code."
+    },
+    {
+      "id": "java-m25-l1-order-guarded-switch",
+      "lessonId": "java-m25-l1",
+      "type": "order",
+      "title": "switch mit Bedingung in die richtige Reihenfolge bringen",
+      "task": "Bringe die Zeilen in die Reihenfolge, in der der Code übersetzt und die Zahl 150 als „groß“ erkannt wird.",
+      "language": "Java",
+      "lines": [
+        "static String size(Object o) {",
+        "  return switch (o) {",
+        "    case Integer i when i > 100 -> \"groß\";",
+        "    case Integer i -> \"klein\";",
+        "    default -> \"unbekannt\";",
+        "  };",
+        "}"
+      ],
+      "scramble": [3, 6, 1, 4, 0, 5, 2],
+      "explanation": "Der Fall mit Bedingung (when) muss vor dem allgemeinen Fall für denselben Typ stehen, sonst dominiert der allgemeine Fall und der Code wird nicht übersetzt. default steht zuletzt.",
+      "verified": "javac 26.0.1: Von den 6 Reihenfolgen der drei Fall-Zeilen übersetzt nur diese; die übrigen scheitern mit „dominiert“."
+    },
+    {
+      "id": "java-m25-l2-non-exhaustive-switch",
+      "lessonId": "java-m25-l2",
+      "type": "bug",
+      "title": "Neuer Untertyp, alter switch",
+      "task": "Jemand hat Triangle zur versiegelten Hierarchie hinzugefügt. Der Code lässt sich jetzt nicht mehr übersetzen. In welcher Zeile meldet der Compiler den Fehler?",
+      "language": "Java",
+      "lines": [
+        "sealed interface Shape permits Circle, Square, Triangle {}",
+        "record Circle(double r) implements Shape {}",
+        "record Square(double side) implements Shape {}",
+        "record Triangle(double base, double height) implements Shape {}",
+        "static double area(Shape s) {",
+        "  return switch (s) {",
+        "    case Circle c -> Math.PI * c.r() * c.r();",
+        "    case Square q -> q.side() * q.side();",
+        "  };",
+        "}"
+      ],
+      "bugLine": 5,
+      "hint": "Der Compiler meldet die Lücke an der Stelle, wo der switch beginnt, nicht an einer der Fall-Zeilen.",
+      "explanation": "Bei einer versiegelten Hierarchie muss ein switch-Ausdruck alle erlaubten Untertypen abdecken. Triangle fehlt. Die richtige Lösung ist ein zusätzlicher Fall für Triangle, kein default: Ein default würde den Fehler verstecken, und bei der nächsten neuen Form meldet der Compiler nichts mehr.",
+      "verified": "javac 26.0.1: Fehler „Der Switch-Ausdruck deckt nicht alle möglichen Eingabewerte ab“ in der Zeile return switch (s) {."
+    },
+    {
+      "id": "js-m4-l1-protected-login",
+      "lessonId": "js-m4-l1",
+      "type": "bug",
+      "title": "Die Anmeldeseite, die sich selbst im Weg steht",
+      "task": "Ein nicht angemeldeter Nutzer öffnet /account. Die Navigation bricht mit „Infinite redirect in navigation guard“ ab. Welche Zeile ist die Ursache?",
+      "language": "JavaScript",
+      "lines": [
+        "const routes = [",
+        "  { path: '/', name: 'home', component: Home },",
+        "  { path: '/login', name: 'login', component: Login, meta: { requiresAuth: true } },",
+        "  { path: '/account', name: 'account', component: Account, meta: { requiresAuth: true } },",
+        "];",
+        "router.beforeEach((to) => {",
+        "  if (to.meta.requiresAuth && !auth.isLoggedIn()) return { name: 'login' };",
+        "});"
+      ],
+      "bugLine": 2,
+      "hint": "Wohin leitet der Guard um, und was passiert dort mit einem Gast?",
+      "explanation": "Die Anmeldeseite verlangt selbst eine Anmeldung. Der Guard leitet den Gast auf /login um, dort greift die Regel erneut, und so weiter. Der Router bricht die Kette ab. Ausweichseiten wie login und forbidden bleiben öffentlich.",
+      "verified": "vue-lab (vue-router 5.4.0): router.push('/account') wird mit „Infinite redirect in navigation guard“ abgelehnt, Test tests/router-guards.spec.ts."
+    },
+    {
+      "id": "js-m4-l1-order-guard",
+      "lessonId": "js-m4-l1",
+      "type": "order",
+      "title": "Guard für eine geschützte Route zusammensetzen",
+      "task": "Bringe die Zeilen in die Reihenfolge, in der ein Reload nicht kurz die Anmeldeseite zeigt.",
+      "language": "JavaScript",
+      "lines": [
+        "router.beforeEach(async (to) => {",
+        "  await auth.ready;",
+        "  if (!auth.isLoggedIn()) return { name: 'login', query: { redirect: to.fullPath } };",
+        "  return true;",
+        "});"
+      ],
+      "scramble": [3, 1, 4, 0, 2],
+      "explanation": "Erst abwarten, bis die Sitzung wiederhergestellt ist (await auth.ready), dann den Anmeldestatus prüfen. Wer die Prüfung vor das Warten setzt, sieht nach einem Reload noch den leeren Zustand und leitet fälschlich zur Anmeldung um.",
+      "verified": "vue-lab, tests/router-guards.spec.ts: Navigation bleibt offen, bis ready erfüllt ist (Test „wartet auf die Sitzungswiederherstellung“)."
+    },
+    {
+      "id": "js-m4-l2-order-auth-fetch",
+      "lessonId": "js-m4-l2",
+      "type": "order",
+      "title": "Genau eine Erneuerung, genau eine Wiederholung",
+      "task": "Bringe die Zeilen in die Reihenfolge, in der bei 401 einmal erneuert und die Anfrage einmal wiederholt wird.",
+      "language": "JavaScript",
+      "lines": [
+        "async function authFetch(url, init) {",
+        "  let response = await send(url, init);",
+        "  if (response.status !== 401) return response;",
+        "  await refresh();",
+        "  response = await send(url, init);",
+        "  return response;",
+        "}"
+      ],
+      "scramble": [4, 0, 6, 2, 5, 3, 1],
+      "explanation": "Erst senden, nur bei 401 erneuern, dann genau einmal wiederholen und die Antwort zurückgeben, auch wenn sie wieder 401 ist. Eine zweite Erneuerung würde eine Endlosschleife ermöglichen.",
+      "verified": "vue-lab, tests/auth.spec.ts: Bei dauerhaftem 401 gibt es genau einen Refresh und die 401-Antwort geht an den Aufrufer."
+    },
+    {
+      "id": "js-m4-l4-destructured-reactive",
+      "lessonId": "js-m4-l4",
+      "type": "bug",
+      "title": "Die Anzeige bleibt auf 0",
+      "task": "Nach state.count = 5 erwartet der Entwickler 10, bekommt aber 0. Welche Zeile ist die Ursache?",
+      "language": "JavaScript",
+      "lines": [
+        "const state = reactive({ count: 0 });",
+        "const { count } = state;",
+        "const double = computed(() => count * 2);",
+        "state.count = 5;",
+        "console.log(double.value); // 0 statt 10"
+      ],
+      "bugLine": 1,
+      "hint": "Was ist count nach dieser Zeile: eine Verbindung zu state oder etwas anderes?",
+      "explanation": "Beim Destrukturieren wird die Zahl 0 kopiert. count ist danach eine gewöhnliche Variable ohne Verbindung zu state, und das computed hat nichts zu verfolgen. Mit toRefs(state) oder direktem Zugriff auf state.count bleibt die Verbindung erhalten.",
+      "verified": "vue-lab (Vue 3.5.45): double.value bleibt 0, state.count ist 5; Test tests/reactivity-pitfalls.spec.ts."
+    }
+  ]
+}
