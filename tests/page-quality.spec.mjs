@@ -86,3 +86,21 @@ test('Große Datensätze werden erst beim Öffnen ihrer Ansicht geladen', async 
   await expect(page.locator('#rpAssessmentForm')).toBeVisible();
   expect(geladen('module-assessments-data.js')).toBe(true);
 });
+
+test('Sprunglink hat ein Ziel, Knöpfe haben Namen, die den sichtbaren Text enthalten', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForFunction(() => window.RP_APP_READY);
+  const r = await page.evaluate(() => {
+    const skip = document.querySelector('a.skip-link');
+    const chip = document.getElementById('lvlChip');
+    return {
+      target: !!document.querySelector(skip.getAttribute('href')),
+      dock: document.getElementById('dockKnopf').getAttribute('aria-label'),
+      chipName: chip.getAttribute('aria-label'),
+      chipLevel: chip.querySelector('.lc-lvl').textContent,
+    };
+  });
+  expect(r.target).toBe(true);
+  expect(r.dock).toBeTruthy();
+  expect(r.chipName).toContain(r.chipLevel);
+});

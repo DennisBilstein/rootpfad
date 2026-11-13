@@ -379,6 +379,7 @@ function updateXpBar(){
   if(chip){
     chip.innerHTML = '<span class="lc-icon">'+lp.cur.icon+'</span><span class="lc-lvl">Lv '+lp.cur.lvl+'</span>'+
                      '<span class="lc-name">'+esc(lp.cur.name)+'</span>';
+    chip.setAttribute('aria-label', 'Lv '+lp.cur.lvl+' '+lp.cur.name+', Profil und Abzeichen öffnen');
     chip.title = lp.nxt ? ('Noch ' + lp.need + ' XP bis „' + lp.nxt.name + '"') : 'Höchster Rang erreicht';
   }
   var bar = document.getElementById('xpFill');
@@ -2573,33 +2574,4 @@ function lernplan(){
 }
 function datumKurz(d){
   return d.toLocaleDateString('de-DE', { day:'2-digit', month:'2-digit' });
-}
-function renderLernplan(){
-  var p = lernplan();
-  if(!p){
-    if(state.pruefungsdatum) return '';
-    return '<div class="plan-hinweis">Trag im <button class="ex-btn" onclick="selectLesson(\'profile\')">Profil</button> '+
-           'deinen Prüfungstermin ein — dann rechnet dir der Lernplan aus, welches Modul bis wann sitzen muss.</div>';
-  }
-  if(p.fertig){
-    return '<div class="plan-hinweis gut">Alle Lektionen sind durch. Die verbleibenden '+p.puffer+' Tage '+
-           'gehören der Wiederholung: Karteikarten, Fehlerheft und Prüfungssimulationen.</div>';
-  }
-  var h = '<h2 class="sec-h">Lernplan bis zur Prüfung</h2>';
-  h += '<p class="intro-sub">'+p.proTag+' Lektionen pro Tag bis zum '+datumKurz(p.pufferStart)+'. '+
-       'Danach bleiben '+p.puffer+' Tage nur zum Wiederholen. '+
-       (p.machbar ? 'Dein Tagesziel reicht dafür.' : '<b>Das liegt über deinem Tagesziel</b> — zieh es im Profil nach oben oder plane längere Einheiten.')+
-       '</p>';
-  h += '<ol class="plan-liste">';
-  p.module.slice(0, 8).forEach(function(e){
-    h += '<li class="plan-zeile">'+
-      '<button class="plan-titel" onclick="selectLesson(\''+e.modul.lessons[0].id+'\')">'+esc(e.modul.title)+'</button>'+
-      '<span class="plan-offen">'+e.offen+' offen</span>'+
-      '<span class="plan-datum">bis '+datumKurz(e.datum)+'</span></li>';
-  });
-  h += '</ol>';
-  if(p.module.length > 8){
-    h += '<p class="plan-rest">… und '+(p.module.length - 8)+' weitere Module danach.</p>';
-  }
-  return h;
 }

@@ -277,6 +277,7 @@ function updateXpBar(){
   if(chip){
     chip.innerHTML = '<span class="lc-icon">'+lp.cur.icon+'</span><span class="lc-lvl">Lv '+lp.cur.lvl+'</span>'+
                      '<span class="lc-name">'+esc(lp.cur.name)+'</span>';
+    chip.setAttribute('aria-label', 'Lv '+lp.cur.lvl+' '+lp.cur.name+', Profil und Abzeichen öffnen');
     chip.title = lp.nxt ? ('Noch ' + lp.need + ' XP bis „' + lp.nxt.name + '"') : 'Höchster Rang erreicht';
   }
   var bar = document.getElementById('xpFill');
