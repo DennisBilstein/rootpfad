@@ -2528,7 +2528,10 @@ function renderRecht(){
       '<tr><td>Fragen an den Tutor</td><td>werden an den konfigurierten KI-Dienst &uuml;bertragen'+
       '</td><td>Beantwortung deiner Frage</td><td>nach den Regeln des Anbieters</td></tr>'+
       '<tr><td>Schriftarten</td><td>werden von Google Fonts geladen</td><td>Darstellung</td>'+
-      '<td>&mdash;</td></tr></table>';
+      '<td>&mdash;</td></tr>'+
+      '<tr><td>Eingebettete Videos</td><td>erst nach deinem Klick auf &bdquo;Video laden&ldquo; von '+
+      '<strong>youtube-nocookie.com</strong> (YouTube/Google) geladen; dabei wird u.&nbsp;a. deine IP-Adresse '+
+      '&uuml;bertragen</td><td>Video in der Lektion abspielen</td><td>nach den Regeln des Anbieters</td></tr></table>';
     h += '<p><strong>Kein Tracking, keine Werbung, keine Analysewerkzeuge.</strong> '+
          'Es werden keine Cookies zu Werbezwecken gesetzt.</p>';
     h += '<h2 class="sec-h">Noch auszuf&uuml;llen</h2>';
@@ -2539,6 +2542,7 @@ function renderRecht(){
       '<li>&Uuml;bermittlung in Drittl&auml;nder und deren Grundlage: '+luecke('falls zutreffend')+'</li>'+
       '<li>Wenn Google Fonts extern geladen wird, geh&ouml;rt der Hinweis auf die '+
       '&Uuml;bertragung der IP-Adresse hierher. '+luecke('Alternative: Schriften selbst ausliefern &mdash; dann entf&auml;llt der Punkt')+'</li>'+
+      '<li>Eingebettete YouTube-Videos: Einwilligung durch den Klick (Art. 6 Abs. 1 lit. a DSGVO, &sect; 25 TDDDG), Anbieter und Drittlandbezug (Google) benennen. '+luecke('rechtlich pr&uuml;fen lassen')+'</li>'+
       '<li>Kontakt der Datenschutzaufsicht deines Bundeslandes: '+luecke('Beh&ouml;rde nennen')+'</li>'+
       '</ul>';
     h += '<h2 class="sec-h">Deine Rechte</h2>';
@@ -4071,6 +4075,7 @@ function renderContentIntern(){
   html += '<div class="lesson-head"><div><h1>'+esc(lesson.title)+'</h1><div class="meta-row"><span>⏱ ca. '+lesson.minutes+' Min.</span> '+relBadge(mod.relevanz)+'</div></div>';
   html += '<label class="complete-toggle'+(done?' on':'')+'"><input type="checkbox" '+(done?'checked':'')+' onchange="toggleComplete(\''+lesson.id+'\', this.checked)"> '+(done?'Abgeschlossen':'Als abgeschlossen markieren')+'</label></div>';
   html += renderLessonBlocks(lesson);
+  html += typeof rpVideoSection === 'function' ? rpVideoSection(lesson.id) : '';
   html += renderLektionWerkzeuge(lesson.id);
   if(lesson.tip){ html += '<div class="callout callout-tip"><div class="callout-label">★ Experten-Tipp</div><p>'+lesson.tip+'</p></div>'; }
   html += renderQuiz(lesson);

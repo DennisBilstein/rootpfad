@@ -1,0 +1,53 @@
+{
+  "_comment": "Kuratierte, frei abrufbare Videos zu einzelnen Lektionen. Es wird nichts heruntergeladen oder gespiegelt: Das Video wird erst nach Klick über youtube-nocookie.com eingebettet, daneben steht immer ein Direktlink. Titel und Kanal sind per YouTube-oEmbed geprüft (node scripts/build-lesson-videos.mjs --verify); der Inhalt der Videos wurde NICHT geprüft.",
+  "videos": [
+    {
+      "lessonId": "java-m25-l1",
+      "id": "QrwFrm1R8OY",
+      "title": "Java 21 Pattern Matching Tutorial #RoadTo21",
+      "channel": "Java",
+      "language": "en",
+      "note": "Offizieller Java-Kanal (Oracle). Aufnahme zu Java 21, dem Stand, in dem Pattern Matching für switch und Record Patterns final wurden."
+    },
+    {
+      "lessonId": "java-m25-l2",
+      "id": "652kheEraHQ",
+      "title": "Sealed Classes - JEP Café #2",
+      "channel": "Java",
+      "language": "en",
+      "note": "Offizieller Java-Kanal (Oracle). Ältere Folge der Reihe JEP Café; erklärt die Idee der versiegelten Hierarchien."
+    },
+    {
+      "lessonId": "java-m25-l4",
+      "id": "6dpHdo-UnCg",
+      "title": "Virtual Thread Deep Dive - Inside Java Newscast #23",
+      "channel": "Java",
+      "language": "en",
+      "note": "Offizieller Java-Kanal (Oracle). Aufnahme aus der Java-21-Zeit; Details zur Implementierung können sich seitdem geändert haben."
+    },
+    {
+      "lessonId": "java-m25-l5",
+      "id": "2nOj8MKHvmw",
+      "title": "Java Asynchronous Programming Full Tutorial with Loom and Structured Concurrency - JEP Café #13",
+      "channel": "Java",
+      "language": "en",
+      "note": "Offizieller Java-Kanal (Oracle). Structured Concurrency ist ein Preview-Feature; die API hat sich seit dieser Aufnahme geändert, prüfe sie gegen die verlinkten JEPs."
+    },
+    {
+      "lessonId": "java-m26-l2",
+      "id": "msb2b3BeeQo",
+      "title": "Spring Tips: Testcontainers, Docker Compose, and Service Connections, oh my!",
+      "channel": "SpringDeveloper",
+      "language": "en",
+      "note": "Kanal des Spring-Teams. Aufnahme von 2024 (Spring Boot 3.x); mit Spring Boot 4 gelten für Testcontainers 2 geänderte Abhängigkeiten, siehe die Lektion."
+    },
+    {
+      "lessonId": "abap-m14-l1",
+      "id": "ApZSn_t_WSo",
+      "title": "🟢 Overview of ABAP Cloud",
+      "channel": "SAP Developers",
+      "language": "en",
+      "note": "Offizieller SAP-Developers-Kanal; Aufzeichnung einer Devtoberfest-Sitzung. Produktstände und Begriffe in SAP-Videos veralten schnell."
+    }
+  ]
+}

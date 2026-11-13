@@ -8,7 +8,8 @@
     "test:labs": "node scripts/run-learning-checks.mjs",
     "audit:learning": "node scripts/validate-learning-release.mjs",
     "build:experts": "node scripts/build-experts.mjs",
-    "build": "node scripts/build-experts.mjs --cached",
+    "build": "node scripts/build-lesson-videos.mjs && node scripts/build-experts.mjs --cached",
+    "verify:videos": "node scripts/build-lesson-videos.mjs --verify",
     "dev": "node server.mjs",
     "start": "node server.mjs"
   },

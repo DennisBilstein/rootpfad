@@ -1,0 +1,15 @@
+.rp-videos{margin:var(--s4, 32px) 0; padding-top:var(--s2, 16px); border-top:1px solid var(--border);}
+.rp-videos h2{margin:0 0 .35em;}
+.rp-video-hint{color:var(--text-2); font-size:.9rem; margin:0 0 1em; max-width:70ch;}
+.rp-video{border:1px solid var(--border); border-radius:8px; padding:14px 16px; margin:0 0 14px; max-width:70ch;}
+.rp-video h3{margin:0 0 .15em; font-size:1rem; overflow-wrap:anywhere;}
+.rp-video-meta{margin:0 0 .5em; font-size:.85rem; color:var(--text-2);}
+.rp-video-note{margin:0 0 .75em; font-size:.9rem; color:var(--text-2);}
+.rp-video-privacy{margin:0 0 .6em; font-size:.85rem; color:var(--text-2);}
+.rp-video-actions{display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px;}
+.rp-video-load{font:inherit; font-weight:600; padding:10px 14px; min-height:44px; border-radius:8px; border:1px solid var(--accent); background:transparent; color:var(--accent); cursor:pointer; text-align:left; overflow-wrap:anywhere;}
+.rp-video-load:hover{background:color-mix(in srgb, var(--accent) 12%, transparent);}
+.rp-video-load:focus-visible,.rp-video-actions a:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+.rp-video-actions a{display:inline-flex; align-items:center; min-height:44px;}
+.rp-video-frame{display:block; width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:#000;}
+.rp-video-frame:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}

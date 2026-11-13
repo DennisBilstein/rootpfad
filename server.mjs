@@ -33,7 +33,9 @@ app.disable('x-powered-by');
 // private text/tokens. Avoids adding a compression side channel to account data.
 app.use(compression({threshold:1024,filter:(req,res)=>!req.path.startsWith('/api/')&&compression.filter(req,res)}));
 app.use((req,res,next) => {
-  res.set({'X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','X-Frame-Options':'DENY'});
+  res.set({'X-Content-Type-Options':'nosniff','Referrer-Policy':'same-origin','X-Frame-Options':'DENY',
+    // Teil-CSP: erlaubt Frames nur für die eigene Seite und die Zwei-Klick-Videos; verbietet Plugins und fremde base-URLs.
+    'Content-Security-Policy':"frame-src 'self' https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"});
   if(req.path.startsWith('/api/')) res.set('Cache-Control','no-store');
   if(req.path.startsWith('/api/') && !['GET','HEAD'].includes(req.method)){
     const origin = req.get('origin');
