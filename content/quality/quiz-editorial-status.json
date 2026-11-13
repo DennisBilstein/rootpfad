@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13T11:55:22.960Z",
+  "updatedAt": "2026-11-13T12:00:01.234Z",
   "revised": 1367,
   "total": 1367,
   "remaining": 0,
@@ -8764,7 +8764,7 @@
       "index": 0,
       "revision": "2026-11-12-java-vue-v1",
       "scenario": true,
-      "question": "In einer Liste wird die erste Zeile gelöscht, und ein Eingabetext erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?"
+      "question": "In einer Liste wird die erste Zeile gelöscht, und ein ungebundener Eingabetext oder der Fokus erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?"
     },
     {
       "lesson": "js-m4-l5",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-13T11:55:23.373Z",
+  "updatedAt": "2026-11-13T12:00:01.635Z",
   "cards": 1673,
   "learningContracts": 1673,
   "individuallyRevised": 1673,
@@ -40648,7 +40648,7 @@
     {
       "id": "js-m4-l5#0@2026-11-12-java-vue-v1",
       "lessonId": "js-m4-l5",
-      "recall": "Beantworte „In einer Liste wird die erste Zeile gelöscht, und ein Eingabetext erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“.",
+      "recall": "Beantworte „In einer Liste wird die erste Zeile gelöscht, und ein ungebundener Eingabetext oder der Fokus erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?“ zunächst ohne Optionen. Begründe deine Entscheidung im Zusammenhang mit „Dynamische Formulare: Listen von Feldern mit Fokus und Ansage“.",
       "criteria": [
         {
           "label": "Fachliche Entscheidung",
@@ -40656,7 +40656,7 @@
         },
         {
           "label": "Begründung",
-          "reference": "Stabile ids als Key sorgen dafür, dass Eingaben mit ihrer Zeile wandern."
+          "reference": "Stabile ids als Key sorgen dafür, dass Elemente und ihr Zustand mit ihrer Zeile wandern."
         },
         {
           "label": "Abgrenzung",

@@ -443,7 +443,7 @@ Zwei Faustregeln: (1) Ganze Objekte als ref halten, wenn sie als Ganzes ersetzt 
     ],
     simple: `Manche Formulare haben eine feste Zahl von Feldern, andere wachsen: „Lade bis zu fünf Personen ein“, mit einer Zeile pro E-Mail-Adresse und den Knöpfen „Person hinzufügen“ und „Entfernen“. Das wirkt einfach, ist aber voller kleiner Fallen.
 
-Erstens: Wenn du die zweite Zeile löschst, sollen die anderen Zeilen ihren Text behalten. Das klappt nur, wenn jede Zeile eine feste Identität hat und Vue sie auch nach dem Umsortieren wiedererkennt. Nimmst du den Listenindex dafür (Zeile 0, 1, 2), „wandern“ Eingaben zur falschen Zeile.
+Erstens: Wenn du die zweite Zeile löschst, sollen die anderen Zeilen ihren Text behalten. Das klappt nur, wenn jede Zeile eine feste Identität hat und Vue sie auch nach dem Umsortieren wiedererkennt. Nimmst du den Listenindex dafür (Zeile 0, 1, 2), erkennt Vue Zeilen an ihrer Position wieder und recycelt vorhandene Elemente. Was nicht an den Daten hängt (Fokus, Cursor, ein ungebundenes Feld, der lokale Zustand einer Zeilen-Komponente), bleibt dann an der Position hängen und erscheint in der falschen Zeile.
 
 Zweitens: Menschen, die mit der Tastatur arbeiten, brauchen den Fokus an einer sinnvollen Stelle. Nach „Person hinzufügen“ soll das neue Feld den Fokus haben, nach „Entfernen“ die Nachbarzeile. Sonst springt der Fokus in den Nirgendwo und man muss neu suchen.
 
@@ -464,7 +464,7 @@ Viertens: Das Schema prüft nicht nur jedes Feld, sondern auch die Liste als Gan
       'Beschriftungen: Der sichtbare Text lautet „Entfernen“, das aria-label „Entfernen: Person 2“ beginnt mit dem sichtbaren Text, wie WCAG „Label in Name“ (2.5.3) verlangt, und sagt, welche Zeile gemeint ist.',
       'Fehler erst nach dem ersten Absenden zeigen (submitted), danach live aktualisieren. Beim Absenden mit Fehlern geht der Fokus auf das erste Feld mit aria-invalid="true".',
     ],
-    background: `Warum nicht der Index als Key? Vue erkennt Listenelemente an ihrem Key. Mit dem Index als Key bedeutet „Zeile 0“ immer das erste Element, egal welche Daten dort stehen. Löschst du die erste Zeile, erhält die bisherige Zeile 1 den Key 0: Vue ändert nur den Inhalt und übernimmt das vorhandene DOM-Element. Eingaben im Feld (Cursorposition, nicht gebundene Werte, Fokus, Animationen) bleiben am Element hängen und erscheinen plötzlich in der falschen Zeile. Der Test „behält Eingaben und DOM-Elemente“ prüft deshalb sogar die Identität der Elemente (dasselbe DOM-Element nach dem Löschen).
+    background: `Warum nicht der Index als Key? Vue erkennt Listenelemente an ihrem Key. Mit dem Index als Key bedeutet „Zeile 0“ immer das erste Element, egal welche Daten dort stehen. Löschst du die erste Zeile, erhält die bisherige Zeile 1 den Key 0: Vue ändert nur den Inhalt und übernimmt das vorhandene DOM-Element. Alles, was am Element und nicht an den Daten hängt (Cursorposition, nicht gebundene Werte, Fokus, Animationen, lokaler Zustand von Komponenten), bleibt am Element und erscheint plötzlich in der falschen Zeile. Ein Probelauf im Lab: Mit v-model gebundene Felder zeigen auch bei :key="index" die richtigen Daten, ein ungebundenes Feld in Zeile A behielt seinen getippten Text, obwohl Zeile A gelöscht wurde. Der Test „behält Eingaben und DOM-Elemente“ prüft deshalb sogar die Identität der Elemente (dasselbe DOM-Element nach dem Löschen).
 
 Warum Zeilenfehler am Zeilenpfad? Ein Fehler „E-Mail ungültig“ ohne Zeilenangabe hilft nicht, wenn fünf Felder da sind. Zod liefert für jedes Problem einen Pfad (members → 2 → email). Daraus entsteht der Schlüssel "members.2.email", der direkt zum Feld in Zeile 3 passt. Die Anzeige liest einfach den Eintrag zum Schlüssel "members.<Zeilennummer>.email".
 
@@ -497,7 +497,7 @@ Warum Grenzen als Text? Beim Maximum von fünf Zeilen wird „Person hinzufügen
  - nach Korrektur verschwindet der Fehler live; gültig -> { team: "Backend", emails: [ada@..., grace@...] }`,
     mistakes: [
       { wrong: 'Den Listenindex als :key zu verwenden.',
-        why: 'Beim Löschen oder Umsortieren bleiben DOM-Elemente und Eingaben am Index hängen. Text und Fokus erscheinen in der falschen Zeile.',
+        why: 'Beim Löschen oder Umsortieren werden DOM-Elemente nach Position wiederverwendet. Zustand, der nicht in den Daten steckt (Fokus, ungebundene Felder, lokaler Komponentenzustand), bleibt an der Position hängen und erscheint in der falschen Zeile.',
         fix: 'Beim Anlegen einer Zeile eine eindeutige, stabile Kennung vergeben und als key verwenden.' },
       { wrong: 'UI-Schlüssel (key) mit an die API zu senden.',
         why: 'Die API kennt das Feld nicht, lehnt die Anfrage ab oder speichert Unsinn; interne Details werden Teil des Vertrags.',
@@ -519,14 +519,14 @@ Warum Grenzen als Text? Beim Maximum von fünf Zeilen wird „Person hinzufügen
     exercises: [
       { task: 'Ergänze pro Zeile ein Feld „Rolle“ (z.enum: leser, bearbeiter). Passe Schema, Formular und API-Ausgabe an (emails wird zu members mit { email, role }).', acceptance: 'Schema lehnt unbekannte Rollen ab; die Ausgabe enthält Rollen; ein Test belegt das Entfernen einer Zeile behält Rolle und E-Mail der übrigen.' },
       { task: 'Grenzfall: Gib in Zeile 1 „A@x.de“ und in Zeile 2 „a@x.de “ (mit Leerzeichen) ein und sende ab. Welche Zeile meldet die Dublette, und warum nicht beide?', acceptance: 'Nur Zeile 2 meldet den Fehler (die zweite und jede weitere); Normalisierung durch trim und toLowerCase ist als Ursache erklärt.' },
-      { task: 'Fehlerfall: Ersetze :key="row.key" durch :key="index", tippe in Zeile 2 und 3 etwas ein und entferne Zeile 1. Beschreibe, was mit den Eingaben und dem Fokus passiert, und stelle den Code wieder her.', acceptance: 'Beobachtung dokumentiert (Elemente werden wiederverwendet, Zuordnung weicht ab oder Test zur Elementidentität schlägt fehl); Erklärung nennt den Index als Schlüssel.' },
+      { task: 'Fehlerfall: Ersetze :key="row.key" durch :key="index", tippe in Zeile 2 und 3 etwas ein und entferne Zeile 1. Füge in jede Zeile zusätzlich ein ungebundenes Feld (ohne v-model) ein. Beschreibe, was mit den v-model-Feldern, den ungebundenen Feldern und dem Fokus passiert, und stelle den Code wieder her.', acceptance: 'Beobachtung dokumentiert: gebundene Felder zeigen weiter die richtigen Daten, ungebundene Felder und der Fokus bleiben an der Position hängen (Test zur Elementidentität schlägt fehl); Erklärung nennt den Index als Schlüssel.' },
     ],
     quiz: [
-      { q: 'In einer Liste wird die erste Zeile gelöscht, und ein Eingabetext erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?',
+      { q: 'In einer Liste wird die erste Zeile gelöscht, und ein ungebundener Eingabetext oder der Fokus erscheint plötzlich in der falschen Zeile. Was ist die wahrscheinlichste Ursache?',
         options: ['Die Liste hat mehr als fünf Einträge, was Vue nicht korrekt verarbeitet.', 'Der Fokus liegt auf der Entfernen-Schaltfläche, deshalb wird der Eingabewert verschoben.', 'Der Listenindex dient als :key, daher werden Elemente anhand ihrer Position statt ihrer Identität wiederverwendet.'],
         correct: 2,
         rationales: ['Die Anzahl der Einträge spielt hier keine Rolle; Vue verarbeitet auch lange Listen korrekt.', 'Der Fokus verschiebt keine Eingabewerte; das Problem liegt in der Zuordnung von Elementen.', 'Mit dem Index als Key bekommt die bisherige Zeile 1 den Key 0 und übernimmt das DOM-Element der gelöschten Zeile.'],
-        explain: 'Stabile ids als Key sorgen dafür, dass Eingaben mit ihrer Zeile wandern.' },
+        explain: 'Stabile ids als Key sorgen dafür, dass Elemente und ihr Zustand mit ihrer Zeile wandern.' },
       { q: 'Wozu dient die immer vorhandene `<p role="status">` im Formular?',
         options: ['Sie zeigt Fehlermeldungen in roter Schrift an, damit Nutzer sie nicht übersehen.', 'Sie meldet Änderungen wie „Zeile 2 entfernt“ an Screenreader, ohne den Fokus zu bewegen.', 'Sie ersetzt die Beschriftung der Felder, damit Label nicht doppelt gelesen werden.'],
         correct: 1,
