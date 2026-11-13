@@ -621,7 +621,7 @@ function renderSidebar(){
   });
 
   [['navHeute','heute'],['navIntro','intro'],['navProfile','profile'],['navReview','review'],['navExam','exam'],['navTracer','tracer'],['navKlausur','klausur'],['navSubnet','subnet'],['navTutor','tutor'],
-   ['navExercises','exercises'],['navFehler','fehler'],['navMerk','merk'],['navSheet','cheatsheet']].forEach(function(p){
+   ['navExercises','exercises'],['navFehler','fehler'],['navMerk','merk'],['navSheet','cheatsheet'],['navGlossar','glossar']].forEach(function(p){
     var b = document.getElementById(p[0]);
     if(!b) return;
     var aktiv = state.currentId === p[1];
@@ -1500,6 +1500,7 @@ function buildIndex(){
    ['tutor','AP1-Tutor','Training'],
    ['exercises','Übungsaufgaben','Praxis'],
    ['cheatsheet','Spickzettel','Referenz'],
+   ['glossar','Syntax-Glossar','Referenz · Befehle nachschlagen (let, const, JOIN, rebase)'],
    ['intro','Kursübersicht','Start']].forEach(function(a){
     SEARCH_INDEX.push({ id:a[0], kind:'nav', title:a[1], sub:a[2], hay:(a[1]+' '+a[2]).toLowerCase() });
   });
@@ -3964,6 +3965,7 @@ function renderContentIntern(){
   if(state.currentId === 'klausur'){ el.innerHTML = renderKlausur(); if(klausur.phase === 'laufend') klTicken(); return; }
   if(state.currentId === 'fehler'){ el.innerHTML = renderFehlerheft(); return; }
   if(state.currentId === 'merk'){ el.innerHTML = renderMerkzettel(); return; }
+  if(state.currentId === 'glossar' && typeof rpGlossaryRender === 'function'){ el.innerHTML = rpGlossaryRender(); rpGlossaryWire(el); return; }
   if(state.currentId === 'profile'){ el.innerHTML = renderProfile(); updateSyncHint(); return; }
   if(state.currentId === 'tracer'){ el.innerHTML = renderTracer(); return; }
   if(state.currentId === 'subnet'){ el.innerHTML = renderSubnet(); return; }

@@ -2,14 +2,14 @@
 // Mit --verify wird zusätzlich jede Video-ID über die YouTube-oEmbed-Schnittstelle geprüft
 // (Einbettbarkeit, Titel, Kanal). Das braucht Netz und läuft deshalb nicht im normalen Build.
 import fs from 'node:fs';
+import { loadLessonIds } from './lib/lesson-ids.mjs';
 
 const source = 'content/lesson-videos.json';
 const target = 'assets/lesson-videos-data.js';
 const verify = process.argv.includes('--verify');
 const data = JSON.parse(fs.readFileSync(source, 'utf8'));
 
-const knownLessons = new Set([...fs.readdirSync('assets/learning'), 'script-01.js']
-  .flatMap((name) => [...fs.readFileSync(name === 'script-01.js' ? 'assets/script-01.js' : `assets/learning/${name}`, 'utf8').matchAll(/"id":\s*"((?:[a-z0-9-]+-)?m\d+-(?:l\d+|quellen-[a-z0-9-]+|senior-[a-z0-9-]+))"/g)].map((match) => match[1])));
+const knownLessons = loadLessonIds();
 
 const problems = [];
 const seen = new Set();

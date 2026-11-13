@@ -1,0 +1,33 @@
+/* Syntax-Glossar. Nutzt die Farbvariablen der App (hell/dunkel); Mindestgröße für Bedienelemente 44 px. */
+.gl-controls{display:grid; gap:14px; margin:0 0 16px; max-width:70ch;}
+.gl-label{margin:0 0 6px; font-size:.8rem; font-weight:600; color:var(--text-2);}
+.gl-langs{display:flex; flex-wrap:wrap; gap:8px;}
+.gl-lang{font:inherit; font-size:.9rem; min-height:44px; padding:8px 14px; border-radius:8px; border:1px solid var(--border); background:var(--surface); color:var(--text); cursor:pointer;}
+.gl-lang:hover{background:var(--accent-soft);}
+.gl-lang[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-contrast, #fff); font-weight:600;}
+.gl-lang:focus-visible,.gl-lesson:focus-visible,.gl-controls input:focus-visible,.gl-controls select:focus-visible,.gl-entry pre:focus-visible,.gl-entry summary:focus-visible{outline:3px solid var(--accent); outline-offset:2px;}
+.gl-fields{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap:12px;}
+.gl-fields label{display:block; margin:0 0 6px; font-size:.8rem; font-weight:600; color:var(--text-2);}
+.gl-controls input[type="search"],.gl-controls select{width:100%; min-height:44px; padding:8px 12px; font:inherit; font-size:1rem; border-radius:8px; border:1px solid var(--border-strong, var(--border)); background:var(--surface); color:var(--text);}
+.gl-check{display:flex; align-items:center; gap:10px; min-height:44px; font-size:.92rem; cursor:pointer;}
+.gl-check input{width:22px; height:22px; accent-color:var(--accent);}
+.gl-status{margin:0 0 10px; color:var(--text-2); font-size:.9rem;}
+.gl-notice{margin:0 0 16px; padding:10px 14px; max-width:70ch; font-size:.9rem; border-left:4px solid var(--accent); background:var(--surface-2); border-radius:0 8px 8px 0;}
+#glList{display:grid; gap:16px; max-width:70ch;}
+.gl-entry{border:1px solid var(--border); border-radius:10px; padding:14px 16px; background:var(--surface); min-width:0;}
+.gl-entry h3{margin:0 0 2px; font-size:1.05rem; overflow-wrap:anywhere;}
+#content .gl-entry h3 code{font-size:inherit; background:none; color:inherit; padding:0; border:0;}
+.gl-meta{margin:0 0 10px; font-size:.8rem; color:var(--text-2);}
+.gl-entry p{margin:.5em 0;}
+.gl-entry pre{margin:.4em 0 .8em; font-size:.85rem; overflow-x:auto; max-width:100%;}
+.gl-syntax{border-left:3px solid var(--accent);}
+.gl-out{background:var(--surface-2); padding:10px 14px; border-radius:8px; white-space:pre-wrap; overflow-wrap:anywhere;}
+.gl-setup summary{cursor:pointer; min-height:44px; display:flex; align-items:center; font-size:.9rem; color:var(--accent);}
+.gl-pitfall{font-size:.92rem; padding:8px 12px; border-radius:8px; background:var(--surface-2);}
+.gl-foot{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:12px;}
+.gl-badge{font-size:.78rem; padding:3px 10px; border-radius:99px; border:1px solid var(--border); color:var(--text-2);}
+.gl-badge-ok{border-color:var(--success); color:var(--success); background:var(--success-bg);}
+.gl-lesson{font:inherit; font-size:.88rem; min-height:44px; padding:6px 12px; border-radius:8px; border:1px solid var(--accent); background:transparent; color:var(--accent); cursor:pointer; text-align:left;}
+.gl-lesson:hover{background:var(--accent-soft);}
+@media (max-width:560px){.gl-entry{padding:12px;}}
+@media (prefers-reduced-motion:reduce){.gl-entry *{transition:none!important;}}

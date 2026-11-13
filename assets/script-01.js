@@ -15551,7 +15551,7 @@ function renderSidebar(){
   });
 
   [['navHeute','heute'],['navIntro','intro'],['navProfile','profile'],['navReview','review'],['navExam','exam'],['navTracer','tracer'],['navKlausur','klausur'],['navSubnet','subnet'],['navTutor','tutor'],
-   ['navExercises','exercises'],['navFehler','fehler'],['navMerk','merk'],['navSheet','cheatsheet']].forEach(function(p){
+   ['navExercises','exercises'],['navFehler','fehler'],['navMerk','merk'],['navSheet','cheatsheet'],['navGlossar','glossar']].forEach(function(p){
     var b = document.getElementById(p[0]);
     if(!b) return;
     var aktiv = state.currentId === p[1];
@@ -16509,6 +16509,7 @@ function buildIndex(){
    ['tutor','AP1-Tutor','Training'],
    ['exercises','Übungsaufgaben','Praxis'],
    ['cheatsheet','Spickzettel','Referenz'],
+   ['glossar','Syntax-Glossar','Referenz · Befehle nachschlagen (let, const, JOIN, rebase)'],
    ['intro','Kursübersicht','Start']].forEach(function(a){
     SEARCH_INDEX.push({ id:a[0], kind:'nav', title:a[1], sub:a[2], hay:(a[1]+' '+a[2]).toLowerCase() });
   });
@@ -17975,6 +17976,7 @@ var KP_AKTIONEN = [
   { t:'Algorithmus-Trainer', s:'Trockendurchläufe', a:function(){ selectLesson('tracer'); }, k:'trockenlauf algorithmus tracer wertetabelle' },
   { t:'Übungsaufgaben', s:EXERCISES.length+' Aufgaben', a:function(){ selectLesson('exercises'); }, k:'uebung aufgaben praxis loesung' },
   { t:'Formelblatt', s:'Alle Formeln', a:function(){ selectLesson('cheatsheet'); }, k:'formelblatt spickzettel formeln referenz' },
+  { t:'Syntax-Glossar', s:'Befehle nachschlagen', a:function(){ selectLesson('glossar'); }, k:'syntax glossar befehle nachschlagen referenz let const array join git sql java php abap' },
   { t:'Modulübersicht', s:'Alle Teile', a:function(){ selectLesson('intro'); }, k:'module uebersicht inhalt kapitel' },
   { t:'Profil und Abzeichen', s:'Fortschritt', a:function(){ selectLesson('profile'); }, k:'profil abzeichen xp fortschritt statistik einstellungen' },
   { t:'Mitschreib-Prüfung', s:'Offene Aufgaben', a:function(){ selectLesson('klausur'); }, k:'klausur mitschreiben schreiben offen freitext korrektur bewerten' },
@@ -19350,6 +19352,7 @@ function renderContentIntern(){
   if(state.currentId === 'klausur'){ el.innerHTML = renderKlausur(); if(klausur.phase === 'laufend') klTicken(); return; }
   if(state.currentId === 'fehler'){ el.innerHTML = renderFehlerheft(); return; }
   if(state.currentId === 'merk'){ el.innerHTML = renderMerkzettel(); return; }
+  if(state.currentId === 'glossar' && typeof rpGlossaryRender === 'function'){ el.innerHTML = rpGlossaryRender(); rpGlossaryWire(el); return; }
   if(state.currentId === 'profile'){ el.innerHTML = renderProfile(); updateSyncHint(); return; }
   if(state.currentId === 'tracer'){ el.innerHTML = renderTracer(); return; }
   if(state.currentId === 'subnet'){ el.innerHTML = renderSubnet(); return; }
@@ -19499,6 +19502,7 @@ document.getElementById('navExercises').onclick = function(){ selectLesson('exer
 document.getElementById('navFehler').onclick = function(){ selectLesson('fehler'); };
 document.getElementById('navMerk').onclick = function(){ selectLesson('merk'); };
 document.getElementById('navSheet').onclick = function(){ selectLesson('cheatsheet'); };
+document.getElementById('navGlossar').onclick = function(){ selectLesson('glossar'); };
 document.getElementById('searchTrigger').onclick = kpOeffnen;
 document.getElementById('resetBtn').onclick = function(){
   if(window.confirm('Setzt Lektionsfortschritt, Karteikarten, Statistik, Prüfungshistorie, XP, Level und Abzeichen zurück. Das lässt sich nicht rückgängig machen. Wirklich?')){

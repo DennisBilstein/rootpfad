@@ -14,7 +14,12 @@
   der Marker liegt im vorhandenen `xpLog`.
 - **Wiederholplan und schwächste Lektionen** im Fehlerheft (`assets/weak-spots.js`): fällige Karten der nächsten 7 Tage und die Lektionen
   mit der niedrigsten Trefferquote (ab 3 Antworten, unter 80 %), berechnet aus den vorhandenen Lerndaten.
-- `npm run build` erzeugt `assets/lesson-videos-data.js` und `assets/practice-puzzles-data.js` aus den JSON-Dateien.
+- **Syntax-Glossar** (Menü „Referenz“, `content/syntax-glossary/`): 234 Einträge für HTML, CSS, JavaScript/TypeScript, Vue 3, PHP, Laravel,
+  Java, SQL (MariaDB), Git und ABAP. Jeder Eintrag hat Syntax, Erklärung, Beispiel, typischen Fehler und Link zur Lektion; Suche (auch über alle
+  Sprachen) und Kategorie-Filter. `npm run verify:glossary` führt 127 Beispiele wirklich aus (Node 22, PHP 8.5, Java 26, SQLite, Git) und
+  vergleicht die Ausgabe; jeder Eintrag zeigt, ob sein Beispiel getestet oder nur gezeigt wird. HTML, CSS, Vue, Laravel und ABAP werden
+  nicht ausgeführt. Keine unabhängige Fachprüfung.
+- `npm run build` erzeugt `assets/lesson-videos-data.js`, `assets/syntax-glossary-data.js` und `assets/practice-puzzles-data.js`.
 
 ## Java 21–27, Spring Boot 4, Vue-Komponenten und Serverdaten · 12.11.2026
 

@@ -15,8 +15,14 @@ Stand 13.11.2026: Testcontainers-Test lief mit Docker gegen PostgreSQL 17 und de
 Neue Bausteine (Plan „Videos, Denkaufgaben, Wiederholplan“): `content/lesson-videos.json` + `scripts/build-lesson-videos.mjs`,
 `content/puzzles.json` + `scripts/build-puzzles.mjs`, `assets/lesson-videos*.{js,css}`, `assets/practice-puzzles*.{js,css}`,
 `assets/weak-spots*.{js,css}`; Teil-CSP in `server.mjs`. NACH Änderungen an `assets/script-01.js` immer `npm run build`, weil die
-Lernskripte unter `assets/learning/` daraus erzeugt werden. Noch offen: Videos für Vue/PHP-Laravel (keine verifizierten IDs gefunden),
-Rest von ABAP/SAP; Google Fonts wird in `index.html` weiterhin von Google geladen (Datenschutz, nicht Teil dieses Auftrags).
+Lernskripte unter `assets/learning/` daraus erzeugt werden. Videos: 23 Einträge (Stand 13.11.2026, Titel/Kanal per oEmbed geprüft, Inhalt nicht);
+für HTML, Laravel-Vertiefung, Rest von ABAP/SAP gibt es noch keine. Schriften sind selbst gehostet (`assets/fonts/`, `assets/fonts.css`).
+Syntax-Glossar (13.11.2026): `content/syntax-glossary/<sprache>.mjs` (10 Sprachen, 234 Einträge) → `scripts/build-syntax-glossary.mjs` →
+`assets/syntax-glossary-data.js`; Oberfläche `assets/syntax-glossary.{js,css}`, Menüpunkt `navGlossar` (Ansicht-ID `glossar`) in `index.html`/`script-01.js`.
+`npm run verify:glossary` führt die Beispiele mit `run` wirklich aus (Node, PHP, Java, SQLite, Git; 127 Beispiele) und vergleicht die Ausgabe.
+Nicht ausgeführt: HTML, CSS, Vue, Laravel, ABAP, Spring/JUnit-Ausschnitte, MariaDB-Besonderheiten (kein ABAP-/Laravel-Lauf, Vue nur in den Labs).
+Neue Einträge: `id` mit Sprachpräfix, `lesson` muss existieren (Build prüft), `out` nur zusammen mit `run`. Git-Beispiele laufen mit englischer Locale.
+Die gemeinsame Lektions-ID-Prüfung liegt in `scripts/lib/lesson-ids.mjs`.
 Offen/ehrlich (Stand 12.11.): Structured Concurrency ist
 Preview; Suspense laut Vue-Doku experimentell; Dialog-Test nutzt jsdom-Nachbildungen, echte Tastatur-/Screenreaderprüfung fehlt;
 keine unabhängige Fachfreigabe. Die ursprüngliche Anfrage des Nutzers war abgeschnitten („…ziehe dir das aus dem dazugehö“):
