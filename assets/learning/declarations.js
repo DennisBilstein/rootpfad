@@ -2527,7 +2527,7 @@ function renderRecht(){
       'L&ouml;schung</td></tr>'+
       '<tr><td>Fragen an den Tutor</td><td>werden an den konfigurierten KI-Dienst &uuml;bertragen'+
       '</td><td>Beantwortung deiner Frage</td><td>nach den Regeln des Anbieters</td></tr>'+
-      '<tr><td>Schriftarten</td><td>werden von Google Fonts geladen</td><td>Darstellung</td>'+
+      '<tr><td>Schriftarten</td><td>werden vom eigenen Server ausgeliefert (selbst gehostet, keine Anfrage an Dritte)</td><td>Darstellung</td>'+
       '<td>&mdash;</td></tr>'+
       '<tr><td>Eingebettete Videos</td><td>erst nach deinem Klick auf &bdquo;Video laden&ldquo; von '+
       '<strong>youtube-nocookie.com</strong> (YouTube/Google) geladen; dabei wird u.&nbsp;a. deine IP-Adresse '+
@@ -2540,8 +2540,6 @@ function renderRecht(){
       '<li>Eingesetzter KI-Dienstleister mit Sitz und Auftragsverarbeitungsvertrag: '+luecke('Anbieter benennen')+'</li>'+
       '<li>Hoster und dessen Serverstandort: '+luecke('Anbieter benennen')+'</li>'+
       '<li>&Uuml;bermittlung in Drittl&auml;nder und deren Grundlage: '+luecke('falls zutreffend')+'</li>'+
-      '<li>Wenn Google Fonts extern geladen wird, geh&ouml;rt der Hinweis auf die '+
-      '&Uuml;bertragung der IP-Adresse hierher. '+luecke('Alternative: Schriften selbst ausliefern &mdash; dann entf&auml;llt der Punkt')+'</li>'+
       '<li>Eingebettete YouTube-Videos: Einwilligung durch den Klick (Art. 6 Abs. 1 lit. a DSGVO, &sect; 25 TDDDG), Anbieter und Drittlandbezug (Google) benennen. '+luecke('rechtlich pr&uuml;fen lassen')+'</li>'+
       '<li>Kontakt der Datenschutzaufsicht deines Bundeslandes: '+luecke('Beh&ouml;rde nennen')+'</li>'+
       '</ul>';
