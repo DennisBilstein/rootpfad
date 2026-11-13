@@ -1,5 +1,13 @@
 # ROOTPFAD
 
+## Qualität: Start, Header, Caching · 13.11.2026
+
+- `index.html` hat einen gültigen `<head>` (Titel, Meta-Description, `utf-8`), die Startseite eine `h1` und einen Footer mit Link zu Impressum und Datenschutz (`#/recht`).
+- `assets/bootstrap.js` lädt alle Skripte parallel und führt sie in fester Reihenfolge aus; `RP_APP_READY` gilt erst nach dem Konto-Abgleich (`RP_ACCOUNT_READY` in `accounts.js`). Bis dahin sind die dynamischen Bereiche per CSS (`html:not(.rp-bereit)`) unsichtbar, damit nichts springt (CLS 0,00 statt 0,08/0,20).
+- Der Tutor prüft `localhost:8787` nicht mehr beim Start, sondern nur auf der Tutor-Seite (Knopf „Verbinden“) oder wenn eine Frage gestellt wird.
+- `server.mjs` sendet zusätzlich Permissions-Policy, COOP und CORP (HSTS nur in Produktion über HTTPS). Skripte, Styles und HTML: `no-cache` (ETag-Revalidierung); Schriften: 30 Tage.
+- Tests: `tests/page-quality.spec.mjs`.
+
 ## Lernfunktionen: Videos, Denkaufgaben, Wiederholplan · 13.11.2026
 
 - **Videos zu Lektionen** (`content/lesson-videos.json`, aktuell 23 Videos zu 21 Lektionen, Englisch, offizielle Kanäle (Java, Spring, SAP, Laravel) sowie freeCodeCamp u. a.):

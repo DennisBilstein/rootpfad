@@ -57,7 +57,8 @@ async function rpSync(){
   finally { rpSyncBusy = false; rpAccountBar(); if(rpSyncAgain){rpSyncAgain=false;rpScheduleSync();} }
 }
 function rpScheduleSync(){ if(!rpSyncReady) return; clearTimeout(rpSyncTimer); rpSyncTimer = setTimeout(rpSync,1200); }
-(async function(){
+/* bootstrap.js wartet auf dieses Promise, damit „bereit“ erst nach dem ersten Konto-Abgleich und dem folgenden Render gilt. */
+window.RP_ACCOUNT_READY=(async function(){
   var renderBase = renderContent;
   renderContent = function(){
     if(state.currentId === 'account'){

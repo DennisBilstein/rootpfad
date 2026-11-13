@@ -37,23 +37,9 @@ kiAnbieterWaehlen = async function(){
   }
   return kiWahlBasis();
 };
-/* Beim Laden einmal nachsehen - der Kurs hat den Tutor evtl. schon als „aus“ markiert. */
-(function(){
-  var versuche = 0;
-  var t = setInterval(async function(){
-    versuche++;
-    if(typeof tutor === 'undefined' || !tutor.ready){ if(versuche > 60) clearInterval(t); return; }
-    clearInterval(t);
-    if(!tutor.off || KI.modus === 'aus') return;
-    var st = await rbTutorServerStatus();
-    if(st && st.ok && st.schluessel){
-      KI.endpunkt = KI.endpunkt || RB_LOKAL_TUTOR;
-      await tutorNeuVerbinden();
-      rbTutorKnopf();
-      try{ showToast('<span class="t-xp">💬 Tutor bereit</span><span class="t-reason">Unten rechts kannst du jetzt Fragen stellen.</span>'); }catch(e){}
-    }
-  }, 300);
-})();
+/* Kein automatischer Verbindungsversuch beim Laden: Der Zugriff auf localhost:8787 erzeugt sonst bei jedem Start
+   einen Konsolenfehler und löst auf gehosteten Seiten Local-Network-Access-Abfragen des Browsers aus.
+   Geprüft wird nur auf Nutzeraktion (Tutor-Seite öffnen, Frage stellen). */
 
 /* ---------- Tutor-Seite, solange er aus ist: klare Anleitung mit Live-Status ---------- */
 renderTutor = function(){
@@ -73,10 +59,9 @@ renderTutor = function(){
     'Im Terminal-Fenster den Schlüssel einfügen (Cmd+V, die Eingabe bleibt unsichtbar) und Enter drücken. Der Tutor startet ab dann ' +
     'automatisch mit deinem Mac.</p>' +
     '<p style="font-size:.82rem;color:var(--text-dim)">Fragt macOS beim ersten Mal, ob das Skript geöffnet werden darf: Rechtsklick → Öffnen.</p></div>' +
-    '<div class="rb-tutor-weg"><h3>Schritt 3 · Seite neu laden</h3>' +
-    '<p>ROOTPFAD neu laden. Unten rechts erscheint „Tutor fragen“ – ohne weitere Einstellungen.</p>' +
-    '<div class="rb-zeile" style="align-items:center;"><button class="ex-btn primary" type="button" onclick="location.reload()">Jetzt neu laden</button>' +
-    '<button class="ex-btn" type="button" onclick="rbTutorStatusZeigen()">Status erneut prüfen</button></div></div>' +
+    '<div class="rb-tutor-weg"><h3>Schritt 3 · Verbindung prüfen</h3>' +
+    '<p>Auf „Verbinden“ klicken. Läuft der Tutor-Server, erscheint unten rechts „Tutor fragen“ – ohne weitere Einstellungen.</p>' +
+    '<div class="rb-zeile" style="align-items:center;"><button class="ex-btn primary" type="button" onclick="rbTutorStatusZeigen()">Verbinden</button></div></div>' +
     '<div class="rb-tutor-weg"><h3>Alternative · auf claude.ai</h3><p>Lädst du die Datei auf claude.ai als Artifact hoch, läuft der Tutor dort über ' +
     'dein claude.ai-Konto – ganz ohne API-Schlüssel.</p></div>' +
     '</div>' + renderKiEinstellungen();
@@ -94,6 +79,12 @@ async function rbTutorStatusZeigen(){
     el.textContent = 'Tutor-Server läuft, aber es ist noch kein API-Schlüssel hinterlegt. → Schritt 2 erneut ausführen.';
   } else {
     el.className = 'rb-status ok';
-    el.textContent = 'Tutor-Server läuft mit Schlüssel (Modell ' + st.modell + '). → Seite neu laden.';
+    el.textContent = 'Tutor-Server läuft mit Schlüssel (Modell ' + st.modell + '). Verbinde …';
+    if(KI.modus !== 'aus'){
+      KI.endpunkt = KI.endpunkt || RB_LOKAL_TUTOR;   /* nur für diese Sitzung */
+      await tutorNeuVerbinden();
+      rbTutorKnopf();
+      el.textContent = 'Verbunden (Modell ' + st.modell + '). Unten rechts kannst du jetzt Fragen stellen.';
+    }
   }
 }

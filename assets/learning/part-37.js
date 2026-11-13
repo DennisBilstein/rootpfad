@@ -246,7 +246,7 @@ function renderHeute(){
   var dstr = wt + ', ' + new Date().toLocaleDateString('de-DE', { day:'2-digit', month:'long', year:'numeric' });
 
   var h = '<div class="heute-kopf">'+
-    '<div><div class="heute-gruss">'+gruss+'</div>'+
+    '<div><h1 class="heute-gruss">'+gruss+'</h1>'+
     '<div class="heute-datum">'+esc(dstr)+'</div></div>'+
     '<div class="ring-wrap">'+
       '<div class="ziel-ring"><svg viewBox="0 0 100 100" aria-hidden="true">'+

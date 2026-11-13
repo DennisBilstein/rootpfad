@@ -1031,6 +1031,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 .mobilbar{display:none;}
 @media (max-width:860px){
   .mobilbar{
+    min-height:84px;
     display:flex; position:fixed; left:0; right:0; bottom:0; z-index:60;
     background:var(--surface); border-top:1px solid var(--border);
     padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));
@@ -1631,6 +1632,15 @@ mark.luecke{background:color-mix(in srgb, var(--accent2) 22%, transparent); colo
   font:inherit; font-size:.76rem; color:var(--text-dim); cursor:pointer; text-align:left;
   border-radius:var(--r-sm);}
 .fuss-link:hover{color:var(--accent); background:var(--surface-2);}
+/* Die Oberfläche wird von mehreren nacheinander geladenen Skripten zusammengesetzt. Bis bootstrap.js alle
+   geladen hat, bleiben die dynamischen Bereiche unsichtbar (behalten aber ihren Platz), damit keine
+   Zwischenstände gezeichnet werden und nichts nachträglich springt (CLS). */
+html:not(.rp-bereit) :is(#content, #sidebar, #mobilbar, .topbar-right, .site-footer){visibility:hidden;}
+.site-footer{padding:var(--s4) clamp(var(--s4),4vw,var(--s7)); border-top:1px solid var(--border);
+  font-size:.82rem; text-align:center;}
+.site-footer a{display:inline-block; padding:8px 12px; color:var(--text-dim);}
+.site-footer a:hover{color:var(--accent);}
+@media (max-width:860px){ .site-footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));} }
 
 /* ---------- Erste Schritte ---------- */
 .start-box{border:1px solid var(--accent); background:var(--accent-soft);

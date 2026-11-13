@@ -626,7 +626,7 @@ function rbKarteTeilen(){
 function rbHashAnsicht(){
   var h = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
   if(!h) return null;
-  if(h === 'labor' || h === 'intro' || h === 'heute' || h === 'exam' || h === 'review' || h === 'profile' || lessonById(h)) return h;
+  if(h === 'labor' || h === 'intro' || h === 'heute' || h === 'exam' || h === 'review' || h === 'profile' || h === 'recht' || lessonById(h)) return h;
   return null;
 }
 window.addEventListener('hashchange', function(){
