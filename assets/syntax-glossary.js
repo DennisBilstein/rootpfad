@@ -1,11 +1,24 @@
 /* Syntax-Glossar: Nachschlagewerk für Befehle und Schreibweisen aller Kurssprachen.
-   Daten: assets/syntax-glossary-data.js (RP_GLOSSARY), erzeugt von scripts/build-syntax-glossary.mjs.
+   Daten: assets/syntax-glossary-data.js (RP_GLOSSARY, wird beim ersten Öffnen nachgeladen), erzeugt von scripts/build-syntax-glossary.mjs.
    Es werden keine Daten gespeichert; Sprache, Suche und Kategorie gelten nur bis zum Neuladen. */
 (function(){
   var view = { lang: null, query: '', cat: '', all: false };
   var MAX_ALL = 60;
 
   function data(){ return window.RP_GLOSSARY || []; }
+  // Die Daten sind groß (über 500 KB) und werden erst beim Öffnen des Glossars nachgeladen, nicht beim Start der App.
+  var loading = null;
+  function ensureData(){
+    if(data().length) return Promise.resolve();
+    if(!loading) loading = new Promise(function(resolve, reject){
+      var element = document.createElement('script');
+      element.src = 'assets/syntax-glossary-data.js';
+      element.onload = resolve;
+      element.onerror = function(){ loading = null; element.remove(); reject(new Error('Glossardaten konnten nicht geladen werden.')); };
+      document.body.appendChild(element);
+    });
+    return loading;
+  }
   function langById(id){ return data().filter(function(l){ return l.id === id; })[0] || data()[0]; }
   function norm(text){ return String(text || '').toLowerCase(); }
 
@@ -82,7 +95,7 @@
   }
 
   window.rpGlossaryRender = function(){
-    if(!data().length) return '<div class="breadcrumb">Referenz</div><h1>Syntax-Glossar</h1><p>Das Glossar konnte nicht geladen werden.</p>';
+    if(!data().length) return '<div class="breadcrumb">Referenz</div><h1>Syntax-Glossar</h1><p id="glLoading" role="status">Glossar wird geladen …</p>';
     if(!view.lang) view.lang = data()[0].id;
     var language = langById(view.lang);
     var total = data().reduce(function(sum, l){ return sum + l.entries.length; }, 0);
@@ -105,6 +118,15 @@
   };
 
   window.rpGlossaryWire = function(root){
+    if(!data().length){
+      ensureData().then(function(){
+        if(root.querySelector('#glLoading')){ root.innerHTML = window.rpGlossaryRender(); window.rpGlossaryWire(root); }
+      }, function(error){
+        var info = root.querySelector('#glLoading');
+        if(info){ info.setAttribute('role', 'alert'); info.textContent = error.message + ' Bitte die Seite neu laden.'; }
+      });
+      return;
+    }
     var search = root.querySelector('#glSearch'), cat = root.querySelector('#glCat'), all = root.querySelector('#glAll');
     var timer = 0;
     paint(root);

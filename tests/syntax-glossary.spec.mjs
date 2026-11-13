@@ -6,6 +6,7 @@ const open = async (page, { viaMenu = true } = {}) => {
   if (viaMenu) await page.locator('#navGlossar').click();
   else await page.evaluate(() => selectLesson('glossar')); // schmaler Bildschirm: Menü liegt im Schubfach
   await expect(page.getByRole('heading', { level: 1, name: 'Syntax-Glossar' })).toBeVisible();
+  await expect(page.locator('.gl-entry').first()).toBeVisible(); // Daten werden erst beim Öffnen nachgeladen
 };
 
 test('Navigation öffnet das Glossar und markiert den Menüpunkt als aktuelle Seite', async ({ page }) => {
@@ -72,9 +73,19 @@ test('Gekennzeichnet wird, ob ein Beispiel ausgeführt wurde', async ({ page }) 
   await expect(page.locator('#gl-php-echo .gl-badge-ok')).toHaveText('Beispiel getestet mit PHP');
 });
 
-test('Daten sind konsistent: eindeutige IDs, vorhandene Lektionen, Pflichtfelder', async ({ page }) => {
+test('Die großen Glossardaten werden erst beim Öffnen des Glossars geladen', async ({ page }) => {
+  const requests = [];
+  page.on('request', (request) => { if (request.url().includes('syntax-glossary-data.js')) requests.push(request.url()); });
   await page.goto('/');
   await page.waitForFunction(() => window.RP_APP_READY);
+  expect(requests).toHaveLength(0);
+  await page.locator('#navGlossar').click();
+  await expect(page.locator('.gl-entry').first()).toBeVisible();
+  expect(requests).toHaveLength(1);
+});
+
+test('Daten sind konsistent: eindeutige IDs, vorhandene Lektionen, Pflichtfelder', async ({ page }) => {
+  await open(page);
   const result = await page.evaluate(() => {
     const ids = new Set(), problems = [];
     for (const language of RP_GLOSSARY) {
@@ -89,7 +100,7 @@ test('Daten sind konsistent: eindeutige IDs, vorhandene Lektionen, Pflichtfelder
   });
   expect(result.problems).toEqual([]);
   expect(result.languages).toBe(12);
-  expect(result.count).toBeGreaterThan(200);
+  expect(result.count).toBeGreaterThan(600);
 });
 
 test('Code wird eingefärbt, und bei 375 px läuft in keiner Sprache die Seite über', async ({ page }) => {

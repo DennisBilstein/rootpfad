@@ -73,7 +73,7 @@ function runExample(entry) {
     }
     if (entry.run === 'java') {
       const file = path.join(dir, 'Main.java');
-      const complete = /static void main\(/.test(entry.code);
+      const complete = /void main\(/.test(entry.code);
       fs.writeFileSync(file, complete ? `${javaImports}${entry.code}` : `${javaImports}public class Main {\n public static void main(String[] args) throws Exception {\n${entry.code}\n }\n}\n`);
       return run('java', [file]);
     }
