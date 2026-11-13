@@ -40,7 +40,7 @@ test('Video-Schaltfläche ist per Tastatur bedienbar', async ({ page }) => {
 });
 
 test('Lektionen ohne Video zeigen keinen Videoblock; nicht eingeplante IDs werden nicht eingebettet', async ({ page }) => {
-  await open(page, 'java-m25-l3');
+  await open(page, 'js-m1-l1');
   await expect(page.locator('.rp-videos')).toHaveCount(0);
 });
 
@@ -57,7 +57,7 @@ test('Videoblock läuft bei 375 px nicht über', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 800 });
   await page.route('https://www.youtube-nocookie.com/**', (route) => route.fulfill({ contentType: 'text/html', body: '<p>stub</p>' }));
   await open(page, 'java-m25-l5');
-  await page.getByRole('button', { name: /Video laden/ }).click();
+  await page.getByRole('button', { name: /Video laden/ }).first().click();
   const box = await page.locator('.rp-videos').evaluate((element) => { const rect = element.getBoundingClientRect(); return { left: rect.left, right: rect.right, width: innerWidth }; });
   expect(box.left).toBeGreaterThanOrEqual(0);
   expect(box.right).toBeLessThanOrEqual(box.width);

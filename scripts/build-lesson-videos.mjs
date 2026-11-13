@@ -9,7 +9,7 @@ const verify = process.argv.includes('--verify');
 const data = JSON.parse(fs.readFileSync(source, 'utf8'));
 
 const knownLessons = new Set([...fs.readdirSync('assets/learning'), 'script-01.js']
-  .flatMap((name) => [...fs.readFileSync(name === 'script-01.js' ? 'assets/script-01.js' : `assets/learning/${name}`, 'utf8').matchAll(/"id":"([a-z0-9-]+-l\d+|m\d+-l\d+)"/g)].map((match) => match[1])));
+  .flatMap((name) => [...fs.readFileSync(name === 'script-01.js' ? 'assets/script-01.js' : `assets/learning/${name}`, 'utf8').matchAll(/"id":\s*"((?:[a-z0-9-]+-)?m\d+-(?:l\d+|quellen-[a-z0-9-]+|senior-[a-z0-9-]+))"/g)].map((match) => match[1])));
 
 const problems = [];
 const seen = new Set();

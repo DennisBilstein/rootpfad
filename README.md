@@ -2,7 +2,7 @@
 
 ## Lernfunktionen: Videos, Denkaufgaben, Wiederholplan · 13.11.2026
 
-- **Videos zu Lektionen** (`content/lesson-videos.json`, aktuell 6 Videos, Englisch, offizielle Kanäle von Java, Spring und SAP):
+- **Videos zu Lektionen** (`content/lesson-videos.json`, aktuell 23 Videos zu 21 Lektionen, Englisch, offizielle Kanäle (Java, Spring, SAP, Laravel) sowie freeCodeCamp u. a.):
   nichts wird heruntergeladen oder gespiegelt. Das Video wird erst nach einem Klick auf „Video laden“ über
   `youtube-nocookie.com` eingebettet; vorher gibt es keine Anfrage an YouTube/Google. Daneben steht immer ein Direktlink.
   Titel und Kanal prüft `npm run verify:videos` per oEmbed (braucht Netz); der Inhalt der Videos ist nicht geprüft.
