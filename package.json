@@ -2,6 +2,7 @@
   "name": "rootpfad",
   "version": "1.0.0",
   "private": true,
+  "license": "(MIT AND CC-BY-4.0)",
   "description": "ROOTPFAD – lokale Lernplattform aus dem HTML-Original",
   "scripts": {
     "test": "playwright test",

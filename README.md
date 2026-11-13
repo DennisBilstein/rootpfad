@@ -409,3 +409,13 @@ python3 scripts/import-source.py ~/Downloads/ROOTPFAD_pro.html
 ```
 
 Dabei werden `index.html` und die aus dem Export erzeugten Assets überschrieben.
+
+## Lizenz
+
+- **Code** (Skripte, Server, Oberfläche, Tests, Beispielcode): [MIT](LICENSE), © 2026 Dennis Bilstein.
+- **Lerninhalte** (Lektionstexte, Quizfragen, Glossartexte, Erklärungen): [CC BY 4.0](LICENSE-CONTENT). Bei Weiterverwendung bitte
+  „Dennis Bilstein, ROOTPFAD“ nennen und auf die Lizenz verweisen.
+- **Ausnahmen:** Die Schriften unter `assets/fonts/` stehen unter der SIL Open Font License 1.1 (siehe `assets/fonts/LICENSE.md`).
+  Inhalte Dritter behalten ihre Lizenz (zum Beispiel Vue-Dokumentation CC BY 4.0, Zod und TanStack Query MIT). `research_notes/` enthält
+  Arbeitsnotizen mit Verweisen auf Fremdquellen; die Rechte an dort zitierten Fremdtexten liegen bei deren Urhebern.
+  Namen, Logos und Marken Dritter (SAP, Oracle, Spring, Laravel usw.) gehören den jeweiligen Inhabern.

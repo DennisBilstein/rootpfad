@@ -2497,7 +2497,7 @@ function renderRecht(){
   if(rechtTab === 'impressum'){
     h += '<div class="recht-text">';
     h += '<h2 class="sec-h">Angaben gem&auml;&szlig; &sect; 5 DDG</h2>';
-    h += '<p>'+luecke('Vor- und Nachname bzw. Firma')+'<br>'+
+    h += '<p>Dennis Bilstein<br>'+
          luecke('Stra&szlig;e und Hausnummer')+'<br>'+
          luecke('PLZ und Ort')+'<br>'+luecke('Land')+'</p>';
     h += '<h2 class="sec-h">Kontakt</h2>';
@@ -2507,7 +2507,7 @@ function renderRecht(){
     h += '<ul><li>Umsatzsteuer-Identifikationsnummer: '+luecke('falls vorhanden')+' &mdash; '+
          'als Kleinunternehmer nach &sect; 19 UStG stattdessen den entsprechenden Hinweis</li>'+
          '<li>Registereintrag: '+luecke('nur bei eingetragenen Unternehmen')+'</li>'+
-         '<li>Verantwortlich f&uuml;r den Inhalt: '+luecke('Name und Anschrift')+'</li></ul>';
+         '<li>Verantwortlich f&uuml;r den Inhalt: Dennis Bilstein, Anschrift wie oben</li></ul>';
     h += '<h2 class="sec-h">Streitbeilegung</h2>';
     h += '<p>Zur Teilnahme an einem Streitbeilegungsverfahren vor einer '+
          'Verbraucherschlichtungsstelle '+luecke('bereit / nicht bereit')+'.</p>';
