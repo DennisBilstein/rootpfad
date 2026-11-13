@@ -1,3 +1,15 @@
+/* Große Datensätze werden erst beim Öffnen der jeweiligen Ansicht geladen (je Datei einmal, auch bei mehreren Aufrufen). */
+(function(){
+  var geladen={};
+  window.rpLoadScriptOnce=function(src){
+    if(!geladen[src])geladen[src]=new Promise(function(resolve,reject){
+      var element=document.createElement('script');element.src=src;element.onload=resolve;
+      element.onerror=function(){delete geladen[src];element.remove();reject(new Error('Datei konnte nicht geladen werden: '+src));};
+      document.body.appendChild(element);
+    });
+    return geladen[src];
+  };
+})();
 /* Determine account storage BEFORE any existing app code reads or writes progress. */
 (async function(){
   try {

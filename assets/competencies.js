@@ -48,6 +48,13 @@ function rpRenderCompetencies(){
   try{rpMergeCompetencies(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}').competencies);}catch(e){}
   var contentBase=renderContent;renderContent=function(){
     if(state.currentId==='competencies'||state.currentId==='assessment'){
+      if(state.currentId==='assessment'&&typeof RP_MODULE_ASSESSMENTS==='undefined'){
+        /* Die Prüfaufträge sind groß (275 KB) und werden erst beim Öffnen einer Abnahme geladen. */
+        document.getElementById('content').innerHTML='<h1>Praktische Modulabnahme</h1><p id="rpAssessmentLoading" role="status">Lade Prüfaufträge …</p>';
+        rpLoadScriptOnce('assets/module-assessments-data.js').then(function(){if(state.currentId==='assessment')renderContent();},function(error){
+          var info=document.getElementById('rpAssessmentLoading');if(info){info.setAttribute('role','alert');info.textContent=error.message+' Bitte die Seite neu laden.';}});
+        return;
+      }
       document.getElementById('content').innerHTML=state.currentId==='assessment'?rpRenderAssessment():rpRenderCompetencies();
       document.getElementById('rpAssessmentForm')?.addEventListener('submit',rpSubmitAssessment);return;
     }

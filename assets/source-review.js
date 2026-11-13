@@ -6,7 +6,12 @@
       document.getElementById('content').innerHTML=html;
       var input=document.getElementById('rpSourceFilter');
       function show(){var value=input.value.toLowerCase();document.getElementById('rpSourceResults').innerHTML=RP_SOURCE_REVIEW.filter(function(source){return source.url.toLowerCase().includes(value);}).map(function(source){var check=source.linkCheck;return '<article class="callout"><a href="'+esc(source.url)+'" target="_blank" rel="noopener noreferrer">'+esc(source.url)+'</a><p>'+(!check?'Noch kein technischer Abrufnachweis.':check.reachable?'Technisch erreichbar · '+new Date(check.checkedAt).toLocaleDateString('de-DE'):'Automatischer Abruf nicht erfolgreich · '+esc(check.status||check.error||'unbekannt'))+'</p><p>'+esc(source.contentReview)+'</p><p>'+source.questionIds.length+' Fragenbezüge</p></article>';}).join('');}
-      input.addEventListener('input',show);show();return;
+      input.addEventListener('input',function(){if(typeof RP_SOURCE_REVIEW!=='undefined')show();});
+      /* Die Quellenliste ist groß (450 KB) und wird erst hier geladen. */
+      if(typeof RP_SOURCE_REVIEW!=='undefined')show();
+      else{var results=document.getElementById('rpSourceResults');results.setAttribute('role','status');results.textContent='Lade Quellenliste …';
+        rpLoadScriptOnce('assets/source-review-data.js').then(function(){if(state.currentId==='sources'&&document.body.contains(results))show();},function(error){results.setAttribute('role','alert');results.textContent=error.message+' Bitte die Seite neu laden.';});}
+      return;
     }
     base.apply(this,arguments);
     if(state.currentId==='competencies')document.getElementById('content').insertAdjacentHTML('afterbegin','<p><button class="ex-btn" onclick="selectLesson(\'sources\')">Quellen und Prüfstatus ansehen</button></p>');

@@ -7,17 +7,9 @@
 
   function data(){ return window.RP_GLOSSARY || []; }
   // Die Daten sind groß (über 500 KB) und werden erst beim Öffnen des Glossars nachgeladen, nicht beim Start der App.
-  var loading = null;
   function ensureData(){
     if(data().length) return Promise.resolve();
-    if(!loading) loading = new Promise(function(resolve, reject){
-      var element = document.createElement('script');
-      element.src = 'assets/syntax-glossary-data.js';
-      element.onload = resolve;
-      element.onerror = function(){ loading = null; element.remove(); reject(new Error('Glossardaten konnten nicht geladen werden.')); };
-      document.body.appendChild(element);
-    });
-    return loading;
+    return rpLoadScriptOnce('assets/syntax-glossary-data.js').catch(function(){ throw new Error('Glossardaten konnten nicht geladen werden.'); });
   }
   function langById(id){ return data().filter(function(l){ return l.id === id; })[0] || data()[0]; }
   function norm(text){ return String(text || '').toLowerCase(); }

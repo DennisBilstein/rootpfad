@@ -65,3 +65,24 @@ test('Server setzt Sicherheits- und Cache-Header', async ({ request }) => {
   expect((await request.get('/assets/style-02.css')).headers()['cache-control']).toBe('no-cache');
   expect((await request.get('/assets/fonts/ibm-plex-sans-variable-latin.woff2')).headers()['cache-control']).toContain('max-age=2592000');
 });
+
+test('Große Datensätze werden erst beim Öffnen ihrer Ansicht geladen', async ({ page }) => {
+  const urls = [];
+  page.on('request', (r) => urls.push(new URL(r.url()).pathname));
+  const geladen = (name) => urls.some((u) => u.endsWith(name));
+  await page.goto('/');
+  await page.waitForFunction(() => window.RP_APP_READY);
+  await page.waitForTimeout(500);
+  expect(geladen('source-review-data.js')).toBe(false);
+  expect(geladen('module-assessments-data.js')).toBe(false);
+
+  await page.evaluate(() => selectLesson('sources'));
+  await expect(page.locator('#rpSourceResults article').first()).toBeVisible();
+  expect(geladen('source-review-data.js')).toBe(true);
+  await page.fill('#rpSourceFilter', 'docs.python.org');
+  await expect(page.locator('#rpSourceResults article').first()).toContainText('docs.python.org');
+
+  await page.evaluate(() => { rpChoosePath('php'); rpOpenAssessment('m52'); });
+  await expect(page.locator('#rpAssessmentForm')).toBeVisible();
+  expect(geladen('module-assessments-data.js')).toBe(true);
+});

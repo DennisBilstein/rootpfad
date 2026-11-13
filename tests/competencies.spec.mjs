@@ -6,6 +6,7 @@ test('Gelesen und Auswahlquiz ergeben keinen praktischen Nachweis',async({page})
 });
 test('Jedes Modul besitzt individuelle Normal-,Grenz- und Fehlerfälle',async({page})=>{
  await page.goto('/');await page.waitForFunction(()=>window.RP_APP_READY);
+ await page.evaluate(()=>rpLoadScriptOnce('assets/module-assessments-data.js'));
  expect(await page.evaluate(()=>RP_MODULE_ASSESSMENTS.length===121&&RP_MODULE_ASSESSMENTS.every(a=>a.editorialStatus==='individually-authored-manual'&&a.cases.length===3&&a.cases.every(c=>c.request&&c.expected)&&a.rubric.length===4))).toBe(true);
 });
 test('Modulauftrag erfasst drei Fälle ohne automatische Freigabe',async({page})=>{
